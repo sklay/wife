@@ -1,0 +1,57 @@
+@charset "utf-8";
+/*=========================Reset_start==========================*/
+body,h1,h2,h3,h4,h5,h6,div,p,dl,dt,dd,ol,ul,li,form,table,th,td,a,img,span,strong,var,em,input,textarea,select,option{margin: 0; padding: 0;}
+html,body{font-family:sans-serif,Microsoft YaHei,Arail,Tabhoma; font-size: 16px; text-align: left;}
+body{zoom: 1;}
+ul,ol{list-style: none;}
+img{border: 0;}
+i{font-style:normal;}
+input,select,textarea{outline:0;}
+a{text-decoration:none;color:inherit;}
+textarea{resize:none;}
+table{border-collapse: collapse; border-spacing: 0;}
+th,strong,var,em{font-weight: normal; font-style: normal;}
+.clearfix:after{
+	content: "";
+  visibility: hidden;
+  overflow: hidden;
+  display: block;
+  clear: both;
+  height: 0;
+}
+input{font-size:16px;font-family: Microsoft YaHei;}
+button{cursor:pointer;}
+a{text-decoration: none;}
+a:link,a:visited,a:hover,a:active{text-decoration:none;}
+.content{margin-top:30px;}
+/*==========================Reset_End===========================*/
+
+/*涓讳綋澶栧眰*/
+.main_con{width:88%;overflow: hidden;padding:20px 10px;box-sizing:border-box;min-width:1126px;max-width:1500px;float:left;}
+/*.main_header{width:94%;}*/
+.newpro{text-align:right;}
+.newpro a{display:inline-block;background:#F75BBA;margin-right:1%;font-size:16px;
+border-radius:20px;width:150px;height:40px;text-align: center;line-height:40px;
+}
+.tittext{padding:10px 0.5% 15px;overflow:hidden;line-height: 18px;}
+.tittext .titline{height:2px;border:none;background:#ccc;display:inline-block;margin-bottom:5px;}
+.tittext .tit_text{font-size:18px;padding:30px; 
+	/* 阻止浏览器选中蓝色背景 */
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	-o-user-select: none;
+	user-select: none;
+}
+
+
+
+
+/*鏃堕棿鎻掍欢*/
+
+.datepicker .datepicker_inner_container .datepicker_calendar{width:100%;}
+.datepicker_table{width:100%;}
+.datepicker_table tbody{width:100%;}
+.main_con .goodslist_searesult_del{text-decoration:underline;color:blue;}
+
+#imgFile,.imgFile{position:absolute;top:0;right:0;z-index:1;width:100%;padding:0;height:100%;opacity:0;filter:alpha(opacity=0)}

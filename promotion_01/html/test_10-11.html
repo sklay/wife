@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    //jquery获取隐藏域
+    <style type="text/css">
+        div{
+            width:150px;
+            height:150px;
+            border:#0F9 solid 1px;
+            float:left}
+
+    </style>
+    <script type="text/javascript" language="javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script  type="text/javascript" language="javascript">
+
+        $(document).ready(function(){
+            $("#btn2").click(function(){
+                $("div:hidden").show().css("background","blue");
+            });
+            //获取表单隐藏域
+            $("#btn3").click(function(){
+                <!----------第一种方法----------->
+                $("input:hidden").each(function (i){
+                    //dom方法
+                    //alert(this.value);
+                    alert($(this).val());
+                });
+               /* <!----------第二种方法----------->
+                $("input:hidden").each(function(index,s){
+                    //alert(s.value);
+                    alert($(s).val());
+                })
+                <!----------第三种方法-------------->
+                var input=$("input");
+
+                $.each(input,function(index,a){
+                    alert(a.value);
+                });*/
+            });
+
+
+
+        });
+
+    </script>
+</head>
+
+<body>
+<div id="one">id=one</div>
+<div id="two">id=two</div>
+<div id="three">id=three<span>我是sppan</span></div>
+<div style="display:none">adcsac</div>
+<input type="hidden" value="hidden_1">
+<input type="hidden" value="hidden_2">
+<input type="hidden" value="hidden_3">
+<input type="hidden" value="hidden_4">
+
+
+<div id="four" style="clear:both">
+    <input type="button" value="清空样式" id="btn0">
+    <input type="button" value="显示所有可见性div" id="btn1">
+    <input type="button" value="选取隐藏div" id="btn2">
+    <input type="button" value="选取表单隐藏域" id="btn3">
+    <input type="button" value="清空样式" id="btn4">
+</div>
+</body>
+</html>

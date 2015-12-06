@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>【药快到】新用户送60元</title>
+	<link rel="stylesheet" href="style/main_wechat.css" />
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	
+	<style>
+	 *{margin:0;padding:0;}
+	  body{font-family:"微软雅黑","arial";overflow:hidden;font-size:12px;}
+	   .wrap{width:100%;height:100%;position:absolute;}
+	   .index{width:100%;position:absolute;height:100%;
+			 	background:url(images/11Day_index_bj.jpg) top center no-repeat;
+	        	background-size:100% 100%;
+	        }
+	   .index_title p{font-size: 2em;text-align: center;margin-top:4%;}
+	   .receve_page{width: 100%;background: url(images/11Day_coupon_bj.png)top center no-repeat ;
+	     		height: 100%;background-size:100% auto;position:absolute;z-index: 100;top:16%;	     	}
+	   .receive_page_coupon img{width: 100%;float: left;}
+	   .receive_code{margin-top: 4.1rem;}
+		.commomLogin{
+			width:100%;box-sizing:border-box;margin:0 auto;font-family:"黑体",arial;
+		}
+		.commomLogin input{padding-left:15px;box-sizing:border-box;height:35px;color:#fff;font-size:14px;
+			border:.03rem solid #fff;background:transparent;border-radius:8px;font-weight: 600;
+			text-align:center;}
+		.commomLogin #commomLogin_phoneNum{width:70%;display:block;margin-left: 15%;}
+		#commomLogin_codeNum{width:33%;margin-left: 15%;}
+		.commomLogin_getcodeagain{display:none;}
+		#commomLogin_getcode{float:right;width:33%;height:35px;box-sizing:border-box;
+			border-radius:8px;background:#ffde00;text-align:center;font-size:12px;
+			    margin-right: 16%;
+		}
+		#commomLogin_getcode .commomLogin_getcode{line-height:35px;display:block;width:100%;height:35px;}
+		#commomLogin_getcode .commomLogin_getcodeagain{font-size:10px;line-height:17px;}
+		#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
+		::-moz-placeholder {
+		    color: #fff;
+		}
+		:-ms-input-placeholder {
+		   color: #fff;
+		}
+		::-webkit-input-placeholder {
+		   color: #fff;
+		}
+		#loginsumbit{display:block;width:38%;color:#fff;
+		font-size:.4rem;box-sizing:border-box;margin:.4rem auto 0;
+		border-radius:8px;height:43px;background:transparent;
+		border:.03rem solid #fff;line-height:35px;text-align:center;}
+		
+		/*弹出框公用样式*/
+		.have_received ,.receive_success{display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.76);}
+   		.common_titleSty img{width: 100%; float:left;}
+   		.common_titleSty{margin-top: 44%;overflow: hidden}
+   		.common_descSty img{width: 40%; float: left;margin: 10px 8px 0 auto;}
+	    .common_descSty p{color: #fff; font-size: 16px;line-height: 37px;}
+	   	.closeShade{width: 25px;float:right;color:#fff;font-size:20px; text-align: center;
+	    height: 25px; border: 3px soild #fff;border: .03rem solid #ffde00;
+	    border-radius: 15px; position: absolute;top: 18%; right: 12%;}
+	    .use_btn img{width: 100%;float: left;margin: 14px auto;}
+	    .use_btn p{color: #fff;font-size: 20px;position: absolute; left: 44%;
+	    font-weight: 600;
+	    line-height: 1.6rem;
+	    }
+</style>
+ <script>
+        /*控制rem单位适应屏幕*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc    = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (clientWidth>=640) {
+                            clientWidth = 640;
+                        };
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+	<div class="wrap">
+		<script>
+			(function(){
+				wrh=$(window).height();
+				 	if(wrh<540){
+				 		$(".wrap").css({overflowY:"hidden",overflowX:"auto"});
+				 	}
+			})();
+		</script>
+		<div class="index" >
+			<script>
+				$(function(){
+					(function(){
+						var wh=$(document).height();
+						$(".index").css({height:wh});
+				})();	
+			</script>
+			<div class="index_title">
+				<p>领取【药快到】现金券<br/>助你早日"脱光"</p>
+			</div>
+			<div class="receve_page">
+			     <script>
+					(function(){
+						wrh=$(window).height();
+						 if(wrh<540){
+						 $(".receve_page").css({overflowY:"hidden",overflowX:"auto"});
+						 }
+						})();
+				  </script>
+				<div class="receive_page_coupon">
+					<img src="images/11Day_coupon_01.png" />
+					<img src="images/11Day_coupon_02.png" />
+				</div>
+				<div class="receive_code">
+					<input type="hidden" name="pharmacyId" id="pharmacyId" value="${pharmacyId }">
+					<input type="hidden" name="code" id="code" value="${code }">
+					<input type="hidden" name="actId" id="actId" value="${actId }">
+					<input type="hidden" name="inviteType" id="inviteType" value="${inviteType }">
+					<div class="commomLogin">
+						<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+						<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+						<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+							<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+							<div id="commomLogin_getcode">
+								<span class="commomLogin_getcode">获取验证码</span>
+								<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+							</div>
+						</div>
+						<div id="loginsumbit">完成</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!---成功领取-->
+		 <div class="receive_success common_wrapSty controlAlertPage" >
+        	<div class="receive_success_box common_boxSty">
+        		<div class="closeShade">X</div>
+        	 		<div class="receive_success_title common_titleSty">
+		            	<img src="images/11Day_get_coupon.png" alt=""/>
+	       				 </div>
+			        <div class="receive_success_desc common_descSty">
+			             <img src="images/11Day_get_success_img.png" alt=""/>
+			             <p class="commom_desc_psty2">领取成功啦！</p>
+			        </div>
+        	</div>
+			<div class="receive_success_btnimg common_btnImg">
+			    <a id="downloadA" href="http://store.ykd365.com/download.html">
+			        <div class="use_btn">
+			           <img src="images/11Day_get_success_btn.png" alt=""/>
+			           <p>去使用</p>
+			        </div>
+			    </a>
+			</div>
+    	</div>			
+    			<!--已经领过-->
+    			
+		<div class="have_received common_wrapSty controlAlertPage">
+			<div class="have_received_box common_boxSty">
+			    <span class="closeShade">X</span>
+			      <div class="have_received_title common_titleSty">
+				    <img src="images/11Day_get_coupon.png" alt=""/>
+				    <img style="position: absolute;top:43%;right: 0;" src="images/11Day_has_got_btn.png" alt=""/>
+				  </div>
+			      <div class="have_received_desc common_descSty">
+			        <p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .4rem;text-align: center;">您已经领过券了！</p>
+			      </div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+   $(function(){ 
+	
+	 此处代码写入引用文件；
+		$("#commomLogin_getcode").on("click",function(){
+			getCodeCommon(url,otherInfoSubmit);
+		});
+		$("#loginsumbit").on("click",function(){
+			submitPhoneCodeCommon(url,otherInfoSubmit,succFun,receivedFun);
+		}) 
+		//参数说明：
+		//1、url:即ajax发送地址；
+		//2、otherInfoSubmit:即需在ajax中提交的其他信息，如无则不填；
+		//3、succFun：提交手机及验证码成功后的处理函数；
+		//4、receivedFun：用户已领取过的处理函数；
+	
+	
+	/* 需要与后台约定公用的返回值部分：
+		1、返回成功：succ;
+		2、返回失败：fail;
+		3、已领取：received;
+		4、提交信息：电话：phoneNum；  验证码：authCode；
+	*/
+	/* 获取验证码--start */
+	/* 公用 */
+	var time1=null;
+	function getCodeCommon(url,otherInfoSubmit){
+		waitShow();
+		/* 验证码发送中 */
+		if($("#commomLogin_getcode").attr("noclick")){
+			waitClose();
+			return false;
+		};
+		/* 验证手机号 */
+		var $_phoneno=$("#commomLogin_phoneNum").val();
+		var regno = /1[3-8]+\d{9}/;
+		if (!regno.test($_phoneno)) {
+			alert("请输入正确的手机号！");
+			waitClose();
+			return false;
+		}
+		$("#commomLogin_getcode").attr("noclick",true);
+		var _url=url;
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+		var n=60;
+		$.ajax({
+			type:"post",
+ 			url:_url,
+ 			data:"phoneNum="+$_phoneno+"&"+_otherInfoSubmit,
+ 			success:function(result){
+ 				waitClose();
+ 				if (result.result == "succ") {
+					$("#commomLogin_getcode").css('background','#ccc');
+					$(".commomLogin_getcode").hide();
+					$(".commomLogin_getcodeagain").show();
+					$("#commomLogin_loginwarn").html("验证码短信已发送至您的手机");
+					time1=setInterval(function(){
+						n--;
+						$(".commomLogin_getcodeagain var").html(n);
+						if(n<=0){
+							getedHandle();
+						}
+					},1000)
+	    		}else{
+	    			waitClose();
+	    			alert(result.message);
+	    			$("#commomLogin_getcode").removeAttr("noclick");
+	    		}
+ 			},error:function(){
+ 				waitClose();
+ 				alert("发送请求失败");
+ 				$("#commomLogin_getcode").removeAttr("noclick");
+	        }
+		});
+	};
+	/* 获取验证码--end */
+	
+	/* 提交手机号及验证码 --start*/
+	function submitPhoneCodeCommon(url,succFun,receivedFun,otherInfoSubmit){
+		waitShow();
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit:"";
+ 		$_phoneno=$("#commomLogin_phoneNum").val();
+ 		$_code=$("#commomLogin_codeNum").val()
+ 		var regno = /1[3-8]+\d{9}/;
+ 		if($_phoneno==""||$_phoneno=="请输入手机号码"||!regno.test($_phoneno)){
+ 			waitClose();
+ 			alert("请输入正确的手机号码")
+ 			return false
+ 		};
+ 		if($_code==""||($_code=="请输入验证码")){
+ 			waitClose();
+ 			alert("请输入正确的验证码")
+ 			return false
+ 		};
+ 		var _url=url;
+ 		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+ 		$.ajax({
+ 			type:"post",
+ 			url:_url,
+ 			//data:"phone="+$_phoneno+"&code="+$_code+"&"+_otherInfoSubmit,
+ 			data:"phone="+$_phoneno+"&code="+$_code,
+ 			success:function(result){
+ 				waitClose();
+ 				$("#commomLogin_phoneNum").val("");
+ 			  	$("#commomLogin_codeNum").val("")
+ 				if (result.result == "succ") {
+	    			succFun();
+	    			getedHandle();
+	    		}else if(result.result == "fail"){
+	    			if(result.message=="received"){
+	    				receivedFun();
+	    				getedHandle();
+	    			}else{
+	    				alert(result.message);
+	    				waitClose();
+	    				getedHandle();
+	    			}
+	    		}
+ 			},error:function(){
+	        	alert("发送请求失败");
+	        	waitClose();
+	        	getedHandle();
+ 			}
+ 		});
+	}
+	
+	/* 获取成功的处理 */
+	function getedHandle(){
+		clearInterval(time1);
+		$("#commomLogin_getcode").removeAttr("noclick").css('background','#F7F40A');
+		$("#commomLogin_loginwarn").html("为保证您能成功领取奖品，请如实填写");
+		$(".commomLogin_getcode").show();
+		$(".commomLogin_getcodeagain").hide();
+		$(".commomLogin_getcodeagain var").html('60');
+	}
+	/* 提交手机号及验证码 --end*/
+ }) 
+</script>
+	
+</script>
+</html>

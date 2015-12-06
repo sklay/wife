@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>【药快到】新用户送60元</title>
+	<link rel="stylesheet" href="style/main_wechat.css" />
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	
+	<style>
+	 *{margin:0;padding:0;}
+	  body{font-family:"微软雅黑","arial";overflow:hidden;font-size:12px;}
+	  .wrap{width:100%;height:100%;position:absolute;}
+		 .index{width:100%;position:absolute;height:100%;
+			 	background:url(images/11Day_index_bj.jpg) top center no-repeat;
+	        	background-size:100% 100%;
+	        }
+	   .index_title p{font-size: 2em;text-align: center;margin-top:4%;}
+	   .receve_page{width: 100%;background: url(images/11Day_coupon_bj.png)top center no-repeat ;
+	     		height: 100%;background-size:100% auto;position:absolute;z-index: 100;top:16%;	     	}
+	   .receive_page_coupon img{width: 100%;float: left;}
+	   .receive_code .envelopeList{width:100%;position:absolute;left: 0;top: 3rem;z-index:8;}
+	   .envelopeList .enveloItem{position:relative;width:200px;height:77px;margin:1.2rem auto;}
+		.envelopeList .enveloItem input{font-size:14px;display:block;width:100%;margin:0 auto;padding-left:5px;height:47%;border:1px solid #fff;color:#fff;
+		background:none; border-radius: 5px;background: transparent;    text-align: center;font-weight: 600;}
+		.getValiCode{  display: block;width:49%;line-height: 3em;text-align: center;font-size: 13px;color:#fff; 
+		 overflow: hidden;border: 1px solid #fff;background-color: rgb(255, 224, 0); border-radius: 5px;
+		 position: absolute;left: 58%; top: 1rem;}
+		.getValiCode img{width:100%;height:100%;}
+		.phoneDiv{position:absolute;z-index:9;width:100%;height:50px;left: 0;top: 24px;}
+		.phoneDiv p{width:75%;margin:0 auto;height:30px;font-size:16px;text-align: right;font-family: "楷体";letter-spacing:-1px;}
+		::-moz-placeholder {
+		    color: #fff;
+		}
+		:-ms-input-placeholder {
+		   color: #fff;
+		}
+		::-webkit-input-placeholder {
+		   color: #fff;
+		}
+		
+		#get_btn{width: 40%;line-height: 2em;font-size: 24px;text-align: center;
+		    display: block;margin:-.5rem auto 0;
+		    border: 2px solid #fff; color: #fff;font-weight: 600;background: none; border-radius: 5px;
+		    
+		    }
+</style>
+ <script>
+        /*控制rem单位适应屏幕*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc    = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (clientWidth>=640) {
+                            clientWidth = 640;
+                        };
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+	</head>
+	<body>
+		<div class="wrap">
+		   <script>
+				(function(){
+					wrh=$(window).height();
+				 		if(wrh<540){
+				 			$(".wrap").css({overflowY:"hidden",overflowX:"auto"});
+				 		}
+				})();
+		</script>
+			<div class="index">
+				<script>
+					$(function(){
+						(function(){
+							 var wh=$(document).height();
+						     $(".index").css({height:wh});
+						})();	
+		</script>
+				<div class="index_title">
+					<p>领取【药快到】现金券<br/>助你早日"脱光"</p>
+				</div>
+				<div class="receve_page">
+				 <script>
+				(function(){
+					wrh=$(window).height();
+				 		if(wrh<540){
+				 			$(".receve_page").css({overflowY:"hidden",overflowX:"auto"});
+				 		}
+				})();
+		</script>
+					<div class="receive_page_coupon">
+						<img src="images/11Day_coupon_01.png" />
+						<img src="images/11Day_coupon_02.png" />
+					</div>
+					<div class="receive_code">
+						<input type="hidden" name="pharmacyId" id="pharmacyId" value="${pharmacyId }">
+						<input type="hidden" name="code" id="code" value="${code }">
+						<input type="hidden" name="actId" id="actId" value="${actId }">
+						<input type="hidden" name="inviteType" id="inviteType" value="${inviteType }">
+						<div class="envelopeList">
+							<div class="enveloItem">
+								<input placeholder="手机号" name="phoneNum" id="phoneNum" >
+								<input style="width:44%;float:left;margin-top:15px;" placeholder="验证码" name="authCode" id="authCode">
+								<div id="getValiCode" id="getValiCode">
+									<span class="getValiCode">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+								</div>
+							</div>
+							<div id="get_btn" >领取</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="我刚在【药快到】领取了脱光福利！你也快来看看吧！"/> 
+<title>【药快到】助你脱光</title>     
+	<link rel="stylesheet" href="style/main_wechat.css" />
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+	<style>
+	#tooltip{border:1px solid red; background:#FDF868;
+	position:absolute;
+	padding:1px;
+	color:#FF0000;
+	display:none;
+	
+	}
+	</style>
+<!--<script type="text/javascript" src="scripts/jquery-1.7.1.min.js"></script>-->
+
+<!--<title>超链接提示效果</title>
+</head>-->
+
+<body>
+<div id="link">
+
+	<img src="images/w_errorWarning.png" class="tooltip" title="这是我的超链接提示1">
+		<!--<img title="错误信息" src="images/w_errorWarning.png">-->
+
+    <p><a href="#" class="tooltip" title="这是我的超链接提示2">提示2</a></p>
+    <p><a href="#" title="这是我的超链接提示1">自带提示1</a></p>
+    <p><a href="#" title="这是我的超链接提示2">自带提示2</a></p>
+</div>
+</body> 
+	<script type="text/javascript">
+	$(function(){
+	var x=10;
+	var y=20;
+	$("a.tooltip").mouseover(function(e){
+	this.myTitle=this.title;
+	this.title="";
+	var tooltip="<div id='tooltip'>"+this.myTitle+"</div>";   //创建DIV元素
+	$("#link").append(tooltip); 	//追加到文档中
+	$("#tooltip").css({"top": (e.pageY+y) + "px","left": (e.pageX+x) + "px"}).show();	//设置X  Y坐标， 并且显示
+	}).mouseout(function(){
+	this.title=this.myTitle;
+	$("#tooltip").remove();    //移除
+	}).mousemove(function(e){
+	$("#tooltip").css({"top": (e.pageY+y) + "px","left": (e.pageX+x) + "px"});
+	})
+	})
+	</script>
+</html>

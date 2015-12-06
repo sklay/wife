@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>新人专享红包</title>
+    <link rel="stylesheet" href="../css/main_wechat.css" />
+    <script src="../js/jquery-1.9.0.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<style>
+    .content{overflow:hidden;}
+    .content .ac_code{width:100%;height:100%;text-align: center;font-size:0;position:relative;margin-top:-2px;}
+    .content .ac_code img{width:100%;}
+    .content .ac_code .codeDiv{width:100%;position:absolute;left:0;bottom: 31px;z-index:8;}
+    .content .ac_code .codeDiv p{color:#fff;font-size:16px;font-weight: bold;text-align: center;}
+    .content .ac_code .codeDiv p span{color:#FF2227;font-size:18px;font-weight: bold;}
+    .content .ac_code .butDiv{width:100%;height:30px;position:absolute;left:0;bottom:22px;z-index:8;}
+    .content .ac_code .envelopeList{width:100%;padding-bottom:10px;}
+    .content .ac_code .envelopeList .enveloItem{position:relative;width:200px;height:77px;margin:0 auto;background:url(images/redenvelope_moncount.png) no-repeat;background-size:200px;}
+    .content .ac_code .envelopeList .enveloItem .enveloMoney{position:absolute;width:95%;font-size:32px;left:0;bottom:5px;height: 45px;text-align: center;color:#E8224E;}
+    #appdown{width:45%;margin-right:5%;}
+    #anddown{width:45%;}
+    #actDescbut{position: absolute;width: 100%;left: 0;}
+    #actDescbut .but{color:#fff!important;text-decoration: underline;font-size:14px;display: block;margin: 0 auto;}
+
+    #actDes{background-color:#D1C5B9;width:100%;height:0px;position:absolute;left:0;bottom:0;z-index:99;display:none; text-align: left;}
+    #actDes .ticon{width:90%;margin:10px auto 0px auto;text-align: center;}
+    #actDes .title{width:90%;margin:5px auto 0px auto;padding-bottom:5px;text-align: center;border-bottom:1px solid #000;font-size:16px;}
+    #actDes .ticon img{width:20px;}
+    .content .desc_div{ position: absolute; left: 0;  width: 100%;  bottom: 0;display:none;}
+    #actDescbut{position:relative;}
+    #closeBtn{position:absolute;top:0;width:10%;left:45%;}
+
+
+</style>
+<body>
+<div class="content" style="background:#ffed86;">
+
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_01.jpg">
+    </div>
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_02.jpg">
+    </div>
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_03.jpg">
+
+    </div>
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_04.jpg">
+    </div>
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_05.jpg" class="sharebut">
+
+    </div>
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_06.jpg">
+        <div class="codeDiv">
+            <p>【药快到】<span><fmt:parseNumber integerOnly="true" value="${total/100 }"/></span>代金券</p>
+            <p>已经存入<span style="color:#FF2227;" id="clientPho">${phoneNum }</span>账号</p>
+            <p>赶紧下载APP用了它！</p>
+        </div>
+    </div>
+    <div class="ac_code">
+        <a id="downloadA" href="http://store.ykd365.com/download.html">
+            <img alt="" src="../images/october_getsucc_07.jpg">
+        </a>
+    </div>
+
+    <div class="ac_code">
+        <img alt="" src="../images/october_getsucc_08.jpg"  class="sharebut">
+
+    </div>
+    <div class="ac_code " id="actDescbut">
+        <img alt="" src="../images/october_getsucc_09.jpg">
+        <div class="desc_div">
+            <img class="desc_divimg" alt="" style="width: 100%" src="../images/october_act_desc.png">
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    var _surl = '${shareUrl}';
+    var wechatObj = new Object();
+    wechatObj.title = "${shareInfo.sharedTitle}";
+    wechatObj.desc = "${shareInfo.sharedContent}";
+    wechatObj.link = _surl;
+    wechatObj.imgUrl = "${shareInfo.sharedImgUrl}";
+
+    wx.ready(function(){
+        // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+        wx.onMenuShareTimeline({
+            title: wechatObj.desc, // 分享标题
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () {
+                closeShareDiv();
+            },
+            cancel: function () {}
+        });
+
+        wx.onMenuShareAppMessage({
+            title: wechatObj.title, // 分享标题
+            desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () {
+                closeShareDiv();
+            },
+            cancel: function () {}
+        });
+
+        wx.onMenuShareQQ({
+            title: wechatObj.title, // 分享标题
+            desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () {
+                closeShareDiv();
+            },
+            cancel: function () {}
+        });
+        wx.onMenuShareWeibo({
+            title: wechatObj.title, // 分享标题
+            desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () {
+                closeShareDiv();
+            },
+            cancel: function () {}
+        });
+
+    });
+    function closeShareDiv(){
+        $("#shareRemind").hide();
+        $(".shareContent").hide();
+    }
+    $(function(){
+        shadeAll();
+
+        var anum=$("#clientPho").html();
+        var bnum=anum.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+        $("#clientPho").html(bnum)
+
+
+        // http://store.ykd365.com/weixin/wechat/getwxjssign
+        $.ajax({url:"/weixin/wechat/getwxjssign?",data:{url: location.href.split('#')[0]},success:function(wechatReturn){
+            closeShade();
+            if (wechatReturn) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+                    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+                    signature: wechatReturn.signature,// 必填，签名，见附录1
+                    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                });
+            }
+        },error:function(){
+            closeShade();
+        }});
+
+        $(".sharebut").click(function(){
+            if ($("#shareRemind").length<=0) {
+                $("body").append('<div class="shareRemind" id="shareRemind" style="background-color:#4E484C;"></div>');
+                $("body").append('<div class="shareContent" style="background:url(../images/redenvelope_sharejt.png) 92% 15px no-repeat;background-size:85px;"><div style="font-size:16px;color:#FFD900;margin-top:100px;text-align:center;">点击右上角，送出100元大红包</div><img src="../images/redenvelope_know.png" style="width:150px;margin-top:30px;"></div>');
+            }
+            $(".shareContent").css("height",$(document).height());
+            $("#shareRemind").css("height",$(document).height());
+            $("#shareRemind").show();
+            $(".shareContent").show();
+        });
+        $("body").delegate(".shareContent","click",function(){
+            $("#shareRemind").hide();
+            $(".shareContent").hide();
+        });
+
+        $("#actDes .ticon").click(function(){
+            $("#actDes").animate({height:"0px"},300,function(){
+                $("#actDes").hide();
+            });
+        });
+
+        $("#actDescbut .but").click(function(){
+            $("#actDes").show().animate({height:"160px"},300,function(){});
+        });
+
+        /*活动说明点击事件*/
+
+        $("#actDescbut").on("click",function(){
+            $(".desc_div").show();
+        });
+        $(".content").on("click",".desc_divimg",function(){
+            $(".desc_div").hide();
+        });
+    });
+</script>
+</html>

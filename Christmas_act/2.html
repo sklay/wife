@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<!--图片轮播的效果-->
+	$(function(){
+		 var _img=$('.content_bottom img');
+		 var _len=_img.length;
+		 var _index=0;
+		 var _moving;
+		 //插入图片索引数字
+		 var _ul='<ul>'
+		 for(var i=1; i<=_len; i++){
+		  _ul=_ul+'<li>'+i+'</li>';
+		 }
+		 _ul=_ul+'</ul>';
+		 $('div.ico').append(_ul);
+		 var _ico=$('.ico li');
+		 //划过数字
+		 _ico.mouseover(function(){
+		  _index=_ico.index(this);
+		  _img.filter(':visible').fadeOut(300,function(){
+		   _img.eq(_index).fadeIn(300);
+		  })
+		  $(this).addClass('high').siblings().removeClass('high');
+		 }).eq(0).mouseover();
+		 //自动渐变
+		 _moving=setInterval(autoShow,2000);
+		 _img.hover(function(){clearInterval(_moving)},function(){
+		  _moving=setInterval(autoShow,2000);
+		 })
+		 function autoShow(){
+		  _index++;
+		  if(_index==_len) _index=0;
+		  _ico.eq(_index).trigger('mouseover');
+		 };
+</html>

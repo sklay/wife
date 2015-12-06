@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+    </head>
+    <body>
+    	<!--1.页面上面最多只有一个是显示全部内容的。
+
+		2.当自己处于全部显示的时候，点击自己的收起，自己收起。
+	
+		3.当自己处于全部显示的时候，点击其他的展开是，自己内容隐藏，原来的"收起"变为"展开"
+
+			而	被点击的选项则内容全部显示，"展开"变为"收起"-->
+    	<input type="hidden" id="record" value="${qr.count }">
+           <c:forEach items="${qr.results }" var="info" varStatus="index">
+              <tr id="user_info_${info.id }">
+                <td class="userWrapper_right_collect">
+                  <p class="ml20 clearfix mb10">
+7                   <strong class="ex_green_fg mr10 fl">${info.sender }</strong> 
+ 					 <span id="span_content_${info.id }" ${index.count eq 1 ? "class='fl w500'" : "class='fl symbleDot w500'" }>${info.content }</span>
+                  </p> 
+ 				   <a href="javascript:void(0)" onclick="cancelThisInfo(${info.id});" class="fr mr20 ex_green_fg">删除</a> 
+ 					<span class="fr ml5 mr5">|</span> 
+ 					<a href="javascript:void(0)" class="fr ex_green_fg" id="a_${info.id }" name="${index.count eq 1 ? '1' : '0' }" onclick="infoContent('${info.id}');"> <c:if test="${index.count eq 1 }" var="up">
+                   <span id="span_${info.id }" class="ex_arrow ex_arrowUp mr5"> </span>收起
+                   </c:if> <c:if test="${!up }">
+                     <span class="ex_arrow ex_arrowDown mr5"> </span>展开
+                   </c:if>
+                </a> <span class="fr mr10 gray"><fmt:formatDate value="${info.createTime}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+              </td>
+             </tr>
+           </c:forEach>
+ 	</body>
+</html>

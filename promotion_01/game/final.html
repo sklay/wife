@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="utf-8">
+<title>【药快到】食品卫生找茬大赛</title>
+<meta name="description" content="食品卫生，你注意过吗？快来看看自己能到哪关！"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+    *{margin:0;padding:0;}
+    body{font-family:"微软雅黑","arial";font-size:12px;}
+   .wrap{position:absolute;background: #e8380d;width: 100%;background-size: 100% 100%;}
+   /*加载页*/
+   .loading_wrap{background:#e8380d;box-sizing:border-box;position:absolute;z-index:1000;}
+			.loadingCon_wrap{width:100%;position:absolute;top:30%;left:0;box-sizing:border-box;}
+			.loadingPage_wrap{width:100%;box-sizing:border-box;height:1.5rem;}
+			.loadingPage_wrap img{width:.8rem;margin-left:.2rem;float:left;}
+			@-webkit-keyframes loadingImgMove{
+				25%{-webkit-transform:translateY(-.2rem)}
+				50%{-webkit-transform:translateY(0rem)}
+				75%{-webkit-transform:translateY(.2rem)}
+				100%{-webkit-transform:translateY(0rem)}
+			}
+			@keyframes loadingImgMove{
+				25%{transform:translateY(-.15rem)}
+				50%{transform:translateY(0rem)}
+				75%{transform:translateY(.15rem)}
+				100%{transform:translateY(0rem)}
+			}
+			.loadingPage_wrap .moveImg{
+				-webkit-animation:loadingImgMove .5s linear infinite;
+				animation:loadingImgMove .5s linear infinite;
+			}
+			.loadingPage_wrap img:nth-child(1){
+				width:.4rem;margin-left:1.5rem;margin-top:.1rem;
+			}
+			.loadingPage_wrap img:nth-child(2){width:.8rem;margin-top:.5rem;margin-left: .3rem;}
+			.loadingPage_wrap img:nth-child(3){}
+			.loadingPage_wrap img:nth-child(4){width:.5rem;margin-top:.2rem;margin-left:.1rem;}
+			.loading_text{display:block;margin:.8rem auto .5rem;width:2.5rem;}
+			.loading_line_wrap{height:3px;position:relative;width:2.5rem;margin:0 auto;overflow: hidden;}
+			.loading_lineback{width:100%;background:#F0917A;margin:1px auto 0;
+				display:block;height:1px;border-radius:.001rem;
+			}
+			@-webkit-keyframes loadingLineMove{
+				100%{-webkit-transform:translateX(15rem)}
+			}
+			@keyframes loadingLineMove{
+				100%{transform:translateX(15rem)}
+			}
+			.loading_line{position:absolute;height:3px;left:-3.5rem;top:0;width:2.5rem;}
+			.loadingLineAni{
+				webkit-animation:loadingLineMove 2.5s linear infinite;
+				animation:loadingLineMove 2.5s linear infinite;
+				animation-fill-mode: forwards;
+				-webkit-animation-fill-mode: forwards;
+			}
+</style>
+<link rel="stylesheet" type="text/css" href="../style/act_foodSafety_style.css"/>
+<link rel="stylesheet" type="text/css" href="../style/act_common_loginStyle.css"/>
+<script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+   <!-- <script>
+        (function(doc,win){
+            var docE1 = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function(){
+                    	var clientWidth = docEl.clientWidth;
+                        if(clientWidth>=640) {
+                            clientWidth = 640;
+                        }
+                        if(!clienyWidth){
+                            return;
+                        }
+                        docE1.style.fontSize = 100*(clientWidth/640)+'px'
+                    };
+            if('doc.addEventListener)return;
+            win.addEventListener(resizeEvt.recalc,false);
+            doc.addEventListener('DOMContentloaded',recale,false)
+        })(document,window);
+    </script>
+    
+    -->
+    <script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</head>
+<body>
+<div class="wrap" >
+    <script>
+        var wh=$(window).height();
+        var ww=$(window).width();
+        $(".wrap").width(ww);
+        $(".wrap").css({minHeight:wh});
+    </script>
+       <div class="loading_wrap" id="loading_wrap">
+		<script>
+			(function(){
+				var wh=$(document).height();
+				var ww=$(window).width();
+				$("#loading_wrap").css({minHeight:wh});
+				$("#loading_wrap").width(ww);
+			})();
+		</script>
+		<div class="loadingCon_wrap">
+			<div class="loadingPage_wrap">
+				<img src="../images/act_game_load_cucumber.png" alt="" />
+				<img src="../images/act_game_load_tomato.png" alt="" />
+				<img src="../images/act_game_load_carrot.png" alt="" />
+				<img src="../images/act_game_load_eggplant.png" alt="" />
+			</div>
+			<div style="width:100%;">
+				<img class="loading_text" src="../images/act_game_loadingtext.png" alt="" />
+			</div>
+			<div style="width:100%;">
+				<div class="loading_line_wrap">
+					<img class="loading_lineback" src="../images/act_game_loadingline_back.png" alt=""/>
+					<img class="loading_line" src="../images/act_game_loadingline.png" alt="" />
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function(){
+			var loadingAniTime=null;
+			var loadingAniNum=0;
+			loadingAniTime=setInterval(function(){
+				$(".loadingPage_wrap img").removeClass("moveImg");
+				$(".loadingPage_wrap img").eq(loadingAniNum).addClass("moveImg");
+				loadingAniNum++;
+				var loadingImgLen=$(".loadingPage_wrap img").length;
+				if(loadingAniNum>=loadingImgLen){
+					loadingAniNum=0;
+				}
+			},500);
+			document.querySelector(".loading_line").onload=function(){
+				$(".loading_line").addClass("loadingLineAni");	
+			}
+		})();
+	</script>
+    <div class="index controlAlertPage" id="index" style="display: none;">
+        <div class="index_top">
+            <img  src="../images/act_game_load_title.png" alt=""/>
+            <img  src="../images/act_game_load_title_1.png" alt=""/>
+        </div>
+        <div class="index_backImg">
+            <img  src="../images/act_game_index_shine.png" alt="" />
+        </div>
+        <div class="index_body">
+            <img src="../images/act_game_index_eye.png" alt="">
+            <div class="leftEye">
+                <img class="eyeBlackWrap" src="../images/act_game_index_eyeBlack_wrap.png" alt="">
+                <img class="eyeWhite" src="../images/act_game_index_eye_ball.png" alt="" />
+            </div>
+            <div class="rightEye">
+                <img class="eyeBlackWrap" src="../images/act_game_index_eyeBlack_wrap.png" alt="">
+                <img class="eyeWhite" src="../images/act_game_index_eye_ball.png" alt="" />
+            </div>
+        </div>
+        <div class="index_bottom" id="index_bottom">
+            <img id="start" src="../images/act_game_index_start.png" alt="">
+            <img src="../images/act_game_index_title.png" alt="" />
+            <p id="activeRule_key">活动规则</p>
+
+        </div>
+        <div class="index_activeRule">
+            <p>活动规则：</p>
+            <p>1、用户根据提示，点击画面中与其他图片不同的图片，点击正确计一分，进入下题。答题时间60秒，共20道题。</p>
+            <p>2、凡参与活动的用户均可获得【药快到】满48元减10元现金券2张。</p>
+            <p>3、活动有效期自10月30日0:00——11月8日23:59。</p>
+            <p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+        </div>
+    </div>
+
+    <div class="start_game common_wrapSty" id="start_game">
+        <div class="start_top" id="start_top" >
+            <div class="scoreCount">得分：<span id="scoreCountShow" >0</span></div>
+            <div class="timeClock">
+            	<p id="gameTimeShow">60</p>
+            </div>
+            <button id="stop_btn">暂停</button>
+        </div>
+       <div class="food_img controlAlertPage" id="food_img">
+            <p id="question-info"></p>
+            <div class="cavwrap"></div>
+       </div>
+
+    </div>
+
+    <div class="pause_page common_wrapSty controlAlertPage">
+            <p>游戏暂停</p>
+            <button id="continue">继续游戏</button>
+    </div>
+
+    <div class="time_over common_wrapSty controlAlertPage">
+        <div class="time_over_box common_boxSty">
+        	 <span class="closeShade">X</span>
+        	<div class="time_over_title common_titleSty">
+	            <img src="../images/act_game_load_carrot.png" alt=""/>
+	            <p>时间到</p>
+	        </div>
+            <div class="time_over_desc common_descSty">
+                <p style="font-size: 18px;text-align: center;padding: 1rem;padding-bottom:0;font-weight: 600;">你一共找到了<span id="finalScoreNum" style="color: #da380d">6</span>种<br/>有问题的食品，</p>
+                <p id="scoreLevelText" style="font-size: 18px;text-align: center;font-weight: 600;">以后吃东西不怕中毒了哦~</p>
+                <p style="font-size: 20px;text-align: center;margin-top:.6rem;font-weight: 600;color: #da380d;">快邀请小伙伴们<br/>也来试试吧！</p>
+            </div>
+        </div>
+        <div class="time_over_btnimg common_btnImg">
+            <img  class="shareFri"  src="../images/act_game_invite_sbtn.png" alt=""/>
+            <img  class="getAward" src="../images/act_game_receive_btn.png" alt=""/>
+        </div>
+    </div>
+
+    <div class="question_end common_wrapSty controlAlertPage">
+        <div class="question_end_box common_boxSty">
+        	<span class="closeShade">X</span>
+        	 <div class="question_end_title common_titleSty">
+	            <img src="../images/act_game_load_carrot.png" alt=""/>
+	            <p>天啦撸！</p>
+	        </div>
+            <div class="question_end_desc common_descSty">
+                <p style="font-size: 18px;text-align: center;padding: 1rem;padding-bottom:0;font-weight: 600;">你一共找到<span style="color: #da380d">20</span>种<br/>有问题的食品，<br/>简直是火眼金睛！</p>
+                <p style="font-size: 20px;text-align: center;margin-top:.6rem;font-weight: 600;color: #da380d;">快跟小伙伴们<br/>炫耀一下吧！</p>
+            </div>
+        </div>
+        <div class="question_end_btnimg common_btnImg">
+            <img class="shareFri" src="../images/act_game_invite_sbtn.png" alt=""/>
+            <img  class="getAward" src="../images/act_game_receive_btn.png" alt=""/>
+        </div>
+    </div>
+    <div class="receive_success common_wrapSty controlAlertPage">
+        <div class="receive_success_box common_boxSty">
+        	<span class="closeShade">X</span>
+        	 <div class="receive_success_title common_titleSty">
+	            <img src="../images/act_game_load_carrot.png" alt=""/>
+	            <p >恭喜您！</p>
+	        </div>
+            <div class="receive_success_desc common_descSty">
+                <p class="commom_desc_psty1">领取成功!</p>
+                <p class="commom_desc_psty2">为了健康，快去使用吧！</p>
+            </div>
+        </div>
+        <div class="receive_success_btnimg common_btnImg">
+            <a id="downloadA" href="http://store.ykd365.com/download.html"><img src="../images/act_game_use_btn.png" alt=""/></a>
+        </div>
+    </div>
+
+    <div class="have_received common_wrapSty controlAlertPage">
+        <div class="have_received_box common_boxSty">
+        	<span class="closeShade">X</span>
+        	  <div class="have_received_title common_titleSty">
+	            <img src="../images/act_game_load_carrot.png" alt=""/>
+	            <p>Sorry！</p>
+	        </div>
+            <div class="have_received_desc common_descSty">
+                <p class="commom_desc_psty1">您已经领过券了！</p>
+                <p class="commom_desc_psty2">快邀请小伙伴们<br/>一起涨姿势吧！</p>
+            </div>
+        </div>
+        <div class="have_received_btnimg common_btnImg">
+            <img style="width:100%;" class="shareFri" src="../images/act_game_invite_btn.png" alt=""/>
+        </div>
+    </div>
+
+
+ <div class="receive_page common_wrapSty controlAlertPage" id="receive_page">
+        <div class="receive_page_title" id="receive_page_title">
+            <p>领取【药快到】现金券<br/>为健康助力!</p>
+            <img style="top:17%;" src="../images/act_game_coupon.png" alt=""/>
+        </div>
+        <div class="loginnow" id="loginnow">
+        	<div class="commomLogin">
+			<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+			<p id="commomLogin_loginwarn" style="font-size:8px;padding-left:5px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+				<div style="width:100%;overflow:hidden;margin-top:.2rem;">
+					<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+					<div id="commomLogin_getcode">
+						<span class="commomLogin_getcode">获取验证码</span>
+						<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+					</div>
+				</div>
+			<div id="loginsumbit">完成</div>
+			</div>
+    	</div>
+</div>
+</div>
+
+ <div id="shareshade" style="position:absolute;top:0;left:0;width:100%;background:rgba(50,50,50,.8);z-index:15 ; display: none;" >
+        <script>
+            (function(){
+                var wh=$(document).height();
+                $("#shareshade").css({height:wh});
+            })();
+        </script>
+        <img src="../images/share.png" style="width:100%" alt="" />
+   </div>
+
+<script>
+    (function(){
+        var wh=$(window).innerHeight();
+        if(wh<=500){
+           $("#index").css({paddingTop:".3rem"});
+       			$("#index_bottom").css({marginTop:".4rem"});
+       			$(".index_bottom p").css({position:"static",marginTop:".5rem",marginBottom:".2rem"});
+       			$("#start_top").css({marginTop:".1rem"});
+       			$("#food_img").css({marginTop:".9rem"});
+       			$("#loginnow").css({marginTop:".5rem"});
+       			$("#receive_page_title").css({paddingTop:".5rem"});
+       			$(".common_boxSty").css({marginTop:"2.2rem"});
+       			$(".common_btnImg").css({top:"7.1rem"});
+        }
+    })();
+</script>
+</body>
+
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script  type="text/javascript">
+    var scoreNum=0;//得分记录；
+    var haveScore=false;
+    //	预加载图片
+    var images = new Array();
+    var path="../images/";
+    var normalImgPrefix = "act_game_" ;
+    var badImgPrefix 	= "act_game_bad_" ;
+    var imgSuffix 		= ".png" ;
+
+    var preLoadImgList=["act_game_22","act_game_bad_22","act_game_33","act_game_bad_33","act_game_44","act_game_bad_44",
+        "act_game_55","act_game_bad_55","act_game_66","act_game_bad_66","act_game_77_1","act_game_bad_77_1","act_game_77_2",
+        "act_game_bad_77_2","act_game_77_3","act_game_bad_77_3","act_game_77_4","act_game_bad_77_4","act_game_77_5","act_game_bad_77_5",
+        "act_game_77_6","act_game_bad_77_6","act_game_77_7","act_game_bad_77_7","act_game_77_8","act_game_bad_77_8","act_game_77_9",
+        "act_game_bad_77_9","act_game_77_10","act_game_bad_77_10","act_game_77_11","act_game_bad_77_11","act_game_77_12",
+        "act_game_bad_77_12","act_game_77_13","act_game_bad_77_13","act_game_77_14","act_game_bad_77_14","act_game_77_15","act_game_bad_77_15",
+        "act_game_clock", "act_game_coupon", "act_game_coupon_shine","act_game_index_desc","act_game_index_eye","act_game_index_shine",
+        "act_game_index_title", "act_game_index_start","act_game_load_title","act_game_load_title_1","act_game_receive_btn","act_game_use_btn",
+        "act_game_index_start","act_game_index_title","act_game_invite_btn","act_game_invite_sbtn"];
+    var loadingTime=0;
+    var loadingTimer=null;
+    loadingTimer=setInterval(function(){
+        loadingTime++;
+    },1000);
+    (function preload() {
+        for (var i = 0; i < preLoadImgList.length; i++) {
+            images[i] = new Image();
+            images[i].src = path+preLoadImgList[i]+imgSuffix;
+        };
+        images[preLoadImgList.length-1].onload=function(){
+            if(loadingTime<=2){
+                clearInterval(loadingTimer);
+                setTimeout(function(){
+                    $("#loading_wrap").remove();
+                    $("#index").show();
+                    loadingTime=null;
+                },2000);
+            }else{
+                clearInterval(loadingTimer);
+                $("#loading_wrap").remove();
+                loadingTime=null;
+                $("#index").show();
+            };
+        }
+    })();
+   
+    //	活动过期后，领取奖励按钮取消；
+    var state="${state }";
+    (function(){
+        if(!state){
+            $(".time_over .common_btnImg").empty();
+            $(".question_end .common_btnImg").empty();
+            var _html=' <img style="width:100%;" class="shareFri" src="../images/act_game_invite_btn.png" alt=""/>';
+            $(".time_over .common_btnImg").append(_html);
+            $(".question_end .common_btnImg").append(_html);
+        }
+    })();
+</script>
+
+<script src="../js/act_foodSafety_controlJs.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var time1=null;
+	function getCodeCommon(url,otherInfoSubmit){
+		waitShow();
+		/* 验证码发送中 */
+		if($("#commomLogin_getcode").attr("noclick")){
+			waitClose();
+			return false;
+		};
+		/* 验证手机号 */
+		var $_phoneno=$("#commomLogin_phoneNum").val();
+		var regno = /1[3-8]+\d{9}/;
+		if (!regno.test($_phoneno)) {
+			alert("请输入正确的手机号！");
+			waitClose();
+			return false;
+		}
+		$("#commomLogin_getcode").attr("noclick",true);
+		var _url=url;
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+		var n=60;
+		$.ajax({
+			type:"post",
+ 			url:_url,
+ 			data:"phoneNum="+$_phoneno+"&"+_otherInfoSubmit,
+ 			success:function(result){
+ 				waitClose();
+ 				if (result.result == "succ") {
+					$("#commomLogin_getcode").css('background','#ccc');
+					$(".commomLogin_getcode").hide();
+					$(".commomLogin_getcodeagain").show();
+					$("#commomLogin_loginwarn").html("验证码短信已发送至您的手机");
+					time1=setInterval(function(){
+						n--;
+						$(".commomLogin_getcodeagain var").html(n);
+						if(n<=0){
+							getedHandle();
+						}
+					},1000)
+	    		}else{
+	    			waitClose();
+	    			alert(result.message);
+	    			$("#commomLogin_getcode").removeAttr("noclick");
+	    		}
+ 			},error:function(){
+ 				waitClose();
+ 				alert("发送请求失败");
+ 				$("#commomLogin_getcode").removeAttr("noclick");
+	        }
+		});
+	};
+	/* 获取验证码--end */
+	/* 提交手机号及验证码 --start*/
+	function submitPhoneCodeCommon(url,succFun,receivedFun,otherInfoSubmit){
+		waitShow();
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit:"";
+ 		$_phoneno=$("#commomLogin_phoneNum").val();
+ 		$_code=$("#commomLogin_codeNum").val()
+ 		var regno = /1[3-8]+\d{9}/;
+ 		if($_phoneno==""||$_phoneno=="请输入手机号码"||!regno.test($_phoneno)){
+ 			waitClose();
+ 			alert("请输入正确的手机号码")
+ 			return false
+ 		};
+ 		if($_code==""||($_code=="请输入验证码")){
+ 			waitClose();
+ 			alert("请输入正确的验证码")
+ 			return false
+ 		};
+ 		var _url=url;
+ 		var dataCon="phone="+$_phoneno+"&code="+$_code;
+ 		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+ 		$.ajax({
+ 			type:"post",
+ 			url:_url,
+ 			//data:"phone="+$_phoneno+"&code="+$_code+"&"+_otherInfoSubmit,
+ 			data:"phone="+$_phoneno+"&code="+$_code,
+ 			success:function(result){
+ 				console.log(dataCon)
+ 				waitClose();
+ 				if (result.result == "succ") {
+	    			succFun();
+	    			getedHandle();
+	    		}else if(result.result == "fail"){
+	    			if(result.message=="received"){
+	    				receivedFun();
+	    				getedHandle();
+	    			}else{
+	    				alert(result.message);
+	    				waitClose();
+	    				getedHandle();
+	    			}
+	    		}
+ 			},error:function(){
+	        	alert("发送请求失败");
+	        	waitClose();
+	        	getedHandle();
+ 			}
+ 		});
+	}
+	
+	/* 获取成功的处理 */
+	function getedHandle(){
+		clearInterval(time1);
+		$("#commomLogin_getcode").removeAttr("noclick").css('background','#F7F40A');
+		$("#commomLogin_loginwarn").html("为保证您能成功领取奖品，请如实填写");
+		$(".commomLogin_getcode").show();
+		$(".commomLogin_getcodeagain").hide();
+		$(".commomLogin_getcodeagain var").html('60');
+	}
+	
+</script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script>
+<script>
+    //分享链接
+    $(function(){
+	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
+		success:function(wechatReturn){
+			if (wechatReturn) {
+				wx.config({
+				    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+				    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+				    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+				    signature: wechatReturn.signature,// 必填，签名，见附录1
+				    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				 });
+			}
+		}
+	});
+	// var myDesc="";
+	 function getMyDesc(){
+		 if(haveScore){
+			if (scoreNum<=5){
+				var myDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【盲人摸象】称号,拯救我的任务就交给你了！";
+			}else if(scoreNum>5 && scoreNum<=10){
+				var myDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【挑刺达人】称号,快来看看你能找到多少？";
+			}else if(scoreNum>10 && scoreNum<=15){
+				var myDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【安全卫士】称号,以后吃饭带着我可验毒哦~";
+			}else if(scoreNum>15 && scoreNum<20){
+				var myDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【火眼金睛】称号,我就不信你能找到的比我多！";
+			}else if(scoreNum>=20){
+				var myDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【火眼金睛】称号,据说全世界只有0.1%的人能做到，不服来战！";
+			}
+		}else{
+			var myDesc =  "食品卫生，你注意过吗？快来看看自己能到哪关！" ;
+		};
+		return myDesc;
+	 };
+	function shareSucc(){
+		clearInterval(countDownTime);
+		//状态值回复初始
+		scoreNum=0;
+		countDownNum=60;
+		boxNum=2;
+		indexSub=0;
+		haveScore=false;
+		$(".controlAlertPage").hide();
+		$("#food_img").show();
+		$("#start_game").hide();
+	  	$("#index").show();
+	  	$("#shareshade").hide();
+	};
+	 var wechatObj = new Object();
+	 	 wechatObj.title ='【药快到】食品卫生找茬大赛';
+	    wechatObj.desc = getMyDesc();
+	    // wechatObj.link = 'http://store.ykd365.com:10080/medhtml/common/910tech_index'; 
+	    wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/startFSGame';
+	    wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg';
+	    wx.ready(function(){
+	    	wx.onMenuShareTimeline({
+	    		// title: wechatObj.title, // 分享标题 
+	    		title: wechatObj.desc, // 分享标题
+	    	    link: wechatObj.link, // 分享链接
+	    	    imgUrl: wechatObj.imgUrl, // 分享图标
+	    	    success: function () { 
+	    	    	shareSucc();
+	    	    },
+	    	    cancel: function () {
+	    	    }
+	    	}); 
+	    	 wx.onMenuShareAppMessage({
+	    		title: wechatObj.title, // 分享标题
+	    		desc:function(){
+	    			getMyDesc();
+	    		}, // 分享描述
+	    	    link: wechatObj.link, // 分享链接
+	    	    imgUrl: wechatObj.imgUrl, // 分享图标
+	    	    success: function () {
+	    	    	shareSucc();
+	    	    },
+	    	    cancel: function () {
+	    	    }
+	    	});
+	    	wx.onMenuShareQQ({
+	    		title: wechatObj.title, // 分享标题
+	    		desc: wechatObj.desc, // 分享描述
+	    	    link: wechatObj.link, // 分享链接
+	    	    imgUrl: wechatObj.imgUrl, // 分享图标
+	    	    success: function () { 
+	    	    	shareSucc();
+	    	    },
+	    	    cancel: function () {
+	    	    }
+	    	});
+	    	wx.onMenuShareWeibo({
+	    		title: wechatObj.title, // 分享标题
+	    		desc: wechatObj.desc, // 分享描述
+	    	    link: wechatObj.link, // 分享链接
+	    	    imgUrl: wechatObj.imgUrl, // 分享图标
+	    	    success: function () { 
+	    	    	shareSucc();
+	    	    },
+	    	    cancel: function () {
+	    	    }
+	    	});
+	    }) ;
+	    wx.error(function(res){
+	    	alert("config失败"+res);
+	    });
+ }); 
+
+
+    window.onload=function(){
+        $(".leftEye").addClass("eyeBlackWrapAni");
+        $(".rightEye").addClass("eyeBlackWrapAni");
+        $(".eyeWhite").addClass("eyeWhiteAni");
+		 $("#receive_page").on("click","#commomLogin_getcode",function(){
+            getCodeCommon("comValCodeAjax");
+        });
+        $("#receive_page").on("click","#loginsumbit",function(){
+            submitPhoneCodeCommon("receiveFSReward",function(){
+                $(".controlAlertPage").hide();
+                $(".receive_success").show();
+            },function(){
+                $(".controlAlertPage").hide();
+                $(".have_received").show();
+            });
+        });
+    };
+</script>
+</html>

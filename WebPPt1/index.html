@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<script>
+		 	function showDate(){
+		 		document.getElementById("demo").innerHTML=Date();
+		 	}
+		 	function changeSty(){
+//		 		document.getElementById("demo").style.color="#ff0000";
+				x = document.getElementById("demo");
+				x.style.color="#ff0000";
+		 	}
+		</script>
+	</head>
+	<body>
+		<h1>js获取当前时间</h1>
+		<p id="demo">这是一个段落</p>
+		<button onclick="showDate()">显示日前</button>
+		<button onclick="changeSty()">改变样式</button>
+	</body>
+</html>

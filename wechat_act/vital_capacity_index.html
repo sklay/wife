@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="我刚在【药快到】领取了脱光福利！你也快来看看吧！"/>
+<title>【药快到】助你脱光</title>
+	<link rel="stylesheet" href="style/main_wechat.css" />
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/common.js"></script>
+	<style>
+		*{margin: 0;padding: 0;}
+		body{font-family:"微软雅黑","arial";font-size:12px;}
+		.wrap{width: 100%;height:100%;position: absolute;overflow: hidden;
+				background: -ms-linear-gradient(top, #fff,  #0000ff);        /* IE 10 */
+				background:-moz-linear-gradient(top,#b8c4cb,#f6f6f8);/*火狐*/ 
+				background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#b8c4cb), to(#f6f6f8));/*谷歌*/ 
+				background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#0000ff));      /* Safari 4-5, Chrome 1-9*/
+				background: -webkit-linear-gradient(top, rgba(255, 141, 0, 0.95), rgba(255, 141, 0, 0.38));   /*Safari5.1 Chrome 10+*/
+				background: -o-linear-gradient(top, #fff, #0000ff);  /*Opera 11.10+*/
+		}
+		.index{width: 92%;margin: 12% 0 auto 4%;
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #de4649), color-stop(0.05, #de4649), color-stop(0.00, #f6a7a6));
+				background: -webkit-linear-gradient(top, #f6a7a6 0%, #de4649 5%, #de4649 100%);
+				background: -moz-linear-gradient(top, #f6a7a6 0%, #de4649 5%, #de4649 100%);
+				background: -o-linear-gradient(top, #f6a7a6 0%, #de4649 5%, #de4649 100%);
+				background: -ms-linear-gradient(top, #f6a7a6 0%, #de4649 5%, #de4649 100%);
+				background: linear-gradient(to bottom, #A6F6EB 0%, #a6f6eb 5%, #eee 100%);
+		}
+		.content{
+			width: 100%;height: 100%;position:absolute;top:0;right: 0;		
+			background: url(images/vital_capacity_machine.png)top center no-repeat;
+			background-size: 100% 100%;
+		}
+		.content_title img{width: 100%;margin-top: 43%;}
+		.content_desc{margin-top: 18%;}
+		.content_desc p{font-size: 14px;text-align: center;margin-top: 5%;}
+		.start_btn{}
+		.start_btn img{width: 100%;margin-top: 15%;}
+		#activeRule_key{    text-align: center;
+    font-size: 14px;
+    margin-top: 14%;
+}
+		.content_rule{display: none;}
+		</style>
+		
+		<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="index">
+				<script>
+					$(function(){
+						(function(){
+							 var wh=$(window).height();
+						     $(".container").css({height:wh});
+						})()
+					})
+				</script> 
+				<div class="content"></div>
+				<div class="container">
+					<div class="content_title">
+						<img src="images/vital_capacity_index_title.png"/>
+					</div>
+					<div class="content_desc">
+						<p>游戏方式:<br/>连续快速点击画面中的吹气按钮</p>
+						<p>速度越快，得分越高。<br/>快来看看你的战斗力吧 !</p>
+					</div>
+					<div class="start_btn">
+						<img src="images/vital_capacity_start_btn.png	" />
+					</div>
+					<p id="activeRule_key"> 活动规则</p>
+					<div class="content_rule">
+						<p>活动规则</p>
+						<p>1、用户在游戏开始后，连续快速点击"吹气"按钮，点击频率越快，得分越高。<br/>游戏时间持续10秒。</p>
+						<p>2、凡参与活动的用户均可获得【药快到】满48元减10元现金券两张。</p>
+						<p>3、活动有效期自11月18日0:00——11月22日23:59。</p>
+						<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+					</div>
+				</div>
+		</div>
+		<script>
+			(function(){
+				wrh=$(window).height();
+				 	if(wrh<500){
+				 		$(".wrap").css({height:"auto"});
+				 		$("#activeRule_key").css({margin:".3rem .3rem"})
+				 		$(".index").css({height:"auto"});
+				 	}
+			})();
+			</script>
+	</body>
+</html>

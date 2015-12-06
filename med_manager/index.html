@@ -1,0 +1,237 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+<title>后台管理</title>
+<link rel="stylesheet" href="css/manage.css" />
+<link rel="stylesheet" href="css/jquery.simple-dtpicker.css" />
+<link rel="stylesheet" href="css/pagination.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery.simple-dtpicker.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/customvalidate.js"></script>
+</head>
+	<!--模拟manager一级目录和二级目录-->
+	<body>
+	<div class="nav_menu">
+			<div class="header">
+				<div class="hcenter">
+					<span class="pharmacy">
+						得来速大总管
+					</span>
+					<span class="company">
+						——【康顾多健康科技有限公司】
+					</span>
+					<div class="user">
+						<a href="javascript:;">测试配送</a>
+						<a href="javascript:;" id="cancel">注销</a>
+					</div>
+				</div>
+			</div>
+			<div id="navigation" class="clearfix">
+				<ul class="nav clearfix" id="nav">
+					<li class="n_index current">
+						<a href="javascript:;" class="navItem">首页</a>
+					</li>
+					<li class="n_index">
+						<a href="javascript:;" class="navItem">店铺</a>
+					</li>
+					<li class="n_prod">
+						<a href="javascript:;" class="navItem">商品</a>
+					</li>
+					<li class="n_index">
+						<a href="javascript:;" class="navItem">促销</a>
+					</li>
+					<li class="n_order">
+						<a href="javascript:;" class="navItem">订单</a>
+					</li>
+					<li class="n_send">
+						<a href="javascript:;" class="navItem">配送</a>
+					</li>
+					<li class="n_user">
+						<a href="javascript:;" class="navItem">用户</a>
+					</li>
+					<li class="n_cs">
+						<a href="javascript:;" class="navItem">座席</a>
+					</li>
+					<li class="n_per">
+						<a href="javascript:;" class="navItem">权限</a>
+					</li>
+					<li class="n_stat">
+						<a href="javascript:;" class="navItem">统计</a>
+					</li>
+				</ul>
+				<span class="menu_line"></span>
+			</div>
+		</div>
+		<div class="left">
+		<div class="leftModel">
+							<div class="dpage_wrap  cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										门店邀请注册明细
+									</a>
+								</div>
+								<div class="pageTw">门店邀请注册明细</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										销售汇总
+									</a>
+								</div>
+								<div class="pageTw">销售汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										销售品种汇总
+									</a>
+								</div>
+								<div class="pageTw">销售品种汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										销售品种明细汇总
+									</a>
+								</div>
+								<div class="pageTw">销售品种明细汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										用户汇总
+									</a>
+								</div>
+								<div class="pageTw">用户汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										订单信息汇总
+									</a>
+								</div>
+								<div class="pageTw">订单信息汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										抵用券汇总
+									</a>
+								</div>
+								<div class="pageTw">抵用券汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										门店邀请注册汇总
+									</a>
+								</div>
+								<div class="pageTw">门店邀请注册汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										快递员趟数汇总
+									</a>
+								</div>
+								<div class="pageTw">快递员趟数汇总</div>
+							</div>
+						</div>
+						<div class="leftModel">
+							<div class="dpage_wrap cpage_wrap">
+								<div class="pageo">
+									<a href="">
+										顾客重复购买汇总
+									</a>
+								</div>
+								<div class="pageTw">顾客重复购买汇总</div>
+							</div>
+						</div>
+		
+		</div>
+<script>
+$("#cancel").click(function(){
+	location.href="cancel";
+});
+$(function(){
+	var $_cuW=$(".current").outerWidth();
+	var $_cul=$(".current").offset().left;
+	$(".menu_line").css({left:$_cul,width:$_cuW})
+	var $mline=true;
+	//点击切换页面，给被点击选项增加一个类名
+	$("#navigation .nav li").on("click",function(ev){
+		if(ev.target.tagName=="A"){
+			$("#navigation .nav").find("li").removeClass("current");
+			$(ev.target).parent().addClass("current");
+		}
+	})
+	//鼠标移动时，下线随着移动
+	$("#navigation").on("mouseover",function(event){
+		if(event.target.tagName=="A"||event.target.tagName=="LI"&&$mline==true){
+			$mline=false;
+			var $_evW=$(event.target).outerWidth();
+			var $_evl=$(event.target).offset().left;
+//			alert($_evl)
+			$(".menu_line").stop().animate({left:$_evl,width:$_evW},100,function(){
+				$mline=true;
+			})
+		}
+	});
+	//当鼠标完全离开导航条时，下线回到有类名的li处；
+	$(window).on("mouseover",function(ev){
+		var x=$(ev.target).attr("class");
+		var y=$(ev.target).parent().tagName;
+		if(x!="navItem"&&y!="LI"){
+			var $_cuW=$(".current").outerWidth();
+			var $_cul=$(".current").offset().left;
+			$(".menu_line").stop().animate({left:$_cul,width:$_cuW})
+		}
+	});
+	
+	
+	
+	$(".left").css("height",($(window).height()-110));
+	$(document).ready(function(){
+		//页面权限判断。
+		var moduleUrlList = [];
+		<c:forEach items="${sessionScope.userModules}" var="module">
+			moduleUrlList.push("${module.key}");
+		</c:forEach>
+		
+		for(var i = 0; i < moduleUrlList.length; i++){
+			var _class = moduleUrlList[i];
+			$(".md" + _class).show();
+		}
+	});
+
+	// 3d滚动效果在有点击效果时的处理
+	$(".dpage_wrap").on("click",function(){
+		$(".dpage_wrap").addClass("cpage_wrap");
+		$(this).removeClass("cpage_wrap");
+	})
+	
+	
+})
+
+</script>
+	</body>
+</html>

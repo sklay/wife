@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>canvas测试</title>
+		<style>
+			*{margin:0;padding:0;}
+			body{font-size:12px;}
+			.cavwrap{margin:0 auto;max-width:10rem;overflow: hidden;box-sizing:border-box;padding:5px;}
+			.normalStyle{float:left;margin:0 2px 2px 0;border-radius:5px;}
+			/*.specialStyle{background:rbg();}*/
+		</style>
+		<script src="../js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+        /*控制rem单位适应屏幕*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc    = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (clientWidth>=640) {
+                            clientWidth = 640;
+                        };
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+	</head>
+	<body>
+	<p id="question-info"></p>
+	<button>开始</button>
+		<div class="cavwrap">
+
+		</div>
+	</body>
+	<script src="../js/creatfun1030.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+	</script>
+</html>

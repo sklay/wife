@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title></title>
+
+
+    <style>
+        a{color:inherit;text-decoration:none;}
+        *{margin: 0;padding: 0;}
+        body{font-family:"微软雅黑","arial";font-size:12px;overflow:hidden;}
+        .wrap{width:100%;overflow: hidden;
+            position: relative;
+
+            ion:absolute;background-size:100% 100%;background-color: #f0ffff;}
+        .content{background-color: rgba(0, 0, 0, 0.22);;margin-top: 39.4em;}
+        p:first-child{color: #c60000;}
+
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <div class="div-body">
+        <p >
+            我在学习
+        </p>
+        <p>
+            我在玩
+        </p>
+    </div>
+    <div  class="content">
+        <div class="menu index">
+            <a href="index">
+                <div class="item item1"></div>
+                <div class="menuTitle">首页</div>
+            </a>
+        </div>
+
+        <div class="menu promotion">
+            <a href="promotions">
+                <div class="item item2"></div>
+                <div class="menuTitle">促销</div>
+            </a>
+        </div>
+
+        <div class="menu cart">
+            <a href="shopcart">
+                <div class="item item3">
+                    <div id="nav_cartCount"></div>
+                </div>
+                <div class="menuTitle">购物车</div>
+            </a>
+        </div>
+
+        <div class="menu user">
+            <a href="personal">
+                <div class="item item4"></div>
+                <div class="menuTitle">个人中心</div>
+            </a>
+        </div>
+    </div>
+
+</div>
+</body>
+<script>
+    $(function(){
+        /* shadeAll();  */
+        /* url地址：WechatOrderController/countCart 显示购物车的数量*/
+        $.ajax({url:"countCart?ran="+new Date().getTime(),type:"post",success:function(resultData){
+            closeShade();
+            if (resultData.result == "succ") {
+                if (resultData.data>0) {
+                    $("#nav_cartCount").text(resultData.data>99?99:resultData.data);
+                    $("#nav_cartCount").show();
+                }
+            }
+        }});
+    });
+
+
+</script>
+</html>

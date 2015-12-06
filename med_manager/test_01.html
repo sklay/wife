@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新SKU管理</title>
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/jquery.datetimepicker.css" />
+<link rel="stylesheet" href="style/pagination.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/customvalidate.js"></script>
+
+
+<style>
+.search dl{width: 800px;float:left;}
+.content .labelInput{display:inline-block;width:70px;}
+.content .inputStyle{width:130px;height:20px;padding:2px 10px;line-height:25px;font-size:14px;}
+
+.content .srarea .tabMenu .tabItem{display:inline-block;width:100px;height:35px;line-height:35px;font-size:14px;text-align: center;border:1px solid #a7a7aa;border-bottom:none;cursor:pointer;}
+.content .srarea .tabMenu .checked{display:inline-block;width:100px;height:35px;line-height:35px;font-size:14px;text-align: center;border:1px solid #a7a7aa;border-bottom:none;color:#fff;background:#7A93D3;}
+.content .srarea .tabMenu .checked a{color:#fff;} 
+
+.updateStatus{text-decoration: underline;color:blue}
+.updateStatus:hover{color:#FFA836; text-decoration:underline;}/*鼠标放上的链接设置*/
+.update:link{color:blue; text-decoration:underline;}/*未访问链接*/
+.update:visited{color:blue; text-decoration:underline;}/*访问过的链接设置*/
+.update:hover{color:#FFA836; text-decoration:underline;}/*鼠标放上的链接设置*/
+.delete{text-decoration:underline;color:blue;}
+.delete:hover{color:#FFA836; text-decoration:underline;}/*鼠标放上的链接设置*/
+form label.error{width: auto;margin-left: 10px; color: Red;} /*表单验证提示信息*/
+#errMsgId{  margin-left: 80px;margin-bottom: 10px;}
+
+#omForm span.error {
+    background: url("images/warning2.gif") no-repeat 0px 0px;
+    padding-left: 16px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #EA5200;
+    position:absolute;z-index:9999; 
+    width: 0 ;
+    height: 13px ;
+    overflow: hidden;
+    display:block;
+}
+#omForm input.error {
+    border: 1px dotted red;
+}
+</style>
+</head>
+<body>
+	<div class="content ">
+		<div class="location">
+			当前位置：  <a href="newquerysku">商品</a> > <a>SKU管理</a>
+		</div>
+		<div class="search">
+			<form action="newquerysku" method="post" id="omForm">
+				<dl>
+					<dt>
+						<span><label>所属店铺</label>
+						<select id="pharmacyId" name="pharmacyId" class="pharmacyId" >
+						</select></span>	
+						<span><label>SKU_ID</label><input name="skuId" id="skuId" value=""></span>					
+						<span><label>货号</label><input name="huohao" id="huohao" value=""></span>
+						
+					</dt>
+					<dt>
+						<span><label>商品名称</label><input name="prodName" id="prodName" value=""></span>
+						<label>更新时间</label>
+						<span>
+							<input id="timeBegin" class="timePlu" name="minSkuUpdateTime"  value="" style="cursor:pointer" readonly>
+							<b>至</b><input id="timeEnd" class="timePlu" name="maxSkuUpdateTime" value="" style="cursor:pointer" readonly>
+						</span>
+					</dt>
+					<!-- <dt style="margin: 0;padding: 0;height: 30px;">
+						<span id="errMsgId"></span>
+					</dt> -->
+					<!--<dt style="">
+						<span id="errMsgId"></span>
+					</dt>
+					<div></div>-->
+				</dl>
+				<dl class="butDiv">
+					<dt><button class="but" id="executeSearch">查询</button></dt>
+					<dt><button class="but" id="formReset">重置</button></dt>
+				</dl>				
+				<dl class="createDiv">
+					<dt><button class="but ihide mdnewquerybasic" id="create">新增SKU</button></dt>
+				</dl>
+
+			</form>
+		</div>
+		<div class="srarea">
+				<div class="tabMenu">
+				</div>
+
+		<form action="onhelf" method="post" id="skuFrom" >
+		<!-- <input type="hidden" id="skuskuid" name="skuId" value=""> -->
+			<div class="srlist">
+				<table>
+					<thead>
+						<tr>
+							<!-- <th>操作</th>
+							<th><input type="checkbox"  onclick="operCheckbox('fx');"/>全选/全否</th> -->
+							<th>SKU_ID</th>
+							<th>货号</th>
+							<th>所属药店</th>
+							<th>商品名称</th>
+							<th>规格</th>
+							<th>销售价</th>
+							<th>市场价</th>
+							<th>更新时间</th>
+							<th>状态</th>
+							<th>操作</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				</div>
+		</form>		
+					<!-- <button id="executeOnHelf" >上架选中的商品</button> -->
+					<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+		</div>
+	</div>
+</body>
+<script>
+var pageIndex = "1";
+var pageTotal = "1";
+var pageSize = "1";
+//对单个sku商品，上下架处理
+$(".updateStatus").click(function(){
+	$('<input type="hidden"  id="updateStatus" name="updateStatus" value="" />').appendTo($("#omForm"));
+	$('<input type="hidden"  id="updateStatusId" name="updateStatusId" value="" />').appendTo($("#omForm"));
+	var updateStatusId = $(this).attr("data-myid");
+	var updateStatus=$(this).attr("data-mystatus");
+	var toStatus;
+	if(updateStatus=='0'){
+		toStatus='1';
+	}else{
+		toStatus='0';
+	}
+	$("#updateStatusId").val(updateStatusId);
+	$("#updateStatus").val(toStatus);
+	$('form[id=omForm]').attr('action','newchangestatus'); 
+	//$("#omForm").submit();
+});
+//查看详情按钮
+$(".queryProdInfo").click(function(){
+	$('<input type="hidden" value="2" id="hasUpdate" name="hasUpdate">').appendTo($("#omForm"));
+	var prodId = $(this).attr("data");
+	//alert(prodId);
+	$("#prodId").val(prodId);
+	$('form[id=omForm]').attr('action','queryprodmuch'); 
+//	$("#omForm").submit();
+	
+})
+//删除按钮
+$(".queryProdInfo").next("a").click(function(){
+	$('<input type="hidden" id="skuskuid" name="skuId" value="" >').appendTo($("#skuFrom"));
+	var  skusku =$(this).attr("data");
+	$("#skuskuid").val(skusku);
+	var flag = window.confirm("您确认要删除本药品吗?");
+	if(flag){
+		$('form[id=skuFrom]').attr('action','deletesku'); 
+		$("#skuFrom").submit();
+		alert('删除成功！');
+		//$('form[id=omForm]').attr('action','querysku');
+	}
+	
+})
+
+//查询全部，上架，下架sku列表按钮
+$(".tabItem").click(function(){
+	if($(this).hasClass("checked")){
+		return false;
+	}
+	var skuStatus =$(this).find("a").attr("data");
+	$("#skuStatus").val(skuStatus);
+	$(this).siblings(".checked").removeClass("checked");
+	$(this).addClass("checked");
+//	$("#omForm").submit();
+});
+
+
+//上架选中商品按钮
+$("#executeOnHelf").click(function(){
+	var flag = window.confirm("您确认要上架选中的商品吗?");
+	if(flag){
+		$("#skuFrom").submit();
+		alert('上架成功');
+	}
+})
+//全选，全否
+function operCheckbox(type){
+	//获取所有的sku
+	var skuId = document.getElementsByName("skuId");
+	//遍历并改变状态
+	for(var i=0;i<skuId.length;i++){
+		if(type=='all'){
+			skuId[i].checked =true;
+		}else if(type=='no'){
+			skuId[i].checked =false;
+		}else if(type=='fx'){
+			skuId[i].checked = !skuId[i].checked;
+		}
+	}
+} 
+
+$(function(){
+	//分页***************************
+	var pageIndex = "${pageIndex}";
+	var pageTotal = "${pageTotal}";
+	var pageSize = "${pageSize}";
+	$("#Pagination").pagination(1*pageTotal, {
+		current_page:1*pageIndex,//当前选择页码数
+		num_edge_entries: 2, //边缘页数
+		num_display_entries: 8, //主体页数
+		callback: pageselectCallback,
+		items_per_page:1*pageSize, //每页显示条数
+		next_text:"下一页",
+		prev_text:"上一页"
+	});
+	function pageselectCallback(req_page, jq){
+		if (req_page != pageIndex) { // 否则会出现死循环
+			$("#omForm").find("#pageIndex").remove();
+			$("#omForm").find("#pageSize").remove();
+			var toPage = 1*req_page + 1; // 后台page以  1 开始
+			$('<input type="hidden" id="pageIndex" name="pageIndex" value="'+toPage+'">').appendTo($("#omForm"));
+			$('<input type="hidden" id="pageSize" name="pageSize" value="10">').appendTo($("#omForm"));
+//			$("#omForm").submit();
+		}
+	}
+	//时间控件
+	$('.timePlu').datetimepicker({
+		lang:'ch',
+		showSecond: true,
+		timepicker:true
+	});
+	//查询按钮
+	$("#executeSearch").click(function(){
+//		$("#omForm").submit();
+	});
+	//重置按钮
+	$("#formReset").click(function(){
+		$("#skuId,#pharmacyId,#prodName,#timeBegin,#timeEnd,#huohao").val("");
+		return false;
+	});
+});
+
+//点击新建，跳转查询prod页面
+$("#create").click(function(){
+	$('form[id=omForm]').attr('action','newquerybasic');
+//	$("#omForm").submit();
+});
+
+//删除sku前做确认
+$(".delete").click(function(){
+	var skuId =$(this).attr("data");
+	var flag = window.confirm("您确认要删除本条sku吗?");
+	if(flag){
+		location.href = "delsku?skuId="+skuId+"";
+		alert('删除成功！');
+	}
+})
+
+//添加表单验证规则
+$("#omForm").validate({
+	errorElement : 'span',
+	errorClass : 'error',
+    rules: {
+    	skuId: {   
+    		custom: {
+	            regex: "^[0-9]*$",
+	            message: "SKU_ID不正确"
+        	}
+        },
+        prodName:{
+        	custom: {
+	            regex: "^[0-9a-zA-Z \\-\\u4e00-\\u9fa5]*$",
+	            message: "商品名称不正确"
+        	}
+        },
+        huohao:{
+        	custom: {
+	            regex: "^[0-9]*$",
+	            message: "货号不正确"
+        	}
+        }
+    },
+	errorPlacement : function(error, element) {
+			var errorMsg = error[0].innerHTML ;
+			var id = error[0].id ;
+			error[0].innerText = null;
+			error[0].title = errorMsg ;
+	        element.parent('span').append(error[0]);
+	    }
+});
+
+</script>
+</html>

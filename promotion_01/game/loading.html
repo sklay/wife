@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<div class="loading_wrap" id="loading_wrap">
+    <script>
+        (function(){
+            var wh=$(document).height();
+            var ww=$(window).width();
+            $("#loading_wrap").css({minHeight:wh});
+            $("#loading_wrap").width(ww);
+        })();
+    </script>
+    <div class="loadingCon_wrap">
+        <div class="loadingPage_wrap">
+            <img src="../images/act_game_load_cucumber.png" alt="" />
+            <img src="../images/act_game_load_tomato.png" alt="" />
+            <img src="../images/act_game_load_carrot.png" alt="" />
+            <img src="../images/act_game_load_eggplant.png" alt="" />
+        </div>
+        <div style="width:100%;">
+            <img class="loading_text" src="../images/act_game_loadingtext.png" alt="" />
+        </div>
+        <div style="width:100%;">
+            <div class="loading_line_wrap">
+                <!--<span class="loading_lineback"></span>-->
+                <img class="loading_lineback" src="../images/act_game_loadingline_back.png" alt=""/>
+                <img class="loading_line" src="../images/act_game_loadingline.png" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    (function(){
+        var loadingAniTime=null;
+        var loadingAniNum=0;
+        loadingAniTime=setInterval(function(){
+            $(".loadingPage_wrap img").removeClass("moveImg");
+            $(".loadingPage_wrap img").eq(loadingAniNum).addClass("moveImg");
+            loadingAniNum++;
+            var loadingImgLen=$(".loadingPage_wrap img").length;
+            if(loadingAniNum>=loadingImgLen){
+                loadingAniNum=0;
+            }
+        },500);
+        document.querySelector(".loading_line").onload=function(){
+            $(".loading_line").addClass("loadingLineAni");
+        }
+    })();
+</script>

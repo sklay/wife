@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>圣诞快乐</title>
+		<meta name="description" content="我在【药快到】参加了肺活量测试，结果超乎想象，你能超过我吗？"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script>
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		                recalc    = function () {
+		                    var clientWidth = docEl.clientWidth;
+		                    if (clientWidth>=640) {
+		                        clientWidth = 640;
+		                    };
+		                    if (!clientWidth) return;
+		                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+		                };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+		<style>
+			*{margin:0;padding:0;}
+			body{font-size:14px;width:100%;font-family:"微软雅黑","宋体",Arial;overflow:hidden;}
+			.index_wrap{/*height:100%;*/position: absolute;overflow: hidden;
+				width: 100%;background: url(images/chris_indexBgImg.jpg)top center no-repeat;
+				background-size: 100% 100%;box-sizing: border-box;
+			}
+			/*.content_top{width: 100%;overflow: hidden;  position: relative;}*/
+		/*.hatdivSty{  width: 30%;*/
+				  /* margin: 0 auto; */
+				  /*height: 1rem;*/
+				  /* padding-top: .2rem; */
+				 /* position: absolute;
+				  top: 0.2rem;
+				  right: .1rem;
+				  }*/
+				 
+			
+			#audioCon{display:none;}
+				 /*音符旋转*/
+			@-webkit-keyframes musicMove{
+				100%{-webkit-transform:rotate(360deg)}
+			}
+			@keyframes musicMove{
+				100%{transform:rotate(360deg)}
+			}
+			#audioBtn{
+				position:absolute;top:.2rem;right:.2rem;width:.5rem;z-index:1;
+				-webkit-animation:musicMove 1s linear infinite;
+				animation:musicMove 1s linear infinite;
+				-webkit-animation-fill-mode: forwards;
+
+			}
+			.audioBtn{
+				animation-play-state:paused;
+				-webkit-animation-play-state:paused;
+			}
+			.topTitleDiv{padding-top:.8rem;position:relative;}
+			.topTitleDiv .hatMoveSty{/*width: 1.5rem; position: absolute;  top: .3rem;  right: .6rem;*/
+				position:absolute;top:.45rem;right:1.1rem;width:.8rem;
+				transform:translateY(-1.5rem);	-webkit-transform:translateY(-1.5rem);
+			}
+			.topTitleDiv .titleMoveSty{  display: block;width: 4.5rem ; margin:0 auto;opacity:0;}
+			/*.topTitleDiv{padding-top: .8rem;  position:relative;
+			}*/
+			
+			/*.content_boy{width: 100%; overflow: hidden;  position: relative;/*z-index: 2;*/}*/
+			.childDivSty{  width: 100%;
+  			padding-top: .3rem;}
+			.childMoveSty{  width: 6.2rem; float: right;
+ 			}
+			.woldDescSty{  position: absolute; top: 2.5rem;left: 1.8rem;
+  			}
+			.woldDescSty p{  font-size: 14px; line-height: 25px;
+			  border-bottom-style: dashed;
+			  border-bottom-width: 1px;
+			  border-bottom-color: #000;
+			  font-family: 楷体;
+			}
+			.userOper{
+				position:absolute;z-index:10;top:2rem;left:0rem;opacity: 0;
+			}
+			.upLoadDiv{
+				width: 90px;
+				height:90px;
+				border-radius: 50px;
+				background: #fff;
+				position:absolute;
+				top:.5rem;
+				left:1.2rem;
+			}
+			.upLoadDiv p{
+				  font-family: 楷体;
+				  font-size: 16px;
+				  text-align: center;
+				  line-height: 1.8rem;
+			}
+			
+			/*.content_bottom{position:relative;width:6.4rem;  bottom: 0;
+    		}*/
+    		.liftMoveSty img{position:absolute;}
+    		/*.liftMoveSty img:nth-child(1){width: 3rem;bottom:0;left: .5rem;}
+    		.liftMoveSty img:nth-child(2){width: 2.5rem;left:.7rem;bottom:0;}*/
+  			.liftMoveSty img:nth-child(1){width: 3rem; bottom: 0;left:2.4rem;}
+  			.liftMoveSty img:nth-child(2){width: .5rem; bottom: 0.4rem;left:3.4rem;}
+  			.liftMoveSty img:nth-child(3){width: .7rem;  bottom: 0.2rem;left:3.6rem;}
+  			}
+  			
+		</style>	
+	</head>	
+	
+	<body>
+		<div class="index_wrap">
+			<audio id="audioCon" src="audio/3.JingleBells.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+			<img id="audioBtn" class="audioBtn" src="images/act_musicIcon.png" alt="">
+			<!--<div class="content">-->
+				<div class="topTitleDiv">
+					<img class="titleMoveSty" src="images/chris_indexTitle.png" />
+					<img class="hatMoveSty"src="images/act_chrisIndexHat.png" />
+				</div>
+				<!--<div class="hatdivSty">
+					<<img class="titleMoveSty" src="images/chris_indexTitle.png" />
+					<img class="hatMoveSty"src="images/act_chrisIndexHat.png" />
+				</div>-->
+				
+				<div class="childBoySty">
+				<!--	<div class="upLoadDiv">
+						<p>上传照片</p>
+					</div>
+					<div class="woldDescSty">
+						<p>圣诞雪舞着浪漫的气息，</p>
+						<p>传递着节日的温馨；</p>
+						<p>圣诞节送你定制的祝福，</p>
+						<p>传递着我真诚的心意。</p>
+						<p>圣诞节到，</p>
+						<p>愿你开心相伴，吉祥如意！</p>
+					</div>-->
+					<div class="childDivSty">
+						<img class="childMoveSty" src="images/act_chrisChild.png" />
+					</div>
+					<div class="chrisTReeDiv>
+						<img class="chrisTreeSty" src="images/chris_indexTree.png" />
+						<img class="treeLightSty" src="images/act_chrisTreeLight.png" />
+					</div>
+					
+				</div>
+				<!--<div class="liftMoveSty">
+					<img class="langGiftSty" src="images/act_chrisLandGift.png" />
+					<img class="giftBoxSty" src="images/act_chrisGiftBox_02.png" />
+					<img class="giftBigBoxSty" src="images/act_chrisGiftBox_01.png" />
+				</div>-->
+				
+				<div class="userOper">
+					<div class="upLoadDiv">
+						<p>上传照片</p>
+					</div>
+					<div class="woldDescSty">
+						<p>圣诞雪舞着浪漫的气息，</p>
+						<p>传递着节日的温馨；</p>
+						<p>圣诞节送你定制的祝福，</p>
+						<p>传递着我真诚的心意。</p>
+						<p>圣诞节到，</p>
+						<p>愿你开心相伴，吉祥如意！</p>
+					</div>
+				</div>
+			<!--</div>-->
+			
+		</div>
+	</body>
+	<script language="javascript">
+		$(function(){
+		/*	$(".content_bottom").toggle( 
+				  function () {
+				    $(".snowLandSty").fadeIn();
+				  },
+				  function () {
+				  },
+			);*/
+		})
+	</script>
+
+	
+</html>

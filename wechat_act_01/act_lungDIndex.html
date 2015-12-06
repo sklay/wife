@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>药快到】肺活量大比拼</title>
+		<meta name="description" content="我在【药快到】参加了肺活量测试，结果超乎想象，你能超过我吗？"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="style/act_lungDStyle.css" charset="utf-8"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/act_lungDController.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/act_lungLogin.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		                recalc    = function () {
+		                    var clientWidth = docEl.clientWidth;
+		                    if (clientWidth>=640) {
+		                        clientWidth = 640;
+		                    };
+		                    if (!clientWidth) return;
+		                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+		                };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+		<style>
+			.loading_wrap{position:fixed;top:0;width:6.4rem;height:100%;z-index:100;
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #ffc15f), color-stop(0.88, #ffba55), color-stop(0.67, #ffb249), color-stop(0.59, #ffac41), color-stop(0.50, #ffa12f), color-stop(0.28, #ff9e2b), color-stop(0.00, #ff9720));
+				background: -webkit-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+				background: -moz-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+				background: -o-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+				background: -ms-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+				background: linear-gradient(to bottom, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+				text-align:center;box-sizing:border-box;padding-top:4rem;font-size:18px;
+			}
+			.loading_wrap img{width:80px;height:80px;display:block;margin:0 auto;}
+			.loading_wrap span{font-size:10px;}
+			.loading_wrap p{line-height:50px;font-size:20px;}
+		</style>
+	</head>
+	<body>
+		<div class="con_wrap">
+			<script>
+				(function(){
+					var wh=$(window).height();
+					$('.con_wrap').css({height:wh});
+				})();
+			</script>
+			<div class="loading_wrap">
+				<img src="images/bgl.gif" alt="" />
+				<p>loading <span id="dot1">● </span> <span id="dot2">● </span> <span id="dot3">● </span></p>
+			</div>
+			<!--首页-->
+			<div class="startPage commonPage_wrapStyle Pagecontroller" id="startPage">
+				<div class="scoreCount_wrap">
+					<span class="scoreCount">0</span>
+				</div>
+				<div class="GameTipText">
+					<p>游戏方式：</p>
+					<p>连续快速点击画面中的吹气按钮</p>
+					<img src="images/act_lung_startGameBack_desc.png" />
+				</div>
+				<div class="startGameBtn_wrap">
+					<img id="startGameBtn" src="images/act_lung_startGameBack_btn.png" />
+				</div>
+				<p class="commonRuleStyle" onclick="clickShow_common('gameRuleShow')">活动规则</p>
+				<div class="gameRuleShow" id="gameRuleShow" onclick="closeSelf_common(this)">
+					<p style="font-weight:600;text-align:center;">活动规则</p>
+					<p>1、用户在游戏开始后，连续快速点击“吹气”按钮，点击频率越快，得分越高。游戏时间持续10秒。</p>
+					<p>2、凡参与活动的用户均可获得【药快到】满48元减10元现金券2张。</p>
+					<p>3、活动有效期自11月18日0:00——11月22日23:59。</p>
+					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+			</div>
+			<!--游戏页-->
+			<div class="gameConPage commonPage_wrapStyle Pagecontroller">
+				<div class="timeCountDown_wrap">
+					<span id="TimeCountDown">3</span>
+				</div>
+				<div class="scoreCount_wrap">
+					<span id="scoreCount" class="scoreCount">0</span>
+				</div>
+				<div class="litIconStyle">
+					<div class="playGame_TipStyle">
+						<img src="images/act_lung_gameWarnWord.png" />
+						<img style="width:2rem;top: 3.5rem;left: 2rem;;" src="images/act_lung_gameWarnWordDesc.png" />
+					</div>
+					<img src="images/act_lung_btn_Starleft.png" alt="" />
+					<img src="images/act_lung_gameStartLeftLine.png"/>
+					<img src="images/act_lung_gameWarnWord_01.png" />
+					<img src="images/act_lung_gameWarnWord_02.png" />
+					<img src="images/act_lung_btn_StarrightSmall.png" alt="" />
+					<img src="images/act_lung_btn_StarrightBig.png" alt="" />
+					<img src="images/act_lung_button_line.png" alt="" />
+					<div class="playGameBtn" id="playGameBtn">
+						<span class="playGameBtn_span">
+							<img id="playGameBtn_move1" src="images/act_lung_gameBloudBtn.png" alt="" />
+							<img class="playGameBtn_move2" src="images/act_lung_gameBloudBottom.png"/>
+						</span>
+					</div>
+				</div>
+			</div>
+			<!--弹窗低分1~3000-->
+			<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResult_low">
+				<div class="commonResultShow">
+					<div class="closeAndBack">
+						<span>X</span>
+					</div>
+					<div class="commonResultShow_text">
+						<h2>加油吧！肺！</h2>
+						<p> 亲，您的肺活量水平较低，</p>
+						<p>还需多锻炼哦</p>
+						<p> 多多深呼吸，提高肺功能，</p>
+						<p>努力达到健康水平吧！</p>
+					</div>
+					<img src="images/act_lung_commonResultShow_text.png" alt="" />
+				</div>
+				<div class="resultAfterBtn">
+					<div class="playAgain">
+						<img src="images/act_lung_startGameAgain.png" alt="" />
+					</div>
+					<div class="getHbNow">
+						<img src="images/act_lung_getHBnow.png" alt="" />
+					</div>
+					<div class="shareToFri">
+						<img src="images/act_lung_shareFriBtn.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<!--弹窗低分3000~5999-->
+			<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResult_md">
+				<div class="commonResultShow">
+					<div class="closeAndBack">
+						<span>X</span>
+					</div>
+					<div class="commonResultShow_text">
+						<h2>肺部亚健康了！</h2>
+						<p>您的肺活量</p>
+						<p>尚未达到人类平均水平，</p>
+						<p>远离二手烟，远离雾霾，</p>
+						<p>努力收获一个健康的肺吧！</p>
+					</div>
+					<img src="images/act_lung_commonResultShow_text.png" alt="" />
+				</div>
+				<div class="resultAfterBtn">
+					<div class="playAgain">
+						<img src="images/act_lung_startGameAgain.png" alt="" />
+					</div>
+					<div class="getHbNow">
+						<img src="images/act_lung_getHBnow.png" alt="" />
+					</div>
+					<div class="shareToFri">
+						<img src="images/act_lung_shareFriBtn.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<!--弹窗低分6000~7999-->
+			<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResult_high">
+				<div class="commonResultShow">
+					<div class="closeAndBack">
+						<span>X</span>
+					</div>
+					<div class="commonResultShow_text">
+						<h2>真是健康的肺！</h2>
+						<p>亲，您的肺活量水平不错，</p>
+						<p>肺部非常健康哦~</p>
+						<p>多多运动，继续保持！</p>
+					</div>
+					<img src="images/act_lung_commonResultShow_text.png" alt="" />
+				</div>
+				<div class="resultAfterBtn">
+					<div class="playAgain">
+						<img src="images/act_lung_startGameAgain.png" alt="" />
+					</div>
+					<div class="getHbNow">
+						<img src="images/act_lung_getHBnow.png" alt="" />
+					</div>
+					<div class="shareToFri">
+						<img src="images/act_lung_shareFriBtn.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<!--弹窗低分8000+-->
+			<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResult_best">
+				<div class="commonResultShow">
+					<div class="closeAndBack">
+						<span>X</span>
+					</div>
+					<div class="commonResultShow_text">
+						<h2>肺活量爆表！</h2>
+						<p>大神，请受我一拜！</p>
+						<p>你的肺功能如此强大</p>
+						<p>是怎么锻炼出来的呢？</p>
+					</div>
+					<img src="images/act_lung_commonResultShow_text2.png" alt="" />
+				</div>
+				<div class="resultAfterBtn">
+					<div class="playAgain">
+						<img src="images/act_lung_startGameAgain.png" alt="" />
+					</div>
+					<div class="getHbNow">
+						<img src="images/act_lung_getHBnow.png" alt="" />
+					</div>
+					<div class="shareToFri">
+						<img src="images/act_lung_shareFriBtn.png" alt="" />
+					</div>
+				</div>
+			</div>
+			<!--领取页面-->
+			<div class="receive_page getHbPage_wrap" id="getHBPage">
+				<div class="receive_code" id="receive_page">
+					<div class="receive_page_coupon" id="receive_page_coupon">
+			            <img  src="images/act_lung_getHBicon.png" alt=""/>
+			        </div>
+			        <div class="loginnow" id="loginnow">
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+							</div>
+							<div id="commomLogin_getcode">
+								<span class="commomLogin_getcode">获取验证码</span>
+								<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+							</div>
+							<div id="loginsumbit">
+								<img src="images/act_lung_receivePage_getBtn.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---成功领取-->
+	        	<div class="receive_success_box common_boxSty" >
+	        		<div class="closeShade">X</div>
+	        	 	<div class="receive_success_title common_titleSty">
+			            <img src="images/act_lung_getHbBackCommon.png" alt=""/>
+			             <img src="images/act_lung_receiveSuccessWord.png" alt=""/>
+		       		</div>
+				    <div class="receive_success_desc common_descSty">
+				       <p class="commom_desc_psty2">为了您的健康，快去使用吧！</p>
+				    </div>
+				    <div class="common_useStyle" style="margin-top:.3rem">
+					    <a id="downloadA" href="http://store.ykd365.com/download.html">
+					        <img src="images/act_lung_goToUseHb.png" />
+					    </a>
+					    
+					 	<button class="shareFri " id="small_ShareFri" >邀请好友</button>
+				  	</div>
+	        	</div>
+	    			<!--已经领过-->
+				<div class="have_received_box common_boxSty" >
+				    <span class="closeShade">X</span>
+				      <div class="have_received_title common_titleSty">
+					    <img src="images/act_lung_getHbBackCommon.png" alt=""/>
+					    <img src="images/act_lung_getRightIcon.png" />
+					    <img style="position: absolute;top:2.5rem;right: 0;" src="images/act_lung_hasGotWord.png" alt=""/>
+					  </div>
+				      <div class="have_received_desc common_descSty">
+				        <p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .2rem;line-height: 25px;">快邀请 小伙伴们<br/>一起来测试吧！</p>
+				      </div>
+				     <div class="shareFri shareToFri">
+				     	<img  src="images/act_lung_getFri.png" />
+				     </div>
+				</div>
+				
+				<div id="shareAppPage" class="common_wrapSty">
+					<button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
+					<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button>
+				</div>
+			</div>
+		</div>
+		<!--<%@ include  file="act_common_sharePage.jsp"%>-->
+</body>
+<script>
+	var scoreNum=0;//得分记录；
+	var haveScore=false;
+
+	var loadingDotTime=null;
+	var n=1;
+	loadingDotTime=setInterval(function(){
+		if(n>=4){
+			n=1
+		};
+		$(".loading_wrap span").css({color:"#000"})
+		$("#dot"+n).animate({color:"#fff"});
+		n++;
+	},600);
+	
+	/*图片预加载*/
+		var preLoadImgList=["images/startGameBack.jpg"];
+		var preLoadBoo=false;
+		for(var i=0,j=$("img");i<j.length;i++){
+			var a=$("img").eq(i).attr("src");
+			preLoadImgList.push(a);
+		};
+		var images = new Array();
+		(function preload() {
+			for (var i = 0; i < preLoadImgList.length; i++){
+				images[i] = new Image();
+				images[i].src = preLoadImgList[i];
+			};
+			preLoadBoo=true;
+		})();
+		
+		
+		window.onload=function(){
+			var preLoadTime=null;
+			preLoadTime=setInterval(function(){
+				if(preLoadBoo){
+					$(".loading_wrap").remove();
+					clearInterval(loadingDotTime);
+				}
+			},1000);
+		};
+		
+		//	活动过期后，领取奖励按钮不可用；
+	var state="${state }";
+	(function(){
+		if(!state){
+			$(".commonPage_wrapStyle .getHbNow").attr("disabled", true); ;
+//			$(".question_end .common_btnImg").empty();
+//			var _html=' <img style="width:100%;" class="shareFri" src="images/act_game_invite_btn.png" alt=""/>';
+//			$(".time_over .common_btnImg").append(_html);
+//			$(".question_end .common_btnImg").append(_html);
+		}
+	})();
+	 var wechatObj = new Object();
+ 	 wechatObj.title ='【药快到】食品卫生找茬大赛';
+ 	wechatObj.desc = "食品卫生，你注意过吗？快来看看自己能到哪关！";
+     wechatObj.link = 'http://store.ykd365.com/medhtml/common/startLungGame'; 
+    wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg';
+    function getMenuShare(){
+    	var wechatShareMenu ={
+	    		title:'【药快到】食品卫生找茬大赛', // 分享标题
+	    		desc:wechatObj.desc, // 分享描述
+	    		link:'http://store.ykd365.com/medhtml/common/startLungGame',
+	    	    imgUrl:'http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg', // 分享图标
+	    	    success: function () { 
+	    	    },
+	    	    cancel: function () {
+	    	    }	
+	    };
+    	var wechatShareMenu2 ={//朋友圈分享用
+	    		title:wechatObj.desc, // 分享标题
+	    		link:'http://store.ykd365.com/medhtml/common/startFSGame',
+	    	    imgUrl:'http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg', // 分享图标
+	    	    success: function () { 
+	    	    },
+	    	    cancel: function () {
+	    	    }	
+	    };
+		wx.onMenuShareTimeline(wechatShareMenu2); 
+    	wx.onMenuShareAppMessage(wechatShareMenu);
+    	wx.onMenuShareQQ(wechatShareMenu);
+    	wx.onMenuShareWeibo(wechatShareMenu);
+	};
+	function s(type){
+		var jsonObject = {};
+		if(type==0){
+			jsonObject.shared_type = "0";
+			jsonObject.shared_url =  wechatObj.link;
+			jsonObject.shared_title = wechatObj.title;
+			jsonObject.shared_content = wechatObj.desc;
+			jsonObject.shared_img_url = wechatObj.imgUrl;
+		} else 
+		if(type==1){
+			jsonObject.shared_type = "1";
+			jsonObject.shared_url = wechatObj.link;
+			jsonObject.shared_title = wechatObj.title;
+			jsonObject.shared_content = wechatObj.desc;
+			jsonObject.shared_img_url = wechatObj.imgUrl;
+		}
+		var jsonStr = JSON.stringify(jsonObject);
+		sharedTypeByJson(jsonStr);
+	}
+	function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+	    camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+	}
+</script>
+ <script src="js/act_lungDController.js" type="text/javascript" charset="utf-8"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script> 
+ <script  type="text/javascript">
+//分享链接
+		/*window.onload=function(){
+			var preLoadTime=null;
+			preLoadTime=setInterval(function(){
+				if(preLoadBoo){
+					$(".loading_wrap").remove();
+					clearInterval(loadingDotTime);
+				}
+			},1000);
+		};*/
+	
+	/*$(".leftEye").addClass("eyeBlackWrapAni");
+	$(".rightEye").addClass("eyeBlackWrapAni");
+	$(".eyeWhite").addClass("eyeWhiteAni");*/
+	
+	$("#receive_page").on("click","#commomLogin_getcode",function(){
+		getCodeCommon("comValCodeAjax");
+	});
+	$("#receive_page").on("click","#loginsumbit",function(){
+		submitPhoneCodeCommon("receiveLungReward",function(){
+			$(".receive_code").hide();
+		  	$(".receive_success_box").show();
+		  	
+		},function(){
+			$(".receive_code").hide();
+		  	$(".have_received_box").show(); 
+		});
+	});
+
+ </script>
+	<script>
+	/*以下函数放入common.js*/
+		/*封装点击自己关闭函数*/
+		function closeSelf_common(_this){
+			_this.style.display="none";
+		};
+		/*点击显示*/
+		function clickShow_common(showDom){
+			var a=document.getElementById(showDom);
+			a.style.display="block";
+		}
+	</script>
+</html>

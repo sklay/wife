@@ -1,0 +1,176 @@
+@CHARSET "UTF-8";
+*{margin:0;padding:0;}
+html{font-size:62.5%;}
+body{font-size:0.12rem;width:6.4rem;max-width:640px;
+	margin:0 auto;font-family:"微软雅黑","黑体",arial;box-shadow: 2px 2px 2px rgba(0,0,0,.6),-2px -2px 2px rgba(0,0,0,.6);
+}
+.con_wrap{width:6.4rem;max-width:640px;margin:0 auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #ffc15f), color-stop(0.88, #ffba55), color-stop(0.67, #ffb249), color-stop(0.59, #ffac41), color-stop(0.50, #ffa12f), color-stop(0.28, #ff9e2b), color-stop(0.00, #ff9720));
+	background: -webkit-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+	background: -moz-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+	background: -o-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+	background: -ms-linear-gradient(top, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+	background: linear-gradient(to bottom, #ff9720 0%, #ff9e2b 28%, #ffa12f 50%, #ffac41 59%, #ffb249 67%, #ffba55 88%, #ffc15f 98%);
+}
+.commonPage_wrapStyle{display:none;overflow-x:hidden;min-height:100%;width:100%;}
+/*startPage--start*/
+.startPage{display:block; }
+.startPage,.gameConPage{
+	background:url(../images/act_lung_startGameBack.jpg) center top no-repeat;background-size:100% 100%;
+}
+.GameTipText,.litIconStyle{
+	width:5rem;margin:0 auto;font-size:17px;padding-top:2.8rem;box-sizing:border-box;
+}
+.GameTipText p{
+	line-height:25px;text-align:center;font-family:"黑体";
+}
+.GameTipText img{width: 100%;margin-top: .5rem;}
+#startGameBtn{width: 3rem;margin: .8rem auto .5rem;display:block;
+}
+.gameRuleShow{
+	position:fixed;width:6.4rem;bottom:0;background:rgba(112,79,32,.9);padding:10px;
+	color:#fff;box-sizing:border-box;display:none;
+}
+.gameRuleShow p{line-height:24px;}
+.commonRuleStyle{position:fixed;text-align:center;width:100%;left:0;bottom:8px;font-size:14px;font-weight:600;}
+
+/*得分栏*/
+.scoreCount_wrap{height:2.5rem;}
+.scoreCount{
+	width:3rem;text-align:center;line-height:1.2rem;display:block;margin:0 auto;
+	box-sizing:border-box;font-size:.8rem;font-weight:600;padding-top:.5rem;color:#ff9720;
+	-webkit-text-stroke: 2px black;
+}
+
+/*GamePlay__start*/
+.timeCountDown_wrap{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.2);
+	z-index:5;font-family:Microsoft JhengHei;
+}
+#TimeCountDown{width:4rem;font-size:100px;display:block;margin:0 auto;color:#fff000;text-align:center;
+	padding-top:4rem;
+}
+.litIconStyle{position:relative;height:8rem;padding-top:3rem;}
+.litIconStyle img{position:absolute;z-index:1;}
+.playGame_TipStyle{width: 3rem;height: 1.4rem;padding-top:.1rem ;box-sizing:border-box;
+}
+.playGame_TipStyle img:nth-child(1){width: 3.2rem;margin-left: 30%;}
+.litIconStyle img:nth-child(1){  width: 3.4rem;top: 2.8rem;left: 1.5rem;}
+.litIconStyle img:nth-child(2){width:.56rem;left:.2rem;top:4.7rem;}
+.litIconStyle img:nth-child(3){width:.49rem;left:1rem;top:5.3rem;}
+.litIconStyle img:nth-child(4){width:1rem;left:2.2rem;top:4.7rem;}
+.litIconStyle img:nth-child(5){width:.5rem;left:2rem;top:5.3rem;}
+.litIconStyle img:nth-child(6){width:.3rem;right:1rem;top:4.9rem;}
+.litIconStyle img:nth-child(7){width:.47rem;right:.5rem;top:5.5rem;}
+.litIconStyle img:nth-child(8){width:5rem;left:0;bottom:.2rem;}
+
+.playGameBtn{width:5rem;height:2rem;
+	position:absolute;left:0;bottom:0;z-index:2;
+}
+.playGameBtn span{width:2.5rem;margin:0 auto;display:block;position:relative;}
+.playGameBtn .playGameBtn_span img{
+	width:2.5rem;position:absolute;z-index:5;top:.2rem;left:0;
+}
+.playGameBtn .playGameBtn_span img:nth-child(2){
+	top:.6rem;z-index:1;
+}
+/*得分页*/
+.scoreResultShow{
+	width:6.4rem;height:100%;position:fixed;background:rgba(0,0,0,.5);z-index:10;top:0;
+	padding-top:3rem;box-sizing:border-box;
+}
+.commonResultShow{
+	background:url(../images/act_lung_showResultBack.png) center center no-repeat;width:5rem;height:4.5rem;
+	background-size:100% auto;position:relative;margin-left:.7rem;
+}
+.closeAndBack{
+	border-top:.8rem solid #996c33;border-left:.8rem solid transparent;width:0;height:0;
+	position:absolute;top:.25rem;right:.16rem;
+}
+.closeAndBack span{
+	position:absolute;top:-.8rem;right:.1rem;color:#fff;font-size:20px;
+}
+.commonResultShow_text{
+	padding:.5rem .3rem .1rem;box-sizing:border-box;font-size:16px;text-align:center;font-family:"黑体"；
+}
+.commonResultShow_text h2{font-size:16px;line-height:25px;}
+.commonResultShow_text p{line-height:25px;}
+.commonResultShow img{width:100%}
+.resultAfterBtn{margin-top:.5rem;padding:0 .5rem;box-sizing:border-box;position:relative;}
+.resultAfterBtn:after{clear:both;height:0;}
+.commonPage_wrapStyle  .resultAfterBtn img{width:100%;margin:0;}
+.resultAfterBtn .playAgain{float:left;width:2rem}
+.resultAfterBtn .getHbNow{float:right;width:2rem;}
+.resultAfterBtn .shareToFri{position:absolute;z-index:1;top:-.3rem;width:1.7rem;left:2.35rem;}
+/*领取页面*/
+.receive_page{
+	display:none;width: 100%;background: url(../images/act_lung_receivePage_bj.jpg)top center no-repeat ;
+	background-size:100% 100%;height: 100%;
+	}
+.receive_page_coupon img{width: 100%;}
+.receive_page_coupon{  padding-top:3rem;margin:0 auto;width:5rem;}
+.commomLogin{
+	width:100%;box-sizing:border-box;margin:0 auto;font-family:"黑体",arial;
+	}
+.commomLogin input{text-align:center;box-sizing:border-box;height:35px;margin-left:14%;
+	border:.03rem solid #00d0ff;background:transparent;border-radius:8px;
+}
+.commomLogin #commomLogin_phoneNum{width:4.5rem;display:block;}
+#commomLogin_codeNum{width:42%;}
+.commomLogin_getcodeagain{display:none;}
+#commomLogin_getcode{  float: right; width: 24%; height: 35px;
+  box-sizing: border-box;border-radius: 8px;background: #a7e3ff;
+  text-align: center;font-size: 12px;text-align: center;margin: -.7rem 1rem;
+  }
+#commomLogin_getcode .commomLogin_getcodeagain{font-size:10px;line-height:17px;}
+#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
+::-moz-placeholder {
+    color: #000;
+}
+:-ms-input-placeholder {
+   color: #000;
+}
+::-webkit-input-placeholder {
+   color: #000;
+}
+#loginsumbit{margin:.4rem auto 0;text-align:center;}
+#loginsumbit img{width: 3rem;} 
+		
+/*领取成功页和已领取页*/
+.common_boxSty {  display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.5);}
+.common_titleSty img{width: 5rem ;margin:.4rem .8rem;}
+.common_titleSty img:nth-child(2){position: absolute;
+  						top:2.4rem;}
+.have_received_title img:nth-child(1){  width: 5rem;margin: .4rem .8rem 0;}				
+.have_received_title img:nth-child(2){  width: .6rem; position: absolute; top: 1.8rem;left: 3.5rem;}
+.have_received_title img:nth-child(3){position: absolute;top:2.5rem;right: 0;}
+.common_titleSty{margin-top: 40%;position:relative;}
+.common_descSty img{width: 40%; float: left;margin: 10px 8px 0 auto;}
+.common_descSty p{color: #fff; font-size: 18px;line-height: 40px;text-align: center;}
+.closeShade{width: 60px;float:right;color:#fff;font-size:16px; text-align: center;
+	    height: 60px; 
+	    border-radius: 15px; position: absolute;top: 20%; right: 12%;}
+.closeShade span{width:20px;height:20px;line-height:20px;border:.03rem solid #ffde00;display:block;margin:0 auto;border-radius:50%;}
+.common_useStyle img{width: 2.2rem;margin-left: 14%;float: left; }
+.shareFri img{width: 3.5rem;margin:.4rem 1.4rem;}
+
+ #small_ShareFri{margin-left: 3%;
+	    font-size: 16px;
+		    color: #fff;
+		    background-color: #00d0ff;
+		    width:2.2rem;
+		    line-height: 36px;
+		    border-radius: 7px;
+		    border: none;
+		    font-family:"黑体";
+   			}
+#shareAppPage{
+			width:100%;height:100%;border:none;border-radius:0;position:fixed;
+			display:none;z-index:1000;top:0;left:0;background:rgba(50,50,50,.6);margin:0;box-sizing:border-box;
+			padding-top:4rem;
+			}
+#shareAppPage button{
+			width:2.5rem;padding:10px 20px;font-family:"黑体";float:left;background:#00d0ff;border:none;
+			margin-left:.5rem;
+			}
+

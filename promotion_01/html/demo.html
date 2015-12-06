@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script>
+        $(document).ready(function(){
+
+           /* 名/值 对*/
+            /*点击时改变p元素的坐标位置*/
+            $("button").click(function(){
+                $("p").offset({top:200,left:200});
+            });
+
+          /*  对象*/
+            /*点击时改变p元素的坐标位置*/
+            $("button").click(function(){
+                newPos=new Object();
+                newPos.left="0";
+                newPos.top="100";
+                $("p").offset(newPos);
+            });
+
+          /*  函数*/
+            /*页面加载完时p元素的坐标位置*/
+            $("p").offset(function(n,c){
+                newPos=new Object();
+                newPos.left=c.left+100;
+                newPos.top=c.top+100;
+                return newPos;
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+<p style="border:1px solid red">This is a paragraph.</p>
+<button>Set the offset coordinates of the p element</button>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script src="../js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <title>找茬游戏</title>
+    <style>
+        *{margin:0;padding:0;}
+        body{font-family:"微软雅黑","arial";font-size:12px;}
+        .wrap{position:absolute;background-color: #AEEEEE;width: 100%;background-size: 100% 100%;}
+        .index{ margin-top: 7rem;margin-left: 2rem;}
+       #btn{width:57%;height:40px;box-sizing:border-box;display:inline-block;
+           border-radius:20px;background:#F6ED46;
+           border:none;font-size:2.2em;color:#000;
+           font-family:"黑体";
+       }
+    </style>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc    = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (clientWidth>=640) {
+                            clientWidth = 640;
+                        };
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <script>
+        var wh=$(window).height();
+        var ww=$(window).width();
+        $(".wrap").width(ww);
+        $(".wrap").height(wh);
+    </script>
+    <!--加载页-->
+    <div>
+        <h1>食品卫生你注意过吗？</h1>
+
+
+    </div>
+    <!--开始页面-->
+    <div class="index"style="z-index:1" >
+
+
+        <button id="btn">开始答题</button>
+    </div>
+
+    <div class="conainer"style="z-index:2">
+        <!--答题页面-->
+        <div class="question">
+            <!--这边可以直接定位在最上层-->
+            <div class="question_head">
+                <span class="score"><span id="scorejs">0</span>分</span>
+                <span class="question_time"><span id="timedjs">60</span>秒</span>
+                <button id="pause">暂停</button>
+            </div>
+            <!--这边用js将题目做一个拼接-->
+            <div >
+                <p>1、请找出已过期的食品标签：</p>
+                <!--图片也是做拼接-->
+                <img src=""/>
+            </div>
+        </div>
+
+        <!--暂停页-->
+        <div>
+            <h1>游戏暂停</h1>
+            <button>继续游戏</button>
+
+        </div>
+        <!-- 时间到 -->
+        <div class="timeout alertpage">
+            <div data-name="timeup" class="timeup_topcode">
+                <img src="images/ta_time.png" alt="" />
+                <h2>时间到了！</h2>
+                <p>貌似答对了不少题，很厉害啊</p>
+                <span class="checkresult">查看成绩</span>
+            </div>
+        </div>
+
+        <!-- 答完所有题页面 -->
+        <div class="heartdie alertpage">
+            <div  data-name="gameover" class="gameover_topcode">
+                <img src="images/ta_gameover.jpg" alt="" />
+                <h2>又错了。。。</h2>
+                <p>生命值耗尽！</p>
+                <span class="checkresult">查看成绩</span>
+            </div>
+        </div>
+        <!-- 获奖登录 -->
+        <div data-name="prize"  class="prize_subcode alertpage">
+            <img class="prize_acicon" src="images/ta_youhuiquan_bg.png" alt="" />
+            <input type="tel" id="prize_subcode_pho" placeholder="请输入手机号码"/>
+            <div class="prize_subcode_get">
+                <input type="text" id="prize_subcode_num" placeholder="请输入验证码"/>
+                <button id="prize_subcode_getcode"><span class="prize_subcode_gctex1" >获取验证码</span><span class="prize_subcode_gctex2">
+							<var> 60</var>秒后<br/>重新获取
+						</span></button>
+            </div>
+            <button id="prize_subcode_sub">立即领取</button>
+        </div>
+
+        <!-- 领取成功 -->
+        <div class="gethb alertpage gehbsuccess">
+            <div data-name="success" class="success_subcode">
+                <img class="success_acicon" src="images/ta_gift.jpg" alt="" />
+                <h2>领取成功！</h2>
+                <p>快去查看怎么使用吧!</p>
+            </div>
+            <button id="success_subcode_sub" class="downloadpage">下载手机APP</button>
+            <button id="success_subcode_sub2" class="focusour">关注微信公众账号</button>
+        </div>
+
+        <!-- 已经领取过 -->
+        <div class="gethb alertpage gehbsuccess">
+            <div data-name="success" class="success_subcode">
+                <img class="success_acicon" src="images/ta_gift.jpg" alt="" />
+                <p>邀请好友</p>
+            </div>
+            <button id="" class="downloadpage">下载手机APP</button>
+            <button id="" class="focusour">关注微信公众账号</button>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+<script>
+    $(function(){
+        $("#btn").on("click",function(){
+        $(".index").hide();
+        $(".contant").show();
+    })
+</script>
+</html>

@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>新人专享红包</title>
+	<link rel="stylesheet" href="../css/main_wechat.css" />
+	<script src="../js/jquery-1.9.0.min.js"></script>
+	<script src="../js/common.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<style>
+	.content{overflow:hidden;}
+	.content .ac_code{width:100%;text-align: center;font-size:0;position:relative;margin-top:-2px;}
+	.content .ac_code img{width:100%;}
+	.content .ac_code .codeDiv{width:100%;height:30px;position:absolute;left:0;top:-10px;z-index:8;}
+	.content .ac_code .codeDiv .description{width:100%;margin:0 auto;text-align: center;font-size:18px;color:#fff;font-weight: bold;}
+	.content .ac_code .butDiv{width:100%;height:30px;position:absolute;left:0;bottom:8px;z-index:8;font-size:14px;color:#fff!important;text-decoration: underline;}
+	.content .ac_code .butDiv a{color:#fff!important;text-decoration: underline;}
+	.content .ac_code .envelopeList{width:100%;height:30px;position:absolute;left: 0;top: -20px;z-index:8;}
+	.content .ac_code .envelopeList .enveloItem{position:relative;width:200px;height:77px;margin:-25px auto;}
+	.content .ac_code .envelopeList .enveloItem input{font-size:14px;display:block;width:200px;margin:0 auto;padding-left:5px;height:33px;border:1px solid #fff;color:#fff;background:none;}
+	.getValiCode{  display: block;width:65px;height: 35px;position: absolute;right: -6px;top: 50px;text-align: center;font-size: 13px;color:#fff;  overflow: hidden;}
+	.getValiCode img{width:100%;height:100%;}
+	.phoneDiv{position:absolute;z-index:9;width:100%;height:50px;left: 0;top: 24px;}
+	.phoneDiv p{width:75%;margin:0 auto;height:30px;font-size:16px;text-align: right;font-family: "楷体";letter-spacing:-1px;}
+	#phoneNum::-webkit-input-placeholder{ color:#FB6010; }
+	#phoneNum:-moz-placeholder{ color:#FB6010; }
+	#phoneNum::-moz-placeholder{ color:#FB6010; }
+	#phoneNum:-ms-input-placeholder{ color:#FB6010;}
+	#authCode::-webkit-input-placeholder{ color:#FB6010; }
+	#authCode:-moz-placeholder{ color:#FB6010; }
+	#authCode::-moz-placeholder{ color:#FB6010; }
+	#authCode:-ms-input-placeholder{ color:#FB6010;}
+	#actDes{background-color:#D1C5B9;width:100%;height:0px;position:absolute;left:0;bottom:0;z-index:99;display:none; text-align: left;}
+	#actDes .ticon{width:90%;margin:10px auto 0px auto;text-align: center;}
+	#actDes .title{width:90%;margin:5px auto 0px auto;padding-bottom:5px;text-align: center;border-bottom:1px solid #000;font-size:16px;}
+	#actDes .ticon img{width:20px;}
+	#actDes .deacDetail{width:90%;margin:10px auto;font-size:14px;}
+	.content .desc_div{ position: absolute; left: 0;  width: 100%;  bottom: 0;display:none;}
+	#actDescbut{position:relative;}
+	#closeBtn{position:absolute;top:0;width:10%;left:45%;}
+</style>
+<script>
+	function makephoneNum(pNum){
+		document.write(pNum.substring(0,3)+"****"+pNum.substring(7,11));
+	}
+</script>
+<body style="background:#fff;">
+<div class="content">
+	<div class="ac_code">
+		<img alt="" src="../images/october_receive_01.jpg">
+	</div>
+	<div class="ac_code">
+		<img alt="" src="../images/october_receive_02.jpg">
+	</div>
+	<div class="ac_code">
+		<img alt="" src="../images/october_receive_03.jpg">
+	</div>
+	<div class="ac_code">
+		<img alt="" src="../images/october_receive_04.jpg">
+
+	</div>
+	<div class="ac_code">
+		<img alt="" src="../images/october_receive_05.jpg">
+	</div>
+
+	<div class="ac_code" >
+		<img alt="" src="../images/october_receive_06.jpg" >
+		<input type="hidden" name="pharmacyId" id="pharmacyId" value="200">
+		<input type="hidden" name="code" id="code" value="0000CG">
+		<input type="hidden" name="actId" id="actId" value="3">
+		<input type="hidden" name="inviteType" id="inviteType" value="invite">
+		<div class="envelopeList">
+			<div class="enveloItem">
+				<input placeholder="手机号" name="phoneNum" id="phoneNum" value="">
+				<input style="width:120px;float:left;margin-top:15px;" placeholder="验证码" name="authCode" id="authCode">
+				<a class="getValiCode" id="getValiCode"><img alt="" src="../images/october_receive_code.png"> </a>
+			</div>
+		</div>
+	</div>
+	<div class="ac_code" id="openthis">
+		<img alt="" src="../images/october_receive_07.jpg">
+
+	</div>
+
+
+	<div class="ac_code">
+		<img id="img_btn" alt="" src="../images/october_receive_08.jpg">
+		<div class="butDiv"><a href="http://store.ykd365.com/download.html">下载 药快到 APP</a></div>
+
+	</div>
+
+	<div class="ac_code " id="actDescbut">
+		<img alt="" src="../images/october_receive_09.jpg">
+		<div class="desc_div">
+			<img class="desc_divimg" alt="" style="width: 100%" src="../images/october_act_desc.png">
+		</div>
+	</div>
+</div>
+
+</body>
+
+<script>
+	var wait = 60;
+	var secs = 0;
+	var t;
+	var isClick = true;
+
+	$(function() {
+		$("#actDes .ticon").click(function(){
+			$("#actDes").animate({height:"0px"},300,function(){
+				$("#actDes").hide();
+			});
+		});
+
+
+		$("#actiText").click(function(){
+			$("#actDes").show(0).animate({height:"160px"},300,function(){});
+		});
+
+		$.ajax({url:"/weixin/wechat/getwxjssign?",data:{url: location.href.split('#')[0]},success:function(wechatReturn){
+			closeShade();
+			if (wechatReturn) {
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+					timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					signature: wechatReturn.signature,// 必填，签名，见附录1
+					jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+			}
+		}});
+
+
+		$("#getValiCode").click(function() {
+			if (!isClick) {
+				return false;
+			}
+			var phoneNum = $("#phoneNum").val();
+			if (phoneNum=="") {
+				showResult("remind","请输入手机号");
+				return false;
+			}
+			if(!(/^1[34578][0-9]{9}$/).test(phoneNum)){
+				showResult("remind","请输入有效手机号");
+				return false;
+			}
+
+			shadeAll();
+			$.ajax({
+				type:"post",
+				url:"getVerifyCodeAjax",
+				data:"phoneNum="+phoneNum,
+				success:function(result){
+					closeShade();
+					if (result.result == "success") {
+						showResult("success","验证码已发送");
+						getVali();
+					}else if(result.result == "fail"){
+						showResult("error",result.desc);
+					}
+				},
+				error:function(){
+					closeShade();
+					showResult("error","发送请求失败");
+				}
+			});
+
+		});
+
+		$("#openthis").click(function() {
+			var phoneNum = $("#phoneNum").val();
+			if (phoneNum=="") {
+				showResult("remind","请输入手机号");
+				return false;
+			}
+			if(!(/^1[34578][0-9]{9}$/).test(phoneNum)){
+				showResult("remind","请输入有效手机号");
+				return false;
+			}
+			if($("#authCode").val()==""){
+				showResult("remind","请输入验证码");
+				return false;
+			}
+			waitShow();
+			var $url = "&actId="+$("#actId").val() + "&inviteType="+$("#inviteType").val();
+			$.ajax({
+				type:"post",
+				url:"openPackage",
+				data:"phoneNum="+phoneNum+"&pharmacyId="+$("#pharmacyId").val()+"&code="+$("#code").val()+"&authCode="+$("#authCode").val()+$url,
+				success:function(reVal){
+					waitClose();
+					console.log(reVal.result);
+					if (reVal.result == "succ") {
+						var _val = reVal.data;
+						location.href="oct_ptomt_get_prize?pharmacyId="+_val.pharmacyId+"&code="+_val.code+"&userId="+_val.userId;
+					}else if(reVal.result == "fail"){
+						if (reVal.message=="redenvelopeold") {
+							location.href="oct_ptomt_hasreceived?phoneNum="+phoneNum;
+						} else if (reVal.message=="redenvsharenone") {
+							location.href="oct_ptomt_isempty";
+						} else {
+							showResult("error",reVal.message);
+						}
+					}
+				},
+				error:function(){
+					waitClose();
+					showResult("error","发送请求失败");
+				}
+			});
+
+		})
+
+	});
+	// function checkMess(mess){
+	// 	console.log(mess);
+	// 	if (mess!="" && mess!=null) {
+	// 		showResult("error",mess);
+	// 		return false;
+	// 	}
+	// }
+	function sTimer(num) {
+		if(num==wait) {
+			clearInterval(t);
+			isClick = true;
+			$("#getValiCode").html('<img alt="" src="images/redenvshare_code.png">');
+//   		$("#getValiCode").css("background","url(images/redenvshare_code.png) no-repeat");
+//   		$("#getValiCode").css("background-size","189px");
+		}else {
+			isClick = false;
+			secs=wait-num;
+			$("#getValiCode").css("background","#FB6010");
+			$("#getValiCode").html("重新获取 ("+secs+")");
+		}
+	}
+	function getVali(){
+		for(var i=1;i<=wait;i++) {
+			t = window.setTimeout("sTimer("+i+")",i*1000);
+		}
+	}
+	var wechatObj = new Object();
+	wechatObj.title = "${shareInfo.sharedTitle}";
+	wechatObj.desc = "${shareInfo.sharedContent}";
+	wechatObj.link = location.href.split('#')[0];
+	wechatObj.imgUrl = "${shareInfo.sharedImgUrl}";
+
+	wx.ready(function(){
+
+		// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+		wx.onMenuShareTimeline({
+			title: wechatObj.desc, // 分享标题
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareAppMessage({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareQQ({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+		wx.onMenuShareWeibo({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+
+	});
+	/*活动说明点击事件*/
+	$("#actDescbut").on("click",function(){
+		$(".desc_div").show();
+	});
+	$(".content").on("click",".desc_divimg",function(){
+		$(".desc_div").hide();
+	});
+
+	function closeShareDiv(){
+		$("#shareRemind").hide();
+		$(".shareContent").hide();
+	}
+</script>
+</html>

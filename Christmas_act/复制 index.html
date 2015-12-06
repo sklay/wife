@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>圣诞快乐</title>
+		<meta name="description" content="我在【药快到】参加了肺活量测试，结果超乎想象，你能超过我吗？"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+  		 body{margin:0;padding:0;}
+			.snowbg{width:100%;clear:both;margin:0 auto;background: url(images/chris_indexBgImg.jpg) no-repeat center bottom #000;position:relative;}
+			.snow{position:absolute;top:0;color:#fff;}
+ </style>
+</head>
+<body>
+<div></div>
+<!--下雪范例-->
+	<div class="snowbg"></div>
+	
+
+
+</body>
+
+	
+<script>
+$(function(){
+  var wh=$(window).height();
+  $(".snowbg").css("height",wh);
+ 
+  var d="<div class='snow'><img src='images/chris_snow_03.png'/><div>"
+      setInterval(function(){
+        var f=$(document).width();
+        var e=Math.random()*f-100;//雪花的定位left值
+//      var o=1+Math.random();//雪花的透明度
+        var fon=10+Math.random()*40;//雪花大小
+//      var l = e - 100 + 300 * Math.random();//雪花的横向位移
+        var k=2000 + 5000 * Math.random();
+        $(d).clone().appendTo(".snowbg").css({
+          left:e+"px",
+//        opacity:o,
+          "font-size":fon,
+        }).animate({
+          top:"400px",
+//        left:l+"px",
+//        opacity:0.8,
+        },k,"linear",function(){$(this).remove()})
+      },150)
+})
+</script>
+</html>

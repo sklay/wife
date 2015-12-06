@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="【邀请有奖】邀请新伙伴，你得30元，TA得60元，限时活动，先到先得！"/>
+<title>【药快到】新用户送30元</title>
+<link rel="stylesheet" href="style/main_wechat.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<style>
+/*.content{overflow:hidden;}*/
+.content .ac_code{width:100%;height:100%;text-align: center;font-size:0;position:relative;margin-top:-1px;}
+.content .ac_code img{width:100%;}
+#actDes .title{width:90%;margin:5px auto 0px auto;padding-bottom:5px;text-align: center;border-bottom:1px solid #000;font-size:16px;}
+#actDes .ticon img{width:20px;}
+#actDes .ticon{width:90%;margin:0 auto;text-align: center;}
+.content .ac_code .shareClick{width: 33.33%;}
+ .desc_div{ position: fixed; left: 0;  width: 100%;  bottom: 0;display:none;}
+#actDescbut{position:relative;}
+#closeBtn{position:absolute;top:0;width:10%;left:45%;}
+
+</style>
+<script>
+function makephoneNum(pNum){
+	document.write(pNum.substring(0,3)+"****"+pNum.substring(7,11));
+}
+</script>
+<body style="background: #bf0029;">
+  <script>
+    	(function(){
+	   	 var wh=$(window).height();
+	       $("body").css({minHeight:wh})
+	   })();
+    </script>
+
+	<div class="content">
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_01.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_02.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_03.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_04.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_05.jpg" >
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/dec_invite_06.jpg">
+		</div>
+		<!--<div class="ac_code">
+			<img alt="" src="images/dec_invite_07.jpg">
+		</div>-->
+		<div class="ac_code" style="margin-top: -3px">
+			<img  class="shareClick" alt="" src="images/dec_invite_07.jpg" >
+			<img class="shareClick"  alt="" src="images/dec_invite_08.jpg" >
+			<img class="shareClick"  alt="" src="images/dec_invite_09.jpg">
+
+		</div>
+
+		<div class="ac_code " id="actDescbut">
+			<img alt="" src="images/dec_invite_10.jpg">
+		</div>
+	</div>
+	<div class="desc_div">
+		<img class="desc_divimg" alt="" style="width: 100%" src="images/dec_act_desc.png">
+	</div>
+</body>
+
+<script>
+	$(function() {
+
+		$.ajax({url:"http://store.ykd365.com/weixin/wechat/getwxjssign?",data:{url: location.href.split('#')[0]},success:function(wechatReturn){
+			closeShade();
+			if (wechatReturn) {
+				wx.config({
+					debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+					timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					signature: wechatReturn.signature,// 必填，签名，见附录1
+					jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				});
+			}
+		}});
+
+		$(".shareClick").click(function(){
+			if ($("#shareRemind").length<=0) {
+				$("body").append('<div class="shareRemind" id="shareRemind" style="background-color:#4E484C;"></div>');
+				$("body").append('<div class="shareContent" style="background:url(images/redenvelope_sharejt.png) 92% 15px no-repeat;background-size:85px;"><div style="font-size:16px;color:#FFD900;margin-top:100px;text-align:center;">点击右上角，送出100元大红包</div><img src="images/redenvelope_know.png" style="width:150px;margin-top:30px;"></div>');
+			}
+			$(".shareContent").css("height",$(document).height());
+			$("#shareRemind").css("height",$(document).height());
+			$("#shareRemind").show();
+			$(".shareContent").show();
+		});
+
+		$("body").delegate(".shareContent","click",function(){
+			$("#shareRemind").hide();
+			$(".shareContent").hide();
+		});
+
+     /*活动说明*/
+		$("#actDescbut").on("click",function(){
+			$(".desc_div").show();
+		});
+		$("body").on("click",".desc_divimg",function(){
+			$(".desc_div").hide();
+		});
+
+	});
+	var wechatObj = new Object();
+	wechatObj.title = "${shareInfo.sharedTitle}";
+	wechatObj.desc = "${shareInfo.sharedContent}";
+	wechatObj.link = location.href.split('#')[0];
+	wechatObj.imgUrl = "${shareInfo.sharedImgUrl}";
+
+	function closeShareDiv(){
+		$("#shareRemind").hide();
+		$(".shareContent").hide();
+	}
+
+	wx.ready(function(){
+
+		// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+		wx.onMenuShareTimeline({
+			title: wechatObj.desc, // 分享标题
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareAppMessage({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareQQ({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+		wx.onMenuShareWeibo({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+				closeShareDiv();
+			},
+			cancel: function () {}
+		});
+
+	});
+
+</script>
+
+</html>
