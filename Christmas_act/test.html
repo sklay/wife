@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<title></title>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx_methods.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			/*为REM单位支持适应的js*/
+			(function (doc, win) {
+				var docEl = doc.documentElement,
+						resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+						recalc    = function () {
+							var clientWidth = docEl.clientWidth;
+							/*if (clientWidth>=640) {
+								clientWidth = 640;
+							};*/
+							if (!clientWidth) return;
+							docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+						};
+				if (!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+		<style>
+			*{margin:0;padding:0}
+			html{font-size:62.5%;}
+			body{font-size:10px;font-size:0.1rem;width:6.4rem;
+				margin:0 auto;font-family:KaiTi,"黑体",arial
+			}
+			.chriModle_child{width:100%;background:url("images/act_chri_child_back.jpg");
+				background-size:100% 100%;overflow: hidden;position:absolute;
+			}
+			.chriCon{padding-top:.8rem;position:relative;}
+			#audioCon{display:none;}
+			/*音符旋转*/
+			@-webkit-keyframes musicMove{
+				100%{-webkit-transform:rotate(360deg)}
+			}
+			@keyframes musicMove{
+				100%{transform:rotate(360deg)}
+			}
+			#audioBtn{
+				position:absolute;top:.2rem;right:.2rem;width:.5rem;z-index:1;
+				-webkit-animation:musicMove 1s linear infinite;
+				animation:musicMove 1s linear infinite;
+			}
+			/*.audioBtn{
+				animation-play-state:paused;
+				-webkit-animation-play-state:paused;
+			}*/
+			/*左右晃动效果*/
+			@-webkit-keyframes shakeMove {
+				25%{-webkit-transform:rotate(3deg)}
+				50%{-webkit-transform:rotate(0deg)}
+				75%{-webkit-transform:rotate(-3deg)}
+				100%{-webkit-transform:rotate(0deg)}
+			}
+			@keyframes shakeMove {
+				25%{transform:rotate(3deg)}
+				50%{transform:rotate(0deg)}
+				75%{transform:rotate(-3deg)}
+				100%{transform:rotate(0deg)}
+			}
+			.chriCon .chriModle_tit{
+					width:4.3rem;display:block;margin:0 auto;opacity:0;
+			}
+			.chriCon .chriModle_titAni{
+				-webkit-animation:shakeMove 500ms linear 2;
+				animation:shakeMove 500ms linear  2;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			/*帽子掉落效果*/
+			@-webkit-keyframes hatDrawMove {
+				100%{-webkit-transform:translateY(0rem)}
+			}
+			@keyframes hatDrawMove {
+				100%{transform:translateY(0rem)}
+			}
+			.chriCon .chriModle_hat{
+					position:absolute;top:.45rem;right:1.1rem;width:.8rem;
+					transform:translateY(-1.5rem);	-webkit-transform:translateY(-1.5rem);
+			}
+			.chriCon .chriModle_hatAni{
+				-webkit-animation:hatDrawMove 1s cubic-bezier(.72,1.81,.44,.74)  1;
+				animation:hatDrawMove 1s cubic-bezier(.72,1.81,.44,.74)  1;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.chriBody_wrap{position:relative;}
+			/*淡入效果*/
+			@-webkit-keyframes chriBodyMove {
+				20%{opacity:.3}
+				50%{opacity:.6}
+				100%{opacity:1}
+			}
+			@keyframes chriBodyMove {
+				20%{opacity:.3}
+				50%{opacity:.6}
+				100%{opacity:1}
+			}
+			.chriBody_wrap .chriBody{
+					margin:0 auto;width:6.4rem;opacity:0;position:relative;
+			}
+
+			.chriBody img{width:100%;}
+			.chriBody_wrap .chriTree{
+				position:absolute;
+				width: 3.5rem;
+				left: .7rem;
+				bottom: 0;opacity: 0;
+			}
+			.chriBody_wrap .chriTree img{width:100%;}
+			.chriBody_wrap .chriTree img:nth-child(2){
+					position:absolute;
+					left: .5rem;opacity: 1;
+					top: .8rem;
+					width: 1.8rem;
+			}
+			@-webkit-keyframes treeShineMove{
+				100%{opacity: 0}
+			}
+			@keyframes treeShineMove{
+				100%{opacity: 0}
+			}
+
+			.chriBody_wrap .chriTree .treeShine{
+				-webkit-animation: treeShineMove 1s linear infinite;
+				animation: treeShineMove 1s linear infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.snowShine_wrap{
+				-webkit-transform-style:preserve-3d;position:absolute;top:0;left:0;width:100%;height:100%;
+				transform-style:preserve-3d;
+				/*z-index:-1;*/
+			}
+			.snowShine_wrap .snowShine{
+				-webkit-perspective:400px;-webkit-perspective-origin:0% 50%;-webkit-transform-style:preserve-3d;
+				height:100%;overflow: hidden;perspective:400px;perspective-origin:0% 50%;transform-style:preserve-3d;
+			}
+			.childSnow_sma{
+				position:absolute;top:0;
+			}
+			.childSnow_nor{
+				position:absolute;top:0;-webkit-transform:scale(.2);
+				transform:scale(.2);
+			}
+			.childSnow_big{
+				position:absolute;opacity:0;top:0;
+				-webkit-transform:scale(.2);
+				transform:scale(.2);
+			}
+			.useroper{
+				position:absolute;z-index:10;top:2rem;left:0rem;opacity: 0;
+				/*-webkit-animation: chriBodyMove 1s linear 4.5s 1;
+				animation: chriBodyMove 1s linear 4.5s 1;
+				-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;*/
+			}
+			.useroper .userImg_wrap{
+				position:absolute;width:1.8rem;height:1.8rem;z-index:1;top:.8rem;left:1rem;
+				background:#fff;border-radius:50%;line-height:1.8rem;text-align:center;
+				font-weight:600;font-size:.3rem;border: 1px solid #000;
+
+			}
+			.useroper .userImg_wrapAni{
+				-webkit-animation:userImgScaleMove 800ms linear 3;
+				animation:userImgScaleMove 800ms linear 3;
+			}
+			/*上传照片放大一下*/
+			@-webkit-keyframes userImgScaleMove {
+				60%{-webkit-transform:scale(1.1)}
+			}
+			@keyframes userImgScaleMove {
+				60%{transform:scale(1.1)}
+			}
+			#userText{
+				position:absolute;top:2.7rem;left:1.9rem;
+				width: 3rem;height: 3.2rem;background: transparent;
+				/*overflow-y:auto;*/font-size:.25rem;
+			}
+			#userText p{
+				line-height: .5rem;border-bottom:1px dashed #000;opacity:0;
+				word-break: break-all;
+			}
+			.conBtn{position:fixed;bottom:0;background:rgba(0,0,0,.7);left:0;width:100%;color:#fff;line-height:40px;}
+			.conBtn span{display:inline-block;width:2.1rem;text-align:center;font-size:14px;}
+			/*用户文字输入框*/
+			.userWriteText_wrap{
+				position:absolute;top:0;left:0;width:100%;height:100%;
+				background:#777;z-index:11;opacity: 0;z-index:-1;
+			}
+			.userWriteText_wrap .userWriteText{
+				line-height:.5rem;text-decoration:underline;padding:.3rem;
+				width:4.4rem;margin:2rem 1rem .5rem;background:#fff;font-size:.25rem;box-sizing:border-box;
+				min-height:5rem;max-height:4rem;overflow-y:auto;
+			}
+			.userWriteText_wrap .userMyText{
+				display:block;margin:0 auto;width:2rem;padding: 10px;box-sizing:border-box;border-radius:50%;
+				border:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="chriModle_child commonWrap">
+			<audio id="audioCon" src="audio/3.JingleBells.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
+			<img id="audioBtn" src="images/act_chri_musicOpen.png" alt="">
+			<div class="chriCon">
+				<img class="chriModle_tit" src="images/act_chri_child_tit.png" alt="">
+				<img class="chriModle_hat" src="images/act_chri_child_hat.png" alt="" />
+			</div>
+			<div class="chriBody_wrap">
+				<div class="chriBody">
+					<img src="images/act_chri_child_text.png" alt="">
+				</div>
+				<div class="chriTree">
+					<img src="images/act_chri_child_tree.png" alt="">
+					<img class="treeShine" src="images/act_chri_child_shine.png" alt="">
+				</div>
+			</div>
+			<div class="useroper">
+				<div class="userImg_wrap">
+					上传照片
+				</div>
+				<div id="userText">
+					<p>圣诞雪舞着浪漫的气息，</p>
+					<p>传递着节日的温馨；</p>
+					<p>圣诞节送你订制的祝福，</p>
+					<p>传送着我真诚的心意。</p>
+					<p>圣诞节到，</p>
+					<p>愿你开心相伴，吉祥如意！</p>
+				</div>
+			</div>
+			<div class="snowShine_wrap">
+				<div class="snowShine">
+				</div>
+			</div>
+			<div class="conBtn">
+				<span style="float:left" class="userChangeText">更改文字</span>
+				<span class="userChangeMusci">音乐</span>
+				<span  class="userPreview" style="float:right">预览</span>
+			</div>
+			<div class="userWriteText_wrap">
+				<textarea name="userWrite" class="userWriteText" cols="12" wrap="hard" ></textarea>
+				<input type="button" class="userMyText" value="保存">
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		/*(function(){
+			var wh=$(window).height();
+			$(".commonWrap").css({"minHeight":wh})
+		})();*/
+		var snowTime=null;
+		window.onload=function(){
+			/*更换文字*/
+			var modifyText="圣诞雪舞着浪漫的气息,\n传递着节日的温馨；\n圣诞节送你订制的祝福，\n传送着我真诚的心意,\n圣诞节到，\n愿你开心相伴，吉祥如意！"
+			$(".userWriteText").val(modifyText);
+			$(".userChangeText").on("click",function(){
+				$(".userWriteText_wrap").css({"z-index":"11"}).fadeIn("1000");
+				clearInterval(ptime);
+					/*$("#userText p").fadeOut();*/
+					$("#userText p[showNow=true]").removeAttr("showNow");
+					pI=-1;
+			});
+			//手动编辑文字
+			$(".userMyText").on("click",function(){
+				var val=$(".userWriteText").val().split("\n");
+				var _html="";
+				for(var t= 0,j= val.length;t<j;t++){
+					if(val[t].length<=0){
+						continue;
+					}
+					if(val[t].length>12){
+						for(var i= 0,k=val[t].length;i<k;i+=12){
+							_html+="<p>"+val[t].substring(i,i+12)+"</p>"
+						};
+						continue
+					}
+					_html+="<p>"+ val[t]+"</p>";
+				};
+				$("#userText").empty().html(_html);
+				$(".userWriteText_wrap").fadeIn("1000").css({"z-index":"-1"});
+				ptime=setInterval(function(){
+					pShowFun();
+				},1000);
+			});
+
+
+			/*入场动画-----------------start-------------------*/
+			/*入场文字淡入*/
+			$(".chriBody_wrap .chriTree").fadeIn("800");
+			setTimeout(function(){
+				$(".chriModle_tit").fadeIn().addClass("chriModle_titAni");
+
+				setTimeout(function(){
+					$(".chriBody_wrap .chriBody").fadeIn("1000");
+					$(".useroper").fadeIn("1000");
+					$(".userImg_wrap").addClass("userImg_wrapAni")
+					setTimeout(function(){
+						$(".chriModle_hat").addClass("chriModle_hatAni")
+					},800)
+				},2000)
+			},2500)
+
+
+			/*祝福语淡入*/
+			var pI=-1;
+			var ptime=null;
+			setTimeout(function(){
+				ptime=setInterval(function(){
+					pShowFun();
+				},1500);
+			},5000);
+			var pShowFun=function(){
+				pI++;
+				if(pI>=$("#userText p").length) {
+					clearInterval(ptime);
+					setTimeout(function(){
+						$("#userText p").fadeOut();
+						$("#userText p[showNow=true]").removeAttr("showNow");
+						pI=-1;
+						ptime=setInterval(function(){
+							pShowFun();
+						},1000);
+					},2000)
+					return false;
+				};
+				/*判断当本页满6行时，隐藏当前文字*/
+				if(pI%6==0 && pI>0 && $("#userText p[showNow=true]").length>0 ){
+					var n=Math.floor(pI/6)*6;
+					$("#userText p[showNow=true]").removeAttr("showNow").fadeOut();
+					pI-=1;
+					return;
+				}
+				$("#userText").find("p").eq(pI).attr({"showNow":"true"}).fadeIn();
+			}
+			/*音乐控制*/
+			$(".commonWrap").on("click","#audioBtn",function(){
+				var audioCon=document.getElementById("audioCon")
+				if(audioCon.paused){
+					$("#audioBtn").attr("src","images/act_chri_musicOpen.png")
+					$("#audioBtn").css({"-webkit-animation-play-state":"running","animation-play-state":"running"})
+					playAudio(audioCon);
+				}else{
+					$("#audioBtn").attr("src","images/act_chri_musicClose.png")
+					$("#audioBtn").css({"-webkit-animation-play-state":"paused","animation-play-state":"paused"})
+					pauseAudio(audioCon);
+				}
+			});
+			/*音乐开启*/
+		var playAudio=function(music){
+			music.play();
+		};
+			/*音乐关闭*/
+		var pauseAudio=function(music){
+			music.pause();
+		};
+			/*雪花控制*/
+
+			(function(){
+				var i=0;
+				snowTime=setInterval(function(){
+					/*if(i>=50){
+						clearInterval(snowTime);
+					}*/
+					var smaNL=Math.ceil(Math.random()*6);
+					var smaNT=Math.ceil(Math.random()*2);
+					if(smaNL>3){
+						var smaMX=Math.ceil(Math.random()*-600);
+					}else{
+						var smaMX=Math.ceil(Math.random()*600);
+					}
+					var smaMY=Math.ceil(Math.random()*1000);
+					var norNL=Math.ceil(Math.random()*6);
+					var norNT=Math.ceil(Math.random()*2);
+					if(norNL>3){
+						var norMX=Math.ceil(Math.random()*-600);
+					}else{
+						var norMX=Math.ceil(Math.random()*600);
+					}
+					var norMY=Math.ceil(Math.random()*1200);
+					var bigNL=Math.ceil(6);
+					var bigNT=Math.ceil(Math.random()*4);
+					if(bigNL>3){
+						var bigMX=Math.ceil(Math.random()*-600);
+					}else{
+						var bigMX=Math.ceil(Math.random()*600);
+					}
+					var bigMY=Math.ceil(Math.random()*1000);
+						if(i%2==0){
+							var sma='<img  class="childSnow_sma childSnow_sma'+i+'" style=left:'+smaNL+'rem;top:'+smaNT+'rem  src="images/act_chri_child__snowSma.png" alt="">';
+							var nor='<img  class="childSnow_nor childSnow_nor'+i+'"  style=left:'+norNL+'rem;top:'+norNT+'rem src="images/act_chri_child__snowNor.png" alt="">';
+						}
+						setTimeout(function(){
+							var big='<img class="childSnow_big childSnow_big'+i+'" style=left:'+bigNL+'rem;top:'+bigNT+'rem src="images/act_chri_child__snowBig.png" alt="">';
+							$(".snowShine").append(big);
+						},3000);
+						$(".snowShine").append(sma);
+						$(".snowShine").append(nor);
+						$(".childSnow_sma"+i).animate({"-webkit-transform":"translateY("+ smaMY+"px) translateX("+smaMX+"px) translateZ(-10px)","transform":"translateY("+ smaMY+"px) translateX("+smaMX+"px) translateZ(-10px)"},7000,function(){
+							$(this).remove();
+						});
+						$(".childSnow_nor"+i).animate({"-webkit-transform":"translateY("+norMY+"px) translateX("+norMX+"px) translateZ(30px)","transform":"translateY("+norMY+"px) translateX("+norMX+"px) translateZ(30px)"},7000,function(){
+							$(this).remove();
+						});
+						$(".childSnow_big"+i).animate({"-webkit-transform":"translateY("+bigMY+"px) translateX("+bigMX+"px) translateZ(100px)","transform":"translateY("+bigMY+"px) translateX("+bigMX+"px) translateZ(100px)"},3000,function(){
+							$(this).remove();
+						});
+					i++;
+				},100)
+			})();
+		}
+
+
+	</script>
+</html>

@@ -13,6 +13,7 @@
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+ 		
 		<script>
 			var _hmt = _hmt || [];
 			(function() {
@@ -42,163 +43,169 @@
 		<style>
 			*{margin:0;padding:0;}
 			body{font-size:14px;width:100%;font-family:"微软雅黑","宋体",Arial;overflow:hidden;}
-			.index_wrap{/*height:100%;*/position: absolute;overflow: hidden;
-				width: 100%;background: url(images/chris_indexBgImg.jpg)top center no-repeat;
-				background-size: 100% 100%;box-sizing: border-box;
+			 a{color:inherit;text-decoration:none;}
+			 .wrap{position:absolute;background: #fff;width: 100%;background-size: 100% 100%;}
+			 
+			.index_wrap{width: 100%;position: absolute;
+				background: url(images/act_index_BJ.jpg)top center no-repeat;
+				background-size: 100% 100%;
 			}
-			/*.content_top{width: 100%;overflow: hidden;  position: relative;}*/
-			/*.hatdivSty{  width: 30%;*/
-				  /* margin: 0 auto; */
-				  /*height: 1rem;*/
-				  /* padding-top: .2rem; */
-				 /* position: absolute;
-				  top: 0.2rem;
-				  right: .1rem;
-				  }*/
-				 
-			
-			#audioCon{display:none;}
-				 /*音符旋转*/
-			@-webkit-keyframes musicMove{
-				100%{-webkit-transform:rotate(360deg)}
-			}
-			@keyframes musicMove{
-				100%{transform:rotate(360deg)}
-			}
-			#audioBtn{
-				position:absolute;top:.2rem;right:.2rem;width:.5rem;z-index:1;
-				-webkit-animation:musicMove 1s linear infinite;
-				animation:musicMove 1s linear infinite;
-				-webkit-animation-fill-mode: forwards;
-
-			}
-			.audioBtn{
-				animation-play-state:paused;
-				-webkit-animation-play-state:paused;
-			}
-			.topTitleDiv{padding-top:.8rem;position:relative;}
-			.topTitleDiv .hatMoveSty{/*width: 1.5rem; position: absolute;  top: .3rem;  right: .6rem;*/
-				position:absolute;top:.45rem;right:1.1rem;width:.8rem;
-				transform:translateY(-1.5rem);	-webkit-transform:translateY(-1.5rem);
-			}
-			.topTitleDiv .titleMoveSty{  display: block;width: 4.5rem ; margin:0 auto;opacity:0;}
-			/*.topTitleDiv{padding-top: .8rem;  position:relative;
-			}*/
-			
-			/*.content_boy{width: 100%; overflow: hidden;  position: relative;/*z-index: 2;*/}*/
-			.childDivSty{  width: 100%;
-  			padding-top: .3rem;}
-			.childMoveSty{  width: 6.2rem; float: right;
+			.index_title{width: 100% ;padding-top: .6rem;overflow: hidden;}
+			.index_title img{width: 100%;float: left;}
+			.index_letter{ width: 100%;
+			  	float: left;
+			  	margin: .4rem auto 0;
  			}
-			.woldDescSty{  position: absolute; top: 2.5rem;left: 1.8rem;
-  			}
-			.woldDescSty p{  font-size: 14px; line-height: 25px;
-			  border-bottom-style: dashed;
-			  border-bottom-width: 1px;
-			  border-bottom-color: #000;
-			  font-family: 楷体;
+ 			.index_letter img{ width:4.5rem;display: block;margin: 0 auto;
+ 			}
+ 			.index_older{width: 100%;overflow: hidden;  position: absolute;  top: 5.3rem;  left: 0;}
+			.index_older img:nth-child(1){width: 4.5rem ;float: left;}
+			.index_older img:nth-child(2){width: 1.8rem ;float: right;  margin-top: 2.8rem;}
+			.index_bottom{  position: absolute;  bottom: 1.2rem;  left: 2rem;}
+			.index_bottom img{width: 2.5rem;display:block;margin:0 auto;}
+			.index_bottom p{
+	    	color: #000;font-size: 18px;width:100%;text-align: center;
+	    	position:fixed;bottom:.15rem;left:0;font-family:"黑体";
+	    }
+	     .index_activeRule{
+	    	position:fixed;bottom:0;left:0;width:100%;padding:.3rem;box-sizing:border-box;
+	    	color:#fff;background:rgba(20,20,20,.7);display:none;font-size: 12px;
+    	}
+    	
+    	/*模板页样式*/
+    	.temp_wrap{width: 100%;height:100%;background:#fff ;position: absolute;display: none;
 			}
-			.userOper{
-				position:absolute;z-index:10;top:2rem;left:0rem;opacity: 0;
-			}
-			.upLoadDiv{
-				width: 90px;
-				height:90px;
-				border-radius: 50px;
-				background: #fff;
-				position:absolute;
-				top:.5rem;
-				left:1.2rem;
-			}
-			.upLoadDiv p{
-				  font-family: 楷体;
-				  font-size: 16px;
-				  text-align: center;
-				  line-height: 1.8rem;
-			}
+			.temp_titDiv{width: 100%;overflow: hidden;  margin: .6rem auto;}
+			.temp_titDiv img{width: 6.4rem;float:left;}
+			.temp_imgDiv{width: 100%;margin: 0 auto;overflow: hidden;}
+			/*.temp_imgDiv a{width: 100%;margin: 0 auto;}*/
+			.temp_imgSty{width: 100%;   height: 2.8rem; padding: 0 .5rem .4rem;  box-sizing: border-box;}
+			.temp_imgSty img{width: 2.6rem;}
+			.imgLeft{float: left;}
+			.imgRight{float: right;}
 			
-			/*.content_bottom{position:relative;width:6.4rem;  bottom: 0;
-    		}*/
-    		.liftMoveSty img{position:absolute;}
-    		/*.liftMoveSty img:nth-child(1){width: 3rem;bottom:0;left: .5rem;}
-    		.liftMoveSty img:nth-child(2){width: 2.5rem;left:.7rem;bottom:0;}*/
-  			.liftMoveSty img:nth-child(1){width: 3rem; bottom: 0;left:2.4rem;}
-  			.liftMoveSty img:nth-child(2){width: .5rem; bottom: 0.4rem;left:3.4rem;}
-  			.liftMoveSty img:nth-child(3){width: .7rem;  bottom: 0.2rem;left:3.6rem;}
-  			}
-  			
+		/*模板预览页*/
+		.preview_page{display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 11;top: 0;background-color: rgba(50, 50, 50, 0.5);
+   			}
+   		.imgPlayBox{width: 5.5rem; height: 8rem;margin: 1rem auto;background: #fff;}	
+   		.preview_btning{  position: absolute; width: 100%;left: 2.45rem; top: 8.2rem; height: .9rem;
+			  /*overflow: hidden;*/
+		  }
+		 .previewTitle{color: #000;font-size: 18px;width:100%;text-align: center;
+	    	position:fixed;bottom:1rem;left:0;font-family:"楷体";} 
 		</style>	
 	</head>	
 	
 	<body>
+	<div class="wrap">
 		<div class="index_wrap">
-			<audio id="audioCon" src="audio/3.JingleBells.mp3" autoplay="autoplay" loop="loop" preload="auto"></audio>
-			<img id="audioBtn" class="audioBtn" src="images/act_musicIcon.png" alt="">
-			<!--<div class="content">-->
-				<div class="topTitleDiv">
-					<img class="titleMoveSty" src="images/chris_indexTitle.png" />
-					<img class="hatMoveSty"src="images/act_chrisIndexHat.png" />
+			<script>
+		        var wh=$(window).height();
+		        var ww=$(window).width();
+		        $(".index_wrap").width(ww);
+		        $(".index_wrap").css({minHeight:wh});
+    		</script>
+			<div class="index_title">
+				<img src="images/act_index_title.png" />
+			</div>
+			<div class="index_letter">
+				<img src="images/act_index_letter.png" />
+			</div>
+			<div class="index_older">
+				<img class="chris_olders" src="images/act_index_older.png" />
+				<img class="chris_tree" src="images/act_index_chrisTree.png" alt="" />
+			</div>
+			<div class="index_bottom" id="index_bottom">
+            	<img id="start" src="images/act_index_startBtn.png" alt="">
+            	<p id="activeRule_key">活动规则</p>
+        	</div>
+	        <div class="index_activeRule">
+	            <p style="text-align: center; font-size: 16px;">活动规则</p><br />
+	            	<p>1、用户进入H5活动页面，选择电子贺卡模板，自行上传图片和编辑文字，
+	            		凡参与活动并成功分享的用户均<br/>可获得【药快到】全场通用满48元减8元现金券2张。
+	            	</p>
+	            	<br />
+	            	<p>2、活动有效期自12月21日0:00——1月3日23:59。</p><br />
+	            	<p>3、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+	        </div>
+		</div>
+		<div class="temp_wrap">
+			<div class="contaner ">
+				<div class="temp_titDiv">
+					<img src="images/act_temp_title.png" />
 				</div>
-				<!--<div class="hatdivSty">
-					<<img class="titleMoveSty" src="images/chris_indexTitle.png" />
-					<img class="hatMoveSty"src="images/act_chrisIndexHat.png" />
-				</div>-->
-				
-				<div class="childBoySty">
-				<!--	<div class="upLoadDiv">
-						<p>上传照片</p>
+				<div class="temp_imgDiv">
+					<div class="temp_imgSty">
+						<!--<a href="">-->
+							<img class="imgLeft  imgClick_temp" src="images/act_chrisHappyIcon.png"/>
+						<!--</a>
+						<a href="">-->
+							<img class="imgRight imgClick_temp" src="images/act_chrisHappyIcon.png"/>
+						<!--</a>-->
 					</div>
-					<div class="woldDescSty">
-						<p>圣诞雪舞着浪漫的气息，</p>
-						<p>传递着节日的温馨；</p>
-						<p>圣诞节送你定制的祝福，</p>
-						<p>传递着我真诚的心意。</p>
-						<p>圣诞节到，</p>
-						<p>愿你开心相伴，吉祥如意！</p>
-					</div>-->
-					<div class="childDivSty">
-						<img class="childMoveSty" src="images/act_chrisChild.png" />
+					<div class="temp_imgSty">
+						<!--<a href="">-->
+							<img class="imgLeft imgClick_temp" src="images/act_chrisCuteElk.png"/>
+						<!--</a>
+						<a href="">-->
+							<img class="imgRight imgClick_temp" src="images/act_HappyNewYear.png"/>
+						<!--</a>-->
 					</div>
-					<div class="chrisTReeDiv>
-						<img class="chrisTreeSty" src="images/chris_indexTree.png" />
-						<img class="treeLightSty" src="images/act_chrisTreeLight.png" />
-					</div>
-					
-				</div>
-				<!--<div class="liftMoveSty">
-					<img class="langGiftSty" src="images/act_chrisLandGift.png" />
-					<img class="giftBoxSty" src="images/act_chrisGiftBox_02.png" />
-					<img class="giftBigBoxSty" src="images/act_chrisGiftBox_01.png" />
-				</div>-->
-				
-				<div class="userOper">
-					<div class="upLoadDiv">
-						<p>上传照片</p>
-					</div>
-					<div class="woldDescSty">
-						<p>圣诞雪舞着浪漫的气息，</p>
-						<p>传递着节日的温馨；</p>
-						<p>圣诞节送你定制的祝福，</p>
-						<p>传递着我真诚的心意。</p>
-						<p>圣诞节到，</p>
-						<p>愿你开心相伴，吉祥如意！</p>
+					<div class="temp_imgSty">
+						<!--<a href="">-->
+							<img class="imgLeft imgClick_temp" src="images/act_chrisOlder.png"/>
+						<!--</a>
+						<a href="">-->
+							<img class="imgRight imgClick_temp" src="images/act_celebrateNewYear.png">
+						<!--</a>-->
 					</div>
 				</div>
-			<!--</div>-->
+			</div>
+			<div class="preview_page">
+				<div class="imgPlayBox"></div>
+				<div class="preview_btning">
+					<img style="width: 1.5rem;" src="images/act_previevUse.png"/>
+				</div>	
+				<div class="previewTitle">
+					圣诞快乐
+				</div>
+			</div>
+		</div>	
 			
 		</div>
 	</body>
-	<script language="javascript">
-		$(function(){
-		/*	$(".content_bottom").toggle( 
-				  function () {
-				    $(".snowLandSty").fadeIn();
-				  },
-				  function () {
-				  },
-			);*/
+	<script>
+			(function(){
+				var wh=$(window).height();
+					if(wh<=540){
+						$(".index_title").css({paddingTop:".2rem"});
+						$(".index_older").css({top:"4.3rem"});
+						$(".index_letter").css({margin:".1rem auto 0"});
+						$(".chris_olders").css({width:"3.5rem"});
+						$(".chris_tree").css({marginTop:"1.8rem "});
+						}
+					})()
+				</script>
+	<script>
+	$(function(){
+	/*游戏页面出现*/
+		$("#start").on("tap",function(){
+			$(".index_wrap").hide();
+			$(".temp_wrap").show();
+		});
+		/*活动规则*/
+		$(".index_wrap").on("click","#activeRule_key",function(){
+			$(".index_activeRule").show();
+		});
+		$(".index_wrap").on("click",".index_activeRule",function(){
+			$(".index_activeRule").hide();
+		});
+		
+		$(".imgClick_temp").on("tap",function(){
+			$(".contaner").hide();
+			$(".preview_page").show();
+		});
 		})
 	</script>
-
-	
 </html>

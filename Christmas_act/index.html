@@ -1,104 +1,143 @@
 <!DOCTYPE html>
 <html>
-<head>
- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
- <title>逼真的雪花飘落特效</title>
- <script type="text/javascript" src="js/ThreeCanvas.js"></script>
- <script type="text/javascript" src="js/Snow.js"></script>
- <style type="text/css">
-   body {width: 100%;
-     background:url(images/chris_indexBgImg.jpg) top center no-repeat;
-     background-size: 100% 100% ;
-     overflow:hidden;
-   }
-   a {
-     color:#0078ff;
-   }
- </style>
-</head>
-<body onLoad="init()">
-</body>
-
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="style/indexStyle.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/indexControl.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+		    (function (doc, win) {
+		        var docEl = doc.documentElement,
+		                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+		                recalc    = function () {
+		                    var clientWidth = docEl.clientWidth;
+		                    if (clientWidth>=640) {
+		                        clientWidth = 640;
+		                    };
+		                    if (!clientWidth) return;
+		                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+		                };
+		        if (!doc.addEventListener) return;
+		        win.addEventListener(resizeEvt, recalc, false);
+		        doc.addEventListener('DOMContentLoaded', recalc, false);
+		    })(document, window);
+		</script>
+	</head>
+	<body>
+		<div class="canv_wrap">
+			<canvas id="act_chirs"></canvas>
+			<canvas id="act_backchirs"></canvas>
+		</div>
+		
+		<div class="cameraInput_wrap">
+			<input id="cameraInput" type="file" style="display:none"/>
+			<label for="cameraInput">点击上传</label>
+		</div>
+		<div id="savaNow">保存</div>
+		
+		
+	</body>
 	<script type="text/javascript">
-	var SCREEN_WIDTH = window.innerWidth;
- var SCREEN_HEIGHT = window.innerHeight;
- 
- var container;
- var particle;
- var camera;
- var scene;
- var renderer;
-// var mouseX = 0;
-// var mouseY = 0;
- 
-// var windowHalfX = window.innerWidth / 2;
-// var windowHalfY = window.innerHeight / 2;
- var particles = []; 
- var particleImage = new Image();
- particleImage.src = 'images/chris_snow_03.png'; 
- function init() {
-   container = document.createElement('div');
-   document.body.appendChild(container);
-   camera = new THREE.PerspectiveCamera( 75, SCREEN_WIDTH / SCREEN_HEIGHT, 1, 10000 );
-   camera.position.z = 1000;
-   scene = new THREE.Scene();
-   scene.add(camera);
+	//用户自定义图片设置；
+	$(function(){
+		var can=document.getElementById("act_chirs") ;
+		var canStage=can.getContext("2d")
+		var canW=$(".canv_wrap").width();
+		var canH=$(".canv_wrap").height();
+		var x=y=0;
+		var now_rotate_radian=0;/*用户旋转角度初始化*/
+		if ( typeof(FileReader) === 'undefined' ){ 
+			alert("抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！"); 
+			$("#cameraInput").attr( 'disabled','disabled' ); 
+		} else { 
+			$("#cameraInput").on( 'change',getPic,false );
+		}
+		function getPic(){
+			var resultFile = document.getElementById("cameraInput").files[0];
+			if(!/image\/\w+/.test(resultFile.type)){ 
+				alert("请确保文件为图像类型"); 
+				return false; 
+			} 
+			/*限制用户上传图片大小*/
+			var siz=resultFile.size;  
+			if(siz>=3145728){
+				alert("您的图片大于3M,请重新选择图片");
+				return false;
+			};
+			var reader = new FileReader();
+			reader.readAsDataURL(resultFile);
+			reader.onload=function(){
+				console.log(reader)
+				/*this.result为reader自带属性，值为base64的编码*/
+				userImg=new Image();
+				userImg.src=this.result;
+				userImg.onload=function(){
+					canStage.clearRect(0,0,canW,canH);
+					canStage.drawImage(userImg, x, y);
+					/*平移图片*/
+					usertouchMove();
+					//旋转，暂未实现
+//					userRotateTouch();
+				}
+			}
+		};
+		/*用户平移图片*/
+		var usertouchMove=function(){
+			$("#act_chirs").on("touchstart",function(e){
+				/*此处的事件是系统自带event事件，传参的e没有targetTouches属性*/
+				var touch=event.touches[0];
+				startX=touch.clientX ;
+				startY=touch.clientY ;
+			});
+			$("#act_chirs").on("touchemove",function(){
+				e.preventDefault();
+			})
+			$("#act_chirs").on("touchend",function(e){
+				var touch=event.changedTouches[0];
+				endX=touch.clientX ;
+				endY=touch.clientY ;
+				x+=endX-startX;
+				y+=endY-startY;
+				userMoveCon();
+			});
+			function userMoveCon(){
+				canStage.clearRect(0,0,canW,canH);
+				canStage.drawImage(userImg, x, y);
+			};
+		};
+		/*用户旋转图片*/
+//		var userRotateTouch=function(){
+//			canStage.save();
+//			canStage.translate(PO.x,PO.y);//坐标原点移动到图片中心点
+//			canStage.rotate(now_rotate_radian);//旋转画布 在屏幕坐标系基础上旋转 now_rotate_radian
+//			canStage.drawImage(userImg, x, y);    
+//			/*drawRotateCtrl();   */     
+//			canStage.restore();//还原画布坐标系
+//		};
+		var a= decodeURI('http://test.ykd365.com:10080/weixin/wechat/decideSkipTest?code=thisisatest&state={"url":"blankSkip","phyUuid":"200"}')
+		var b=decodeURIComponent('http://test.ykd365.com:10080/weixin/wechat/decideSkipTest?code=thisisatest&state={"url":"blankSkip","phyUuid":"200"}')
+		var c=encodeURI('http://test.ykd365.com:10080/weixin/wechat/decideSkipTest?code=thisisatest&state={"url":"blankSkip","phyUuid":"200"}')
+		console.log(c)
+//背景图设置
+		var canBack=document.getElementById("act_backchirs") ;
 		
-   renderer = new THREE.CanvasRenderer();
-   renderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
-   var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+		/*点击保存，生成贺卡*/
+		$("#savaNow").on("click",function(){
+			saveImage()
+		});
+		var saveImage=function(){
+			var finalImage=new Image();
+				finalImage.src=can.toDataURL("image/png"); 
+				console.log(finalImage.src)
+		};
 		
-  for (var i = 0; i < 500; i++) {
-    particle = new Particle3D( material);
-    particle.position.x = Math.random() * 2000 - 1000;
-    particle.position.y = Math.random() * 2000 - 1000;
-    particle.position.z = Math.random() * 2000 - 1000;
-    particle.scale.x = particle.scale.y =  1;
-    scene.add( particle );
-    particles.push(particle); 
-   }
-   container.appendChild( renderer.domElement );
-//  document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-//  document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-//  document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-    setInterval( loop, 1000 / 60 );
-  }
- /* function onDocumentMouseMove( event ) {
-    mouseX = event.clientX - windowHalfX;
-    mouseY = event.clientY - windowHalfY;
-  }
-  function onDocumentTouchStart( event ) {
-    if ( event.touches.length == 1 ) {
-      event.preventDefault();
-      mouseX = event.touches[ 0 ].pageX - windowHalfX;
-      mouseY = event.touches[ 0 ].pageY - windowHalfY;
-    }
-  }
-  function onDocumentTouchMove( event ) {
-    if ( event.touches.length == 1 ) {
-      event.preventDefault();
-      mouseX = event.touches[ 0 ].pageX - windowHalfX;
-      mouseY = event.touches[ 0 ].pageY - windowHalfY;
-    }
-  }*/
-  function loop() {
-   for(var i = 0; i< particles.length; i++)
-   {
-     var particle = particles[i]; 
-     particle.updatePhysics(); 
-     with(particle.position)
-      {
-       if(y< -1000) y+=2000; 
-       if(x>1000) x-=2000; 
-       else if(x< -1000) x+=2000; 
-       if(z>1000) z-=2000; 
-       else if(z< -1000) z+=2000; 
-      }				
-    }
-//  camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-//  camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
-    camera.lookAt(scene.position); 
-    renderer.render( scene, camera );
-}
-</script>
+		
+	})	
+		
+	</script>
 </html>
