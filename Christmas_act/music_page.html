@@ -11,7 +11,9 @@
 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<!--
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		-->
 		<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
  		
 		<script>
@@ -44,10 +46,21 @@
 			*{margin:0;padding:0;}
 			body{font-size:14px;width:100%;font-family:"微软雅黑","楷体",Arial;overflow:hidden;}
 			 a{color:inherit;text-decoration:none;}
-			 .temp_wrap{width: 100%;;height:100%;background: #fff;position: absolute;}
-			#sureBtning{font-size: 18px;color: #dd0000;margin: .6rem;float: right;}
-			.music_temp{width: 100%;padding-top: 1rem;}
-			.music_temp p{font-size: 16px;border-bottom: 1px solid #898989;  line-height: 30px;  word-break: break-all;}
+			 .temp_wrap{width: 100%;background: #fff;}
+			#sureBtning{font-size: 18px;color: #dd0000;padding-left: 5.2rem;padding-top: .2rem;
+  				}
+			.music_temp{  width: 5.5rem;
+  				float: right;}
+			.music_temp p{font-size: 17px;border-bottom: 1px solid #898989;  line-height: 40px;  
+						word-break: break-all;
+			    }
+			    
+			.active{color: #dd0000;}
+			.dottSty{  color: #dd0000;font-size: 1.5rem;  display: block;line-height: 34px;
+				  position: fixed;left: .2rem;
+				}
+		   /* .music_temp ul li{list-style: none; display: block; width: 5.6rem;float: right;*/
+		    }
 		</style>	
 	</head>	
 	
@@ -55,19 +68,47 @@
 		<div class="temp_wrap">
 			<div id="sureBtning">确定</div>
 			<div class="music_temp">
-				<p class="">Red Nose Ring Deer</p>
-				<p >Edelweiss</p>
-				<p >Jingle Bells</p>
-				<p >A Holly Jolly Christmas</p>
-				<p >Silent Night</p>
-				<p >Happy  New  Year</p>
-				<p >We Wish You A Merry Christmas</p>
-				<p >When A Child Is Born</p>
-				<p >Frosty The Snowman</p>
-				<p >Here Comes Santa Claus</p>
-				<p >Santa Clause is Coming to Town</p>
-				<p >Greensleeves</p>
+				<p  data-id="1.red Nose Ring Deer.mp3">Red Nose Ring Deer</p>
+				<p  data-id="1112">Edelweiss</p>
+				<p  data-id="1113">Jingle Bells</p>
+				<p  data-id="1114">A Holly Jolly Christmas</p>
+				<p  data-id="1115">Silent Night</p>
+				<p  data-id="1116">Happy  New  Year</p>
+				<p  data-id="1117">We Wish You A Merry Christmas</p>
+				<p  data-id="1118">When A Child Is Born</p>
+				<p  data-id="1119">Frosty The Snowman</p>
+				<p  data-id="1120">Here Comes Santa Claus</p>
+				<p  data-id="1121">Santa Clause is Coming to Town</p>
 			</div>
 		</div>			
 	</body>
+	<script>
+		$(function(){
+			var _html = "<span class='dottSty'>·</span>"
+			$(".music_temp p").on("tap",function(){
+			
+				/*$(this).parent().siblings('li').find('p').removeClass('active');
+				$(this).parent().siblings('li').find('span.dottSty').remove();*/
+				
+				
+				$(this).siblings().removeClass('active');
+				/*$(this).siblings().removeClass('span.dottSty');*/
+				$(this).siblings('span.dottSty').remove();
+				$(this).addClass('active');
+				$(_html).insertBefore(this) ;
+			});
+			$("#sureBtning").on("click",function(){
+				var activeNode = $(".music_temp p.active") ;
+				
+				if(activeNode.length < 1){
+					alert("请选项") ;
+					return false;
+				}
+				
+				var id = $(activeNode[0]).attr('data-id') ;
+				window.location.href = "idex.html?id="+id ;
+				alert(id) ;
+			});
+		})
+	</script>
 </html>
