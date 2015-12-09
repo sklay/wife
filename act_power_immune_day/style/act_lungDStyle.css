@@ -1,0 +1,84 @@
+@CHARSET "UTF-8";
+*{margin:0;padding:0;}
+html{font-size:62.5%;}
+body{font-size:0.12rem;width:6.4rem;max-width:640px;
+	margin:0 auto;font-family:"微软雅黑","黑体",arial;/* box-shadow: 2px 2px 2px rgba(0,0,0,.6),-2px -2px 2px rgba(0,0,0,.6); */
+	/*background:#ff9b26;*/
+}
+
+
+/*领取页面*/
+.receive_page{position: absolute;
+	width: 100%;background: url(images/act_powerImmune_bj.jpg.jpg)top center no-repeat ;
+	background-size:100% 100%;height: 100%;
+	} 
+.receive_codeTitle{margin:0 auto;width:5rem;padding-top: .8rem;}
+.receive_codeTitle img{width: 100%;}
+.receive_page_coupon{margin:0 auto .3rem;width:5rem; padding-top:.1rem;}
+.receive_page_coupon img{width: 100%;}
+
+.commomLogin{
+	width:100%;box-sizing:border-box;margin:0 auto;font-family:"黑体",arial;
+	}
+.commomLogin input{text-align:center;box-sizing:border-box;height:35px;margin-left:14%;
+	border:1px solid #00d0ff;background:transparent;border-radius:8px;
+}
+.commomLogin #commomLogin_phoneNum{width:4.5rem;display:block;}
+#commomLogin_codeNum{width:42%;float:left;}
+.commomLogin_getcodeagain{display:none;}
+#commomLogin_getcode{  float: right; width: 24%; height: 35px;
+  box-sizing: border-box;border-radius: 8px;background: #a7e3ff;
+  font-size: 12px;text-align: center;margin-right:1rem;
+  }
+#commomLogin_getcode .commomLogin_getcodeagain{font-size:10px;line-height:17px;}
+#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
+::-moz-placeholder {
+    color: #000;
+}
+:-ms-input-placeholder {
+   color: #000;
+}
+::-webkit-input-placeholder {
+   color: #000;
+}
+/*#loginsumbit{margin:.4rem auto 0;text-align:center;}
+#loginsumbit img{width: 3rem;} */
+
+#loginsumbit{display:block;width:34%;color:#e60012;text-align:center;
+			font-size:.5rem;font-weight:600;box-sizing:border-box;line-height:40px;
+			border-radius:8px;background:#fff;margin:.4rem auto 0;
+			-webkit-box-shadow: 3px 3px 3px;  
+			-moz-box-shadow: 3px 3px 3px;  
+			box-shadow: 0 2px 2px #dc4f4f;  
+		}
+		
+/*领取成功页和已领取页*/
+.common_boxSty {  display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.5);}
+.common_titleSty img{width: 100%;}
+.common_titleSty img:nth-child(2){position: absolute;
+  						top:2.4rem;}
+.have_received_title img{  width:100%;}				
+.common_titleSty{position:relative;width:5rem;margin:2.5rem auto 0}
+.common_descSty img{width: 40%; float: left;margin: 10px 8px 0 auto;}
+.common_descSty p{color: #fff; font-size: 18px;line-height: 40px;text-align: center;}
+.closeShade{width: 60px;float:right;color:#fff;font-size:16px; text-align: center;
+	    height: 60px; 
+	    border-radius: 15px; position: absolute;top:1.5rem; right: .6rem;}
+.closeShade span{width:20px;height:20px;line-height:20px;border:.03rem solid #ffde00;display:block;margin:0 auto;border-radius:50%;}
+.common_useStyle img{width: 2.2rem;float: left; margin-left:14%;}
+.common_useStyle{margin-top:.6rem;}
+.shareFri img{width: 3.5rem;margin-left:1.5rem;}
+ #small_ShareFri {margin-left: 4%; width:2.2rem;}
+/*#shareAppPage{
+			width:100%;height:100%;border:none;border-radius:0;position:fixed;
+			display:none;z-index:1000;top:0;left:0;background:rgba(50,50,50,.8);margin:0;box-sizing:border-box;
+			padding-top:4rem;
+			}
+#shareAppPage button{
+			width:2.5rem;padding:10px 20px;font-family:"黑体";float:left;background:#00d0ff;border:none;
+			margin-left:.5rem;border-radius: 6px;
+			}*/
+ #shadeWaitDiv{position:fixed;top:0;left:0;background:rgba(0,0,0,.3);z-index:999;height:100%;width:100%;}   
+ #waitAll {position:absolute;width:1rem;z-index:1000;top: 4rem;left: 2.7rem;}
+ #waitAll img{width:1rem;}

@@ -1,10 +1,479 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title></title>
-	</head>
-	<body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="description" content="【药快到】关注你的安全，点击领取5元现金券。"/>
+	<title>远离艾滋，从防开始</title>
+		<link rel="stylesheet" href="style/main_wechat.css" />
+		<!--<link rel="stylesheet" href="style/act_lungDStyle.css" charset="utf-8"/>-->
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<style>
+		*{margin:0;padding:0;}
+		html{font-size:62.5%;}
+		body{font-size:14px;width:100%;font-family:"微软雅黑","宋体",Arial;/*overflow:hidden;*/}
+
+
+	/*领取页面*/
+		.receive_page{position: absolute;
+			/*display:none;*/width: 100%;background: url(images/act_powerImmune_bj_o.jpg)top center no-repeat ;
+			background-size:100% 100%;
+			}
+	
+	.shiled_divSty img{  width: 2rem;
+  /*height: 2.9rem;*/
+  position: absolute;
+  top: 2.6rem;
+  left: 3.5rem;}
+	.coupon_divSty{width: 100%;overflow: hidden;
+		      }
+		  .coupon_divSty img {width: 100%;float: left;
+		      }   
+	
+.receive_codeTitle{margin:0 auto;width:100%;}
+.receive_codeTitle img{width: 100%;}
+.receive_page_coupon{   width: 4.4rem;
+  /*margin: 1.8rem auto .2rem; */
+    margin: 1.6rem 0 .2rem .8rem;
+  }
+.receive_page_coupon img{width: 100%;}
+
+.commomLogin{
+	width:100%;box-sizing:border-box;margin:0 auto;font-family:"黑体",arial;
+	}
+.commomLogin input{text-align:center;box-sizing:border-box;height:35px;margin-left:.8rem;
+	border:1px solid #fff;background:transparent;border-radius:8px;
+}
+.commomLogin #commomLogin_phoneNum{width:4.5rem;display:block;}
+#commomLogin_codeNum{width:42%;float:left;}
+.commomLogin_getcodeagain{display:none;}
+#commomLogin_getcode{  float: right; width: 24%; height: 35px;color: #fff;
+  box-sizing: border-box;border-radius: 8px;background: #e60012;
+  font-size: 12px;text-align: center;margin-right:1rem;
+  }
+#commomLogin_getcode .commomLogin_getcodeagain{font-size:10px;line-height:17px;}
+#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
+::-moz-placeholder {
+    color: #fff;
+}
+:-ms-input-placeholder {
+   color: #fff;
+}
+::-webkit-input-placeholder {
+   color: #fff;
+}
+/*#loginsumbit{margin:.4rem auto 0;text-align:center;}
+#loginsumbit img{width: 3rem;} */
+
+#loginsumbit{display:block;width:34%;color:#e60012;text-align:center;
+			font-size:.5rem;font-weight:600;box-sizing:border-box;line-height:40px;
+			border-radius:8px;background:#fff;margin:.4rem auto 0;
+			-webkit-box-shadow: 3px 3px 3px;  
+			-moz-box-shadow: 3px 3px 3px;  
+			box-shadow: 0 2px 2px #dc4f4f;  
+		}
 		
-	</body>
+/*领取成功页和已领取页*/
+.common_boxSty {  display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.5);}
+.common_titleSty img{width: 100%;}
+.common_titleSty img:nth-child(2){position: absolute;
+  						top:2.4rem;}
+.have_received_title img{  width:100%;}				
+.common_titleSty{position:relative;width:5rem;margin:2.5rem auto 0}
+.common_descSty img{width: 40%; float: left;margin: 10px 8px 0 auto;}
+.common_descSty p{color: #fff; font-size: 18px;line-height: 40px;text-align: center;}
+.closeShade{width: 60px;float:right;color:#fff;font-size:16px; text-align: center;
+	    height: 60px; 
+	    border-radius: 15px; position: absolute;top:1.5rem; right: .6rem;}
+.closeShade span{width:20px;height:20px;line-height:20px;border:.03rem solid #ffde00;display:block;margin:0 auto;border-radius:50%;}
+.common_useStyle img{width: 2.2rem;float: left; margin-left:14%;}
+.common_useStyle{margin-top:.6rem;}
+.shareFri img{width: 3.5rem;margin-left:1.5rem;}
+ #small_ShareFri {margin-left: 4%; width:2.2rem;}
+/*#shareAppPage{
+			width:100%;height:100%;border:none;border-radius:0;position:fixed;
+			display:none;z-index:1000;top:0;left:0;background:rgba(50,50,50,.8);margin:0;box-sizing:border-box;
+			padding-top:4rem;
+			}
+#shareAppPage button{
+			width:2.5rem;padding:10px 20px;font-family:"黑体";float:left;background:#00d0ff;border:none;
+			margin-left:.5rem;border-radius: 6px;
+			}*/
+ #shadeWaitDiv{position:fixed;top:0;left:0;background:rgba(0,0,0,.3);z-index:999;height:100%;width:100%;}   
+ #waitAll {position:absolute;width:1rem;z-index:1000;top: 4rem;left: 2.7rem;}
+ #waitAll img{width:1rem;}
+
+		</style>
+		<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</head>
+	<body>
+		<div class="receive_page " id="getHBPage">
+			<script>
+		     var wh=$(window).height();
+//		     var ww=$(window).width();
+	        	$(".index_wrap").css({minHeight:wh});
+		     </script>
+		     <div class="content_receive">
+				<script>
+			         var wh=$(window).height();
+			        $(".content_receive").css({minHeight:wh}); 
+			    </script>
+				<div class="receive_codeTitle recePage_Width">
+				 	<img class="logIconSty" src="images/act_powerImmune_title.png" />
+					<img class="logIconSty" src="images/act_powerImmune_logo.png" />
+				</div>
+				<div class="coupon_divSty">
+					<img class="coupon_icon" src="images/act_powerImmune_noBad.png" />
+				</div>
+				<div class="shiled_divSty">
+					<img class="shiled_icon" src="images/act_power_shiled.png" />
+				</div>
+				<div class="receive_code receivePageCont" id="receive_page">
+					<div class="receive_page_coupon recePage_Width" id="receive_page_coupon">
+			            <img  src="images/act_powerImmune_coupon.png" alt=""/>
+			        </div>
+			        <div class="loginnow" id="loginnow">
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+								<div id="commomLogin_getcode">
+									<span class="commomLogin_getcode" style="line-height:35px;">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+								</div>
+							</div>
+							
+							<div id="loginsumbit">领取
+								<!--<img src="images/act_lung_receivePage_getBtn.png" />-->
+							</div>
+							
+							<!--<div id="loginsumbit" id="loginsumbit">领取
+							<script>
+								(function(){
+									var wh=$(window).height();
+									if(wh<=540){
+										$("#loginsumbit").css({margin:".3rem auto 0"});
+									}
+								})()
+							</script>
+						</div>-->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+				<!---成功领取-->
+	        	<!--<div class="receive_success_box receivePageCont common_boxSty" >
+	        		<div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+	        	 	<div class="receive_success_title common_titleSty ">
+			            <img src="images/act_lung_getHbBackCommon.png" alt=""/>
+		       		</div>
+				    <div class="receive_success_desc common_descSty">
+				       <p class="commom_desc_psty2">为了您的健康，快去使用吧！</p>
+				    </div>
+				    <div class="common_useStyle" >
+					    <a id="downloadA" href="http://store.ykd365.com/download.html">
+					        <img src="images/act_lung_goToUseHb.png" />
+					    </a>
+					 	<img class="shareFri " id="small_ShareFri" src="images/act_lung_receivePageShareFri.png" />
+				  	</div>
+	        	</div>-->
+	    			<!--已经领过-->
+				<!--<div class="have_received_box receivePageCont common_boxSty" >
+				    <div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+				      <div class="have_received_title common_titleSty recePage_Width">
+					    <img src="images/act_lung_hasGot.png" alt=""/>
+					  </div>
+				      <div class="have_received_desc common_descSty">
+				        <p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .2rem;line-height: 25px;">快邀请 小伙伴们<br/>一起来测试吧！</p>
+				      </div>
+				     <div class="shareFri common_useStyle">
+				     	<img  src="images/act_lung_getFri.png" />
+				     </div>
+				</div>-->
+			</div>
+	<!--<%@ include  file="act_common_sharePage.jsp"%>-->
+</body>
+<script>
+/* 小屏手机适配 */
+(function(){
+	var wh=$(window).height();
+		if(wh<540){
+//			 $(".content_coupon ").css({top:"4.3rem"}) ;
+//			 $("#startGameBtn").css({margin:".5rem auto .2rem"});
+	}
+})()
+</script>
+	<script>
+	var wechatObj = new Object();
+	function s(type){
+	var jsonObject = {};
+	if(type==0){
+		jsonObject.shared_type = "0";
+		jsonObject.shared_url =  wechatObj.link;
+		jsonObject.shared_title = wechatObj.title;
+		jsonObject.shared_content = wechatObj.desc;
+		jsonObject.shared_img_url = wechatObj.imgUrl;
+	} else 
+	if(type==1){
+		jsonObject.shared_type = "1";
+		jsonObject.shared_url = wechatObj.link;
+		jsonObject.shared_title = wechatObj.title;
+		jsonObject.shared_content = wechatObj.desc;
+		jsonObject.shared_img_url = wechatObj.imgUrl;
+	}
+	var jsonStr = JSON.stringify(jsonObject);
+	sharedTypeByJson(jsonStr);
+}
+function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+    camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+}
+
+   $(function(){
+	  
+		/* 弹窗关闭 */
+		$(".controlAlertPage").on("click",".closeShade",function(){
+			$(".controlAlertPage").hide();
+			$(".common_useStyle").show();
+			$(".shareFri").show();
+			$(".shareAppPage").hide();
+		});
+		/*点击分享*/
+		$(".common_wrapSty").on("click",".shareFri",function(){
+			if(is_weixin()){
+				$("#shareshade").show();
+			}else{
+				$(".shareFri").hide();
+				$(".common_useStyle").hide();
+				$(".shareAppPage").show();
+			}
+			
+		});
+		
+		$(".shareAppPage").on("click",function(e){
+			var ev=e.target;
+			if(ev.nodeName!="BUTTON"){
+				$(".shareAppPage").hide();
+			}
+		})
+		
+
+		 /*领取事件  */
+		$("#receive_page").on("click","#commomLogin_getcodeBtn",function(){
+			getCodeCommon("comValCodeAjax");
+		});
+		$("#receive_page").on("click","#loginsumbit",function(){
+			submitPhoneCodeCommon("receiveAZReward",function(){
+				$(".controlAlertPage").hide();
+			  	$(".receive_success").show();
+			},function(){
+				$(".controlAlertPage").hide();
+			  	$(".have_received").show(); 
+			});
+		});
+	var time1=null;
+	function getCodeCommon(url,otherInfoSubmit){
+		waitShow();
+		if($("#commomLogin_getcode").attr("noclick")){
+			waitClose();
+			return false;
+		};
+		var $_phoneno=$("#commomLogin_phoneNum").val();
+		var regno = /1[3-8]+\d{9}/;
+		if (!regno.test($_phoneno)) {
+			alert("请输入正确的手机号！");
+			waitClose();
+			return false;
+		};
+		$("#commomLogin_getcode").attr("noclick",true);
+		var _url=url;
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+		var n=60;
+		$.ajax({
+			type:"post",
+ 			url:_url,
+ 			data:"phoneNum="+$_phoneno+"&"+_otherInfoSubmit,
+ 			success:function(result){
+ 				waitClose();
+ 				if (result.result == "succ") {
+					$("#commomLogin_getcode").css('background','#ccc');
+					$(".commomLogin_getcode").hide();
+					$(".commomLogin_getcodeagain").show();
+					$("#commomLogin_loginwarn").html("验证码短信已发送至您的手机");
+					time1=setInterval(function(){
+						n--;
+						$(".commomLogin_getcodeagain var").html(n);
+						if(n<=0){
+							getedHandle();
+						}
+					},1000)
+	    		}else{
+	    			waitClose();
+	    			alert(result.message);
+	    			$("#commomLogin_getcode").removeAttr("noclick");
+	    		}
+ 			},error:function(){
+ 				waitClose();
+ 				alert("发送请求失败");
+ 				$("#commomLogin_getcode").removeAttr("noclick");
+	        }
+		});
+	};
+	
+	function submitPhoneCodeCommon(url,succFun,receivedFun,otherInfoSubmit){
+		waitShow();
+		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit:"";
+ 		$_phoneno=$("#commomLogin_phoneNum").val();
+ 		$_code=$("#commomLogin_codeNum").val()
+ 		var regno = /1[3-8]+\d{9}/;
+ 		if($_phoneno==""||$_phoneno=="请输入手机号码"||!regno.test($_phoneno)){
+ 			waitClose();
+ 			alert("请输入正确的手机号码")
+ 			return false
+ 		};
+ 		if($_code==""||($_code=="请输入验证码")){
+ 			waitClose();
+ 			alert("请输入正确的验证码")
+ 			return false
+ 		};
+ 		var _url=url;
+ 		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
+ 		$.ajax({
+ 			type:"post",
+ 			url:_url,
+ 			//data:"phone="+$_phoneno+"&code="+$_code+"&"+_otherInfoSubmit,
+ 			data:"phone="+$_phoneno+"&code="+$_code,
+ 			success:function(result){
+ 				waitClose();
+ 				$("#commomLogin_phoneNum").val("");
+ 			  	$("#commomLogin_codeNum").val("")
+ 				if (result.result == "succ") {
+	    			succFun();
+	    			getedHandle();
+	    		}else if(result.result == "fail"){
+	    			if(result.message=="received"){
+	    				receivedFun();
+	    				getedHandle();
+	    			}else{
+	    				alert(result.message);
+	    				waitClose();
+	    				getedHandle();
+	    			}
+	    		}
+ 			},error:function(){
+	        	alert("发送请求失败");
+	        	waitClose();
+	        	getedHandle();
+ 			}
+ 		});
+	}
+	function getedHandle(){
+		clearInterval(time1);
+		$("#commomLogin_getcode").removeAttr("noclick").css('background','#ff1515');
+		$("#commomLogin_loginwarn").html("为保证您能成功领取奖品，请如实填写");
+		$(".commomLogin_getcode").show();
+		$(".commomLogin_getcodeagain").hide();
+		$(".commomLogin_getcodeagain var").html('60');
+	}
+ }) 
+ </script>
+ 
+	<!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript"></script> -->
+<script> 
+//分享链接
+$(function(){
+	$.ajax({url:"/weixin/wechat/getwxjssign?",data:{url: location.href.split('#')[0]},
+		success:function(wechatReturn){
+		if (wechatReturn) {
+			wx.config({
+			    //debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+			    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+			    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+			    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+			    signature: wechatReturn.signature,// 必填，签名，见附录1
+			    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+		}
+	}});
+	
+		var wechatObj = new Object();
+	    wechatObj.title = '远离艾滋，从防开始';
+	    wechatObj.desc = '【药快到】关注你的安全，点击领取5元现金券。';
+		wechatObj.link= 'http://store.ykd365.com/medhtml/common/initAZAct'; 
+	   /*  wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/initAZAct'; */ 
+	    wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/worldAids_shareIcon.jpg';
+	    function getMenuShare(){
+	    	var wechatShareMenu ={
+		    		title:wechatObj.title, // 分享标题
+		    		desc:wechatObj.desc, // 分享描述
+		    		link:wechatObj.link,
+		    	    imgUrl:wechatObj.imgUrl, // 分享图标
+		    	    success: function () { 
+		    	    },
+		    	    cancel: function () {
+		    	    }	
+		    };
+	    	var wechatShareMenu2 ={//朋友圈分享用
+		    		title:wechatObj.desc, // 分享标题
+		    		link:wechatObj.link,
+		    	    imgUrl:wechatObj.imgUrl, // 分享图标
+		    	    success: function () { 
+		    	    },
+		    	    cancel: function () {
+		    	    }	
+		    };
+		 	wx.onMenuShareTimeline(wechatShareMenu2); 
+	    	wx.onMenuShareAppMessage(wechatShareMenu);
+	    	wx.onMenuShareQQ(wechatShareMenu);
+	    	wx.onMenuShareWeibo(wechatShareMenu);
+		};
+		  wx.ready(function(){
+			  getMenuShare();
+		  });
+})
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </html>
