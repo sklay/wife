@@ -13,51 +13,29 @@
 		<script src="js/jquery-1.9.0.min.js"></script>
 		<script src="js/common.js"></script>
 		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script>
-			var _hmt = _hmt || [];
-			(function() {
-			  var hm = document.createElement("script");
-			  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
-			  var s = document.getElementsByTagName("script")[0]; 
-			  s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
-		<!--rem自适应单位js  -->		
-		<script>
-		    (function (doc, win) {
-		        var docEl = doc.documentElement,
-		                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-		                recalc    = function () {
-		                    var clientWidth = docEl.clientWidth;
-		                    if (clientWidth>=640) {
-		                        clientWidth = 640;
-		                    };
-		                    if (!clientWidth) return;
-		                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
-		                };
-		        if (!doc.addEventListener) return;
-		        win.addEventListener(resizeEvt, recalc, false);
-		        doc.addEventListener('DOMContentLoaded', recalc, false);
-		    })(document, window);
-		</script>
 		<style>
 		*{margin:0;padding:0;}
 		html{font-size:62.5%;}
 		body{font-size:14px;width:100%;font-family:"微软雅黑","宋体",Arial;}
-		.index_wrap{position: absolute; padding-bottom: .3rem;box-sizing: border-box; 
+
+		.index_wrap{position: absolute;   padding-bottom: .3rem;box-sizing: border-box; 
 			width: 100%;background: url(images/act_powerImmune_bj.jpg)top center no-repeat ;
 			background-size:100% 100%;}
+		.content_receive{width: 100%; /*padding-bottom: .2rem;box-sizing: border-box;*/ }
 		.receive_codeTitle{margin:0 auto;width:4rem;padding-top: .1rem;overflow: hidden;}
 		.receive_codeTitle img{width: 100%;float: left;}
 		.receive_descSty{width: 100%;overflow: hidden;}
 		.receive_descSty img {width: 100%;float: left;}   
 		
-		.receive_page_coupon { width: 100%; margin: -.2rem auto 0;}
+		.receive_page_coupon { width: 100%;/*float: left;*/ margin: -.2rem auto 0;}
 		.receive_page_coupon img{ width: 4.5rem;display: block; margin: 0 auto;}
 		.content_receiveImg{width:100%;overflow: hidden;}
 		.content_receiveImg img{width: 100% ;float: left;}
-		 .content_receiveCoupon{ overflow: hidden;width: 100%;position: relative; bottom: .4rem;} 
-		.coupon_icon {width: 4rem;display: block; margin: 0 auto;}
+		 .content_receiveCoupon{ overflow: hidden;width: 100%;position: relative; bottom: .4rem;
+		} 
+		.coupon_icon {width: 4rem;display: block; margin: 0 auto;
+		}
+		
 		
 		/*领取样式*/
 		.commomLogin{width:100%;box-sizing:border-box;margin: -.2rem auto 0;font-family:"黑体",arial;}
@@ -82,7 +60,7 @@
 		   color: #fff;
 		}
 		#loginsumbit{display:block;width:32%;color:#e60012;text-align:center;
-			font-size:.45rem;font-weight:600;box-sizing:border-box;line-height:40px;
+			font-size:.5rem;font-weight:600;box-sizing:border-box;line-height:40px;
 			border-radius:8px;background:#fff;margin:.4rem auto 0;
 			-webkit-box-shadow: 3px 3px 3px;  
 			-moz-box-shadow: 3px 3px 3px;  
@@ -97,37 +75,51 @@
    		.common_descSty img{width: .5rem; float: left; margin: .1rem .2rem 0 2rem;}
 	    .common_descSty p{color: #fff; font-size: 16px;line-height: 40px;}
 	   	.closeShade{width: 25px;float:right;color:#fff;font-size:16px; text-align: center;
-		    height: 25px; border: .03rem solid #fff;line-height:25px;
+		    height: 25px; /*border: 3px soild #fff;*/border: .03rem solid #fff;line-height:25px;
 		    border-radius: 15px; position: absolute;top: 18%; right: 12%;}
-	    .use_btn{font-size: 16px; color: #fff; float: left;  background-color: #e60012;
-		    width: 30%;font-family:"黑体"; line-height: 40px;border-radius: 7px;
-		    border: none;margin-left: 1.1rem;display: block;text-align: center;
+	    .use_btn{font-size: 16px; color: #fff;float: left; background-color: #ff1515;
+		    width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
+		    border: none;margin-left: 19%;display: block;
+		    background-size: .5rem 1rem;text-align: center;
 		    }
 	    .common_useStyle p{color: #fff;font-size: 20px;position: absolute; left: 44%;
 		    font-weight: 600;
 		    line-height: 1.6rem;
 		    }
-	    #long_ShareFri{ margin: .5rem 2.3rem;}
-	     #small_ShareFri{margin-left: .3rem;} 
-	     .shareFri{font-size: 16px; color: #fff;  background-color: #e60012;
-		    width: 30%;line-height: 40px; border-radius: 7px;  border: none;font-family:"黑体";
+	     #long_ShareFri{ margin: 5% 33%;}
+	     #small_ShareFri{margin-left: 3%;}
+	     .shareFri{font-size: 16px; color: #fff;  background-color: #ff1515;
+		    width: 30%;line-height: 37px; border-radius: 7px;  border: none;font-family:"黑体";
    			}
 	    .shareAppPage{display: none;margin-top: 5%;}
-		.shareAppPage button{ width: 2rem;line-height: 40px; font-family: "黑体";float: left; 
-  			border-radius: 7px;margin-left: 1rem; border: none;color: #fff;font-size: 14px;
-			background: #e60012;
+		.shareAppPage button{
+			width:2.5rem;padding:10px 20px;font-family:"黑体";float:left;background:#ff1515;border-radius: 7px;
+			margin-left:.5rem;border:none;color:#fff;font-size:14px;
 			}
-			/*获取验证码，领取等待遮罩样式  */
-		#shadeWaitDiv{position:fixed;top:0;left:0;background:rgba(0,0,0,.3);z-index:999;height:100%;width:100%;}   
-		#waitAll {position:absolute;width:1rem;z-index:1000;top: 8rem;left: 2.7rem;}
-		#waitAll img{width:1rem;}
 		</style>
-	
+		
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
 </head>
 	<body>
 		<div class="index_wrap" >
-				<script>
-			     	var wh=$(window).height();
+			<script>
+			     var wh=$(window).height();
 		        	$(".index_wrap").css({minHeight:wh});
 			     </script>
 				<div class="receive_codeTitle ">
@@ -142,12 +134,12 @@
 					</div>
 			         <div class="loginnow" id="loginnow"> 
 						<div class="commomLogin">
-							<input type="text" placeholder="请输入手机号码" id="commomLogin_phoneNum"/>
-							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:1.2rem;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:1rem;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
 							<div style="width:100%;overflow:hidden;">
-								<input type="text" placeholder="请输入验证码" id="commomLogin_codeNum"/>
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
 								<div id="commomLogin_getcode">
-									<span class="commomLogin_getcode" style="line-height:38px;">获取验证码</span>
+									<span class="commomLogin_getcode" style="line-height:35px;">获取验证码</span>
 									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
 								</div>
 							</div>
@@ -201,7 +193,7 @@
 				      <button class="shareFri " id="long_ShareFri">邀请好友</button>
 				     <div class="shareAppPage" class="common_wrapSty">
 						<button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
-						<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)"style=" margin: auto .2rem;">分享到朋友圈</button>
+						<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button>
 					</div>
 				</div>
 			</div>
@@ -209,7 +201,6 @@
 	<!--<%@ include  file="act_common_sharePage.jsp"%>-->
 </body>
 	<script>
-	/*app内分享 */
 	var wechatObj = new Object();
 	function s(type){
 	var jsonObject = {};
@@ -219,7 +210,8 @@
 		jsonObject.shared_title = wechatObj.title;
 		jsonObject.shared_content = wechatObj.desc;
 		jsonObject.shared_img_url = wechatObj.imgUrl;
-	} else if(type==1){
+	} else 
+	if(type==1){
 		jsonObject.shared_type = "1";
 		jsonObject.shared_url = wechatObj.link;
 		jsonObject.shared_title = wechatObj.title;
@@ -228,10 +220,10 @@
 	}
 	var jsonStr = JSON.stringify(jsonObject);
 	sharedTypeByJson(jsonStr);
-	}
-	function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
-	    camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
-	}
+}
+function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+    camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+}
 
    $(function(){
 		/* 弹窗关闭 */
@@ -376,7 +368,7 @@
 	/* 获取成功的处理 */
 	function getedHandle(){
 		clearInterval(time1);
-		$("#commomLogin_getcode").removeAttr("noclick").css('background','#e60012');
+		$("#commomLogin_getcode").removeAttr("noclick").css('background','##e60012');
 		$("#commomLogin_loginwarn").html("为保证您能成功领取奖品，请如实填写");
 		$(".commomLogin_getcode").show();
 		$(".commomLogin_getcodeagain").hide();
@@ -406,8 +398,8 @@ $(function(){
 		var wechatObj = new Object();
 	    wechatObj.title = '远离艾滋，从防开始';
 	    wechatObj.desc = '【药快到】关注你的安全，点击领取5元现金券。';
-		wechatObj.link= 'http://store.ykd365.com/medhtml/common/startMYRGame'; 
-	   /* 	wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/startMYRGame';  */
+		/* wechatObj.link= 'http://store.ykd365.com/medhtml/common/startMYRGame'; */ 
+	   	wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/startMYRGame'; 
 	    wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_powerShare.jpg';
 	    function getMenuShare(){
 	    	var wechatShareMenu ={
@@ -438,5 +430,14 @@ $(function(){
 			  getMenuShare();
 		  });
 })
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
 </script>
 </html>

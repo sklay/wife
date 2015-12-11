@@ -1,4 +1,5 @@
-
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,71 +16,68 @@
 		<style>
 		*{margin:0;padding:0;}
 		html{font-size:62.5%;}
-		body{font-size:14px;width:100%;font-family:"微软雅黑","宋体",Arial;/*overflow:hidden;*/}
+		body{font-family:"微软雅黑","arial";font-size:12px;}
 		.index_wrap{width: 100%;position: absolute;
-			  background: url(images/act_powerImmune_bj_new.jpg)top center no-repeat;background-size: 100% 100%;
+			  background: url(images/aids_logBG.png) repeat;background-size: 6% 6%;
 		  	}
-		.content_receive{width:100%;position:relative;/*padding-bottom:.3rem; box-sizing:border-box;*/
+		.content_receive{width:100%;position:relative;padding-bottom:.3rem; box-sizing:border-box;
+		  	background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.93),rgba(255, 255,255, 0.95)); 
+		  	background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.93),rgba(255, 255,255, 0.95)); 
+		  	background:-webkit-linear-gradient(top, #fff 0%,rgba(255, 255, 255, 0.95),rgba(255, 255,255, 0.9));
+		  	background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.93),rgba(255, 255,255, 0.95)); 
+		  	background: -o-linear-gradient(top, rgba(255, 255, 255, 0.93),rgba(255, 255,255, 0.95));
 			}
 		.content_receiveTitle {
-			  width:100%;  overflow: hidden;
+			    padding: .3rem .9rem 0;box-sizing:border-box;line-height:1rem;overflow:hidden;
 		}
-		
+		.content_receiveTitle span {
+			font-size: .65rem;color: #ff0000;float:left;
+		}
 		.content_receiveTitle img{
-			width:100%;
+			width: .5rem;float: right;
 			}
-			.content_receiveTitle img:nth-child(2){
-			float: left;
-			}
-		.coupon_divSty{width: 100%;overflow: hidden;
+		.coupon_divSty{width: 100%;float: left; margin: -.8rem auto 0;
 		      }
-		  .coupon_divSty img {width: 2rem; float: left;   margin: auto 3.5rem 0;
-		      }   
-   		.content_receiveImg{position: relative;
-    		width: 100%;
-   		
-   		}
-   		.content_receiveImg img{width: 4.3rem ;float: left; }
-		/*.content_receiveImg img:{width: 2rem;height: 2.8rem;position: absolute;  top: 0;left: 3.54rem;}*/
-		/*.content_receiveImg img:nth-child(2){width: 4.3rem ;float: left; }*/
+   		.content_receiveImg{width:100%;overflow: hidden;}
+		.content_receiveImg img{width: 100% ;float: left;}
 		 .content_receiveCoupon{ overflow: hidden;width: 100%;position: relative; bottom: .4rem;
 		} 
 		.content_receiveCoupon p{  color: #ff0000;font-size: 16px;
  			position: relative;top: .5rem;text-align: center;
 		}
 		.content_receiveCoupon p span{font-size: 14px; padding: 0 4px; box-sizing: border-box;}
-		/*.coupon_icon {width: 4rem;display: block; margin: 0 auto;
-		}*/
+		.coupon_icon {width: 4rem;/* margin-left: 1.2rem; */display: block; margin: 0 auto;
+		}
 		/*领取样式*/
 	    .commomLogin{ 
 			width:100%;box-sizing:border-box;font-family:"黑体",arial;
 		}
 		.commomLogin input{box-sizing:border-box;height:35px;text-align:center;
-			border:.03rem solid #fff;background:transparent;border-radius:8px;
+			border:.04rem solid #ff1515;background:transparent;border-radius:8px;
 			margin-left:.9rem;
 			}
-		.commomLogin #commomLogin_phoneNum{width: 4.6rem; display: block;}
+		.commomLogin #commomLogin_phoneNum{width: 4.5rem; display: block;}
 		#commomLogin_codeNum{width:38%;float: left;}
 		.commomLogin_getcodeagain{display:none;}
 		#commomLogin_getcode{float:right;width:28%;height:35px;box-sizing:border-box;
-			border-radius:8px;background:#e60012;text-align:center;font-size:12px;
+			border-radius:8px;background:#ff1515;text-align:center;font-size:12px;
 			margin-right: 1rem;line-height:35px;
 		}
 		#commomLogin_getcode .commomLogin_getcode{line-height:35px;display:block;width:100%;height:35px;}
 		#commomLogin_getcode .commomLogin_getcodeagain{font-size:14px;line-height:17px;}
 		#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
 		::-moz-placeholder {
-		    color: #fff;
+		    color: #000;
 		} 
 		:-ms-input-placeholder {
-		     color: #fff;
+		    color: #000;
 		}
 		::-webkit-input-placeholder {
-		    color: #fff;
+		   color: #000;
 		}
-		#loginsumbit{display:block;width:34%;color:#e60012;text-align:center;
-			font-size:.5rem;font-weight:600;box-sizing:border-box;line-height:40px;
-			border-radius:8px;background:#fff;margin:.4rem auto 0;
+		#loginsumbit{display:block;width:34%;color:#fff;text-align:center;
+			font-size:.4rem;box-sizing:border-box;line-height:40px;
+			border-radius:8px;background:#ff1515;margin:.4rem auto 0;
 			-webkit-box-shadow: 3px 3px 3px;  
 			-moz-box-shadow: 3px 3px 3px;  
 			box-shadow: 0 2px 2px #dc4f4f;  
@@ -115,15 +113,15 @@
 			margin-left:.5rem;border:none;color:#fff;font-size:14px;
 			}
 		</style>
-	<script>
-			var _hmt = _hmt || [];
-			(function() {
-			  var hm = document.createElement("script");
-			  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
-			  var s = document.getElementsByTagName("script")[0]; 
-			  s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
+		<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
 <script>
     (function (doc, win) {
         var docEl = doc.documentElement,
@@ -146,35 +144,34 @@
 		<div class="index_wrap">
 			<script>
 		     var wh=$(window).height();
-		     var ww=$(window).width();
+		     /*  var ww=$(window).width();
+		         $(".index_wrap").width(ww); */
 		        $(".index_wrap").css({minHeight:wh});
 		     </script>
-			<img style="width: 100% ;float: left;margin: 0 auto .1rem;" class="logIconSty" src="images/act_powerImmune_title.png" />
-			
-				<div class="content_receive">
+			<div class="content_receive">
 				<script>
 			         var wh=$(window).height();
 			        $(".content_receive").css({minHeight:wh}); 
 			    </script>
 				<div class="content_receiveTitle">
-					<!--<img class="logIconSty" src="images/act_powerImmune_title.png" />-->
-					<img class="logIconSty" src="images/act_powerImmune_logo.png" />
-					<img class="coupon_icon" src="images/act_powerImmune_noBad.png" />
+						<span class="spanIconSty">世界艾滋病日</span>
+						<img class="logIconSty" src="images/aids_logBG.png" />
 				</div>
-				<div class="coupon_divSty">
-					<img src="images/act_power_shiled.png" />
-					<!--<img class="coupon_icon" src="images/act_powerImmune_noBad.png" />-->
-				</div>
-					
+				<div class="content_receiveCoupon">
+					<p >保护自己<span>·</span>套住健康<span>·</span>套住爱</p>
 					<div class="content_receiveImg">
-						<!--<img src="images/act_power_shiled.png" />-->
-						<img src="images/act_powerImmune_coupon.png" />
+						<img src="images/aidsContent_img1.png" />
+						<img src="images/aidsContent_img2.png" />
 					</div>
-					
-			<!--<div class="receive_code" id="receive_page">
+					<div class="coupon_divSty">
+						<img class="coupon_icon" src="images/aidsContent_coupon.png" />
+					</div>
+				</div>
+				
+			<div class="receive_code" id="receive_page">
 					<div class="commomLogin">
 						<input type="text" placeholder="请输入手机号码" id="commomLogin_phoneNum"/>
-						<p id="commomLogin_loginwarn" style="padding-left: 60px;font-size:12px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+						<p id="commomLogin_loginwarn" style="padding-left: 60px;font-size:12px;color:#444;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
 						<div style="width:100%;overflow:hidden;margin-top:.1rem;">
 							<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
 							<div id="commomLogin_getcode">
@@ -182,7 +179,7 @@
 								<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
 							</div>
 						</div>
-						<div id="loginsumbit" >领取
+						<div id="loginsumbit" id="loginsumbit">领取
 							<script>
 								(function(){
 									var wh=$(window).height();
@@ -193,8 +190,8 @@
 							</script>
 						</div>
 					</div>
-				</div>-->
-		<!--</div>-->
+				</div>
+		</div>
 		<!---成功领取-->
 		 <div class="receive_success common_wrapSty controlAlertPage"  >
         	<div class="receive_success_box common_boxSty">
@@ -238,15 +235,15 @@
 			</div>
 		</div>
 	</div>
-	<!--<%@ include  file="act_common_sharePage.jsp"%>-->
+	<%@ include  file="act_common_sharePage.jsp"%>
 </body>
 <script>
 /* 小屏手机适配 */
 (function(){
 	var wh=$(window).height();
 		if(wh<540){
-//			 $(".content_coupon ").css({top:"4.3rem"}) ;
-//			 $("#startGameBtn").css({margin:".5rem auto .2rem"});
+			 $(".content_coupon ").css({top:"4.3rem"}) ;
+			 $("#startGameBtn").css({margin:".5rem auto .2rem"});
 	}
 })()
 </script>
@@ -384,13 +381,11 @@ function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
  		};
  		var _url=url;
  		var _otherInfoSubmit=otherInfoSubmit?otherInfoSubmit : "";
- 		var _inviteCode=inviteCode:"hbQHMY6";
- 		var _fromChannel=fromChannel:"hongbao";
  		$.ajax({
  			type:"post",
  			url:_url,
  			//data:"phone="+$_phoneno+"&code="+$_code+"&"+_otherInfoSubmit,
- 			data:"phone="+$_phoneno+"&code="+$_code+"&inviteCode="+_inviteCode+"&fromChannel="+_fromChannel,
+ 			data:"phone="+$_phoneno+"&code="+$_code,
  			success:function(result){
  				waitClose();
  				$("#commomLogin_phoneNum").val("");
@@ -417,7 +412,7 @@ function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
 	}
 	function getedHandle(){
 		clearInterval(time1);
-		$("#commomLogin_getcode").removeAttr("noclick").css('background','#e60012');
+		$("#commomLogin_getcode").removeAttr("noclick").css('background','#ff1515');
 		$("#commomLogin_loginwarn").html("为保证您能成功领取奖品，请如实填写");
 		$(".commomLogin_getcode").show();
 		$(".commomLogin_getcodeagain").hide();
