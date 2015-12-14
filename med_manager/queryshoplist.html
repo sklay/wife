@@ -1,0 +1,206 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="per" uri="http://camore.ykd365.com/PermissionTag" %>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>商品库管理</title>
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/jquery.datetimepicker.css" />
+<link rel="stylesheet" href="style/pagination.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="js/common.js"></script>
+
+<script src="js/jquery.validate.js"></script>
+<script src="js/customvalidate.js"></script>
+
+<style>
+.search{width:100%;background:#fff;overflow:hidden;position:relative;}
+.search dl{width: 30%;float:left;}
+.search b,strong{font-weight: normal;margin:0px 10px;font-size: 14px;}
+.search dt{line-height:40px;margin-top:15px;}
+.search dt label{display:inline-block;zoom: 1;*display: inline;width:80px;text-align: right;margin-right:10px;font-size: 14px;}
+.search dt input{width:60%;padding:6px 10px;font-size:14px;}
+.search .butDiv{width:130px;float:left;}
+.search .butDiv .but{width:100px;height:35px;font-size:16px;line-height:30px;color:#fff;background:#7A93D3;border:none;border-radius:5px;}
+.content .labelInput{display:inline-block;width:70px;}
+.content .inputStyle{width:130px;height:20px;padding:2px 10px;line-height:25px;font-size:14px;}
+.content .srarea{width:100%;background:#eee;}
+.content .srlist{width:100%;margin-top:15px;border-top:15px solid #eee;border-right:10px solid #eee;}
+.content .srlist table{width:100%;text-align: center;}
+.content .srlist table thead{background:#666;color:#fff;font-size:14px;height:35px;line-height:35px;}
+.content .srlist table tbody{background:#fff;}
+.content .srlist table tbody td{font-size:12px;height:35px;}
+.queryProdInfo{text-decoration: underline;color:blue}
+.delete{text-decoration: underline;color:blue}
+form label.error{width: auto;margin-left: 10px; color: Red;} /*表单验证提示信息*/
+.deleteprod{text-decoration: underline;color:blue}
+</style>
+</head>
+<body>
+	<div class="nav_menu ">
+		<!--<%@ include  file="header.jsp"%>-->
+	</div>
+	<div class="left">
+		 <!--<%@ include  file="left.jsp"%>--> 
+	</div>
+	<div class="content ">
+		<div class="location">
+			当前位置： <a href="#">店铺</a> > <a>店铺管理</a>
+		</div>
+		<div class="search">
+			<form action="newquerlist" method="post" id="omForm">
+
+					<dl>
+						<dt>
+							<!--<span><label>店铺ID</label><input name="prodId" id="prodId" value="${prodId}"></span>-->
+							<span><label>店铺名称</label><input name="prodName" id="prodName" value=""></span>
+						</dt>
+					</dl>
+					<dl class="butDiv">
+						<!--<dt><button class="but ihide mdnewquerlist" id="executeSearch">查询</button></dt>-->
+						<dt><button class="but  mdnewquerlist" id="executeSearch">查询</button></dt>
+					</dl>
+			</form>
+		</div>
+		<div class="srarea">
+			<div class="srlist">
+				<table>
+					<thead>
+						<tr>
+							<th>店铺ID</th>
+							<th>店铺名称</th>
+							<th>药店电话</th>
+							<th>药店地址</th>
+							<th>营业时间</th>
+							<th>配送时间</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						 <c:forEach items="${recordlist}" var="record" varStatus="status">
+								
+								 <tr >
+									<!--<td>${record.drugId}</td>
+									<td>${record.prodName}</td>
+									<td>${record.prodSpec }</td>
+									<td>${record.prodSn}</td>
+									<td>${record.prodPrice}</td>
+									<td>${record.prodFirm }</td>-->
+									<td>1</td>
+									<td>天一大药房</td>
+									<td>010-1234568</td>
+									<td>北京</td>
+									<td>2015.12.2</td>
+									<td>9：15</td>
+									<td>
+										<!--<a  id="queryProdInfo" class="queryProdInfo ihide mdnewproddetail" data="${record.prodId}"  >查看详情</a>-->
+										<a  id="queryProdInfo" class="queryProdInfo  mdnewproddetail" data="${record.prodId}"  >查看详情</a>
+										<!--<a id="deleteprod" data="${record.prodId}" class="deleteprod ihide mdnewdeleteprod">删除</a>-->
+									</td>
+								</tr> 
+						</c:forEach>
+					</tbody>
+				</table>
+				<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+
+var pageIndex = "${pageIndex}";
+var pageTotal = "${pageTotal}";
+var pageSize = "${pageSize}"; 
+$(function(){
+	// 创建分页
+	$("#Pagination").pagination(1*pageTotal, {
+		current_page:1*pageIndex,//当前选择页码数
+		num_edge_entries: 2, //边缘页数
+		num_display_entries: 8, //主体页数
+		link_to: "javascript:void()",
+		callback: pageselectCallback,
+		items_per_page:1*pageSize, //每页显示条数
+		next_text:"下一页",
+		prev_text:"上一页"
+	});
+	 
+	function pageselectCallback(req_page, jq){
+		if (req_page != pageIndex) { // 否则会出现死循环
+			$("#omForm").find("#pageIndex").remove();
+			$("#omForm").find("#pageSize").remove();
+			$('<input type="hidden" id="pageIndex" name="pageIndex" value="'+req_page+'">').appendTo($("#omForm"));
+			$('<input type="hidden" id="pageSize" name="pageSize" value="10">').appendTo($("#omForm"));
+			$("#omForm").submit();
+		}
+	}
+
+	//跳转到新增页面
+	$("#createPro").click(function(event){
+		event.preventDefault(); 
+		location.href="newappendprod";
+	});
+
+	
+	
+	//时间控件
+	$('.timePlu').datetimepicker({
+		lang:'ch',
+		formatDate:'Y/m/d',
+		showSecond: true,
+		timepicker:true
+	});
+	
+//	$(".deleteprod").click(function(){
+//		var prodId = $(this).attr("data");
+//		if(confirm("是否确认删除？")){
+//			location.href="newdeleteprod?prodId="+prodId;
+//		}else{
+//			return false;
+//		}
+//		
+//	});
+});
+
+
+
+
+
+	//查看详情按钮
+	$(".queryProdInfo").click(function(){
+		var prodId = $(this).attr("data");
+		location.href="newproddetail?seedetail="+prodId;
+	})
+
+
+
+
+//重置按钮
+//$("#formReset").click(function(){
+// 	$("#prodId,#prodName,#prodFirm,#timeBegin,#timeEnd").val("");
+//	return false;
+	/* document.getElementById("omForm").reset() */
+});
+
+//查询按钮
+$("#executeSearch").click(function(){
+	$("#omForm").submit();
+});
+
+//验证规则
+/*$("#omForm").validate({
+	rules:{
+		prodId:{
+			custom:{
+				regex:"^[0-9]*$",
+				message:"请输入数字!"
+			}
+		}
+	}
+});*/
+
+</script>
+</html>
