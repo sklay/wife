@@ -1,0 +1,107 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>-->
+<!--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺管理</title>
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/jquery.datetimepicker.css" />
+<link rel="stylesheet" href="style/pagination.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="js/common.js"></script>
+<style>
+.content .senderInfo{background:#eee;overflow:hidden;}
+.content .senderInfo .basicInfo{margin-top:10px;background:#fff;padding-bottom:80px;}
+.content .senderInfo .appInfo{margin-top:10px;background:#fff;}
+.content .senderInfo .title{padding:2px 20px;border-radius:6px;line-height:20px;background:#eee;display:inline-block;margin:15px 0px 15px 150px;}
+.content .senderInfo .infoLine{height:45px;padding-left:190px;}
+.content .senderInfo .infoLine .labelInput{display:inline-block;width:80px;font-size:14px;}
+
+.content .senderInfo .butDiv{padding:20px 0px 20px 269px;background:#fff;margin-top: 10px;}
+.content .senderInfo .butDiv .confirmBut{margin-right:50px;font-size:14px;cursor:pointer;}
+.content .senderInfo .butDiv .cancelBut{font-size:14px;cursor:pointer;}
+.content .senderInfo .butDiv .confirmBut:hover{color:#FFA836}
+.content .senderInfo .butDiv .cancelBut:hover{color:#FFA836}
+
+/*新增样式*/
+.inputStyle{cursor:pointer;display:inline-block;width:239px;height:25px;padding:2px 10px;line-height:25px;font-size:14px;background:#eee;border:none;}
+.text_commSty{  margin: auto 13% 1%;}
+</style>
+</head>
+<body>
+	<div class="nav_menu ">
+		<!--<%@ include  file="header.jsp"%>-->
+	</div>
+	<div class="left">
+		<!--<%@ include  file="left.jsp"%>-->
+	</div>
+	<div class="content ">
+		<div class="location">
+			当前位置： <a href="querydruglist">店铺</a> > <a href="querydruglist">店铺列表管理</a> > <a>店铺详情</a>
+		</div>
+		<form action="updatedruginfo" method="get" id="dirForm">
+			<input type="hidden" value="${info.drugId}" id="queryDurgInfo" name="drugId">
+			<div class="senderInfo">
+				<div class="basicInfo">
+					<h3 class="title">店铺查询</h3>
+					<div class="text_commSty">
+						药店名称：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="宜兴尚东大药房">
+						下单电话：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="0510-87980369">
+					</div>
+					<div class="text_commSty">
+						咨询电话：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="0510-87980369">
+						所在省份：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="江苏省">
+					</div>
+					<div class="text_commSty">
+						所在城市：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="无锡">
+						所在区县：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="宜兴">
+					</div>
+					<div class="text_commSty">
+						具体位置：
+						<input class="inputStyle" type="text" id="drugName" name="drugName" disabled="disabled" value="解放东路280号18、19">
+					</div>
+					
+					</div>
+				<div class="butDiv" style="font-size:14px;">
+					<a id="queryDurgInfo"  class="queryDurgInfo ihide mdupdatedruginfo" data="${prod.drugId}" >【 修 改 】</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a class="queryProdInfo" id="returnPage" href="javascript:history.go(-1);">【 返 回 】</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+<script>
+var hasUpdate = ${hasUpdate};
+//点击修改按钮
+$(".queryDurgInfo").click(function(){
+	var drugId = $(this).attr("data");
+	$("#drugId").val(drugId);
+	$('form[id=dirForm]').attr('action','updatedruginfo'); 
+	$("#dirForm").submit();
+})
+//查询按钮
+$("#executeSearch").click(function(){
+	$("#dirForm").submit();
+});
+$(function(){
+	
+	//判断修改按钮显示与隐藏
+	if(hasUpdate==1){
+		
+	}else{
+		$("#queryDurgInfo").hide()
+	}
+});
+
+</script>
+</html>

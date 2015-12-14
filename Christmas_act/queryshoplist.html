@@ -1,0 +1,137 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>-->
+<!--<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺管理</title>
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/jquery.datetimepicker.css" />
+<link rel="stylesheet" href="style/pagination.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/customvalidate.js"></script>
+
+<style>
+.but{width:100px;height:35px;font-size:16px;line-height:30px;color:#fff;background:#7A93D3;border:none;border-radius:5px;}
+.content .labelInput{display:inline-block;width:70px;}
+.content .inputStyle{width:130px;height:20px;padding:2px 10px;line-height:25px;font-size:14px;}
+.content .srarea{width:100%;background:#eee;}
+.content .srlist{width:100%;margin-top:15px;border-top:15px solid #eee;border-right:10px solid #eee;}
+.content .srlist table{width:100%;text-align: center;}
+.content .srlist table thead{background:#666;color:#fff;font-size:14px;height:35px;line-height:35px;}
+.content .srlist table tbody{background:#fff;}
+.content .srlist table tbody td{font-size:12px;height:35px;}
+.queryProdInfo{text-decoration: underline;color:blue}
+.add{text-decoration: underline;color:blue}
+.update{text-decoration: underline;color:blue}
+form label.error{width: auto;margin-left: 10px; color: Red;} /*表单验证提示信息*/
+</style>
+</head>
+<body>
+	<div class="nav_menu">
+		<%@ include  file="header.jsp"%>
+	</div>
+	<div class="left">
+		<%@ include  file="left.jsp"%>
+	</div>
+	<div class="content">
+		<div class="location">
+			当前位置： <a href="">店铺</a> > <a href="">店铺列表管理</a>
+		</div>
+		<div class="search">
+			<form action="querydruglist" method="post" id="dirForm">
+					<table style="margin-left:78px;margin-top:30px;font-size:14px;text-align: right;position:relative;">
+						<tr>
+							<td>查询条件：<input style="width:180px;height:30px;padding-left:10px;  " placeholder="店铺名称" name="condition" id="condition" value="${condition }"></td>
+							<td style="padding-left:20px;"><button class="but" id="executeSearch">查询</button></td>
+						</tr>
+					</table>
+			</form>
+		</div>
+		<div class="srarea">
+			<div class="srlist">
+				<table>
+					<thead>
+						<tr>
+							<th>药品ID</th>
+							<th>药品名称</th>
+							<th>通用名称</th>
+							<th>批准文号</th>
+							<th>生产厂家</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${dirList}" var="prod" varStatus="status">
+
+								<tr >
+									<td>${prod.drugId}</td>
+									<td>${prod.productName}</td>
+									<td>${prod.commonName}</td>
+									<td>${prod.number}</td>
+									<td>${prod.companyName}</td>
+									<td>
+										<a  id="queryProdInfo" class="queryProdInfo ihide mdquerydrugmuch" data="${prod.drugId}"  >查看详情</a>
+										&nbsp;&nbsp;&nbsp;
+										<%-- <a  id="update" class="update" data="${prod.drugId}" >修改</a> --%>
+									</td>
+								</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+
+var pageIndex = "${pageIndex}";
+var pageTotal = "${pageTotal}";
+var pageSize = "${pageSize}";
+$(function(){
+	//分页
+	var initPagination = function() {
+		//var num_entries = $("#hiddenresult div.result").length;
+		// 创建分页
+		$("#Pagination").pagination(1*pageTotal, {
+			current_page:1*pageIndex,//当前选择页码数
+			num_edge_entries: 2, //边缘页数
+			num_display_entries: 8, //主体页数
+			callback: pageselectCallback,
+			link_to: "javascript:void()",
+			items_per_page:1*pageSize, //每页显示条数
+			next_text:"下一页",
+			prev_text:"上一页"
+		});
+	 }();
+	 
+	function pageselectCallback(req_page, jq){
+	
+		if (req_page != pageIndex) { // 否则会出现死循环
+			$("#dirForm").find("#pageIndex").remove();
+			$("#dirForm").find("#pageSize").remove();
+			$('<input type="hidden" id="pageIndex" name="pageIndex" value="'+req_page+'">').appendTo($("#dirForm"));
+			$('<input type="hidden" id="pageSize" name="pageSize" value="10">').appendTo($("#dirForm"));
+			$("#dirForm").submit();
+		}
+	}
+});
+
+//查询按钮
+$("#executeSearch").click(function(){
+	$("#dirForm").submit();
+});
+
+//查看详情按钮
+$(".queryProdInfo").click(function(){
+	var drugId = $(this).attr("data");
+	location.href='querydrugmuch?drugId='+drugId+'&hasUpdate=1' ;
+})
+
+</script>
+</html>
