@@ -10,6 +10,11 @@
 <script src="js/jquery-1.9.0.min.js"></script>
 <script src="js/jquery.pagination.js"></script>
 <script src="js/common.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style/jquery.datetimepicker.css"/ >
+<script src="js/jquery.datetimepicker.js"></script>
+
+
 <style>
 .content{}
 .content .drugInfo{width:94%;margin-left:5%;margin-top:30px;margin-bottom:25px;}
@@ -172,6 +177,20 @@ var drugImgNum = '${imgcount}';
 var sequenceArr = new Array();
 var _thisSeq = 1;
 window.onload = function(){
+	
+	$('#timeBegin').datetimepicker({
+		datepicker:false,
+		format:'H:i',
+		step:60
+	});
+	
+	$('#timeEnd').datetimepicker({
+		datepicker:false,
+		format:'H:i',
+		step:60
+		
+	});
+	
 	/**
 	*按住alt+鼠标左键，在新页面打开窗口
 	*说明：因为图片地址以@符进行的截断，所以建议以后图片命名时不要含@符，不然无法获取到正确路径，影响在新窗口打开图片的功能
