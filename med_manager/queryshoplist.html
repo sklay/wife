@@ -72,7 +72,10 @@ form label.error{width: auto;margin-left: 10px; color: Red;} /*表单验证提�
 					<thead>
 						<tr>
 							<th>店铺ID</th>
-							<th>店铺名称</th>
+							<th>药店名称</th>
+							<th>药店code</th>
+							<th>营业时间</th>
+							<th>药店电话</th>
 							<th>药店地址</th>
 							<th>操作</th>
 						</tr>
@@ -81,14 +84,11 @@ form label.error{width: auto;margin-left: 10px; color: Red;} /*表单验证提�
 						 <c:forEach items="${recordlist}" var="record" varStatus="status">
 								
 								 <tr >
-									<!--<td>${record.drugId}</td>
-									<td>${record.prodName}</td>
-									<td>${record.prodSpec }</td>
-									<td>${record.prodSn}</td>
-									<td>${record.prodPrice}</td>
-									<td>${record.prodFirm }</td>-->
 									<td>1</td>
 									<td>天一大药房</td>
+									<td>124</td>
+									<td>2015.12</td>
+									<td>011-23458</td>
 									<td>北京</td>
 									<td>
 										<!--<a  id="queryProdInfo" class="queryProdInfo ihide mdnewproddetail" data="${record.prodId}"  >查看详情</a>-->
