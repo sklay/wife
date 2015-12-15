@@ -131,10 +131,12 @@
 									<td class="basethead">营业时间</td>
 									<td class="basetext">
 										<!--<input id="prodSn" name="prodSn"  value="">-->
-										<input id="timeBegin" class="timePlu" name="minOrderTime" value="" readonly>
+										
+										<input id="timeBegin" class="timePlu" name="minOrderTime" value="" readonly='true' style="width: 70px;">
 										<b>至</b>
-										<input id="timeEnd" class="timePlu" name="maxOrderTime" value="" readonly>
-										<span class="typename checked" data="1" id="drugType">24小时</span>
+										<input id="timeEnd" class="timePlu" name="maxOrderTime" value="" readonly='true'  style="width: 70px;">
+										<span class="typename" data="1" id="drugType">24小时</span>
+										
 									</td>
 									
 								</tr>
@@ -176,8 +178,9 @@ var page_i = 0;
 var drugImgNum = '${imgcount}';
 var sequenceArr = new Array();
 var _thisSeq = 1;
-window.onload = function(){
-	
+
+
+function initTimePicker(){
 	$('#timeBegin').datetimepicker({
 		datepicker:false,
 		format:'H:i',
@@ -190,6 +193,27 @@ window.onload = function(){
 		step:60
 		
 	});
+}
+
+window.onload = function(){
+	
+	initTimePicker() ;
+	
+	$('#drugType').click(function(){
+
+	if( $('#timeBegin').data('xdsoft_datetimepicker') ){
+
+		$('#timeBegin').datetimepicker('destroy');
+		$('#timeBegin').val('') ;
+		$('#timeEnd').datetimepicker('destroy');
+		$('#timeEnd').val('') ;
+		$(this).addClass("checked");
+	}else{
+		initTimePicker() ;
+		$(this).removeClass("checked");
+	}
+
+});
 	
 	/**
 	*按住alt+鼠标左键，在新页面打开窗口
