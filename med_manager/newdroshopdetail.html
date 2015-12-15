@@ -21,8 +21,8 @@
 .content .drugInfo .tabpage .pageItem .baseinfo{margin:20px 0px 15px 30px;}
 .content .drugInfo .tabpage .pageItem .baseinfo input{padding:4px 2px;width:170px;}
 .content .drugInfo .tabpage .pageItem .baseinfo .basethead{width:70px;}
-.content .drugInfo .tabpage .pageItem .baseinfo .basetext{width:280px;height:38px;}
-.content .drugInfo .tabpage .pageItem .baseinfo .basetext .typename{display:inline-block;width:70px;height:25px;line-height:25px;text-align:center;border:1px solid #ccc;margin-right:20px;cursor:pointer;}
+.content .drugInfo .tabpage .pageItem .baseinfo .basetext{width:40%;height:38px;}
+.content .drugInfo .tabpage .pageItem .baseinfo .basetext .typename{display:inline-block;width:50px;height:25px;line-height:25px;text-align:center;border:1px solid #ccc;margin-right:20px;cursor:pointer;}
 .content .drugInfo .tabpage .pageItem .baseinfo .basetext .checked{background:url(images/drug_edit_type.png) 96% 50% no-repeat;background-size:16px;}
 .content .drugInfo .tabpage .pageItem .baseinfo .basetext .starlevel{display:inline-block;width:31px;height:20px;line-height:20px;text-align:center;border:1px solid #ccc;cursor:pointer;}
 .savebut{width:120px;height:35px;border-radius:5px;font-size:22px;margin-left:270px;margin-bottom:20px;}
@@ -59,6 +59,12 @@
 #delImg{}
 .butStyle{border:2px solid #999999;padding:8px 20px;background:#fff;font-size:14px;margin-right:10px;}
 .basetext a{  text-decoration: underline; color: blue;}
+
+.selectedstyle{  width: 48%;
+  height: 25px;
+  margin-left: -4px;
+  cursor: pointer;
+}}
 </style>
 </head>
 <body>
@@ -91,26 +97,50 @@
 								<tr>
 									<td class="basethead">药店id</td>
 									<td class="basetext"><input id="prodName" disabled="disabled" name="prodName"  value=""></td>
+									<td class="basethead">药店code</td>
+									<td class="basetext"><input id="prodSpec" name="prodSpec" disabled="disabled" value=""></td>
+								</tr>
+								<tr>
+									<td class="basethead">更新时间</td>
+									<td class="basetext"><input id="prodUnit" name="prodUnit" disabled="disabled" value=""></td>
 									<td class="basethead">药店名称</td>
 									<td class="basetext"><input id="prodGenName" name="prodGenName"  value=""></td>
 								</tr>
 								<tr>
 									<td class="basethead">药店电话</td>
 									<td class="basetext"><input id="prodBrand" name="prodBrand"  value=""></td>
-									<td class="basethead">药店地址</td>
-									<td class="basetext"><input id="prodFirm" name="prodFirm"  value=""></td>
+									<td class="basethead">配送时间</td>
+									<td class="basetext">
+										<select id="storeSelect" name="storeSelect" class="selectedstyle">
+											<!--<option   value="">请选择</option>-->
+											<c:forEach  var="drugs" items="${drugStores}" varStatus="drug">
+												<option   <c:if test="${drugs.drugStoreId==condition.pharmacyId}"><!--selected--> </c:if>  <!--value="${drugs.drugStoreId}"--> >
+												<!--${drugs.drugStoreName}-->
+												</option>
+											</c:forEach>
+										</select>
+									</td>
 								</tr>
-								<tr>
-									<td class="basethead">药店code</td>
-									<td class="basetext"><input id="prodSpec" name="prodSpec" disabled="disabled" value=""></td>
-									<td class="basethead">更新时间</td>
-									<td class="basetext"><input id="prodUnit" name="prodUnit" disabled="disabled" value=""></td>
-								</tr>
+								
 								<tr>
 									<td class="basethead">营业时间</td>
-									<td class="basetext"><input id="prodSn" name="prodSn"  value=""></td>
-									<td class="basethead">配送时间</td>
-									<td class="basetext"><input id="prodSn" name="prodSn"  value=""></td>
+									<td class="basetext">
+										<!--<input id="prodSn" name="prodSn"  value="">-->
+										<input id="timeBegin" class="timePlu" name="minOrderTime" value="" readonly>
+										<b>至</b>
+										<input id="timeEnd" class="timePlu" name="maxOrderTime" value="" readonly>
+										<span class="typename checked" data="1" id="drugType">24小时</span>
+									</td>
+									
+								</tr>
+								
+								<tr>
+									<td class="basethead">药店地址</td>
+									<td class="basetext">
+										<!--<input id="prodFirm" name="prodFirm"  value="">-->
+										<textarea name="prodFirm" id="prodFirm" >
+										</textarea>
+									</td>
 								</tr>
 								<tr>
 									<td class="basethead">药店资质</td>
