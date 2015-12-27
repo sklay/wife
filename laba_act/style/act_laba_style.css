@@ -1,0 +1,15 @@
+@@CHARSET "UTF-8";
+*{margin:0;padding:0;}
+html{font-size:62.5%;}
+body{font-size:0.12rem;width:6.4rem;max-width:640px;
+	margin:0 auto;font-family:"微软雅黑","黑体",arial;/* box-shadow: 2px 2px 2px rgba(0,0,0,.6),-2px -2px 2px rgba(0,0,0,.6); */
+	background:#ff9b26;
+}
+.con_wrap{width:6.4rem;max-width:640px;margin:0 auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.88, #ffd448), color-stop(0.67, #ffd343), color-stop(0.59, #ffd342), color-stop(0.50, #ffd13b), color-stop(0.28, #ffcd27), color-stop(0.00, #ffc919));
+	background: -webkit-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+	background: -moz-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+	background: -o-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+	background: -ms-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+	background: linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+}

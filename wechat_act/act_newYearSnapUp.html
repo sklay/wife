@@ -1,0 +1,235 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content=""/>            
+<title>双旦秒杀</title>                                                 
+	<link rel="stylesheet" href="style/main_wechat.css" />
+	<script src="js/jquery-1.9.0.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	
+	<style>
+	 *{margin:0;padding:0;}
+		html{font-size:62.5%;}
+		body{font-size:0.12rem;width:6.4rem;max-width:640px;
+		margin:0 auto;font-family:"微软雅黑","黑体",arial;background: #f44f4f;}
+		.index_wrap{width: 100%;height:100%;background: #f44f4f;}
+		.wrap_title{width: 100%;overflow:hidden;}
+		.wrap_title img{width: 100%;margin: 0 auto;float: left;}
+		/*.common_boxSty{width: 45%;height:50%;background: #fff;float:left;}*/
+		.commonImgSty{ width: 2rem;
+  height: 3rem;
+  margin: .2rem auto;
+  display: block}
+		.perImgSty{width: 2.9rem;height: 3rem;}
+		.textDiv{ width:100%;overflow: hidden;}
+		.prodName{  width: 2.5rem; margin: 0 auto;}
+		.prodName p{font-size: .2rem; word-break: break-all;}
+		.money_div{float: left;}
+		/*.fightpurBtn{width:100%;float: right;  margin-top: .5rem;}*/
+		/*.clickbtn{  overflow: hidden;   width: 1rem;}*/
+		.bottomSty{    overflow: hidden;  padding: .18rem; box-sizing: border-box}
+		ul{overflow: hidden;width:6rem;margin:0 auto; }
+        .listCom{display:none;opacity: 0}
+       ul li{  background: #fff; float:left;width:2.9rem;}
+       ul li:nth-child(2n-1){margin-right:.2rem;}
+        .timeRemind{  width: 100%;overflow: hidden; margin: .1rem auto;}
+  		.remindImg{  width: 100%;float: left;}
+		.floor2_right{ position: relative;}
+		.buy-button {position: absolute;font-size: 12px;box-sizing: border-box; text-align: center;
+		  text-decoration: none;background: #cd3636;color: #FFFFFF; border-radius: 2px;border: 0;
+		  width: 1.2rem;right: .1rem;line-height: 25px;top: .1rem;  cursor: pointer;
+		}
+	</style>
+
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+	
+</head>
+<body >
+	<div class="index_wrap">
+		<div class="wrap_title">
+			<img src="images/act_doubleFestTitle.png">
+			<img src="images/act_doubleFestTitle01.png">
+			<img src="images/act_doubleFestTitle02.png">
+		</div>
+		<div class="container" style="  margin-top: .2rem;">
+			<!--<div class="floor_first">-->
+				 <ul class="module_wrap listCom" style="display:block;opacity:1">
+				 	<li>
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px; text-decoration: line-through;">￥:29.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:14.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button class="buy-button">立即购买</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					</li>
+					<li>
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px;  text-decoration: line-through;">￥:29.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:14.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button class="buy-button">立即购买</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					<li>
+				</ul>
+				<div class="timeRemind">
+					<img class="remindImg" src="images/act_doubleFestTitle_time12.png" />
+				</div>
+				<ul class="module_wrap listCom" style="display:block;opacity:1">
+				 	<li>
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px;  text-decoration: line-through;">￥:29.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:14.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button style="background: #FF7B05;" class="buy-button">即将开始</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					</li>
+					<li>
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px;  text-decoration: line-through;">￥:29.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:14.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button style="background: #FF7B05;" class="buy-button">即将开始</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					<li>
+				</ul>
+				<div class="timeRemind">
+					<img class="remindImg" src="images/act_doubleFestTitle_time1.png" />
+				</div>
+				<ul class="module_wrap listCom" style="display:block;opacity:1">
+				 	<li>
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px;  text-decoration: line-through;">￥:9.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:4.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button style="background: #FF7B05;" class="buy-button">即将开始</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					</li>
+					<li style="margin-bottom:.2rem;">
+						<!--<li>-->
+						<!--<div class="common_boxSty">-->
+							<div class="perImgSty">
+								<img  class="commonImgSty" src="images/ms_02.png" />
+							</div>
+							<div class="textDiv">
+								<div class="prodName">
+									<p >柏维康维生素C泡腾片维生素C泡腾片</p>
+								</div>
+								<div class="bottomSty">
+									<div class="money_div">
+										<p style="color: #ddd;font-size: 12px;  text-decoration: line-through;">￥:29.70</p>
+										<p style="color: #ff0000;font-size: 14px;" >￥:14.85</p>
+									</div>
+									<div class="floor2_right">
+			                        	<button style="background: #979797;" class="buy-button">已售罄</button>
+			                        </div>
+								</div>
+							</div>
+						<!--</div>-->
+					</li>
+				</ul>
+			<!--</div>-->
+			
+		</div>
+	</div>
+
+</body>
+</html>

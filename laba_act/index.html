@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="utf-8">
+<title>【药快到】食品卫生找茬大赛</title>
+<meta name="description" content="食品卫生，你注意过吗？快来看看自己能到哪关！"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<style>
+   .loadingCon_wrap{
+   	  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  box-sizing: border-box;
+   }
+   .loadingPage_wrap{
+   	  width: 100%;
+  box-sizing: border-box;
+  height: 4rem;
+    position: relative;
+    
+    animation: 9.5s linear 0s normal none infinite rotate;
+	-webkit-animation:9.5s linear 0s normal none infinite rotate;
+}
+.loadingPage_wrap img{position: absolute;}
+   .loadingPage_wrap img:nth-child(1){width:.8rem;top: 0;left: 2.8rem;}
+			.loadingPage_wrap img:nth-child(2){width:1rem;top:.6rem;left: 3.8rem;}
+			.loadingPage_wrap img:nth-child(3){width:1rem;top:1.7rem;left: 4.1rem;}
+			.loadingPage_wrap img:nth-child(4){width:.9rem;top:2.6rem;left:3.8rem;}
+			.loadingPage_wrap img:nth-child(5){width:.8rem;left:2.8rem;bottom: 0;}
+			.loadingPage_wrap img:nth-child(6){width:1rem;top:2.6rem;left:1.7rem;}
+			.loadingPage_wrap img:nth-child(7){width:1rem;top:1.7rem;left:1.3rem;}
+			.loadingPage_wrap img:nth-child(8){width:1rem;top:.6rem;left:1.7rem;}
+			.loading_wordSty{  width: 100%;
+  float: left;
+  margin: 0.2rem auto 0;}
+  .loading_text{width: 3rem;
+  display: block;
+  margin: 0 auto;}
+  
+  
+  @-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+
+@-webkit-keyframes sk-circleFadeDelay {
+to{-webkit-transform: scale(1.0)}
+ }
+
+@keyframes sk-circleFadeDelay {
+to{-webkit-transform:  scale(2.0)}
+  }
+
+.sk-circle {
+		animation: sk-circleFadeDelay 1.2s ;
+		-webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="style/act_laba_style.css"/>
+<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+        
+        
+        
+    })(document, window);
+    
+    
+    
+    $(document).ready(function(){
+		    
+	    function getPosition(){
+	    	$('.loadingPage_wrap >img').each(function(){
+	    		$img = $(this) ;
+	    		var imgOffset21 = $img.position();
+				var imgOffset2 = $img.offset();
+				if(-35 <= imgOffset2.top &&   imgOffset2.top  <=35){
+					$img.addClass('sk-circle') ;
+					console.debug( '  x2= '+imgOffset2.top +' y2= '+imgOffset2.left) ;
+				}else{
+					$img.removeClass('sk-circle') ;
+				}
+			});
+	    }
+		
+    		
+    		setInterval(getPosition,500);
+			
+	});
+    
+    
+</script>
+</head>
+	<body>
+		<div class="con_wrap">
+			<script>
+		        var wh=$(window).height();
+		        var ww=$(window).width();
+		        $(".con_wrap").width(ww);
+		        $(".con_wrap").css({minHeight:wh});
+		    </script>
+			 <div class="loading_wrap" id="loading_wrap">
+				<script>
+					(function(){
+						var wh=$(document).height();
+						var ww=$(window).width();
+						
+						
+						$("#loading_wrap").css({minHeight:wh});
+						$("#loading_wrap").width(ww);
+						
+					})();
+					
+					
+				</script>
+				<div class="loadingCon_wrap">
+					<div class="loadingPage_wrap">
+						<img src="images/act_laba_loading_01.png" id="loading1" alt="" />
+						<img src="images/act_laba_loading_02.png" alt="" />
+						<img src="images/act_laba_loading_03.png" alt="" />
+						
+						<img src="images/act_laba_loading_04.png" alt="" />
+						<img src="images/act_laba_loading_05.png" alt="" />
+						
+						<img src="images/act_laba_loading_06.png" alt="" />
+						<img src="images/act_laba_loading_07.png" alt="" />
+						
+						<img src="images/act_laba_loading_08.png" alt="" />
+					</div>
+					<div class="loading_wordSty">
+						<img class="loading_text" src="images/act_laba_loadingtext.png" alt="" />
+					</div>
+					<!--<div style="width:100%;">
+						<div class="loading_line_wrap">
+							<img class="loading_lineback" src="images/act_game_loadingline_back.png" alt=""/>
+							<img class="loading_line loadingLineAni" src="images/act_game_loadingline.png" alt="" />
+						</div>
+					</div>-->
+				</div>
+			</div>
+		
+		<!-- <div class="index controlAlertPage" id="index" style="display:none">
+        <div class="index_top">
+            <img  src="images/act_game_load_title.png" alt=""/>
+            <img  src="images/act_game_load_title_1.png" alt=""/>
+        </div>
+        <div class="index_body">
+            <img src="images/act_game_index_eye.png" alt="">
+            <div class="leftEye">
+            	<img class="eyeBlackWrap" src="images/act_game_index_eyeBlack_wrap.png" alt="">
+            	<img class="eyeWhite" src="images/act_game_index_eye_ball.png" alt="" />
+            </div>
+            <div class="rightEye">
+            	<img class="eyeBlackWrap" src="images/act_game_index_eyeBlack_wrap.png" alt="">
+            	<img class="eyeWhite" src="images/act_game_index_eye_ball.png" alt="" />
+            </div>
+        </div>
+        <div class="index_bottom" id="index_bottom">
+            <img id="start" src="images/act_game_index_start.png" alt="">
+            <img src="images/act_game_index_title.png" alt="" />
+            <p id="activeRule_key">活动规则</p>
+           
+        </div>
+        <div class="index_activeRule">
+            	<p>活动规则：</p>
+            	<p>1、用户根据提示，点击画面中与其他图片不同的图片，点击正确计一分，进入下题。答题时间60秒，共20道题。</p>
+            	<p>2、凡参与活动的用户均可获得【药快到】满48元减10元现金券2张。</p>
+            	<p>3、活动有效期自10月30日0:00——11月8日23:59。</p>
+            	<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+            </div>
+    </div>-->
+</div>
+	</body>
+</html>

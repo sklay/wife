@@ -1,26 +1,141 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<style type="text/css">
-	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-	</style>
-	<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>-->
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ct5udcV6hGRD0rGbOwo4im8P"></script>
-	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
-	<title>添加动画标注点</title>
+<meta charset="utf-8">
+<title>药品管理</title>
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/pagination.css" />
+<link rel="stylesheet" href="style/jquery.datetimepicker.css"/ >
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/jquery.pagination.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.datetimepicker.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Ct5udcV6hGRD0rGbOwo4im8P"></script>
+		<style>
+			 *{margin:0 ;padding:0;}
+			body, html,#allmap {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+			#pharma_map{height:100%;width:100%;}
+			#navigation{  width: 100%; color: #444; border-bottom: 1px solid #eee; height: 41px; background: #fff;}
+			.pharma_map{width:100%;height:100%;} 
+			.selectedstyle{width:30%;height:41px;}
+		</style>
 </head>
 <body>
-	<div id="allmap"></div>
+	<div class="nav_menu ">
+		<div class="header">
+				<div class="hcenter">
+					<span class="pharmacy">${sessionScope.loginInfo.pharmacyName}</span>
+					<span class="company">——【康顾多健康科技有限公司】</span>
+					<div class="user">
+						<img alt="" src="">
+						<span>${sessionScope.loginInfo.employeeInfo.name}</span>
+						<span style="margin-left: 40px;cursor: pointer;" id="cancel">注销</span>
+					</div>
+				</div>
+			</div>
+			<div id="navigation">
+			
+				<select id="storeSelect" name="storeSelect" class="selectedstyle" onchange="javascript:selectOption(this.value);">
+					<option value="">请选择</option>
+					
+					<c:forEach  var="drugs" items="${delivers}" varStatus="drug">
+						<option id="courierclick" <c:if test="${drugs.adminId eq deliverInfo.adminId}">selected</c:if>  value="${drugs.adminId}">
+						${drugs.adminName}
+						</option>
+					</c:forEach> 
+					<%-- 
+					<c:forEach items="${delivers}" var="drugs" varStatus="drug">
+						<option value="${drugs.adminId}">
+						${drugs.adminName}
+						</option>
+					</c:forEach>
+					  --%>
+				</select>
+				<input type="button" class="show_over" style="display: none;" value="显示" />
+				<input type="button" class="hide_over" value="隐藏" />
+			</div>
+	</div>
+	<div class="left">
+		<%@ include  file="left.jsp"%>
+	</div>
+	<div class="pharma_map">
+		<div id="pharma_map"></div>
+	</div>
+	
+	
 </body>
-</html>
 <script type="text/javascript">
+//	var pharmacyId="${pharmacyId}";//药店id adminNewTrack坐标
+	var currentAdminId = '${deliverInfo.adminId}' ;
+	
+	selectOption=function(adminId){
+		if(adminId){
+			window.location.href='pharmacyMap?pharmacyId=${pharmacyId }&deliverId='+ adminId;
+		}
+	}
+
+	$(function(){
 	// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(116.404, 39.915);
+	var map = new BMap.Map("pharma_map");
+	var point = new BMap.Point(${location });
+	var label = new BMap.Label("${phaName}",{offset:new BMap.Size(20,-10)});
 	map.centerAndZoom(point, 15);
-	var marker = new BMap.Marker(point);  // 创建标注
-	map.addOverlay(marker);               // 将标注添加到地图中
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	var marker = new BMap.Marker(point);
+	map.addOverlay(marker);
+	//添加提示信息
+	marker.setLabel(label);
+	//双击后放大地图比例
+	map.disableDoubleClickZoom(true);
+	
+	
+	if(currentAdminId && '${deliverInfo.adminNewTrack}'){
+//		var adminTrack = '${deliverInfo.adminNewTrack}' ;
+		
+		var deliverPoint = new BMap.Point(${deliverInfo.adminNewTrack});
+		var deliverLabel = new BMap.Label("我是快递-【${deliverInfo.adminName}】",{offset:new BMap.Size(20,-10)});
+		map.centerAndZoom(deliverPoint, 15);
+		
+		var deliverIcon = new BMap.Icon("images/loading01.png", new BMap.Size(100,100));
+		var deliverMarker = new BMap.Marker(deliverPoint,{icon: deliverIcon});
+		map.addOverlay(deliverMarker);
+		//添加提示信息
+		deliverMarker.setLabel(deliverLabel);
+	}
+	
+	
+	
+	var pointArray = new Array() ;
+	<c:if test="${ not empty range }">
+		<c:forEach items="${fn:split(range, ';')}" var="pointItem">
+			pointArray.push(new BMap.Point(${pointItem }));
+		</c:forEach>
+	
+	var polyline = new BMap.Polyline(pointArray, {strokeColor:"blue", strokeWeight:4, strokeOpacity:0.1});
+	map.addOverlay(polyline);          //增加折线
+	var polygon = new BMap.Polygon(pointArray, {strokeColor:"blue", strokeWeight:4, strokeOpacity:0.1});
+	map.addOverlay(polygon);   //增加多边形
+	
+	$('input.show_over').click(function(){
+		$(this).hide();
+		$('input.hide_over').show();
+		polyline.show();polygon.show();
+	});
+	$('input.hide_over').click(function(){
+		$(this).hide();
+		$('input.show_over').show();
+		polyline.hide();polygon.hide();
+	});
+	
+	</c:if>
+	$("#cancel").click(function(){
+		location.href="cancel";
+	});
+	
+	
+})
+	
 </script>
+</html>
