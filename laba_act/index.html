@@ -8,7 +8,7 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="stylesheet" type="text/css" href="style/act_laba_style.css"/>
-<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>
+<!--<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>-->
 <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
 <style>
    	.loadingCon_wrap{  width: 100%; position: absolute;top: 20%; left: 0;box-sizing: border-box; }
@@ -23,8 +23,8 @@
 	.loadingPage_wrap img:nth-child(7){top:1rem;left:2.3rem;}
 	.loadingPage_wrap img:nth-child(8){top:.4rem;left:2.5rem;}
 	
-	.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
-	.loading_text{width: 2rem;display: block; margin: 0 auto;}
+	/*.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
+	.loading_text{width: 2rem;display: block; margin: 0 auto;}*/
  
  
   .loadingCon_wrap{
@@ -37,7 +37,7 @@
    .loadingPage_wrap{
    	  width: 100%;
   box-sizing: border-box;
-  height: 4rem;
+  height: 2.5rem;
     position: relative;
     
     animation: 9.5s linear 0s normal none infinite rotate;
@@ -52,7 +52,7 @@
 
 }
 
-  @-webkit-keyframes rotate{
+ /* @-webkit-keyframes rotate{
 from{-webkit-transform:rotate(0deg)}
 to{-webkit-transform:rotate(360deg)}
 }
@@ -71,7 +71,7 @@ to{-ms-transform:rotate(360deg)}
 @-o-keyframes rotate{
 from{-o-transform:rotate(0deg)}
 to{-o-transform:rotate(360deg)}
-}
+}*/
 
 .loadingPage_wrap img:nth-child(1){
 	/*width:.4rem;top: .2rem;left: 3rem;*/
@@ -119,7 +119,7 @@ to{-o-transform:rotate(360deg)}
 .loading_wordSty{  width: 100%;
   float: left;
   margin: 0.2rem auto 0;}
-  .loading_text{width: 3rem;
+  .loading_text{width: 2rem;
   display: block;
   margin: 0 auto;}
   
@@ -137,6 +137,17 @@ to{-o-transform:rotate(360deg)}
     -webkit-transform: scale(1.0);
   }
 }
+
+@font-face {
+				font-family:'Open Sans';
+				src: url('fanti.ttf') format('truetype');
+				/*src: url('zhuanti.ttf') format('truetype');*/
+			}
+			/*@font-face {
+				font-family:'Open Sans';
+				src: url('happy.ttf') format('truetype');
+				/*src: url('zhuanti.ttf') format('truetype');*/
+			}*/
 </style>
 
 <script>
@@ -225,7 +236,7 @@ to{-o-transform:rotate(360deg)}
 					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 				</div>
 			</div>
-			<div class="start_game common_wrapSty" id="start_game" >
+			<div class="start_game common_wrapSty" id="start_game" style="display: none;">
 		        <div class="start_top" id="start_top" >
 		        	<div class="playGame_TipStyle">
 		            	<img  src="images/act_laba_gameTitle.png" />
@@ -251,28 +262,118 @@ to{-o-transform:rotate(360deg)}
 		            <div class="cavwrap"></div>
 		       </div>-->
 		         <div class="conWrap">
-		       <ul class="module_wrap listCom" style="display:block;opacity:1">
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-		        <ul class="module_wrap listCom" style="display:block;opacity:1">
+			        <ul class="module_wrap listCom" style="display:block;opacity:1">
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+			        <ul class="module_wrap listCom" style="display:block;opacity:1">
 		        </div>
-		       
     		</div>
+    		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" style="display: none;">
+    			<div class="closeShade">×</div>
+				<div class="selfGetPrize1 getmoon alertpage">
+	            	  	<div class="prize_title common_descSty">
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p style="font-family:'Open Sans'">恭喜你！</p>
+	            	  	</div>
+	            	  	<div class="prize_content common_descSty">
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p style="font-family:'Open Sans'">只用了<span style="-webkit-text-stroke: 1.3px #fff;color: #ff4200;  font-family: 微软雅黑;">45</span>秒</p>
+	            	  		<p style="font-family:'Open Sans'">就成功集到了8种小豆豆</p>
+	            	  		<p style="font-family:'Open Sans';color: #b84e00;-webkit-text-stroke: 0;margin: .3rem;"> 可以喝到腊八粥咯~</p>
+	            	  	</div>
+			            <div class="prize_imgSty">
+			                <img  src="images/act_laba_result_bowl.png">
+			                <img  src="images/act_laba_result_remind.png">
+			            </div>
+	                  <div class="prize_btn" style="padding-top: .3rem;">
+	                    <img id="receivePrize" src="images/act_laba_result_getBtn.png">
+	                    <img id="receiveShare" src="images/act_laba_result_invitFri.png">
+	                </div>
+	            </div>
+			</div>
 			
-</div>
-	</body>
+			<!--领取页面-->
+			<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage">
+				<div class="receive_codeTitle recePage_Width">
+				 	<img  src="images/act_laba_reveive_title.png" alt=""/>
+				 	<img  src="images/act_laba_reveive_desc.png" alt=""/>
+				</div>
+				<div class="receive_page_coupon recePage_Width" id="receive_page_coupon">
+			            <img src="images/act_laba_receive_coupon_01.png" alt=""/>
+			    </div>
+				<div class="receive_code receivePageCont" id="receive_page">
+					
+			        <div class="loginnow" id="loginnow">
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+								<div id="commomLogin_getcode">
+									<span class="commomLogin_getcode" style="line-height:35px;">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+								</div>
+							</div>
+							
+							<div id="loginsumbit">领取
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---成功领取-->
+	        	<!--<div class="receive_success_box receivePageCont common_boxSty" >
+	        		<div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+	        	 	<div class="receive_success_title common_titleSty ">
+			            <img src="images/act_lung_getHbBackCommon.png" alt=""/>
+		       		</div>
+				    <div class="receive_success_desc common_descSty">
+				       <p class="commom_desc_psty2">为了您的健康，快去使用吧！</p>
+				    </div>
+				    <div class="common_useStyle" >
+					    <a id="downloadA" href="http://store.ykd365.com/download.html">
+					        <img src="images/act_lung_goToUseHb.png" />
+					    </a>
+					 	<img class="shareFri " id="small_ShareFri" src="images/act_lung_receivePageShareFri.png" />
+				  	</div>
+	        	</div>-->
+	    			<!--已经领过-->
+				<!--<div class="have_received_box receivePageCont common_boxSty" >
+				    <div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+				      <div class="have_received_title common_titleSty recePage_Width">
+					    <img src="images/act_lung_hasGot.png" alt=""/>
+					  </div>
+				      <div class="have_received_desc common_descSty">
+				        <p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .2rem;line-height: 25px;">快邀请 小伙伴们<br/>一起来测试吧！</p>
+				      </div>
+				     <div class="shareFri common_useStyle">
+				     	<img  src="images/act_lung_getFri.png" />
+				     </div>
+				</div>-->
+			</div>
+			<div id="shareAppPage" class="commonPage_wrapStyle">
+				<button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
+				<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button>
+			</div>
+			
+	</div>
+</body>
 </html>
