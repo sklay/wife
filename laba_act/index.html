@@ -146,12 +146,12 @@ to{-o-transform:rotate(360deg)}
 			/*@font-face {
 				font-family:'Open Sans';
 				src: url('happy.ttf') format('truetype');
-				/*src: url('zhuanti.ttf') format('truetype');*/
 			}*/
 </style>
 
 <script>
 	var _hmt = _hmt || [];
+	var selected = [] ;
 	(function() {
 	  var hm = document.createElement("script");
 	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
@@ -192,6 +192,7 @@ to{-o-transform:rotate(360deg)}
 						var ww=$(window).width();
 						$("#loading_wrap").css({minHeight:wh});
 						$("#loading_wrap").width(ww);
+						
 					})();
 					
 				</script>
@@ -236,7 +237,7 @@ to{-o-transform:rotate(360deg)}
 					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 				</div>
 			</div>
-			<div class="start_game common_wrapSty" id="start_game" style="display: none;">
+			<div class="start_game common_wrapSty" id="start_game" style="display: block;">
 		        <div class="start_top" id="start_top" >
 		        	<div class="playGame_TipStyle">
 		            	<img  src="images/act_laba_gameTitle.png" />
@@ -263,22 +264,22 @@ to{-o-transform:rotate(360deg)}
 		       </div>-->
 		         <div class="conWrap">
 			        <ul class="module_wrap listCom" style="display:block;opacity:1">
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
 			        <ul class="module_wrap listCom" style="display:block;opacity:1">
 		        </div>
     		</div>
@@ -307,7 +308,7 @@ to{-o-transform:rotate(360deg)}
 			</div>
 			
 			<!--领取页面-->
-			<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage">
+			<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage"  style="display: none;">
 				<div class="receive_codeTitle recePage_Width">
 				 	<img  src="images/act_laba_reveive_title.png" alt=""/>
 				 	<img  src="images/act_laba_reveive_desc.png" alt=""/>
@@ -375,5 +376,16 @@ to{-o-transform:rotate(360deg)}
 			</div>
 			
 	</div>
+	
+	<script>
+		$(function(){
+			$('img.games').on('click',function(){
+				$img = $(this) ;
+				console.debug("click" ,$img.attr('data-src')) ;
+				var $data_src = $img.attr('data-src') ;
+				$(this).attr('src' , $data_src) ;
+			});
+		})
+	</script>
 </body>
 </html>

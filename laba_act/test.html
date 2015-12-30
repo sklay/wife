@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head >
+<meta charset="utf-8">
+<title>【药快到】食品卫生找茬大赛</title>
+<meta name="description" content="食品卫生，你注意过吗？快来看看自己能到哪关！"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" type="text/css" href="style/act_laba_style.css"/>
+<!--<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>-->
+<link href="style/matchgame.css" rel="stylesheet">
+<script type="text/javascript" src="js/htm5game.matchgame.js"></script>
+<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<style>
+   	.loadingCon_wrap{  width: 100%; position: absolute;top: 20%; left: 0;box-sizing: border-box; }
+   	.loadingPage_wrap{ width: 100%;box-sizing: border-box; height: 3rem; position: relative;}
+	.loadingPage_wrap img{position: absolute;width: .5rem;}
+	.loadingPage_wrap img:nth-child(1){width:.4rem;top: .2rem;left: 3rem;}
+	.loadingPage_wrap img:nth-child(2){top:.4rem;left: 3.5rem;}
+	.loadingPage_wrap img:nth-child(3){top:1rem;left: 3.7rem;}
+	.loadingPage_wrap img:nth-child(4){top:1.4rem;left:3.5rem;}
+	.loadingPage_wrap img:nth-child(5){width:.4rem;left:3rem;top: 1.7rem;}
+	.loadingPage_wrap img:nth-child(6){top:1.5rem;left:2.5rem;}
+	.loadingPage_wrap img:nth-child(7){top:1rem;left:2.3rem;}
+	.loadingPage_wrap img:nth-child(8){top:.4rem;left:2.5rem;}
+	
+	/*.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
+	.loading_text{width: 2rem;display: block; margin: 0 auto;}*/
+ 
+ 
+  .loadingCon_wrap{
+   	  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 0;
+  box-sizing: border-box;
+   }
+   .loadingPage_wrap{
+   	  width: 100%;
+  box-sizing: border-box;
+  height: 2.5rem;
+    position: relative;
+    
+    animation: 9.5s linear 0s normal none infinite rotate;
+	-webkit-animation:9.5s linear 0s normal none infinite rotate;
+}
+.loadingPage_wrap img{position: absolute;
+
+	-webkit-animation: bouncedelay 1.7s infinite ease-in-out;
+  	animation: bouncedelay 1.7s infinite ease-in-out;
+  	-webkit-animation-fill-mode: both;
+  	animation-fill-mode: both;
+
+}
+
+ /* @-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}*/
+
+.loadingPage_wrap img:nth-child(1){
+	/*width:.4rem;top: .2rem;left: 3rem;*/
+	-webkit-animation-delay: -1.5s;
+  	animation-delay: -1.5s;
+	
+}
+.loadingPage_wrap img:nth-child(2){
+	/*width:1rem;top:.6rem;left: 3.8rem;*/
+	-webkit-animation-delay: -1.3s;
+  	animation-delay: -1.3s;
+	
+}
+.loadingPage_wrap img:nth-child(3){
+	/*width:1rem;top:1.7rem;left: 4.1rem;*/
+	-webkit-animation-delay: -1.1s;
+  	animation-delay: -1.1s;
+
+}
+.loadingPage_wrap img:nth-child(4){
+	/*width:.9rem;top:2.6rem;left:3.8rem;*/
+	-webkit-animation-delay: -0.9s;
+  	animation-delay: -0.9s;
+}
+.loadingPage_wrap img:nth-child(5){
+	/*width:.8rem;left:2.8rem;bottom: 0;*/
+	-webkit-animation-delay: -0.7s;
+  	animation-delay: -0.7s;
+}
+.loadingPage_wrap img:nth-child(6){
+	/*width:1rem;top:2.6rem;left:1.7rem;*/
+	-webkit-animation-delay: -0.5s;
+  	animation-delay: -0.5s;
+}
+.loadingPage_wrap img:nth-child(7){
+	/*width:1rem;top:1.7rem;left:1.3rem;*/
+	-webkit-animation-delay: -0.3s;
+  	animation-delay: -0.3s;
+}
+.loadingPage_wrap img:nth-child(8){
+	/*width:1rem;top:.6rem;left:1.7rem;*/
+	-webkit-animation-delay: -0.1s;
+  	animation-delay: -0.1s;
+}
+.loading_wordSty{  width: 100%;
+  float: left;
+  margin: 0.2rem auto 0;}
+  .loading_text{width: 2rem;
+  display: block;
+  margin: 0 auto;}
+  
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0.5) }
+  40% { -webkit-transform: scale(1.0) }
+}
+ 
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  } 40% {
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+@font-face {
+				font-family:'Open Sans';
+				src: url('fanti.ttf') format('truetype');
+				/*src: url('zhuanti.ttf') format('truetype');*/
+			}
+			/*@font-face {
+				font-family:'Open Sans';
+				src: url('happy.ttf') format('truetype');
+			}*/
+			
+.conWrap{
+  /*margin-top: .28rem;
+  overflow: hidden;*/
+  position: relative;
+  font-weight: 600;
+	
+}
+</style>
+
+<script>
+	var _hmt = _hmt || [];
+	var selected = [] ;
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</head>
+	<body>
+		<div class="con_wrap">
+			<script>
+		        var wh=$(window).height();
+		        var ww=$(window).width();
+		        $(".con_wrap").width(ww);
+		        $(".con_wrap").css({minHeight:wh});
+		    </script>
+			 <div class="loading_wrap" id="loading_wrap" style="display: none;">
+				<script>
+					(function(){
+						var wh=$(document).height();
+						var ww=$(window).width();
+						$("#loading_wrap").css({minHeight:wh});
+						$("#loading_wrap").width(ww);
+						
+					})();
+					
+				</script>
+				<div class="loadingCon_wrap">
+					<div class="loadingPage_wrap">
+						<img src="images/act_laba_loading_01.png" alt=""/>
+						<img src="images/act_laba_loading_02.png" alt="" />
+						<img src="images/act_laba_loading_03.png" alt="" />
+						<img src="images/act_laba_loading_04.png" alt="" />
+						<img src="images/act_laba_loading_05.png" alt="" />
+						<img src="images/act_laba_loading_06.png" alt="" />
+						<img src="images/act_laba_loading_07.png" alt="" />
+						<img src="images/act_laba_loading_08.png" alt="" />
+					</div>
+					<div class="loading_wordSty">
+						<img class="loading_text" src="images/act_laba_loadingtext.png" alt="" />
+					</div>
+				</div>
+			</div>
+		
+		<div class="startPage commonPage_wrapStyle Pagecontroller" id="startPage" style="display: none;">
+				<div class="act_laba_title">
+					<img src="images/act_laba_index_title.png" />
+				</div>
+				<div class="GameTipText">
+					<img src="images/act_laba_index_zhou.png" />
+					<img src="images/act_laba_index_desc.png" />
+				</div>
+				<div class="GameTipImg">
+					<img src="images/act_laba_index_bowl.png" />
+				</div>
+				<div class="startGameBtn_wrap">
+					<img id="startGameBtn" src="images/act_laba_index_startBtn.png" />
+				</div>
+				<div class="commRuleBtn">
+					<p class="commonRuleStyle" onclick="clickShow_common('gameRuleShow')">活动规则</p>
+				</div>
+				<div class="gameRuleShow" id="gameRuleShow" onclick="closeSelf_common(this)">
+					<p>1、用户点击卡片翻牌，翻到一样的牌面即可成功配对，点亮该种小豆豆。点亮八种小豆豆即可成功喝到腊八粥。</p>
+					<p>2、凡参与活动的用户均可获得【药快到】全场通用满48元减6元现金券2张。</p>
+					<p>3、活动有效期自1月15日0:00——1月21日23:59。</p>
+					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+			</div>
+			<div class="start_game common_wrapSty" id="start_game" style="display: block;">
+		        <div class="start_top" id="start_top" >
+		        	<div class="playGame_TipStyle">
+		            	<img  src="images/act_laba_gameTitle.png" />
+		            </div>
+		            <div class="playGame_imgSty">
+		            	<div class="playGame_imgBack">
+		            		<img class="light-cardA" src="images/act_laba_grayDou_01.png" />
+		            		<img class="light-cardB" src="images/act_laba_grayDou_02.png" />
+		            		<img class="light-cardC" src="images/act_laba_grayDou_03.png" />
+		            		<img class="light-cardD" src="images/act_laba_grayDou_04.png" />
+		            		<img class="light-cardE" src="images/act_laba_grayDou_05.png" />
+		            		<img class="light-cardF" src="images/act_laba_grayDou_06.png" />
+		            		<img class="light-cardG" src="images/act_laba_grayDou_07.png" />
+		            		<img class="light-cardH" src="images/act_laba_grayDou_08.png" />
+		            	</div>
+			            <div class="timeClock">
+			            	<p id="gameTimeShow">60</p>
+			            </div>
+		            </div>
+		        </div>
+		      <!-- <div class="food_img controlAlertPage" id="food_img">
+		            <p id="question-info"></p>
+		            <div class="cavwrap"></div>
+		       </div>-->
+		       
+		        <div class="conWrap">
+				    <div id="cards" class="module_wrap listCom" style="display:block;opacity:1">
+				        <div class="card">
+				            <div class="face front"></div>
+				            <div class="face back"></div>
+				        </div>
+				    </div>
+				</div>
+		       <!--
+		         <div class="conWrap">
+			        <ul class="module_wrap listCom" style="display:block;opacity:1">
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+	            		<li><img class="light1 games" data-src="images/act_laba_positive.png" src="images/act_laba_gamePageBack.png" /></li>
+			        <ul class="module_wrap listCom" style="display:block;opacity:1">
+		        </div>
+		        -->
+    		</div>
+    		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" style="display: none;">
+    			<div class="closeShade">×</div>
+				<div class="selfGetPrize1 getmoon alertpage">
+	            	  	<div class="prize_title common_descSty">
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p style="font-family:'Open Sans'">恭喜你！</p>
+	            	  	</div>
+	            	  	<div class="prize_content common_descSty">
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p style="font-family:'Open Sans'">只用了<span style="-webkit-text-stroke: 1.3px #fff;color: #ff4200;  font-family: 微软雅黑;">45</span>秒</p>
+	            	  		<p style="font-family:'Open Sans'">就成功集到了8种小豆豆</p>
+	            	  		<p style="font-family:'Open Sans';color: #b84e00;-webkit-text-stroke: 0;margin: .3rem;"> 可以喝到腊八粥咯~</p>
+	            	  	</div>
+			            <div class="prize_imgSty">
+			                <img  src="images/act_laba_result_bowl.png">
+			                <img  src="images/act_laba_result_remind.png">
+			            </div>
+	                  <div class="prize_btn" style="padding-top: .3rem;">
+	                    <img id="receivePrize" src="images/act_laba_result_getBtn.png">
+	                    <img id="receiveShare" src="images/act_laba_result_invitFri.png">
+	                </div>
+	            </div>
+			</div>
+			
+			<!--领取页面-->
+			<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage"  style="display: none;">
+				<div class="receive_codeTitle recePage_Width">
+				 	<img  src="images/act_laba_reveive_title.png" alt=""/>
+				 	<img  src="images/act_laba_reveive_desc.png" alt=""/>
+				</div>
+				<div class="receive_page_coupon recePage_Width" id="receive_page_coupon">
+			            <img src="images/act_laba_receive_coupon_01.png" alt=""/>
+			    </div>
+				<div class="receive_code receivePageCont" id="receive_page">
+					
+			        <div class="loginnow" id="loginnow">
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+								<div id="commomLogin_getcode">
+									<span class="commomLogin_getcode" style="line-height:35px;">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+								</div>
+							</div>
+							
+							<div id="loginsumbit">领取
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---成功领取-->
+	        	<!--<div class="receive_success_box receivePageCont common_boxSty" >
+	        		<div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+	        	 	<div class="receive_success_title common_titleSty ">
+			            <img src="images/act_lung_getHbBackCommon.png" alt=""/>
+		       		</div>
+				    <div class="receive_success_desc common_descSty">
+				       <p class="commom_desc_psty2">为了您的健康，快去使用吧！</p>
+				    </div>
+				    <div class="common_useStyle" >
+					    <a id="downloadA" href="http://store.ykd365.com/download.html">
+					        <img src="images/act_lung_goToUseHb.png" />
+					    </a>
+					 	<img class="shareFri " id="small_ShareFri" src="images/act_lung_receivePageShareFri.png" />
+				  	</div>
+	        	</div>-->
+	    			<!--已经领过-->
+				<!--<div class="have_received_box receivePageCont common_boxSty" >
+				    <div class="closeShade closeAndBackClick">
+	        			<span>X</span>
+	        		</div>
+				      <div class="have_received_title common_titleSty recePage_Width">
+					    <img src="images/act_lung_hasGot.png" alt=""/>
+					  </div>
+				      <div class="have_received_desc common_descSty">
+				        <p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .2rem;line-height: 25px;">快邀请 小伙伴们<br/>一起来测试吧！</p>
+				      </div>
+				     <div class="shareFri common_useStyle">
+				     	<img  src="images/act_lung_getFri.png" />
+				     </div>
+				</div>-->
+			</div>
+			<div id="shareAppPage" class="commonPage_wrapStyle">
+				<button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
+				<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button>
+			</div>
+			
+	</div>
+	
+	<script>
+	$(function(){
+		//实现随机洗牌
+		neusoft.matchingGame.deck.sort(shuffle);
+		//alert(neusoft.matchingGame.deck);
+		var $card=$(".card");
+		for(var i= 0;i<15;i++)
+		{
+			$card.clone().appendTo($("#cards"));
+		}
+		//对每张牌进行设置
+		$(".card").each(function(index)
+		{
+			//调整坐标
+			$(this).css({
+				"left":(neusoft.matchingGame.cardWidth*(index%4))+ (0.15*(index%4 + 1)) +"rem",
+				"top": (neusoft.matchingGame.cardHeight+0.2)*Math.floor(index/4)+"rem"
+			});
+			//吐出一个牌号
+			var pattern=neusoft.matchingGame.deck.pop();
+			
+			console.debug('pattern is  ' ,pattern) ;
+			
+			//暂存牌号
+			$(this).data("pattern",pattern);
+			//把其翻牌后的对应牌面附加上去
+			$(this).find(".back").addClass(pattern);
+		//	$(this).find(".front").addClass(pattern);
+			//点击牌的功能函数挂接
+			$(this).click(selectCard);
+		});
+		
+		
+		settime('#gameTimeShow') ;
+	});
+	
+	
+	var countdown=60; 
+	function settime(obj) { 
+	    if (countdown == 0) { 
+	        countdown = 60; 
+			$(obj).text("00"); 
+			// 统计结果			
+			statisticsResult() ;
+	        return;
+	    } else { 
+		var text = countdown ;
+		if(countdown < 10)
+			text= '0'+text ;
+	        $(obj).text(text); 
+	        countdown--; 
+	    } 
+		setTimeout(function() { 
+		    settime(obj) }
+		    ,1000) 
+	}
+	
+	function statisticsResult(){
+		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
+			alert('时间到了 , 您猜对了' + card_correct_count +" 个") ;
+			$('div.card').unbind("click"); 
+	}
+</script>
+	</script>
+</body>
+</html>

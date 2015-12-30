@@ -1,0 +1,81 @@
+.card
+{
+    width: 1.4rem;
+    height: 2rem;
+    position: absolute;
+}
+.face
+{
+    width: 100%;
+    height: 100%;
+    border-radius:10px;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition:all .3s;
+    background-size:cover;
+}
+.front
+{
+    background: url("../images/act_laba_gamePageBack.png") ;
+    z-index: 10;
+    background-size:cover;
+}
+.back
+{
+    background: url("../images/act_laba_positive.png");
+    -webkit-transform-rotateY(-180deg);
+	background-size:cover;
+    z-index: 8;
+}
+.face:hover
+{
+    -webkit-box-shadow: 0 0 40px #aaa;
+
+}
+/*牌面定位样式*/
+.cardA{background: url("../images/act_laba_grayDou_01.png") no-repeat center;}
+.cardB{background: url("../images/act_laba_grayDou_02.png") no-repeat center;}
+.cardC{background: url("../images/act_laba_grayDou_03.png") no-repeat center;}
+.cardD{background: url("../images/act_laba_grayDou_04.png") no-repeat center;}
+.cardE{background: url("../images/act_laba_grayDou_05.png") no-repeat center;}
+.cardF{background: url("../images/act_laba_grayDou_06.png") no-repeat center;}
+.cardG{background: url("../images/act_laba_grayDou_07.png") no-repeat center;}
+.cardH{background: url("../images/act_laba_grayDou_08.png") no-repeat center;}
+
+.card-flipped .front
+{
+    /*保证牌底在牌面下面，z-index值切换为小值*/
+    z-index: 8;
+    -webkit-transform: rotateY(180deg);
+}
+.card-flipped .back
+{
+    /*保证牌底在牌面上面，z-index值切换为大值*/
+    z-index: 10;
+    /*前面牌面已经翻过去，现在返回来*/
+    -webkit-transform: rotateY(0deg);
+}
+
+
+.card-correct .front
+{
+    /*保证牌底在牌面下面，z-index值切换为小值*/
+    z-index: 8;
+    -webkit-transform: rotateY(180deg);
+}
+.card-correct .back
+{
+    /*保证牌底在牌面上面，z-index值切换为大值*/
+    z-index: 10;
+    /*前面牌面已经翻过去，现在返回来*/
+    -webkit-transform: rotateY(0deg);
+}
+
+.card-active{
+	background: red;
+}
+/*移除牌*/
+.card-removed
+{
+    opacity: 0;
+}
