@@ -9,9 +9,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="stylesheet" type="text/css" href="style/act_laba_style.css"/>
 <!--<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>-->
-<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+<!--<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>-->
+<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
 <link href="style/matchgame.css" rel="stylesheet">
-<script type="text/javascript" src="js/htm5game.matchgame.js"></script>
+
 <style>
 	*{margin:0;padding:0;}
    	.loadingCon_wrap{  width: 100%; position: absolute;top: 20%; left: 0;box-sizing: border-box; }
@@ -47,7 +49,6 @@
 	-webkit-animation:9.5s linear 0s normal none infinite rotate;
 }
 .loadingPage_wrap img{position: absolute;
-
 	-webkit-animation: bouncedelay 1.7s infinite ease-in-out;
   	animation: bouncedelay 1.7s infinite ease-in-out;
   	-webkit-animation-fill-mode: both;
@@ -188,7 +189,7 @@ to{-o-transform:rotate(360deg)}
 		        $(".con_wrap").width(ww);
 		        $(".con_wrap").css({minHeight:wh});
 		    </script>
-			 <div class="loading_wrap" id="loading_wrap" style="display: none;">
+			 <div class="loading_wrap" id="loading_wrap" >
 				<script>
 					(function(){
 						var wh=$(document).height();
@@ -245,7 +246,7 @@ to{-o-transform:rotate(360deg)}
 					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 				</div>
 			</div>
-			<div class="start_game common_wrapSty" id="start_game" >
+			<div class="start_game common_wrapSty" id="start_game" style="display: none;">
 		        <div class="start_top" id="start_top" >
 		        	<div class="playGame_TipStyle">
 		            	<img  src="images/act_laba_gameTitle.png" />
@@ -406,6 +407,7 @@ to{-o-transform:rotate(360deg)}
 			
 	</div>
 </body>
+<script type="text/javascript" src="js/htm5game.matchgame.js"></script>
 <script>
 	
 	(function(){
@@ -419,72 +421,35 @@ to{-o-transform:rotate(360deg)}
 //			        if(wh<540){
 //			        	 $(".commonRuleStyle").css({position:"static",lineHeight:"30px"}); 
 //			        }
+
+ 			addELoad() ;
 		})();
-</script>
-
-
-	<script>
-	$(function(){
-		//实现随机洗牌
-		neusoft.matchingGame.deck.sort(shuffle);
-		//alert(neusoft.matchingGame.deck);
-		var $card=$(".card");
-		for(var i= 0;i<15;i++)
-		{
-			$card.clone().appendTo($("#cards"));
-		}
-		//对每张牌进行设置
-		$(".card").each(function(index)
-		{
-			//调整坐标
-//			$(this).css({
-//				"left":(neusoft.matchingGame.cardWidth*(index%4))+ (0.15*(index%4 + 1)) +"rem",
-//				"top": (neusoft.matchingGame.cardHeight+0.2)*Math.floor(index/4)+"rem"
-//			});
-			//吐出一个牌号
-			var pattern=neusoft.matchingGame.deck.pop();
-			
-			console.debug('pattern is  ' ,pattern) ;
-			
-			//暂存牌号
-			$(this).data("pattern",pattern);
-			//把其翻牌后的对应牌面附加上去
-			$(this).find(".back").addClass(pattern);
-		//	$(this).find(".front").addClass(pattern);
-			//点击牌的功能函数挂接
-			$(this).click(selectCard);
-		});
 		
+		var loadingTime=0;
+	var loadingTimer=null;
+//	var perLoadBoo=false;
+	loadingTimer=setInterval(function(){
+		loadingTime++;
+	},1000);
+	function addELoad(){
+		//images[preLoadImgList.length-1].onload=function(){
+			 if(loadingTime<=2){
+					clearInterval(loadingTimer);
+				setTimeout(function(){
+					$("#loading_wrap").remove();
+					$(".startPage").show();
+					loadingTime=null;
+				},2000);
+			}else{
+				clearInterval(loadingTimer);
+				$("#loading_wrap").remove();
+				loadingTime=null;
+				$(".startPage").show();
+			}; 
+		//}
+	};
 		
-		settime('#gameTimeShow') ;
-	});
 	
-	
-	var countdown=60; 
-	function settime(obj) { 
-	    if (countdown == 0) { 
-	        countdown = 60; 
-			$(obj).text("0"); 
-			// 统计结果			
-			statisticsResult() ;
-	        return;
-	    } else { 
-		var text = countdown ;
-		if(countdown < 10)
-			text= '0'+text ;
-	        $(obj).text(text); 
-	        countdown--; 
-	    } 
-		setTimeout(function() { 
-		    settime(obj) }
-		    ,1000) 
-	}
-	
-	function statisticsResult(){
-		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
-			alert('时间到了 , 您猜对了' + card_correct_count +" 个") ;
-			$('div.card').unbind("click"); 
-	}
 </script>
 	<!--</script>-->
 

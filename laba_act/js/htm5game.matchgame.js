@@ -1,8 +1,11 @@
 /**
- * Created by mengdi on 2015/10/29.
+ * Created by zhouhaixia on 2015/10/29.
  */
 
+var timestop = false ;
+var countdown=0; 
 var neusoft={};
+
 neusoft.matchingGame={};
 neusoft.matchingGame.cardWidth=1.4;//牌宽
 neusoft.matchingGame.cardHeight=2;
@@ -68,6 +71,12 @@ function checkPattern(cards)
 	    $lightImg.attr('src' ,dataSrc) ;
 	    $lightImg.attr('data-src',src) ;
 	 	$lightImg.addClass("card-active") ;
+	 	
+	 	var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
+	 	var all_card_count = $('div.playGame_imgBack>img').length 
+	 	if(all_card_count == card_correct_count){
+	 		timestop = true ;
+	 	}
 	    
 	 //   $(".card-active").attr('src','images/act_laba_positiveFace_01.png');
     	console.debug('checkPattren ' ,pattern1 , pattern2 ) ;
@@ -77,3 +86,68 @@ function checkPattern(cards)
 //  		});
     }
 }
+
+
+	
+	function playGame(){
+		//实现随机洗牌
+		neusoft.matchingGame.deck.sort(shuffle);
+		//alert(neusoft.matchingGame.deck);
+		var $card=$(".card");
+		for(var i= 0;i<15;i++)
+		{
+			$card.clone().appendTo($("#cards"));
+		}
+		//对每张牌进行设置
+		$(".card").each(function(index)
+		{
+			//调整坐标
+//			$(this).css({
+//				"left":(neusoft.matchingGame.cardWidth*(index%4))+ (0.15*(index%4 + 1)) +"rem",
+//				"top": (neusoft.matchingGame.cardHeight+0.2)*Math.floor(index/4)+"rem"
+//			});
+			//吐出一个牌号
+			var pattern=neusoft.matchingGame.deck.pop();
+			
+			console.debug('pattern is  ' ,pattern) ;
+			
+			//暂存牌号
+			$(this).data("pattern",pattern);
+			//把其翻牌后的对应牌面附加上去
+			$(this).find(".back").addClass(pattern);
+		//	$(this).find(".front").addClass(pattern);
+			//点击牌的功能函数挂接
+			$(this).tap(selectCard);
+		});
+		
+		
+		settime('#gameTimeShow') ;
+	};
+	
+	
+	
+
+	function settime(obj) { 
+	    if (timestop) { 
+	      //  countdown = 0; 
+		//	$(obj).text("0"); 
+			// 统计结果		
+			statisticsResult((countdown-1)) ;
+	        return;
+	    } else { 
+		var text = countdown ;
+		if(countdown < 10)
+			text= '0'+text ;
+	        $(obj).text(text); 
+	        countdown++; 
+	    } 
+		setTimeout(function() { 
+		    settime(obj) }
+		    ,1000) 
+	}
+	
+	function statisticsResult(timeused){
+		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
+			alert('耗时'+timeused+'s, 您猜对了' + card_correct_count +" 个") ;
+			$('div.card').unbind("tap"); 
+	}
