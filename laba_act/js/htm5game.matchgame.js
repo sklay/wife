@@ -44,6 +44,11 @@ function selectCard() {
     }
 }
 //检测2张牌是否一致
+
+var indexSub		= 0 ;
+var img = '<img class="image" src="{imgName}" />' ;
+	var maxImgList= ["cardA.png","cardB.png","cardC.png","cardD.png","cardE.png","cardF.png","cardG.png","cardH.png",] ;
+	var imgName	= "" ;
 function checkPattern(cards)
 {
     var pattern1 = $(cards[0]).data("pattern");
@@ -55,7 +60,9 @@ function checkPattern(cards)
     if(pattern1==pattern2)
     {
 	    $(cards).addClass("card-correct") ;
+//	    $("img[src='images/']").attr('src','images/act_laba_positiveFace_01.png');
 	    $('img.light-'+pattern1).addClass("card-active") ;
+	    $(".card-active").attr('src','images/act_laba_positiveFace_01.png');
     	console.debug('checkPattren ' ,pattern1 , pattern2 ) ;
 //        $(cards).addClass("card-removed")
 //          .bind("webkitTransitionEnd",function(){
