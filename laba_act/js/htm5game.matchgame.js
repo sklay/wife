@@ -8,14 +8,14 @@ neusoft.matchingGame.cardWidth=1.4;//牌宽
 neusoft.matchingGame.cardHeight=2;
 neusoft.matchingGame.deck=
     [
-        "cardA","cardA",
-        "cardB","cardB",
-        "cardC","cardC",
-        "cardD","cardD",
-        "cardE","cardE",
-        "cardF","cardF",
-		"cardG","cardG",
-		"cardH","cardH"
+        "card1","card1",
+        "card2","card2",
+        "card3","card3",
+        "card4","card4",
+        "card5","card5",
+        "card6","card6",
+		"card7","card7",
+		"card8","card8"
     ]
 //随机排序函数，返回-1或1
 function shuffle()
@@ -60,9 +60,16 @@ function checkPattern(cards)
     if(pattern1==pattern2)
     {
 	    $(cards).addClass("card-correct") ;
-//	    $("img[src='images/']").attr('src','images/act_laba_positiveFace_01.png');
-	    $('img.light-'+pattern1).addClass("card-active") ;
-	    $(".card-active").attr('src','images/act_laba_positiveFace_01.png');
+	    $lightImg = $('img.light-'+pattern1) ;
+	    
+	    var src = $lightImg.attr('src') ;
+	    var dataSrc = $lightImg.attr('data-src') ;
+	    
+	    $lightImg.attr('src' ,dataSrc) ;
+	    $lightImg.attr('data-src',src) ;
+	 	$lightImg.addClass("card-active") ;
+	    
+	 //   $(".card-active").attr('src','images/act_laba_positiveFace_01.png');
     	console.debug('checkPattren ' ,pattern1 , pattern2 ) ;
 //        $(cards).addClass("card-removed")
 //          .bind("webkitTransitionEnd",function(){

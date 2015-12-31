@@ -35,14 +35,14 @@
 
 }
 /*牌面定位样式*/
-.cardA{background: url("../images/act_laba_positive1.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardB{background: url("../images/act_laba_positive2.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardC{background: url("../images/act_laba_positive3.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardD{background: url("../images/act_laba_positive4.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardE{background: url("../images/act_laba_positive5.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardF{background: url("../images/act_laba_positive6.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardG{background: url("../images/act_laba_positive7.png")top center no-repeat ;  background-size: 100% 100%;}
-.cardH{background: url("../images/act_laba_positive8.png")top center no-repeat ;  background-size: 100% 100%;}
+.card1{background: url("../images/act_laba_positive1.png")top center no-repeat ;  background-size: 100% 100%;}
+.card2{background: url("../images/act_laba_positive2.png")top center no-repeat ;  background-size: 100% 100%;}
+.card3{background: url("../images/act_laba_positive3.png")top center no-repeat ;  background-size: 100% 100%;}
+.card4{background: url("../images/act_laba_positive4.png")top center no-repeat ;  background-size: 100% 100%;}
+.card5{background: url("../images/act_laba_positive5.png")top center no-repeat ;  background-size: 100% 100%;}
+.card6{background: url("../images/act_laba_positive6.png")top center no-repeat ;  background-size: 100% 100%;}
+.card7{background: url("../images/act_laba_positive7.png")top center no-repeat ;  background-size: 100% 100%;}
+.card8{background: url("../images/act_laba_positive8.png")top center no-repeat ;  background-size: 100% 100%;}
 
 .card-flipped .front
 {
