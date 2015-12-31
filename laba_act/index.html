@@ -308,7 +308,7 @@ to{-o-transform:rotate(360deg)}
 			        <ul class="module_wrap listCom" style="display:block;opacity:1">
 		        </div>-->
     		</div>
-    		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" style="display: none;">
+    		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResultShow" style="display: none;">
     			<div class="closeShade">×</div>
 				<div class="selfGetPrize1 getmoon alertpage">
 	            	  	<div class="prize_title ">
@@ -317,8 +317,8 @@ to{-o-transform:rotate(360deg)}
 	            	  	</div>
 	            	  	<div class="prize_content ">
 	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
-	            	  		<p style="font-family:'Open Sans'">只用了<span style="-webkit-text-stroke: 1.3px #fff;color: #ff4200;  font-family: 微软雅黑;">45</span>秒</p>
-	            	  		<p style="font-family:'Open Sans'">就成功集到了8种小豆豆</p>
+	            	  		<p style="font-family:'Open Sans'">只用了<span style="-webkit-text-stroke: 1.3px #fff;color: #ff4200;  font-family: 微软雅黑;" id='timeused'>45</span>秒</p>
+	            	  		<p style="font-family:'Open Sans'" id='game_result'>就成功集到了8种小豆豆</p>
 	            	  		<p style="font-family:'Open Sans';color: #b84e00;-webkit-text-stroke: 0;margin: .3rem;"> 可以喝到腊八粥咯~</p>
 	            	  	</div>
 			            <div class="prize_imgSty">
@@ -423,6 +423,17 @@ to{-o-transform:rotate(360deg)}
 //			        }
 
  			addELoad() ;
+ 			
+ 			
+ 			$('#startGameBtn').tap(function(){
+ 				$(".startPage").hide();
+ 				
+ 				$(".start_game").show();
+ 				playGame() ;
+ 				
+ 			});
+ 			
+ 			
 		})();
 		
 		var loadingTime=0;
@@ -448,7 +459,17 @@ to{-o-transform:rotate(360deg)}
 			}; 
 		//}
 	};
+	
+	function gameFinished(timeused){
+		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
+		$('#timeused').text(timeused) ;
+		$('#game_result').text('恭喜你获得了【'+card_correct_count+'】个小豆豆') ;
 		
+		$('div.card').unbind("tap"); 
+		$(".start_game").hide();
+		$('.scoreResultShow').show() ;
+		
+	}
 	
 </script>
 	<!--</script>-->

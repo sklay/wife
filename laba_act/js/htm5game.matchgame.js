@@ -48,10 +48,10 @@ function selectCard() {
 }
 //检测2张牌是否一致
 
-var indexSub		= 0 ;
-var img = '<img class="image" src="{imgName}" />' ;
-	var maxImgList= ["cardA.png","cardB.png","cardC.png","cardD.png","cardE.png","cardF.png","cardG.png","cardH.png",] ;
-	var imgName	= "" ;
+//var indexSub		= 0 ;
+//var img = '<img class="image" src="{imgName}" />' ;
+//	var maxImgList= ["cardA.png","cardB.png","cardC.png","cardD.png","cardE.png","cardF.png","cardG.png","cardH.png",] ;
+//	var imgName	= "" ;
 function checkPattern(cards)
 {
     var pattern1 = $(cards[0]).data("pattern");
@@ -132,7 +132,7 @@ function checkPattern(cards)
 	      //  countdown = 0; 
 		//	$(obj).text("0"); 
 			// 统计结果		
-			statisticsResult((countdown-1)) ;
+			gameFinished((countdown-1)) ;
 	        return;
 	    } else { 
 		var text = countdown ;
@@ -146,8 +146,8 @@ function checkPattern(cards)
 		    ,1000) 
 	}
 	
-	function statisticsResult(timeused){
-		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
-			alert('耗时'+timeused+'s, 您猜对了' + card_correct_count +" 个") ;
-			$('div.card').unbind("tap"); 
-	}
+//	function statisticsResult(timeused){
+//		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
+//			alert('耗时'+timeused+'s, 您猜对了' + card_correct_count +" 个") ;
+//			$('div.card').unbind("tap"); 
+//	}
