@@ -12,146 +12,108 @@
 <!--<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>-->
 <script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
-<link href="style/matchgame.css" rel="stylesheet">
+<script src="js/laba_controller.js" type="text/javascript" charset="utf-8"></script>
+<!--<link href="style/matchgame.css" rel="stylesheet">-->
 
 <style>
 	*{margin:0;padding:0;}
+	.loading_wrap{box-sizing:border-box;position:absolute;z-index:1000;}
    	.loadingCon_wrap{  width: 100%; position: absolute;top: 20%; left: 0;box-sizing: border-box; }
-   	.loadingPage_wrap{ width: 100%;box-sizing: border-box; height: 3rem; position: relative;}
+   	.loadingPage_wrap{ width: 100%;box-sizing: border-box; height: 2.5rem; position: relative;}
+   	.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
+	.loading_text{width: 2rem;display: block; margin: 0 auto;}
+   	@-webkit-keyframes loadMoving{
+   		50%{transform: scale(.4);
+   		opacity: .3;
+   		}
+   		100%{transform: scale(1);
+   		opacity: 1;
+   		}
+   	}
 	.loadingPage_wrap img{position: absolute;width: .5rem;}
-	.loadingPage_wrap img:nth-child(1){width:.4rem;top: .2rem;left: 3rem;}
-	.loadingPage_wrap img:nth-child(2){top:.4rem;left: 3.5rem;}
-	.loadingPage_wrap img:nth-child(3){top:1rem;left: 3.7rem;}
-	.loadingPage_wrap img:nth-child(4){top:1.4rem;left:3.5rem;}
-	.loadingPage_wrap img:nth-child(5){width:.4rem;left:3rem;top: 1.7rem;}
-	.loadingPage_wrap img:nth-child(6){top:1.5rem;left:2.5rem;}
-	.loadingPage_wrap img:nth-child(7){top:1rem;left:2.3rem;}
-	.loadingPage_wrap img:nth-child(8){top:.4rem;left:2.5rem;}
-	
-	/*.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
-	.loading_text{width: 2rem;display: block; margin: 0 auto;}*/
- 
- 
-  .loadingCon_wrap{
-   	  width: 100%;
-  position: absolute;
-  top: 20%;
-  left: 0;
-  box-sizing: border-box;
-   }
-   .loadingPage_wrap{
-   	  width: 100%;
-  box-sizing: border-box;
-  height: 2.5rem;
-    position: relative;
-    
-    animation: 9.5s linear 0s normal none infinite rotate;
-	-webkit-animation:9.5s linear 0s normal none infinite rotate;
-}
-.loadingPage_wrap img{position: absolute;
-	-webkit-animation: bouncedelay 1.7s infinite ease-in-out;
-  	animation: bouncedelay 1.7s infinite ease-in-out;
-  	-webkit-animation-fill-mode: both;
-  	animation-fill-mode: both;
-
-}
-
- /* @-webkit-keyframes rotate{
-from{-webkit-transform:rotate(0deg)}
-to{-webkit-transform:rotate(360deg)}
-}
-@-webkit-keyframes rotate{
-from{-webkit-transform:rotate(0deg)}
-to{-webkit-transform:rotate(360deg)}
-}
-@-moz-keyframes rotate{
-from{-moz-transform:rotate(0deg)}
-to{-moz-transform:rotate(360deg)}
-}
-@-ms-keyframes rotate{
-from{-ms-transform:rotate(0deg)}
-to{-ms-transform:rotate(360deg)}
-}
-@-o-keyframes rotate{
-from{-o-transform:rotate(0deg)}
-to{-o-transform:rotate(360deg)}
-}*/
-
-.loadingPage_wrap img:nth-child(1){
-	/*width:.4rem;top: .2rem;left: 3rem;*/
-	-webkit-animation-delay: -1.5s;
-  	animation-delay: -1.5s;
-	
-}
-.loadingPage_wrap img:nth-child(2){
-	/*width:1rem;top:.6rem;left: 3.8rem;*/
-	-webkit-animation-delay: -1.3s;
-  	animation-delay: -1.3s;
-	
-}
-.loadingPage_wrap img:nth-child(3){
-	/*width:1rem;top:1.7rem;left: 4.1rem;*/
-	-webkit-animation-delay: -1.1s;
-  	animation-delay: -1.1s;
-
-}
-.loadingPage_wrap img:nth-child(4){
-	/*width:.9rem;top:2.6rem;left:3.8rem;*/
-	-webkit-animation-delay: -0.9s;
-  	animation-delay: -0.9s;
-}
-.loadingPage_wrap img:nth-child(5){
-	/*width:.8rem;left:2.8rem;bottom: 0;*/
-	-webkit-animation-delay: -0.7s;
-  	animation-delay: -0.7s;
-}
-.loadingPage_wrap img:nth-child(6){
-	/*width:1rem;top:2.6rem;left:1.7rem;*/
-	-webkit-animation-delay: -0.5s;
-  	animation-delay: -0.5s;
-}
-.loadingPage_wrap img:nth-child(7){
-	/*width:1rem;top:1.7rem;left:1.3rem;*/
-	-webkit-animation-delay: -0.3s;
-  	animation-delay: -0.3s;
-}
-.loadingPage_wrap img:nth-child(8){
-	/*width:1rem;top:.6rem;left:1.7rem;*/
-	-webkit-animation-delay: -0.1s;
-  	animation-delay: -0.1s;
-}
-.loading_wordSty{  width: 100%;
-  float: left;
-  margin: 0.2rem auto 0;}
-  .loading_text{width: 2rem;
-  display: block;
-  margin: 0 auto;}
-  
-@-webkit-keyframes bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0.5) }
-  40% { -webkit-transform: scale(1.0) }
-}
- 
-@keyframes bouncedelay {
-  0%, 80%, 100% {
-    transform: scale(0.5);
-    -webkit-transform: scale(0.5);
-  } 40% {
-    transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-  }
-}
-
+	.loadingPage_wrap img:nth-child(1){width:.4rem;
+		top: .2rem;
+		left: 3rem;
+		-webkit-animation:loadMoving 1s ease 0s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(2){
+		top:.4rem;
+		left: 3.5rem;
+		-webkit-animation:loadMoving 1s ease .12s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(3){
+		top:1rem;
+		left: 3.7rem;
+		-webkit-animation:loadMoving 1s ease .24s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(4){
+		top:1.4rem;
+		left:3.5rem;
+		-webkit-animation:loadMoving 1s ease .36s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(5){width:.4rem;
+		left:3rem;
+		top: 1.7rem;
+		-webkit-animation:loadMoving 1s ease .48s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(6){
+		top:1.5rem;
+		left:2.5rem;
+		-webkit-animation:loadMoving 1s ease .60s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(7){
+		top:1rem;
+		left:2.3rem;
+		-webkit-animation:loadMoving 1s ease .72s infinite ;
+		}
+	.loadingPage_wrap img:nth-child(8){
+		top:.4rem;
+		left:2.5rem;
+		-webkit-animation:loadMoving 1s ease .84s infinite ;
+		}
 @font-face {
-				font-family:'Open Sans';
-				src: url('fanti.ttf') format('truetype');
-				/*src: url('zhuanti.ttf') format('truetype');*/
+	font-family:'Open Sans';
+	src: url('fanti.ttf') format('truetype');
 			}
-			/*@font-face {
-				font-family:'Open Sans';
-				src: url('happy.ttf') format('truetype');
-				/*src: url('zhuanti.ttf') format('truetype');*/
-			}*/
+			
+			
+.Gamelightsty  img:nth-child(1){
+    animation-name: imgAnimation;
+    animation: imgAnimation 2s ease 0s infinite;
+    -webkit-animation: imgAnimation 2s ease 0s infinite;
+    -moz-animation: imgAnimation 2s ease 0s infinite;
+}
+
+.Gamelightsty  img:nth-child(2){
+    animation-name: imgAnimation;
+    animation: imgAnimation 2s ease .3s infinite;
+    -webkit-animation: imgAnimation 2s ease .3s infinite;
+    -moz-animation: imgAnimation 2s ease .3s infinite;
+}
+
+.Gamelightsty  img:nth-child(3){
+    animation-name: imgAnimation;
+    animation: imgAnimation 2s ease .6s infinite;
+    -webkit-animation: imgAnimation 2s ease .6s infinite;
+    -moz-animation: imgAnimation 2s ease .6s infinite;
+}
+
+.Gamelightsty  img:nth-child(4){
+    animation-name: imgAnimation;
+    animation: imgAnimation 2s ease .9s infinite;
+    -webkit-animation: imgAnimation 2s ease .9s infinite;
+    -moz-animation: imgAnimation 2s ease .9s infinite;
+}
+@-webkit-keyframes imgAnimation{
+    0%{ transform: scale(.4); }
+    50%{ transform: scale(1.2); }
+    100%{ transform: scale(.4); }
+ }
+  @-moz-keyframes imgAnimation{
+    0%{ transform: scale(.4); }
+    50%{ transform: scale(1.2); }
+    100%{ transform: scale(.4); }
+ }
 </style>
 
 <script>
@@ -189,7 +151,7 @@ to{-o-transform:rotate(360deg)}
 		        $(".con_wrap").width(ww);
 		        $(".con_wrap").css({minHeight:wh});
 		    </script>
-			 <div class="loading_wrap" id="loading_wrap" >
+			 <div class="loading_wrap" id="loading_wrap"  >
 				<script>
 					(function(){
 						var wh=$(document).height();
@@ -215,7 +177,21 @@ to{-o-transform:rotate(360deg)}
 					</div>
 				</div>
 			</div>
-		
+		<!--<script>
+		(function(){
+			var loadingAniTime=null;
+			var loadingAniNum=0;
+			loadingAniTime=setInterval(function(){
+				$(".loadingPage_wrap img").removeClass("moveImg");
+				$(".loadingPage_wrap img").eq(loadingAniNum).addClass("moveImg");
+				loadingAniNum++;
+				var loadingImgLen=$(".loadingPage_wrap img").length;
+				if(loadingAniNum>=loadingImgLen){
+					loadingAniNum=0;
+				}
+			},500);
+		})();
+	</script>-->
 		<div class="startPage commonPage_wrapStyle Pagecontroller" id="startPage" style="display: none;">
 				<div class="act_laba_title">
 					<img src="images/act_laba_index_title.png" />
@@ -237,9 +213,9 @@ to{-o-transform:rotate(360deg)}
 					<img id="startGameBtn" src="images/act_laba_index_startBtn.png" />
 				</div>
 				<div class="commRuleBtn">
-					<p class="commonRuleStyle" onclick="clickShow_common('gameRuleShow')">活动规则</p>
+					<p class="commonRuleStyle" onclick="clickShow_common('#gameRuleShow')">活动规则</p>
 				</div>
-				<div class="gameRuleShow" id="gameRuleShow" onclick="closeSelf_common(this)">
+				<div class="gameRuleShow side-in" id="gameRuleShow" onclick="closeSelf_common(this)">
 					<p>1、用户点击卡片翻牌，翻到一样的牌面即可成功配对，点亮该种小豆豆。点亮八种小豆豆即可成功喝到腊八粥。</p>
 					<p>2、凡参与活动的用户均可获得【药快到】全场通用满48元减6元现金券2张。</p>
 					<p>3、活动有效期自1月15日0:00——1月21日23:59。</p>
@@ -253,68 +229,38 @@ to{-o-transform:rotate(360deg)}
 		            </div>
 		            <div class="playGame_imgSty">
 		            	<div class="playGame_imgBack">
-		            		<img class="light-card1" data-src="images/act_laba_blackFace_01_card1.png" src="images/act_laba_blackFace_01.png" />
-		            		<img class="light-card2" data-src="images/act_laba_blackFace_02_card2.png" src="images/act_laba_blackFace_02.png" />
-		            		<img class="light-card3" data-src="images/act_laba_blackFace_03_card3.png" src="images/act_laba_blackFace_03.png" />
-		            		<img class="light-card4" data-src="images/act_laba_blackFace_04_card4.png" src="images/act_laba_blackFace_04.png" />
-		            		<img class="light-card5" data-src="images/act_laba_blackFace_05_card5.png" src="images/act_laba_blackFace_05.png" />
-		            		<img class="light-card6" data-src="images/act_laba_blackFace_06_card6.png" src="images/act_laba_blackFace_06.png" />
-		            		<img class="light-card7" data-src="images/act_laba_blackFace_07_card7.png" src="images/act_laba_blackFace_07.png" />
-		            		<img class="light-card8" data-src="images/act_laba_blackFace_08_card8.png" src="images/act_laba_blackFace_08.png" />
+		            		<img class="light-card1" src="images/act_laba_blackFace_01.png" />
+		            		<img class="light-card2" src="images/act_laba_blackFace_02.png" />
+		            		<img class="light-card3" src="images/act_laba_blackFace_03.png" />
+		            		<img class="light-card4" src="images/act_laba_blackFace_04.png" />
+		            		<img class="light-card5" src="images/act_laba_blackFace_05.png" />
+		            		<img class="light-card6" src="images/act_laba_blackFace_06.png" />
+		            		<img class="light-card7" src="images/act_laba_blackFace_07.png" />
+		            		<img class="light-card8" src="images/act_laba_blackFace_08.png" />
 		            	</div>
-		            	
-		            	
-		            	<!--<ul class="module_wrap listCom" style="display:block;opacity:1">
-		            		<li><img class="light1" src="images/act_laba_blackFace_01.png" /></li>
-		            		<li><img class="light2" src="images/act_laba_blackFace_02.png" /></li>
-		            		<li><img class="light3" src="images/act_laba_blackFace_03.png" /></li>
-		            		<li><img class="light4" src="images/act_laba_blackFace_04.png" /></li>
-		            		<li><img class="light5" src="images/act_laba_blackFace_05.png" /></li>
-		            		<li><img class="light6" src="images/act_laba_blackFace_06.png" /></li>
-		            		<li><img class="light7" src="images/act_laba_blackFace_07.png" /></li>
-		            		<li><img class="light8" src="images/act_laba_blackFace_08.png" /></li>
-		            	</ul>-->
 			            <div class="timeClock">
-			            	<p id="gameTimeShow">60</p>
+			            	<p id="gameTimeShow">00</p>
 			            </div>
 		            </div>
 		        </div>
 		         <div class="conWrap">
 				    <div id="cards" class="module_wrap listCom" >
-				        <div class="card">
+				       <!-- 
+				       	<div class="card">
 				            <div class="face front"></div>
 				            <div class="face back"></div>
 				        </div>
+				        -->
 				    </div>
 				</div>
-		         <!--<div class="conWrap">
-			        <ul class="module_wrap listCom" style="display:block;opacity:1">
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-	            		<li><img class="light1" src="images/act_laba_gamePageBack.png" /></li>
-			        <ul class="module_wrap listCom" style="display:block;opacity:1">
-		        </div>-->
     		</div>
     		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResultShow" style="display: none;">
     			<div class="closeShade">×</div>
 				<div class="selfGetPrize1 getmoon alertpage">
-	            	  	<div class="prize_title ">
+	            	  	<!--<div class="prize_title ">-->
 	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
-	            	  		<p style="font-family:'Open Sans'">恭喜你！</p>
-	            	  	</div>
+	            	  		<p class="prize_title" style="font-family:'Open Sans'">恭喜你！</p>
+	            	  	<!--</div>-->
 	            	  	<div class="prize_content ">
 	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
 	            	  		<p style="font-family:'Open Sans'">只用了<span style="-webkit-text-stroke: 1.3px #fff;color: #ff4200;  font-family: 微软雅黑;" id='timeused'>45</span>秒</p>
@@ -375,7 +321,7 @@ to{-o-transform:rotate(360deg)}
 				       <!--<p class="commom_desc_psty2">为了您的健康，快去使用吧！</p>-->
 				    </div>
 				    <div class="common_useStyle" >
-					    <a id="downloadA" href="http://store.ykd365.com/download.html">
+					    <a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
 					        <img src="images/act_laba_receiveSuccess_btn.png" />
 					    </a>
 					 	<img class="shareFri " id="small_ShareFri" src="images/act_laba_receiveShare_btn.png" />
@@ -391,7 +337,6 @@ to{-o-transform:rotate(360deg)}
 					    <img  src="images/act_laba_hasGot_right.png" alt=""/>
 					</div>
 				    <div class="have_received_desc common_descSty" style="margin: .6rem auto;">
-				        <!--<p class="commom_desc_psty1" style="font-size:.4rem;padding-top: .2rem;line-height: 25px;">快邀请 小伙伴们<br/>一起来测试吧！</p>-->
 				    	 <p style="font-size:.35rem;text-align: center;">您已经领取过了！</p>
 			        	<p class="commom_desc_psty1" style="font-size:.3rem;text-align: center;">快邀请小伙伴们一起来喝腊八粥吧！</p>
 				    </div>
@@ -407,9 +352,7 @@ to{-o-transform:rotate(360deg)}
 			
 	</div>
 </body>
-<script type="text/javascript" src="js/htm5game.matchgame.js"></script>
 <script>
-	
 	(function(){
 			var wh=$(window).height();
 			$("body").css({"minHeight":wh});
@@ -420,58 +363,46 @@ to{-o-transform:rotate(360deg)}
 //			        $(".selectModu_wrap").height(wh);
 //			        if(wh<540){
 //			        	 $(".commonRuleStyle").css({position:"static",lineHeight:"30px"}); 
-//			        }
-
- 			addELoad() ;
- 			
- 			
- 			$('#startGameBtn').tap(function(){
- 				$(".startPage").hide();
- 				
- 				$(".start_game").show();
- 				playGame() ;
- 				
- 			});
- 			
- 			
 		})();
-		
-		var loadingTime=0;
-	var loadingTimer=null;
-//	var perLoadBoo=false;
-	loadingTimer=setInterval(function(){
-		loadingTime++;
-	},1000);
-	function addELoad(){
-		//images[preLoadImgList.length-1].onload=function(){
-			 if(loadingTime<=2){
-					clearInterval(loadingTimer);
-				setTimeout(function(){
-					$("#loading_wrap").remove();
-					$(".startPage").show();
-					loadingTime=null;
-				},2000);
-			}else{
-				clearInterval(loadingTimer);
-				$("#loading_wrap").remove();
-				loadingTime=null;
-				$(".startPage").show();
-			}; 
-		//}
+</script>
+<script>
+/*活动规则*/
+		function closeSelf_common(_this){
+		_this.style.display="none";
 	};
-	
-	function gameFinished(timeused){
-		var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
-		$('#timeused').text(timeused) ;
-		$('#game_result').text('恭喜你获得了【'+card_correct_count+'】个小豆豆') ;
+		/*点击显示*/
+	function clickShow_common(showDom){
+		$(showDom).show();
+	}
+
+var loadingTime = 1 , loadMaxTime = 2;
+
+ /*加载页面*/
+function addELoad(){
+	if(loadingTime>loadMaxTime){
+		$("#loading_wrap").hide();
+		$(".startPage").show();
 		
-		$('div.card').unbind("tap"); 
-		$(".start_game").hide();
-		$('.scoreResultShow').show() ;
-		
+		return ;
+	}else{
+		loadingTime++;
 	}
 	
+	setTimeout(function() { 
+	    addELoad() }
+	    ,1000) 
+};
+
+	
+window.onload=function(){
+	/** 加载页面动画*/
+	addELoad();
+		
+	/**/
+		
+};
+
+	
 </script>
-	<!--</script>-->
 
 </html>

@@ -1,14 +1,16 @@
 /**
  * Created by zhouhaixia on 2015/10/29.
  */
-
+//是否停止计时
 var timestop = false ;
+//计时器 完成游戏所消耗的时间
 var countdown=0; 
+
 var neusoft={};
 
 neusoft.matchingGame={};
-neusoft.matchingGame.cardWidth=1.4;//牌宽
-neusoft.matchingGame.cardHeight=2;
+//neusoft.matchingGame.cardWidth=1.4;//牌宽
+//neusoft.matchingGame.cardHeight=2;
 neusoft.matchingGame.deck=
     [
         "card1","card1",
@@ -48,10 +50,6 @@ function selectCard() {
 }
 //检测2张牌是否一致
 
-//var indexSub		= 0 ;
-//var img = '<img class="image" src="{imgName}" />' ;
-//	var maxImgList= ["cardA.png","cardB.png","cardC.png","cardD.png","cardE.png","cardF.png","cardG.png","cardH.png",] ;
-//	var imgName	= "" ;
 function checkPattern(cards)
 {
     var pattern1 = $(cards[0]).data("pattern");
@@ -78,7 +76,6 @@ function checkPattern(cards)
 	 		timestop = true ;
 	 	}
 	    
-	 //   $(".card-active").attr('src','images/act_laba_positiveFace_01.png');
     	console.debug('checkPattren ' ,pattern1 , pattern2 ) ;
 //        $(cards).addClass("card-removed")
 //          .bind("webkitTransitionEnd",function(){
@@ -88,7 +85,7 @@ function checkPattern(cards)
 }
 
 
-	
+	//游戏初始化
 	function playGame(){
 		//实现随机洗牌
 		neusoft.matchingGame.deck.sort(shuffle);

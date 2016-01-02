@@ -6,30 +6,28 @@ body{font-size:0.12rem;width:100%;/*max-width:640px;*/
 	background:#ffd23e;
 }
 .con_wrap{width:100%;max-width:640px;margin:0 auto;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.88, #ffd448), color-stop(0.67, #ffd343), color-stop(0.59, #ffd342), color-stop(0.50, #ffd13b), color-stop(0.28, #ffcd27), color-stop(0.00, #ffc919));
-	/*background: -webkit-linear-gradient(top,#ffc916 0% #ffcc23 28%, #ffcd29 50%, #ffd342 59%,  #ffd445 67%,#ffd44788 %, #ffd448 98%);*/
-	background: -webkit-linear-gradient(top,#ffc300 0% ,#ffcc23 18%, #ffcd29 28%, #ffd342 39%, #ffd445 48%,#ffd448 98%);
-	/*background: -webkit-linear-gradient(top, #ffc919 0%, #ffcd27 18%, #ffd13b 39%, #ffd343 68%, #ffd448 88%);*/
-	background: -moz-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
-	background: -o-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
-	background: -ms-linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
-	background: linear-gradient(top, #ffc919 0%, #ffcd27 28%, #ffd13b 50%, #ffd342 59%, #ffd343 67%, #ffd448 88%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #ffd448), color-stop(0.48, #ffd445), color-stop(0.29, #ffd342), color-stop(0.18, #ffcd29), color-stop(0.8, #ffcc23), color-stop(0.00, #ffc300));
+	background: -webkit-linear-gradient(top,#ffc300 0% ,#ffcc23 8%, #ffcd29 18%, #ffd342 29%, #ffd445 48%,#ffd448 98%);
+	background: -moz-linear-gradient(top,#ffc300 0% ,#ffcc23 18%, #ffcd29 28%, #ffd342 39%, #ffd445 48%,#ffd448 98%);
+	background: -o-linear-gradient(top,#ffc300 0% ,#ffcc23 18%, #ffcd29 28%, #ffd342 39%, #ffd445 48%,#ffd448 98%);
+	background: -ms-linear-gradient(top,#ffc300 0% ,#ffcc23 18%, #ffcd29 28%, #ffd342 39%, #ffd445 48%,#ffd448 98%);
+	background: linear-gradient(top,#ffc300 0% ,#ffcc23 18%, #ffcd29 28%, #ffd342 39%, #ffd445 48%,#ffd448 98%);
 }
 
 /*.commonPage_wrapStyle{display:none;overflow-x:hidden;min-height:100%;width:100%;}*/
-.act_laba_title{width:100%;margin:.2rem auto 0;}
-.act_laba_title img{width:100%;}
-.startPage{display:block; }
+/*首页*/
 .startPage{background:url(../images/act_laba_index_bj.jpg) center top no-repeat;background-size:100% 100%;
            width:100%;position:absolute;top:0;left:0;
 }
+.act_laba_title{width:100%;margin:.2rem auto 0;}
+.act_laba_title img{width:100%;}
+/*.startPage{display:block; }*/
 .GameTipText{width:100%;margin:0 auto;font-size:17px;box-sizing:border-box;}
 .GameTipText img{width: 100%;}
 #startGameBtn{width: 3rem;  margin: 0 auto ;display:block;padding-top: 4.4rem;}
 /*
 .GameTipImg{width: 100%;margin: .2rem auto 0;}
 .GameTipImg img{width: 6.4rem;display: block; margin: 0 auto;}*/
-
 .Gamelightsty{position:relative;height:1.5rem;padding-top:1rem;}
 .GameTipImg img{position:absolute;z-index:1;}
 /*.playGame_TipStyle{width: 3rem;height: 1.4rem;padding-top:.1rem ;box-sizing:border-box;
@@ -40,98 +38,128 @@ body{font-size:0.12rem;width:100%;/*max-width:640px;*/
 .GameTipImg img:nth-child(3){width:.4rem;left:2.6rem;top:1.4rem;}
 .GameTipImg img:nth-child(4){width:.6rem;left:4.2rem;top:1.4rem;}
 
-
-
 .GameTipImg{/*display:none;*/
 	position: absolute;
 	width: 100%;background: url(../images/act_laba_index_bowl.png)top center no-repeat ;
 	background-size: auto 100%;  height: 4rem;
 	} 
 
-
-
-.commRuleBtn{  position: fixed;
-  bottom: 0;
-  background: #b67300;
-  left: 0;
-  width: 100%;
-  color: #fff;
-  line-height:34px;}
-.commRuleBtn p{font-size: 18px;
-  text-align: center;
-  color: #000;
-    font-family:黑体;
-  font-weight: 600;
-  }
+.commRuleBtn{  position: fixed; bottom: 0;background: #b67300;left: 0; width: 100%;color: #fff;line-height:34px;}
+.commRuleBtn p{font-size: 18px;text-align: center; color: #000;font-family:黑体;font-weight: 600; }
   
-  
-  .gameRuleShow{
-	background: rgba(213, 209, 204, 0.9);
-	  position: fixed;
-  width: 6rem;
-    left: .2rem;
-  bottom: .7rem;
-  /*padding: 10px;*/
-  color: #000;
-  box-sizing: border-box;
-   display: none; 
-  font-size: 14px;
-  border-radius: 25px;
+.gameRuleShow{background: rgba(213, 209, 204, 0.9); position: fixed;width: 6rem;left: .2rem; bottom: .7rem;
+  color: #000; box-sizing: border-box; display: none;  font-size: 14px; border-radius: 25px;
 }
 .gameRuleShow p{line-height:24px;}
 /*.commonRuleStyle{position:fixed;text-align:center;width:100%;left:0;bottom:8px;font-size:14px;font-weight:600;}*/
 
-/*.start_top{  height: 2.5rem;
-  position: relative;
-  font-weight: 600;}*/
- .playGame_imgSty{  
- 	/*width: 6rem;
-  margin: 0 auto;*/
-   padding: 0 .15rem;
-  box-sizing: border-box;
-  overflow: hidden;}
-.playGame_TipStyle{  margin: 0 auto;
-  width: 5.5rem;
-  padding-top: .5rem;}
+
+/*游戏页*/
+ .playGame_imgSty{   padding: 0 .15rem;box-sizing: border-box;overflow: hidden;}
+.playGame_TipStyle{  margin: 0 auto; width: 5.5rem;padding-top: .5rem;}
   .playGame_TipStyle img{width: 100%;}
 .playGame_imgBack{background: url(../images/act_laba_tuoyuan.png)top left no-repeat;
-  background-size:100% auto;width: 5rem; 
-  position: absolute;
-  }
+  background-size:100% auto;width: 5rem; position: absolute;}
   .playGame_imgBack img{width: .623rem;float: left;}
-	/*.playGame_imgBack img:nth-child(1){left: .2rem;}
-	.playGame_imgBack img:nth-child(2){left: .8rem;}
-	.playGame_imgBack img:nth-child(3){left: 1.4rem;}
-	.playGame_imgBack img:nth-child(4){left:1.9rem;}
-	.playGame_imgBack img:nth-child(5){left:2.5rem;}
-	.playGame_imgBack img:nth-child(6){left:3.1rem;}
-	.playGame_imgBack img:nth-child(7){left:3.62rem;}
-	.playGame_imgBack img:nth-child(8){left:4.2rem;}*/
-/*.playGame_imgBack img{width: .6rem;  position: absolute;top:0;}*/  
-.timeClock{    background: url(../images/act_laba_clock.png) top center no-repeat;
-  background-size: 100% auto;
-  height: 1.2rem;
-  line-height: 1rem;
-  color: #fff;
-  font-size: 18px;
-  text-align: center;
-  /* padding-right: .6rem; */
-  /* margin-top: -1.45rem; */
-  width: 1rem;
-  /* position: absolute; */
-  /* left: 5.3rem; */
-  float: right;
+.timeClock{background: url(../images/act_laba_clock.png) top center no-repeat;
+  background-size: 100% auto; height: 1.2rem;line-height: 1rem;color: #fff;
+  font-size: 18px;text-align: center;
+  width: 1rem;float: right;
  }
  
- 
- 
  #cards {
-  /* position: relative; */
-  /* font-weight: 600; */
-   overflow: hidden;
+  overflow: hidden;
   width: 6rem;
   margin: 0 auto;
 }
+.card
+{ 
+  width: 1.5rem;
+    height: 2rem;
+    position: relative;
+      float: left;
+}
+.face{
+    width: 100%;height: 100%;
+    /*border-radius:10px;*/
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -webkit-transition:all .3s;
+    /*background-size:cover;*/
+}
+.front
+{
+    background: url("../images/act_laba_gamePageBack.png") ;
+    z-index: 10;
+     background-size: 100% 100%;
+}
+/*.back
+{
+    background: url("../images/act_laba_positive.png");
+    -webkit-transform-rotateY(-180deg);
+	background-size:cover;
+    z-index: 8;
+}*/
+.face:hover
+{
+    -webkit-box-shadow: 0 0 40px #aaa;
+
+}
+/*牌面定位样式*/
+.card1{background: url("../images/act_laba_positive1.png")top center no-repeat ;  background-size: 100% 100%;}
+.card2{background: url("../images/act_laba_positive2.png")top center no-repeat ;  background-size: 100% 100%;}
+.card3{background: url("../images/act_laba_positive3.png")top center no-repeat ;  background-size: 100% 100%;}
+.card4{background: url("../images/act_laba_positive4.png")top center no-repeat ;  background-size: 100% 100%;}
+.card5{background: url("../images/act_laba_positive5.png")top center no-repeat ;  background-size: 100% 100%;}
+.card6{background: url("../images/act_laba_positive6.png")top center no-repeat ;  background-size: 100% 100%;}
+.card7{background: url("../images/act_laba_positive7.png")top center no-repeat ;  background-size: 100% 100%;}
+.card8{background: url("../images/act_laba_positive8.png")top center no-repeat ;  background-size: 100% 100%;}
+
+.card-flipped .front
+{
+    /*保证牌底在牌面下面，z-index值切换为小值*/
+    z-index: 8;
+    -webkit-transform: rotateY(180deg);
+}
+.card-flipped .back
+{
+    /*保证牌底在牌面上面，z-index值切换为大值*/
+    z-index: 10;
+    /*前面牌面已经翻过去，现在返回来*/
+    -webkit-transform: rotateY(0deg);
+}
+
+
+.card-correct .front
+{
+    /*保证牌底在牌面下面，z-index值切换为小值*/
+    z-index: 8;
+    -webkit-transform: rotateY(180deg);
+}
+.card-correct .back
+{
+    /*保证牌底在牌面上面，z-index值切换为大值*/
+    z-index: 10;
+    /*前面牌面已经翻过去，现在返回来*/
+    -webkit-transform: rotateY(0deg);
+}
+
+.card-active{
+	/*background: red;*/
+}
+/*移除牌*/
+.card-removed
+{
+    opacity: 0;
+}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  ul{
@@ -183,20 +211,17 @@ ul,li{text-decoration:none;}
   right: -12px;
 }*/
 .prize_title{ 	
-  color: #ff9a16;
-  font-size: 32px;
-  text-align: center;
-  font-weight: 700;
-  /* text-shadow: 10px 5px 2px #000; */
-  -webkit-text-stroke: 0.3px #000;
-    background: #fff;
-  text-align: center;
-  line-height: 5px;
+   font-family: 'Open Sans';
+  /* background: #eee; */
+  /* border-radius: 14px; */
   border-radius: 14px 14px 0px 0px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  line-height: 41px;
+  text-align: center;
+  font-size: 30px;
+  color: #ff9a16;
+  font-weight: 700;
+  -webkit-text-stroke: 0.3px #000;
+  background: #fff;
   }
 .closeShade{  width: 25px;
   float: right;
@@ -213,7 +238,7 @@ ul,li{text-decoration:none;}
   right: 9%;}
 
 
-.prize_content{	padding-top: 1.5rem;	
+.prize_content{	padding-top: .5rem;	
 color: #fff;
   font-size: 22px;
   text-align: center;
@@ -222,7 +247,7 @@ color: #fff;
   -webkit-text-stroke: 0.3px #663500;
     /*background: #fff;*/
   text-align: center;
-  line-height: 5px;
+  line-height: 29px;
   /*border-radius: 14px 14px 0px 0px;*/
   /*position: absolute;
   top: 0;
@@ -321,7 +346,7 @@ color: #fff;
 	    border-radius: 15px; position: absolute;top:1.5rem; right: .6rem;
 	    }
 	    
-	  .closeBtn span{  width: 20px;
+.closeBtn span{  width: 20px;
   height: 20px;
   line-height: 20px;
   border: .03rem solid #fff;
