@@ -80,7 +80,7 @@
 </head>
 	<body>
 		<div class="con_wrap">
-		 	<div id="loadingPage" style="display: none;">
+		 	<div id="loadingPage common_div" style="display: none;">
 		    	<div class="loadingImg">
 					<img src="images/loading01.png" />
 					<img src="images/loading02.png" />
@@ -94,7 +94,7 @@
 		            })();
 		        </script>
     		</div>
-    		<div class="index_wrap" style="display: none;">
+    		<div class="index_wrap common_div">
     			<div class="clickToEnter">
     				<img src="images/act_NYFestival_clickBtn.png" />
     			</div>
@@ -109,7 +109,7 @@
 					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 				</div>
     		</div>
-    		<div class="nowWrite_page alterPage" style="display: none;">
+    		<div class="nowWrite_page alterPage common_div" style="display: none;">
     			<div class="self_nowWrite">
     				<img style="width: 100%;" src="images/act_NYfest_alterBoxTitle.png" />
     			</div>
@@ -133,45 +133,37 @@
     				</div>
     		</div>
     		
-    		<div class="userInputPage " style="display: none;">
+    		<div class="userInputPage common_div" style="display: none;">
     			<div class="ediet_box">
     				<div class="inputBox" style="text-align:center;margin-top: .8rem;">
 	    				<label style="font-size: 16px;font-weight: 600;line-height: 30px;">To:</label>
-	    				<input class="inputStyle" id="userType" name="userType" value="">
+	    				<select class="inputStyle" id="userType" name="userType">
+	    					<option value="家人">家人</option>
+							<option value="老爹">老爹</option>
+							<option value="妈咪">妈咪</option>
+							<option value="儿子">儿子</option>
+							<option value="女儿">女儿</option>
+							<option value="宝贝们">宝贝们</option>
+							<option value="我的TA">我的TA</option>
+							<option value="朋友">朋友</option>
+							<option value="小伙伴们">小伙伴们</option>
+							<option value="闺蜜">闺蜜</option>
+							<option value="哥们儿">哥们儿</option>
+							<option value="老师">老师</option>
+							<option value="领导">领导</option>
+							<option value="下属">下属</option>
+							<option value="同事">同事</option>
+	    				</select>
     				</div>
     				<div class="keyBoard">
-    					<ul >
-    						<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
+    					<ul id="input_text_ul">
     					</ul>
     				</div>
     				<div class="write_page">
     					<img src="images/act_NYFest_writePage1.png" />
     				</div>
     				<div class="userText">
-    					<textarea name="userWrite" class="userWriteText" cols="8" rows="3" wrap="hard" ></textarea>
+    					<textarea name="userWrite" class="userWriteText" cols="8" rows="3" wrap="hard" maxlength="24"></textarea>
     				</div>
     				<div class="remindMessageBOx">
     					<img class="remindMessage" src="images/act_NYFest_remindBox1.png" />
@@ -182,15 +174,12 @@
     			</div>
     		</div>
     		
-    		<div class="previewPage" style="display: none;">
+    		<div class="previewPage common_div" style="display: none;">
     			<div class="toWho">
     				<p style="margin-left:.8rem;">To:<span class="identity_type"></span></p>
     			</div>
     			<div class="toWhoWord" style="margin-top: 1rem;">
-    					<ul>
-    						<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
-							<li class="pull-left"><div class="keyBoard_input"></div></li>
+    					<ul id="preview_text_ul">
     					</ul>
     			</div>
 				<div class="user_operationBtn">
@@ -218,7 +207,7 @@
 					</div>
 				</div>
     		</div>
-    		<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage" style="display: block;">
+    		<div class="receive_page getHbPage_wrap commonPage_wrapStyle common_div" id="getHBPage" style="display: none;">
 				<div class="receive_codeTitle recePage_Width">
 				 	<img src="images/act_NVfest_receiveTitle.png" alt="">
 				</div>
@@ -297,11 +286,11 @@
 //	 var mwH= window.getComputedStyle(document.getElementById("getHBPage"),null).height;
  	$(".receive_page").css({"minHeight":wh});
 	if(wh>500 && wh<540){
-		 $(".clickToEnter ").css({margin:"3.3rem auto 0"});
+		 $(".clickToEnter").css({margin:"3.3rem auto 0"});
 		 $(".childSty ").css({margin:"0 auto "});
 	} ;
 	if(wh<500){
-		 $(".clickToEnter ").css({margin:"3.3rem auto 0"});
+		 $(".clickToEnter").css({margin:"3.3rem auto 0"});
 		 $(".childSty ").css({margin:"0 auto "});
 	}
 })();
@@ -360,4 +349,6 @@
 		})();
 
 	</script>
+	
+	<script src="js/act_15NYFeatival.js"></script>
 </html>
