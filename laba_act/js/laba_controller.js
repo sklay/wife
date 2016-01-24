@@ -70,14 +70,17 @@ function checkPattern(cards)
     if(pattern1==pattern2)
     {
 	    $(cards).addClass("card-correct") ;
-	    $lightImg = $('img.light-'+pattern1) ;
+	   /* $lightImg = $('img.light-'+pattern1) ;
 	    
 	    var src = $lightImg.attr('src') ;
 	    var dataSrc = src.replace('.','_'+pattern1+'.') ;
 	    
 	    $lightImg.attr('src' ,dataSrc) ;
 	    $lightImg.attr('data-src',src) ;
-	 	$lightImg.addClass("card-active") ;
+	 	$lightImg.addClass("card-active") ;*/
+	 	 $('img.light-'+pattern1).hide() ;
+	 	$('img.light-'+pattern1).find('.card-active') ;
+	 	
 	 	
 	 	var card_correct_count = $('div.playGame_imgBack>img.card-active').length ;
 	 	var all_card_count = $('div.playGame_imgBack>img').length 

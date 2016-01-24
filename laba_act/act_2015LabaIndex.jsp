@@ -1,0 +1,595 @@
+<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>【药快到】腊八节</title>
+		<meta name="description" content="我在【药快到】参加了腊八节活动，结果超乎想象，你能超过我吗？"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" type="text/css" href="style/act_2015LabaStyle.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx_methods.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/act_2015LabaCon.js" type="text/javascript" charset="utf-8"></script>
+<style>
+	*{margin:0;padding:0;}
+	.loading_wrap{box-sizing:border-box;position:absolute;z-index:1000;}
+   	.loadingCon_wrap{  width: 100%; position: absolute;top: 20%; left: 0;box-sizing: border-box;}
+   	.loadingPage_wrap{ width: 3rem;box-sizing: border-box; height: 2.5rem; position: relative;}
+   	.loading_wordSty{width: 100%;float: left;margin: 0.2rem auto 0;}
+	.loading_text{width: 2rem;display: block; margin: 0 auto;}
+  	@-webkit-keyframes loadImgmove1{
+   		50%{-webkit-transform: scale(1.2);}
+   	}
+	@keyframes loadImgmove1{
+		50%{transform: scale(1.2);}
+	}
+	@-webkit-keyframes loadImgmove{
+		50%{-webkit-transform: scale(1.4);}
+	}
+	@keyframes loadImgmove{
+		50%{transform: scale(1.4);}
+	}
+	.loadingPage_wrap img{position: absolute;width: .5rem;}
+	.loadingPage_wrap .loadImgAni{
+		-webkit-animation: loadImgmove 500ms linear 1;
+		animation: loadImgmove 500ms linear 1;
+	}
+	/*.loadingPage_wrap .loadImgAni1{
+		-webkit-animation: loadImgmove1 500ms linear 1;
+		animation: loadImgmove1 500ms linear 1;
+	}*/
+	.loadingPage_wrap img:nth-child(1){width:.4rem;
+		top: .2rem;
+		left: 3rem;
+		}
+	.loadingPage_wrap img:nth-child(2){
+		top:.4rem;
+		left: 3.5rem;
+		}
+	.loadingPage_wrap img:nth-child(3){
+		top:1rem;
+		left: 3.7rem;
+		}
+	.loadingPage_wrap img:nth-child(4){
+		top:1.4rem;
+		left:3.5rem;
+		}
+	.loadingPage_wrap img:nth-child(5){width:.4rem;
+		left:3rem;
+		top: 1.7rem;
+		}
+	.loadingPage_wrap img:nth-child(6){
+		top:1.5rem;
+		left:2.5rem;
+		}
+	.loadingPage_wrap img:nth-child(7){
+		top:1rem;
+		left:2.3rem;
+		}
+	.loadingPage_wrap img:nth-child(8){
+		top:.4rem;
+		left:2.5rem;
+		}
+.GameTipImg img:nth-child(1){
+    -webkit-animation: imgAnimation 1.5s ease-in-out 0s infinite;
+	animation: imgAnimation 1.5s ease-in-out 0s infinite;
+}
+
+.GameTipImg  img:nth-child(2){
+    -webkit-animation: imgAnimation 1.5s ease-in-out .6s infinite;
+	animation: imgAnimation 1.5s ease-in-out .6s infinite;
+}
+
+.GameTipImg  img:nth-child(3){
+    -webkit-animation: imgAnimation 1.5s ease-in-out .12s infinite;
+	animation: imgAnimation 1.5s ease-in-out .12s infinite;
+}
+
+.GameTipImg  img:nth-child(4){
+    -webkit-animation: imgAnimation 1.5s ease-in-out .9s infinite;
+	animation: imgAnimation 1.5s ease-in-out .9s infinite;
+}
+
+@keyframes imgAnimation{
+	0%{ -webkit-transform: scale(.4);
+		 }
+	50%{ -webkit-transform: scale(1);
+    	 }	
+    100%{ -webkit-transform: scale(.4);
+    	}
+	} 
+ @-webkit-keyframes imgAnimation{
+   0%{ -webkit-transform: scale(.4);
+		 }
+	50%{ -webkit-transform: scale(1);
+    	}	
+    100%{ -webkit-transform: scale(.4);
+    	 }
+ }
+ @-moz-keyframes imgAnimation{
+    0%{ -webkit-transform: scale(.4);
+		}
+	50%{ -webkit-transform: scale(1);
+    	 }	
+    100%{ -webkit-transform: scale(.4);
+    	 }
+ } 
+ @-o-keyframes mymove 
+{
+ 	0%{ -webkit-transform: scale(.4);
+		 }
+	50%{ -webkit-transform: scale(1);
+    	 }	
+    100%{ -webkit-transform: scale(.4);
+    	 }
+}
+/*活动规则动画  */
+.pt-page-moveFromBottom {
+    -webkit-animation: moveFromBottom .6s ease both;
+    animation: moveFromBottom .6s ease both;
+}
+.pt-page-moveToBottom {
+	-webkit-animation: moveToBottom .6s ease-in-out both;
+	animation: moveToBottom .6s ease both;
+}
+@-webkit-keyframes moveToBottom {
+	from { }
+	to { -webkit-transform: translateY(100%); opacity: 0;}
+}
+@keyframes moveToBottom {
+	from { }
+	to { -webkit-transform: translateY(100%); transform: translateY(100%);opacity: 0; }
+}
+
+@-webkit-keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); }
+}
+@keyframes moveFromBottom {
+	from { -webkit-transform: translateY(100%); transform: translateY(100%); }
+} 
+ 
+</style>
+
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</head>
+	<body>
+		<div class="con_wrap">
+			<script>
+		        var wh=$(window).height();
+		        var ww=$(window).width();
+		        $(".con_wrap").width(ww);
+		        $(".con_wrap").css({minHeight:wh});
+		    </script>
+			 <div class="loading_wrap" id="loading_wrap"  >
+				<script>
+					(function(){
+						var wh=$(document).height();
+						var ww=$(window).width();
+						$("#loading_wrap").css({minHeight:wh});
+						$("#loading_wrap").width(ww);
+					})();
+					
+				</script>
+				<div class="loadingCon_wrap">
+					<div class="loadingPage_wrap">
+						<img src="images/act_laba_loading_01.png" alt=""/>
+						<img src="images/act_laba_loading_02.png" alt="" />
+						<img src="images/act_laba_loading_03.png" alt="" />
+						<img src="images/act_laba_loading_04.png" alt="" />
+						<img src="images/act_laba_loading_05.png" alt="" />
+						<img src="images/act_laba_loading_06.png" alt="" />
+						<img src="images/act_laba_loading_07.png" alt="" />
+						<img src="images/act_laba_loading_08.png" alt="" />
+					</div>
+					<div class="loading_wordSty">
+						<img class="loading_text" src="images/act_laba_loadingtext.png" alt="" />
+					</div>
+				</div>
+			</div>
+		<div class="startPage commonPage_wrapStyle Pagecontroller" id="startPage" style="display: none;">
+				<!--<div class="act_laba_title">
+					<img src="images/act_laba_index_title.png" />
+				</div>
+				<div class="GameTipText">
+					<img src="images/act_laba_index_zhou.png" />
+					<img src="images/act_laba_index_desc.png" />
+				</div>-->
+				<!--<div class="GameTipImg">
+					 <img src="images/act_laba_index_bowl.png" /> -->
+					<!-- <div class="Gamelightsty"> 
+						<img src="images/act_laba_index_start1.png" />
+						<img src="images/act_laba_index_start2.png" />
+						<img src="images/act_laba_index_start3.png" />
+						<img src="images/act_laba_index_start4.png" />
+					 </div>
+				</div> -->
+				<div class="startGameBtn_wrap">
+					<img id="startGameBtn" src="images/act_laba_index_startBtn.png" />
+				</div>
+				<div class="commRuleBtn">
+					<p class="commonRuleStyle">活动规则</p>
+				</div>
+				<div class="gameRuleShow pt-page-moveFromBottom" id="gameRuleShow">
+					<p>1、用户点击卡片翻牌，翻到一样的牌面即可成功配对，点亮该种小豆豆。点亮八种小豆豆即可成功喝到腊八粥。</p>
+					<p>2、凡参与活动的用户均可获得【药快到】全场通用满48元减6元现金券2张。</p>
+					<p>3、活动有效期自1月15日0:00——1月21日23:59。</p>
+					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+			</div>
+			<div class="start_game common_wrapSty" id="start_game" style="display: none;">
+		        <div class="start_top" id="start_top" >
+		        	<div class="playGame_TipStyle">
+		            	<img  src="images/act_laba_gameTitle.png" />
+		            </div>
+		            <div class="playGame_imgSty">
+		            	<div class="playGame_imgBack">
+		            		<img class="light-card1" src="images/act_laba_blackFace_01.png" />
+		            		<img class="light-card2" src="images/act_laba_blackFace_02.png" />
+		            		<img class="light-card3" src="images/act_laba_blackFace_03.png" />
+		            		<img class="light-card4" src="images/act_laba_blackFace_04.png" />
+		            		<img class="light-card5" src="images/act_laba_blackFace_05.png" />
+		            		<img class="light-card6" src="images/act_laba_blackFace_06.png" />
+		            		<img class="light-card7" src="images/act_laba_blackFace_07.png" />
+		            		<img class="light-card8" src="images/act_laba_blackFace_08.png" />
+		            	</div>
+		            	<div style="display:none">
+		            		<img  id='hide-light-card1' src="images/act_laba_blackFace_01_card1.png" />
+		            		<img  id='hide-light-card2' src="images/act_laba_blackFace_02_card2.png" />
+		            		<img  id='hide-light-card3' src="images/act_laba_blackFace_03_card3.png" />
+		            		<img  id='hide-light-card4' src="images/act_laba_blackFace_04_card4.png" />
+		            		<img  id='hide-light-card5' src="images/act_laba_blackFace_05_card5.png" />
+		            		<img  id='hide-light-card6' src="images/act_laba_blackFace_06_card6.png" />
+		            		<img  id='hide-light-card7' src="images/act_laba_blackFace_07_card7.png" />
+		            		<img  id='hide-light-card8' src="images/act_laba_blackFace_08_card8.png" />
+		            	</div>
+			            <div class="timeClock">
+			            	<p id="gameTimeShow">0</p>
+			            </div>
+		            </div>
+		        </div>
+		         <div class="conWrap">
+				    <div id="cards" class="module_wrap listCom" >
+				    </div>
+				</div>
+    		</div>
+    		<div class="commonPage_wrapStyle Pagecontroller scoreResultShow" id="scoreResultShow" style="display: none;">
+    			<div class="closeShade closeAndBackClick">
+    				<span>×</span>
+    			</div>
+				<div class="selfGetPrize1 getmoon alertpage">
+	            	  	<!--<div class="prize_title ">-->
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p class="prize_title" style="font-family:'Open Sans'">
+	            	  			<img style="  width: 100%;" src="images/act_laba_congrature.png">
+	            	  		</p>
+	            	  	<!--</div>-->
+	            	  	<div class="prize_content ">
+	            	  		<!--<img class="error_img prize1CloseNow" src="images/act_laba_errorBtn.png">-->
+	            	  		<p class="resultTextcomm">
+	            	  			<img alt="" src="images/act_laba_resultText.png">
+		            	  		<span  id='timeused'>45</span>
+		            	  		<img  src="images/act_laba_resultContent.png">
+	            	  		</p>
+	            	  		<!-- <p style="font-family:'Open Sans'" id='game_result'>就成功集到了8种小豆豆</p> -->
+		            	  <!-- 	<p style="margin: .3rem;">
+		            	  		<img  src="images/act_laba_resultContent.png">
+	            	  		 </p> -->
+	            	  	</div>
+			            <div class="prize_imgSty">
+			                <img  src="images/act_laba_result_bowl.png">
+			                <img  src="images/act_laba_result_remind.png">
+			            </div>
+	                  <div class="prize_btn" >
+	                  	<!-- <div class="getHbNow"> -->
+	                    	<img class="getHbNow" id="receivePrize" src="images/act_laba_result_getBtn.png">
+	                   <!--  </div> -->
+	                   <!--  <div class="shareToFri"> -->
+	                    	<img id="receiveShare" class="shareToFri shareFri " src="images/act_laba_result_invitFri.png">
+	                    <!-- </div> -->
+	                </div>
+	            </div>
+			</div>
+			<!--领取页面-->
+			<div class="receive_page getHbPage_wrap commonPage_wrapStyle Pagecontroller" id="getHBPage" style="display: none;">
+				<div class="receive_codeTitle recePage_Width">
+				 	<img  src="images/act_laba_reveive_title.png" alt=""/>
+				 	<img  src="images/act_laba_reveive_desc.png" alt=""/>
+				</div>
+				
+				<div class="receive_code receivePageCont" id="receive_page" >
+			        <div class="loginnow" id="loginnow" >
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum"/>
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum"/>
+								<div id="commomLogin_getcode">
+									<span class="commomLogin_getcode" style="line-height:35px;">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br/>重新获取</span>
+								</div>
+							</div>
+							
+							<div id="loginsumbit">领取</div>
+						</div>
+					</div>
+				</div>
+				<!---成功领取-->
+	        	<div class="receive_success_box receivePageCont common_boxSty" >
+	        		<div class="closeBtn closeAndBackClick">
+	        			<span>×</span>
+	        		</div>
+	        	 	<div class="receive_success_title common_titleSty ">
+	        	 		<!-- <img class="shineMove" src="images/act_laba_shineMove.png" alt=""/> -->
+			            <img src="images/act_laba_coupon.png" alt=""/>
+		       		</div>
+				    <div class="receive_success_desc common_descSty" style="margin: .3rem auto;">
+				    	<img src="images/act_laba_receiveSuccess_icon.png" alt=""/>
+			        	<p class="commom_desc_psty2">领取成功啦！</p>
+				    </div>
+				    <div class="common_useStyle" >
+					    <a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+					        <img src="images/act_laba_receiveSuccess_btn.png" />
+					    </a>
+					 	<img class="shareFri " id="small_ShareFri" src="images/act_laba_receiveShare_btn.png" />
+				  	</div>
+	        	</div>
+	    			<!--已经领过-->
+				<div class="have_received_box receivePageCont common_boxSty" >
+				    <div class="closeBtn closeAndBackClick">
+	        			<span>×</span>
+	        		</div>
+					<div class="have_received_title common_titleSty">
+					    <img src="images/act_laba_coupon.png" alt=""/>
+					    <img  src="images/act_laba_hasGot_right.png" alt=""/>
+					</div>
+				    <div class="have_received_desc common_descSty" style="margin: .6rem auto;">
+				    	 <p style="font-size:.35rem;text-align: center;">您已经领取过了！</p>
+			        	<p class="commom_desc_psty1" style="font-size:.3rem;text-align: center;">快邀请小伙伴们一起来喝腊八粥吧！</p>
+				    </div>
+				    <div class="shareFriDiv common_useStyle">
+				     	<img class="shareFri" src="images/act_laba_receiveShare_btn.png" />
+				    </div>
+				</div>
+			</div>
+			<div id="shareAppPage" class="commonPage_wrapStyle">
+				<!-- <button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
+				<button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button> -->
+					<img class="shareAppBtn" id="shareAppPage_shareFir" src="images/act_laba_app_shareFir.png" alt=""  onclick="s(0)"/>
+					<img class="shareAppBtn" id="shareAppPage_friRound" src="images/act_laba_app_friRound.png" alt="" onclick="s(1)"/>
+			</div>
+	</div>
+	<%@ include  file="act_common_sharePage.jsp"%>
+</body>
+<!-- <script>
+	(function(){
+			var wh=$(window).height();
+			$("#getHBPage").css({"minHeight":wh});
+			 var mwH= window.getComputedStyle(document.getElementById("getHBPage"),null).height;
+			 $("#sharePage").css({"height":mwH});
+			 if(wh<540){
+				 $(".loginnow").css({paddingTop:"2.3rem"});
+				};
+		})();
+</script> -->
+<script>
+var timeused=0;
+var haveScore=false;
+var isShow=true;
+//判断是否从微信进入
+function is_weixin(){
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		return true;
+	} else {
+		return false;
+	}
+};
+/*活动规则*/
+function closeSelf_common(){
+	$('#gameRuleShow').hide()  ;
+};
+/*点击显示*/
+function clickShow_common(){
+	$('#gameRuleShow').show()  ;
+} 
+var isShown = false ;
+(function(){
+	$('.commonRuleStyle').on('tap',function(event){
+		 event.stopPropagation();
+		 if(isShown){
+			 closeSelf_common() ; 
+			 isShown = false ;
+		 }else{
+			 clickShow_common() ;
+			 isShown = true ;
+		 }
+		 
+	})
+	$('.startPage').on('tap',function(){
+		console.debug('close') ;
+	   closeSelf_common() ;
+	   isShown = false ;
+	});	
+})();
+
+(function(){
+	var wh=$(window).height();
+	$("body").css({"minHeight":wh});
+	/* $(".welcomePage").css({"minHeight":wh});
+	$(".selectModu_wrap").height(wh); */
+	$("#getHBPage").css({"minHeight":wh});
+	 var mwH= window.getComputedStyle(document.getElementById("getHBPage"),null).height;
+	 $("#sharePage").css({"height":mwH});
+	if(wh<540){
+		$(".commonRuleStyle").css({position:"static",lineHeight:"30px"});
+		$(".startGameBtn_wrap").css({bottom:"33px"});
+		$(".GameTipImg").css({bottom:"61%"});
+		$("#startGameBtn").css({width:"2.5rem"});
+		$(".prize_btn").css({width:"2.5rem",margin:"0 auto"});
+		$(".shareAppBtn").css({width:"3rem",  marginLeft:"27%"});
+		$(".loginnow").css({paddingTop:"1.8rem",paddingBottom:".45rem"});
+		$(".closeShade ").css({top:".3rem"});
+		$("#loginsumbit").css({margin:".2rem auto 0"});
+		$("#commomLogin_phoneNum").css({width:"4rem",marginLeft:"19%"});
+		$("#commomLogin_codeNum").css({width:"34%",marginLeft:"19%"});
+		$("#commomLogin_getcode").css({width:"24%",marginRight:"1.3rem"});
+		$(".receive_code").css({margin:"-.3rem auto 0"});
+		$(".conWrap").css({paddingTop:".5rem"});
+	}
+})();
+var manifest=[];
+var preload;
+//定义相关JSON格式文件列表
+function setupManifest() {
+	var imgL=$("img").length;
+	for(var i=1;i<imgL;i++)
+		manifest.push({src:$("img").eq(i).attr("src")});
+}
+//开始预加载
+function startPreload() {
+	preload = new createjs.LoadQueue(true);
+	//注意加载音频文件需要调用如下代码行
+	//preload.installPlugin(createjs.Sound);
+	//preload.on("fileload", handleFileLoad);
+	preload.on("progress", handleFileProgress);
+	preload.on("complete", loadComplete);
+	preload.loadManifest(manifest);
+}
+//加载中动画
+var load={};
+load.loadAniBoo=true;
+load.loadNum=0;
+load.loadAniTime=null;
+function handleFileProgress(){
+	if(load.loadAniBoo){
+		load.loadAniTime=setInterval(function(){
+			if(load.loadNum>=8){
+				load.loadNum=0
+			}
+			$(".loadingPage_wrap").find("img").eq(load.loadNum).addClass("loadImgAni").siblings().removeClass("loadImgAni");
+			load.loadNum++;
+		},500)
+		load.loadAniBoo=false;
+	}else{
+		return false;
+	}
+
+}
+//全部资源加载完毕
+function loadComplete(event) {
+	$("#loading_wrap").fadeOut(800);
+	$("#startPage").fadeIn(1000);
+};
+//处理加载错误：大家可以修改成错误的文件地址，可在控制台看到此方法调用
+/* function loadError(evt) {
+ alert("加载出错!请重新进入。"+evt.text);
+ }; */
+setupManifest();
+startPreload();
+
+
+//	活动过期后，领取奖励按钮不可用；
+var state="${state}"||true;
+
+var wechatObj = new Object();
+wechatObj.title ='【药快到】几秒喝到腊八粥？';
+wechatObj.desc = "【药快到】腊八请你来喝粥，看谁速度最快！";
+wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/act_2015LabaIndex';
+/* wechatObj.link= 'http://store.ykd365.com/medhtml/common/act_2015LabaIndex'; */
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_laba_shareImg.jpg';
+/*微信分享动态获取描述的方法 */
+function getMenuShare(){
+getMyDesc();
+var wechatShareMenu ={
+		title:wechatObj.title, // 分享标题
+		desc:wechatObj.desc, // 分享描述
+		link:wechatObj.link,
+	    imgUrl:wechatObj.imgUrl, // 分享图标
+	    success: function () { 
+	    },
+	    cancel: function () {
+	    }	
+};
+var wechatShareMenu2 ={//朋友圈分享用
+		title:wechatObj.desc, // 分享描述
+		link:wechatObj.link,
+	    imgUrl:wechatObj.imgUrl, // 分享图标
+	    success: function () { 
+	    },
+	    cancel: function () {
+	    }	
+};
+wx.onMenuShareTimeline(wechatShareMenu2); 
+wx.onMenuShareAppMessage(wechatShareMenu);
+wx.onMenuShareQQ(wechatShareMenu);
+wx.onMenuShareWeibo(wechatShareMenu);
+};
+/* 根据不同分数，动态更改描述 */
+function getMyDesc(){
+if(haveScore){
+		wechatObj.desc="我在【药快到】花了"+timeused+"秒（分钟），成功喝到腊八粥，你要用多久才能喝到？";
+}else{
+	wechatObj.desc="【药快到】腊八福利，喝粥还有优惠拿，这种好事一般人我不告诉他！抢奖速来！"
+}
+$("meta[name=description]").eq(0).attr({content:wechatObj.desc}); 
+};
+function s(type){
+var jsonObject = {};
+if(type==0){
+	jsonObject.shared_type = "0";
+	jsonObject.shared_url =  wechatObj.link;
+	jsonObject.shared_title = wechatObj.title;
+	jsonObject.shared_content = wechatObj.desc;
+	jsonObject.shared_img_url = wechatObj.imgUrl;
+} else 
+if(type==1){
+	jsonObject.shared_type = "1";
+	jsonObject.shared_url = wechatObj.link;
+	jsonObject.shared_title = wechatObj.title;
+	jsonObject.shared_content = wechatObj.desc;
+	jsonObject.shared_img_url = wechatObj.imgUrl;
+}
+var jsonStr = JSON.stringify(jsonObject);
+sharedTypeByJson(jsonStr);
+};
+function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+};
+
+</script>
+
+</html>

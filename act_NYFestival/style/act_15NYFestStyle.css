@@ -1,0 +1,388 @@
+@CHARSET "UTF-8";
+*{margin:0;padding:0;}
+html{font-size:62.5%;height:100%;}
+body{font-size:0.12rem;width:6.4rem;
+	font-family:"微软雅黑","黑体",arial;
+	height:100%;
+}
+.con_wrap{width:100%;height:100%;margin:0 auto;overflow:hidden;}
+
+.index_wrap{  width: 100%;
+  height: 100%;
+  background: url(../images/act_NYFestival_index.jpg)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  top: 0;}
+.clickToEnter{  width: 1.6rem;
+  margin: 4rem auto 0;
+  overflow: hidden;}
+.clickToEnter img{  width: 100%;float: left;}
+.childSty{  width: 4rem;
+  margin: .85rem auto 0;
+  overflow: hidden;}
+.childSty img{  width: 100%;float: left;}
+.commonRuleStyle{position: fixed;
+  text-align: center;
+  width: 100%;
+  left: 0;
+  bottom: 8px;
+  font-size: 14px;
+  font-weight: 600;; }
+  
+.gameRuleShow{background: rgba(213, 209, 204, 0.9); position: fixed;width: 6rem;left: .2rem; bottom: .7rem;
+  color: #000; box-sizing: border-box; display: none;  font-size: 14px; border-radius: 25px;padding:18px;
+}
+.gameRuleShow p{line-height:24px;}
+/*现在就写弹框*/
+.nowWrite_page{/*display:none;*/position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.7);}
+.self_nowWrite{width: 100%;overflow: hidden;}
+.self_nowWrite img{width: 100%;float: left;}
+.nowWrite_box{
+  width: 5rem;
+  background: url(../images/act_NYfest_alterBox.jpg)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: .7rem;
+  top: 2.8rem;} 
+.written_worlds{ margin-top: .6rem;text-align:center;  font-size: 14px;color: #000;}
+.written_who p:nth-child(1){   font-size: 18px;
+  color: #e10;
+  font-weight: 600;
+  text-decoration: underline;
+  line-height: 35px;}
+.written_who p:nth-child(2){  font-size: 16px;line-height: 35px;}
+
+.phoneSty{
+	width: 4rem;
+  margin: .2rem auto 0;
+  overflow: hidden;
+}
+.phoneSty img{width: 100%; float: left;
+}
+.now_use{
+	  width: 3rem;
+  margin: -.3rem auto 0;
+  overflow: hidden;
+  padding-bottom: .2rem;
+  box-sizing: border-box;
+}
+.now_use img{width: 100%; float: left;
+}
+/*输入页*/
+.userInputPage{
+  width:100%;
+  height: 100%;
+  background: url(../images/act_NYfest_inputIndex.jpg)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+/*.ediet_box{ width: 6rem;
+  background: url(../images/act_NYfest_alterBox.jpg)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: .2rem;
+  top: .2rem;}*/
+.inputStyle{
+	width: 4rem;
+  background: url(../images/act_NYfest_VIcon.png)95% center no-repeat;
+  background-size: 10% 50%;
+    line-height: 30px;
+}
+.keyBoard{
+	margin-top: .5rem;
+	
+}
+.keyBoard_input{width:30px;
+    height:30px;
+    border: .04rem solid #000;
+    border-radius: 6px;
+	/*width: 600px;*/
+	overflow: hidden;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #d0d0d0), color-stop(0.48, #d8d8d8), color-stop(0.29, #e0e0e0), color-stop(0.18, #e8e8e8), color-stop(0.8, #f6f6f6), color-stop(0.00, #fbfbfb) );
+	background: -webkit-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -moz-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -o-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -ms-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);}
+}
+
+.keyBoard .break-li{
+	height: 0;
+	width: 100%;
+}
+ul{overflow: hidden;width:5.6rem;margin:0 auto;
+        }
+.listCom{display:none;opacity: 0}
+ul li{width:.7rem;margin-bottom:.2rem;float:left;  list-style-type: none;
+        }
+ul,li{text-decoration:none;}
+.write_page{  position: fixed;
+  width: 6rem;
+  bottom: 0;
+  left: 0;}
+.write_page img{width: 100%;float: left;}
+
+.userText{  position: absolute;
+  top: 5.4rem;
+  left: .57rem;
+  width: 5rem;
+  height: 3.2rem;
+  background: transparent;
+  /*font-size: .25rem;*/
+  margin: 0 auto .2rem;}
+
+.userWriteText{  line-height: .5rem;
+  /*text-decoration: underline;*/
+  padding: .3rem;
+  width: 5rem;
+  /* margin: 0rem 1rem .5rem; */
+  margin: 0 auto;
+  /*background: #faf5e5;*/
+    background: transparent;
+  font-size: 24px;
+  box-sizing: border-box;
+  min-height: 3.5rem;
+  max-height: 2.5rem;
+  overflow-y: auto;
+  border-style: solid;
+  border-color: #faf5e5;
+  border: none;
+    line-height: 48px;
+}
+.write_pagebottom{  position: absolute;
+  top: 9rem;
+  width: 100%;
+  left: 0;}
+.write_pagebottom img{  width: 2.5rem;
+  display: block;
+  margin: 0 auto;}
+
+.remindMessageBOx{  
+	display: none;
+	position: absolute;
+  top: 8rem;
+  width: 100%;
+  left: 0;}
+.remindMessageBOx img{  width: 3.5rem;
+  display: block;
+  margin: 0 auto;}
+/*预览页*/
+.previewPage{
+	 width:100%;
+  background: url(../images/act_NYfest_preview.jpg)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.toWho{  padding-top: .8rem;  font-size: 30px;
+}
+
+.user_operationBtn{  width: 6.4rem;
+  padding: 1.5rem 0.9rem 0;
+  box-sizing: border-box;
+  overflow: hidden;}
+.user_operationBtn img:nth-child(1){width:2.2rem;float: left;}
+.user_operationBtn img:nth-child(2){width:2.2rem;float: right;}
+/*分享后弹框*/
+.shareEnd_alertBox{  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 110;
+  top: 0;
+  background-color: rgba(0, 0, 0,.6);}
+
+/*.redBox{  margin: 0 auto;
+  width: 5.4rem;
+  opacity: 0;
+  position: relative;}
+.redBox img{ width: 100%; }*/
+  
+.redBox{  background: url(../images/act_NYfest_openRedBox.png) center center no-repeat;
+  width: 5rem;
+  height: 7rem;
+  background-size: 100% auto;
+  position: relative;
+  margin-left: .7rem;}
+.closeAndBack {
+  /*border-top: .8rem solid #f72f1e;*/
+  /*border-left: .8rem solid transparent;*/
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: .9rem;
+  right: .16rem;
+}
+.closeAndBack span {
+  position: absolute;
+  top: -.8rem;
+  right: .1rem;
+  color: #980200;
+  font-size: 30px;
+}
+.redBox_desc{  padding: 2.8rem .3rem .1rem;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  font-family: "黑体"；;
+  color: #fff;}
+.redBox_desc h2{  font-size: 18px;
+  line-height: 25px;}
+.redBox_desc p{  font-size: 16px;
+  line-height: 25px;}
+.openRedBox{width: 3rem;margin: 0 auto;overflow: hidden;}
+.openRedBox img{width: 100%;float: left;} 
+ 
+ /*领取页*/
+.receive_page{ position: absolute;
+  display: none; 
+  width: 100%;
+  background: url(../images/act_NYfest_receive_bj.jpg)top center no-repeat;
+  background-size: 100% 100%;}
+.receive_codeTitle {
+  margin: 0 auto;
+  width: 5rem;
+  padding-top: .6rem;
+}
+.receive_codeTitle img {
+  width: 100%;
+}
+.receive_page_coupon{  margin: 0 auto;
+  width: 6rem;
+  opacity: 0;
+  position: relative;} 
+.receive_page_coupon img {
+  width: 100%;
+}
+.loginnow{ position: absolute;
+  top: 2.7rem;
+  left: 0rem;
+  width: 6.4rem;
+  height: 3.4rem;
+  background: transparent;
+  /* font-size: .25rem; */
+  margin: 0 auto .2rem;} 
+ 
+.commomLogin{
+			width:100%;box-sizing:border-box;margin:0 auto;font-family:"黑体",arial;color:#fff;
+			}
+.commomLogin input{text-align:center;box-sizing:border-box;height:38px;margin-left:.8rem;
+			/*border:1px solid #fff;background:transparent;*/ border: 0; border-radius: 5px; background: #fff;
+		}
+.commomLogin #commomLogin_phoneNum{width:4.8rem;display:block;}
+#commomLogin_codeNum{width:42%;float:left;}
+.commomLogin_getcodeagain{display:none;}
+#commomLogin_getcode{  float: right; width: 24%; height: 38px;
+		  box-sizing: border-box;border-radius: 8px;background: #ffd600;
+		  font-size: 12px;text-align: center;margin-right:1rem;color: #000;
+		  }
+.commomLogin input{color:#000;}
+#commomLogin_getcode .commomLogin_getcodeagain{font-size:10px;line-height:17px;}
+#commomLogin_getcode .commomLogin_getcodeagain var{font-style:normal;}
+		::-moz-placeholder {
+		    color: #000;
+		}
+		:-ms-input-placeholder {
+		    color: #000;
+		}
+		::-webkit-input-placeholder {
+		    color: #000;
+		}
+#loginsumbit{margin:.3rem auto 0;text-align:center;}
+#loginsumbit img{width: 2.8rem;} 
+			
+			
+.have_received ,.receive_success{display:none;position: fixed; width: 100%; 
+   			height: 100%;  z-index: 11;top: 0;background-color: rgba(50, 50, 50, 0.26);
+   			}	
+		/*领取成功页和已领取页*/
+		
+.common_boxSty {  /*display:none;*/position: fixed; width: 100%; 
+		   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0,0, 0,.7);}
+		   			
+.receive_success_redBox{
+  width: 5.4rem;
+  background: url(../images/act_NYfest_receiveResult_redBox.png)top center no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  left: .5rem;
+  top: 1.2rem;} 	
+.common_descSty {
+  margin-top: 4.8rem;
+}
+.common_descSty img{width: .5rem;
+  float: left;
+  margin: .1rem .2rem 0 1.3rem;}
+.common_descSty p{  color: #fff;
+  font-size: 16px;
+  line-height: 30px;}  			
+.common_titleSty img{width: 100%;}
+.common_titleSty img:nth-child(2){width:.8rem;position: absolute;top:1.5rem;left:3.5rem;}
+.common_titleSty{position:relative;width:4rem;margin:2.5rem auto 0}
+.closeBtn{ 
+	/*width: 60px;*/float:right;color:#fff;font-size:26px; text-align: center;
+	    /*height: 60px; */
+	    border-radius: 15px; position: absolute;top:.5rem; right: .6rem;
+	    }
+.common_useStyle{   width: 5.4rem;
+  padding: .6rem .4rem 1rem;
+  box-sizing: border-box;
+  overflow: hidden;}
+.common_useStyle img{width: 2.2rem;float: left; }
+.shareFriDiv {  margin: 0 auto;
+  width: 3rem;
+  overflow: hidden;}
+.shareFriDiv  img{width: 100%;}
+ #small_ShareFri {float:right; width:2.2rem;}
+
+
+/*好友页*/
+.write_pageEnd{width: 2rem;margin: .3rem auto ;overflow: hidden;}
+.write_pageEnd img {width: 100%;float: left;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+#shareAppPage{
+			width:100%;height:100%;border:none;border-radius:0;position:fixed;
+			display:none;z-index:1000;top:0;left:0;background:rgba(50,50,50,.8);margin:0;box-sizing:border-box;
+			padding-top:4rem;
+			}
+/* #shareAppPage button{
+			width:2.6rem;padding:10px 20px;font-family:"黑体";float:left;background:#fd8f00;border:none;
+			margin-left:.4rem;border-radius: 6px;
+			} */
+#shareAppPage img{
+			width: 4rem;margin-left:18%;
+			}	
+#shareAppPage img:nth-child(2){
+			margin-top:.3rem;
+			}		
+ #shadeWaitDiv{position:fixed;top:0;left:0;background:rgba(0,0,0,.3);z-index:999;height:100%;width:100%;}   
+ #waitAll {position:absolute;width:1rem;z-index:1000;top: 4rem;left: 2.7rem;}
+ #waitAll img{width:1rem;}
+
+
+

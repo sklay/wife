@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>【药快到】三行家书VS三行情书</title>
+		<meta name="description" content="【药快到】茫茫人海，谁最懂我？你能读懂我想说的话吗？"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" type="text/css" href="style/act_15NYFestStyle.css"/>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fx_methods.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<!-- <script src="js/easeljs-0.8.0.min.js"></script> -->
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+
+	<style>
+		#loadingPage{
+		    width:100%;height:100%;background:#fff;position:absolute;top:0;left:0;z-index:10;
+		}
+		#myCanvas{
+		    display:block;width:3rem;margin:0 auto;text-align:center;
+		}
+		#loadingPage .loadingImg{
+			width:1.5rem;margin:3rem auto .5rem;overflow:hidden;position:relative;height:1.5rem;
+		}
+		#loadingPage .loadingImg img{
+			width:100%;position:absolute;top:0;left:0;opacity:0
+		}
+		@-webkit-keyframes loadImgMove{
+			50%{opacity:1}
+			100%{opacity:0}
+		}
+		@keyframes loadImgMove{
+			50%{opacity:1}
+			100%{opacity:0}
+		}
+		#loadingPage .loadingImg img:nth-child(1){
+			-webkit-animation:loadImgMove 1.5s linear infinite; 
+			animation:loadImgMove 1s linear infinite; 
+		}
+		#loadingPage .loadingImg img:nth-child(2){
+			-webkit-animation:loadImgMove 1.5s linear 500s infinite; 
+			animation:loadImgMove 1s linear 500ms infinite; 
+		}
+		#loadingPage .loadingImg img:nth-child(3){
+			-webkit-animation:loadImgMove 1.5s linear 1s infinite; 
+			animation:loadImgMove 1s linear 1s infinite; 
+		} 
+		
+		
+.keyBoard_input{width:40px;
+    height:40px;
+    border: .04rem solid #000;
+    border-radius: 6px;
+	/*width: 600px;*/
+	overflow: hidden;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #d0d0d0), color-stop(0.48, #d8d8d8), color-stop(0.29, #e0e0e0), color-stop(0.18, #e8e8e8), color-stop(0.8, #f6f6f6), color-stop(0.00, #fbfbfb) );
+	background: -webkit-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -moz-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -o-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: -ms-linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);
+	background: linear-gradient(top,#fbfbfb 0% ,#f6f6f6 8%, #e8e8e8 18%, #e0e0e0 29%, #d8d8d8 48%,#d0d0d0 98%);}
+}	
+.keyBoard .break-li{
+	height: 0;
+	width: 100%;
+}
+ul{overflow: hidden;width:5.4rem;margin:0 auto;
+        }
+.listCom{display:none;opacity: 0}
+ul li{width:.9rem;margin-bottom:.2rem;float:left;  list-style-type: none;
+        }
+ul,li{text-decoration:none;}
+
+.commonResultShow{  background: url(images/act_NYfest_friendEndBox.png) center center no-repeat;
+  width: 5rem;
+  height: 4.5rem;
+  background-size: 100% auto;
+  position: relative;
+  margin-left: .7rem;}
+	</style>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+</head>
+	<body>
+		<div class="con_wrap">
+		 	<div id="loadingPage" style="display: none;">
+		    	<div class="loadingImg">
+					<img src="images/loading01.png" />
+					<img src="images/loading02.png" />
+					<img src="images/loading03.png" />
+				</div>	
+		        <canvas id="myCanvas"></canvas>
+		        <script>
+		            (function(){
+		                var wh=$(window).height();
+		                $("#loadingPage").css({"minHeight":wh});
+		            })();
+		        </script>
+    		</div>
+    		<div class="index_wrap" style="display: none;">
+    			<div class="clickToEnter">
+    				<img src="images/act_NYFestival_clickBtn.png" />
+    			</div>
+    			<div class="childSty">
+    				<img src="images/act_NYFestival_child.png"/>
+    			</div>
+				<p class="commonRuleStyle">活动规则</p>
+				<div class="gameRuleShow pt-page-moveFromBottom" id="gameRuleShow">
+					<p>1、用户输入三行文字，每行不超过8个字，确认后生成属于自己的三行文字谜题，分享给好友后，让好友猜文字的顺序组合，以此考验彼此的默契程度。</p>
+					<p>2、凡参与活动的用户均可获得【药快到】全场通用满48元减8元现金券2张，现金券有效期7天。</p>
+					<p>3、活动有效期自2月4日0:00——2月14日23:59。</p>
+					<p>4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+				
+				<div class="nowWrite_page alterPage" >
+	    			<div class="self_nowWrite">
+	    				<img style="width: 100%;" src="images/act_NYfest_alterBoxTitle.png" />
+	    			</div>
+	    				<div class="nowWrite_box">
+	    					<div class="written_worlds" style=" ">
+	    						<div class="written_who">
+	    							<p>你的三行写给谁？</p>
+	    							<p>谁最懂我？</p>
+	    						</div>
+	    						<div class="written_desc">
+		    						<p>随意输入文字，完成你的三行</p>
+		    						<p>分享给好友，找出最懂你的那个人~</p>
+	    						</div>
+	    					</div>
+	    					<div class="phoneSty">
+	    						<img src="images/act_NYfest_alertPho.png" />
+	    					</div>
+	    					<div class="now_use">
+	    						<img id="nowUseClick" src="images/act_NYfest_guessBtn.png" />
+	    					</div>
+	    				</div>
+    			</div>
+    		</div>
+    		<div class="nowWrite_page alterPage" >
+    			<!--<div class="self_nowWrite">
+    				<img style="width: 100%;" src="images/act_NYfest_alterBoxTitle.png" />
+    			</div>
+    				<div class="nowWrite_box">
+    					<div class="written_worlds" style=" ">
+    						<div class="written_who">
+    							<p>你的三行写给谁？</p>
+    							<p>谁最懂我？</p>
+    						</div>
+    						<div class="written_desc">
+	    						<p>随意输入文字，完成你的三行</p>
+	    						<p>分享给好友，找出最懂你的那个人~</p>
+    						</div>
+    					</div>
+    					<div class="phoneSty">
+    						<img src="images/act_NYfest_alertPho.png" />
+    					</div>
+    					<div class="now_use">
+    						<img id="nowUseClick" src="images/act_NYfest_guessBtn.png" />
+    					</div>
+    				</div>-->
+    				<div class="closeBtn closeAndBackClick">
+	        			<span>×</span>
+	        		</div>
+    				<div class="commonResultShow">
+					<div class="commonResultShow_text">
+						<p> 这么高的默契度
+						还是你最懂我！</p>
+					</div>
+					<div class="common_useStyle">
+						<img class="" src="images/act_NYfest_friendAgainGuess.png">
+						<img class="shareFri " src="images/act_NYfest_friendlookanswer.png">
+					</div>
+				</div>
+    		</div>
+    		
+    		<div class="userInputPage " >
+    			<div class="ediet_box">
+    				<!--<div class="inputBox" style="text-align:center;margin-top: .8rem;">
+	    				<label style="font-size: 16px;font-weight: 600;line-height: 30px;">To:</label>
+	    				<input class="inputStyle" id="userType" name="userType" value="">
+    				</div>-->
+    				<div class="toWho">
+	    				<p style="margin-left:.8rem;">To:<span class="identity_type"></span></p>
+	    				</div>
+    				<!--<div class="">
+    					<ul >
+    						<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+    					</ul>
+    				</div>-->
+    				<div class="friend_keyBoard">
+    					<ul >
+    						<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+    					</ul>
+    				</div>
+    				<!--<div class="write_page">
+    					<img src="images/act_NYFest_writePage1.png" />
+    				</div>
+    				<div class="userText">
+    					<textarea name="userWrite" class="userWriteText" cols="8" rows="3" wrap="hard" ></textarea>
+    				</div>
+    				<div class="remindMessageBOx">
+    					<img class="remindMessage" src="images/act_NYFest_remindBox1.png" />
+    				</div>-->
+    				<div class="write_pageEnd">
+    					<img class="userMywriteEnd" src="images/act_NYfest_writeEnd.png" />
+    				</div>
+    			</div>
+    			<!--<div class="nowWrite_page alterPage" >
+	    			<div class="self_nowWrite">
+	    				<img style="width: 100%;" src="images/act_NYfest_alterBoxTitle.png" />
+	    			</div>
+	    				<div class="nowWrite_box">
+	    					<div class="written_worlds" style=" ">
+	    						<div class="written_who">
+	    							<p>你的三行写给谁？</p>
+	    							<p>谁最懂我？</p>
+	    						</div>
+	    						<div class="written_desc">
+		    						<p>随意输入文字，完成你的三行</p>
+		    						<p>分享给好友，找出最懂你的那个人~</p>
+	    						</div>
+	    					</div>
+	    					<div class="phoneSty">
+	    						<img src="images/act_NYfest_alertPho.png" />
+	    					</div>
+	    					<div class="now_use">
+	    						<img id="nowUseClick" src="images/act_NYfest_guessBtn.png" />
+	    					</div>
+	    				</div>
+    			</div>-->
+    		</div>
+    		
+    		<div class="previewPage" style="display: none;">
+    			<div class="toWho">
+    				<p style="margin-left:.8rem;">To:<span class="identity_type"></span></p>
+    			</div>
+    			<div class="toWhoWord" style="margin-top: 1rem;">
+    					<ul>
+    						<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+							<li class="pull-left"><div class="keyBoard_input"></div></li>
+    					</ul>
+    			</div>
+				<div class="user_operationBtn">
+    				<img  class="againChange" src="images/act_NYfest_againChange.png" />
+    				<img class="saveShare" src="images/act_NYfest_shareBtn.png" />
+				</div>
+				<div class="shareEnd_alertBox">
+					<div class="redBox_wrap" style="position: relative;padding-top: 1.6rem;">
+						<!--<div class="redBox" style="  opacity: 1;">
+							<img src="images/act_NYfest_openRedBox.png" />
+						</div>-->
+						<div class="redBox">
+							<div class="closeAndBack closeAndBackClick">
+								<span>×</span>
+							</div>
+							<div class="redBox_desc">
+								<h2>药快到</h2>
+								<p>给你发了一个红包</p>
+								<h2 style="line-height: 60px;">恭喜发财，大吉大利！</h2>
+							</div>
+							<div class="openRedBox">
+								<img id="openRedBox" src="images/act_NYfest_openBtn.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+    		</div>
+    		<!--<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage"  style="display: block;" >-->
+    			<div class="receive_page getHbPage_wrap commonPage_wrapStyle" id="getHBPage"  >
+				<div class="receive_codeTitle recePage_Width">
+				 	<img src="images/act_NVfest_receiveTitle.png" alt="">
+				</div>
+				<div class="receive_code receivePageCont" id="receive_page" style="position: relative;">
+					<div class="receive_page_coupon recePage_Width" id="receive_page_coupon" style="opacity: 1;">
+			            <img src="images/act_NVfest_receiveRedBox.png" alt="">
+			        </div>
+			        <div class="loginnow" id="loginnow">
+						<div class="commomLogin">
+							<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum">
+							<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:54px;color:#fff;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+							<div style="width:100%;overflow:hidden;margin-top:.1rem;">
+								<input type="text" placeholder="输入验证码" id="commomLogin_codeNum">
+								<div id="commomLogin_getcode">
+									<span class="commomLogin_getcode" style="line-height:38px;">获取验证码</span>
+									<span class="commomLogin_getcodeagain"><var style="color:#ff0000">60</var>秒后<br>重新获取</span>
+								</div>
+							</div>
+							
+							<div id="loginsumbit">
+								<img src="images/act_NYfest_receiveBtn.png">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!---成功领取-->
+	        	<div class="receive_success_box receivePageCont common_boxSty">
+	        		<div class="closeBtn closeAndBackClick">
+	        			<span>×</span>
+	        		</div>
+	        	 	<!--<div class="receive_success_title common_titleSty ">
+			            <img src="images/act_lung_getHbBackCommon.png" alt="">
+		       		</div>-->
+		       		<div class="receive_success_redBox">
+					    <div class="receive_success_desc common_descSty">
+					    	<img src="images/act_NYfest_receiveSuccess_icon.png" />
+					       <p class="commom_desc_psty2">领取成功 啦！</p>
+					    </div>
+					    <div class="common_useStyle">
+						    <a id="downloadA" href="http://store.ykd365.com/download.html">
+						        <img src="images/act_NYfest_receiveSuccess_usebtn.png">
+						    </a>
+						 	<img class="shareFri " id="small_ShareFri" src="images/act_NYfest_receiveSuccess_sharebtn.png">
+					  	</div>
+				  	</div>
+	        	</div>
+	    			<!--已经领过-->
+				<div class="have_received_box receivePageCont common_boxSty">
+				    <div class="closeBtn closeAndBackClick">
+	        			<span>×</span>
+	        		</div>
+				     <!--<div class="have_received_title common_titleSty recePage_Width">
+					    <img src="images/act_lung_hasGot.png" alt="">
+					</div>-->
+					<div class="receive_success_redBox">
+					    <div class="have_received_desc common_descSty">
+					        <img src="images/act_NYfest_receiveSuccess_icon.png" />
+						    <p class="commom_desc_psty2">您已经领过啦！</p>
+					    </div>
+					    <div class="shareFriDiv common_useStyle">
+				     		<img class="shareFri" src="images/act_NYfest_receiveSuccess_sharebtn.png">
+				    	</div>
+				  </div>
+				</div>
+			</div>
+    		
+    		</div>
+    		
+		</div>
+	</body>
+<script>
+ (function(){
+	var wh=$(window).height();
+//	$("body").css({"minHeight":wh});
+	$(".previewPage").css({"minHeight":wh});
+//	 var mwH= window.getComputedStyle(document.getElementById("getHBPage"),null).height;
+ 	$(".receive_page").css({"minHeight":wh});
+	if(wh>500 && wh<540){
+		 $(".clickToEnter ").css({margin:"3.3rem auto 0"});
+		 $(".childSty ").css({margin:"0 auto "});
+	} ;
+	if(wh<500){
+		 $(".clickToEnter ").css({margin:"3.3rem auto 0"});
+		 $(".childSty ").css({margin:"0 auto "});
+	}
+})();
+	var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653' ;
+		//判断是否从微信进入
+		function is_weixin(){
+			var ua = navigator.userAgent.toLowerCase();
+			if(ua.match(/MicroMessenger/i)=="micromessenger") {
+				return true;
+			} else {
+				return false;
+			}
+		};
+		
+		/**判断跳转的地址**/
+		function goPage(type){
+			/**判断是否是微信**/
+			 if(is_weixin()){
+				 window.location.href=target_href ;
+			 }else{
+				if(version && 200 <= version){
+					gotoPage('{"type":"1"}');
+				}else{
+					window.location.href=target_href ;
+				}
+			 }
+		}
+		function gotoPage(jsonStr){  //ios会覆盖此方法
+			camore.gotoPage(jsonStr);  //android会调用里面的方法
+			};
+		/*活动规则*/
+		function closeSelf_common(){
+			$('#gameRuleShow').hide()  ;
+		};
+		/*点击显示*/
+		function clickShow_common(){
+			$('#gameRuleShow').show()  ;
+		} 
+		var isShown = false ;
+		(function(){
+			$('.commonRuleStyle').on('tap',function(event){
+				 event.stopPropagation();
+				 if(isShown){
+					 closeSelf_common() ; 
+					 isShown = false ;
+				 }else{
+					 clickShow_common() ;
+					 isShown = true ;
+				 }
+				 
+			})
+			$('.startPage').on('tap',function(){
+			   closeSelf_common() ;
+			   isShown = false ;
+			});	
+		})();
+
+	</script>
+</html>
