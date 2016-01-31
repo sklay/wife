@@ -100,6 +100,10 @@ body{font-size:0.12rem;width:6.4rem;
     height:30px;
     border: .04rem solid #000;
     border-radius: 6px;
+    font-size: 16px;
+   text-align: center;
+   line-height: 30px;
+   color: #ff0000;
 	/*width: 600px;*/
 	overflow: hidden;
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.98, #d0d0d0), color-stop(0.48, #d8d8d8), color-stop(0.29, #e0e0e0), color-stop(0.18, #e8e8e8), color-stop(0.8, #f6f6f6), color-stop(0.00, #fbfbfb) );
