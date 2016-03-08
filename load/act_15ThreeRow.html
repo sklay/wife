@@ -28,10 +28,10 @@
    	    } 
     }
     </script>
-    
+    <script src="js/jquery.min.js"></script>
     <script src="js/zepto.min.js" /></script>
     <script src="js/fx.js" /></script>
-     <script src="js/fx_methods.js" /></script>
+    <script src="js/fx_methods.js" /></script>
     <style>
    *{margin:0;padding:0;}
    html{font-size:62.5%}
@@ -452,6 +452,8 @@ function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
     camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
 };
 window.onload=function(){
+	imgLoad() ;
+	
 		 $(".loginWrap").on("click","#loginsumbit",function(){
 				 if(is_weixin()){
 				 	var _url="newGetCoupAjax"
@@ -577,6 +579,13 @@ $("#shareAppPage").on("click",function(e){
 
 }
 </script>
+
+
+<!--<script>
+	imgLoad() ;
+	
+</script>-->
+
 <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
 wechatObj.title = '【药快到】手写三行，新春有礼';

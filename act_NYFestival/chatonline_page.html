@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>用JS实现的仿QQ聊天窗口，可拖动、展开、关闭的div层</title>
+<meta charset="UTF-8">
+    <meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, email=no" /> 
+    <script src="js/jquery-2.2.0.min.js"></script>
+<style type="text/css" media="all" rel="stylesheet">
+.content{width: 500px; background: #5C98E7;overflow: hidden;  height: 500px;}
+.coten_left{  width: 16%;
+	  max-width: 180px;
+	  float: left;
+	  overflow-y: auto;
+  }
+ .userFriAvatat{overflow: hidden;
+  
+  border-radius: 10%;
+  margin: 3px auto;
+  width: 88%;
+        }
+.userFriAvatat img{  width: 40px;
+			  height: 40px;padding: 10px;
+			  float: left;
+			  border-radius: 10%;
+	}
+.conten_right{
+	background: #EFEFFF;
+  width: 84%;
+  height: 100%;
+  float: left;
+}
+.coten_right_head{ overflow: hidden;
+    border-bottom: 1px solid #E3E8F2;
+    }
+.headImg{
+	float: left;
+}
+
+.user_toorBar{
+	float: right;
+}
+.userFriInf{  float: left;
+  width: 40%;
+   margin: .3rem auto;
+  padding: 3px;
+  }
+.userFriInf strong{font-size:18px;color:#761f2c;line-height:20px;}			  
+.userFriInf p{  margin: 0;
+            white-space:nowrap;text-overflow:ellipsis;overflow:hidden;width:100%;color:#761f2c;line-height:20px;
+        }
+.all_words{overflow: hidden;}
+.conten_text{
+	  height: 250px;
+  padding: 6px;
+  overflow-y: scroll;
+  word-break: break-all;
+}
+.userWrite{  border-top: 1px solid #E3E8F2;}
+.tarea_corp {
+    width: 99%;
+  border: 0;
+  background: transparent;
+  overflow: -Scroll;
+  overflow: -Scroll;
+  overflow-x: hidden;
+  resize: none;
+  outline: none;
+  font-size: 18px;
+}	
+.sendBtn  {
+	width: 20%;
+  font-size: 16px;
+  text-align: center;
+  line-height: 25px;
+  background: #5C98E7;
+  float: right;
+  margin: 8px;
+  border: 0;
+  border-radius: 4px;
+}
+.active{
+	background: rgba(255, 255, 255, 0.32);
+}
+</style>
+</head>
+<body>
+	<div class="content">
+		<div class="coten_left">
+			<div class="userFriAvatat" data-uname="张三" data-udes='张三人品爆发，这波福利我收啦!' name="user_1000">
+	            <img src="images/headimg.png" alt="">
+	        </div>
+	        <div class="userFriAvatat" data-uname="李四" data-udes='李四人品爆发，这波福利我收啦!' name="user_1002">
+	            <img src="images/headimg.png" alt="">
+	        </div>
+		</div>
+		<div class="conten_right">
+			<div class="coten_right_head">
+				<div class="headImg">
+					<div class="userFriInf">
+				        <strong>杀生丸</strong>
+				        <p>人品爆发，这波福利我收啦!</p>
+				    </div>
+				   
+				</div>
+				<div class="user_toolBar">
+				    	
+				</div>
+			</div>
+			<div class="showMessage">
+				<div class="conten_text"  id="user_1000">
+				</div>
+				<div class="conten_text" id="user_1002" style="display:none;">
+				</div>
+			</div>
+			<div class="all_words">
+				<!--<div class="conten_text"  id="user_1000">
+				</div>
+				<div class="conten_text" id="user_1002" style="display:none;">
+				</div>-->
+				<div class="userWrite">
+					<textarea class="tarea_corp" rows="6" cols="20"></textarea>
+				</div>
+				<button class="sendBtn">发送</button>
+				<button class="sss">接收消息</button>
+			</div>
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+var userinfo_data = {username:'测试',img:'images/headimg.png' ,udes:'测试人品爆发，这波福利我收啦!' ,id:'100023' } ;
+
+
+$(function(){
+	
+	var ntab = '<div class="userFriAvatat" data-uname="{uname}" data-udes="{udes}" name="user_{id}"  style="display:none;"><img src="{img}"></div>' ;
+	var ndiv = '<div class="conten_text"  id="user_{id}"></div>' ;     
+				     
+	
+	var tabs=$('div.coten_left').find('div.userFriAvatat');
+//	var divs=$('div.all_words').find("div.conten_text");
+	var divs=$('div.showMessage').find("div.conten_text");
+	
+	initResource() ;
+	initTabClick() ;
+	
+	function initResource(){
+		tabs=$('div.coten_left').find('div.userFriAvatat');
+//		divs=$('div.all_words').find("div.conten_text");
+		divs=$('div.showMessage').find("div.conten_text");
+		
+	}
+	
+	function initTabClick(){
+		$.each(tabs,function(){
+			$tab = $(this) ;
+			$tab.unbind('click') ;
+			$tab.click(function(){
+				change(this);
+			});
+		});
+	}
+
+	function change(tab){
+		var $tab = $(tab) ;
+		var uname= $tab.attr('data-uname') || '' ;
+		var udes= $tab.attr('data-udes') || '';
+		var uid = $tab.attr('name') || '';
+		var contentDiv = $('#'+uid) ;
+		/**隐藏所有tab跟聊天记录区域*/
+		for(var i=0;i<tabs.length;i++)
+		{
+			$(tabs[i]).removeClass("fli");
+			$(tabs[i]).removeClass("active") ;
+			$(divs[i]).removeClass("fdiv").hide();
+		}
+		/**显示已经选中 */
+		$tab.addClass("fli").addClass("active").show();
+		$('div.userFriInf > strong').html(uname) ;
+		$('div.userFriInf > p').html(udes) ;
+		
+		$(contentDiv).addClass("fdiv").show();
+	}
+	
+	
+	function addNewChat (userinfo){
+		var t = ntab.replace('{uname}' , userinfo.username).replace('{img}' , userinfo.img).replace('{udes}' , userinfo.udes).replace('{id}' , userinfo.id) ;
+		var d = ndiv.replace('{id}' , userinfo.id) ;
+		
+		$('div.coten_left').append(t);
+//		$('div.all_words').append(d);
+		$('div.showMessage').append(d);
+		
+		initResource() ;
+		initTabClick() ;
+		
+		$('div[name=user_'+userinfo.id+']').click() ;
+	}
+	
+	
+	
+	/**测试**/
+	
+	$('.sss').click(function(){
+		addNewChat (userinfo_data) ;
+	}) ;
+});
+
+
+</script>
+</html>

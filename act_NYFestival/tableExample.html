@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>京东商城</title>
+<style type="text/css">   
+<!--   
+body,table, td, a {font:9pt;}   
+/*重点：固定行头样式*/  
+.scrollRowThead{position: relative; left: expression(this.parentElement.parentElement.parentElement.parentElement.scrollLeft);z-index:0;}  
+/*重点：固定表头样式*/  
+.scrollColThead {position: relative;top: expression(this.parentElement.parentElement.parentElement.scrollTop);z-index:2;}  
+/*行列交叉的地方*/  
+.scrollCR { z-index:3;}  
+/*div外框*/  
+.scrollDiv {height:200px;clear: both; border: 1px solid #EEEEEE;OVERFLOW: scroll;width: 320px; }  
+/*行头居中*/  
+.scrollColThead td,.scrollColThead th{ text-align: center ;}  
+/*行头列头背景*/  
+.scrollRowThead,.scrollColThead td,.scrollColThead th{}  
+/*表格的线*/  
+.scrolltable{border-bottom:1px solid #CCCCCC; border-right:1px solid #CCCCCC; }  
+/*单元格的线等*/  
+.scrolltable td,.scrollTable th{border-left: 1px solid #CCCCCC; border-top: 1px solid #CCCCCC; padding: 5px; }  
+  
+.scrollTable thead th{font-weight:bold;position:relative;}  
+-->   
+</style>  
+</head>
+
+以下是HTML 
+Html代码  收藏代码
+<h1>利用CSS代码让Table产生固定表头</h1>  
+<div id="scrollDiv" class="scrollDiv" >  
+<table border="0" cellpadding="3" cellspacing="0" width="500" class="scrollTable">  
+    <thead>  
+<tr class="scrollColThead"  >  
+  <th class="scrollRowThead scrollCR"  >&nbsp;</th>  
+  <th colspan="2">列头</th>  
+  <th colspan="2">列头</th>  
+  <th rowspan="2">列头</th>  
+</tr>  
+<tr class="scrollColThead"  >  
+  <th class="scrollRowThead scrollCR"  >h1</th>  
+  <th >h2</th>  
+  <th >h3</th>  
+  <th >h4</th>  
+  <th >h5</th>  
+</tr>  
+</thead>  
+<tr>  
+  <td class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox" value="checkbox">  
+    a</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+<tr>  
+  <td class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox2" value="checkbox">  
+    b</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+<tr>  
+  <td nowrap class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox3" value="checkbox">  
+    c</td>  
+  <td nowrap>单元格2</td>  
+  <td nowrap>单元格3</td>  
+  <td nowrap>单元格4</td>  
+  <td nowrap>单元格5</td>  
+  <td nowrap>单元格5</td>  
+</tr>  
+<tr>  
+  <td class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox4" value="checkbox">  
+    d</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+<tr>  
+  <td class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox5" value="checkbox">  
+    e</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+<tr>  
+  <td class="scrollRowThead"  >  
+    <input type="checkbox" name="checkbox6" value="checkbox">  
+    f</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+<tr>  
+  <td class="scrollRowThead" >  
+    <input type="checkbox" name="checkbox7" value="checkbox">  
+    g</td>  
+  <td>单元格2</td>  
+  <td>单元格3</td>  
+  <td>单元格4</td>  
+  <td>单元格5</td>  
+  <td>单元格5</td>  
+</tr>  
+</table>  
+</div> 

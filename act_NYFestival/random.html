@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.5, user-scalable=yes"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title></title>
+    <script>
+    	
+    	function prizeRand(oArr) {
+		    var sum = 0;    // 总和
+		    var rand = 0;   // 每次循环产生的随机数
+		    var result = 0; // 返回的对象的key
+		
+		//    console.log(oArr);
+		
+		    // 计算总和
+		    for (var i in oArr) {
+		        sum += oArr[i][0];
+		    }
+		
+		    // 思路就是如果设置的数落在随机数内，则返回，否则减去本次的数
+		    for (var i in oArr) {
+		        rand = Math.floor(Math.random()*sum + 1);
+		        if (oArr[i][0] >= rand) {
+		            result = oArr[i][0];
+		            break;
+		        } else {
+		            sum -= oArr[i][0];
+		        }
+		    }
+
+		    return result;
+		
+		}
+
+var oArr = {'1':[46, 'Mac'], '2':[49, 'iPhone'], '3':[5, 'iPad']};
+
+console.log(prizeRand(oArr));
+    	
+    </script>
+</head>
+<body>
+
+</body>
+</html>

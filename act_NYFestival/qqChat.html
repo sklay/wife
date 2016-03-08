@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>QQ在线客服</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, email=no" /> 
+
+<SCRIPT language=javascript>
+function CloseQQ()
+{
+divStayTopleft.style.display="none";
+return true; 
+}
+function FloatTop()
+{
+ var startX1 =document.body.offsetWidth-125 ,startY1 = 5;
+ var startX2 =0,startY2 = 95;
+ var ns = (navigator.appName.indexOf("Netscape") != -1);
+ var d = document;
+ function ml(id,startX,startY)
+ {
+  var el=d.getElementById?d.getElementById(id):d.all?d.all[id]:d.layers[id];
+  if(d.layers)el.style=el;
+  el.sP=function(x,y){this.style.left=x;this.style.top=y;};
+  el.x = startX;
+  el.y = startY;
+  return el;
+ }
+ window.stayTopLeft=function()
+ {
+  var pY = ns ? pageYOffset : document.body.scrollTop;
+  ftlObj.y += (pY + startY1 - ftlObj.y)/8;
+  ftlObj1.y += (pY + startY2 - ftlObj1.y)/8;
+  ftlObj.sP(document.body.scrollLeft+document.body.offsetWidth-125, ftlObj.y);
+  ftlObj1.sP(ftlObj1.x, ftlObj1.y);
+  setTimeout("stayTopLeft()", 30);
+ }
+ ftlObj = ml("divStay",(document.body.scrollLeft+document.body.offsetWidth)/2+505,0);
+ ftlObj1 = ml("divStayTopLeft",(document.body.scrollLeft+document.body.offsetWidth)/2+509,30);
+ stayTopLeft();
+}
+</SCRIPT>
+</head>
+<body>
+<DIV id=divStay style="POSITION:absolute"></DIV>
+</DIV>
+<SCRIPT language=javascript>
+function picsize(obj,MaxWidth){
+  img=new Image();
+  img.src=obj.src;
+  if (img.width>MaxWidth)
+  {
+    return MaxWidth;
+  }
+  else
+  {
+    return img.width;
+  }
+}
+function CloseQQ()
+{
+divStayTopleft.style.display="none";
+return true; 
+}
+var online= new Array();
+</SCRIPT>
+<div id="divStayTopleft" style="POSITION: absolute; left: 267px; top: 34px;">
+ <table cellspacing="0" cellpadding="0" width="109" border="0">
+  <tr>
+   <td colspan="3">
+   <a onClick="CloseQQ()" href="javascript:;" shape="circle" coords="91,16,12">
+   <img height="34" src="QQ3.png" width="109" usemap="#Map" border="0"></a></td>
+  </tr>
+  <tr>
+   <td width="6"><img height="250" src="QQ2.png" width="6"></td>
+   <td valign="top" width="96" background="sto/qq_bg.gif">
+   </td></tr></table>
+</div>
+
+中间省略。。。。。。。。。
+
+FloatTop();
+<!--End -->
+<table width="95%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td height="800"> </td>
+  </tr>
+</table>
+<script type="text/javascript">FloatTop();</script>
+</body>
+</html>

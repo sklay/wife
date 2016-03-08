@@ -28,7 +28,7 @@
    	    } 
     }
     </script>
-    
+     <script src="js/jquery-1.9.0.min.js" /></script>
     <script src="js/zepto.min.js" /></script>
     <script src="js/fx.js" /></script>
      <script src="js/fx_methods.js" /></script>
@@ -181,51 +181,6 @@
 	.ActRule_content{padding:.7rem .1rem;line-height: 25px;}
 	
 	
-	
-	
-	/*加载页样式*/
-/*	#loading, #page_loading {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 3000;
-  display: none;
-}
-#page_loading {
-  display: block;
-  background: #7ad7c5;
-}
-
-#page_loading div {
-  width: 120px;
-  height: 120px;
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  margin: -60px 0 0 -60px;
-  background: url(images/loading01.png) no-repeat 0 0;
-  _-webkit-animation: pload 0.4s steps(2) infinite;
-}
-#page_loading p {
-  width: 300px;
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  margin: 60px 0 0 -150px;
-  color: #fff;
-  text-align: center;
-  font-size: 22px;
-  font-style: italic;
-}
-#page_loading span {
-  font-size: 30px;
-  margin-right: 3px;
-}
-*/
-/*loading*/
 /*#loading,*/
 #page_loading{position: absolute;width:100%;height:100%;left:0;top:0;background:rgba(0,0,0,0.3);z-index: 3000;display: none;}
 /*#loading div{width:180px;height:180px;position: absolute;left:50%;top:50%;margin:-90px 0 0 -90px;background: url(../images/loading.png) no-repeat center center;background-size: contain;
@@ -390,7 +345,6 @@
 	  <!--<%@ include  file="act_common_sharePage.jsp"%>-->
 	 
 </body>
-<!--<script src="js/act_15NYFest_preload.js"></script>-->
  <script src="js/act_15NYFest_preload.js" /></script>
 <script>
 var phoneNum ='${phoneNum}';
@@ -576,6 +530,11 @@ $("#shareAppPage").on("click",function(e){
 });
 
 }
+</script>
+
+<script>
+	
+	imgLoad() ;
 </script>
 <!--<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">

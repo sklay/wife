@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>插入表情</title>
+	    <meta name="description" content="【药快到】茫茫人海，谁最懂我？你能读懂我想说的话吗？"/>
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <meta content="telephone=no" name="format-detection" />
+	    <meta name="apple-mobile-web-app-capable" content="yes" />
+	    
+	     <script src="js/jquery-1.9.0.min.js" /></script>
+	     <style>
+	     *{margin: 0;padding: 0;}
+	     .content{width: 100%;height: 100%;background: #7AD7C5;position: absolute;}
+	     #textareaId{width: 80%;height: 80%;background: #eee;  margin: 10% 9%;}
+	     	
+	     </style>
+	</head>
+	<body>
+		<div class="content">
+			<textarea id="textareaId"></textarea>
+		</div>
+		
+	</body>
+	<script>
+		
+		(function($){
+    	$.fn.extend({
+        insertAtCaret: function(myValue){
+            var $t=$(this)[0];
+            if (document.selection) {
+                this.focus();
+                sel = document.selection.createRange();
+                sel.text = myValue;
+                this.focus();
+            }
+            else if ($t.selectionStart || $t.selectionStart == '0') {
+                    var startPos = $t.selectionStart;
+                    var endPos = $t.selectionEnd;
+                    var scrollTop = $t.scrollTop;
+                    $t.value = $t.value.substring(0, startPos) + myValue + $t.value.substring(endPos, $t.value.length);
+                    this.focus();
+                    $t.selectionStart = startPos + myValue.length;
+                    $t.selectionEnd = startPos + myValue.length;
+                    $t.scrollTop = scrollTop;
+                }
+                else {
+                    this.value += myValue;
+                    this.focus();
+                }
+        }	
+    })  
+})(jQuery);
+
+$("#textareaId").insertAtCaret("新表情");
+	</script>
+</html>

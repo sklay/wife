@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>【药快到】提高颜值大作战</title>
+    <meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no, email=no" /> 
+    <script>
+	    function is_weixin(){
+	        var ua = navigator.userAgent.toLowerCase();
+	        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	            return true;
+	        } else {
+	            return false;
+	        }
+	    }; 
+	   
+	    if(is_weixin()){
+	    	//alert('${grantFail}');
+	    	 var grantBoo="${grantFail}";
+	   	    if(grantBoo == "true" || grantBoo==true){
+	   	    	var grantFailUserId="${fromUserId}";
+	   	    	location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+	   	    	//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+	   	    }
+	    }
+    </script>
+    
+    <script>
+		/*这个方法放在页面底部，ios会记载不全  */
+		function gotoPage(jsonStr){  //ios会覆盖此方法
+			camore.gotoPage(jsonStr);  //android会调用里面的方法
+			};
+	</script>
+    
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/common.js"></script>
+    <style>
+        *{margin:0;padding:0;}
+        i{font-style:normal;text-align:center;}
+        html{font-size:62.5%;}
+       html,body,.contentBack,.comShineBack,.indexPage,.gamePage{width:100%;/*height:100%;*/}
+        body{width100%;font-size:10px;font-size:.1rem;font-family:Microsoft Yahei,Arial;width:6.4rem;}
+        .contentBack{
+            /*background:-webkit-radial-gradient(50% 50%,#f58999 0%,#f58797 10%,#f48293 30%,#f16a7b 70%, #ed5063 100%);*/
+              background: -webkit-radial-gradient(50% 50%,#f58999 0%,#f58797 10%,#f48293 30%,#ed4e61 70%, #ed4e61 100%);
+            width:100%;position:relative;  height: 9.4rem;
+        }
+        .comShineBack{
+            position:absolute;top:0;left:0;width:100%;overflow:hidden;/*display:none;*/z-index:1;
+        }
+        .comShineBack img{width:100%;height: 9.4rem;float:left;}
+        #loadingPage{  
+            width:100%;overflow:hidden;box-sizing:border-box;position:absolute;top:0;left:0;z-index:9999;
+            background:transparent;
+        }
+        
+        /*首页*/
+        .indexPage{width:100%;background:transparent;position:absolute;top:0;left:0;z-index:2;}
+        .indexComImg{display:block;  margin: -.55rem auto 0;}
+        .indexPageTitle{width:5.4rem;margin-top:6%}
+        #getHbBtn{
+            width:4.6rem;line-height:.78rem;height:.78rem;border-radius:20px;
+            background:#ffe04f;box-shadow:0 2px 2px #ed3442,0 -2px 0 #fff3c6;
+            margin:.25rem auto;display:block;ouline:none;border:none;
+        }
+        #getHbBtn span{
+              background: url(images/act_16womenday_comText.png) 0 39% no-repeat;
+  background-size: 120% 842%;
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+        }
+        #getActRule{
+            color:#761f2c;font-weight:900;font-family: SimHei;text-align:center;font-size:14px;position:absolute;bottom:.2rem;left:0;width:100%;
+            line-height:35px;
+        }
+        .actRuleShow_wrap{
+            display:none;
+        }
+        .comWrap1{
+            width:100%;height:100%;position:absolute;top:0;left:0;background:rgba(0,0,0,.6);box-sizing:border-box;
+            padding-top:1.5rem;
+        }
+        .actRuleShow{
+            }
+        .comShowWrap1{
+            width:5.6rem;/*max-height:80%;*/background:#f7ac47;border-radius:5px;
+            box-shadow:0 -2px #fcd8a0;margin:0 auto;padding-top:14px;padding-bottom:10px;box-sizing:border-box;position:relative;
+        }
+        .actRuleShow h1{
+            background:url(images/act_16womenday_comText.png) 0 -180px no-repeat;
+            background-size:145% 462%;height:50px;;width:2.5rem;margin:0 auto;overflow:hidden;
+        }
+        .actRuleClose{
+            position:absolute;right:-10px;top:-15px;width:44px;
+        }
+        .actRuleText{
+
+        }
+        .comTextWrap1{
+            width:5.3rem;margin:0 auto;background:#ffe38d;border-radius:8px;
+            box-shadow:inset 1px 2px 2px #ab7121,inset -1px -2px 2px #ab7121 ;
+            box-sizing:border-box;padding:.4rem;color:#761f2c;font-weight:bold;
+        }
+        .actRuleText p{font-size:12px;}
+        .actRuleScore_wrap{overflow:hidden;margin:.2rem auto ;}
+        .actRuleScore{float:left;margin-left:.34rem;}
+        .actRuleScore i{display:block;width:1.2rem;border-radius:15px;height:.3rem;color:#f06476;
+            font-size:14px;font-weight:600;margin-top:.1rem;
+        ;}
+        .actRuleShow_wrap .actRuleScore:nth-child(1){margin-left:.1rem;}
+        .actRuleScore:nth-child(1) .actRuleAvatar span{
+            background:url(images/act_16womenday_children1.png) 0 0 no-repeat;
+            background-size:100% 107%;display:block;width:93%;height:131%;margin:-31% auto 0;
+        }
+        .actRuleScore:nth-child(2) .actRuleAvatar span{
+            background:url(images/act_16womenday_children2.png) 0 0 no-repeat;
+            background-size:100% 95%;display:block;width:100%;height:131%;margin:-11% auto 0;
+        }
+        .actRuleScore:nth-child(3) .actRuleAvatar span{
+            background:url(images/act_16womenday_children3.png) 0 0 no-repeat;
+            background-size:100% 91%;display:block;width:95%;height:131%;margin:-8% auto 0;
+        }
+        .actRuleAvatar{
+            display:block;border-radius:50%;background:#fff;width:1.2rem;height:1.2rem;overflow:hidden;
+        }
+       
+        
+       
+       
+       
+       .mainConWrap{
+
+           /* background:#ee0007*/
+        }
+        /*.mainCon{ background:url(images/act_15lantermfes_bottomback.png) 0 0 no-repeat;
+            background-size:100% 100%;}*/
+        .shadAndTick{position:relative;/* margin-top:-1.39rem; */}
+        /* .ticketSpan{
+            display:block;width:2.4rem;height:1.39rem;margin:0 auto;
+            background:url(images/act_15lantermfes_icon.png) 0 0 no-repeat;
+            background-size:100% 200%;color:#ec1b00;text-align:center;font-weight:600;font-size:12px;
+        } */
+        
+        #getHbText{  line-height: .8rem;
+		  /* height: .6rem; */
+		  position: absolute;
+		  /* border-top: 1px dashed #ec1b00; */
+		  top: -1.5rem;
+		  /* left: 2.8rem; */
+		  color: #ec1b00;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 12px;
+		  width: 6.4rem;
+        }
+        #getHbValWrap{  /* height: .6rem; */
+		  line-height: .6rem;
+		  /* border-top: 1px dashed #ec1b00; */
+		  width: 6.4rem;
+		  margin: 0 auto;
+		  position: absolute;
+		  top: -.8rem;
+		  /* left: 3rem; */
+		  color: #ec1b00;
+		  text-align: center;
+		  font-weight: 600;
+		  font-size: 12px;
+        }
+        #getHbVal{font-size:.7rem;}
+       /*  .leftShadSpan{
+            position:absolute;border-left:3.5rem solid #ee0007;
+            border-top:.58rem solid transparent;left:0;bottom:0;
+        }
+        .rightShadSpan{
+            position:absolute;border-right:3.5rem solid #ee0007;
+            border-top:.58rem solid transparent;right:0;bottom:0;
+        } */
+        .getHb{width:4.59rem;margin:0 auto;/*padding-top:.4rem*/}
+        #userPhone{
+              width: 100%;
+			  outline: none;
+			  border: 0;
+			  height: .78rem;
+			  line-height: .78rem;
+			  box-sizing: border-box;
+			  background: #fff;
+			  color: #000;
+			  text-align: center;
+			  background: transparent;
+			  /* border-radius: 45%; */
+			  border-radius: 20px;
+			  background: #fff;
+			  font-size: 14px;
+        }
+         ::-moz-placeholder {
+   	 	color: #000;text-align:center;font-family:""
+		}
+		:-ms-input-placeholder {
+		   color: #000;text-align:center;
+			}
+		::-webkit-input-placeholder {
+		   color: #000;text-align:center;
+			}
+        /*#getHbBtn{
+            border: none;
+		  outline: none;
+		  background: url(images/act_15lantermfes_getHb.png) 0 0 no-repeat;
+		  background-size: 100% 100%;
+		  line-height: .8rem;
+		  width: 100%;
+		  margin: .3rem auto;
+		  font-size: 18px;
+		  color: #EE0007;
+		  font-weight: 600;
+		  font-family: SimHei;
+        }*/
+        #downText{ font-size: 16px;font-family: 黑体;font-weight: 600;
+            text-align:center;/*line-height:.4rem;*/color: #761f2c;
+        }
+        
+        .gethb_girl {  position: absolute;width: 1.25rem;left: 0.3rem;}
+        .gethb_boy { position: absolute;  width: 1.3rem;right: .45rem;  top: 4.3rem;}
+        .has_received,.receive_success{   display: none; width: 4rem;margin: 0 auto;border-radius: 5px;box-sizing: border-box;background: #48ddf4;border: .06rem solid #761f2c;
+  }
+  		.getHbnNum img:nth-child(1){  width: 3rem;margin: .2rem auto .5rem;display: block;}
+	  	.getHbnNum img:nth-child(2){    width: 3.5rem;   margin: .3rem auto .1rem;display: block;}
+       /* 看看好友的手气*/
+        .comShowTitle{color:#761f2c;height:40px;width:6.2rem;margin:.2rem auto;overflow:hidden;position:relative;}
+        .leftLineDot{
+            overflow:hidden;height:40px;position:absolute;top:0;left:26px;font-size: 18px;
+            padding-right:.3rem;padding-top:11px;box-sizing:border-box;width:1.7rem;
+        }
+        /*.leftLineDot span{float:left;background: #fefc79;}
+        .leftLineDot span:nth-child(2){
+            position:absolute;right:3px;top:15px;
+        }*/
+        .rightLineDot{padding:19px 0 0 .3rem;right:0;font-size:18px;
+            overflow:hidden;height:40px;position:absolute;top:0;
+            box-sizing:border-box;width:2rem;padding-top:11px;right: 26px;
+        }
+       /* .rightLineDot span{
+            float:right;background: #fefc79;
+        }
+        .rightLineDot span:nth-child(1){
+            position:absolute;left:3px;top:15px;
+        }*/
+        .comshowTitleText{text-align:center;line-height:40px;font-weight: 600;width:2.8rem;margin:0 auto;;font-size:16px;}
+        .friHbShow{
+           margin:.2rem auto;width:6.2rem;overflow:hidden;font-size:12px;  border-bottom: 1px solid #761f2c;
+        }
+        .userFriAvatat{
+            width:81%;overflow:hidden;float:left;
+        }
+        .userFriAvatat img{  width: 40px;
+			  height: 40px;
+			  float: left;
+			  border-radius: 10%;}
+        .userFriInf_wrap{width:18%;float:right;box-sizing:border-box;overflow:hidden;}
+        .userFriInf{float:left;margin-left:.2rem;width:80%;  margin-bottom: .3rem;}
+        .userFriInf strong{font-size:14px;color:#761f2c;line-height:20px;}
+        .userFriHbValue_wrap{
+            width:100%;height:40px;float:right;text-align:center;
+            background:url(images/act_16womenday_valueback.png) 0px 0 no-repeat;
+            background-size:100% 90%;overflow:hidden;line-height:35px;color:#fff;font-size:14px;
+        }
+        .userFriHbValue{font-size:20px;}
+        .userFriInf p{
+            white-space:nowrap;text-overflow:ellipsis;overflow:hidden;width:100%;color:#761f2c;line-height:20px;
+        }
+        .activeRuleShow{
+            width:6.2rem;margin:0 auto;padding-bottom:.5rem;color:#761f2c;line-height:30px;font-size:14px;
+        }
+        
+        
+        
+        /* 新加样式 */
+        .receive_success_desc p{line-height:40px; color: #000;
+        font-size: 16px;text-align: center;font-weight: 600;}
+   	 	.receive_success_desc .hasReceived{
+ 	    text-align: center;
+	    line-height: 60px;
+	    font-size: 16px;
+	    font-weight: 600;
+		}
+		.downloadP{
+		/*margin-top: .2rem;*/  
+	  	}
+	.common_useStyle{margin: 0 auto ;
+	  	overflow: hidden;
+	  	padding-bottom: .3rem;
+	  	width: 5rem;
+	  	} 
+	  	.use_btn{  width: 4.6rem;
+  line-height: .78rem;
+  height: .78rem;
+  border-radius: 20px;
+  background: #ffe04f;
+  box-shadow: 0 2px 2px #ed3442,0 -2px 0 #fff3c6;
+  margin: .25rem auto;
+  display: block;
+  ouline: none;
+  border: none;}
+	 .use_btn span{  background: url(images/act_16womenday_comText.png) 0 52% no-repeat;
+  background-size: 100% 842%;
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+	}
+	.shareFri{width: 4.6rem;
+  line-height: .78rem;
+  height: .78rem;
+  border-radius: 20px;
+  background: #48ddf4;
+  box-shadow: 0 2px 2px #ed3442,0 -2px 0 #eff5e2;
+  margin: .25rem auto;
+  display: block;
+  ouline: none;
+  border: none;}
+  .shareFri span{
+  	  background: url(images/act_16womenday_comText.png) 0 65% no-repeat;
+  background-size: 130% 842%;
+  display: block;
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+  overflow: hidden;
+  }
+	/*#small_ShareFri{margin-left: 5%;}*/
+	/* .comm_bottomSty{ color: #7b0002;padding-top:.2rem; width: 100%;font-size:14px;}
+	.commom_backSty{background: url(images/act_15lantermfes_titleIcon.png)10% center no-repeat;
+	    background-size: 100% auto;
+	    width: 100%;
+	    line-height: 27px;
+	    text-align: center;
+	    color: #fffd7f;
+	    font-size: .32rem;
+	    } */
+	 .ActRule_content{ color: #fffd89;padding:0rem .1rem;line-height: 25px;}	
+		/*app固定样式  */
+		.shareAppPage{  display: none;  width: 4.6rem;margin: .25rem auto;}
+    	.shareAppPage img{
+		  width: 4.5rem;
+        }
+	    /*.shareAppPage img:nth-child(1){float:left;}
+	    .shareAppPage img:nth-child(2){float:right;}*/
+	    
+	     #shareshade{position:fixed;top:0;left:0;width:100%;background:rgba(50,50,50,.8);z-index:9999;display:none;
+		}
+		
+		
+		.noLoginBox{   margin: 4.5rem auto 0;
+		  /* width: 4rem; */
+		  width: 60%;
+		  text-align: center;
+		  background: #fff;
+		  /* line-height: 40px; */
+		  border-radius: 5%;
+		  height: 20%;}
+		  	.closeShade {
+		  width: 60px;
+		  float: right;
+		  color: #333;
+		  font-size: 16px;
+		  text-align: center;
+		  height: 60px;
+		  border-radius: 15px;
+		  position: absolute;
+		  top: 4.6rem;
+		  right: 1rem;
+		}
+		.closeShade span {
+		  width: 20px;
+		  height: 20px;
+		  line-height: 20px;
+		  border: .03rem solid #333;
+		  display: block;
+		  margin: 0 auto;
+		  border-radius: 50%;
+		}
+		  .sureButn{  display: block;
+		  width: 54%;
+		  color: #fff;
+		  text-align: center;
+		  font-size: .4rem;
+		  box-sizing: border-box;
+		  line-height: 38px;
+		  border-radius: 8px;
+		  background: #fff;
+		  margin: 0 auto;
+		  border: 0;
+		  background: #ce3537;
+		  color: 18px;
+		  font-size: 18px;}
+		  
+		.common_boxSty {position: fixed; width: 100%; 
+   			height: 100%;  z-index: 110;top: 0;background-color: rgba(0, 0, 0,.5);}
+
+
+
+  .contBottom{  position: fixed;
+  bottom: 88px;
+  left: 0;
+  /* width: 100%; */
+  width: 20px;
+  height: 10px;
+  /* background-color: #efefef; */
+  /* border: 3px #a72525 solid; */
+  /* -webkit-border-radius: 100px 100px 100px 100px; */
+  -webkit-border-radius: 0 0 200px 200px;
+  /* background: -webkit-radial-gradient(60% 30%,#f58999 0%,#f58797 10%,#f48293 30%,#f16a7b 70%, #ed5063 100%); */
+  background: #ed4e61 ;}
+  /* width: 90%; */
+  /* height: 90%; */
+  
+  /* border: .06rem solid #761f2c; */
+  /* margin: 0 auto; */
+ /*display: none;
+ background: #48ddf4;
+  width: 5.2rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: .15rem;*/
+
+    </style>
+</head>
+<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+<body>
+<div class="contentBack">
+	<!--<div class="contBottom"></div>-->
+    <div class="comShineBack">
+        <img src="images/act_16womenday_index_backshine.png" alt="">
+    </div>
+   
+    <div class="indexPage">
+        <img class="indexComImg indexPageTitle" src="images/act_16womenday_index_title.png" alt="">
+        <img class="indexComImg childSty" style="width:3.9rem;" src="images/act_16womenday_index_child.png" alt="">
+        <!--<button id="goToGamePage"><span></span></button>-->
+        
+        <div class="getHbWrap">
+                <div class="getHb">
+                	<div class="commomLogin">
+	                    <input type="tel" placeholder="请输入手机号码" id="userPhone">
+	                   <!-- <button id="getHbBtn">领取红包</button>-->
+	                     <button id="getHbBtn"><span></span></button>
+	                    <p id="downText" class="downloadP goForUse">下载药快到App立即参与</p>
+                    </div>
+                   	<div class="received_result"  style="display: none;">
+                   		<img class="gethb_girl" src="images/act_16womenday_gethb_girl.png" />
+                   		<img class="gethb_boy" src="images/act_16womenday_gethb_boy.png" />
+                   		<div class="receive_success">
+                   			<div class="getHb7 getHbnNum" style="display:none">
+                   				<img src="images/act_16womenday_gethbsuccess_text7.png" />
+								<img class=" "  src="images/act_16womenday_gethb_val7.png" />
+							</div>
+							<div class="getHb8 getHbnNum" style="display:none">
+                   				<img src="images/act_16womenday_gethbsuccess_text8.png" />
+								<img class=" "  src="images/act_16womenday_gethb_val8.png" />
+							</div>
+								<!--<img class="getHb6 getHbnNum" style="display:none" src="images/act_15Asyndrome_coupon6.png" />-->
+						</div>
+						<div class="has_received">
+							<!--<p class="receiveResult receiveResult5" style="display:none">恭喜您，领到5元现金券</p>
+							<p class="receiveResult receiveResult6" style="display:none">恭喜您，领到6元现金券</p>-->
+							<!--<img src="images/act_16womenday_gethb_girl.png" />
+                   			<img src="images/act_16womenday_gethb_boy.png" />-->
+                   			<div class="getHb7 getHbnNum" style="display:none">
+                   				<img src="images/act_16womenday_gethb_text7.png" />
+								<img class=" "  src="images/act_16womenday_gethb_val7.png" />
+							</div>
+							<div class="getHb8 getHbnNum" style="display:none">
+                   				<img src="images/act_16womenday_gethb_text8.png" />
+								<img class=" "  src="images/act_16womenday_gethb_val8.png" />
+							</div>
+						</div>
+						<div class="commUsebtn" >
+							<button class="use_btn goForUse" id="goForUse"><span></span></button>
+							<button class="shareFri shareForFri" id="small_ShareFri"><span></span></button>
+						  <!--  <img class="use_btn goForUse" id="goForUse" src="images/act_15lantermfes_toUse.png"></img>
+					    	<img class="shareFri shareForFri" id="small_ShareFri" src="images/act_15lantermfes_shareFri.png"></img>-->
+					  	</div>
+					</div>
+					 
+                </div>
+				<div class="shareAppPage">
+	                 <!--<button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
+	                <button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button> -->
+	           		<!--<img class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_forfriend.png"></img>
+					<img class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_forfriendtound.png"></img>-->
+					<img class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)" src="images/act_16womenday_forfriend.png"></img>
+					<img class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)" src="images/act_16womenday_forfriendtound.png"></img>
+	            </div>
+				<div class="noLogin  common_boxSty" style="display:none;">
+				   <div class="noLoginBox">
+					   <div class="closeShade closeAndBackClick">
+							<span>×</span>
+						</div>
+				   		<p style="font-size: 16px;line-height:60px;color: #000;">请先登录!</p>
+				   		<button class="sureButn">确定</button>
+				   </div>
+				</div> 
+            </div>
+    </div>
+     
+</div>
+<img style="width: 100%;float: left;" src="images/act_16womenday_gethb_botback.png" />
+<div class="mainConWrap">
+        <div class="mainCon">
+                <div class="friHbShowWrap">
+                <div class="comShowTitle">
+                    <!--<div class="leftLineDot">
+                        <span style="height:1px;width:1.4rem;"></span>
+                        <span style="width:10px;height:10px;border-radius:50%;"></span>
+                    </div>-->
+                    <div class="leftLineDot">
+                        ~~~~~~~~~~
+                    </div>
+                    <div class="comshowTitleText">
+                        	看看朋友的手气
+                    </div>
+                   <!-- <div class="rightLineDot">
+                        <span style="width:10px;height:10px;border-radius:50%;"></span>
+                        <span style="height:1px;width:1.4rem;"></span>
+                    </div>-->
+                    <div class="rightLineDot">
+                        ~~~~~~~~~~
+                    </div>
+                </div>
+                <div class="friHbShow">
+                    <div class="userFriAvatat">
+                        <img src="images/bgl.gif" alt="">
+                        <div class="userFriInf">
+                            <strong>杀生丸</strong>
+                            <p>人品爆发，这波福利我收啦!</p>
+                        </div>
+                    </div>
+                    <div class="userFriInf_wrap">
+
+                        <div class="userFriHbValue_wrap">
+                            <span class="userFriHbValue">7元</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="friHbShow">
+                    <div class="userFriAvatat">
+                        <img src="images/bgl.gif" alt="">
+                        <div class="userFriInf">
+                            <strong>杀生丸</strong>
+                            <p>又给这么大红包，药快到太给力啦!</p>
+                        </div>
+                    </div>
+                    <div class="userFriInf_wrap">
+
+                        <div class="userFriHbValue_wrap">
+                            <span class="userFriHbValue">8元</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            
+	               <div class="activeRuleShowWrap">
+                <div class="comShowTitle">
+                    <div class="leftLineDot" style="  width: 2rem;">
+                        ~~~~~~~~~~~~
+                    </div>
+                    <div class="comshowTitleText" style="width: 1.9rem;">
+                       	活动细则
+                    </div>
+                    <div class="rightLineDot" style="  width: 2.3rem;">
+                        ~~~~~~~~~~~~
+                    </div>
+                </div>
+                <div class="activeRuleShow" >
+                    <p>
+                        1.活动有效期：2016年3月7日——2016年3月13日。
+                    </p>
+                    <p>
+                        2.需下载药快到App，使用手机号登录方可使用。
+                    </p>
+                    <p>
+                        3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。
+                    </p>
+                    <p>
+                        4.每个订单只能使用一张券，不与其他现金券叠加使用,且不找零。
+                    </p>
+                    <p>
+                        5.本活动最终解释权归北京康顾多健康科技有限公司所有。
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+var phoneNum ='${phoneNum}';
+var fromUserId = '${userId}';
+//alert('${token}');
+var wechatObj = new Object();
+//alert('${version}');
+(function(){
+	if(!is_weixin()){
+		$(".downloadP").html("查看优惠券");
+	}
+	$(".friHbShowWrap .friHbShow:last-child").css({"borderBottom":"none"});
+})();
+ function waitShow(){
+	var shadeWaitDiv = '<div class="waitShade" id="shadeWaitDiv" style="background:rgba(200,200,200,.7);position:absolute;top:0;left:0;z-index:8888"></div>';
+	$("body").append(shadeWaitDiv);
+	var wh=$(window).height();
+	var dh=$(document).height();
+	if(wh>dh){
+		var shadeHei=wh;
+	}else{
+		var shadeHei=dh;
+	}
+	$("#shadeWaitDiv").css("height",shadeHei);
+	$("#shadeWaitDiv").css("width",$(document).width());
+	$("#shadeWaitDiv").show();
+	var top=($(document).height()-50)/2;
+	var left=($(document).width()-50)/2;
+	var waitImg = '<div class="waitAll" id="waitAll" style="width:50px;position:absolute;z-index:9999"><img style="width:50px;" src="images/jiazai.gif"></div>';
+	$("#shadeWaitDiv").empty();
+	$("#shadeWaitDiv").append(waitImg);
+	$("#waitAll").css({"top":top,"left":left})
+};
+function waitClose(){
+	$("#shadeWaitDiv").remove();
+	$("#waitAll").remove();
+}; 
+
+
+function s(type){
+	var jsonObject = {};
+	if(type==0){
+		jsonObject.shared_type = "0";
+		jsonObject.shared_url =  wechatObj.link;
+		jsonObject.shared_title = wechatObj.title;
+		jsonObject.shared_content = wechatObj.desc;
+		jsonObject.shared_img_url = wechatObj.imgUrl;
+	} else 
+	if(type==1){
+		jsonObject.shared_type = "1";
+		jsonObject.shared_url = wechatObj.link;
+		jsonObject.shared_title = wechatObj.desc;
+		jsonObject.shared_content = wechatObj.desc;
+		jsonObject.shared_img_url = wechatObj.imgUrl;
+	}
+	var jsonStr = JSON.stringify(jsonObject);
+	sharedTypeByJson(jsonStr);
+}
+function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+    camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+};
+window.onload=function(){
+		 $(".getHbWrap").on("click","#getHbBtn",function(){
+			 	waitShow();
+		 		$_phoneno=$("#userPhone").val();
+		 		var regno = /1[3-8]+\d{9}/;
+		 		if($_phoneno==""||$_phoneno=="请输入手机号码"||!regno.test($_phoneno)){
+		 			waitClose();
+		 			alert("请输入正确的手机号码")
+		 			return false
+		 		};
+		 		
+		 		var getCodeNum=parseInt(Math.random()>0.5?0:1);
+		 		if(getCodeNum){
+					var _inviteCode='16sbfnj01';
+
+					var getHbNuM=7;
+				}else{
+					var _inviteCode='16sbfnj02';
+					var getHbNuM=8;
+				}
+		 		var _fromChannel='hongbao';
+				var phone_num = $('#userPhone').val() ;
+		 		$.ajax({
+		 			type:"post",
+		 			url:"newGetCoupAjax",
+		 			data:"phone="+$_phoneno+"&inviteCode="+_inviteCode+"&fromChannel="+_fromChannel,
+		 			success:function(result){
+		 				waitClose();
+		 				$("#userPhone").val("");
+		 				if (result.result == "succ") {
+		 					console.log("succ");
+		 					$(".indexPage .childSty").hide();
+		 					$(".commomLogin").hide();
+							$(".have_received").show(); 
+							$(".receive_success").show();
+		 					fromUserId = result.data.userId;
+		 					/*wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect'; */
+		 					wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+		 					if(getHbNuM==7){
+		 						/*$("#getHbText").html("恭喜获得");
+		 						$("#getHbVal").html("7");
+		 						$(".receiveResult").hide();
+		 						$(".receiveResult5").show();*/
+		 						$(".getHb7").show();
+		 						 
+		 					}else{
+		 						/*$("#getHbText").html("恭喜获得");
+		 						$("#getHbVal").html("8");
+		 						$(".receiveResult").hide();
+		 						$(".receiveResult6").show();*/
+		 						$(".getHb8").show();
+		 					}
+		 					getWechatObj();
+		 					
+			    		}else if(result.result == "fail"){
+			    			if(result.data.msg=="received"){
+			    				console.log("received");
+			    				var couponInfo = result.data.couponInfo || '' ;
+			    				var couponValue = '' ;
+			    				if(couponInfo){
+			    					 couponValue = JSON.parse(couponInfo).couponValue || ''
+			    					// couponValue = couponValue %100  || '?' ;
+			    				}
+			    				
+			    				//alert(couponValue);
+			    				$(".commomLogin").hide();
+								$(".have_received").show();
+								$(".has_received").show();
+								/*$("#getHbVal").html(couponValue/100);
+		 						$(".receiveResult").hide();
+		 						$('.hasReceived').show();*/
+		 						if(7==couponValue/100){
+			    					$(".getHb7").show();
+			    				}else{
+			    					$(".getHb8").show();
+			    				}
+			    			}else{
+			    				alert(result.data.msg);
+			    				waitClose();
+			    			}
+			    		}
+		 			},error:function(){
+			        	alert("发送请求失败");
+			        	waitClose();
+		 			}
+		 		});
+			});
+	
+	$('.closeAndBackClick').on("click",function(){
+		$(".noLogin").hide();
+		
+	});
+	$('.sureButn').on("click",function(){
+		$(".noLogin").hide();
+	})	;
+	
+	
+//去使用跳转页面
+$(".goForUse").on("click",function(){
+	goPage(1);
+});
+/**判断跳转的地址**/
+function goPage(type){
+	var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653' ;
+	/**判断是否是微信**/
+	 if(is_weixin()){
+		 window.location.href=target_href ;
+	 }else{
+		   var token = '${token}';
+		 if('' == token || null == token || token.length <= 0){
+			 $(".noLogin").show();
+		 }else{  
+		 var version= parseInt('${version}');
+		
+		if(version && 200 <= version){
+			gotoPage('{"type":"1"}');
+		}else{
+			window.location.href=target_href ;
+		};
+		   } 
+	 }
+}
+
+
+	
+/* 点击分享 */
+$(".getHbWrap").on("click",".shareForFri",function(){
+    if(is_weixin()){
+    	$("#shareshade").css("height",$(".content").height());
+       $("#shareshade").show();
+    }else{
+        $(".commUsebtn").hide();
+        $(".shareAppPage").show();
+    }
+});
+$("#shareAppPage").on("click",function(e){
+	var ev=e.target;
+	if(ev.nodeName!="BUTTON"){
+		$("#shareAppPage").hide();
+		$(".commUsebtn").show();
+	}
+});
+
+}
+
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+wechatObj.title = '【药快到】元宵福利';
+wechatObj.desc ='元宵到，福利到，点开就有惊喜。';
+//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_15lantermfes_shareImg.jpg';
+
+if(is_weixin()){
+	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
+			success:function(wechatReturn){
+				if (wechatReturn) {
+					wx.config({
+					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					   /*  appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 */
+					    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+					    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					    signature: wechatReturn.signature,// 必填，签名，见附录1
+					    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					 });
+				};
+				  wx.ready(function(){
+					getMenuShare();
+				  });
+			}
+		});
+};	
+
+
+wx.ready(function(){
+	getWechatObj()
+})
+function getWechatObj(){
+	wx.onMenuShareTimeline({
+		title: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareQQ({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareWeibo({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        },
+        cancel: function () {}
+    });
+}
+</script>
+</html>

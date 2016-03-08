@@ -4,13 +4,13 @@
 <html lang="en">
 <head>
 	 <meta charset="UTF-8">
-	 <title>【药快到】小年福利</title>
-    <meta name="description" content="二十三，糖瓜粘，领个红包过小年。这么好的福利，我只偷偷告诉你哦~"/>
+	 <title>【药快到】远离节后综合征</title>
+    <meta name="description" content="假期过完不想上班？药快到帮你找回状态！"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta content="telephone=no" name="format-detection" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     
-    <script>
+     <script>
     function is_weixin(){
         var ua = navigator.userAgent.toLowerCase();
         if(ua.match(/MicroMessenger/i)=="micromessenger") {
@@ -18,25 +18,16 @@
         } else {
             return false;
         }
-    };
-   var locaAddr=location.href;
-   //location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_base&state={"silent_grant":"yes"}#wechat_redirect';
-    if(is_weixin() && locaAddr=="http://deve.ykd365.com/medhtml/common/act_15lunarYear_page"){
-    	alert("loaction.href:"+locaAddr);
-    	location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_base&state={"silent_grant":"yes"}#wechat_redirect';
-    	/* //location.href='https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_base&state=%7b%22silent_grant%22%3a%22yes%22%7d#wechat_redirect'; */
-    	  
     }; 
-    var grantBoo="${grantFail}";
-    alert("grantBoo:"+grantBoo);
-    //&& locaAddr.indexOf("scope=snsapi_base")>=0
-   /*  if(grantBoo == "true" || grantBoo==true){
-    	alert("静默授权失败")
-    	var grantFailUserId="${fromUserId}";
-    	//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
-    } */
+   if(is_weixin()){
+    	 var grantBoo="${grantFail}";
+   	    if(grantBoo == "true" || grantBoo==true){
+   	    	/*alert("静默授权失败")*/
+   	    	var grantFailUserId="${fromUserId}";
+   	    	location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+   	    } 
+    }
     </script>
-    
     
     <script src="js/zepto.min.js" /></script>
     <script src="js/fx.js" /></script>
@@ -45,14 +36,7 @@
     <style>
     *{margin:0;padding:0;}
     html{font-size:62.5%}
-   body {
-  width: 100%;
-  background: #f8f7f6;
-  font-family:Microsoft YaHei,Arial;	
-  font-size: 12px;
-  color: #000000;
-  OVERFLOW-X: auto;
-}
+    body {width: 100%;background: #f8f7f6;font-family:Microsoft YaHei,Arial;	font-size: 12px;color: #000;overflow-x: auto;}
     
     .content .index img{width:100%;float:left;}
     .backTopImg{width:100%;overflow:hidden;}
@@ -62,171 +46,115 @@
     .content  .index .start_wrap img:nth-child(1){width:2.5rem;}
     .content  .index .start_wrap img:nth-child(2){width:1.4rem;z-index:-1;position:absolute;bottom:.1rem;left:1.8rem;}
   
-    /*领券页  */
-  /*  .getHbPage_wrap{position:absolute;width:100%;height:100%;z-index:10;top:0;left:0;
-    	background:rgba(0,0,0,.4);display:none;
-    }*/
     
-     .loginWrap{  
-  width:100%;box-sizing:border-box;font-family:"黑体",arial;
-  }
+    .loginWrap{  width:100%;box-sizing:border-box;font-family:"黑体",arial;}
      
-      .commomLogin{   /*margin-left: .7rem;*/
-			width:5rem;margin: 0 auto;
-		}
+    .commomLogin{width:5rem;margin: 0 auto;}
      
     .commomLogin input{  width: 100%;
-  box-sizing: border-box;
-    line-height: 40px;
-  text-align: center;
-    border: .04rem solid #df3121;
-  background: #fff;
-  border-radius: 8px;
-  
-			}
-     ::-moz-placeholder {
+		  box-sizing: border-box;
+		  line-height: 40px;
+		  text-align: center;
+		  border: .04rem solid #df3121;
+		  background: #fff;
+		  border-radius: 8px;
+		}
+    ::-moz-placeholder {
    	 	color: #000;text-align:center;font-family:""
-	}
+		}
 	:-ms-input-placeholder {
 	   color: #000;text-align:center;
-	}
+		}
 	::-webkit-input-placeholder {
 	   color: #000;text-align:center;
-	}
-	/* .loginWrap #commomLogin_getcode{background:#f40214;color:#fff;font-size:14px;}
-	.loginWrap .commomLogin p{color:#000;}*/
+		}
 	.loginWrap #loginsumbit{display:block;width:100%;color:#fff;text-align:center;
-			font-size:.4rem;box-sizing:border-box;line-height:40px;
-			border-radius:8px;background:#ff1515;margin: .4rem auto 0;
-			-webkit-box-shadow:0 3px 3px #9e0007;
-			-moz-box-shadow: 0 3px 3px #9e0007;  
-			box-shadow: 0 3px 3px #9e0007;
+		font-size:.4rem;box-sizing:border-box;line-height:40px;
+		border-radius:8px;background:#ff1515;margin: .4rem auto 0;
+		-webkit-box-shadow:0 3px 3px #9e0007;
+		-moz-box-shadow: 0 3px 3px #9e0007;  
+		box-shadow: 0 3px 3px #9e0007;
 		}
-	/* 领取公用 */
-	/*.getHB_wrap{
-		    position:absolute;top:0;left:0;width:100%;height:100%;
-		    background:rgba(0,0,0,.7);display:none;z-index:20;
-		}
-		.getHbPage_wrap  .closeGetHB{top:.5rem;right:.5rem}
-		  .closeGetHB{top:1rem;position:absolute;right:1rem;width:30px;}
-	.receive_box{width:4.4rem;margin: 2rem auto 0}
-	.receive_box p{font-size:30px;text-align:center;color:#fff;}*/
-	/*.contrBtn,.shareAppPage{
-        margin:.3rem auto 0;overflow: hidden;padding-bottom:.3rem;
-        }*/
-        .shareAppPage{width:5rem;display:none;    margin: .3rem auto 0;  overflow: hidden;  padding-bottom: .3rem;}
-       .shareAppPage button{
-            background:#ff0000;box-shadow:0 4px #bb0101;border:none;outline:none;
-          height:.8rem;border-radius:8px;font-family:"Microsoft YaHei";
-            color:#fff;font-size:14px; width:2rem;
+    .shareAppPage{width:5rem;display:none;    margin: .3rem auto 0;  overflow: hidden;  padding-bottom: .3rem;}
+    .shareAppPage button{
+        background:#ff0000;box-shadow:0 4px #bb0101;border:none;outline:none;
+      	height:.8rem;border-radius:8px;font-family:"Microsoft YaHei";
+        color:#fff;font-size:14px; width:2rem;
         }
-        .shareAppPage button:nth-child(1){float:left;}
-       .shareAppPage button:nth-child(2){float:right;}
-        
-        
-        
-        /*.getHB_wrap   .getHB_img{display:block;margin:.9rem auto;width:4.2rem;}*/
-        .commom_backSty{  
-    background: url(images/act_15Asyndrome_titleIcon.png)10% center no-repeat;
-  position: absolute;
-  background-size: 100% auto;
-  width: 100%;
-  line-height: 27px;
-  text-align: center;}
+    .shareAppPage button:nth-child(1){float:left;}
+    .shareAppPage button:nth-child(2){float:right;}
+    .commom_backSty{background: url(images/act_15Asyndrome_titleIcon.png)10% center no-repeat;
+	    background-size: 100% auto;
+	    width: 100%;
+	    line-height: 27px;
+	    text-align: center;
+	    }
+	.headerIcon{  width: 1.2rem;float: left;text-align: center;}
+    .headerIcon img{width: 80%;display:block;margin:0 auto;}
+    .headerInfo{  float: left; margin: 0 4px;width: 3.5rem;box-sizing: border-box;}
+	.headerInfo p {
+		word-break: break-all;
+		width: 100%;
+		}
+	.nameSty{  font-size: 16px;color: #ff0000;}
+	.couponDiv{width: 1.2rem;float: right;}
+	.couponDiv img{  width: 100%;}
   
- .headerIcon{  width: 1rem;
-  float: left;
-  text-align: center;
-  padding-top: .5rem;}
-  .headerIcon img{width: 100%;}
-  .headerInfo{float: left;
-  padding-top: .7rem;
-}
-
-.couponDiv img{  width: 1.3rem;
-  padding-top: .7rem;
-  float: right;}
-  .nameSty{  font-size: 20px;
-  color: #ff0000;}
-  .descSty{  color: #000;
-  font-size: 14px;}
-.common_useStyle{margin: 0 auto ;
-  overflow: hidden;
-  padding-bottom: .3rem;
-  width: 5rem;} 
+    .descSty{  color: #000;font-size: 12px;}
+	.common_useStyle{margin: 0 auto ;
+	  	overflow: hidden;
+	  	padding-bottom: .3rem;
+	  	width: 5rem;
+	  	} 
   
-.common_useStyle p{color: #fff;font-size: 20px;position: absolute; left: 44%;
-	font-weight: 600;
-	line-height: 1.6rem;
+	.common_useStyle p{color: #fff;font-size: 20px;position: absolute; left: 44%;
+		font-weight: 600;
+		line-height: 1.6rem;
+		}
+	.use_btn{font-size: 16px; color: #fff;float: left; background-color: #ff1515;
+	    width: 43%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
+	    border: none;margin-left: 4%;display: block;
+	    background-size: .5rem 1rem;text-align: center;
+	    -webkit-box-shadow:  0 4px 2px #b60009;
+	  	-moz-box-shadow:  0 4px 2px #b60009;
+	  	box-shadow: 0 4px 2px #b60009;
 	}
-.use_btn{
-	  background: #ff0000;
-  box-shadow: 0 4px #bb0101;
-  border: none;
-  outline: none;
-  height: .8rem;
-  border-radius: 8px;
-  font-family: "Microsoft YaHei";
-  color: #fff;
-  font-size: 14px;
-  width: 2rem;
-  float:left;
-}
-.shareFri{
-	  background: #ff0000;
-  box-shadow: 0 4px #bb0101;
-  border: none;
-  outline: none;
-  height: .8rem;
-  border-radius: 8px;
-  font-family: "Microsoft YaHei";
-  color: #fff;
-  font-size: 14px;
-  width: 2rem;
-  float: right;
-}
-/* .use_btn{font-size: 16px; color: #fff;float: left; background-color: #ff1515;
-width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
-    border: none;margin-left: 19%;display: block;
-    background-size: .5rem 1rem;text-align: center;
-    }
-    #small_ShareFri{margin-left: 3%;}
- .shareFri{font-size: 16px; color: #fff;  background-color: #ff1515;
-    width: 30%;line-height: 37px; border-radius: 7px;  border: none;font-family:"黑体";
-}*/
-		.receive_success_coupon{   width: 2.5rem;
-  margin: 0 auto;
-  overflow: hidden;}  
+	.shareFri{
+	  font-size: 16px;
+	  color: #fff;
+	  background-color: #ff1515;
+	  width: 43%;
+	  line-height: 37px;
+	  border-radius: 7px;
+	  border: none;
+	  font-family: "黑体";
+	  -webkit-box-shadow: 0 4px 2px #b60009;
+	  -moz-box-shadow: 0 4px 2px #b60009;
+	  box-shadow: 0 4px 2px #b60009;
+		}
+	#small_ShareFri{margin-left: 5%;}
+	.receive_success_coupon{   width: 2.5rem;margin: 0 auto;overflow: hidden;}  
   
-   .receive_success_desc p{line-height:40px;  font-size: 16px;
-  text-align: center;
-  font-weight: 600;}
- .receive_success_desc .hasReceived{
+    .receive_success_desc p{line-height:40px;  font-size: 16px;text-align: center;font-weight: 600;}
+    .receive_success_desc .hasReceived{
  	    text-align: center;
 	    line-height: 70px;
 	    font-size: 16px;
 	    font-weight: 600;
- }
+	}
   
-  
-  
-   		.receive_success_coupon img{100%;}
-   		.common_descSty p {
-  color: #fff;
-  font-size: 16px;
-  line-height: 30px;
-}	
-.downloadP{  font-size: 18px;
-  font-family: 黑体;
-  color: #000;
-  font-weight: 800;
-  text-decoration: underline;
-  margin-top: .2rem;
-  text-align: center;
-  line-height: 40px;
-  }
-.showArea{ color: #7b0002;padding-top:.4rem;width: 100%;font-size:14px;}
-.ActRule_content{padding:.7rem .1rem;line-height: 25px;}
+	.receive_success_coupon img{100%;}
+	.common_descSty p {color: #fff;font-size: 16px;line-height: 30px;}	
+	.downloadP{  font-size: 18px;
+	   font-family: 黑体;
+	   color: #000;
+	   font-weight: 800;
+	   text-decoration: underline;
+	   margin-top: .2rem;
+	   text-align: center;
+	  }
+	.comm_bottomSty{ color: #7b0002;padding-top:.2rem;width: 100%;font-size:14px;}
+	.ActRule_content{padding:.7rem .1rem;line-height: 25px;}
     </style>
 </head>
 <script>
@@ -271,10 +199,7 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 				<div class="commomLogin">
 					<input type="text" placeholder="输入手机号码" id="commomLogin_phoneNum"/>
 					<div id="loginsumbit">领取拯救券</div>
-					<p class="downloadP goForUse">下载药快到APP立即参与>>></p>
-					<!--<a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
-				         <p class="downloadP" style="">下载"药快到"APP立即参与>>></p>
-				    </a>-->
+					<p class="downloadP goForUse">下载药快到App立即参与>>></p>
 				</div>
 				<!--已经领过的-->
 				<div class="have_received"  style="display: none;">
@@ -285,37 +210,35 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 						<div class="receive_success_desc">
 								<p class="receiveResult receiveResult5" style="display:none">恭喜您，领到5元现金券</p>
 								<p class="receiveResult receiveResult6" style="display:none">恭喜您，领到6元现金券</p>
-								<p class="receiveResult hasReceived" style="display:none">您已经领过了!<p>
+								<p class="receiveResult hasReceived" >您已经领过了!<p>
 						</div>
 						<div class="common_useStyle" >
 						    <button class="use_btn goForUse" id="goForUse">去使用</button>
 					    	<button class="shareFri shareForFri" id="small_ShareFri" >邀请好友</button>
 					  	</div>
-					
-					<!--<div class="receive_success_coupon">
-						<img src="images/act_15LunarY_coupon.png" />
-					</div>
-					<div class="receive_success_desc">
-						<p class="receiveResult" style="font-size: 16px;  margin-top: .3rem;text-align: center;">恭喜您，领到5元现金券</p>
-					</div>
-					<div class="common_useStyle" >
-					    <a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
-					        	<button class="use_btn">去使用</button>
-					    </a>
-				    	<button class="shareFri shareForFri" id="small_ShareFri" >邀请好友</button>
-				  	</div>-->
-				  	 
 				</div>
 				<div class="shareAppPage">
 	                <button class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)">分享给好友</button>
 	                <button class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)">分享到朋友圈</button>
 	            </div>
-		            <!--<%@ include  file="act_common_sharePage.jsp"%>-->
+		            
 			</div>
 		</div>
-		<!--<div class="watchFriArea showArea" style="">
+		<div class="watchFriArea comm_bottomSty" style="padding-top: .4rem;">
 			<h3 class="friend_lucky commom_backSty">看看朋友们的手气</h3>
-			<div class="record_content" style="  padding: .5rem .1rem;overflow: hidden;">
+			<div class="record_content" style="  padding: .4rem .1rem;overflow: hidden;border-bottom:1px dashed #ffa1a5;">
+				<div class="headerIcon">
+					<img src="images/act_commonHead_img.jpg" />
+				</div>
+				<div class="headerInfo">
+					<p class="nameSty">小明</p>
+					<p class="descSty">人品爆发   这波福利 我收到了啦</p>
+				</div>
+				<div class="couponDiv" style="overflow: hidden;">
+					<img src="images/act_15LunarY_coupon.png" />
+				</div>
+			</div>
+			<div class="record_content" style="  padding: .4rem .1rem;overflow: hidden;border-bottom:1px dashed #ffa1a5;">
 				<div class="headerIcon">
 					<img src="images/img1.png" />
 				</div>
@@ -327,15 +250,19 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 					<img src="images/act_15LunarY_coupon.png" />
 				</div>
 			</div>
-			
-		</div>-->
-		<c:if test="${ not empty coupList }">
-			<div class="watchFriArea comm_bottomSty" style="padding-top: .4rem;padding-bottom:.4rem">
+		</div>
+		<!--<c:if test="${ not empty coupList }">
+			<div class="watchFriArea comm_bottomSty" style="padding-top: .4rem;">
 				<h3 class="friend_lucky commom_backSty">看看朋友们的手气</h3>
 				<c:forEach var="rc" items="${coupList}" varStatus="status">
-					<div class="record_content" style="  padding: .3rem .1rem;overflow: hidden;border-bottom:1px dashed #ffa1a5"">
+					<div class="record_content" style=" padding: .4rem .1rem;overflow: hidden;border-bottom:1px dashed #ffa1a5;">
 						<div class="headerIcon">
-							<img src="${rc.headimgurl }" alt="头像" />
+							<c:if test="${ not empty coupList }">
+								<img src="${rc.headimgurl }" alt="头像" />
+							</c:if>
+							<c:if test="${ empty coupList }">
+								<img src="images/img1.png" alt="头像" />
+							</c:if>
 						</div>
 						<div class="headerInfo">
 							<p class="nameSty">${rc.nickname } </p>
@@ -344,7 +271,7 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 								<p class="descSty">人品爆发，这波福利我收啦!</p>
 							</c:if>
 							<c:if test="${600 == rc.couponValue}">
-								<p class="descSty">又给这么大红包，药快到太给啦!</p>
+								<p class="descSty">又给这么大红包，药快到太给力啦!</p>
 							</c:if>
 						</div>
 						<div class="couponDiv" style="overflow: hidden;">
@@ -358,10 +285,11 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 					</div>
 					</c:forEach>
 			</div>
-		</c:if>
-		<div class="ActRule showArea" style="">
+		</c:if>-->
+		
+		<div class="ActRule comm_bottomSty"  style=" padding-top: .4rem;">
 			<h3 class="ActRule_title commom_backSty">活动规则</h3>
-			<div class="ActRule_content" style="">
+			<div class="ActRule_content" style="padding:.4rem .1rem;line-height: 25px;">
 				<p>1、活动有效期：2016年2月15日——2016年2月21日</p>
 				<p>2、需要下载药快到APP，使用手机号登录方可使用</p>
 				<p>3、使用时需与领取药快到现金券时的手机号一致，领取后7日内有效</p>
@@ -371,8 +299,8 @@ width: 30%;font-family:"黑体"; line-height: 37px;border-radius: 7px;
 		</div>
 		
 	</div>
+	<%@ include  file="act_common_sharePage.jsp"%>
 </body>
-<!--<script src="js/act_common_loginCon.js"></script>-->
 <script>
 var phoneNum ='${phoneNum}';
 var fromUserId = '${userId}';
@@ -382,6 +310,7 @@ var wechatObj = new Object();
 	if(!is_weixin()){
 		$(".downloadP").html("查看优惠券")
 	}
+	$(".watchFriArea .record_content:last-child").css({"borderBottom":"none"})
 })();
  function waitShow(){
 	var shadeWaitDiv = '<div class="waitShade" id="shadeWaitDiv" style="background:rgba(200,200,200,.7);position:absolute;top:0;left:0;z-index:8888"></div>';
@@ -494,7 +423,7 @@ window.onload=function(){
 	    			succFun();
 	    		}else if(result.result == "fail"){
 	    			if(result.message=="received"){
-	    				//console.log("received");
+	    				console.log("received");
 	    				$(".commomLogin").hide();
 						$(".have_received").show(); 
 						$(".getHbnNum").hide();
@@ -540,6 +469,7 @@ function gotoPage(jsonStr){  //ios会覆盖此方法
 /* 点击分享 */
 $(".loginWrap").on("click",".shareForFri",function(){
     if(is_weixin()){
+       $("#shareshade").css("height",$(".content").height());
        $("#shareshade").show();
     }else{
         $(".have_received").hide();
@@ -554,29 +484,14 @@ $("#shareAppPage").on("click",function(e){
 	}
 });
 
-
-/* $(".closeGetHB").on("click",function(){
-	$(".getHB_wrap ").fadeOut();
-	$(".getHbPage_wrap").fadeOut();
-	$(".start_wrap").addClass("startMove");
-}); */
-	
-	
 }
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript">
-wechatObj.title = '【药快到】小年福利';
-wechatObj.desc ='二十三，糖瓜粘，领个红包过小年。这么好的福利，我只偷偷告诉你哦~';
-/* wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?'+
-	'appid=wxade8c5e473c645e9'+
-	'&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code'+
-	'&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
-	 */
+wechatObj.title = '【药快到】远离节后综合征';
+wechatObj.desc ='假期过完不想上班？药快到帮你找回状态！';
 wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_15lunarYear_index&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
-// wechatObj.link = 'http://store.ykd365.com/medhtml/common/act_15lunarYear_index';
-wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_15LunarY_shareImg.jpg';
-
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_15Asyndrome_shareImg.jpg';
 
 if(is_weixin()){
 	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
@@ -605,7 +520,7 @@ wx.ready(function(){
 })
 function getWechatObj(){
 	wx.onMenuShareTimeline({
-        title: wechatObj.title, // 分享标题
+        title: wechatObj.desc, // 分享描述
         link: wechatObj.link, // 分享链接
         imgUrl: wechatObj.imgUrl, // 分享图标
         success: function () {

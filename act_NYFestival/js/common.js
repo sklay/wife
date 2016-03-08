@@ -1,6 +1,22 @@
 /**
  * 微信公用js
  */
+//使用rem单位
+(function (doc, win) {
+	var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc    = function () {
+				var clientWidth = docEl.clientWidth;
+				if (clientWidth>=640) {
+					clientWidth = 640;
+				};
+				if (!clientWidth) return;
+				docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+			};
+	if (!doc.addEventListener) return;
+	win.addEventListener(resizeEvt, recalc, false);
+	doc.addEventListener('DOMContentLoaded', recalc, false);
+})(document, window);
 //判断是否从微信进入
 function is_weixin(){
     var ua = navigator.userAgent.toLowerCase();
@@ -13,6 +29,7 @@ function is_weixin(){
 
 
 var _prompt = '<div class="promptDiv" id="prompt"><div class="opDiv"></div><div class="promptContent"><img alt="" src=""><p class="title"></p></div></div>';
+
 $(function() {
 	var shadeDiv = '<div class="shadeDiv" id="shadeDiv"></div>';
 	$("body").append(shadeDiv);
@@ -67,7 +84,23 @@ function closePrompt(){
 		$("#prompt").remove();
 	});
 };
-
+function comWaitShow(){
+    var shadeWaitDiv = '<div class="waitShade" id="shadeWaitDiv" style="background:rgba(200,200,200,.7);position:absolute;top:0;left:0;z-index:8888"></div>';
+    $("body").append(shadeWaitDiv);
+    $("#shadeWaitDiv").css("height",$(document).height());
+    $("#shadeWaitDiv").css("width",$(document).width());
+    $("#shadeWaitDiv").show();
+    var top=($(document).height()-50)/2;
+    var left=($(document).width()-50)/2;
+    var waitImg = '<div class="waitAll" id="waitAll" style="width:50px;position:absolute;z-index:9999"><img style="width:50px;" src="images/jiazai.gif"></div>';
+    $("#shadeWaitDiv").empty();
+    $("#shadeWaitDiv").append(waitImg);
+    $("#waitAll").css({"top":top,"left":left})
+};
+function comWaitClose(){
+    $("#shadeWaitDiv").remove();
+    $("#waitAll").remove();
+};
 function waitShow(){
 	var shadeWaitDiv = '<div class="waitShade" id="shadeWaitDiv"></div>';
 	$("body").append(shadeWaitDiv);
@@ -99,3 +132,18 @@ function clickShow_common(showDom){
 	a.style.display="block";
 }
 
+/*获取验证码 领取遮罩公用Js,实际应用中需要在自己的页面中定义html的css样式  这个样式在act_powerImmuneDay.jsp页面中有定义*/
+function getMask(){
+	var shadeWaitDiv = '<div class="waitShade" id="shadeWaitDiv"></div>';
+	$("body").append(shadeWaitDiv);
+	$("#shadeWaitDiv").css("height",$(document).height());
+	$("#shadeWaitDiv").css("width",$(document).width());
+	$("#shadeWaitDiv").show();
+	var waitImg = '<div class="waitAll" id="waitAll"><img src="images/jiazai.gif"></div>';
+	$("body").append(waitImg);
+	$("#waitAll").show();
+};
+function closeMask(){
+	$("#shadeWaitDiv").remove();
+	$("#waitAll").remove();
+};
