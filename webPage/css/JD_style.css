@@ -1,0 +1,23 @@
+.my_jd_title{ 
+  float: left;
+  padding: 0 8px;
+  position: relative;
+  cursor: default;
+  zoom: 1;}
+.container .comm{  float: left;  padding: 0 8px;}
+
+.i_img{background: url(../images/jd_pho_bla.png)0 0 no-repeat;top: 5px;
+  left: 7px;
+  width: 15px;
+  height: 20px;}
+.comm_icon{  position: relative;
+  cursor: default;
+  zoom: 1;}
+
+.phone_jd .comm_icon {  padding-left: 25px;
+  padding-right: 25px;}
+.phone_jd .comm_icon .i_img{  display: block;
+  position: absolute;
+  overflow: hidden;}
+.my_jd .comm_icon, .watch_jd .comm_icon, .service .comm_icon, .web_nav .comm_icon{width: 49px;
+  padding-right: 25px;}

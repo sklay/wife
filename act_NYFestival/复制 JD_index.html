@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>京东商城</title>
+		<style>
+			*{margin: 0;padding: 0;}
+			body {
+				  font: 12px/150% Arial,Verdana,"\5b8b\4f53";
+				  color: #666;
+				  background: #fff;
+				    /*-webkit-font-smoothing: antialiased;*/
+				}
+			.content{
+				      position: absolute;
+					  right: 0;
+					  top: 0;
+					  width: 0;
+					  height: 100%;
+					  border-right: 6px solid #7a6e6e;
+					  -webkit-transition: right .3s ease-in-out 0s;
+					  -moz-transition: right .3s ease-in-out 0s;
+					  transition: right .3s ease-in-out 0s;
+				}
+			.jdm-toolbar-tabs {
+				  position: absolute;
+				  top: 50%;
+				  left: -29px;
+				  width: 35px;
+				  margin-top: -61px;
+				}
+			em, i, u {
+				  font-style: normal;
+				}
+			.jdm-toolbar-tabs {
+				  position: absolute;
+				  top: 50%;
+				  left: -29px;
+				  width: 35px;
+				  margin-top: -61px;
+				}
+			.jdm-toolbar-tab {
+				  position: relative;
+				  width: 35px;
+				  height: 35px;
+				  margin-bottom: 1px;
+				  cursor: pointer;
+				  background-color: #7a6e6e;
+				  -webkit-border-radius: 3px 0 0 3px;
+				  -moz-border-radius: 3px 0 0 3px;
+				  border-radius: 3px 0 0 3px;
+				}
+			 .jdm-toolbar-tab .tab-ico {
+				  display: inline-block;
+				  background-image: url(images/JD_indexImg.png);
+				  /*_background-image: url(//static.360buyimg.com/devfe/toolbar/1.0.0/css/i/toolbar-png8.png);*/
+				  background-repeat: no-repeat;
+				}
+			.jdm-tbar-tab-cart .tab-ico {
+				  background-position: -50px 0;
+				}
+			.jdm-tbar-tab-jimi .tab-ico {
+				  background-position: -50px -150px;
+				}
+			.jdm-tbar-tab-follow .tab-ico {
+				  background-position: -50px -50px;
+				}
+			.jdm-tbar-tab-message .tab-ico {
+				  background-position: -190px -150px;
+				}
+			.jdm-tbar-tab-history .tab-ico {
+				  background-position: -50px -100px;
+				}
+			.jdm-toolbar-tab .tab-ico {
+				  width: 34px;
+				  height: 35px;
+				  margin-left: 1px;
+				  position: relative;
+				  z-index: 2;
+				  background-color: #7a6e6e;
+				  _display: block;
+				}
+			
+			.jdm-toolbar-tab .tab-text {
+				  width: 62px;
+				  height: 35px;
+				  line-height: 35px;
+				  color: #fff;
+				  text-align: center;
+				  font-family: "微软雅黑";
+				  position: absolute;
+				  z-index: 1;
+				  left: 35px;
+				  top: 0;
+				  background-color: #7a6e6e;
+				  -webkit-border-radius: 3px 0 0 3px;
+				  -moz-border-radius: 3px 0 0 3px;
+				  border-radius: 3px 0 0 3px;
+				  -webkit-transition: left .3s ease-in-out .1s;
+				  -moz-transition: left .3s ease-in-out .1s;
+				  transition: left .3s ease-in-out .1s;
+				  display: none;
+				}
+			span.tab-sub.J-count.hide {
+				  width: 62px;
+				  height: 35px;
+				  line-height: 35px;
+				  color: #fff;
+				  text-align: center;
+				  font-family: "微软雅黑";
+				  position: absolute;
+				  z-index: 1;
+				  left: 35px;
+				  top: 0;
+				  background-color: #7a6e6e;
+				  -webkit-border-radius: 3px 0 0 3px;
+				  -moz-border-radius: 3px 0 0 3px;
+				  border-radius: 3px 0 0 3px;
+				  -webkit-transition: left .3s ease-in-out .1s;
+				  -moz-transition: left .3s ease-in-out .1s;
+				  transition: left .3s ease-in-out .1s;
+				  _display: none;
+				}
+		/*鼠标经过样式*/
+		.jdm-toolbar-tab.tab-text:hover{
+			left: -60px;
+			background-color: #c81623;
+		}
+		a, a:visited,a:active {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+		</style>
+	</head>
+	
+	<body>
+		<div class="content">
+			<div class="jdm-toolbar-wrap J-wrap">
+				<div class="jjdm-toolbar J-toolbar">
+					<div class="jdm-toolbar-tabs J-tab">
+						<div data-type="bar" clstag="h|keycount|cebianlan_h_cart|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-cart" data-name="cart">
+							<i class="tab-ico"></i> 
+							<em class="tab-text"> 购物车</em> 
+							<!--<span class="tab-sub J-count hide" style="display: none;">0</span> 
+							<div class="tabs-tip hide">
+								<span class="ico"></span> 
+								<span class="text">成功加入购物车!</span> 
+								<b></b> 
+							</div>-->
+						</div>
+				
+						<div data-type="bar" clstag="h|keycount|cebianlan_h_follow|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-follow" data-name="follow" data-login="true">
+							<i class="tab-ico"></i> 
+							<em class="tab-text">  我的关注    </em>  
+							<!--<span class="tab-sub J-count hide">0</span>--> 
+							<!--<div class="tabs-tip hide"> 
+								<span class="ico"></span> 
+								<span class="text">成功加入购物车!</span> 
+								<b></b>
+							 </div> -->
+			 			</div>
+			 			<div data-type="bar" clstag="h|keycount|cebianlan_h_history|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-history" data-name="history" data-login="true">
+							<i class="tab-ico"></i> 
+							<em class="tab-text">  我的足迹    </em>  
+							<!--<span class="tab-sub J-count hide">0</span>--> 
+							<!--<div class="tabs-tip hide"> 
+								<span class="ico"></span> 
+								<span class="text">成功加入购物车!</span> 
+								<b></b>
+							 </div> -->
+			 			</div>
+			 			<div data-type="bar" clstag="h|keycount|cebianlan_h_message|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-message" data-name="message" data-login="true">
+							<i class="tab-ico"></i> 
+							<em class="tab-text">  我的消息    </em>  
+							<!--<span class="tab-sub J-count hide">0</span>--> 
+							<!--<div class="tabs-tip hide"> 
+								<span class="ico"></span> 
+								<span class="text">成功加入购物车!</span> 
+								<b></b>
+							 </div> -->
+			 			</div>
+			 			<div data-type="bar" clstag="h|keycount|cebianlan_h_jimi|btn" class="J-trigger jdm-toolbar-tab jdm-tbar-tab-jimi" data-name="jimi" data-login="true">
+							<i class="tab-ico"></i> 
+							<em class="tab-text">  咨询JIMI </em>  
+							<!--<span class="tab-sub J-count hide">0</span>--> 
+							<!--<div class="tabs-tip hide"> 
+								<span class="ico"></span> 
+								<span class="text">成功加入购物车!</span> 
+								<b></b>
+							 </div> -->
+			 			</div>
+ 					</div>
+ 				</div>
+			</div>
+		</div>
+	</body>
+</html>

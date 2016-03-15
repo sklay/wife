@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+</head>
+<body>
+
+    
+<script>
+	$(function(){
+		$.getJSON("./js/questions.json", function(data){
+		  var questionsData = data.questions ;
+		  $.each(questionsData , function(item_index ,item){
+		  	$question = item ;
+	  		var ops = '' ;
+	  		$options = $question.options ;
+	  		$.each($options,function(opt_index,option){
+	  			$option = option ;
+	  			ops += $option.option + ' ,';
+	  		}) ;
+//	  		alert('第'+(item_index+1)+'题 问题是 ，' + $question.question + '\n选项是： '+ ops + "\n答案是： " + $question.answer) ;
+		  	
+		  }) ;
+		});
+	})
+	
+	
+</script>
+	</body>
+</html>

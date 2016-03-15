@@ -1,26 +1,28 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>【药快到】正品保证，急速送到家</title>
-    <meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+    <title>【药快到】正品保证，放心购！</title>
+    <meta name="description" content="【药快到】正品保证，急速送到家  ">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <meta name="format-detection" content="telephone=no, email=no" /> 
     <meta name="apple-mobile-web-app-capable" content="yes" />
      <script src="js/jquery-2.2.0.min.js"></script>
-    <script src="js/weixin_common.js"></script>
+      <script src="js/html_common.js"></script>
     <script>
+	    var appid = 'wx697be0ec43c8cafa';
+	    var redirect_uri = 'http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16FifthOfMarch_index';
 	    if(is_weixin()){
 	    	 var grantBoo="${grantFail}";
 	   	    if(grantBoo == "true" || grantBoo==true){
 	   	    	var grantFailUserId="${fromUserId}";
-	   	    	location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
-	   	    	//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+	   	    	location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=+"appid"+&redirect_uri=+"redirect_uri"+&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
 	   	    }
 	    }  
     </script>
-    
-   
     <style type="text/css">
     	*{margin:0;padding:0;}
         i{font-style:normal;text-align:center;}
@@ -30,20 +32,18 @@
         .indexPage{width: 100%;position: relative;
         	background: -webkit-radial-gradient(50% 50%,#c4000a 0%,#b60009 10%,#a80009 30%,#9f0008 70%, #9d0008 100%);
         	 }
-        .comShineBack{
-        	/*position:absolute;top:0;left:0;*/width:100%;overflow:hidden;/*z-index:1;*/
-        }
+        .comShineBack{width:100%;overflow:hidden;}
         .comShineBack img{width:100%;float:left;}
         .content_top{width: 100%;background:transparent;position:absolute;top:0.6rem;left:0;z-index:1;}
         .content_top img{  width: 5rem;margin: 0 auto;display: block;}
-        /*领取*/
-         .getHb{width:4.6rem;  margin: .2rem auto 0;}
+        /*输入框样式*/
+        .getHb{width:4.6rem;  margin: .2rem auto 0;}
         #userPhone{ width: 100%; outline: none;border: 1px solid #fffc9b;height: .78rem;line-height: .78rem;
 			  box-sizing: border-box;color: #fff;text-align: center;background: transparent;border-radius: 4px;
 			  font-size: 16px;
         }
-         ::-moz-placeholder {
-   	 	color: #fff;text-align:center;font-family:""
+        ::-moz-placeholder {
+   	 		color: #fff;text-align:center;font-family:""
 		}
 		:-ms-input-placeholder {
 		   color: #fff;text-align:center;
@@ -55,7 +55,7 @@
             background:#fffc9b;margin:.25rem auto;display:block;outline: none;border:0;color: #b90000;
         	font-weight: 600;
         }
-      	  #downText{ font-size: 18px;font-family: 黑体;
+      	#downText{ font-size: 18px;font-family: 黑体;
             text-align:center;  color: #fff;
   			text-decoration: underline;line-height: .6rem;
         }
@@ -123,7 +123,7 @@
             width:6.2rem;margin:0 auto;padding-bottom:.5rem;color:#fffd89;line-height:30px;font-size:14px;
         }
       
-		/*app固定样式  */
+		/*app分享按钮固定样式  */
 		.shareAppPage{ display: none;  width: 5.6rem;overflow: hidden;  margin: 1rem auto 0;}
     	.shareAppPage button{
 		  color: #ff0000;font-weight: 600;font-size: 18px;width: 2.5rem;line-height: .7rem;
@@ -132,7 +132,7 @@
         }
 	    .shareAppPage button:nth-child(1){float:left;}
 	    .shareAppPage button:nth-child(2){float:right;}
-	    
+	    /*分享遮罩样式*/
 	     #shareshade{position:fixed;top:0;left:0;width:100%;background:rgba(50,50,50,.8);z-index:9999;display:none;
 		}
  
@@ -259,7 +259,6 @@
 						</c:forEach>
 					</div>
 				</c:if>-->
-				
                 <div class="friHbShowWrap ">
 						 <div class="comShowTitle">
 			                    <div class="leftLineDot">
@@ -292,73 +291,72 @@
 					</div>
             
 	               <div class="activeRuleShowWrap ">
-                <div class="comShowTitle">
-                    <div class="leftLineDot">
-                        <span style="height:1px;width:1.4rem;"></span>
-                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-                    </div>
-                    <div class="comshowTitleText">
-                       	 活动细则
-                    </div>
-                    <div class="rightLineDot">
-                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-                        <span style="height:1px;width:1.4rem;"></span>
-                    </div>
-                </div>
-                <div class="activeRuleShow">
-                    <p>
-                        1.活动有效期：2016年3月15日—2016年3月18日。
-                    </p>
-                    <p>
-                        2.需下载药快到App，使用手机号登录方可使用。
-                    </p>
-                    <p>
-                        3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。
-                    </p>
-                    <p>
-                        4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。
-                    </p>
-                    <p>
-                        5.本活动最终解释权归北京康顾多健康科技有限公司所有。
-                    </p>
-                </div>
-
-            </div>
-        </div>
+		                <div class="comShowTitle">
+		                    <div class="leftLineDot">
+		                        <span style="height:1px;width:1.4rem;"></span>
+		                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+		                    </div>
+		                    <div class="comshowTitleText">
+		                       	 活动细则
+		                    </div>
+		                    <div class="rightLineDot">
+		                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+		                        <span style="height:1px;width:1.4rem;"></span>
+		                    </div>
+		                </div>
+	                <div class="activeRuleShow">
+	                    <p>
+	                        1.活动有效期：2016年3月15日—2016年3月18日。
+	                    </p>
+	                    <p>
+	                        2.需下载药快到App，使用手机号登录方可使用。
+	                    </p>
+	                    <p>
+	                        3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。
+	                    </p>
+	                    <p>
+	                        4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。
+	                    </p>
+	                    <p>
+	                        5.本活动最终解释权归北京康顾多健康科技有限公司所有。
+	                    </p>
+	                </div>
+            	</div>
+        	</div>
 		</div>
-		
-		</div>
-	</body>
+	</div>
+</body>
 <script>
 var phoneNum ='${phoneNum}';
 var fromUserId = '${userId}';
 var wechatObj = new Object();
-/**/
-function getUrlEle(){
-	 var urldec=location.href.split("?")[1].split("&"); 
-	 var urlQuery={};
-	  var a,b;
-	 for(var i=0,j=urldec.length;i<j;i++){
-	 	 a=urldec[i].split("=")[0];
-	 	 b=urldec[i].split("=")[1];
-	 	 console.log(a.split("%EF%BC%9D"))
-	 	  if(b==undefined ){
-	 		 a=urldec[i].split("=")[0].split("%EF%BC%9D")[0];
-	 		 b=urldec[i].split("=")[0].split("%EF%BC%9D")[1];
-	 	 }; 
-	 		 urlQuery[a]=b;
-	 }; 
-	 return urlQuery;
-};
- function appShareFun(){
-	var token=getUrlEle().user_token;
-   	if(token=="" || token ==null || token== undefined){
-   		showResultApp("remind","请先登录后再分享");
-   		return false;
-   	}else{
-   		return true;
-   	};
-   };
+var token='${token}';
+/*从URL获取user_token和 version的值*/
+//function getUrlEle(){
+//	 var urldec=location.href.split("?")[1].split("&"); 
+//	 var urlQuery={};
+//	  var a,b;
+//	 for(var i=0,j=urldec.length;i<j;i++){
+//	 	 a=urldec[i].split("=")[0];//安卓可正常使用
+//	 	 b=urldec[i].split("=")[1];//ios需要需要处理（URL里token后的等于号是中文字符需要做处理）
+//	 	 console.log(a.split("%EF%BC%9D"))
+//	 	  if(b==undefined ){
+//	 		 a=urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+//	 		 b=urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+//	 	 }; 
+//	 		 urlQuery[a]=b;
+//	 }; 
+//	 return urlQuery;
+//};
+// function appShareFun(){
+//	var token=getUrlEle().user_token;
+// 	if(token=="" || token ==null || token== undefined){
+// 		showResultApp("remind","请先登录后再分享");
+// 		return false;
+// 	}else{
+// 		return true;
+// 	};
+// };
 (function(){
 	if(!is_weixin()){
 		$(".downloadP").html("查看优惠券");
@@ -401,8 +399,7 @@ window.onload=function(){
 							$(".received_result").show(); 
 							$(".receive_success").show();
 		 					fromUserId = result.data.userId;
-		 					/*wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';*/
-		 					wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect'; 
+		 					wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=+"appid"+&redirect_uri=+"redirect_uri"+&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect'; 
 		 					if(getHbNuM==5){
 		 						$(".getHb5").show();
 		 					}else{
@@ -448,9 +445,10 @@ function goPage(type){
 	 if(is_weixin()){
 		 window.location.href=target_href ;
 	 }else{
-		 if('' == token || null == token || token.length <= 0){
+		 if(token=="" || token ==null || token== undefined){
 			 showResultApp("remind","请先登录");
-		 }else{  
+		 }
+		 else{
 		 var version= parseInt('${version}');
 		
 		if(version && 200 <= version){
@@ -465,10 +463,10 @@ function goPage(type){
 /* app分享事件*/
 $(".getHbWrap").on("click",".shareForFri",function(){
     if(is_weixin()){
-     	$("#shareFriSha").css("height",$(".content").height()); 
-       $("#shareFriSha").show();
+     	$("#shareshade").css("height",$(".content").height()); 
+       $("#shareshade").show();
     }else{
-    	if(appShareFun()){
+    	if('' == token || null == token || token.length <= 0){
     		$(".received_result").hide();
         	$(".shareAppPage").show();
     	}
@@ -483,22 +481,21 @@ $("#shareAppPage").on("click",function(e){
 });
 //app分享点击
 $("#shareAppPage_shareFir").on("tap",function(){
-	if(appShareFun()){
+	if(token=="" || token ==null || token== undefined){
 		s(0)
-	}
+		 }
 });
 $("#shareAppPage_friRound").on("tap",function(){
-	if(appShareFun()){
-		s(1)
-	}
+	if(token=="" || token ==null || token== undefined){
+		s(0)
+		 }
 });
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 wechatObj.title = '【药快到】正品保证，放心购！';
 wechatObj.desc ='【药快到】正品保证，急速送到家';
-//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
-wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact15LantermFesIndex&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=+"appId"+&redirect_uri=+"redirect_uri"+&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
 wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16FifthOfMarch_shareImg.jpg';
 
 if(is_weixin()){
@@ -507,8 +504,7 @@ if(is_weixin()){
 				if (wechatReturn) {
 					wx.config({
 					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-					   /*  appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 */
-					    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+					    appId:appId , // 必填，公众号的唯一标识
 					    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
 					    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
 					    signature: wechatReturn.signature,// 必填，签名，见附录1

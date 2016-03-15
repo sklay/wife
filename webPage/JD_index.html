@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<title>京东商城</title>
 		<script src="js/jquery-2.2.0.min.js"></script>
+		<link rel="stylesheet" href="css/JD_style.css" /><link />
 		<style>
 			*{margin: 0;padding: 0;}
 			a{  color: #666; text-decoration: none;}
@@ -13,7 +14,7 @@
 				  background: #fff;
 				}
 			.container{width: 100%;height: 30px;  line-height: 30px;background: #F1F1F1;}
-			.container_top{width: 90%;background: #F1F1F1;margin: 0 auto;}
+			.common_sty{width: 90%;margin: 0 auto;}
 			.addr_fl{list-style: none;  width: 300px;
 			  padding: 10px 0 10px 10px;
 			  top: 30px;
@@ -59,13 +60,26 @@
 			.remind:hover{ color: #ff0000;}
 			.checked{color: #ff0000;padding-left:3px;}
 			.right_fl li{float: left;height: 30px; padding: 0 2px;}
-			.order_s{float: left;padding: 0 2px;}
+			.order_s{float: left;padding: 0 8px;}
+			
+			
+			.logo_l{  position: relative;z-index: 12;float: left;
+			  width: 362px;
+			  height: 60px;
+			  padding: 20px 0;
+			  overflow: hidden;
+			  }
+			.logo_a{  display: block;float: left;
+				  width: 175px;
+				  height: 60px;
+				  background: url(images/JD_logo.png) no-repeat 0 0;
+				  text-indent: -20000px;}
 		</style>
 	</head>
 	
 	<body>
 		<div class="container">
-			<div class="container_top">
+			<div class="container_nav common_sty">
 				<div class="left_sty">
 					<i class="icon"><s>◇</s></i>送至：
 					<span>北京</span>
@@ -119,17 +133,65 @@
 				</div>
 				<ul class="right_fl">
 					<li class="login">
-						<a href="#" class="remind">你好，请登录</a>
-						<a href="#" class="checked">免费注册</span>
+						<a  class="remind">你好，请登录</a>
+						<a  class="checked">免费注册</a>
 					</li>
 					<li class="order">
-						<div class="order_s"><a href="#" class="order">我的订单</a></div>
+						<div class="comm"><a  class="order">我的订单</a></div>
 					</li>
-					<li class="">
-						
+					<li class="my_jd">
+						<div class="comm  comm_icon">
+							<i class="icon"><s>◇</s></i>
+							<a target="_blank" >我的京东</a>
+						</div>
+						<div class="">
+							
+						</div>
+					</li>
+					<li class="id_user">
+						<div class="comm "><a  class="order">京东会员</a></div>
+					</li>
+					<li class="buy">
+						<div class="comm"><a  class="order">企业采购</a></div>
+					</li>
+					<li class="phone_jd">
+						<div class="comm comm_icon">
+							<i class="i_img"></i>
+							<i class="icon"><s>◇</s></i>
+							<a target="_blank" >手机京东</a>
+						</div>
+					</li>
+					<li class="watch_jd">
+						<div class="comm comm_icon">
+							<i class="icon"><s>◇</s></i>
+							<a target="_blank" >关注京东</a>
+						</div>
+					</li>
+					<li class="service">
+						<div class="comm comm_icon">
+							<i class="icon"><s>◇</s></i>
+							<a target="_blank" >客户服务</a>
+						</div>
+					</li>
+					<li class="web_nav">
+						<div class="comm comm_icon">
+							<i class="icon"><s>◇</s></i>
+							<a target="_blank" >网站导航</a>
+						</div>
 					</li>
 				</ul>
 				<span class="clr"></span>
+			</div>
+			<div class="container_top common_sty">
+				<div class="logo_l">
+					<a  class="logo_a">京东</a>
+					<p style="font-size: 22px;color: #ff0000;padding-top: 8px;">多·快·好·省</p>
+				</div>
+				<div id="">
+					<ul></ul>
+					<input  />
+					<button></button>
+				</div>
 			</div>
 		</div>
 	</body>

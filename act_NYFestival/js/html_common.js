@@ -51,7 +51,26 @@ function waitClose(){
 	$("#shadeWaitDiv").remove();
 	$("#waitAll").remove();
 }; 
-
+//未登录消息提示遮罩层
+var _prompt = '<div class="promptDiv" id="prompt"><div class="opDiv"></div><div class="promptContent"><img alt="" src=""><p class="title"></p></div></div>';
+$(function() {
+	var shadeDiv = '<div class="shadeDiv" id="shadeDiv"></div>';
+	$("body").append(shadeDiv);
+});
+function shadeAll(){
+	$("#shadeDiv").css("height",$(document).height());
+	$("#shadeDiv").css("width",$(document).width());
+	$("#shadeDiv").show();
+};
+function closeShade(){
+	$("#shadeDiv").hide();
+};
+function closeDiv(id){
+	$("#"+id).hide();
+};
+function showDiv(id){
+	$("#"+id).show();
+}
 /*点击查看优惠券/去使用按钮    结果的消息提示共用样式js*/
 function showResultApp(type,title){
 	$("body").append(_prompt);
@@ -72,6 +91,12 @@ function showResultApp(type,title){
 	shadeAll();
 //	$("#prompt").show();
 	setTimeout("closePrompt()", 1000 );
+};
+function closePrompt(){
+	$("#prompt").fadeOut(200,function(){
+		closeShade();
+		$("#prompt").remove();
+	});
 };
 
 /*app调用的共用js*/
