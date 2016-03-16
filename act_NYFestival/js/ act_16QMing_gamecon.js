@@ -17,27 +17,39 @@ var QUESTIONS = [
 
 $(function(){
 	var SUCCESS = 0 ;
-	
+	var waitGame = null ;
 	  $(".indexPage").on("click","#goToGamePage",function(){
             $(".gamePage").fadeIn(100);
             $(".indexPage").hide(100);
-            initQuestion() ;
+            initQuestion(0) ;
+            
         });
 
 	
 	function initQuestion(index){
+		
 		var QNo = '<span>题目：</span>' ;
 		var QSpase = '<p class="ques_userCop">&nbsp;</p>' ;//站位
 		var QTitle = '<p class="ques_remind" >{title}</p>' ;//诗句提示
 		/*选项*/
-		var QOption = '<div class="question_queNum" data-answer="{answer}"  data-index="{index}"><span class="radioBtn"></span><p class="quest_verse">{opt}</p></div>' ;
+		var QOption = '<div class="question_queNum" data-answer="{answer}" data-index="{index}"><span class="radioBtn"></span><p class="quest_verse">{opt}</p></div>' ;
 	
 		var cindex = index || 0 ;
+		
+		if(0 == cindex){
+			SUCCESS = 0 ;
+			waitGame = null ;
+		}
+		
+		if(waitGame){
+			clearInterval(waitGame);
+		}
 		
 		if(cindex >= QUESTIONS.length){
 			console.debug('题目溢出了') ;
 			return ;
 		}
+		
 		var $question = QUESTIONS[cindex] ;
 		
 //		console.debug('cinde : ' , cindex , "  $questions : " ,$question) ;
@@ -86,7 +98,12 @@ $(function(){
 		$('.question_queNum').unbind('tap') ;
 	
 		$(".question_queNum").on("tap",function(){
-			var nextIndex = parseInt($(this).attr('data-index')) + 1 ;
+			var $this = $(this) ;
+			
+			/**防止重复点击*/
+			$('.question_queNum').unbind('tap') ;
+			
+			var nextIndex = parseInt($this.attr('data-index')) + 1 ;
 				var clickCont = $('.quest_verse').html();
 //				alert(clickCont);
 				$(".ques_userCop").html(clickCont);
@@ -107,14 +124,24 @@ $(function(){
 				gameResult();
 			}
 			
-			if($(this).attr('data-answer') == 'true'){
+			
+			if($this.attr('data-answer') == 'true'){
 				++ SUCCESS ;
+				$this.removeClass('question_queNum').addClass('result_right_icon') ;
+			}else{
+				$this.removeClass('question_queNum').addClass('result_error_icon') ;
 			}
+			
+			$this.attr("data-once","true") ;
 			gameScore = SUCCESS+1; 
 	        console.log(gameScore);
 	        
+	        
 	        /**显示下一题*/
-	        initQuestion(nextIndex) ;
+	        waitGame=setInterval(function(){
+            	initQuestion(nextIndex) ;
+            },500);
+	        
 	    });
 	}
     
