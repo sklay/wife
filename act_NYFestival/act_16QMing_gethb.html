@@ -13,9 +13,9 @@
      <script src="js/jquery-2.2.0.min.js"></script>
     <script src="js/html_common.js"></script>
     <script>
-    //var appid = 'wx697be0ec43c8cafa';
-	    var appid = 'wxade8c5e473c645e9';
-	    var redirect_uri = 'http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16FifthOfMarch_index';
+    var appid = 'wx697be0ec43c8cafa';
+	    //var appid = 'wxade8c5e473c645e9';
+	    var redirect_uri = 'http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16QMing_gethb';
 	    if(is_weixin()){
 	    	 var grantBoo="${grantFail}";
 	   	    if(grantBoo == "true" || grantBoo==true){
@@ -36,12 +36,12 @@
         .comShineBack img{width:100%;float:left;}
         .content_top{width: 5.4rem;
         background:url(images/act_16QMing_indexRuleBJ.png)top center no-repeat;
-        background-size: 100% 100%;  padding-bottom: .5rem;
+        background-size: 100% 100%;  padding-bottom: .2rem;
         position:absolute;top:0.6rem;left:.5rem;z-index:1;}
-        .receive_title {  width: 5rem;margin: 0 auto;display: block;padding-top: .5rem;}
+        .receive_title {  width: 4.4rem;margin: 0 auto;display: block;padding-top: .5rem;}
         /*输入框样式*/
         .getHb{width:4.6rem;  margin: 0 auto ;}
-        .commomLogin{position: relative;}
+        .commomLogin{position: relative;  margin-top: .6rem;}
         #userPhone{ 
         	  width: 100%;
 			  outline: none;
@@ -72,24 +72,33 @@
         }
       	#downText{ font-size: 18px;font-family: 黑体;
             text-align:center;  color: #000;
-  			line-height: .6rem;
+  			  line-height: .9rem;
         }
         /*领取结果样式*/
        .getHbnNum{width: 100%;overflow: hidden;}
-       .getHbValue_wrap{ width: 2.6rem;height: 1.5rem;
-  			background: url(images/act_16FifthOfMarch_valueback.png) 0px 0 no-repeat;
-			background-size: 100% 100%;overflow: hidden;  line-height: 1.5rem;
-			margin: 0 auto;color: #ff0000;}
-        .getHbValue{font-size: 1rem;position: relative; font-weight: 600;padding-left: .6rem;}
-        .getHbValue span{font-size: .75rem;position: absolute;font-weight: 400;  left: 1.25rem;}
-        .receiveResult{font-size: 16px;color: #fff; text-align: center;margin: .1rem auto 0;}
-        .commUsebtn{  width: 5.6rem;overflow: hidden;margin-left: -.5rem;}
+       .getHbValue_wrap{  width: 4rem;height: 1.7rem;
+  			background: url(images/act_16QMing_receive_couponback.png) 0px 0 no-repeat;
+			background-size: 100% 100%;overflow: hidden; 
+			margin: 0 auto;  color: #fae39b;  text-shadow: 4px 4px 4px #b10c0c;
+			  display: block;font-size: 24px;font-weight: 600;
+			}
+        .getHbValue{font-size: 1rem; font-weight: 600;   padding-left: 1.45rem;  line-height: 60px;}
+        /*.getHbValue span{font-size: .75rem;position: absolute;font-weight: 400;  left: 1.25rem;}*/
+       	.getHbValue_wrap span:nth-child(2){  display: block;line-height: 22px;float: left;padding-left: .5rem;
+  			font-size: 14px; font-weight: 100;color: #fff;}
+       	.getHbValue_wrap span:nth-child(3){  display: block;line-height: 22px; padding-left: 2.1rem;
+			  font-size: 14px; font-weight: 100; color: #fff;}
+        .receiveResult{font-size: 16px;color: #000; text-align: center;margin: .1rem auto 0;}
+        /*.commUsebtn{  width: 5.6rem;overflow: hidden;margin-left: -.5rem;}
         .commUsebtn button{color: #ff0000;font-weight: 600;font-size: 18px;width: 2.5rem;line-height: .7rem;
 		  height: .7rem; border-radius: 6px;background: #fffd89;box-shadow: 0 2px 2px #e0dc41,0 -2px 0 #fffecd;
 		  margin: .2rem auto;display: block;outline: none;border: none;
 			}
 		.use_btn{float: left;}
-		.shareFri{float: right;}
+		.shareFri{float: right;}*/
+		.commUsebtn{  margin: .15rem auto 0;overflow: hidden;width: 3.8rem;	} 
+		.commUsebtn img:nth-child(1){  float: left;width: 100%;	}
+		.commUsebtn img:nth-child(2){width: 100%;  margin-top: .15rem; }
          /* 看看好友的手气*/
         .comShowTitle{  width: 100%;
         	color:#fff;background: url(images/act_16QMing_receive_icpnBack.png)top center no-repeat;
@@ -150,17 +159,30 @@
         }
       
 		/*app分享按钮固定样式  */
-		.shareAppPage{ display: none;  width: 5.6rem;overflow: hidden;  margin: 1rem auto 0;}
+		/*.shareAppPage{ display: none;  width: 5.6rem;overflow: hidden;  margin: 1rem auto 0;}
     	.shareAppPage button{
 		  color: #ff0000;font-weight: 600;font-size: 18px;width: 2.5rem;line-height: .7rem;
 		  height: .7rem; border-radius: 6px;background: #fffd89;box-shadow: 0 2px 2px #e0dc41,0 -2px 0 #fffecd;
 		  margin: .2rem auto;display: block; outline:none;border: none;
         }
 	    .shareAppPage button:nth-child(1){float:left;}
-	    .shareAppPage button:nth-child(2){float:right;}
+	    .shareAppPage button:nth-child(2){float:right;}*/
+	    
+	    .shareAppPage{  width: 100%;display: none;overflow: hidden;padding: .3rem .9rem; box-sizing: border-box;}
+    	.shareAppPage img{
+		  width: 2rem;
+        }
+	    .shareAppPage img:nth-child(1){float:left;}
+	    .shareAppPage img:nth-child(2){float:right;}
 	    /*分享遮罩样式*/
-	     #shareshade{position:fixed;top:0;left:0;width:100%;background:rgba(50,50,50,.8);z-index:9999;display:none;
-		}
+	     /*#shareshade{position:fixed;top:0;left:0;width:100%;background:rgba(50,50,50,.8);z-index:9999;display:none;
+		}*/
+		#shareFriSha{
+            	position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,.8);z-index:100;display:none;
+        }
+        #shareFriSha img{
+            width:100%;
+        }
 		
 		
 		.promptDiv{position: absolute;left: 0px;top: 0px;width: 180px;height: 90px;z-index: 99;display:none;}
@@ -199,42 +221,52 @@
 	                    </div>
 	                   	<div class="received_result"  style="display: none;">
 	                   		<div class="receive_success" style="display: none;">
-	                   			<div class="getHb5 getHbnNum"  style="display: none;" >
-	                   				<div class="getHbValue_wrap">
-	                   					<span class="getHbValue">5<span class="">元</span></span>
-	                   				</div>
-	                   				<p class="receiveResult receiveResult5" >恭喜您，领到5元现金券</p>
+	                   			<div class="getHb7 getHbnNum"  style="display: none;" >
+	                   				<span class="getHbValue_wrap">
+	                   					<span class="getHbValue">7</span>元
+	                   					<span class="">7元现金券</span><span>满48元可用</span>
+	                   				</span>
+	                   				<p class="receiveResult " >恭喜您，领到7元现金券</p>
 								</div>
-								<div class="getHb6 getHbnNum" style="display:none">
-									<div class="getHbValue_wrap">
-	                   					<span class="getHbValue">6<span class="">元</span></span>
-	                   				</div>
-	                   				<p class="receiveResult receiveResult6" >恭喜您，领到6元现金券</p>
+								<div class="getHb8 getHbnNum" style="display:none">
+									<span class="getHbValue_wrap">
+	                   					<span class="getHbValue">7</span>元
+	                   					<span class="">8元现金券</span><span>满48元可用</span>
+	                   				</span>
+	                   				<p class="receiveResult " >恭喜您，领到8元现金券</p>
 								</div>
 							</div>
 							<div class="has_received" style="display: none;">
-	                   			<div class="has_getHb5 getHbnNum" style="display:none">
-	                   				<div class="getHbValue_wrap">
-	                   					<span class="getHbValue">5<span class="">元</span></span>
-	                   				</div>
-	                   				<p class="receiveResult receiveResult5" >5元现金券已经存入您的账户</p>
+	                   			<div class="has_getHb7 getHbnNum" style="display:none">
+	                   				<span class="getHbValue_wrap">
+	                   					<span class="getHbValue">7</span>元
+	                   					<span class="">7元现金券</span><span>满48元可用</span>
+	                   				</span>
+	                   				<p class="receiveResult " >7元现金券</p>
+	                   				<p class="receiveResult ">已经存入您的账户</p>
 								</div>
-								<div class="has_getHb6 getHbnNum" style="display:none">
-									<div class="getHbValue_wrap">
-	                   					<span class="getHbValue">6<span class="">元</span></span>
-	                   				</div>
-	                   				<p class="receiveResult receiveResult6" >6元现金券已经存入您的账户</p>
+								<div class="has_getHb8 getHbnNum" style="display:none">
+									<span class="getHbValue_wrap">
+	                   					<span class="getHbValue">7</span>元
+	                   					<span class="">8元现金券</span><span>满48元可用</span>
+	                   				</span>
+	                   				<p class="receiveResult " >8元现金券</p>
+	                   				<p class="receiveResult ">已经存入您的账户</p>
 								</div>
 							</div>
 							<div class="commUsebtn" >
-								<button class="use_btn goForUse" id="goForUse">去使用</button>
-								<button class="shareFri shareForFri" id="small_ShareFri">邀请好友</button>
-						  	</div>
+								<!--<button class="use_btn goForUse" id="goForUse">去使用</button>
+								<button class="shareFri shareForFri" id="small_ShareFri">邀请好友</button>-->
+						  		<img class="use_btn goForUse" id="goForUse" src="images/act_16QMing_receive_usebtn.png"></img>
+					    		<img class="shareFri shareForFri" id="small_ShareFri" src="images/act_16QMing_receive_shareFribnt.png"></img>
+							</div>
 						</div>
 	                </div>
 					<div class="shareAppPage">
-		                <button class="shareAppBtn" id="shareAppPage_shareFir" >分享给好友</button>
-		                <button class="shareAppBtn" id="shareAppPage_friRound" >分享到朋友圈</button> 
+		                <!--<button class="shareAppBtn" id="shareAppPage_shareFir" >分享给好友</button>
+		                <button class="shareAppBtn" id="shareAppPage_friRound" >分享到朋友圈</button> -->
+		                <img class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)" src="http://imgstore.camore.cn/medhtml/common/images/act_15lantermfes_shareToFrie.png"></img>
+						<img class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)" src="http://imgstore.camore.cn/medhtml/common/images/act_15lantermfes_shareToFriecirle.png"></img>
 		            </div>
 					
 				</div>
@@ -245,16 +277,8 @@
              <!--<c:if test="${ not empty coupList }">
 					 <div class="friHbShowWrap ">
 						 <div class="comShowTitle">
-			                    <div class="leftLineDot">
-			                        <span style="height:1px;width:1.4rem;"></span>
-			                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-			                    </div>
 			                    <div class="comshowTitleText">
 			                       	看看朋友的手气
-			                    </div>
-			                    <div class="rightLineDot">
-			                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-			                        <span style="height:1px;width:1.4rem;"></span>
 			                    </div>
 			             </div>
 						<c:forEach var="rc" items="${coupList}" varStatus="status">
@@ -294,17 +318,9 @@
 				</c:if>-->
 				<div class="friHbShowWrap ">
 						 <div class="comShowTitle">
-			                    <!--<div class="leftLineDot">
-			                        <span style="height:1px;width:1.4rem;"></span>
-			                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-			                    </div>-->
 			                    <div class="comshowTitleText">
 			                       	看看朋友的手气
 			                    </div>
-			                    <!--<div class="rightLineDot">
-			                        <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-			                        <span style="height:1px;width:1.4rem;"></span>
-			                    </div>-->
 			             </div>
 						<!--<c:forEach var="rc" items="${coupList}" varStatus="status">-->
 							<div class="friHbShow">
@@ -342,17 +358,9 @@
 					</div>
             <div class="activeRuleShowWrap ">
 	              <div class="comShowTitle">
-	                  <!--<div class="leftLineDot">
-	                      <span style="height:1px;width:1.4rem;"></span>
-	                      <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-	                  </div>-->
 	                  <div class="comshowTitleText">
 	                     	 活动细则
 	                  </div>
-	                  <!--<div class="rightLineDot">
-	                      <span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-	                      <span style="height:1px;width:1.4rem;"></span>
-	                  </div>-->
 	              </div>
 	             <div class="activeRuleShow">
 	                 <p>
@@ -373,6 +381,9 @@
 	             </div>
         	</div>
         </div>
+	</div>
+	<div id="shareFriSha">
+	    <img src="images/act_16womenday_share.png" alt="">
 	</div>
 </body>
 <script>
@@ -419,11 +430,11 @@ window.onload=function(){
 		 		/*前端随机产生的邀请码传给后台，后台接受到这个值返回给前端，前端根据这个邀请码判断领取到的优惠券的金额*/
 		 		var getCodeNum=parseInt(Math.random()>0.5?0:1);
 		 		if(getCodeNum){
-					var _inviteCode='16syw01';
-					var getHbNuM=5;
+					var _inviteCode='16QMJ01';
+					var getHbNuM=7;
 				}else{
-					var _inviteCode='16syw02';
-					var getHbNuM=6;
+					var _inviteCode='16QMJ02';
+					var getHbNuM=8;
 				}
 		 		var _fromChannel='hongbao';
 				var phone_num = $('#userPhone').val() ;
@@ -440,11 +451,11 @@ window.onload=function(){
 							$(".received_result").show();
 							$(".receive_success").show();
 		 					fromUserId = result.data.userId;
-		 					wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+redirect_uri+'&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect'; 
+//		 					wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+redirect_uri+'&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect'; 
 		 					if(getHbNuM==5){
-		 						$(".getHb5").show();
+		 						$(".getHb7").show();
 		 					}else{
-		 						$(".getHb6").show();
+		 						$(".getHb8").show();
 		 					}
 			    		}else if(result.result == "fail"){
 			    			if(result.data.msg=="received"){
@@ -459,9 +470,9 @@ window.onload=function(){
 								$(".received_result").show();
 								$(".has_received").show();
 		 						if(5==couponValue/100){
-			    					$(".has_getHb5").show();
+			    					$(".has_getHb7").show();
 			    				}else{
-			    					$(".has_getHb6").show();
+			    					$(".has_getHb8").show();
 			    				}
 			    			}else{
 			    				alert(result.data.msg);
@@ -502,8 +513,8 @@ window.onload=function(){
 		 /* app分享事件*/
 		 $(".getHbWrap").on("click",".shareForFri",function(){
 		     if(is_weixin()){
-		      	$("#shareshade").css("height",$(".content").height()); 
-		        $("#shareshade").show();
+		      	$("#shareFriSha").css("height",$(".content").height()); 
+		        $("#shareFriSha").show();
 		     }else{
 		     	 if(token=="" || token ==null || token== undefined){ 
 		     		showResultApp("remind","请先登录");
@@ -513,6 +524,10 @@ window.onload=function(){
 		     	 }
 		     }
 		 });
+		 
+		 $("#shareFriSha").on("click",function(){
+				 $("#shareFriSha").hide();
+			});
 		 $("#shareAppPage").on("click",function(e){
 		 	var ev=e.target;
 		 	if(ev.nodeName!="BUTTON"){
@@ -543,7 +558,7 @@ window.onload=function(){
 wechatObj.title = '【药快到】正品保证，放心购！';
 wechatObj.desc ='【药快到】正品保证，给您提供 更方便、更优惠、更体贴的送药上门服务。';
 wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid='+appid+'&redirect_uri='+redirect_uri+'&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
-wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16FifthOfMarch_shareImg.jpg';
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16QMing_shareImg.jpg';
 
 if(is_weixin()){
 	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
