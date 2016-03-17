@@ -16,7 +16,7 @@ var QUESTIONS = [
 
 
 $(function(){
-	var SUCCESS = 0 ;
+	var gameScore = 0 ;
 	var waitGame = null ;
 	  $(".indexPage").on("click","#goToGamePage",function(){
             $(".gamePage").fadeIn(100);
@@ -38,7 +38,7 @@ $(function(){
 		var cindex = index || 0 ;
 		
 		if(0 == cindex){
-			SUCCESS = 0 ;
+			gameScore = 0 ;
 			waitGame = null ;
 		}
 		
@@ -95,36 +95,42 @@ $(function(){
 			/**防止重复点击*/
 			$('.question_queNum').unbind('tap') ;
 			
-			var nextIndex = parseInt($this.attr('data-index')) + 1 ;
+			var nextIndex = parseInt($this.attr('data-index'));
 //				var clickCont = $('.quest_verse').html();
 				var clickCont = $this.html();
 //				alert(clickCont);
 				$(".ques_userCop").html(clickCont);
 				
-			if(nextIndex >= 8){
-//				alert("已经是最后一题了哦，您答对了 , " + SUCCESS) ;
-//				return  ;
-				$("#startGameBtnWrap").fadeOut();;
-				gameResult();
-			}
-			
 			
 			if($this.attr('data-answer') == 'true'){
-				++ SUCCESS ;
+				gameScore = gameScore+1; 
 				$this.removeClass('question_queNum').addClass('result_right_icon') ;
 			}else{
 				$this.removeClass('question_queNum').addClass('result_error_icon') ;
 			}
 			
 			$this.attr("data-once","true") ;
-			gameScore = SUCCESS+1; 
-	        console.log(gameScore);
+			
+	        console.log("打对的" +gameScore);
 	        
-	        
+	        nextIndex += 1 ;
+	        /**判断是显示结果还是下一题*/
+	        if(nextIndex >= QUESTIONS.length){
+//				alert("已经是最后一题了哦，您答对了 , " + gameScore) ;
+				waitGame=setInterval(function(){
+            		gameResult();
+            		console.debug("答题结束  得分： " ,gameScore) ;
+            		if(waitGame){
+						clearInterval(waitGame);
+					}
+            	},500);
+			}
 	        /**显示下一题*/
-	        waitGame=setInterval(function(){
-            	initQuestion(nextIndex) ;
-            },500);
+	        else{
+				waitGame=setInterval(function(){
+            		initQuestion(nextIndex) ;
+            	},500);
+			}
 	        
 	    });
 	}
@@ -152,8 +158,8 @@ $(function(){
   
    /*初始化*/
     function initFun(){
-    	SUCCESS = 0;
-    	cindex = 0;
+//  	gameScore = 0;
+//  	cindex = 0;
     	$(".ques_userCop").html();
         $(".gamePage").hide();
          $(".gameOverWrap").hide();
