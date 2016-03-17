@@ -29,10 +29,11 @@ $(function(){
 	function initQuestion(index){
 		
 		var QNo = '<span>题目：</span>' ;
-		var QSpase = '<p class="ques_userCop">&nbsp;</p>' ;//站位
+		var QSpase = '<p class="ques_userCop">&nbsp;</p>' ;//选中答案  回填部分
 		var QTitle = '<p class="ques_remind" >{title}</p>' ;//诗句提示
 		/*选项*/
-		var QOption = '<div class="question_queNum" data-answer="{answer}" data-index="{index}"><span class="radioBtn"></span><p class="quest_verse">{opt}</p></div>' ;
+//		var QOption = '<div class="question_queNum" data-answer="{answer}" data-index="{index}"><span class="radioBtn"></span><p class="quest_verse">{opt}</p></div>' ;
+		var QOption = '<div class="question_queNum" data-answer="{answer}" data-index="{index}"><p class="quest_verse">{opt}</p></div>' ;
 	
 		var cindex = index || 0 ;
 		
@@ -68,14 +69,8 @@ $(function(){
   			/**标识该选项是否正确*/
   			if(ans == $option.id){
   				opts += QOption.replace('{answer}' ,true).replace('{opt}' , $option.option).replace('{index}' ,cindex) ;
-  				/*正确的时候背景图片换*/
-  				$('.question_queNum').css("background","url(../images/act_16QMing_puestion_rightBack.png)top center no-repeat");
-				$('span').contents().unwrap().wrap('<img class="result_icon" src="images/act_16QMing_puestion_righticon.png"/>');
   			}else{
   				opts += QOption.replace('{answer}' ,false).replace('{opt}' , $option.option).replace('{index}',cindex) ;
-  				
-  				$('.question_queNum').css("background","url(../images/act_16QMing_puestion_errorback.png)top center no-repeat");
-				$('span').contents().unwrap().wrap('<img class="result_icon" src="images/act_16QMing_puestion_erroricon.png"/>');
   			}
   		}) ;
 //	  		alert('第'+(item_index+1)+'题 问题是 ，' + $question.question + '\n选项是： '+ ops + "\n答案是： " + $question.answer) ;
@@ -90,10 +85,7 @@ $(function(){
 	  	}
 	  	$(".question_numb").html('第'+(cindex+1)+'题 ');
 	  	$(".question_title").html(content);
-//	  	$(".quest_verse").html(opts);//
 	  	$('#puestion_body').html(opts) ;
-	 // 	$(".ques_userCop").html($question.question);
-	  	//$(".quest_verse").html($question.answer);//此处是答案
 		  	
 		$('.question_queNum').unbind('tap') ;
 	
@@ -104,23 +96,15 @@ $(function(){
 			$('.question_queNum').unbind('tap') ;
 			
 			var nextIndex = parseInt($this.attr('data-index')) + 1 ;
-				var clickCont = $('.quest_verse').html();
+//				var clickCont = $('.quest_verse').html();
+				var clickCont = $this.html();
 //				alert(clickCont);
 				$(".ques_userCop").html(clickCont);
-				
-//				if(ans == $option.id){
-//	  				$('.question_queNum').css("background","url(../images/act_16QMing_puestion_rightBack.png)top center no-repeat");
-//					$('span').contents().unwrap().wrap('<img class="result_icon" src="images/act_16QMing_puestion_righticon.png"/>');
-//	  			}else{
-//	  				$('.question_queNum').css("background","url(../images/act_16QMing_puestion_errorback.png)top center no-repeat");
-//					$('span').contents().unwrap().wrap('<img class="result_icon" src="images/act_16QMing_puestion_erroricon.png"/>');
-//	  			}
-//				
 				
 			if(nextIndex >= 8){
 //				alert("已经是最后一题了哦，您答对了 , " + SUCCESS) ;
 //				return  ;
-				$("#startGameBtnWrap").remove();
+				$("#startGameBtnWrap").fadeOut();;
 				gameResult();
 			}
 			
@@ -147,7 +131,7 @@ $(function(){
     
         /*游戏结果*/
     function gameResult(){
-    	alert(gameScore);
+    	//alert(gameScore);
                 if(gameScore<=3){
                     var finalTextShow="看来吟诗作对你并不在行啊……";
                 }else if(gameScore>3 && gameScore <=5){

@@ -47,15 +47,15 @@
         .Pagecommonsty{background: url(images/act_16QMing_indexBJ.jpg) top center no-repeat;
         	background-size:100% 100% ;  position: absolute;
         }     
-        .indexComImg{width: 4rem;display: block;   position: fixed; bottom: 0;left: 1.15rem;
-        }    
-        .indexPage_bott {  position:relative;
+        .indexComImg{width: 100%;  position: fixed;bottom: 0;  left: 0;}    
+        .indexPage_bott {  position: absolute;top: 8rem; width: 100%;left: 0;
 		}    
-        .indexPage_bott img:nth-child(1){position: absolute;  width: 5.7rem;;top: .3rem;left: .54rem;}  
-        .indexPage_bott img:nth-child(2){ position: absolute;width: 4rem;top: 8.5rem;left: 1.2rem;} 
+        .indexPage_bott img{  width: 4.5rem; display: block;margin: 0 auto;}  
            
-        .indexPage_bott p{  text-align: center;font-size: 14px;  display: block;position: absolute;
-			  width: 4rem;  left: 1.2rem;  top: 9.65rem; font-family: 黑体;
+        #getActRule{   position: fixed; text-align: center;width: 100%;left: 0;
+			  bottom: 48px;
+			  font-size: 14px;
+			  font-weight: 600;font-family: 黑体;
 		 }
         /*活动规则*/
        	.comWrap1 {  width: 100%;height: 100%;position: absolute;top: 0; left: 0;    display: none;
@@ -64,7 +64,7 @@
         .comShowWrap1 {width:5.4rem;margin: auto;background: url(images/act_16QMing_indexRuleBJ.png)top center no-repeat;
         	background-size:100% 100% ;position: relative;  padding-bottom: .4rem;
         }
-        .comTextWrap1 p{  display: block;width: 4rem;margin: 0.3rem auto 0;}
+        .comTextWrap1 p{  display: block;width: 3rem;margin: 0.3rem auto 0;}
         .closeBtn{  width: 60px;float: right;color: #341111; font-size: 30px;text-align: center;
 		  height: 60px;  border-radius: 15px;position: absolute;top: .1rem;right: 0rem;
 		}
@@ -75,6 +75,11 @@
         .actRuleText h1{  font-size: 24px;text-align: center;color: #341111;line-height: 70px;}
          
          /*游戏结束*/
+        /*.gameOverWrap{z-index: 2;}*/
+        .gameOverText{  box-sizing: border-box;
+		  width: 4.8rem;
+		  padding: .4rem;
+		  margin: 0 auto;} 
         .closeAndBackClick{position: absolute; top: .1rem;right: 0.2rem; width: .6rem;
 		  }
         .closeAndBackClick img{width: 100%;}
@@ -84,11 +89,13 @@
 		  margin: 0 auto; overflow: hidden;
 		  }
 		
-		.gameOver  p{  display: block;width: 3rem;margin: 0.3rem auto 0;}
-		.butWrap{width: 3.5rem;margin: 0 auto;}
+		/*.gameOver  p{  display: block;width: 3rem;margin: 0.3rem auto 0;}*/
+		/*.butWrap{width: 3.5rem;margin: 0 auto;}*/
 		
-  		.gameOverBtn{width: 100%;float: left;  margin-top: 0.2rem;}
-  		.gameOverBtn img{width: 100%;float: left;  margin-top: 0.2rem;}
+  		.gameOverBtn{  display: block;width: 100%;
+  			margin: 0.2rem auto;}
+  		#goToGetHb img{width: 100%;}
+  		/*.gameOverBtn img{width: 100%;float: left;  margin-top: 0.2rem;}*/
   		/*游戏页*/
   		/*.startGameBtnWrap{width: 6.2rem;margin: 0 auto;}*/
   		/*.startGameBtnWrap_top{width: 6.2rem;position: relative;  font-size: 18px;color: #341111;overflow: hidden;}*/
@@ -99,51 +106,56 @@
 			  top: 0;left: .5rem;}
   		
   		
-  		.startGameBtnWrap_top {  width:100%;font-size: 18px; color: #341111;position: absolute;
-		  height: 1.8rem;top:0 ;left: 0;  opacity: 0;}
+  		.startGameBtnWrap_top {  width:100%;font-size: 18px; color: #341111;position: relative;
+		  height: 1.65rem; opacity: 0;}
 		  
-		.startGameBtnWrap_top img{  width: 2.6rem;display: inline-block; position: absolute;
-			  top: .47rem;  left: 1.9rem; z-index: 2;}
-		.startGameBtnWrap_top p{position: absolute;   top: .9rem;left: 2.75rem;  z-index: 2;}
-  		.startGameBtnWrap_inner{  width: 100%;position: relative;overflow: hidden;opacity: 0;}
+		/*.startGameBtnWrap_top img{  width: 2.6rem;display: inline-block; position: absolute;
+			  top: .47rem;  left: 1.9rem; z-index: 2;}*/
+		.startGameBtnWrap_top p{  position: absolute;top: .65rem;left: 2.5rem;display: block;
+  			width: 1.4rem;text-align: center;}
+  		.startGame_bodypage{  width: 100%;position: relative;overflow: hidden;opacity: 0;}
   		
-  		.scroTop {width: 6.2rem;/*display: block;margin: 0 auto;*/  position: absolute;
-		    top: 0;left: .1rem;z-index: 1;}
+  		.scroTop {width: 6.2rem;  position: absolute;top: 0;left: .1rem;}
 		    
-		.startGameBtnWrap_inner  .startGame_bodypage{ /* margin-top: 1.5rem;*/
+		.startGame_bodypage  .startGame_page{
             width:100%;-webkit-transform: translateY(-6.1rem);transform: translateY(-6.1rem);
         }
 		/*.startGame_bodypage img:nth-child(1){width: 5rem;}*/
 		/*.startGame_bodypage img:nth-child(2){width: 6.2rem;}*/
-		.startGame_page{  width: 5.4rem;  height: 8.2rem;background: #ab162f;margin: 0 auto;}
-		.startGame_question{  width: 5rem;background: #fef4ca;  margin: 0 auto;  height: 8.2rem;
+		/*.startGame_page{  width: 5.4rem;  height: 8rem;background: #ab162f;margin: 0 auto;}*/
+		.startGame_question{  width: 5rem;background: #fef4ca;  margin: 0 auto;  height: 8rem;
 			box-sizing: border-box;}
-		  
-		.bottomImg{ width: 6.2rem; margin: 0 auto;display: block;}
+		.scrollBody{  width: 5.2rem;margin: 0 auto;display: block;}  
+		.bottomImg{ width: 6.2rem; margin: 0 auto;display: block;  margin-top: -.3rem;}
   		
-  		#quest_text{  position: absolute;
+  		#quest_text{  position: absolute;  opacity:0;
 		  top: .6rem;
 		  width: 5rem;
 		  left: .7rem;}
-		.question_title {width: 4rem;  margin: 0.5rem auto .8rem;   font-size: 18px;   overflow: hidden;}
+		.question_title {width: 4.4rem;  margin: 0 auto ;   font-size: 20px;   overflow: hidden;}
 		.question_title span{  float: left;padding-left: .3rem;}
 		.question_title p{  word-break: break-all;  line-height: 30px;   text-align: center;}
 		.ques_remind{padding-left: 1rem;}
-  		.ques_userCop{  border-bottom: 1px solid #000; margin-left: 1rem;}
-  		/*.startGameBtnWrap_top img{width: 100%;float: left;}*/
+  		.ques_userCop{  border-bottom: 1px solid #000; margin-left: 1.1rem;}
   		
-  		.question_queNum {  width: 4.5rem;text-align: center;position: relative;margin: 0 auto;
-		  background: url(images/act_16QMing_puestion_commBack.png) top center no-repeat;
-		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .2rem;
+  		.question_queNum { padding-left: 1.15rem;
+		  background: url(images/act_16QMing_puestion_chooseComm.png) top center no-repeat;
+		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .4rem;
 			}
-		.question_queNum span{width: 15px;height: 15px;border-radius: 50%;background: transparent;
-  			position: absolute;border: 1px solid #785734;top: .32rem;left: .8rem;}
 		
-  		/*#puestion_body{padding-top: .65rem;}*/
+  		#puestion_body{  position: static;
+		  width: 4rem;
+		  margin: 0.7rem auto .2rem;}
   		/*适配小屏手机*/
+  		 @media screen and (max-height: 540px) {
+            .indexPageTitle{
+                height:8rem;
+            }
+
+        }
 	    @media screen and (max-height: 480px) {
 	            .puestion_title { padding:  0; }
-				.startGame_page {height: 6.4rem;}
+				/*.startGame_page {height: 6.4rem;}*/
 				.startGame_question{height: 6.4rem;}
 				.question_queNum{  margin-top: .1rem;}
 				.comTextWrap1 p {margin: 0rem auto;}
@@ -157,21 +169,15 @@
   		/*错误图片*/
     	.result_icon{  position: absolute;width: .5rem;top: .35rem;left: .3rem;}
 
-		.result_error_icon {  width: 4.5rem;text-align: center;position: relative;margin: 0 auto;
-		  background: url(images/act_16QMing_puestion_errorback.png) top center no-repeat;
-		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .2rem;
+		.result_error_icon {padding-left: 1.15rem; position: relative;margin: 0 auto;
+		  background: url(images/act_16QMing_puestion_chooseError.png) top center no-repeat;
+		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .4rem;
 			}
-		.result_error_icon span{width: 15px;height: 15px;background: url("images/act_16QMing_puestion_erroricon.png");
-  			position: absolute;border: 1px solid #785734;top: .32rem;left: .8rem;}
 		
-		.result_right_icon {  width: 4.5rem;text-align: center;position: relative;margin: 0 auto;
-		  background: url(images/act_16QMing_puestion_rightBack.png) top center no-repeat;
-		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .2rem;
+		.result_right_icon {  padding-left: 1.15rem;position: relative;margin: 0 auto;
+		  background: url(images/act_16QMing_puestion_chooseRight.png) top center no-repeat;
+		  background-size: 100% 100%;font-size: 18px;line-height: 58px;margin-top: .4rem;
 			}
-		.result_right_icon span{width: 15px;height: 15px;background: url("images/act_16QMing_puestion_righticon.png");
-  			position: absolute;border: 1px solid #785734;top: .32rem;left: .8rem;}
-		
-		
              
         .promptDiv{position: volumeabsolute;left: 0px;top: 0px;width: 180px;height: 90px;z-index: 99;display:none;}
 		.promptDiv .opDiv{position:absolute;left:0;top:0;width: 100%;height: 100%;background: none repeat scroll 0% 0% #333;opacity: 0.5;border-radius:10px;}
@@ -203,13 +209,12 @@
     </div>
     <!--首页-->
     <div class="indexPage Pagecommonsty" style="display: none;">
-        <img class="indexComImg indexPageTitle" src="images/act_16QMing_indexperson.png" alt="">
+        <img class="indexComImg indexPageTitle" src="images/act_16QMing_indextitle_old.png" alt="">
 	     <div class="indexPage_bott">
-	     	<img src="images/act_16QMing_indextitle.png" alt="">
+	     	<!--<img src="images/act_16QMing_indextitle.png" alt="">-->
 	     	<img id="goToGamePage" class="startBtn" src="images/act_16QMing_indexStart.png" alt="">
-	        <p id="getActRule">游戏规则</p>
 	     </div>
-	     
+	      <p id="getActRule">游戏规则</p>
 	     
         <div class="actRuleShow_wrap comWrap1" >
             <div class="actRuleShow comShowWrap1">
@@ -230,21 +235,28 @@
     <div class="gamePage Pagecommonsty" style="display: none;">
         <!--游戏开始页面-->
         <div class="startGameBtnWrap" >
-        	 <div class="startGame_topImgWrap">
+        	 <!--<div class="startGame_topImgWrap">
         	 	<img class="startGame_topImg" src="images/act_16QMing_index_quetTiticon.png" alt="">
         	 </div>
             <div class="startGameBtnWrap_top">
                 <img class="startGameBtnTitle" src="images/act_16QMing_index_quetTitleBak.png" alt="">
             	<!--<p>第<span class="question_numb">一</span>题</p>-->
-            	<p class="question_numb"></p>
-            </div>
+            	<!--<p class="question_numb"></p>
+            </div>-->
             <div class="startGameBtnWrap_inner">
-            	<img class="startGame_scrollBottom scroTop" src="images/act_16QMing_index_scrollBottom.png" alt="">
+            	<!--<img class="startGame_scrollBottom scroTop" src="images/act_16QMing_index_scrollBottom.png" alt="">-->
+            	<div class="startGameBtnWrap_top">
+            	<img class="startGame_scrollBottom scroTop" src="images/act_16QMing_index_scrollTop.png" alt="">
+            	<p class="question_numb"></p>
+            	</div>
             	<div class="startGame_bodypage">
-            		<div class="startGame_page">
+            		<!--
             			<div class="startGame_question"></div>
+            		-->
+            		<div class="startGame_page">
+	            		<img class="scrollBody" src="images/act_16QMing_index_scrollBody.png" alt="">
+	            		<img class="bottomImg" src="images/act_16QMing_index_scrollBottom.png" alt="">
             		</div>
-            		<img class="bottomImg" src="images/act_16QMing_index_scrollBottom.png" alt="">
             		<div id="quest_text">
 	        			<div class="question_title">
 	        				<!--<div style="width:4rem;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>-->
@@ -302,8 +314,8 @@
 	                    <!--</button>-->
                     </div>
                     <div class="shareAppPage" style="display:none">
-						<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
-						<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>
+						<img class="gameOverBtn appShareBtn" style="margin-top:.7rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16QMing_receive_AppshareFribtn.png"></img>
+						<img class="gameOverBtn appShareBtn" style="margin-top:.6rem;border:none;" id="shareAppPage_friRound" src="images/act_16QMing_receive_AppshareFriroundbtn.png"></img>
 		            </div>
                 </div>
             </div>
@@ -312,30 +324,30 @@
     </div>
 </div>
 <div id="shareFriSha">
-    <img src="images/act_16womenday_share.png" alt="">
+    <img src="images/act_16QMing_receive_share.png" alt="">
 </div>
 
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 //alert(navigator.userAgent);
-function getUrlEle(){
-	 var urldec=location.href.split("?")[1].split("&"); 
-	 var urlQuery={};
-	  var a,b;
-	 for(var i=0,j=urldec.length;i<j;i++){
-	 	 a=urldec[i].split("=")[0];
-	 	 b=urldec[i].split("=")[1];
-	 	 console.log(a.split("%EF%BC%9D"))
-	 	  if(b==undefined ){
-	 		 a=urldec[i].split("=")[0].split("%EF%BC%9D")[0];
-	 		 b=urldec[i].split("=")[0].split("%EF%BC%9D")[1];
-	 	 }; 
-	 		 urlQuery[a]=b;
-	 }; 
-	 return urlQuery;
- };
-  function appShareFun(){
+//function getUrlEle(){
+//	 var urldec=location.href.split("?")[1].split("&"); 
+//	 var urlQuery={};
+//	  var a,b;
+//	 for(var i=0,j=urldec.length;i<j;i++){
+//	 	 a=urldec[i].split("=")[0];
+//	 	 b=urldec[i].split("=")[1];
+//	 	 console.log(a.split("%EF%BC%9D"))
+//	 	  if(b==undefined ){
+//	 		 a=urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+//	 		 b=urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+//	 	 }; 
+//	 		 urlQuery[a]=b;
+//	 }; 
+//	 return urlQuery;
+// };
+function appShareFun(){
 	var token=getUrlEle().user_token;
     	if(token=="" || token ==null || token== undefined){
     		showResultApp("remind","请先登录后再分享");
@@ -349,40 +361,21 @@ function getUrlEle(){
 
 
 /*游戏页  画卷动画*/
-var pI=-1;
-var ptime=null;
-var pShowFun=function(maxPL,parEle){
-    pI++;
-    var len=parEle.find("p").length;
-    if(pI>=len) {
-        clearInterval(ptime);
+   var scrollMove=function(parEle){
         setTimeout(function(){
-            parEle.find("p[showNow=true]").removeAttr("showNow").fadeOut();
-            pI=-1;
-            ptime=setInterval(function(){
-                pShowFun(maxPL,parEle);
-            },1000);
-        },1000)
-        return false;
-    };
-};
- var scrollMove=function(parEle){
-        setTimeout(function(){
-            parEle.find(".startGame_bodypage").animate({"-webkit-transform":"translateY(0)","transform":"translateY(0)"},1000)
+            parEle.find(".startGame_page").animate({"-webkit-transform":"translateY(0)","transform":"translateY(0)"},1000)
         },500)
 
     }
- function ptimeFun(maxPL,parEle){
-    ptime=setInterval(function(){
-        pShowFun(maxPL,parEle);
-    },1500);
-}
  setTimeout(function(){
-            $(".startGameBtnWrap .startGameBtnWrap_top").fadeIn(2000,function(){
-                $(".startGameBtnWrap .startGameBtnWrap_inner").fadeIn("fast",function(){
+//           $(".startGameBtnWrap").addClass("firAni");
+ 			$("#loadShapePro").css({"width":"100%"})
+            $(".startGameBtnWrap .startGame_topImgWrap").fadeIn(2000,function(){
+                $(".startGameBtnWrap .startGameBtnWrap_top").fadeIn(2000);
+                $(".startGameBtnWrap .startGame_bodypage").fadeIn("fast",function(){
                     scrollMove($(".startGameBtnWrap"));
                     setTimeout(function(){
-                        ptimeFun(9,$("#userText"))
+                        $("#quest_text").fadeIn(2000);
                     },1000)
                 })
             });
@@ -395,18 +388,18 @@ var pShowFun=function(maxPL,parEle){
         var aImg=$("img");
         var _length = aImg.length;
         var progress = 0;
-        var audio=$("audio");
-        var loadPer=$("#loadPer");
+//      var audio=$("audio");
+        var loadPer=$("#loadPer");//加载进度条
         for (var i = 0; i < _length; i++) {
             aImg[i].src = aImg.eq(i).attr('src');
         };
-        for (var i = 0; i < audio.length; i++) {
-        	audio[i].src = audio.eq(i).attr('src');
-        }; 
+//      for (var i = 0; i < audio.length; i++) {
+//      	audio[i].src = audio.eq(i).attr('src');
+//      }; 
         //加载太慢时，在window.onload后5秒自动进入
         window.addEventListener("load",function(){
         	 timeOut=setTimeout(function(){
-        		 $("#loadShapePro").css({"width":"100%"})
+        		 $("#loadShapePro").css({"width":"100%"});
         		  loadPer.html("100%");
                  $('#loadingPage').fadeOut(function(){
                      $('#loadingPage').remove();
@@ -419,18 +412,19 @@ var pShowFun=function(maxPL,parEle){
         aImg.on('load', function () {
         	loadEnd()
         });
-        for(var i=0;i<audio.length;i++){
-        	 audio[i].addEventListener('canplaythrough', function(e){
-        		 loadEnd();
-             }, false);	
-        	
-        };
+//      for(var i=0;i<audio.length;i++){
+//      	 audio[i].addEventListener('canplaythrough', function(e){
+//      		 loadEnd();
+//           }, false);	
+//      	
+//      };
         function loadEnd(){
         	progress++;
-             var percLoad=Math.ceil(progress /( _length+audio.length) * 100)+"%";
+             var percLoad=Math.ceil(progress /_length * 100)+"%";
              $("#loadShapePro").css({"width":percLoad})
              loadPer.html(percLoad);
-              if (progress == _length+audio.length) {
+//            if (progress == _length+audio.length) {
+              	if (progress == _length) {
              	window.addEventListener("load",function(){
              		 setTimeout(function () {
                           $('#loadingPage').fadeOut(400,function(){
