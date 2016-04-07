@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>DIV+css完美仿真Textarea</title>
+	<script src="js/jquery-2.2.0.min.js"></script>
+	<style >
+		.test_box{width: 400px;min-height: 120px;max-height: 300px;
+			_height:120px;margin-left: auto;margin-right: auto;padding: 3px;
+			border: 1px solid #a0b3d6; font-size: 12px;  word-wrap: break-word; 
+			 overflow-x: hidden;    overflow-y: auto;
+			 _overflow-y: visible;
+		}
+	</style>
+</head>
+<body>
+	<div class="test_box" contenteditable="true"><br /></div> 
+	<script type="text/javascript" src="jquery-1.11.2.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+	$("#btn").unbind().click(function(){
+	$("#first").hide();
+	$("#sec").css("left","-200px").animate({"left":"0px"},500).show();
+	});
+	$("#btn2").unbind().click(function(){
+	$("#sec").hide();
+	$("#first").css("left","200px").animate({"left":"0px"},500).show();
+	});
+	$("#btn3").unbind().click(function(){
+	$("#first").hide();
+	$("#sec").css("top","200px").animate({"top":"0px"},500).show();
+	});
+	$("#btn4").unbind().click(function(){
+	$("#sec").hide();
+	$("#first").css("top","-200px").animate({"top":"0px"},500).show();
+	});
+	});
+	</script>
+	</head>
+<body>
+<div style="width:200px; height:200px;">
+<div id="first" style="text-align:center; width:200px; height:200px;position:absolute;">
+    <p>第一页</p>
+        <p>第一页</p>
+        <p>第一页</p>
+        <p>第一页</p>
+        <p>第一页</p>
+    </div>
+    <div id="sec" style="text-align:center; width:200px; height:200px; display:none;position:absolute;">
+        <p>第二页</p>
+        <p>第二页</p>
+        <p>第二页</p>
+        <p>第二页</p>
+        <p>第二页</p>
+    </div>
+</div>
+<div style="width:200px; height:50px;">
+<input type="button" value="向右滚动" id="btn"/>
+    <input type="button" value="向左滚动" id="btn2"/>
+    <input type="button" value="向上滚动" id="btn3"/>
+    <input type="button" value="向下滚动" id="btn4"/>
+</div>
+</body>
+</html>

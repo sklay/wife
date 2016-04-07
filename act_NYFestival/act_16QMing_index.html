@@ -11,6 +11,8 @@
     <script src="js/fx.js"></script>
     <script src="js/fx_methods.js"></script>
     <script src="js/html_common.js"></script>
+    <script src="js/createjs-2014.12.12.min.js"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
     <style>
         *{margin:0;padding:0;}
         i{font-style:normal;text-align:center;}
@@ -27,15 +29,20 @@
             100%{-webkit-transform:rotate(0deg)}
         }
         #loadingPage{  width: 100%;height: 100%; background: #212e3a;}
-        .loadingImg{width:100%;box-sizing:border-box;height:4.5rem;  position: relative;}
-        .loadingImg img{width: 1rem;position: absolute;left: 2.7rem;
+        .loadingImg{width:100%;box-sizing:border-box;height:5rem;  position: relative;}
+        .loadingImg img{width: 1rem;position:absolute; left: 2.7rem;
         }
-        .loadingImg img:nth-child(1){width: 0.7rem;top: 2.387rem; left: 2.88rem;
+        .loadingImg img:nth-child(1){  width: .8rem;
+		  left: 2.8rem;
+		  top: 2.35rem;
+		  z-index: 1; 
 			  -webkit-transform-origin: 50% 100%;
 			  -webkit-animation: loadImgmove 1.2s linear infinite;
-			 
         }
-        .loadingImg img:nth-child(2){top: 3.5rem;}
+         .loadingImg img:nth-child(2){
+         	top: 3.5rem;
+        }
+        
         .loadText{font-size:20px;color:#fff;text-align:center;line-height:50px;margin-top:.7rem;font-weight:600;}
         .loadShape{width:4.5rem;margin:0 auto;background:#070910; border-radius:10px;height:10px;overflow:hidden;}
         #loadShapePro{border-radius:10px;height:10px;float:left; background: rgb(255,244,209); /* Old browsers */
@@ -191,6 +198,13 @@
 		.promptDiv .promptContent{position:absolute;left:0;top:0;width: 100%;height: 100%;}
 		.promptDiv img{display:block;margin:12px auto 10px auto;width:45px;height:45px;}
 		.promptDiv .title{text-align: center;color:#fff;font-size:12px;}
+    
+    
+     #myCanvas{
+            display:block;width:3rem;margin:0 auto;text-align:center;
+        }
+    
+    
     </style>
       <script>
 		var _hmt = _hmt || [];
@@ -209,10 +223,9 @@
     <div id="loadingPage" >
         <div class="loadingImg">
             <img src="images/act_16QMing_loadHead.png" alt="">
-            <img src="images/act_16QMing_loadBody.png" alt="">
+           <img src="images/act_16QMing_loadBody.png" alt="">
         </div>
-        <p class="loadText">Loading……<span id="loadPer"></span></p>
-        <div class="loadShape"><span id="loadShapePro"></span></div>
+        <canvas id="myCanvas"></canvas>
     </div>
     <!--首页-->
     <div class="indexPage Pagecommonsty" style="display: none;">
@@ -301,7 +314,7 @@
 <div id="shareFriSha">
     <img src="images/act_16QMing_receive_share.png" alt="">
 </div>
-
+<audio src="images/act_16QMing_bgmusic.mp3" id="audioBackMusic"  style="display:none" loop preload></audio>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
@@ -337,76 +350,71 @@ function appShareFun(){
     };
 
 
-/*游戏页  画卷动画*/
-   var scrollMove=function(parEle){
-        setTimeout(function(){
-            parEle.find(".startGame_page").animate({"-webkit-transform":"translateY(0)","transform":"translateY(0)"},1000)
-        },500)
+/* window加载 */
+var canvas = document.getElementById("myCanvas");
+var stage = new createjs.Stage(canvas);
+var manifest=[];
+var preload;
+var progressText = new createjs.Text("正在加载", "2rem Arial", "#dd4814");
+progressText.x = 125 - progressText.getMeasuredWidth() / 2;
+progressText.y = 20;
+stage.addChild(progressText);
+stage.update();
 
-    }
- setTimeout(function(){
- 			$("#loadShapePro").css({"width":"100%"})
-            $(".startGameBtnWrap .startGame_topImgWrap").fadeIn(2000,function(){
-                $(".startGameBtnWrap .startGameBtnWrap_top").fadeIn(2000);
-                $(".startGameBtnWrap .startGame_bodypage").fadeIn("fast",function(){
-                    scrollMove($(".startGameBtnWrap"));
-                    setTimeout(function(){
-                        $("#quest_text").fadeIn(2000);
-                    },1000)
-                })
-            });
-        },1500)
+//定义相关JSON格式文件列表
+function setupManifest() {
+    var imgL=$("img").length;
+    for(var i=1;i<imgL;i++)
+        manifest.push({src:$("img").eq(i).attr("src")});
+    var audioL=$("audio").length;
+    for(var i=1;i<audioL;i++)
+    	manifest.push({src:$("audioL").eq(i).attr("src")});
+};
+//开始预加载
+function startPreload() {
+    preload = new createjs.LoadQueue(true);
+    //注意加载音频文件需要调用如下代码行
+  	preload.installPlugin(createjs.Sound);
+   //preload.on("fileload", handleFileLoad);
+    preload.on("progress", handleFileProgress);
+    preload.on("complete", loadComplete);
+    preload.loadManifest(manifest);
+}
 
+//已加载完毕进度
 
-		/* 加载样式 */
-	    var preLoad=function(){
-        var timout=null;
-        var aImg=$("img");
-        var _length = aImg.length;
-        var progress = 0;
-        var loadPer=$("#loadPer");//加载进度条
-        for (var i = 0; i < _length; i++) {
-            aImg[i].src = aImg.eq(i).attr('src');
-        };
-        //加载太慢时，在window.onload后5秒自动进入
-        window.addEventListener("load",function(){
-        	 timeOut=setTimeout(function(){
-        		 $("#loadShapePro").css({"width":"100%"});
-        		  loadPer.html("100%");
-                 $('#loadingPage').fadeOut(function(){
-                     $('#loadingPage').remove();
-                     winOnLoad();
-                     $(".indexPage").fadeIn();
-                 });
-             },5000); 
-        },false);
-      
-        aImg.on('load', function () {
-        	loadEnd()
-        });
-        
-        function loadEnd(){
-        	progress++;
-             var percLoad=Math.ceil(progress /_length * 100)+"%";
-             $("#loadShapePro").css({"width":percLoad})
-             loadPer.html(percLoad);
-              	if (progress == _length) {
-             	window.addEventListener("load",function(){
-             		 setTimeout(function () {
-                          $('#loadingPage').fadeOut(400,function(){
-                                $('#loadingPage').remove();
-                              winOnLoad()
-                          });
-                            $(".indexPage").fadeIn()
-                          clearTimeout(timeOut);
-                      }, 500);
-             	},false)
-                
-             }
-        };
-
-    }
-   preLoad(); 
+//加载中动画
+var load={};
+load.loadAniBoo=true;
+load.loadNum=0;
+load.loadAniTime=null;
+function handleFileProgress(event){
+	if(load.loadAniBoo){
+		load.loadAniTime=setInterval(function(){
+			if(load.loadNum>=8){
+				load.loadNum=0
+			}
+			$(".loadingImg").find("img").eq(load.loadNum).addClass("loadImgmove").siblings().removeClass("loadImgAni");
+			load.loadNum++;
+			progressText.text = "已加载 " + (preload.progress*100|0) + " %";
+		    stage.update(); 
+		},500)
+		load.loadAniBoo=false;
+	}else{
+		return false;
+	}
+}
+//全部资源加载完毕
+function loadComplete(event) {
+	setTimeout(function(){
+		$("#loadingPage").remove();
+		$(".indexPage").fadeIn(1000);
+	   createjs.Sound.registerSound( {src:"images/act_16QMing_indexbgmusic.mp3", id:"error"});
+	  
+     },1000);
+};
+setupManifest();
+startPreload();
    
     function winOnLoad(){
 		/* 获取token */    	

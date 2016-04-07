@@ -1,0 +1,133 @@
+/*初始化样式*/
+*{margin: 0;padding: 0;}
+li{list-style: none;}
+a{color: #333;}
+/*有的浏览器默认的背景色是透明，还有主题设置会干扰*/
+body{background: #fff;font-size: 12px;font-family: arial;}
+.clear{clear: both;}
+input{border: 1px solid #999999;}
+input:focus{outline: none;}
+/*初始化结束*/
+.container{
+	/*当浏览器达到这个值的时候就不会再次缩小了，如果不设置这个值，当窗口大小改变时，整个页面的样式就会被改变
+ 	所以设一个最小宽度做响应式的布局
+ * */
+	min-width: 810px;
+}
+/*页面样式*/
+.nav{
+	margin-top: 19px;
+}
+.nav ul{
+	float: right;
+	margin-right: 10px;
+}
+.nav ul li{float: left;
+	font-size: 13px;
+	font-weight: bold;
+	margin-left: 20px;/*间距*/
+	line-height: 23px;
+	height: 23px;
+}
+.nav ul li.no_bold{
+	font-weight: normal;
+}
+
+.nav ul li.more-project{
+	font-weight: normal;
+	background: #38f;
+	padding: 0 5px;
+}
+/*a 标签的特殊性，必须给a单独设置*/
+.nav ul li.more-project a{color: #fff;
+	text-decoration: none;
+}
+.nav ul li.more-project a:hover{
+	text-decoration: underline;
+}
+/*百度logo */
+.baidu-logo{
+	text-align: center;
+	/*padding-top: 4px;*/
+	padding: 4px 0 22px;
+}
+.search form{
+	/*text-align: center;*/
+}
+.search form{
+	width: 640px;
+	margin: 0 auto;
+}
+/*两个input 之间有缝隙，但是想让俩个紧紧贴合，可以给这两个元素都float,
+ 但是如果设置了浮动，原本的最外面的祖父元素 的text-align: center;就不起作用了，
+ 此时，可以包裹这两元素的 父级的form设置一个可以包裹这两个元素宽度的宽度
+ * 
+ * */
+.search input{
+	float: left;
+}
+/*只给input的文本设置样式,属性选择器*/
+.search input[type=text]{
+	width: 533px;/*原本设置框度是539px，但是下面给input的光标设置了一个padding-left:6px,
+		改变了盒模型，所以要把框减去6px,变成533px
+	* */
+	border-right: none;
+	height: 34px;
+	line-height: 34px;
+	border-color:#b6b6b6 ;
+	padding-left: 6px;
+}
+.search input[type=text]:hover{
+	border-color:#8f8f8f ;
+}
+.search input[type=text]:focus{
+	border-color:#38f ;
+}
+.search input[type=button]{
+	background: #317ef3;
+	border:none;
+	box-shadow: 1px 1px 1px #ccc;
+	height: 36px;
+	line-height: 36px;
+	color: #fff;
+	width: 100px;
+	text-align: center;
+	font-size: 15px;
+	/*margin-left: -3px;*/
+}
+.footer .footer-in{
+	width: 640px;
+	margin: 0 auto;
+	padding-top: 200px;
+}
+.footer .footer-in .footer-box {
+	float: left;
+	margin-right: 33px;
+}
+.footer .footer-in .footer-box .footer-code{
+	float: left;
+}
+.footer .footer-in .footer-box .box-text{
+	float: left;
+	line-height: 30px;
+	margin-left: 10px;
+	color: #999999;
+}
+.footer .footer-in .footer-box .box-text .p-bold{
+	font-weight: bold;
+	color: #666;
+}
+.footer .footer-in .footer-right{
+	float: left;
+	width: 330px;
+}
+.footer .footer-in .footer-right p {
+	line-height: 20px;
+}
+.footer .footer-in .footer-right p a{
+	margin-right: 62px;
+	color: #666;
+}
+.footer .footer-in .footer-right p a:nth-child(3){
+	margin-right:0;
+}

@@ -20,10 +20,178 @@
   position: absolute;}
   #ww{width: 100%;height: 100px;background: #FF0000;position: absolute;z-index: 1;}
   .qq:hover{z-index: 2;}
+  
+  
+  
+  #yin-yang { 
+width: 96px; 
+height: 48px; 
+background: #eee; 
+border-color: red; 
+border-style: solid; 
+border-width: 2px 2px 50px 2px; 
+border-radius: 100%; 
+position: relative; 
+} 
+#yin-yang:before { 
+content: ""; 
+position: absolute; 
+top: 50%; 
+left: 0; 
+background: #eee; 
+border: 18px solid red; 
+border-radius: 100%; 
+width: 12px; 
+height: 12px; 
+} 
+#yin-yang:after { 
+content: ""; 
+position: absolute; 
+top: 50%; 
+left: 50%; 
+background: red; 
+border: 18px solid #eee; 
+border-radius:100%; 
+width: 12px; 
+height: 12px; 
+} 
+
+
+
+#burst-8 { 
+background: red; 
+width: 80px; 
+height: 80px; 
+position: relative; 
+text-align: center; 
+-webkit-transform: rotate(20deg); 
+-moz-transform: rotate(20deg); 
+-ms-transform: rotate(20deg); 
+-o-transform: rotate(20eg); 
+transform: rotate(20deg); 
+} 
+#burst-8:before { 
+content: ""; 
+position: absolute; 
+top: 0; 
+left: 0; 
+height: 80px; 
+width: 80px; 
+background: red; 
+-webkit-transform: rotate(135deg); 
+-moz-transform: rotate(135deg); 
+-ms-transform: rotate(135deg); 
+-o-transform: rotate(135deg); 
+transform: rotate(135deg); 
+} 
+
+
+
+.box{
+    height:200px;
+    background:#ECEEFE;
+    position:relative;
+}
+.fir{
+    width:300px;
+    height:60px;
+    background:#707CDA;
+    border-radius:50px;
+    position:relative;
+    left:50px;
+}
+.sec{
+    width:60px;
+    height:60px;
+    background:#ECEEFE;
+    border-radius:45px;
+    position:absolute;
+    top:0;
+    left:50px;
+}
+.sec2{
+    width:60px;
+    height:60px;
+    background:#ECEEFE;
+    border-radius:45px;
+    position:absolute;
+    top:0;
+    left:50px;
+}
+.sec3{
+    width:60px;
+    height:60px;
+    background:#ECEEFE;
+    border-radius:45px;
+    position:absolute;
+    top:0;
+    left:50px;
+}
+.sec4{
+    width:60px;
+    height:60px;
+    background:#ECEEFE;
+    border-radius:45px;
+    position:absolute;
+    top:0;
+    left:50px;
+}
+.sec::after,.sec::before{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+
+.sec::before{
+    content:"";
+    display:block;
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    background:#707CDA;
+}
+.sec::after{
+    content:"1";
+    display:block;
+    color:#FFF;
+    font-size:30px;
+    font-weight:bold;
+}
+
+
+.boxwrap{width: 600px;height: 200px;border: 1px;background: #FF0000;}
+.box1{padding: 0 20px;width: 200px;height: 200px;background: #707CDA;float: left;box-sizing: border-box;}
+.box2{width: 200px;height: 200px;background: green;float: left;}
+.box3{width: 200px;height: 200px;background: #000;float: left;}
+.boxwrap::after{content: "";display: block;clear: both;}
+
+
+
+
+/*乘法表*/
+table {
+      width: 900px;
+  height: 462px;
+  border-spacing: 15px;
+}
+table th {
+      background: #C5F7F9;
+}
+body {
+    text-align: center;
+}
+h1 {
+    font-family: "微软雅黑", Verdana, sans-serif, "宋体";
+    color: #666;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
 		</style>
 	</head>
 	<body>
-		<div class="container">
+		<!--<div class="container">
 			<div class="qq" style="position: relative">
 				<p class="dt">配送至：北京</p>
 				<ul class="dd">
@@ -36,9 +204,143 @@
 					<li>电脑</li><li>电脑</li>
 				</ul>
 			</div>
-		</div>
-		<div id="ww">
+		</div>-->
+		<div id="yin-yang">
 			
 		</div>
+		<br />
+		<div id="burst-8">
+			
+		</div>
+		<br />
+		<!--<div class="box">
+		    <div class="fir">
+		    </div>
+		     <div class="sec">
+		    </div>
+		</div>-->
+		<br />
+		<div class="boxwrap">
+			<div class="box1 "></div>
+			<div class="box2 "></div>
+			<div class="box3 "></div>
+		</div>
 	</body>
+	<script type="text/javascript">
+    document.write("<table>");
+    var str = "js九九乘法表";
+    document.write("<h1>" + str + "</h1>");
+    for ( var x = 1; x <= 9; x++) {
+        document.write("<tr>");
+        for ( var y = 1; y <= x; y++) {
+            document.write("<th>" + x + "*" + y + "=" + (x * y) + "</th>");
+        }
+        document.write("</tr>");
+    }
+    document.write("</table>");
+    
+    
+    
+     //实在想不出，就用笨法一个一个打印，先出效果  
+            //打印菱形的上半部分  
+            for(var i=0;i<6;i++){  
+                for(var k=0;k<6-i-1;k++){  
+                    document.writeln(" ");  
+                }  
+                for(var j=0;j<=(2*i-1)+1;j++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            }  
+          /*  //打印菱形的下半部分  
+            for(var i=0;i<5;i++){  
+                for(var k=0;k<i+1;k++){  
+                    document.writeln(" ");  
+                }  
+                for(var m=0;m<(9-3*i)+i;m++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            }  */
+           /* document.writeln("=============<br/>"); 
+            document.writeln("=============<br/>"); 
+            for(var i=0;i<6;i++){  
+                for(var k=0;k<6-i-1;k++){  
+                    document.writeln(" ");  
+                }  
+                for(var j=0;j<=(2*i-1)+1;j++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            }  
+            document.writeln("=============<br/>"); 
+            document.writeln("=============<br/>"); 
+            for(var i=0;i<6;i++){  
+                for(var j=0;j<=(2*i-1)+1;j++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            }  
+            document.writeln("=============<br/>"); 
+            document.writeln("=============<br/>");
+            for(var i=0;i<5;i++){  
+                for(var k=0;k<i+1;k++){  
+                    document.writeln(" ");  
+                }  
+                for(var m=0;m<(9-3*i)+i;m++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            } 
+	 document.writeln("=============<br/>"); 
+            document.writeln("=============<br/>");*/
+	/*for(var i=0;i<6;i++){  
+                for(var j=0;j<=(2*i-1)+1;j++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+		}
+	document.writeln("=============<br/>"); 
+            document.writeln("=============<br/>");
+	for(var i=1;i<6;i++){  
+                for(var j=1;j<=i;j++){  
+                    document.writeln("*");  
+                }  
+                document.writeln("<br/>");  
+            } 
+	
+	
+	for ( var x = 1; x <= 9; x++) {
+        for ( var y = 1; y <= 2*x-1; y++) {
+            document.writeln("*");
+        }
+        document.writeln("<br/>");
+    }*/
+	/*直角三角形*/
+	for (i = 0; i < 5; i++) {//控制行数
+		/*星星的数量*/
+		 for (n = 0; n <1+(i*2); n++) {
+	        document.write("*");
+	    }
+		 /*空格数*/
+	    for (j = 0; j < 5-i; j++) {
+	        document.write("&nbsp;");
+	    }
+	    document.writeln("<br/>");
+	}
+	for (i = 0; i < 5; i++) {//控制行数
+		 /*空格数*/
+	    for (j = 0; j < 5-i; j++) {
+	        document.write("&nbsp;");
+	    }
+		/*星星的数量*/
+		 for (n = 0; n <1+(i*2); n++) {
+	        document.write("*");
+	    }
+		
+	    document.writeln("<br/>");
+	}
+	/*以上说明   空格数和星星的数量  位置调换    三角形的斜切面  朝向会变化*/
+</script>
+
 </html>

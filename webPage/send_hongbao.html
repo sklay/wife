@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机抽奖</title>
+	</head>
+	<body>
+		<div style="min-width: 900px;text-align: center;">
+			<input style="margin: 88px;  width: 100px;height: 40px;line-height: 40px;font-size: 24px;" type="button" value="发红包" onclick="selectPerson()">
+		</div>
+		<div id="box" style="font-size: 48px;color: #FF0000;text-align: center;">谁发红包</div>
+		<script>
+			var personname = ['123','12','25','1','7','100'];
+			var doc = document.getElementById("box");
+			function selectPerson(){
+				var cont = 0;
+				var cont2 = 0;
+				var timer = setInterval(function(){
+					cont = Math.floor(Math.random() * personname.length);
+					
+					if(cont === cont2){
+						if((cont+1) >= personname.length){
+							doc.innerHTML = personname[cont-1];
+							
+						}else{
+							doc.innerHTML = personname[cont+1];
+						}
+						
+					}else{
+						doc.innerHTML = personname[cont];
+					}
+					
+					cont2 = cont;
+					console.debug('cont2');
+					
+				},11);
+				setTimeout(function(){
+					clearInterval(timer);
+					personname.splice(cont,cont+1);
+				},2000);
+			}
+			
+		/*抽奖： 随机产生，抽完一个 应该把抽到的那个移除*/
+		/*支持哪个浏览器
+		 	if ((navigator.userAgent.indexOf('MSIE') >= 0) && (navigator.userAgent.indexOf('Opera') < 0))
+		 		{alert('你是使用IE')}
+		 	else if (navigator.userAgent.indexOf('Firefox') >= 0)
+		 		{alert('你是使用Firefox')}
+		 	else if (navigator.userAgent.indexOf('Opera') >= 0)
+		 		{alert('你是使用Opera')}else
+		    if(navigator.userAgent.indexOf('AppleWebKit') >= 0)
+		    	{alert("webkit")}
+		    else{alert('你是使用其他的浏览器浏览网页！')}
+		    
+		    * */
+		</script>
+	</body>
+</html>

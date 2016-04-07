@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		 <script src="js/jquery-2.2.0.min.js"></script>
+		<style>
+			*{margin: 0;padding: 0;}
+			body{  font: 12px arial;  background: #fff;}
+			.content{min-width: 810px;height: 100%;min-height: 600px;}
+			.nav{height:100%;overflow: hidden;position: relative;}
+			.ul{width:400px;overflow: hidden;float: right;  margin: 19px 0 5px 0;
+  				padding: 0 96px 0 0;}
+			.ul a.mnav{list-style: none;float: left;
+				margin-left: 20px;color: #333;text-decoration: underline;
+				font-weight: bold;font-size: 13px;line-height: 24px;}
+			.ul a.ul_more{
+			  display: inline-block;
+			  height: 23px;
+			  background: #38f;
+			  border-bottom: 1px solid #38f;
+			  margin-left: 19px;
+			  margin-right: 2px;
+			  line-height: 24px;
+			  font-size: 13px;
+			  text-align: center;
+			  color: white;
+			  width: 60px;
+			  float: left;
+			  position: absolute;
+			  right: 10px;}
+			div.lg{padding-bottom: 100px;text-align: center;}
+			.op_wrap_input{margin: 22px auto 0;
+				  width: 644px;
+				  text-align: left;}
+		.inp{  border: 1px solid #b6b6b6;
+			  /*border-color: #7b7b7b #b6b6b6 #b6b6b6 #7b7b7b;*/
+			  background: #fff;
+			  display: inline-block;
+			  vertical-align: top;
+			  width: 539px;
+			  margin-right: -3px;
+			  border-right-width: 0;
+			  border-color: #b8b8b8 transparent #ccc #b8b8b8;
+			  overflow: hidden;
+			  height: 34px;
+			  }
+		.sinp_wrap{position: relative;}
+		  .icon{  margin-top: -14px;
+			  height: 27px;
+			  width: 25px;
+			  background: #fff url(images/photo.png)0 0 no-repeat;
+			  position: absolute;
+			  right: 11px;
+			  top: 50%;
+			  z-index: 1;
+		  }
+		 .inp input{  width: 500px;}
+		 .s_input{  width: 526px;
+			  height: 22px;
+			  font: 16px/18px arial;
+			  line-height: 22px\9;
+			  margin: 6px 0 0 7px;
+			  padding: 0;
+			  background: transparent;
+			  border: 0;
+			  outline: 0;
+			  -webkit-appearance: none;}
+		.bg_btn{
+			  background-image: none;
+			    width: auto;
+			  height: auto;
+			  border-bottom: 1px solid transparent;
+			    display: inline-block;
+			  background-position: -120px -48px;
+			  z-index: 0;
+			  vertical-align: top;
+		}
+	.s_btn{
+		  background-image: none;
+		  width: 100px;
+		  height: 36px;
+		  color: white;
+		  font-size: 15px;
+		  letter-spacing: 1px;
+		  background: #3385ff;
+		  border-bottom: 1px solid #2d78f4;
+		  outline: medium;
+		  -webkit-appearance: none;
+		  -webkit-border-radius: 0;
+		    background-position: 0 -48px;
+  		cursor: pointer;
+	}
+	input{padding: 0;border: 0;}
+	.tf_icon{width: 100%;height:100px;text-align:center;  margin: 500px auto 20px;
+	overflow: hidden;}
+		
+	.tf_code{display: inline-block;}	
+	.tf_code_item{float: left;}
+	.item_2{margin-left: 33px;}
+	.tf_code_item_img{
+		background: url(images/code.png)no-repeat 0 0;
+		width: 80px;
+		height: 80px;
+		float: left;
+	}
+	.tf_code_text{  float: left;
+		  color: #999;
+		  line-height: 23px;
+		  margin: 20px 0 0 10px;}
+  .tf_code_text p{text-align: left;}
+  .tf_code_text b{color: #666;
+  font-weight: bold;}
+  .tf_code_text span{  letter-spacing: 1px;}
+  .tf_conwr{
+  	  display: inline-block;
+  text-align: left;
+  margin-left: 33px;
+  line-height: 22px;
+  position: relative;
+  top: 8px;
+  }
+  .tf_conwr a{color: #999;}
+  .oneh a.self{margin-left: 0;}
+  .oneh a{margin-left: 62px;}
+  .cp_icon{background: url(images/icon.png)0 0 no-repeat;
+  		    width: 18px;
+  height: 22px;
+  display: inline-block;
+  overflow: hidden;
+  background-position: 0;
+  position: relative;
+  top: 7px;
+  }
+	.web_icon{ background-position: -623px -96px;
+  position: relative;
+  top: 5px;
+  margin-right: 6px;
+    width: 20px;
+  height: 20px;
+  display: inline-block;
+  overflow: hidden;
+  background: url(images/mark.png)0 0 no-repeat;
+}
+
+
+
+/*右侧*/
+	.right_wrap{opacity: 0;
+		width: 100px;height: 100%;background: #F1F1F1;
+		position: absolute;right: 0;top: 0;
+	}
+	.right_wrap_list{margin: 24px 5px;}
+	.r_comm{border-bottom: 1px solid #DDDDDD;
+		line-height: 30px;position: relative;
+	}
+	.right_list_icon{  width: 45px;
+		  height: 40px;
+		  background: url(images/backimg.png)center center no-repeat;
+		  background-position: 3px 16px;
+		  display: inline-block;
+		  right: 0;
+		  top: 0;
+		  z-index: 2;
+	}
+	.r_1{  background-position: -46px 4px;}
+	.r_2{  background-position: -91px 4px;}
+	.r_3{  background-position: -135px 4px;}
+	.r_4{  background-position: -180px 5px;}
+	.r_5{  background-position: -228px 6px;}
+	
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div class="nav">
+				<div class="ul">
+					<a href="#" class="mnav">糯米</a>
+					<a href="#" class="mnav">新闻</a>
+					<a href="#" class="mnav">hao123</a>
+					<a href="#" class="mnav">地图</a>
+					<a href="#" class="mnav">视频</a>
+					<a href="#" class="mnav">贴吧</a>
+					<a href="#" class="mnav">登录</a>
+					<a href="#" class="mnav">设置</a>
+					<a href="#" class="ul_more" id="ul_more" style="display: block;">更多产品</a>
+				</div>
+				
+			</div>
+			<div class="op_wrap">
+				<div class="lg">
+					<img src="images/bd_logo1.png" width="270" height="129"/>
+				</div>
+			<div class="op_wrap_input">
+				<span class="inp sinp_wrap">
+					<span class="icon"></span>
+					<input class="s_input" maxlength="255" />
+				</span>
+				<span class="bg_btn">
+					<input class="s_btn" type="button" value="百度一下" />
+				</span>
+				</div>
+			</div>
+		<div class="tf_icon">
+			<div class="tf_code">
+				<div class="tf_code_item item_1">
+					<div class="tf_code_item_img"></div>
+					<div class="tf_code_text"> 
+						<p><b>手机百度</b></p>
+						<p><span>快人一步</span></p>
+					</div>
+				</div>
+				<div class="tf_code_item item_2">
+					<div class="tf_code_item_img"></div>
+					<div class="tf_code_text"> 
+						<p><b>百度糯米</b></p>
+						<p><span>一元大餐</span></p>
+				</div>
+			</div>
+			<div class="tf_conwr">
+				<p class="oneh">
+					<a href="#" class="self">把百度设为主页</a>
+					<a href="#" >关于百度</a>
+					<a href="#">About&nbsp;&nbsp;Baidu</a>
+				</p>
+				<p class="cp">
+					©2016 Baidu 
+					<a href="#">使用百度前必读</a>
+					<a href="#">意见反馈</a>
+					 京ICP证030173号 
+					 <i class="cp_icon"></i>
+				</p>
+				<p class="web" style="  margin-left: -7px;">
+					<i class="web_icon"></i>
+					京公网安备11000002000001号
+				</p>
+			</div>
+			<div class="right_wrap">
+					<div class="right_wrap_list r_comm">
+						<p>更多产品</p>
+					</div>
+					<div class="right_wrap_list r_comm">
+							<i class="right_list_icon"></i>
+							<p>音乐</p>
+					</div>
+					<div class="right_wrap_list r_comm ">
+						<i class="right_list_icon r_1"></i>
+						<p>图片</p>
+					</div>
+					<div class="right_wrap_list r_comm ">
+						<i class="right_list_icon r_2"></i>
+						<p>知道</p>
+					</div>
+					<div class="right_wrap_list r_comm ">
+						<i class="right_list_icon r_3"></i>
+						<p>文库</p>
+					</div>
+					<div class="right_wrap_list r_comm ">
+						<i class="right_list_icon r_4"></i>
+						<p>风云榜</p>
+					</div>
+					<div class="right_wrap_list r_comm ">
+						<i class="right_list_icon r_5"></i>
+						<p>百度推广</p>
+					</div>
+					<div class="right_wrap_list">
+						<p><a href="#">全部产品>></a></p>
+					</div>
+				</div>
+		</div>
+		</div>
+	</body>
+	<script>
+	window.onload= function(){
+		$('#ul_more').mouseover(function(){
+			alert(1);
+			 $('.right_wrap').attr("style","opacity:1;");
+			 // $(this).attr("style","background:red;");
+		});
+	}
+		
+	</script>
+</html>
