@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="style/baidu_tongji_new.css" />
+		<link rel="stylesheet" href="style/initialize.css" />
+		 <script src="js/jquery-2.2.0.min.js"></script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="content clearfix">
+				<div class="content-top ">
+					<p>
+						<a href="#">官方贴吧</a>
+						|
+						<a  href="#">联系我们</a>
+					</p>
+				</div>
+				<div class="content-nav clearfix">
+					<div class="logo-img">
+						<img src="images/login_logo.png" width="335" height="45"/>
+					</div>
+					<div class="nav-list clearfix">
+						<a class="a1" href="#"></a>
+						<a class="a2" href="#"></a>
+						<a class="a3" href="#"></a>
+						<span class="code">
+							<span class="code-img">二维码</span>
+						</span>
+						<div class="code-hidden">
+								<img src="images/erweima.png" width="166" height="335" />
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<!--导航部分-->
+		<div class="nav-list">
+			<div class="navlist-con clearfix">
+				<div class="navlist-con-l">
+					<ul class="clearfix">
+						<li class="checked">
+							<a href="#">首 页</a>
+						</li>
+						<li>
+							<a href="#">产品介绍</a>
+						</li>
+						<li>
+							<a href="#">带你入门</a>
+						</li>
+						<li>
+							<a href="#">成功案例</a>
+						</li>
+						<li>
+							<a href="#">帮助中心</a>
+						</li>
+					</ul>
+				</div>
+				<div class="navlist-con-r">
+					<a class="a-1" href="#">登录</a>
+					<a class="a-2" href="#">注册</a>
+				</div>
+			</div>
+		</div>
+		<!--内容 页面主体-->
+		<div class="container">
+			<div class="slider-bar">
+				<div class="container-img">
+					<ul>
+						<li>
+							<img src="images/lunbo.jpg" />
+						</li>
+						<li>
+							<img src="images/slider1.jpg" />
+						</li>
+						<li>
+							<img src="images/slider2.jpg" />
+						</li>
+						<li>
+							<img src="images/slider3.jpg" />
+						</li>
+					</ul>
+				</div>
+				<div class="banner">
+						<a class="banner-a banner-l" href="#"></a>
+						<a class="banner-a banner-r" href="#"></a>
+				</div>
+				<div class="slide">
+					<ul class="slide-list clearfix">
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		 $(function(){
+	         $(".code").mouseover(function(){
+	          	$(this).siblings(".code-hidden").show();
+	         });
+	           $(".code").mouseout(function(){
+		        $(this).siblings(".code-hidden").hide();
+		     });
+//	           $('.code').parent('.nav-list').find('.code-hidden').hide();
+
+		/*轮播图*/
+
+
+
+
+
+          });
+          
+	</script>
+</html>

@@ -2,164 +2,175 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>水果店</title>
+		<title>css3不规则样式收集</title>
 		<style type="text/css">
 			*{margin: 0;padding: 0;}
 			body{font-size: 12px;  font-family: "&#23435; &#20307; ";
 			}
 			.container{width: 100%;height:30px;background: #F1F1F1;}
 			.dt{ position: absolute;display: block;
-  top: 6px;left: 5px;
-  height: 7px;}
-			.dd{width:300px;  list-style: none;
-  padding: 10px 0 10px 10px;
-  top: 30px;
-  background: #fff;
-  border: 1px solid #ddd;
-  line-height: 24px;
-  position: absolute;}
-  #ww{width: 100%;height: 100px;background: #FF0000;position: absolute;z-index: 1;}
-  .qq:hover{z-index: 2;}
+			  top: 6px;left: 5px;
+			  height: 7px;}
+						.dd{width:300px;  list-style: none;
+			  padding: 10px 0 10px 10px;
+			  top: 30px;
+			  background: #fff;
+			  border: 1px solid #ddd;
+			  line-height: 24px;
+			  position: absolute;}
+			  #ww{width: 100%;height: 100px;background: #FF0000;position: absolute;z-index: 1;}
+			  .qq:hover{z-index: 2;}
   
   
-  
-  #yin-yang { 
-width: 96px; 
-height: 48px; 
-background: #eee; 
-border-color: red; 
-border-style: solid; 
-border-width: 2px 2px 50px 2px; 
-border-radius: 100%; 
-position: relative; 
-} 
-#yin-yang:before { 
-content: ""; 
-position: absolute; 
-top: 50%; 
-left: 0; 
-background: #eee; 
-border: 18px solid red; 
-border-radius: 100%; 
-width: 12px; 
-height: 12px; 
-} 
-#yin-yang:after { 
-content: ""; 
-position: absolute; 
-top: 50%; 
-left: 50%; 
-background: red; 
-border: 18px solid #eee; 
-border-radius:100%; 
-width: 12px; 
-height: 12px; 
-} 
+  			.wrap{
+  				width: 1000px;
+  				margin: 20px auto;
+  				/*text-align: center;*/
+  			}
+  			#yin-yang { 
+				width: 96px; 
+				height: 48px; 
+				background: #eee; 
+				border-color: red; 
+				border-style: solid; 
+				border-width: 2px 2px 50px 2px; 
+				border-radius: 100%; 
+				position: relative; 
+				} 
+				#yin-yang:before { 
+				content: ""; 
+				position: absolute; 
+				top: 50%; 
+				left: 0; 
+				background: #eee; 
+				border: 18px solid red; 
+				border-radius: 100%; 
+				width: 12px; 
+				height: 12px; 
+				} 
+				#yin-yang:after { 
+				content: ""; 
+				position: absolute; 
+				top: 50%; 
+				left: 50%; 
+				background: red; 
+				border: 18px solid #eee; 
+				border-radius:100%; 
+				width: 12px; 
+				height: 12px; 
+				} 
+				
+				
+				
+				#burst-8 { 
+				background: red; 
+				width: 80px; 
+				height: 80px; 
+				position: relative; 
+				text-align: center; 
+				-webkit-transform: rotate(20deg); 
+				-moz-transform: rotate(20deg); 
+				-ms-transform: rotate(20deg); 
+				-o-transform: rotate(20eg); 
+				transform: rotate(20deg); 
+				} 
+				#burst-8:before { 
+				content: ""; 
+				position: absolute; 
+				top: 0; 
+				left: 0; 
+				height: 80px; 
+				width: 80px; 
+				background: red; 
+				-webkit-transform: rotate(135deg); 
+				-moz-transform: rotate(135deg); 
+				-ms-transform: rotate(135deg); 
+				-o-transform: rotate(135deg); 
+				transform: rotate(135deg); 
+				} 
+				
+				
+				
+				.box{
+				    height:200px;
+				    background:#ECEEFE;
+				    position:relative;
+				}
+				.fir{
+				    width:300px;
+				    height:60px;
+				    background:#707CDA;
+				    border-radius:50px;
+				    position:relative;
+				    left:50px;
+				}
+				.sec{
+				    width:60px;
+				    height:60px;
+				    background:#ECEEFE;
+				    border-radius:45px;
+				    position:absolute;
+				    top:0;
+				    left:50px;
+				}
+				.sec2{
+				    width:60px;
+				    height:60px;
+				    background:#ECEEFE;
+				    border-radius:45px;
+				    position:absolute;
+				    top:0;
+				    left:50px;
+				}
+				.sec3{
+				    width:60px;
+				    height:60px;
+				    background:#ECEEFE;
+				    border-radius:45px;
+				    position:absolute;
+				    top:0;
+				    left:50px;
+				}
+				.sec4{
+				    width:60px;
+				    height:60px;
+				    background:#ECEEFE;
+				    border-radius:45px;
+				    position:absolute;
+				    top:0;
+				    left:50px;
+				}
+				.sec::after,.sec::before{
+				    position:absolute;
+				    left:50%;
+				    top:50%;
+				    transform:translate(-50%,-50%);
+				}
+				
+				.sec::before{
+				    content:"";
+				    display:block;
+				    width:50px;
+				    height:50px;
+				    border-radius:25px;
+				    background:#707CDA;
+				}
+				.sec::after{
+				    content:"1";
+				    display:block;
+				    color:#FFF;
+				    font-size:30px;
+				    font-weight:bold;
+				}
 
-
-
-#burst-8 { 
-background: red; 
-width: 80px; 
-height: 80px; 
-position: relative; 
-text-align: center; 
--webkit-transform: rotate(20deg); 
--moz-transform: rotate(20deg); 
--ms-transform: rotate(20deg); 
--o-transform: rotate(20eg); 
-transform: rotate(20deg); 
-} 
-#burst-8:before { 
-content: ""; 
-position: absolute; 
-top: 0; 
-left: 0; 
-height: 80px; 
-width: 80px; 
-background: red; 
--webkit-transform: rotate(135deg); 
--moz-transform: rotate(135deg); 
--ms-transform: rotate(135deg); 
--o-transform: rotate(135deg); 
-transform: rotate(135deg); 
-} 
-
-
-
-.box{
-    height:200px;
-    background:#ECEEFE;
-    position:relative;
-}
-.fir{
-    width:300px;
-    height:60px;
-    background:#707CDA;
-    border-radius:50px;
-    position:relative;
-    left:50px;
-}
-.sec{
-    width:60px;
-    height:60px;
-    background:#ECEEFE;
-    border-radius:45px;
-    position:absolute;
-    top:0;
-    left:50px;
-}
-.sec2{
-    width:60px;
-    height:60px;
-    background:#ECEEFE;
-    border-radius:45px;
-    position:absolute;
-    top:0;
-    left:50px;
-}
-.sec3{
-    width:60px;
-    height:60px;
-    background:#ECEEFE;
-    border-radius:45px;
-    position:absolute;
-    top:0;
-    left:50px;
-}
-.sec4{
-    width:60px;
-    height:60px;
-    background:#ECEEFE;
-    border-radius:45px;
-    position:absolute;
-    top:0;
-    left:50px;
-}
-.sec::after,.sec::before{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
-
-.sec::before{
-    content:"";
-    display:block;
-    width:50px;
-    height:50px;
-    border-radius:25px;
-    background:#707CDA;
-}
-.sec::after{
-    content:"1";
-    display:block;
-    color:#FFF;
-    font-size:30px;
-    font-weight:bold;
-}
-
-
+/*怪异盒子模型比较
+ 盒子本身的宽高，是200*200，如果给盒子左右加上20的边距的话，盒子的宽就变为了240，
+ 最后一个盒子就被挤到下一行了
+ 
+ 解决的办法：1、给盒子加上 box-sizing:border-box属性（加上之后 会减掉左右边距  ，宽度变为160）
+ 2、改变盒子的宽度，改为160
+ 3、增加父盒子的宽度  ，600变为640
+ * */
 .boxwrap{width: 600px;height: 200px;border: 1px;background: #FF0000;}
 .box1{padding: 0 20px;width: 200px;height: 200px;background: #707CDA;float: left;box-sizing: border-box;}
 .box2{width: 200px;height: 200px;background: green;float: left;}
@@ -191,39 +202,28 @@ h1 {
 		</style>
 	</head>
 	<body>
-		<!--<div class="container">
-			<div class="qq" style="position: relative">
-				<p class="dt">配送至：北京</p>
-				<ul class="dd">
-					<li>电脑</li>
-					<li>电脑</li>
-					<li>电脑</li>
-					<li>电脑</li>
-					<li>电脑</li>
-					<li>电脑</li>
-					<li>电脑</li><li>电脑</li>
-				</ul>
+		<div class="wrap">
+			
+			<div id="yin-yang">
+				
 			</div>
-		</div>-->
-		<div id="yin-yang">
-			
-		</div>
-		<br />
-		<div id="burst-8">
-			
-		</div>
-		<br />
-		<!--<div class="box">
-		    <div class="fir">
-		    </div>
-		     <div class="sec">
-		    </div>
-		</div>-->
-		<br />
-		<div class="boxwrap">
-			<div class="box1 "></div>
-			<div class="box2 "></div>
-			<div class="box3 "></div>
+			<br />
+			<div id="burst-8">
+				
+			</div>
+			<br />
+			<!--<div class="box">
+			    <div class="fir">
+			    </div>
+			     <div class="sec">
+			    </div>
+			</div>-->
+			<br />
+			<div class="boxwrap">
+				<div class="box1 "></div>
+				<div class="box2 "></div>
+				<div class="box3 "></div>
+			</div>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -308,8 +308,7 @@ h1 {
                 }  
                 document.writeln("<br/>");  
             } 
-	
-	
+            
 	for ( var x = 1; x <= 9; x++) {
         for ( var y = 1; y <= 2*x-1; y++) {
             document.writeln("*");
@@ -341,6 +340,7 @@ h1 {
 	    document.writeln("<br/>");
 	}
 	/*以上说明   空格数和星星的数量  位置调换    三角形的斜切面  朝向会变化*/
+	
 </script>
 
 </html>

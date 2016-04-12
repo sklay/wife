@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<title>jquery轮播效果图 </title>
+
+		<!-- Owl Carousel Assets -->
+		<link href="owl-carousel/owl.carousel.css" rel="stylesheet">
+		<link href="owl-carousel/owl.theme.css" rel="stylesheet">
+		<link href="owl-carousel/owl.transitions.css" rel="stylesheet">
+
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<script src="owl-carousel/owl.carousel.js"></script>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.container {
+				height: 399px;
+				position: relative;
+			}
+			
+			.owl-controls {
+				position: absolute;
+				bottom: 10px;
+				left: 50%;
+				width: 120px;
+				height: 20px;
+				background: rgba(0, 0, 0, 0.21);
+				border-radius: 50px;
+				margin-left: -60px;
+			}
+			
+			.owl-buttons {
+				display: none;
+			}
+			
+			#slider .owl-item div {
+				/*padding:5px;*/
+			}
+			
+			#slider .owl-item img {
+				display: block;
+				width: 100%;
+				height: auto;
+				/*高度自适应，适应在不同大小的窗体下  图片不会变形*/
+				-webkit-border-radius: 3px;
+				-moz-border-radius: 3px;
+				border-radius: 3px;
+			}
+			
+			.container-img {
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				height: 65px;
+				left: 0;
+				margin-top: -32px;
+			}
+			
+			.container-img .banner-a {
+				display: block;
+				width: 65px;
+				height: 65px;
+				background: url(images/third.png)no-repeat;
+				/*banner-l和banner-r共有的部分拎出来*/
+				position: absolute;
+				/*目的是让图片居中，但是会发现 图片会在也居下一点，因为 平分是从盒子的上边框未分界点*/
+				top: 0;
+				/*解决上面的问题  可以设置一个margin-top,这个值取盒子值高度值的一半*/
+				/*margin-top: -32px;*/
+				/*.5可以省略  ，一般不用小数点，取整*/
+			}
+			
+			.container-img .banner-l {
+				background-position: 0 -51px;
+				left: 20px;
+			}
+			
+			.container-img .banner-l:hover {
+				background-position: 0 -221px;
+			}
+			
+			.container-img .banner-r {
+				background-position: 0 -136px;
+				right: 20px;
+			}
+			
+			.container-img .banner-r:hover {
+				background-position: 0 -306px;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="container">
+			<div id="slider" class="owl-carousel">
+				<div><img alt="关注脚本之家" title="关注脚本之家" src="images/lunbo.jpg"></div>
+				<div><img alt="关注脚本之家" title="关注脚本之家" src="images/slider1.jpg"></div>
+				<div><img alt="关注脚本之家" title="关注脚本之家" src="images/slider2.jpg"></div>
+				<div><img alt="关注脚本之家" title="关注脚本之家" src="images/slider3.jpg"></div>
+			</div>
+			<div class="container-img">
+				<a class="banner-a banner-l" href="#"></a>
+				<a class="banner-a banner-r" href="#"></a>
+			</div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#slider").owlCarousel({
+				autoPlay: 3000,
+				stopOnHover: true,
+				navigation: true,
+				paginationSpeed: 1000,
+				goToFirstSpeed: 2000,
+				singleItem: true,
+				autoHeight: true,
+				transitionStyle: "fade"
+			});
+		});
+	</script>
+
+</html>

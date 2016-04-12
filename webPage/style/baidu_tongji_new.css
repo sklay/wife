@@ -1,0 +1,223 @@
+/*header  start*/
+.header{
+	/*width: 1899px;*/
+	height: 64px;
+	margin-top: 16px;
+	border-bottom: 1px solid #e7e7e7;
+}
+.header .content{
+	width: 960px;
+	margin: 0 auto;
+}
+.header .content .content-top{
+	float: right;
+}
+.header .content .content-top p a{
+	margin: 0 10px ;
+}
+.header .content .content-top p a:hover{
+	color: #A0B3D6;
+}
+.header .content .content-nav{
+	position: relative;
+}
+.header .content .content-nav .logo-img{
+	float: left;
+}
+.header .content .content-nav .nav-list{
+	width:180px;
+    height:26px;
+    position: absolute;
+    bottom:0px ;
+    right:0px ;
+}
+.header .content .content-nav .nav-list a{
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+	margin-right: 7px;
+	float: left;
+}
+ .nav-list .a1{
+	 background: url(../images/baidu-tj-icon.png) no-repeat ;
+}
+ .nav-list .a2{
+ 	background: url(../images/baidu-tj-icon.png) no-repeat ;
+	background-position:0px -92px ;
+}
+.nav-list  .a3{
+	background: url(../images/baidu-tj-icon.png) no-repeat ;
+	background-position:0px -184px;
+}
+.nav-list .code{
+	display: inline-block;
+	cursor: pointer;
+	height: 26px;
+	line-height: 26px;
+    padding: 0 3px 3px 5px;
+    background: #fff;
+    border:1px solid #fff ;
+    font-size: 12px;
+    position: absolute;
+    right: 0px;
+    
+}
+.nav-list .code .code-img{
+	padding-right: 18px;
+	background: url(../images/baidu-tj-icon.png)no-repeat;
+	background-position:right -276px ;
+}
+.nav-list .code:hover {
+	  border:1px solid #000 ;
+	  border-bottom: 0;
+	  z-index: 1;
+}
+.nav-list .code:hover .code-hidden{
+	display: block;
+}
+.nav-list .code-hidden{
+	display: none;
+	position: absolute;
+	top: 29px;
+	right:0;
+}
+/*header  end*/
+/*nav  start*/
+.nav-list{
+	height: 45px;
+}
+.nav-list .navlist-con{
+	width: 960px;
+	margin: 0 auto;
+}
+.nav-list .navlist-con .navlist-con-l{
+	float: left;
+}
+.nav-list .navlist-con .navlist-con-l ul{
+	height: 41px;
+	line-height: 41px;
+}
+.nav-list .navlist-con .navlist-con-l ul li{
+	display: block;
+	margin-right: 45px;
+	float: left;
+}
+.nav-list .navlist-con .navlist-con-l ul li.checked{
+	border-bottom: 2px solid #3780d3;
+}
+.nav-list .navlist-con .navlist-con-l ul li.checked a{
+	color:#3780d3;
+}
+.nav-list .navlist-con .navlist-con-l ul li a{
+	color: #777;
+	-webkit-transition: color .4s ease; 
+}
+.nav-list .navlist-con .navlist-con-l ul li a:hover{
+	color:#3780d3 ;
+}
+
+.nav-list .navlist-con .navlist-con-r{
+	width: 120px;
+    height: 28px;
+    line-height: 28px;
+    float: right;
+    font-size: 13px;
+    margin-top:8px;
+}
+.nav-list .navlist-con .navlist-con-r a{
+	display: inline-block;
+   height: 28px;
+   border: 1px solid darkgray;
+   padding: 0 12px;
+}
+.nav-list .navlist-con .navlist-con-r a.a-1{
+	color: #fff;
+	background: #0088CC;
+	margin-right:4px;
+}
+.nav-list .navlist-con .navlist-con-r a.a-2{
+	 border: 1px solid #a9a9a9;
+	 background-color: #cacacb;
+}
+/*nav  end*/
+.container{
+	background: url(../images/login-bg.png);
+}
+/*当窗体缩小的时候，图片总是居于中间
+ 宽度设为100%，这样缩小的时候，图片居于中间
+ 设一个固定的高度
+ * */
+.container .slider-bar{
+	height:399px;
+	box-shadow: 0 2px 3px #aaa;
+	position: relative;
+}
+.container .slider-bar .container-img{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.container .slider-bar .container-img ul li{
+	
+}
+
+
+.container .container-img .banner-a{
+	display:block;
+	width: 65px;
+	height: 65px;
+	background: url(../images/third.png)no-repeat;
+	/*banner-l和banner-r共有的部分拎出来*/
+	position: absolute;
+	/*目的是让图片居中，但是会发现 图片会在也居下一点，因为 平分是从盒子的上边框未分界点*/
+	top: 50%;
+	/*解决上面的问题  可以设置一个margin-top,这个值取盒子值高度值的一半*/
+	margin-top: -32px;/*.5可以省略  ，一般不用小数点，取整*/
+}
+.container .container-img .banner-l{
+	background-position:0 -51px ;
+	left: 20px;
+}
+.container .container-img .banner-l:hover{
+	background-position:0 -221px ;
+}
+.container .container-img .banner-r{
+	background-position:0 -136px ;
+	right: 20px;
+}
+.container .container-img .banner-r:hover{
+	background-position:0 -306px ;
+}
+.container .container-img .slide{
+	width: 112px;
+	height: 20px;
+	background: rgba(0, 0, 0, 0.3);
+	position: absolute;
+	bottom: 20px;
+	left: 50%;
+	margin-left: -61px;
+	border-radius: 50px;
+}
+.container .container-img .slide .slide-list{
+	display: block;
+	width: 90px;
+	margin: 4px auto;
+}
+
+.container .container-img .slide .slide-list li{
+	width: 12px;
+	height: 12px;
+	margin: 0 5px;
+	display: block;
+	float: left;
+	background: url(../images/third.png)no-repeat;
+	background-position:0 -391px ;
+}
+.container .container-img .slide .slide-list li:hover{
+	background-position:0 -423px ;
+}
+
+
+
+
+
