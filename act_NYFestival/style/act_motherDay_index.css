@@ -1,0 +1,74 @@
+/*首页样式 start*/
+.con_wrap_index{
+	background: url(../images/act_16motherDay_bj1.jpg)center center no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+.wrap_index_title_wrap{
+	width: 6rem;
+	position: relative;
+	margin: 0 auto;
+	padding-top: .6rem;
+}
+.wrap_index_title_wrap img:nth-child(1){
+	width: 100%;
+}
+.wrap_index_title_wrap img:nth-child(2){
+	width:.6rem;
+	position: absolute;
+	top:3.5rem;
+	right: .5rem;
+}
+
+.con_wrap_index_desc {
+	width: 5.4rem;
+	margin: .5rem auto;
+}
+.con_wrap_index_desc img{
+	width: 100%;
+}
+.con_wrap_index_people{
+	width: 4.4rem;
+	margin: 0 auto;
+}
+.con_wrap_index_people img{
+	-webkit-animation: pople_move 4s linear 2s 1;
+	width:100%;	
+	margin-left: -0.5rem;
+	/*transition: all .2s;*/
+	opacity: 0;
+}
+@-webkit-keyframes pople_move{
+	0%{
+		opacity: 1;
+	}
+	30%{
+		opacity: 0.5;
+	}
+	100{
+		opacity: 0;
+	}
+}
+.con_wrap_index_botom{
+	width: 2.8rem;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.con_wrap_index_botom img{
+	-webkit-animation: flow_move 2s;
+	width: 2.8rem;
+	float: right;
+}
+/*底部花的动画*/
+@-webkit-keyframes flow_move{
+	from{
+		transform: translateY(156px);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+/*首页样式end*/

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>控制语句</title>
+	</head>
+	<body>
+		//if 
+		
+		a  ------------------- 单项
+			/*
+			 if(条件){
+			 	代码块
+			 }
+			 规则：条件成立 ，执行代码块
+			 不成立 ，跳过if语句
+			 * */
+			
+		b  ------------------- 双项
+		 if(条件){
+			 	代码块1
+			 }else{
+			 	代码块2
+			 }
+		<script type="text/javascript">
+//			var a= 5;
+//			var b = 2;
+//			var r = "";
+//			if(a<b){
+//				r = "a小于b";
+//			}
+//			console.info(r);
+//			if(a<b){
+//				r = "a小于b";
+//			}else{
+//				r = "a大于b";
+//			}
+//			console.info(r);
+
+
+//		if(a>b){
+//			a += b++ ;
+//		}else{
+//			b += a++; 
+//		}
+//		console.info("a="+a+","+"b="+b);
+
+
+
+/*控制语句2*/
+		//switch
+			//格式
+			/*switch(变量){
+				case 值1:
+				语句1;
+				[break];//可有 可没有   有对的话 执行完后直接跳出循环
+				case 值2:
+				语句2;
+				[break];
+				case 值3:
+				语句3;
+				[break];
+				
+				[fefault:
+					语句m;
+				]
+			}*/
+			/*规则
+			 找到变量的值对应的  case,然后执行他后面的语句块，
+			 当遇到break时，结束整个switch语句，当没有遇到break时继续下面的语句块
+			 如果找不到对应的case值，且存在default,则执行语句m,之后结束整个 switch语句
+			 * */
+	
+	//判断星期
+	/*	var day = 8;
+		var r ="";
+		switch(day){
+			case 0 :
+			r = '星期日';
+			break;
+			case 1 :
+			r = '星期一';
+			break;
+			case 2 :
+			r = '星期二';
+			break;
+			case 3 :
+			r = '星期三';
+			break;
+			case 4 :
+			r = '星期四';
+			break;
+			case 5 :
+			r = '星期五';
+			break;
+			case 6 :
+			r = '星期六';
+			break;
+			default:
+			r = '您输入的值不合法';
+		}
+		console.info(r);//您输入的值不合法*/
+	var day =0;
+		var r ="";
+		switch(day){
+			case 0 :
+				r += '星期日';
+//				break;
+			case 1 :
+				r += '星期一';
+	//			break;
+			case 2 :
+				r += '星期二';
+//				break;
+			case 3 :
+				r += '星期三';
+	//			break;
+			case 0 :
+				r += '星期四';
+	//			break;
+			case 5 :
+				r += '星期五';
+	//			break;
+			case 6 :
+				r += '星期六';
+	//			break;
+//			default:
+//				r = '您输入的值不合法';
+		}
+		console.info(r);//星期日星期一星期二星期三星期四星期五星期六
+		
+		</script>
+	</body>
+</html>

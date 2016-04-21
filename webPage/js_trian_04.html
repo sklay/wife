@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>控制语句</title>
+	</head>
+	<body>
+		<p style="font-size: 26px ;font-family: 萝莉体;"> hello world</p>
+		<!--
+			循环语句
+			从什么到什么循环语句    for
+			 for(表达式1；条件；表达式2){
+			 	循环体
+			 }
+			 规则：
+			 先执行表达式1，然后进行条件判断，如果成立，执行循环体，之后执行表达式2；在进行条件判断
+			 ，若果成立  再执行循环体，之后再执行表达式2，。。。。。。。。。。
+			 知道条不成立，跳出for循环
+		-->
+		<script type="text/javascript">
+			/*1+2+3+4+5=?
+			 * */
+//			var m = 0;
+//			for(var i = 1;i<6;i++){
+//				m += i;
+//			}
+//			console.info("m="+m+','+'i='+i);
+			
+			
+			/*
+			 在一个循环体中  同时完成基数 偶数的  累加，并显示结果
+			 1-100;     i%2 == 0表示偶数，i%2==1；表示基数
+			 * */
+			var j = 0;//存储基数的变量
+			var o = 0;//偶数的变量
+			for(var i = 1;i<101;i++){
+				if(i%2 == 1){
+					j += i;
+				}else{
+					o =+ i;
+				}
+			}
+			console.log('基数的和是='+j+','+'偶数的和='+o);//基数的和是=2500,偶数的和=100
+		</script>
+	</body>
+</html>

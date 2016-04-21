@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>给我加钱</title>
+		
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		/*body{
+			font-family: "微软雅黑";
+			font-size: 12px;
+		}
+		.container{
+			width: 800px;
+			margin: 200px auto;
+		}
+		#btn{
+			font-size: 28px;
+			padding: 20px 10px;
+		}*/
+		img{
+				width: 225px;
+				opacity: 0;
+			}
+		.corn{
+				/*绑定动画     infinite  无限循环*/
+				/*-webkit-animation: move 1s infinite;*/
+				-webkit-animation: move 1s;
+			}
+			/*定义动画*/
+		@-webkit-keyframes move{
+				from{
+					transform: translateY(0px);
+					opacity: 1;
+				}
+				to{
+					transform: translateY(-100px);
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--完成加钱动画，点击按钮实现金币往上飘起，同时图片也会变淡-->
+		<div class="container">
+			<input type="button" value="给我金币" id="btn" />
+			<img src="images/corn.gif" id="img"/>
+			
+			<script>
+		/*完成加载动画
+		 
+		 * 给按钮绑定事件
+		 * 	 	关键属性：
+		 * 			onclick  ---->on+事件名称
+		 * 			当鼠标点击时/按下回车键时/空格
+		 * 			在绑定事件之前：
+		 * 			在javascript代码中获取需要绑定的元素，即 input type =button
+		 * 				js中有个方法：
+		 * 				document.getElementById("需要找到的 元素id")
+		 * */
+				/*获取按钮元素*/
+		       var btn = document.getElementById("btn");
+		      // console.log(btn);
+		      	/*绑定事件*/
+		      	/*操作对象的属性，通过变量.属性名*/
+		      	btn.onclick = function(){
+		      		//写逻辑代码
+		      		//获取图片元素
+		      		var imgBtn = document.getElementById("img");
+		      		//再给图片元素类的值赋值成move_corn（就是给图片加一个class名为move_corn的属性）
+		      		//onclick 是元素的属性，类也是元素的属性
+		      		//但是class是关键字  所有这个属性改为className
+		      		imgBtn.className= "corn";
+		      		console.log(1);
+		      	}
+		      	/*问题：只执行一次  */
+		      
+	</script>
+		</div>
+		
+	</body>
+	
+</html>

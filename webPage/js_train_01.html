@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>js基础</title>
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<style type="text/css">
+		</style>
+	</head>
+
+	<body>
+		<script>
+			//var fn = new Function()
+			//console.info(typeof fn);
+			/*控制台打印：   function*/
+			
+			//var arr= [];
+			//var arr = new array();
+			//console.info(typeof arr);
+			/*控制台打印：   object*/
+			/*看下 这个 arr到底是什么：  可以看下他的构造函数是什么*/
+			//console.info(arr.constructor);
+			
+			//var n = null;
+			//alert(n == undefined);
+			/*弹出true*/
+			//console.log(typeof n);
+			/*控制台打印：  object*/
+			
+			//console.log(typeof undefined); 
+			/*控制台打印：  undefined*/
+			//var n3 = "javascript";
+			//var n4 = "hello";
+			//console.info(100 + 100 + n4 + '' + n3);
+			/*结果：  200hellojavascript*/
+			
+//			var num1 = 1;
+//			var num2 = 2;
+			//console.info("num1*num2 = " + (num1 * num2));//2
+			//console.info("num1/num2 = " + (num1 / num2));//.5
+			//console.info('9 % 2 =' + (9 % 2));//1
+//			var r = num1>num2;
+//			console.info(r);     //false
+//			
+//			var r = 1>2 || 3>1;   // ||   或运算  有一个为真就为真
+//			console.info(r);    //true;
+//			
+//			var r = 1>2 && 3>1 && 9<10;
+//			console.info(r);   //与运算   有一个为假   就为假
+			
+			
+//			!非运算
+//			!= 不等于
+			
+//			p != q;   //p不等于q
+//			p = !q;   //q取反  后赋值给p
+
+		//三木运算
+		//var a;
+		// a = 1>2?"你答对了":"你答错了";
+		//console.info(a);   //你答错了
+		// a = 1>2?"你对了":1<3 ? "对了":"错了";
+		//console.info(a);  //对了
+		
+	/*递增  递减*/
+	
+//	a++   先赋值  后运算；
+//	++a   先运算  后赋值
+//		var a = 1,
+//			b = 0;
+//		b = a++   //b= 1  a=2
+//				+ a++   //b =3   a=3
+//						+ a++;   //b=6  a= 4
+//		console.info(a);
+//		console.info(b);
+		
+//		var obj = {};//表示一个对象
+//		var arr = []//申明一个数组  或者 写成   var arr = new array();
+//		arr[0] ="java";
+//		arr[1] = "js";
+//		arr[2] ="jQuery";
+		
+	/*
+	 
+	 == 相等    运算时 类型 会转换
+	 ===  全等     ：数值与类型都要相等   不会进行类型的转换
+	 * 值的转换
+	 * Number("1")  将字符串1  转化位数字1
+	 * 
+	 * */
+//	console.info(1==true); //true
+//	console.info(1===true);  //false
+//	console.info("数字与字符串="+(1 == "true"));  //false
+//	
+//	console.info(NaN == NaN)  //  falae  自身不等于自身
+//	
+//	r = Number("123abc");
+//	console.info(r);  //NaN
+	
+	//引用类型
+		//常量串
+		var str = "123";
+		var  str1 = new String("123");
+		var str2 = new String();
+		  console.info(str===str1);   //false
+		 console.info(str2===str1);   //false
+		 /*和下一面一组比较*/
+		 var str = "123";
+		var  str1 = new String("123");
+			str1 ="123";
+		var str2 = new String();
+			str2 = "1";
+		  console.info(str===str1);   //true str1虽然new出来的 （new后会产生两个对象，一个在栈区
+		 //一个在堆区，此时比较的 是这个对像的 在内存中的 地址的引用，之后又给这个引用 付了一个常量
+		 //所以str 和str1就是想相等了
+		//  ）
+		 console.info(str2===str1);   //false  值不等
+		 console.info(str2==str1);   //false   
+		 
+//		  var s = new String('ss');
+//     var s1 = new String('ss'); 
+//		 console.info(s==s1);
+		
+		</script>
+
+	</body>
+
+</html>

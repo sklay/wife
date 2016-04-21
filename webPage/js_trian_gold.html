@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>给我加钱</title>
+		<style>
+			img{
+				width: 225px;
+				opacity: 0;
+			}
+			div{
+				margin: 100px;
+			}
+			.corn{
+				-webkit-animation: move 1s;
+			}
+			@-webkit-keyframes move{
+				from{
+					transform: translateY(0px);
+					opacity: 1;
+				}
+				to{
+					transform: translateY(-100px);
+					opacity: 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!--完成加钱动画，点击按钮实现金币往上飘起，同时图片也会变淡-->
+		<div class="container">
+			<input type="button" value="给我金币" id="giveBtn" />
+			<input type="button" value="改变图片内容" id="btn1" />
+			<input type="button" value="加后" id="btn2" />
+			<img src="images/corn.gif" id="imgBtn" />
+			<script>
+		/*完成加载动画
+		 
+		 * 给按钮绑定事件
+		 * 	 	关键属性：
+		 * 			onclick  ---->on+事件名称
+		 * 			当鼠标点击时/按下回车键时/空格
+		 * 			在绑定事件之前：
+		 * 			在javascript代码中获取需要绑定的元素，即 input type =button
+		 * 				js中有个方法：
+		 * 				document.getElementById("需要找到的 元素id")
+		 * */
+				/*获取按钮元素*/
+		      // console.log(btn);
+		      	/*绑定事件*/
+		      	/*操作对象的属性，通过变量.属性名*/
+		      		//写逻辑代码
+		      		//获取图片元素
+		      		//再给图片元素类的值赋值成move_corn（就是给图片加一个class名为move_corn的属性）
+		      		//onclick 是元素的属性，类也是元素的属性
+		      		//但是class是关键字  所有这个属性改为className
+		       var btn = document.getElementById("giveBtn");
+//		   			console.info(btn);    
+
+				btn.onclick=function(){
+					var img = document.getElementById("imgBtn");
+					img.className="corn";
+//					img.removeAttr("imgBtn"); 
+				}
+				
+				
+				 var btn1 = document.getElementById("btn1");
+				  var btn2 = document.getElementById("btn2");
+				  
+				btn1.onclick=function(){
+					var img = document.getElementById("imgBtn");
+					img.src="images/500276.gif";
+				} ;
+				btn2.onclick=function(){
+					var img = document.getElementById("imgBtn");
+					img.className="";
+				} 
+			</script>
+		</div>
+		
+	</body>
+	
+</html>

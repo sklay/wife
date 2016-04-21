@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>控制语句</title>
+	</head>
+	<body>
+		<!--
+			循环语句
+			1、当循环   while
+				while(条件){
+					循环体
+				}
+			规则：
+			判断条件，如果成立，执行循环体一次
+			再次对条件进行判断，如此执行下去，当条件成立时，在执行下一次
+			当条件不成立时，跳出while循环
+			
+			==========================================
+			当条件成立时，执行循环体一次，再返回判断条件，若条件成立，则继续执行循环，
+			之后再返回判断条件，如此循环下去，知道条件不成立，则结束整个while 循环
+			
+			
+			2、直到循环   do...while
+			do{
+				
+			}while(条件);
+			
+			规则：
+			先执行循环体一次，
+			在进行条件判断，如果条件成立，再执行循环体一次，继续判断条件，
+			知道条件不成立，跳出do...while循环
+		-->
+		<script type="text/javascript">
+			/*
+			 练习1+2+3+4+5+6+...+100=？
+			 * */
+			/*var n= 1;
+			var  sum = 0;
+			while(n<=100){
+				sum += n;
+				n++;//不加的话    会造成死循环
+			}
+			console.info(sum);//5050
+			console.info(n);//101*/
+			
+			
+			//do...while
+			/*var m = 1;
+			var sum = 0;
+			do{
+				sum += m;
+				m++;
+				
+			}while(m<=100);
+			console.info(sum);//5050
+			console.info(m);//101
+		//  对比
+			var m = 1;
+			var sum = 0;
+			do{
+				sum += m;
+				m++;
+				
+			}while(m<0);//这边即使条件不满足时  也会 执行一次
+			console.info(sum);//1
+			console.info(m);//2
+			*/
+		//	5！的阶乘
+		var n = 1;
+		var sum = 1;
+		while(n<=5){
+			sum *= n;
+			n++;
+		}
+			console.info(n);
+			console.info(sum);
+		</script>
+	</body>
+</html>

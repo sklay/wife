@@ -1,0 +1,293 @@
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<META content="MSHTML 6.00.2900.2963" name=GENERATOR>
+	</HEAD>
+	<title>文字滚动效果</title>
+	<STYLE type=text/css>
+		BODY {
+			FONT-SIZE: 12px; TEXT-ALIGN: center
+		}
+		UL {
+			PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none
+		}
+		DIV.layout_main {
+			MARGIN-TOP: 5px; WIDTH: 900px}
+		DIV.layout_left {
+			FLOAT: left; WIDTH: 427px
+		}
+		.title_01 {
+			PADDING-LEFT: 10px; WIDTH: 426px; LINE-HEIGHT: 15px; HEIGHT: 22px! important; BACKGROUND-COLOR: #ff6600; TEXT-ALIGN: left
+		}
+		.title_01 .title_left {
+			BORDER-TOP: #ff6600 6px solid; FONT-WEIGHT: bold; FONT-SIZE: 14px; FLOAT: left; WIDTH: 75px; COLOR: #666666; PADDING-TOP: 4px; HEIGHT: 24px; BACKGROUND-COLOR: #eeeeee; TEXT-ALIGN: center
+		}
+		.title_01 .title_right {
+			FONT-SIZE: 12px; FLOAT: right; WIDTH: 360px; COLOR: #ffffff
+		}
+		.content_13 {
+			MARGIN-TOP: 5px; FLOAT: left; MARGIN-BOTTOM: 10px
+		}
+		.content_13 UL {
+			FLOAT: left; WIDTH: 425px; LINE-HEIGHT: 150%
+		}
+		.content_13 LI {
+			FLOAT: left; HEIGHT: 19px; TEXT-ALIGN: left
+		}
+		.content_13 .title {
+			FONT-WEIGHT: bold; WIDTH: 100px; TEXT-ALIGN: left
+		}
+		.content_13 .li01 {
+			WIDTH: 100px; TEXT-ALIGN: left
+		}
+		.content_13 .li02 {
+			WIDTH: 80px; TEXT-ALIGN: left
+		}
+		.content_13 .li03 {
+			WIDTH: 50px; TEXT-ALIGN: left
+		}
+		.content_13 .li04 {
+			WIDTH: 170px
+		}
+		#box1left LI {
+			PADDING-LEFT: 5px; PADDING-TOP: 4px; HEIGHT: 19px
+		}
+		#box1leftC{}
+		.gray {
+			COLOR: #cccccc
+		}
+		UL.greyText {
+			BORDER-BOTTOM: #cccccc 1px solid
+		}
+		.greyText LI {
+			TEXT-ALIGN: center
+		}
+		A {
+			COLOR: #fff
+		
+		A:hover {
+			COLOR: #ff6600
+		}
+		#icefable1C {
+			FLOAT: left
+		}
+	</STYLE>
+	</head>
+
+	<body>
+		<div class=layout_main>
+			<!--left/start-->
+			<div class=layout_left>
+				<!--阿里市场/start-->
+				<div class=title_01 id=title01>
+					<div class=title_right id=icefable1>
+						<div id=box1left>
+							<ul>
+								<li>
+									<A title=成交总金额\ style="COLOR: #fff; TEXT-DECORATION: none" href="http://www.fuguojian.com/blog/default.asp" target=_blank>近期成交总金额：<SPAN 
+  style="COLOR: #fff; TEXT-DECORATION: underline">251553627</SPAN>元</A>
+									<A title=成交订单总数 style="COLOR: #fff; TEXT-DECORATION: none" href="http://www.fuguojian.com/blog/default.asp" target=_blank>成交订单数：<SPAN 
+  style="COLOR: #fff; TEXT-DECORATION: underline">16338</SPAN>笔</A> </li>
+								<li>贸易通商家： 5483669 人 供求信息数：9979572条 </li>
+								<li>近期最新供应：1197380条 近期最新求购：17708条 </li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<script type=text/javascript>
+					marque(320,19,"icefable1","box1left")
+					var scrollElem;
+					var stopscroll;
+					var stoptime;
+					var preTop;
+					var leftElem;
+					var currentTop;
+					var marqueesHeight;
+					function marque(width,height,marqueName,marqueCName){
+						try{
+						  marqueesHeight = height;
+						  stopscroll     = false;
+						  scrollElem = document.getElementById(marqueName);
+						  with(scrollElem){
+							style.width     = width;
+							style.height    = marqueesHeight;
+							style.overflow  = 'hidden';
+							noWrap          = true;
+						  }
+						  scrollElem.onmouseover = new Function('stopscroll = true');
+						  scrollElem.onmouseout  = new Function('stopscroll = false');
+						  preTop     = 0; 
+						  currentTop = 0; 
+						  stoptime   = 0;
+						  leftElem = document.getElementById(marqueCName);
+						  scrollElem.appendChild(leftElem.cloneNode(true));
+							  
+						  init_srolltext();
+						}catch(e) {}
+					}
+					function init_srolltext(){
+					  scrollElem.scrollTop = 0;
+					  setInterval('scrollUp()', 20);
+					}
+					function scrollUp(){
+					  if(stopscroll) return;
+					  currentTop += 1;
+					  if(currentTop == marqueesHeight+1) {
+					    stoptime += 1;
+					    currentTop -= 1;
+					    if(stoptime == (marqueesHeight)*4) {//停顿时间
+					      currentTop = 0;
+					      stoptime = 0;
+					    }
+					  }else{
+					    preTop = scrollElem.scrollTop;
+					    scrollElem.scrollTop += 1;
+					    if(preTop == scrollElem.scrollTop){
+					      scrollElem.scrollTop = marqueesHeight;
+					      scrollElem.scrollTop += 1;
+					    }
+					  }
+					}
+				</script>
+				<!--阿里市场/end-->
+				<!--报价产品-->
+				<DIV class=content_13>
+					<ULclass=greyText>
+						<LI class=title>报价产品 </LI>
+						<LI class=li02>单价 </LI>
+						<LI class=li03>起定量 </LI>
+						<LI class=li04> 厂家
+							<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction0');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>更多</A> </LI>
+						</UL>
+						<DIV id=icefable1C>
+							<DIV id=box1leftC>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction1');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>学生书包</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction1');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>68.00元/个</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction1');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>200个</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction1');" href="http://www.yiboo.net/" target=_blank>河南商丘亿博网络服务有限公司</A> </LI>
+								</UL>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction2');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>喜糖袋</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction2');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>0.50元/个</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction2');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>500个</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction2');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>宁国市敞篷车时尚礼品商行</A> </LI>
+								</UL>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction3');" href="http://www.tntongzhuang.com/" target=_blank>儿童内衣-童装</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction3');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>0.50元/粒</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction3');" href="http://www.fuguojian.com/blog/default.asp" target=_blank>1000粒</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction3');" href="http://www.hxlyxx.com/" target=_blank>河南蜡烛批发总公司</A> </LI>
+								</UL>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction4');" href="http://www.hxxiangxun.com/" target=_blank>香薰灯</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction4');" href="http://www.hxxiangxun.com/" target=_blank>895.00元/台</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction4');" href="http://www.hxxiangxun.com/" target=_blank>2台</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction4');" href="http://www.sqwangzhan.com/" target=_blank>商丘亿博网络服务有限公司</A> </LI>
+								</UL>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction5');" href="http://www.hxxiangxun.com/" target=_blank>香薰灯</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction5');" href="http://www.hxxiangxun.com/" target=_blank>0.55元/条</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction5');" href="http://www.fuguojian.com/" target=_blank>10条</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction5');" href="http://www.sqzzx.com/" target=_blank>商丘装修网装修公司</A> </LI>
+								</UL>
+								<UL>
+									<LI class=li01>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction6');" href="http://www.tntongzhuang.com/" target=_blank>童装批发</A> </LI>
+									<LI class=li02>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction6');" href="http://www.tntongzhuang.com/" target=_blank>儿童内衣16.00元/条</A> </LI>
+									<LI class=li03>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction6');" href="http://www.tntongzhuang.com/" target=_blank>20条</A> </LI>
+									<LI class=li04>
+										<A onmousedown="return aliclick(this,'?tracelog=ui_chinaindex_auction6');" href="http://www.tntongzhuang.com/" target=_blank>儿童内衣批发公司</A> </LI>
+								</UL>
+							</DIV>
+						</DIV>
+				</DIV>
+				<SCRIPT language=JavaScript>
+					<!--
+					try{
+					  var marqueesHeightC = 76;
+					  var stopscrollC     = false;
+					  var scrollElemC = document.getElementById("icefable1C");
+					  with(scrollElemC){
+					    style.width     = 420;
+					    style.height    = marqueesHeightC;
+					    style.overflow  = 'hidden';
+					    noWrap          = true;
+					  }
+					  scrollElemC.onmouseover = new Function('stopscrollC = true');
+					  scrollElemC.onmouseout  = new Function('stopscrollC = false');
+					  var preTopC     = 0; 
+					  var currentTopC = 0; 
+					  var stoptimeC   = 0;
+					     var leftElemC = document.getElementById("box1leftC");
+					  scrollElemC.appendChild(leftElemC.cloneNode(true));
+					      
+					  init_srolltextC();
+					}catch(e) {}
+					function init_srolltextC(){
+					  
+					  scrollElemC.scrollTop = 0;
+					  setInterval('scrollUpC()', 19);
+					}
+					function scrollUpC(){
+					  if(stopscrollC) return;
+					  currentTopC += 1;
+					  if(currentTopC == 77) {
+					    stoptimeC += 1;
+					    currentTopC -= 1;
+					    if(stoptime ==  10) {
+					      currentTopC = 0;
+					      stoptimeC = 0;
+					    }
+					  }else{
+					    preTopC = scrollElemC.scrollTop;
+					    scrollElemC.scrollTop += 1;
+					    if(preTopC == scrollElemC.scrollTop){
+					      scrollElemC.scrollTop = 0;
+					      scrollElemC.scrollTop += 1;
+					    }
+					  }
+					}
+					//-->
+				</SCRIPT>
+				<!--市场分类/start-->
+				<!--市场分类/end-->
+				<!--支付宝交易专区/start-->
+				<!--支付宝交易专区/end-->
+				<!--行业类目/start-->
+				<!--行业类目/start-->
+				<!--行业类目/end-->
+				<!--行业类目/end-->
+			</div>
+		</div>
+		<!--left/end-->
+		<!--right/start-->
+		<!--right/end-->
+		<!--左下/start-->
+		<!--左下/end-->
+	</body>
+
+</HTML>

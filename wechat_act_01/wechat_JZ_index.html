@@ -1,0 +1,194 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content=""/>
+<title></title>
+<link rel="stylesheet" href="style/main_wechat.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<style>
+.content{overflow:hidden;}
+.content .ac_code{width:100%;height:100%;text-align: center;font-size:0;position:relative;
+margin-top:-1px;overflow: hidden;}
+.content .ac_code img{width:100%;}
+.content .ac_code .ac_code_prod{width:50%;float: left;}
+.content .ac_code .codeDiv{width:100%;position:absolute;left:0;top: 3px;z-index:8;}
+.content .ac_code .codeDiv p{color:#fff;font-size:16px;/*font-weight: bold;*/text-align: center;}
+.content .ac_code .codeDiv p span{color:#FF2227;font-size:16px;font-weight: bold;}
+.content .ac_code .butDiv{width:100%;height:30px;position:absolute;left:0;bottom:22px;z-index:8;}
+.content .ac_code .envelopeList{width:100%;padding-bottom:10px;}
+.content .ac_code .envelopeList .enveloItem{position:relative;width:200px;height:77px;margin:0 auto;background:url(images/redenvelope_moncount.png) no-repeat;background-size:200px;}
+.content .ac_code .envelopeList .enveloItem .enveloMoney{position:absolute;width:95%;font-size:32px;left:0;bottom:5px;height: 45px;text-align: center;color:#E8224E;}
+#appdown{width:45%;margin-right:5%;}
+#anddown{width:45%;}
+#actDescbut{position: absolute;width: 100%;left: 0;}
+#actDescbut .but{color:#fff!important;text-decoration: underline;font-size:14px;display: block;margin: 0 auto;}
+
+#actDes{background-color:#D1C5B9;width:100%;height:0px;position:absolute;left:0;bottom:0;z-index:99;display:none; text-align: left;}
+#actDes .ticon{width:90%;margin:10px auto 0px auto;text-align: center;}
+#actDes .title{width:90%;margin:5px auto 0px auto;padding-bottom:5px;text-align: center;border-bottom:1px solid #000;font-size:16px;}
+#actDes .ticon img{width:20px;}
+.desc_div{ position: fixed; left: 0;  width: 100%;  bottom: 0;display:none;}
+#actDescbut{position:relative;}
+#closeBtn{position:absolute;top:0;width:10%;left:45%;}
+
+
+</style>
+<body >
+  <script>
+    	(function(){
+	   	 var wh=$(window).height();
+	       $("body").css({minHeight:wh})
+	   })();
+    </script>
+
+	<div class="content" style="background:#fff;">
+
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_1.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_2.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_3.jpg">
+
+		</div>
+		<div class="ac_code">
+			<a href="javascript:void(0)" onclick="showDrugDetails(${actiItem.skuId })">
+				<img class="ac_code_prod" alt="" src="images/wechat_jz_4.jpg">
+			</a>
+			<a href="javascript:void(0)" onclick="showDrugDetails(${actiItem.skuId })">
+				<img class="ac_code_prod" alt="" src="images/wechat_jz_5.jpg">
+			</a>
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_6.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_7.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_8.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_9.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_10.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_11.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_12.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_13.jpg">
+		</div>
+		<div class="ac_code">
+			<img alt="" src="images/wechat_jz_14.jpg">
+		</div>
+		<div class="ac_code" style="margin-bottom: 30px;">
+			<a  id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+				<img class="ac_code_prod" alt="" src="images/wechat_jz_15.jpg">
+			</a>
+			<img class="ac_code_prod sharebut" alt="" src="images/wechat_jz_16.jpg" onclick="s(1)">
+		</div>
+	</div>
+</body>
+<script>
+	function s(type){
+		var jsonObject = {};
+		if(type==1){
+			jsonObject.shared_type = "1";
+			jsonObject.shared_url = wechatObj.link;
+			jsonObject.shared_title = wechatObj.title;
+			jsonObject.shared_content = wechatObj.desc;
+			jsonObject.shared_img_url = wechatObj.imgUrl;
+		}
+			var jsonStr = JSON.stringify(jsonObject);
+    	sharedTypeByJson(jsonStr);
+		}
+	
+		 function sharedTypeByJson(jsonStr){  //ios会覆盖此方法
+        camore.sharedTypeByJson(jsonStr);  //android会调用里面的方法
+    };
+	//判断是否从微信进入
+	function is_weixin(){
+	    var ua = navigator.userAgent.toLowerCase();
+	    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	        return true;
+	    } else {
+	        return false;
+	    }
+	};
+	
+	/*跳转到商品详情页*/
+	function showDrugDetails(drug_id){
+		if (is_weixin()) {
+			location.href="/weixin/wechat/details?skuId=" + drug_id;
+		} else {
+			camore.showDrugDetails(drug_id);
+		}
+	};
+	
+	/* 当微信进入时，下载页进入“应用宝”页面 */
+	if(is_weixin()){
+		$("#downloadA").attr("href","http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653");
+	};
+
+</script>
+<script> 
+var wechatObj = new Object();
+
+wechatObj.title = '清凉一夏，好礼相送';
+wechatObj.desc ='转发指定微信至朋友圈并集满28个赞,就有好礼相送哦~';
+wechatObj.link = 'http://store.ykd365.com/medhtml/common/act_wechat_JZ_index';
+//wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16wed_shareImg.jpg';
+
+if(is_weixin()){
+	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
+			success:function(wechatReturn){
+				if (wechatReturn) {
+					wx.config({
+					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					    appId:appid , // 必填，公众号的唯一标识
+					    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					    signature: wechatReturn.signature,// 必填，签名，见附录1
+					    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					 });
+				};
+				  wx.ready(function(){
+					getMenuShare();
+				  });
+			}
+		});
+	};	
+
+	wx.ready(function(){
+		getWechatObj()
+	})
+	function getWechatObj(){
+		wx.onMenuShareTimeline({
+			title: wechatObj.desc, // 分享描述
+	        link: wechatObj.link, // 分享链接
+	        imgUrl: wechatObj.imgUrl, // 分享图标
+	        success: function () {
+	        },
+	        cancel: function () {}
+	    });
+	}
+</script>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			伪类
+			hover
+			focus
+			active
+			link
+			visited
+			
+			
+			:after
+			:before
+			
+			:checked ========表示被选中状态 的元素
+		-->
+		<style>
+		
+		/*属性选择器*/
+			input[type='radio']{
+				/*去掉radio前面的点*/
+				visibility: hidden;
+			}
+			/*怎么选中 label标签：可以用伪类：checked*/
+			input[type='radio']:checked+label{
+				/*定义动画：move  表示动画的名字，1s 是时间*/
+				-webkit-animation: move 1s;
+				background: #C8C9DD;
+				color:#fff;
+				/*给选中的标签一个缩放*/
+				transform: scale(1.5);
+				/*3px:表示X轴     3px：表示Y轴   3px：表示阴影的面积   3px：表示阴影的半径
+				 inset：表示内阴影
+				 * 逗号后面的值表示加了外阴影
+				 * */
+				box-shadow: 0px 3px 5px #FF0000 inset,0 2px 2px #FF0000; 
+			}
+			/*给所有和input同级的lable 标签加上样式*/
+			input[type='radio']+label{
+				display: inline-block;
+				padding: 5px 16px;
+				border-radius: 10px;
+			    transition:all .2s; 
+			}
+			/*定义动画*/
+			@-webkit-keyframes move{
+				/*rotateX 表示3D旋转*/
+				from{
+					transform: translateX(1000px)rotateZ(1360deg);
+				}
+				to{
+					transform: translateX(0px)rotateZ(0deg);
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<p> 教室上课是否准时？</p>
+		<div class="">
+			<input type="radio" name="til" id="ti1" value="tl" checked="checked"/>
+			<!--label  加属性for  跟input 的id  命名一致   =====表示 显示绑定-->
+			
+			<!--隐示绑定  ：就是去掉for的属性，用label把input标签包裹住-->
+			<label for="ti1">
+				准时
+			</label>
+		</div>
+		<div class="">
+			<input type="radio" name="til" id="ti2" value="tl" />
+			<label for="ti2">
+				偶尔迟到
+			</label>
+		</div>
+		<div class="">
+			<input type="radio" name="til" id="ti3" value="tl" />
+			<label for="ti3">
+				经常迟到
+			</label>
+		</div>
+	</body>
+</html>

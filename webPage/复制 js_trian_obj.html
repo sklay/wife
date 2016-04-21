@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>给我加钱</title>
+		
+		<style>
+		
+		</style>
+	</head>
+	<body>
+	
+		<div>
+			<input type="button" value="捡钱" id="btn" />
+			<img src="images/500276.gif" id="img" style="width: 225px;"/>
+			<script>
+				var obj ={
+					name:"",
+					age:12,
+					o:{
+						userName:'张三' ,
+						sex:'男',
+						obj:{
+							addr:'北京',
+							work:'程序员'
+						},
+					},
+					fn:function(){
+						var img = document.getElementById('img');
+						img.src = 'images/corn.gif';
+					}
+				}
+//				console.log(obj.name);
+				console.log(obj.fn());
+				
+				
+				/*遍历对象
+				 for..in
+				 
+				 格式：
+				 for(in 需要遍历的对象){
+				 	
+				 }
+				 * */
+			</script>
+		</div>
+	</body>
+	
+</html>
