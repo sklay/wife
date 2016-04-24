@@ -68,13 +68,15 @@ body {
 <body>
 	<div class="content">
 		<div class="indexPage">
-			<div class="content_logo">
-				<img src="images/act_16wy_laborDay_index_logo.png" /> 
-			</div>
-			<div class="content_people">
-				<img src="images/act_16wy_laborDay_index_icon.png" />
-			</div>
-			<div class="getHbWrap">
+			<img class="indexPage_shine" src="images/act_16wy_laborDay_index_shine.png" />
+			<div class="content_wrap">
+				<div class="content_logo">
+					<img src="images/act_16wy_laborDay_index_logo.png" /> 
+				</div> 
+				<div class="content_people">
+					<img src="images/act_16wy_laborDay_index_icon.png" />
+				</div>
+				<div class="getHbWrap">
 				<div class="getHb">
 					<div class="commomLogin">
 						<input type="tel" placeholder="请输入手机号码" id="userPhone">
@@ -84,13 +86,13 @@ body {
 					<div class="received_result" style="display: none; margin-top: -.5rem;">
 						<div class="receive_success" style="display: none;">
 							<div class="getHb5 getHbnNum" style="display: none;">
-								<img class="getHb5_img" src="images/act_16wed_coupon5.png" />
+								<img class="getHb5_img" src="images/act_16wy_laborDay_index_7.png" />
 								<p class="receive_text receiveResult "></p>
 							</div>
 						</div>
 						<div class="has_received" style="display: none;">
 							<div class="has_getHb5 getHbnNum" style="display: none">
-								<img class="has_getHb5_img" src="images/act_16wed_coupon5.png" />
+								<img class="has_getHb5_img" src="images/act_16wy_laborDay_index_7.png" />
 								<p class="has_receive_text receiveResult "></p>
 							</div>
 						</div>
@@ -105,6 +107,7 @@ body {
 					<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>
 				</div>
 			</div>
+		</div>
 		</div>
 		<!--看朋友手气-->
 		<!--<c:if test="${ not empty coupList }">
@@ -298,9 +301,9 @@ body {
 						wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
 						//$(".coupon_value").html(getHbNuM);
 						if (getHbNuM == 5) {
-							$(".getHb5_img").attr("src", "images/act_16wed_coupon5.png");
+							$(".getHb5_img").attr("src", "images/act_16wy_laborDay_index_7.png");
 						} else {
-							$(".getHb5_img").attr("src", "images/act_16wed_coupon6.png");
+							$(".getHb5_img").attr("src", "images/act_16wy_laborDay_index_8.png");
 						}
 						$(".receive_text").html('恭喜您，领到' + getHbNuM + '元现金券');
 						$(".getHb5").show();
@@ -318,9 +321,9 @@ body {
 							$(".has_received").show();
 							//$(".coupon_value").html((couponValue/100));
 							if ((couponValue / 100) == 5) {
-								$(".has_getHb5_img").attr("src", "images/act_16wed_coupon5.png");
+								$(".has_getHb5_img").attr("src", "images/act_16wy_laborDay_index_7.png");
 							} else {
-								$(".has_getHb5_img").attr("src", "images/act_16wed_coupon6.png");
+								$(".has_getHb5_img").attr("src", "images/act_16wy_laborDay_index_8.png");
 							}
 							$(".has_receive_text").html((couponValue / 100) + '元现金券已经存入您的账户');
 							$(".has_getHb5").show();

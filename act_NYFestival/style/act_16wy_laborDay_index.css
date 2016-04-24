@@ -1,16 +1,26 @@
 .content {
 	width: 100%;
+	
 }
 
 .indexPage {
 	width: 100%;
 	background: url(../images/act_16wy_laborDay_index_bj.jpg) center center no-repeat;
 	background-size:100% 100%;
+	position: relative;
+	height: 9.5rem;
 }
-
+.indexPage_shine{
+	width: 100%;
+}
+.content_wrap{
+	width: 100%;
+	position: absolute;
+  	top: 0;
+}
 .content_logo {
 	width: 100%;
-	margin: 0 auto .6rem;
+	margin: 0 auto;
 	overflow: hidden;
 }
 
@@ -42,20 +52,20 @@
 }
 /*输入框样式*/
 .commomLogin {
-	width: 4.6rem;
+	width: 5rem;
 	margin: 0 auto;
 }
 
 #userPhone {
 	width: 100%;
 	outline: none;
-	border: 2px solid #308eeb;
+	border: 2px solid #f2153e;
 	height: 50px;
 	line-height: 50px;
 	box-sizing: border-box;
 	color: #545454;
 	text-align: center;
-	background: transparent;
+	background: #fff;
 	border-radius: 8px;
 	font-size: 16px;
 	font-weight: 600;
@@ -79,18 +89,19 @@
 
 #getHbBtn {
 	font-size: 18px;
-	width: 4.6rem;
+	width: 5rem;
 	line-height: 52px;
 	height: 50px;
 	border-radius: 6px;
 	outline: none;
 	border: 0;
-	color: #fff;
-	background: #308eeb;
+	color: #000;
+	background: #f2153e;
 	margin: .25rem auto 0;
 	display: block;
 	font-weight: 600;
-	box-shadow: 0 6px 0 #1462b0;
+	box-shadow: 0 6px 0 #000;
+	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
 }
 
 #downText {
@@ -127,6 +138,7 @@
    }*/
 .receiveResult {
 	font-size: 16px;
+	font-weight: 600;
 	color: #000;
 	text-align: center;
 	margin: .1rem auto 0;
@@ -139,19 +151,20 @@
 }
 
 .commUsebtn button {
-	color: #fff;
+	color: #000;
 	font-weight: 600;
 	font-size: 18px;
 	width: 2.2rem;
 	line-height: .8rem;
 	height: .8rem;
 	border-radius: 6px;
-	background: #308eeb;
-	box-shadow: 0 5px 0 #1462b0;
+	background: #f2153e;
+	box-shadow: 0 5px 0 #000;
 	margin: .2rem auto;
 	display: block;
 	outline: none;
 	border: none;
+	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
 }
 
 .use_btn {
@@ -269,7 +282,7 @@
 	width: 100%;
 	height: 35px;
 	float: right;
-	background: url(images/act_16gxy_coupon_icon.png) 0px 0 no-repeat;
+	background: url(../images/act_16gxy_coupon_icon.png) 0px 0 no-repeat;
 	background-size: 100% 100%;
 	overflow: hidden;
 	line-height: 35px;
@@ -314,22 +327,23 @@
 	width: 5.6rem;
 	overflow: hidden;
 	margin: .3rem auto 0;
-}
+	
 
 .shareAppPage button {
-	color: #fff;
+	color: #000;
 	font-weight: 600;
 	font-size: 18px;
 	width: 2.5rem;
 	line-height: .8rem;
 	height: .8rem;
 	border-radius: 6px;
-	background: #308eeb;
-	box-shadow: 0 5px 0 #1462b0;
+	background: #f2153e;
+	box-shadow: 0 5px 0 #000;
 	margin: .6rem auto;
 	display: block;
 	outline: none;
 	border: none;
+	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
 }
 
 .shareAppPage button:nth-child(1) {
