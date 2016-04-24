@@ -1,28 +1,110 @@
+ #loadingPage{
+		    width:100%;height:100%;background:#fff;position:absolute;top:0;left:0;z-index:10;
+		}
+		#myCanvas{
+		    display:block;width:3rem;margin:0 auto;text-align:center;
+		}
+		#loadingPage .loadingImg{
+			width:1.5rem;margin:3rem auto .5rem;overflow:hidden;position:relative;height:1.5rem;
+		}
+		#loadingPage .loadingImg img{
+			width:100%;position:absolute;top:0;left:0;opacity:0
+		}
+		@-webkit-keyframes loadImgMove{
+			50%{opacity:1}
+			100%{opacity:0}
+		}
+		@keyframes loadImgMove{
+			50%{opacity:1}
+			100%{opacity:0}
+		}
+		#loadingPage .loadingImg img:nth-child(1){
+			-webkit-animation:loadImgMove 1.5s linear infinite; 
+			animation:loadImgMove 1s linear infinite; 
+		}
+		#loadingPage .loadingImg img:nth-child(2){
+			-webkit-animation:loadImgMove 1.5s linear 500s infinite; 
+			animation:loadImgMove 1s linear 500ms infinite; 
+		}
+		#loadingPage .loadingImg img:nth-child(3){
+			-webkit-animation:loadImgMove 1.5s linear 1s infinite; 
+			animation:loadImgMove 1s linear 1s infinite; 
+		} 
+
+
+/*音乐图标样式 start*/
+.music_wrap {
+	width: 27px;
+	height:27px;
+	position: absolute;
+	top: .2rem;
+	right: .4rem;
+	z-index: 11;
+}
+.music_wrap .music_play{
+	width: 100%;
+	  -webkit-animation-iteration-count: infinite;
+	  animation-iteration-count: infinite;
+	  -webkit-animation-duration: 2s !important;
+	  animation-duration: 2s !important;
+	  -webkit-animation: rotate 1s linear;
+	  animation: rotate 1s linear;
+	  -webkit-animation-duration: 1s;
+	  animation-duration: 1s;
+	  -webkit-animation-fill-mode: both;
+	  animation-fill-mode: both;
+}
+.music_wrap .music_close{
+	width: 100%;
+	display: none;
+}
+/*音乐图标样式 end*/
 /*首页样式 start*/
 .con_wrap_index{
 	background: url(../images/act_16motherDay_bj1.jpg)center center no-repeat;
 	background-size:100% 100% ;
 	position: relative;
+	display: none;
 }
 .wrap_index_title_wrap{
 	width: 6rem;
 	position: relative;
 	margin: 0 auto;
 	padding-top: .6rem;
+	
 }
 .wrap_index_title_wrap img:nth-child(1){
 	width: 100%;
+	opacity: 0;
+	-webkit-animation:fadeIn 1s linear 2s;
+	animation:fadeIn 1s linear 2s;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 }
 .wrap_index_title_wrap img:nth-child(2){
 	width:.6rem;
 	position: absolute;
 	top:3.5rem;
 	right: .5rem;
+	/*爱星飘下来的动作*/
+	/*-webkit-transition: all 2s;*/
+	-webkit-animation-duration: 1s;
+    -webkit-animation-delay: 1.5s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
 }
 
 .con_wrap_index_desc {
 	width: 5.4rem;
 	margin: .5rem auto;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem); 
 }
 .con_wrap_index_desc img{
 	width: 100%;
@@ -32,23 +114,16 @@
 	margin: 0 auto;
 }
 .con_wrap_index_people img{
-	-webkit-animation: pople_move 4s linear 2s 1;
+	 -webkit-animation: people_move 2s linear 2s ;
 	width:100%;	
 	margin-left: -0.5rem;
-	/*transition: all .2s;*/
 	opacity: 0;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
 }
-@-webkit-keyframes pople_move{
-	0%{
-		opacity: 1;
-	}
-	30%{
-		opacity: 0.5;
-	}
-	100{
-		opacity: 0;
-	}
-}
+
+
+
 .con_wrap_index_botom{
 	width: 2.8rem;
 	position: absolute;
@@ -60,15 +135,396 @@
 	width: 2.8rem;
 	float: right;
 }
-/*底部花的动画*/
-@-webkit-keyframes flow_move{
-	from{
-		transform: translateY(156px);
-		opacity: 0;
-	}
-	to{
-		transform: translateY(0);
-		opacity: 1;
-	}
+.slide_up{
+	width: .5rem;
+	margin: -.6rem auto 0;
+	font-size: 24px;
+	
+	opacity: 0;
+	-webkit-animation: slide_up_move 2s infinite;
 }
+.slide_up span{
+	display: block;
+	transform:rotate(-90deg) ;
+}
+
 /*首页样式end*/
+/*展示页 start*/
+/*第一幅图 start*/
+.game_show_moduel_one{
+	background: url(../images/act_16motherDay_view1_bj.jpg)center center no-repeat;
+	background-size:100% 100% ;
+	box-sizing: border-box;
+	/*display: none;*/
+}
+.moduel_one_content{
+	padding-top: .5rem;
+}
+.moduel_one_title_wrap ,.moduel_two_title_wrap,.moduel_three_title_wrap,.moduel_fore_title_wrap,.moduel_five_title_wrap,.moduel_seven_title_wrap{
+	width: 4.5rem;
+	margin: 0 auto .4rem;
+}
+.moduel_one_title_wrap img ,.moduel_two_title_wrap img,.moduel_three_title_wrap img,.moduel_five_title_wrap img,.moduel_seven_title_wrap img{
+	width: 100%;
+}
+.moduel_one_title_wrap img:nth-child(1){
+	-webkit-animation: left_move 2s linear 1s 1;
+}
+.moduel_one_title_wrap img:nth-child(2){
+	-webkit-animation: right_move 2s linear 1s 1;
+}
+.moduel_one_people{
+	  width: 4rem;
+	  margin: .5rem auto 1rem ;
+	  overflow: hidden;
+	  padding: .8rem 1rem  0;
+}
+.moduel_one_people img:nth-child(1){
+	width: 1.5rem;
+	float: left;
+	margin-top:.25rem ;
+	/*transition:all  2s ;*/
+	-webkit-animation-name: fadeInDown;
+	animation-name: fadeInDown
+}
+.moduel_one_people img:nth-child(2){
+	width: 2rem;
+	float: right;
+	-webkit-animation: flow_move 2s;
+}
+
+/*第一幅图 end*/
+/*第二幅图 start*/
+.game_show_moduel_two{
+	background: url(../images/act_16motherDay_view2_bj.jpg)center center no-repeat;
+	background-size:100% 100% ;
+	
+	/*display: none;*/
+}
+.moduel_two_content{
+	padding-top: .5rem;
+	overflow: hidden;
+}
+.moduel_two_title_wrap{
+	-webkit-animation: big_move1 3s linear 2s 1;
+}
+
+
+.moduel_two_desc{
+	width: 4rem;
+	margin: 0 auto;
+	
+}
+.moduel_two_desc img:nth-child(1){
+	width: 100%;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem); 
+}
+.moduel_two_desc img:nth-child(2){
+	width: 2rem;
+	display: block;
+	margin-left: -.5rem;
+	-webkit-animation: people_move 2s linear 1s 1;
+}
+.moduel_two_people{
+	width: 4rem;
+	float: right;
+    margin-top: -2.5rem;
+    -webkit-animation: people_move_right 2s linear 1s 1;
+}
+.moduel_two_people img{
+	width: 100%;
+	
+}
+/*第二幅 end*/
+/*第三幅start*/
+.game_show_moduel_three{
+	background: url(../images/act_16motherDay_view3_bj.jpg)center center no-repeat;
+	background-size:100% 100% ;
+	
+	/*display: none;*/
+}
+.moduel_three_content{
+	padding-top: .5rem;
+	margin-bottom: 1rem;
+}
+.moduel_three_title_wrap{
+	-webkit-animation: big_move1 3s linear 2s 1;
+}
+.moduel_three_desc{
+	position: relative;
+	width: 6rem;
+	margin: 1rem auto ;
+}
+.moduel_three_desc img:nth-child(1){
+	width: 100%;
+	-webkit-animation: three_desc 3s linear 2s 1;
+}
+
+.moduel_three_desc img:nth-child(2){
+	display: block;
+	width: 2rem;
+	position: absolute;
+	top:1.5rem;
+	left: 50%;
+	margin-left: -50px;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem);
+}
+
+/*第三幅图end*/
+/*第四幅图start*/
+.game_show_moduel_fore{
+	background: url(../images/act_16motherDay_view4_bj.jpg) center center no-repeat;
+	background-size:100% 100% ;
+	
+	/*display: none;*/
+}
+.moduel_fore_content{
+	padding-top: .5rem;
+	margin-bottom: .5rem;
+}
+.moduel_fore_title_wrap img{
+	width: 100%;
+	-webkit-animation: big_move1 3s linear 2s 1;
+}
+.moduel_fore_desc{
+	width: 4.5rem;
+	overflow: hidden;
+	padding: .5rem 1rem 0;
+}
+.moduel_fore_desc img:nth-child(1){
+	width: 2.5rem;
+	float: left;
+	-webkit-animation: fore_desc_left 2s linear 1s 1;
+}
+.moduel_fore_desc img:nth-child(2){
+	width: 2rem;
+	float: right;
+	margin-top: .5rem;
+	-webkit-animation: fore_desc_right 2s linear 1s 1;
+}
+
+.moduel_fore_people{
+	width: 4.5rem;
+	margin: 0 auto;
+	-webkit-animation: flow_move 2s;
+}
+.moduel_fore_people img{
+	width: 100%;
+}
+/*第四幅图end*/
+
+/*第五幅图start*/
+.game_show_moduel_five{
+	background: url(../images/act_16motherDay_view5_bj.jpg) center center no-repeat;
+	background-size:100% 100% ;
+	
+	/*display: none;*/
+}
+.moduel_five_content{
+	padding-top: .5rem;
+}
+.moduel_five_title_wrap{
+	-webkit-animation: big_move 3s linear 2s 1;
+}
+
+.moduel_five_people{
+	width: 4.4rem;
+	margin: 0 auto;
+}
+.moduel_five_people img:nth-child(1){
+	width: 3rem;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem);
+}
+.moduel_five_people img:nth-child(2){
+	width: 100%;
+	-webkit-animation: flow_move 2s;
+}
+/*第五幅图end*/
+/*第六幅图start*/
+.game_show_moduel_six{
+	background: url(../images/act_16motherDay_view6_bj.jpg) center center no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+	
+	/*display: none;*/
+}
+.moduel_six_content{
+	width: 5.4rem;
+	margin: 0 auto 1rem;
+	padding: 1rem 0;
+	transition: all 2s;
+}
+.moduel_six_title_wrap{
+	width: 100%;
+	margin: .3rem auto .5rem;
+}
+.moduel_six_title_wrap img:nth-child(1){
+	width: 3rem;
+	display: block;
+	margin: 0 auto;
+	-webkit-animation-duration: 1s;
+	  -webkit-animation-delay: 0s;
+	  -webkit-animation-iteration-count: infinite;
+	  /*调用动画*/
+	  -webkit-animation-name: tada;
+	animation-name: tada
+}
+.moduel_six_title_wrap img:nth-child(2){
+	width:100%;
+	margin-top: .2rem;
+}
+.moduel_six_dot{
+	width: 3rem;
+	margin: .3rem auto .5rem;
+	text-align: center;
+}
+.moduel_six_dot p{
+	font-size: .55rem;
+	font-weight: bold;
+	color: #ff1366;
+	/*-webkit-text-stroke:4px #fff;
+	text-stroke:4px #fff;*/
+	
+	text-shadow: 3px 0px 0px #fff , -3px 0px 0px #fff,0px 3px 0px #fff,0px -3px 0px #fff;
+}
+.moduel_six_desc{
+	margin-top: 1rem;
+}
+.moduel_six_desc img:nth-child(1){
+	width: 3rem;
+	display: block;
+	margin: 0 auto;
+}
+.moduel_six_desc img:nth-child(2){
+	width: 4rem;
+	display: block;
+	margin: .2rem auto 0;
+}
+
+
+/*第六幅图  的   end */
+/*第七幅图start*/
+.game_show_moduel_seven{
+	background: url(../images/act_16motherDay_view7_bj.jpg) center center no-repeat;
+	background-size:100% 100% ;
+	display: none;
+	position: relative;
+}
+.moduel_seven_content{
+	padding-top: .8rem;
+	position: relative;
+}
+.moduel_seven_title_wrap img:nth-child(2){
+	width: .8rem;
+	position: absolute;
+	top: 1.1rem;
+}
+.moduel_seven_word{
+	width: 4rem;
+	margin: 0 auto;
+	text-align: center;
+	font-size:24px ;
+	height: 1rem;
+}
+.moduel_seven_word p{
+	width: 2rem;
+	display: inline-block;
+	line-height: 1rem;
+	background: #ba0808;
+	padding: 0 .4rem;
+	border-radius: 7px;
+	color: #fff;
+	font-weight: bold;
+	font-family: 微软雅黑;
+}
+.moduel_seven_desc{
+	width: 100%;
+	margin: .3rem auto 0;
+	overflow: hidden;
+	position: relative;
+}
+.moduel_seven_desc img:nth-child(1){
+	width: 3rem;
+	display: block;
+	float: right;
+	margin-right: .5rem;
+	margin-top: .3rem;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem); 
+}
+.moduel_seven_desc img:nth-child(2){
+	width: 4rem;
+	float: left;
+	margin-left: .1rem;
+	-webkit-animation: people_move 2s linear 1s 1;
+}
+.moduel_seven_desc img:nth-child(3){
+	width: 4rem;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 1.5rem;
+	-webkit-animation: people_move_right 2s linear 1s 1;
+}
+.moduel_seven__botom{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.moduel_seven__botom img{
+	width: 100%;
+	float: left;
+	z-index: 1;
+}
+/*第七幅图   end*/
+/*展示页 end*/
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

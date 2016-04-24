@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<style>
+			img {
+				opacity: 0;
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+				-webkit-animation-duration: 1s;
+				animation-duration: 1s;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+				-webkit-animation-delay: 2s;
+				/**延迟动画**/
+				animation-delay: 6s;
+				/*Safari and Chrome*/
+			}
+			
+			@-webkit-keyframes fadeIn {
+				from {
+					transform: scale(.2);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1);
+					opacity: 1;
+				}
+			
+			@keyframes fadeIn {
+				from {
+					transform: scale(.2);
+					opacity: 0;
+				}
+				to {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<img src="images/flower.png" />
+
+		<p><strong>注释：</strong>Internet Explorer 9 以及更早的版本不支持 animation 属性。</p>
+
+		<div></div>
+
+	</body>
+
+</html>

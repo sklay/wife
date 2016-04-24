@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 		<style type="text/css">
-		div{
-			text-align: center;
-			height: 400px;
-			padding: 200px 0;
-		}
-			.imglist_1{
+			div {
+				text-align: center;
+				height: 400px;
+				padding: 200px 0;
+			}
+			
+			.imglist_1 {
 				margin-top: 150px;
 				-webkit-animation: move 2s infinite;
 				opacity: 0;
 			}
-			@-webkit-keyframes move{
-				from{
+			
+			@-webkit-keyframes move {
+				from {
 					transform: translateY(0);
 					opacity: 1;
 				}
-				to{
+				to {
 					transform: translateY(-50px);
 					opacity: 0;
 				}
 			}
 			/*花放大的动画*/
+			
 			.flower_wrap {
 				width: 100%;
 				position: relative;
@@ -34,58 +38,73 @@
 			.flower_wrap img {
 				position: absolute;
 				/*-webkit-transform: scale(0);
-				transform: scale(0);*/
+					transform: scale(0);*/
 			}
 			
-			.firAni .flower_wrap img:nth-child(1) {
-				-webkit-transform: scale(0);
-				transform: scale(0);
+			.firAni .flower_wrap img {
+				/*-webkit-transform: scale(0);
+					transform: scale(0);*/
 				width: 40%;
-				-webkit-transform: scale(0);
-				transform: scale(0);
-				-webkit-animation: move1 1s linear 1 ;
-				
+				-webkit-animation:move1 5s infinite;
+				/*-webkit-animation: move1 4s infinite 2s ;*/
+				/*-webkit-animation-name: move1;
+				-webkit-animation-duration:   4s;
+				-webkit-animation-timing-function: linear ;
+				-webkit-animation-delay: 2s;*/
+				/*-webkit-animation-iteration-count;*/
+				/*-webkit-animation-direction;*/
 			}
 			
 			@-webkit-keyframes move1 {
+				0% {
+					transform: scale(.2);
+					opacity: 0;
+				}
+				60% {
+					transform: scale(.4);
+					opacity: .4;
+				}
 				80% {
 					transform: scale(.6);
-					opacity: 1;
+					opacity: .8;
 				}
 				100% {
 					transform: scale(.8);
-					opacity: 0;
+					opacity: 1;
 				}
+				
+				
 			}
 		</style>
 	</head>
+
 	<body>
 		<div class="conTent_wrap">
-			<div class="flower_wrap">
-				<img  src="images/flower.png"  />
+			<div class="flower_wrap firAni">
+				<img src="images/flower.png" />
 			</div>
-			<div class="flower_wrap">
+			<!--<div class="flower_wrap">
 				<img  src="images/flower.png"  />
-			</div>
-			<div >
-				<img class="imglist_1" src="images/mark.png"  />
+			</div>-->
+			<div>
+				<img class="imglist_1" src="images/mark.png" />
 			</div>
 		</div>
 	</body>
 	<script>
-	$(function(){
-		 play();
-		 	 function play(){
-		 	 	$(".conTent_wrap").addClass("firAni");
-//		 	 	setTimeout(function(){
-					 $(".firAni .flower_wrap img").animate({"-webkit-transform":"scale(1)","transform":"scale(1)"},1000)
-//				 	 	},1500);
-		 	 	}
-	 	   
-			})
-	
-	
-	 	 
-	 	  
+		$(function() {
+			/*play();
+
+			function play() {
+				$(".conTent_wrap").addClass("firAni");
+				setTimeout(function() {
+					$(".firAni .flower_wrap img").animate({
+						"-webkit-transform": "scale(1)",
+						"transform": "scale(1)"
+					}, 1000)
+				}, 1500);
+			}*/
+		})
 	</script>
+
 </html>
