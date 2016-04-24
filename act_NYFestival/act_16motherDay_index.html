@@ -40,6 +40,7 @@
 			html,
 			body,
 			.con_wrap,
+			.content,
 			.con_wrap_index,
 			.game_show,
 			.game_show_moduel_one,
@@ -61,11 +62,79 @@
 				width: 100%;
 			}
 			
-			#myCanvas {
-				display: block;
-				width: 3rem;
-				margin: 0 auto;
+			.loadText {
+				font-size: 20px;
+				color: #fff;
 				text-align: center;
+				line-height: 50px;
+				margin-top: .7rem;
+				font-weight: 600;
+			}
+			
+			.loadShape {
+				width: 4.5rem;
+				margin: 0 auto;
+				background: #FFFFFF;
+				border-radius: 10px;
+				height: 10px;
+				overflow: hidden;
+			}
+			
+			#loadShapePro {
+				border-radius: 10px;
+				height: 10px;
+				float: left;
+				background: rgb(255, 244, 209);
+				/* Old browsers */
+				background: #75a5d5;
+				width: 0;
+			}
+			
+			.pt-page-moveToTop {
+				-webkit-animation: moveToTop .6s ease both;
+				animation: moveToTop .6s ease both;
+			}
+			
+			@-webkit-keyframes moveToTop {
+				from {}
+				to {
+					-webkit-transform: translateY(-100%);
+				}
+			}
+			
+			@keyframes moveToTop {
+				from {}
+				to {
+					-webkit-transform: translateY(-100%);
+					transform: translateY(-100%);
+				}
+			}
+			
+			.pt-page-moveFromBottom {
+				-webkit-animation: moveFromBottom .6s ease both;
+				animation: moveFromBottom .6s ease both;
+			}
+			
+			@-webkit-keyframes moveFromBottom {
+				from {
+					-webkit-transform: translateY(100%);
+				}
+			}
+			
+			@keyframes moveFromBottom {
+				from {
+					-webkit-transform: translateY(100%);
+					transform: translateY(100%);
+				}
+			}
+			.hide{
+				display: none;
+			}
+			.show{
+				display: block;
+			}
+			.page-current{
+				display: block;
 			}
 		</style>
 		<!--百度统计-->
@@ -89,7 +158,8 @@
 					<img src="images/loading02.png" />
 					<img src="images/loading03.png" />
 				</div>
-				<canvas id="myCanvas"></canvas>
+				<p class="loadText">已加载<span id="loadPer"></span></p>
+				<div class="loadShape"><span id="loadShapePro"></span></div>
 				<script>
 					(function() {
 						var wh = $(window).height();
@@ -101,183 +171,181 @@
 			</div>
 			<!--加载页 end-->
 			<!--首页 start-->
-			<div class="controllerPage con_wrap_index">
+			<div class="content">
 				<div class="music_wrap">
-					<!--<audio id="audioCon" src="audio/music0.mp3" sortNum="0" autoplay="autoplay" loop="loop" preload="auto"></audio>-->
-					<img id="audioOpenBtn" class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
-					<img id="audioCloseBtn" class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
+					<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
+					<img class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
 				</div>
-				<div class="index_content">
-					<div class="wrap_index_title_wrap">
-						<img class="flowerTit" src="images/act_16motherDay_title.png" />
-						<img src="images/act_16motherDay_heard.png" />
-					</div>
-					<div class="con_wrap_index_desc">
-						<!--<p>药快到感恩母亲节健康有礼</p>-->
-						<img src="images/act_16motherDay_desc.png" />
-					</div>
-					<div class="con_wrap_index_people">
-						<img src="images/act_16motherDay_parenting.png" />
-					</div>
-					<div class="con_wrap_index_botom">
-						<img src="images/act_16motherDay_flower.png" />
-					</div>
-				</div>
-				<div class="slide_up">
-					<span>>></span>
-				</div>
-			</div>
-			<!--首页 end-->
-			<!--展示页-->
-
-			<div class="controllerPage game_show">
-				<div class="music_wrap">
-					<!--<audio id="audioCon" src="audio/music0.mp3" sortNum="0" autoplay="autoplay" loop="loop" preload="auto"></audio>-->
-					<img id="audioOpenBtn" class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
-					<img id="audioCloseBtn" class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
-				</div>
-				<!--第一个模块 start-->
-				<div class="game_show_moduel_one common_wrap">
-					<div class="moduel_one_content">
-						<div class="moduel_one_title_wrap">
-							<img src="images/act_16motherDay_view_title1.png" />
-							<img src="images/act_16motherDay_view_title2.png" />
+				<div class="controllerPage con_wrap_index" data-cur=".con_wrap_index" data-next=".game_show_moduel_one" data-before=".game_show_moduel_seven">
+					<div class="index_content">
+						<div class="wrap_index_title_wrap">
+							<img class="flowerTit" src="images/act_16motherDay_title.png" />
+							<img src="images/act_16motherDay_heard.png" />
 						</div>
-						<!--<div class="moduel_one_desc">
+						<div class="con_wrap_index_desc">
+							<!--<p>药快到感恩母亲节健康有礼</p>-->
+							<img src="images/act_16motherDay_desc.png" />
+						</div>
+						<div class="con_wrap_index_people">
+							<img src="images/act_16motherDay_parenting.png" />
+						</div>
+						<div class="con_wrap_index_botom">
+							<img src="images/act_16motherDay_flower.png" />
+						</div>
+					</div>
+					<div class="slide_up">
+						<span>>></span>
+					</div>
+				</div>
+				<!--首页 end-->
+				<!--展示页-->
+
+				<div class="controllerPage game_show">
+					<!--第一个模块 start-->
+					<div class="game_show_moduel_one common_wrap" data-cur=".game_show_moduel_one" data-next=".game_show_moduel_two" data-before=".con_wrap_index">
+						<div class="moduel_one_content">
+							<div class="moduel_one_title_wrap">
+								<img src="images/act_16motherDay_view_title1.png" />
+								<img src="images/act_16motherDay_view_title2.png" />
+							</div>
+							<!--<div class="moduel_one_desc">
 							<img src="images/act_16motherDay_desc.png" />
 						</div>-->
-						<div class="moduel_one_people">
-							<img src="images/act_16motherDay_view1_desc.png" />
-							<img src="images/act_16motherDay_view_moher.png" />
-						</div>
+							<div class="moduel_one_people">
+								<img src="images/act_16motherDay_view1_desc.png" />
+								<img src="images/act_16motherDay_view_moher.png" />
+							</div>
 
-					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_two">
-						<span>>></span>
-					</div>
-				</div>
-				<!--第一个模块 end-->
-				<!--第二个模块 start-->
-				<div class="game_show_moduel_two common_wrap">
-					<div class="moduel_two_content">
-						<div class="moduel_two_title_wrap">
-							<img src="images/act_16motherDay_view2_title1.png" />
-							<img src="images/act_16motherDay_view2_title2.png" />
 						</div>
-						<div class="moduel_two_desc">
-							<img src="images/act_16motherDay_view2_desc.png" />
-							<img src="images/act_16motherDay_view2_daut.png" />
-						</div>
-						<div class="moduel_two_people">
-							<img src="images/act_16motherDay_view2_mother.png" />
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
 						</div>
 					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_three">
-						<span>>></span>
-					</div>
-				</div>
-				<!--第二个模块 end-->
-				<!--第三个模块 start-->
-				<div class="game_show_moduel_three common_wrap">
-					<div class="moduel_three_content">
-						<div class="moduel_three_title_wrap">
-							<img src="images/act_16motherDay_view3_title1.png" />
-							<img src="images/act_16motherDay_view3_title2.png" />
+					<!--第一个模块 end-->
+					<!--第二个模块 start-->
+					<div class="game_show_moduel_two common_wrap" data-cur=".game_show_moduel_two" data-next=".game_show_moduel_three" data-before=".game_show_moduel_one">
+						<div class="moduel_two_content">
+							<div class="moduel_two_title_wrap">
+								<img src="images/act_16motherDay_view2_title1.png" />
+								<img src="images/act_16motherDay_view2_title2.png" />
+							</div>
+							<div class="moduel_two_desc">
+								<img src="images/act_16motherDay_view2_desc.png" />
+								<img src="images/act_16motherDay_view2_daut.png" />
+							</div>
+							<div class="moduel_two_people">
+								<img src="images/act_16motherDay_view2_mother.png" />
+							</div>
 						</div>
-						<div class="moduel_three_desc">
-							<img src="images/act_16motherDay_view3_desc.png" />
-							<img src="images/act_16motherDay_view3_ma.png" />
-						</div>
-					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_fore">
-						<span>>></span>
-					</div>
-				</div>
-				<!--第三个模块 end-->
-				<!--第四个模块 start-->
-				<div class="game_show_moduel_fore common_wrap">
-					<div class="moduel_fore_content">
-						<div class="moduel_fore_title_wrap">
-							<img src="images/act_16motherDay_view4_title.png" />
-						</div>
-						<div class="moduel_fore_desc">
-							<img src="images/act_16motherDay_view4_desc1.png" />
-							<img src="images/act_16motherDay_view4_desc2.png" />
-						</div>
-						<div class="moduel_fore_people">
-							<img src="images/act_16motherDay_view4_eat.png" />
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
 						</div>
 					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_five">
-						<span>>></span>
-					</div>
-				</div>
-				<!--第四个模块 end-->
-				<!--第五个模块 start-->
-				<div class="game_show_moduel_five common_wrap">
-					<div class="moduel_five_content">
-						<div class="moduel_five_title_wrap">
-							<img src="images/act_16motherDay_view5_title.png" />
+					<!--第二个模块 end-->
+					<!--第三个模块 start-->
+					<div class="game_show_moduel_three common_wrap" data-cur=".game_show_moduel_three" data-next=".game_show_moduel_fore" data-before=".game_show_moduel_two">
+						<div class="moduel_three_content">
+							<div class="moduel_three_title_wrap">
+								<img src="images/act_16motherDay_view3_title1.png" />
+								<img src="images/act_16motherDay_view3_title2.png" />
+							</div>
+							<div class="moduel_three_desc">
+								<img src="images/act_16motherDay_view3_desc.png" />
+								<img src="images/act_16motherDay_view3_ma.png" />
+							</div>
 						</div>
-						<!--<div class="moduel_five_desc">
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
+						</div>
+					</div>
+					<!--第三个模块 end-->
+					<!--第四个模块 start-->
+					<div class="game_show_moduel_fore common_wrap" data-cur=".game_show_moduel_fore" data-next=".game_show_moduel_five" data-before=".game_show_moduel_three">
+						<div class="moduel_fore_content">
+							<div class="moduel_fore_title_wrap">
+								<img src="images/act_16motherDay_view4_title.png" />
+							</div>
+							<div class="moduel_fore_desc">
+								<img src="images/act_16motherDay_view4_desc1.png" />
+								<img src="images/act_16motherDay_view4_desc2.png" />
+							</div>
+							<div class="moduel_fore_people">
+								<img src="images/act_16motherDay_view4_eat.png" />
+							</div>
+						</div>
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
+						</div>
+					</div>
+					<!--第四个模块 end-->
+					<!--第五个模块 start-->
+					<div class="game_show_moduel_five common_wrap" data-cur=".game_show_moduel_five" data-next=".game_show_moduel_six" data-before=".game_show_moduel_fore">
+						<div class="moduel_five_content">
+							<div class="moduel_five_title_wrap">
+								<img src="images/act_16motherDay_view5_title.png" />
+							</div>
+							<!--<div class="moduel_five_desc">
 							<img src="images/act_16motherDay_view5_desc.png" />
 						</div>-->
-						<div class="moduel_five_people">
-							<img src="images/act_16motherDay_view5_desc.png" />
-							<img src="images/act_16motherDay_view5_old.png" />
+							<div class="moduel_five_people">
+								<img src="images/act_16motherDay_view5_desc.png" />
+								<img src="images/act_16motherDay_view5_old.png" />
+							</div>
+						</div>
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
 						</div>
 					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_six">
-						<span>>></span>
+					<!--第五个模块 end-->
+					<!--第六个模块 start-->
+					<div class="game_show_moduel_six common_wrap" data-cur=".game_show_moduel_six" data-next=".game_show_moduel_seven" data-before=".game_show_moduel_five">
+						<div class="moduel_six_content">
+							<div class="moduel_six_title_wrap">
+								<img src="images/act_16motherDay_view6_desc1.png" />
+								<img src="images/act_16motherDay_view6_desc2.png" />
+							</div>
+							<div class="moduel_six_dot">
+								<p>••••••••</p>
+							</div>
+							<div class="moduel_six_desc">
+								<img src="images/act_16motherDay_view6_desc3.png" />
+								<img src="images/act_16motherDay_view6_desc4.png" />
+							</div>
+						</div>
+						<div class="con_wrap_index_botom">
+							<img src="images/act_16motherDay_flower.png" />
+						</div>
+						<div class="slide_up slide_up_comm">
+							<span>>></span>
+						</div>
 					</div>
+					<!--第六个模块 end-->
+					<!--第七个模块 start-->
+					<div class="game_show_moduel_seven common_wrap" data-cur=".game_show_moduel_seven" data-before=".game_show_moduel_six">
+						<div class="moduel_seven_content">
+							<div class="moduel_seven_title_wrap">
+								<img src="images/act_16motherDay_view7_title.png" />
+								<img src="images/loading.gif" />
+							</div>
+							<div class="moduel_seven_word">
+								<p>正品保证</p>
+							</div>
+							<div class="moduel_seven_desc">
+								<img src="images/act_16motherDay_view7_desc.png" />
+								<img src="images/act_16motherDay_view7_sendp.png" />
+								<img src="images/act_16motherDay_view7_cust.png" />
+							</div>
+						</div>
+						<div class="moduel_seven__botom">
+							<img src="images/act_16motherDay_view7_bloud.png" />
+						</div>
+					</div>
+					<!--第七个模块 end-->
 				</div>
-				<!--第五个模块 end-->
-				<!--第六个模块 start-->
-				<div class="game_show_moduel_six common_wrap">
-					<div class="moduel_six_content">
-						<div class="moduel_six_title_wrap">
-							<img src="images/act_16motherDay_view6_desc1.png" />
-							<img src="images/act_16motherDay_view6_desc2.png" />
-						</div>
-						<div class="moduel_six_dot">
-							<p>••••••••</p>
-						</div>
-						<div class="moduel_six_desc">
-							<img src="images/act_16motherDay_view6_desc3.png" />
-							<img src="images/act_16motherDay_view6_desc4.png" />
-						</div>
-					</div>
-					<div class="con_wrap_index_botom">
-						<img src="images/act_16motherDay_flower.png" />
-					</div>
-					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_seven">
-						<span>>></span>
-					</div>
-				</div>
-				<!--第六个模块 end-->
-				<!--第七个模块 start-->
-				<div class="game_show_moduel_seven common_wrap">
-					<div class="moduel_seven_content">
-						<div class="moduel_seven_title_wrap">
-							<img src="images/act_16motherDay_view7_title.png" />
-							<img src="images/loading.gif" />
-						</div>
-						<div class="moduel_seven_word">
-							<p>正品保证</p>
-						</div>
-						<div class="moduel_seven_desc">
-							<img src="images/act_16motherDay_view7_desc.png" />
-							<img src="images/act_16motherDay_view7_sendp.png" />
-							<img src="images/act_16motherDay_view7_cust.png" />
-						</div>
-					</div>
-					<div class="moduel_seven__botom">
-						<img src="images/act_16motherDay_view7_bloud.png" />
-					</div>
-				</div>
-				<!--第七个模块 end-->
 			</div>
 		</div>
+
+		<audio id="audioCon" src="images/222.mp3" sortNum="0" loop="loop" preload="auto"></audio>
 	</body>
 	<script>
 		var manifest = [];
@@ -287,11 +355,6 @@
 		var stage = new createjs.Stage(canvas);
 		var manifest = [];
 		var preload;
-		var progressText = new createjs.Text("正在加载", "2rem Arial", "#dd4814");
-		progressText.x = 125 - progressText.getMeasuredWidth() / 2;
-		progressText.y = 20;
-		stage.addChild(progressText);
-		stage.update();
 		//定义相关JSON格式文件列表
 		function setupManifest() {
 			var imgL = $("img").length;
@@ -321,7 +384,7 @@
 		load.loadNum = 0;
 		load.loadMax = $("img").length + $("audio").length;
 		load.loadAniTime = null;
-	//	var loadPer = $("#loadPer"); //加载进度条
+		//	var loadPer = $("#loadPer"); //加载进度条
 		function handleFileProgress(event) {
 			if (load.loadAniBoo) {
 				load.loadAniTime = setInterval(function() {
@@ -341,14 +404,13 @@
 		}
 
 		function loadState(load) {
+			var loadPer = $("#loadPer"); //加载进度条
 			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
 			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
-		//	loadPer.html(percLoad);
-			
-			progressText.text = "已加载 " + (preload.progress*100|0) + " %";
-		    stage.update(); 
-			
-			
+			loadPer.html(percLoad);
+			$("#loadShapePro").css({
+				"width": percLoad
+			})
 			$("#loadShapePro").animate({
 				width: percLoad
 			});
@@ -364,7 +426,11 @@
 				$('#loadingPage').fadeOut(400, function() {
 					$('#loadingPage').remove();
 				});
-				$(".con_wrap_index").fadeIn();
+				/**初始都隐藏**/
+				$('.content').find("img").addClass("hide");
+				$('.content').find("div").addClass("hide");
+				activity.showPage(".con_wrap_index");
+//				$(".con_wrap_index").fadeIn();
 				winOnLoad();
 			}, 500);
 		};
