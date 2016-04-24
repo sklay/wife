@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
@@ -10,51 +11,75 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="description" content=" ">
 		<title>母亲节</title>
-			<!--引入外部js资源-->
+		<!--引入外部js资源-->
 		<!--==============依赖的jquery库=============================-->
 		<script src="js/jquery-2.2.0.min.js"></script>
 		<!--==============自定义的公用的js文件=============================-->
-		<script type="text/javascript" src="js/html_common.js" ></script>
-		<script type="text/javascript" src="js/act_16motherDay_index.js" ></script>
-		<script type="text/javascript" src="js/act_16motherDay_animation.js" ></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script type="text/javascript" src="js/act_16motherDay_index.js"></script>
+		<script type="text/javascript" src="js/act_16motherDay_animation.js"></script>
 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
-	    <script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
-	    <script src="js/preloadjs-0.6.0.min.js"></script>	
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
 		<!--==============自定义css文件=============================-->
 		<link rel="stylesheet" href="style/act_motherDay_index.css" />
 		<link rel="stylesheet" href="style/act_motherDay_animation.css" />
 		<style>
 			/*初始化css样式==========全局样式*/
-			*{
+			
+			* {
 				margin: 0;
 				padding: 0;
 			}
-			html{
+			
+			html {
 				font-size: 62.5%;
 			}
-			html,body,.con_wrap,.con_wrap_index,.game_show,.game_show_moduel_one,.game_show_moduel_two,.game_show_moduel_three,.game_show_moduel_fore,.game_show_moduel_five,.game_show_moduel_six,.game_show_moduel_seven{
+			
+			html,
+			body,
+			.con_wrap,
+			.con_wrap_index,
+			.game_show,
+			.game_show_moduel_one,
+			.game_show_moduel_two,
+			.game_show_moduel_three,
+			.game_show_moduel_fore,
+			.game_show_moduel_five,
+			.game_show_moduel_six,
+			.game_show_moduel_seven {
 				width: 100%;
 				height: 100%;
 				overflow: hidden;
 			}
+			
 			body {
 				font-size: 10px;
 				font-size: .1rem;
 				font-family: Microsoft Yahei, Arial;
 				width: 100%;
 			}
+			
+			#myCanvas {
+				display: block;
+				width: 3rem;
+				margin: 0 auto;
+				text-align: center;
+			}
 		</style>
 		<!--百度统计-->
 		<script>
 			var _hmt = _hmt || [];
 			(function() {
-			  var hm = document.createElement("script");
-			  hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
-			  var s = document.getElementsByTagName("script")[0]; 
-			  s.parentNode.insertBefore(hm, s);
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
 			})();
 		</script>
 	</head>
+
 	<body>
 		<div class="con_wrap">
 			<!--加载页start-->
@@ -63,12 +88,14 @@
 					<img src="images/loading01.png" />
 					<img src="images/loading02.png" />
 					<img src="images/loading03.png" />
-				</div>	
+				</div>
 				<canvas id="myCanvas"></canvas>
 				<script>
-					(function(){
-						var wh=$(window).height();
-						$("#loadingPage").css({"minHeight":wh});
+					(function() {
+						var wh = $(window).height();
+						$("#loadingPage").css({
+							"minHeight": wh
+						});
 					})();
 				</script>
 			</div>
@@ -102,7 +129,7 @@
 			</div>
 			<!--首页 end-->
 			<!--展示页-->
-			
+
 			<div class="controllerPage game_show">
 				<div class="music_wrap">
 					<!--<audio id="audioCon" src="audio/music0.mp3" sortNum="0" autoplay="autoplay" loop="loop" preload="auto"></audio>-->
@@ -113,7 +140,7 @@
 				<div class="game_show_moduel_one common_wrap">
 					<div class="moduel_one_content">
 						<div class="moduel_one_title_wrap">
-							<img  src="images/act_16motherDay_view_title1.png" />
+							<img src="images/act_16motherDay_view_title1.png" />
 							<img src="images/act_16motherDay_view_title2.png" />
 						</div>
 						<!--<div class="moduel_one_desc">
@@ -123,9 +150,9 @@
 							<img src="images/act_16motherDay_view1_desc.png" />
 							<img src="images/act_16motherDay_view_moher.png" />
 						</div>
-						
+
 					</div>
-					<div class="slide_up slide_up_comm"  data-cur=".common_wrap" data-next=".game_show_moduel_two">
+					<div class="slide_up slide_up_comm" data-cur=".common_wrap" data-next=".game_show_moduel_two">
 						<span>>></span>
 					</div>
 				</div>
@@ -253,94 +280,111 @@
 		</div>
 	</body>
 	<script>
-	var manifest=[];
+		var manifest = [];
 		var preload;
-				//定义相关JSON格式文件列表
-		 function setupManifest() {
-		     var imgL=$("img").length;
-		     for(var i=1;i<imgL;i++)
-		         manifest.push({src:$("img").eq(i).attr("src")});
-		 };
-		 //开始预加载
-		 function startPreload() {
-		     preload = new createjs.LoadQueue(true);
-		     //注意加载音频文件需要调用如下代码行
-		   	preload.installPlugin(createjs.Sound);
-		    //preload.on("fileload", handleFileLoad);
-		     preload.on("progress", handleFileProgress);
-		     preload.on("complete", loadComplete);
-		     preload.loadManifest(manifest);
-		 }
-		
-		 //加载中动画
-		 var load={};
-		 load.loadAniBoo=true;
-		 load.loadNum=0;
-		 load.loadMax=$("img").length +1;
-		 load.loadAniTime=null;
-		 var loadPer = $("#loadPer");//加载进度条
-		 function handleFileProgress(event){
-		 	if(load.loadAniBoo){
-		 		load.loadAniTime=setInterval(function(){
-		 			/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
-		 			if(load.loadNum >= (load.loadMax-1)){
-		 				if(load && load.loadAniTime)
-		 					clearInterval(load.loadAniTime) ;
-		 				return true ;
-		 			}
-		 			load.loadNum++;
-		 			loadState (load) ;
-		 		},500)
-		 		load.loadAniBoo=false;
-		 	}else{
-		 		return false;
-		 	}
-		 }
-		
-		
-		 function loadState (load){
-		 	var percLoad=Math.ceil(load.loadNum /load.loadMax * 100)+"%";//100%的样式
-		   	console.log(load.loadNum , '/',load.loadMax, '  =  ' ,percLoad) ;//14
-		   	loadPer.html(percLoad);
-		 	$("#loadShapePro").animate({
-		 		width: percLoad
-		 	});
-		 }
-		
-		 //全部资源加载完毕
-		 /**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
-		 function loadComplete(event) {
-		 	if(load && load.loadAniTime)
-		 		clearInterval(load.loadAniTime) ;
-		 	load.loadNum = load.loadMax ;	
-		 	loadState (load) ;
-		 	
-		 	setTimeout(function(){
-		 		$('#loadingPage').fadeOut(400,function(){
-		              $('#loadingPage').remove();
-		          });
-		 		$(".con_wrap_index").fadeIn() ;
-		 		winOnLoad() ;
-		 	},500) ;
-		 	
-		 };
-		 setupManifest();
-		 startPreload();
-		  function winOnLoad(){
-			/* 获取token */    	
-	        $("#getActRule").on("tap",function(){
-	            $(".actRuleShow_wrap").show();
-	        });
-	        $(".actRuleShow_wrap").on("tap",function(){
-	            $(".actRuleShow_wrap").hide();
-	        });
-	
-	    //    alert('token is ' + token + "  , version is  " + version) ;
-	        
-	        $("#goToGetHb").on("click",function(){
-	        	location.href="http://"+location.host+"/medhtml/common/act_comSkip_page?method=act_16QMing_gethb&user_token="+token+"&version_code="+version;
-	        	//location.href="http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16QMing_gethb&user_token="+token+"&version_code="+version;
-	        })
-	    }
+		/* window加载 */
+		var canvas = document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+		var manifest = [];
+		var preload;
+		var progressText = new createjs.Text("正在加载", "2rem Arial", "#dd4814");
+		progressText.x = 125 - progressText.getMeasuredWidth() / 2;
+		progressText.y = 20;
+		stage.addChild(progressText);
+		stage.update();
+		//定义相关JSON格式文件列表
+		function setupManifest() {
+			var imgL = $("img").length;
+			for (var i = 1; i < imgL; i++)
+				manifest.push({
+					src: $("img").eq(i).attr("src")
+				});
+			var audioL = $("audio").length;
+			for (var i = 1; i < audioL; i++)
+				manifest.push({
+					src: $("audio").eq(i).attr("src")
+				});
+		};
+		//开始预加载
+		function startPreload() {
+			preload = new createjs.LoadQueue(true);
+			//注意加载音频文件需要调用如下代码行
+			preload.installPlugin(createjs.Sound);
+			//preload.on("fileload", handleFileLoad);
+			preload.on("progress", handleFileProgress);
+			preload.on("complete", loadComplete);
+			preload.loadManifest(manifest);
+		}
+		//加载中动画
+		var load = {};
+		load.loadAniBoo = true;
+		load.loadNum = 0;
+		load.loadMax = $("img").length + $("audio").length;
+		load.loadAniTime = null;
+	//	var loadPer = $("#loadPer"); //加载进度条
+		function handleFileProgress(event) {
+			if (load.loadAniBoo) {
+				load.loadAniTime = setInterval(function() {
+					/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
+					if (load.loadNum >= (load.loadMax - 1)) {
+						if (load && load.loadAniTime)
+							clearInterval(load.loadAniTime);
+						return true;
+					}
+					load.loadNum++;
+					loadState(load);
+				}, 500)
+				load.loadAniBoo = false;
+			} else {
+				return false;
+			}
+		}
+
+		function loadState(load) {
+			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
+			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
+		//	loadPer.html(percLoad);
+			
+			progressText.text = "已加载 " + (preload.progress*100|0) + " %";
+		    stage.update(); 
+			
+			
+			$("#loadShapePro").animate({
+				width: percLoad
+			});
+		}
+		//全部资源加载完毕
+		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
+		function loadComplete(event) {
+			if (load && load.loadAniTime)
+				clearInterval(load.loadAniTime);
+			load.loadNum = load.loadMax;
+			loadState(load);
+			setTimeout(function() {
+				$('#loadingPage').fadeOut(400, function() {
+					$('#loadingPage').remove();
+				});
+				$(".con_wrap_index").fadeIn();
+				winOnLoad();
+			}, 500);
+		};
+		setupManifest();
+		startPreload();
+
+		function winOnLoad() {
+			/* 获取token */
+			$("#getActRule").on("tap", function() {
+				$(".actRuleShow_wrap").show();
+			});
+			$(".actRuleShow_wrap").on("tap", function() {
+				$(".actRuleShow_wrap").hide();
+			});
+			//    alert('token is ' + token + "  , version is  " + version) ;
+			$("#goToGetHb").on("click", function() {
+				location.href = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16QMing_gethb&user_token=" + token + "&version_code=" + version;
+				//location.href="http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16QMing_gethb&user_token="+token+"&version_code="+version;
+			})
+		}
 	</script>
+
 </html>
