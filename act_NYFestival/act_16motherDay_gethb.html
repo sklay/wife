@@ -6,12 +6,13 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>给你个更爱星期五的理由</title>
-		<meta name="description" content="药快到领红包，你来不来？ ">
+		<title>【药快到】传递爱与健康</title>
+		<meta name="description" content="【药快到】又送券啦~ ~送爱，更送健康！ ">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<link rel="stylesheet" href="style/act_16wy_laborDay_index.css" />
+		<base href="../" />
+		<link rel="stylesheet" href="style/act_16motherDay_gethb.css" />
 		<script src="js/jquery-2.2.0.min.js"></script>
 		<script src="js/html_common.js"></script>
 		<script>
@@ -22,10 +23,11 @@
 				appid = 'wx697be0ec43c8cafa';
 			}
 			var codeActId = '${codeActId}' || '';
-			//var redirect_uri = 'http%3a%2f%2f'+location.host+'%2fmedhtml%2fcommon%2fact_16wy_laborDay_index' ;
+			var act_url = '${act_url}' || '' ;
 			// 新追加一个参数
-			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2fact_16wy_laborDay_index' + '%3fcodeActId=' + codeActId;
-		
+			//var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2fact_16wy_laborDay_index' + '%3fcodeActId=' + codeActId;
+			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%3fact_url=' + act_url + '%26codeActId=' + codeActId;
+			
 			console.debug(' cur href is ', redirect_uri);
 			if (is_weixin()) {
 				var grantBoo = "${grantFail}";
@@ -50,7 +52,7 @@
 				font-size: 10px;
 				font-size: .1rem;
 				font-family: Microsoft Yahei, Arial;
-				background: #f8f7f6;
+				/*background: #f8f7f6;*/
 			}
 		</style>
 	</head>
@@ -67,17 +69,16 @@
 	<body>
 		<div class="content">
 			<div class="indexPage">
-				<img class="indexPage_shine" src="images/act_16wy_laborDay_index_shine.png" />
-				<div class="content_wrap">
-					<div class="content_logo">
-						<img src="images/act_16wy_laborDay_index_logo.png" />
-					</div>
-					<div class="content_people">
-						<img src="images/act_16wy_laborDay_index_icon.png" />
+				<!--<div class="content_wrap">-->
+					<div class="content_top">
+						<img src="images/act_16motherDay_receive_title.png" />
 					</div>
 					<div class="getHbWrap">
 						<div class="getHb">
 							<div class="commomLogin">
+								<div class="commomLogin_coupon">
+									<img src="images/act_16motherDay_receive_coupon.png" />
+								</div>
 								<input type="tel" placeholder="请输入手机号码" id="userPhone">
 								<button id="getHbBtn">领取现金券</button>
 								<p id="downText" class="downloadP goForUse">下载药快到App立即参与</p>
@@ -85,14 +86,14 @@
 							<div class="received_result" style="display: none; margin-top: -.5rem;">
 								<div class="receive_success" style="display: none;">
 									<div class="getHb7 getHbnNum" style="display: none;">
-										<img class="getHb7_img" src="images/act_16wy_laborDay_index_7.png" />
-										<p class="receive_text receiveResult "></p>
+										<img class="getHb7_img" src="images/act_16motherDay_receive_coupon7.png" />
+										<p class="receive_text receiveResult ">恭喜您，领到7元现金券</p>
 									</div>
 								</div>
 								<div class="has_received" style="display: none;">
 									<div class="has_getHb7 getHbnNum" style="display: none">
-										<img class="has_getHb7_img" src="images/act_16wy_laborDay_index_7.png" />
-										<p class="has_receive_text receiveResult "></p>
+										<img class="has_getHb7_img" src="images/act_16motherDay_receive_coupon7.png" />
+										<p class="has_receive_text receiveResult ">恭喜您，领到7元现金券</p>
 									</div>
 								</div>
 								<div class="commUsebtn">
@@ -106,7 +107,7 @@
 							<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>
 						</div>
 					</div>
-				</div>
+				<!--</div>-->
 			</div>
 			<!--看朋友手气-->
 			<!--<c:if test="${ not empty coupList }">
@@ -274,10 +275,10 @@
 				/*前端随机产生的邀请码传给后台，后台接受到这个值返回给前端，前端根据这个邀请码判断领取到的优惠券的金额*/
 				var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
 				if (getCodeNum) {
-					var _inviteCode = '16wyldj01';
+					var _inviteCode = '16mqj01';
 					var getHbNuM = 7;
 				} else {
-					var _inviteCode = '16wyldj02';
+					var _inviteCode = '16mqj02';
 					var getHbNuM = 8;
 				}
 				var _fromChannel = 'hongbao';
@@ -299,9 +300,9 @@
 							wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
 							//$(".coupon_value").html(getHbNuM);
 							if (getHbNuM == 7) {
-								$(".getHb7_img").attr("src", "images/act_16wy_laborDay_index_7.png");
+								$(".getHb7_img").attr("src", "images/act_16motherDay_receive_coupon7.png");
 							} else {
-								$(".getHb7_img").attr("src", "images/act_16wy_laborDay_index_8.png");
+								$(".getHb7_img").attr("src", "images/act_16motherDay_receive_coupon8.png");
 							}
 							$(".receive_text").html('恭喜您，领到' + getHbNuM + '元现金券');
 							$(".getHb7").show();
@@ -319,9 +320,9 @@
 								$(".has_received").show();
 								//$(".coupon_value").html((couponValue/100));
 								if ((couponValue / 100) == 7) {
-									$(".has_getHb7_img").attr("src", "images/act_16wy_laborDay_index_7.png");
+									$(".has_getHb7_img").attr("src", "images/act_16motherDay_receive_coupon7.png");
 								} else {
-									$(".has_getHb7_img").attr("src", "images/act_16wy_laborDay_index_8.png");
+									$(".has_getHb7_img").attr("src", "images/act_16motherDay_receive_coupon8.png");
 								}
 								$(".has_receive_text").html((couponValue / 100) + '元现金券已经存入您的账户');
 								$(".has_getHb7").show();
@@ -402,8 +403,8 @@
 	</script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
-		wechatObj.title = '给你个更爱星期五的理由';
-		wechatObj.desc = '药快到领红包，你来不来？';
+		wechatObj.title = '【药快到】传递爱与健康';
+		wechatObj.desc = '【药快到】又送券啦~ ~送爱，更送健康！';
 		wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
 		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16wy_laborDay_shareImg.jpg';
 	

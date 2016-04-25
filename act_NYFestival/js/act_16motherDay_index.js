@@ -65,7 +65,7 @@ $(function() {
 	//	$('.common_wrap').hide() ;
 	//	$('.game_show_moduel_seven').show() ;
 
-	$(document).on('swipeUp', function() {
+	/*$(document).on('swipeUp', function() {
 		$nowPage = $('.page-current');
 		console.debug("$nowPage length " , $nowPage.length) ;
 		var nextPage = ".game_show_moduel_one" ;
@@ -80,7 +80,7 @@ $(function() {
 			$('.game_show').show() ;
 		}
 	});
-
+*/
 	/*	$('.game_show .slide_up').on('click', function() {
 			var curPage = $(this).attr('data-cur');
 			var nextPage = $(this).attr('data-next');
@@ -88,19 +88,19 @@ $(function() {
 		});*/
 
 
-	$(document).on('swipeDown', function() {
+	/*$(document).on('swipeDown', function() {
 			$nowPage = $('.page-current');
 			var beforePage = $nowPage.attr('data-before');
 			console.debug("swipeDown  " ,beforePage) ;
 			if (beforePage){
 				activity.showPage(beforePage);
-				/* 下划如果包含 con_wrap_index 则是首页跳转到 game 否则是在game也内切换**/
+				// 下划如果包含 con_wrap_index 则是首页跳转到 game 否则是在game也内切换
 				if($nowPage.hasClass('game_show_moduel_one')){
 					$('.con_wrap_index').show() ;
 					$('.game_show').hide() ;
 				};
 			}
-		})
+		})*/
 		/*$('.common_wrap').on("swipeDown", function(e) {
 			var curPage = $(this).attr('data-cur');
 			var nextPage = $(this).attr('data-next');
@@ -110,7 +110,7 @@ $(function() {
 		})*/
 
 	/**音乐控制*/
-	activity.musicCtrl();
+//	activity.musicCtrl();
 
 
 });

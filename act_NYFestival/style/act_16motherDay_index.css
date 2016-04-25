@@ -1,37 +1,68 @@
- #loadingPage{
-		    width:100%;height:100%;background:rgb(255, 177, 177);position:absolute;top:0;left:0;z-index:10;
-		}
-		#myCanvas{
-		    display:block;width:3rem;margin:0 auto;text-align:center;
-		}
-		#loadingPage .loadingImg{
-			width:1.5rem;margin:3rem auto .5rem;overflow:hidden;position:relative;height:1.5rem;
-		}
-		#loadingPage .loadingImg img{
-			width:100%;position:absolute;top:0;left:0;opacity:0
-		}
-		@-webkit-keyframes loadImgMove{
-			50%{opacity:1}
-			100%{opacity:0}
-		}
-		@keyframes loadImgMove{
-			50%{opacity:1}
-			100%{opacity:0}
-		}
-		#loadingPage .loadingImg img:nth-child(1){
-			-webkit-animation:loadImgMove 1.5s linear infinite; 
-			animation:loadImgMove 1s linear infinite; 
-		}
-		#loadingPage .loadingImg img:nth-child(2){
-			-webkit-animation:loadImgMove 1.5s linear 500s infinite; 
-			animation:loadImgMove 1s linear 500ms infinite; 
-		}
-		#loadingPage .loadingImg img:nth-child(3){
-			-webkit-animation:loadImgMove 1.5s linear 1s infinite; 
-			animation:loadImgMove 1s linear 1s infinite; 
-		} 
-
-
+ #loadingPage {
+ 	width: 100%;
+ 	height: 100%;
+ 	background: rgb(255, 177, 177);
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 10;
+ }
+ 
+ #myCanvas {
+ 	display: block;
+ 	width: 3rem;
+ 	margin: 0 auto;
+ 	text-align: center;
+ }
+ 
+ #loadingPage .loadingImg {
+ 	width: 1.5rem;
+ 	margin: 3rem auto .5rem;
+ 	overflow: hidden;
+ 	position: relative;
+ 	height: 1.5rem;
+ }
+ 
+ #loadingPage .loadingImg img {
+ 	width: 100%;
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	opacity: 0
+ }
+ 
+ @-webkit-keyframes loadImgMove {
+ 	50% {
+ 		opacity: 1
+ 	}
+ 	100% {
+ 		opacity: 0
+ 	}
+ }
+ 
+ @keyframes loadImgMove {
+ 	50% {
+ 		opacity: 1
+ 	}
+ 	100% {
+ 		opacity: 0
+ 	}
+ }
+ 
+ #loadingPage .loadingImg img:nth-child(1) {
+ 	-webkit-animation: loadImgMove 1.5s linear infinite;
+ 	animation: loadImgMove 1s linear infinite;
+ }
+ 
+ #loadingPage .loadingImg img:nth-child(2) {
+ 	-webkit-animation: loadImgMove 1.5s linear 500s infinite;
+ 	animation: loadImgMove 1s linear 500ms infinite;
+ }
+ 
+ #loadingPage .loadingImg img:nth-child(3) {
+ 	-webkit-animation: loadImgMove 1.5s linear 1s infinite;
+ 	animation: loadImgMove 1s linear 1s infinite;
+ }
 /*音乐图标样式 start*/
 .music_wrap {
 	width: 27px;
@@ -55,7 +86,28 @@
 }
 /*音乐图标样式 end*/
 /*首页样式 start*/
-.con_wrap_index{
+
+.con_wrap{
+	position: relative;
+}
+/*上滑图标*/
+.slide_up{
+	width: .5rem;
+	/*margin: -.6rem auto 0;*/
+	position: absolute;
+	bottom: .5rem;
+	left: 50%;
+	margin-left: -.25rem;
+	font-size: 24px;
+	opacity: 0;
+	-webkit-animation: slide_up_move 2s infinite;
+	
+}
+.slide_up span{
+	display: block;
+	transform:rotate(-90deg) ;
+}
+.index_content{
 	background: url(../images/act_16motherDay_bj1.jpg)center center no-repeat;
 	background-size:100% 100% ;
 	position: relative;
@@ -128,18 +180,6 @@
 	-webkit-animation: flow_move 2s;
 	width: 2.8rem;
 	float: right;
-}
-.slide_up{
-	width: .5rem;
-	margin: -.6rem auto 0;
-	font-size: 24px;
-	
-	opacity: 0;
-	-webkit-animation: slide_up_move 2s infinite;
-}
-.slide_up span{
-	display: block;
-	transform:rotate(-90deg) ;
 }
 
 /*首页样式end*/
@@ -478,6 +518,33 @@
 	float: left;
 	z-index: 1;
 }
+/*领取按钮  和 下载按钮*/
+.clickBtn_wrap{  
+	position: fixed;
+ 	bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  /* opacity: 0; */
+  left: 0;
+  width: 100%;
+  color: #fff;
+  line-height: 74px;
+  height: 74px;
+  z-index: 8;
+  /* display: none; */
+  text-align: center;
+ }
+ .clickBtn_wrap span {
+ 	  display: inline-block;
+  width: 2rem;
+  height: .8rem;
+  text-align: center;
+  font-size: 14px;
+  background: #ff1500;
+  line-height: .8rem;
+   padding: 0 .2rem; 
+  border-radius: 4px;
+    box-shadow: 0 3px 0 #9e0007;
+ }
 /*第七幅图   end*/
 /*展示页 end*/
 

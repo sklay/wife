@@ -1,55 +1,30 @@
 .content {
 	width: 100%;
-	
+	background: url(../images/act_16motherDay_receive_bj.jpg) center center no-repeat;
+	background-size:100% 100% ;
 }
 
 .indexPage {
 	width: 100%;
-	background: url(../images/act_16wy_laborDay_index_bj.jpg) center center no-repeat;
-	background-size:100% 100%;
-	position: relative;
-	height: 9rem;
-}
-.indexPage_shine{
-	width: 100%;
-}
-.content_wrap{
-	width: 100%;
-	position: absolute;
-  	top: 0;
-}
-.content_logo {
-	width: 100%;
-	margin: 0.2rem auto 0;
-	overflow: hidden;
 }
 
-.content_logo img {
-	width:1rem;
-	float: left;
-}
-.content_people {
+
+.content_top {
 	width: 6rem;
-	margin: 0 auto .6rem;
-	overflow: hidden;
+	margin: 0 auto;
 }
 
-.content_people img {
-	width:100%;
-	float: left;
+.content_top img {
+	width: 100%;
 }
-.content_title p {
-	font-size: 22px;
-	text-align: center;
-	color: #fff;
+.commomLogin_coupon {
+	width: 4rem;
+	margin: -0.35rem auto .2rem;
+}
+.commomLogin_coupon img{
+	width: 100%;
 }
 
-.content_title span {
-	margin-right: .07rem; /*  padding: 0 4px; */
-	font-size: 24px;
-	box-sizing: border-box;
-	font-weight: 600;
-}
 /*输入框样式*/
 .commomLogin {
 	width: 5rem;
@@ -59,7 +34,7 @@
 #userPhone {
 	width: 100%;
 	outline: none;
-	border: 2px solid #f2153e;
+	border: 2px solid #df3121;
 	height: 50px;
 	line-height: 50px;
 	box-sizing: border-box;
@@ -95,13 +70,13 @@
 	border-radius: 6px;
 	outline: none;
 	border: 0;
-	color: #000;
-	background: #f2153e;
+	color: #fff;
+	background: #ff1500;
 	margin: .25rem auto 0;
 	display: block;
 	font-weight: 600;
-	box-shadow: 0 6px 0 #000;
-	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
+	box-shadow: 0 6px 0 #9e0007;
+	/*text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;*/
 }
 
 #downText {
@@ -114,8 +89,8 @@
 }
 /*领取结果样式*/
 .getHbnNum {
-	width: 5rem;
-	margin: 0 auto;
+	width: 4rem;
+	margin: 0.2rem auto 0;
 	overflow: hidden;
 }
 
@@ -151,20 +126,19 @@
 }
 
 .commUsebtn button {
-	color: #000;
-	font-weight: 600;
-	font-size: 18px;
-	width: 2.2rem;
-	line-height: .8rem;
-	height: .8rem;
-	border-radius: 6px;
-	background: #f2153e;
-	box-shadow: 0 5px 0 #000;
-	margin: .2rem auto;
-	display: block;
-	outline: none;
-	border: none;
-	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
+	  color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.2rem;
+	  line-height: 1rem;
+	  height: 1rem;
+	  border-radius: 6px;
+	  background: #ff1a6b;
+	  box-shadow: 0 5px 0 #840733;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
 }
 
 .use_btn {
@@ -174,6 +148,11 @@
 .shareFri {
 	float: right;
 }
+
+
+
+
+
 /* 看看好友的手气*/
 .comShowTitle {
 	color: #920003;
@@ -326,24 +305,23 @@
 	display: none;
 	width: 5.6rem;
 	overflow: hidden;
-	margin: .3rem auto 0;
-	
-}
+	margin: 1rem auto;
+	}
+
 .shareAppPage button {
-	color: #000;
-	font-weight: 600;
-	font-size: 18px;
-	width: 2.5rem;
-	line-height: .8rem;
-	height: .8rem;
-	border-radius: 6px;
-	background: #f2153e;
-	box-shadow: 0 5px 0 #000;
-	margin: .6rem auto;
-	display: block;
-	outline: none;
-	border: none;
-	text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;
+	color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.5rem;
+	  line-height: 1rem;
+	  height: 1rem;
+	  border-radius: 6px;
+	  background: #ff1a6b;
+	  box-shadow: 0 5px 0 #840733;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
 }
 
 .shareAppPage button:nth-child(1) {

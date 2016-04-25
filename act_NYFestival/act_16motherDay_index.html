@@ -41,8 +41,7 @@
 			body,
 			.con_wrap,
 			.content,
-			.con_wrap_index,
-			.game_show,
+			.index_content,
 			.game_show_moduel_one,
 			.game_show_moduel_two,
 			.game_show_moduel_three,
@@ -176,7 +175,7 @@
 					<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
 					<img class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
 				</div>
-				<div class="controllerPage con_wrap_index" data-cur=".con_wrap_index" data-next=".game_show_moduel_one" data-before=".game_show_moduel_seven">
+				<!--<div class="controllerPage con_wrap_index" data-cur=".con_wrap_index" data-next=".game_show_moduel_one" data-before=".game_show_moduel_seven">-->
 					<div class="index_content">
 						<div class="wrap_index_title_wrap">
 							<img class="flowerTit" src="images/act_16motherDay_title.png" />
@@ -193,14 +192,14 @@
 							<img src="images/act_16motherDay_flower.png" />
 						</div>
 					</div>
-					<div class="slide_up">
+					<!--<div class="slide_up">
 						<span>>></span>
-					</div>
-				</div>
+					</div>-->
+				<!--</div>-->
 				<!--首页 end-->
 				<!--展示页-->
 
-				<div class="controllerPage game_show">
+				<!--<div class="controllerPage game_show">-->
 					<!--第一个模块 start-->
 					<div class="game_show_moduel_one common_wrap" data-cur=".game_show_moduel_one" data-next=".game_show_moduel_two" data-before=".con_wrap_index">
 						<div class="moduel_one_content">
@@ -217,9 +216,9 @@
 							</div>
 
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第一个模块 end-->
 					<!--第二个模块 start-->
@@ -237,9 +236,9 @@
 								<img src="images/act_16motherDay_view2_mother.png" />
 							</div>
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第二个模块 end-->
 					<!--第三个模块 start-->
@@ -254,9 +253,9 @@
 								<img src="images/act_16motherDay_view3_ma.png" />
 							</div>
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第三个模块 end-->
 					<!--第四个模块 start-->
@@ -273,9 +272,9 @@
 								<img src="images/act_16motherDay_view4_eat.png" />
 							</div>
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第四个模块 end-->
 					<!--第五个模块 start-->
@@ -292,9 +291,9 @@
 								<img src="images/act_16motherDay_view5_old.png" />
 							</div>
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第五个模块 end-->
 					<!--第六个模块 start-->
@@ -315,9 +314,9 @@
 						<div class="con_wrap_index_botom">
 							<img src="images/act_16motherDay_flower.png" />
 						</div>
-						<div class="slide_up slide_up_comm">
+						<!--<div class="slide_up slide_up_comm">
 							<span>>></span>
-						</div>
+						</div>-->
 					</div>
 					<!--第六个模块 end-->
 					<!--第七个模块 start-->
@@ -335,13 +334,21 @@
 								<img src="images/act_16motherDay_view7_sendp.png" />
 								<img src="images/act_16motherDay_view7_cust.png" />
 							</div>
+							<div class="moduel_seven__botom">
+								<img src="images/act_16motherDay_view7_bloud.png" />
+							</div>
 						</div>
-						<div class="moduel_seven__botom">
-							<img src="images/act_16motherDay_view7_bloud.png" />
+						<div class="clickBtn_wrap">
+							<span id="backChange">下载药快到APP</span><span id="saveAndShare">领取现金券</span>
 						</div>
+						
 					</div>
 					<!--第七个模块 end-->
-				</div>
+					
+				<!--</div>-->
+			</div>
+			<div class="slide_up">
+				<span>>></span>
 			</div>
 		</div>
 
@@ -427,10 +434,10 @@
 					$('#loadingPage').remove();
 				});
 				/**初始都隐藏**/
-				$('.content').find("img").addClass("hide");
-				$('.content').find("div").addClass("hide");
-				activity.showPage(".con_wrap_index");
-//				$(".con_wrap_index").fadeIn();
+				/*$('.content').find("img").addClass("hide");
+				$('.content').find("div").addClass("hide");*/
+			//	activity.showPage(".con_wrap_index");
+				$(".con_wrap_index").fadeIn();
 				winOnLoad();
 			}, 500);
 		};
