@@ -119,10 +119,10 @@
 		transform: scale(1.4);	
 	}
 	50%{
-		transform: scale(1);	
+		transform: scale(.8);	
 	}
 	100%{
-		transform: scale(0);	
+		transform: scale(1);	
 	}
 }
 
@@ -176,10 +176,10 @@
 		transform: scale(1.4);	
 	}
 	75%{
-		transform: scale(1);	
+		transform: scale(.8);	
 	}
 	100%{
-		transform: scale(0);	
+		transform: scale(1);	
 	}
 	
 }

@@ -202,10 +202,10 @@
 	width: 100%;
 }
 .moduel_one_title_wrap img:nth-child(1){
-	-webkit-animation: left_move 2s linear 1s 1;
+	-webkit-animation: left_move 2s linear 0s 1;
 }
 .moduel_one_title_wrap img:nth-child(2){
-	-webkit-animation: right_move 2s linear 1s 1;
+	-webkit-animation: right_move 2s linear 0s 1;
 }
 .moduel_one_people{
 	  width: 4rem;
@@ -217,14 +217,12 @@
 	width: 1.5rem;
 	float: left;
 	margin-top:.25rem ;
-	/*transition:all  2s ;*/
-	-webkit-animation-name: fadeInDown 2s ;
-	animation-name: fadeInDown
+	-webkit-animation: fadeInDown 2s linear 0s 1 ;
 }
 .moduel_one_people img:nth-child(2){
 	width: 2rem;
 	float: right;
-	-webkit-animation: flow_move 2s;
+	-webkit-animation: flow_move 2s linear 0s 1 ;
 }
 
 /*第一幅图 end*/
@@ -240,7 +238,7 @@
 	overflow: hidden;
 }
 .moduel_two_title_wrap{
-	-webkit-animation: big_move1 3s linear 2s 1;
+	-webkit-animation: big_move1 3s linear 0s 1;
 }
 
 
@@ -251,7 +249,7 @@
 }
 .moduel_two_desc img:nth-child(1){
 	width: 100%;
-	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem); 
 }
@@ -259,13 +257,13 @@
 	width: 2rem;
 	display: block;
 	margin-left: -.5rem;
-	-webkit-animation: people_move 2s linear 1s 1;
+	-webkit-animation: people_move 2s linear 0s 1;
 }
 .moduel_two_people{
 	width: 4rem;
 	float: right;
     margin-top: -2.5rem;
-    -webkit-animation: people_move_right 2s linear 1s 1;
+    -webkit-animation: people_move_right 2s linear 0s 1;
 }
 .moduel_two_people img{
 	width: 100%;
@@ -284,7 +282,7 @@
 	margin-bottom: 1rem;
 }
 .moduel_three_title_wrap{
-	-webkit-animation: big_move1 3s linear 2s 1;
+	-webkit-animation: big_move1 3s linear 0s 1;
 }
 .moduel_three_desc{
 	position: relative;
@@ -293,7 +291,7 @@
 }
 .moduel_three_desc img:nth-child(1){
 	width: 100%;
-	-webkit-animation: three_desc 3s linear 2s 1;
+	-webkit-animation: three_desc 3s linear 0s 1;
 }
 
 .moduel_three_desc img:nth-child(2){
@@ -303,7 +301,7 @@
 	top:1.5rem;
 	left: 50%;
 	margin-left: -50px;
-	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem);
 }
@@ -322,7 +320,7 @@
 }
 .moduel_fore_title_wrap img{
 	width: 100%;
-	-webkit-animation: big_move1 3s linear 2s 1;
+	-webkit-animation: big_move1 3s linear 0s 1;
 }
 .moduel_fore_desc{
 	width: 4.5rem;
@@ -332,13 +330,13 @@
 .moduel_fore_desc img:nth-child(1){
 	width: 2.5rem;
 	float: left;
-	-webkit-animation: fore_desc_left 2s linear 1s 1;
+	-webkit-animation: fore_desc_left 2s linear 0s 1;
 }
 .moduel_fore_desc img:nth-child(2){
 	width: 2rem;
 	float: right;
 	margin-top: .5rem;
-	-webkit-animation: fore_desc_right 2s linear 1s 1;
+	-webkit-animation: fore_desc_right 2s linear 0s 1;
 }
 
 .moduel_fore_people{
@@ -362,7 +360,7 @@
 	padding-top: .5rem;
 }
 .moduel_five_title_wrap{
-	-webkit-animation: big_move 3s linear 2s 1;
+	-webkit-animation: big_move 3s linear 0s 1;
 }
 
 .moduel_five_people{
@@ -371,7 +369,7 @@
 }
 .moduel_five_people img:nth-child(1){
 	width: 3rem;
-	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem);
 }
@@ -489,7 +487,7 @@
 	float: right;
 	margin-right: .5rem;
 	margin-top: .3rem;
-	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 1.1s 1;
+	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem); 
 }
@@ -497,7 +495,7 @@
 	width: 4rem;
 	float: left;
 	margin-left: .1rem;
-	-webkit-animation: people_move 2s linear 1s 1;
+	-webkit-animation: people_move 2s linear 0s 1;
 }
 .moduel_seven_desc img:nth-child(3){
 	width: 4rem;
@@ -505,7 +503,7 @@
 	position: absolute;
 	right: 0;
 	top: 1.5rem;
-	-webkit-animation: people_move_right 2s linear 1s 1;
+	-webkit-animation: people_move_right 2s linear 0s 1;
 }
 .moduel_seven__botom{
 	width: 100%;
