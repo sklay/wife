@@ -1,7 +1,8 @@
  #loadingPage {
  	width: 100%;
  	height: 100%;
- 	background: rgb(255, 177, 177);
+ 	/*background: rgb(255, 177, 177);*/
+ 	background: #fff;
  	position: absolute;
  	top: 0;
  	left: 0;
@@ -12,9 +13,8 @@
  	display: block;
  	width: 3rem;
  	margin: 0 auto;
- 	text-align: center;
+ text-align: center;
  }
- 
  #loadingPage .loadingImg {
  	width: 1.5rem;
  	margin: 3rem auto .5rem;
@@ -22,7 +22,6 @@
  	position: relative;
  	height: 1.5rem;
  }
- 
  #loadingPage .loadingImg img {
  	width: 100%;
  	position: absolute;
@@ -30,39 +29,132 @@
  	left: 0;
  	opacity: 0
  }
- 
  @-webkit-keyframes loadImgMove {
  	50% {
  		opacity: 1
  	}
+ 	
  	100% {
  		opacity: 0
  	}
  }
- 
  @keyframes loadImgMove {
  	50% {
  		opacity: 1
  	}
+ 	
  	100% {
  		opacity: 0
  	}
  }
- 
  #loadingPage .loadingImg img:nth-child(1) {
  	-webkit-animation: loadImgMove 1.5s linear infinite;
  	animation: loadImgMove 1s linear infinite;
  }
- 
  #loadingPage .loadingImg img:nth-child(2) {
  	-webkit-animation: loadImgMove 1.5s linear 500s infinite;
  	animation: loadImgMove 1s linear 500ms infinite;
  }
- 
  #loadingPage .loadingImg img:nth-child(3) {
  	-webkit-animation: loadImgMove 1.5s linear 1s infinite;
  	animation: loadImgMove 1s linear 1s infinite;
  }
+ .loadText {
+ 	font-size: 20px;
+ 	color: #75a5d5;
+ 	text-align: center;
+ 	line-height: 50px;
+ 	margin-top: .7rem;
+ 	font-weight: 600;
+ }
+ .loadShape {
+ 	width: 4.5rem;
+ 	margin: 0 auto;
+ 	background: #7F7373;
+ 	border-radius: 10px;
+ 	height: 10px;
+ 	overflow: hidden;
+ }
+ #loadShapePro {
+ 	border-radius: 10px;
+ 	height: 10px;
+ 	float: left;
+ 	/*background: rgb(255, 244, 209);*/
+ 	/* Old browsers */
+ 	background: #75a5d5;
+ 	width: 0;
+ }
+ .pt-page-moveToTop {
+ 	-webkit-animation: moveToTop .6s ease both;
+ 	animation: moveToTop .6s ease both;
+ }
+ @-webkit-keyframes moveToTop {
+ 	from {}
+ 	
+ 	to {
+ 		-webkit-transform: translateY(-100%);
+ 	}
+ }
+ @keyframes moveToTop {
+ 	from {}
+ 	
+ 	to {
+ 		-webkit-transform: translateY(-100%);
+ 		transform: translateY(-100%);
+ 	}
+ }
+ .pt-page-moveFromBottom {
+ 	-webkit-animation: moveFromBottom .6s ease both;
+ 	animation: moveFromBottom .6s ease both;
+ }
+ @-webkit-keyframes moveFromBottom {
+ 	from {
+ 		-webkit-transform: translateY(100%);
+ 	}
+ }
+ @keyframes moveFromBottom {
+ 	from {
+ 		-webkit-transform: translateY(100%);
+ 		transform: translateY(100%);
+ 	}
+ }
+ .pt-page-moveFromTop {
+ 	-webkit-animation: moveFromTop .6s ease both;
+ 	animation: moveFromTop .6s ease both;
+ }
+ @-webkit-keyframes moveFromTop {
+ 	from {
+ 		-webkit-transform: translateY(-100%);
+ 	}
+ }
+ @keyframes moveFromTop {
+ 	from {
+ 		-webkit-transform: translateY(-100%);
+ 		transform: translateY(-100%);
+ 	}
+ }
+ .pt-page-moveToBottom {
+ 	-webkit-animation: moveToBottom .6s ease both;
+ 	animation: moveToBottom .6s ease both;
+ }
+ @-webkit-keyframes moveToBottom {
+ 	from {}
+ 	
+ 	to {
+ 		-webkit-transform: translateY(100%);
+ 	}
+ }
+ @keyframes moveToBottom {
+ 	from {}
+ 	
+ 	to {
+ 		-webkit-transform: translateY(100%);
+ 		transform: translateY(100%);
+ 	}
+ }
+			
+ 
+ 
 /*音乐图标样式 start*/
 .music_wrap {
 	width: 27px;
@@ -93,7 +185,6 @@
 /*上滑图标*/
 .slide_up{
 	width: .5rem;
-	/*margin: -.6rem auto 0;*/
 	position: absolute;
 	bottom: .5rem;
 	left: 50%;
@@ -103,9 +194,8 @@
 	-webkit-animation: slide_up_move 2s infinite;
 	
 }
-.slide_up span{
-	display: block;
-	transform:rotate(-90deg) ;
+.slide_up img{
+	width: 100%;
 }
 .index_content{
 	background: url(../images/act_16motherDay_bj1.jpg)center center no-repeat;
@@ -178,7 +268,7 @@
 }
 .con_wrap_index_botom img{
 	-webkit-animation: flow_move 2s;
-	width: 2.8rem;
+	width: 100%;
 	float: right;
 }
 
@@ -195,11 +285,12 @@
 	padding-top: .5rem;
 }
 .moduel_one_title_wrap ,.moduel_two_title_wrap,.moduel_three_title_wrap,.moduel_fore_title_wrap,.moduel_five_title_wrap,.moduel_seven_title_wrap{
-	width: 4.5rem;
+	width: 3.5rem;
 	margin: 0 auto .4rem;
 }
 .moduel_one_title_wrap img ,.moduel_two_title_wrap img,.moduel_three_title_wrap img,.moduel_five_title_wrap img,.moduel_seven_title_wrap img{
 	width: 100%;
+	margin-top: .1rem;
 }
 .moduel_one_title_wrap img:nth-child(1){
 	-webkit-animation: left_move 2s linear 0s 1;
@@ -222,7 +313,7 @@
 .moduel_one_people img:nth-child(2){
 	width: 2rem;
 	float: right;
-	-webkit-animation: flow_move 2s linear 0s 1 ;
+	-webkit-animation: people_move_right 2s linear 0s 1;
 }
 
 /*第一幅图 end*/
@@ -300,7 +391,7 @@
 	position: absolute;
 	top:1.5rem;
 	left: 50%;
-	margin-left: -50px;
+	margin-left: -.8rem;
 	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem);
@@ -365,7 +456,7 @@
 
 .moduel_five_people{
 	width: 4.4rem;
-	margin: 0 auto;
+	margin: 0.5rem auto 0;
 }
 .moduel_five_people img:nth-child(1){
 	width: 3rem;
@@ -453,9 +544,9 @@
 	position: relative;
 }
 .moduel_seven_title_wrap img:nth-child(2){
-	width: .8rem;
+	width: .65rem;
 	position: absolute;
-	top: 1.1rem;
+	top: 1.35rem;
 }
 .moduel_seven_word{
 	width: 4rem;
@@ -507,7 +598,7 @@
 }
 .moduel_seven__botom{
 	width: 100%;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	bottom: 0;
 }
@@ -525,8 +616,8 @@
   left: 0;
   width: 100%;
   color: #fff;
-  line-height: 74px;
-  height: 74px;
+  line-height: 55px;
+  height: 55px;
   z-index: 8;
   /* display: none; */
   text-align: center;
@@ -534,14 +625,17 @@
  .clickBtn_wrap span {
  	  display: inline-block;
   width: 2rem;
-  height: .8rem;
+  height: .6rem;
   text-align: center;
   font-size: 14px;
   background: #ff1500;
-  line-height: .8rem;
+  line-height: .6rem;
    padding: 0 .2rem; 
   border-radius: 4px;
     box-shadow: 0 3px 0 #9e0007;
+ }
+ .clickBtn_wrap span:nth-child(2){
+ 	margin-left: .2rem;
  }
 /*第七幅图   end*/
 /*展示页 end*/

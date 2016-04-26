@@ -53,120 +53,103 @@
 				height: 100%;
 				overflow: hidden;
 			}
-			.content{
+			/*.content{
 				background: rgb(255, 177, 177);
-			}
+			}*/
 			body {
 				font-size: 10px;
 				font-size: .1rem;
 				font-family: Microsoft Yahei, Arial;
 				width: 100%;
 			}
-			
-			.loadText {
-				font-size: 20px;
-				color: #fff;
-				text-align: center;
-				line-height: 50px;
-				margin-top: .7rem;
-				font-weight: 600;
+			/*适配小屏手机*/
+  		  @media screen and (max-height: 580px) {
+           .con_wrap_index_desc{
+           	margin: .4rem auto;
+           }
+        } 
+	    @media screen and (max-height: 480px) {
+			.wrap_index_title_wrap {
+			  width: 5rem;
+			}
+			.wrap_index_title_wrap img:nth-child(2) {
+			  width: .5rem;
+			  top: 3rem;
+			  }
+			.con_wrap_index_desc {
+			  width: 5rem;
+			  }
+			.con_wrap_index_desc {
+			    margin: 0rem auto .2rem;
+			}
+			.con_wrap_index_people {
+			  width: 3.6rem;
+			}
+			.moduel_one_people {
+			  width: 4rem;
+			  padding: .4rem 1rem 0;
+			}
+			.moduel_one_people img:nth-child(2) {
+			  width: 1.7rem;
+			}
+			.moduel_two_desc {
+			  width: 3.6rem;
 			}
 			
-			.loadShape {
-				width: 4.5rem;
-				margin: 0 auto;
-				background: #FFFFFF;
-				border-radius: 10px;
-				height: 10px;
-				overflow: hidden;
+			.moduel_two_people {
+			  width: 3rem;
+			}
+			.moduel_three_desc {
+			  margin: .7rem auto;
+			}
+			.moduel_two_desc img:nth-child(2) {
+			  margin-left: -.9rem;
+			}
+			.moduel_fore_people {
+			  width: 4rem;
+			}
+			.moduel_five_people {
+			  width: 3.4rem;
+			  margin: 0.3rem auto 0;
+			}
+			.moduel_five_people img:nth-child(1) {
+			  width: 2.8rem;
+			  margin-left: -.8rem;
+			}
+			.moduel_fore_desc {
+			  padding: 0 1rem ;
+			}
+			.moduel_seven_content {
+			  padding-top: .2rem;
+			  position: relative;
+			}
+			.moduel_seven_title_wrap img:nth-child(2) {
+			  top: 0.7rem;
+			}
+			.moduel_seven_desc {
+			  margin: 0rem auto;
+			}
+			.moduel_seven_title_wrap {
+			  margin: 0 auto 0.3rem;
 			}
 			
-			#loadShapePro {
-				border-radius: 10px;
-				height: 10px;
-				float: left;
-				background: rgb(255, 244, 209);
-				/* Old browsers */
-				background: #75a5d5;
-				width: 0;
+			.moduel_seven_desc img:nth-child(2) {
+			  width: 3.8rem;
 			}
-			
-			.pt-page-moveToTop {
-				-webkit-animation: moveToTop .6s ease both;
-				animation: moveToTop .6s ease both;
+			.moduel_seven_desc img:nth-child(3) {
+			  width: 3.4rem;
+			    top: 1.4rem;
 			}
-			
-			@-webkit-keyframes moveToTop {
-				from {}
-				to {
-					-webkit-transform: translateY(-100%);
-				}
+			.moduel_six_content {
+			  padding: .4rem 0;
 			}
-			
-			@keyframes moveToTop {
-				from {}
-				to {
-					-webkit-transform: translateY(-100%);
-					transform: translateY(-100%);
-				}
+			.moduel_six_bottom{
+				  width: 2.4rem;
 			}
-			
-			.pt-page-moveFromBottom {
-				-webkit-animation: moveFromBottom .6s ease both;
-				animation: moveFromBottom .6s ease both;
+			.moduel_six_desc {
+			  margin-top: .6rem;
 			}
-			
-			@-webkit-keyframes moveFromBottom {
-				from {
-					-webkit-transform: translateY(100%);
-				}
-			}
-			
-			@keyframes moveFromBottom {
-				from {
-					-webkit-transform: translateY(100%);
-					transform: translateY(100%);
-				}
-			}
-			
-			.pt-page-moveFromTop {
-				-webkit-animation: moveFromTop .6s ease both;
-				animation: moveFromTop .6s ease both;
-			}
-			
-			@-webkit-keyframes moveFromTop {
-				from {
-					-webkit-transform: translateY(-100%);
-				}
-			}
-			
-			@keyframes moveFromTop {
-				from {
-					-webkit-transform: translateY(-100%);
-					transform: translateY(-100%);
-				}
-			}
-			
-			.pt-page-moveToBottom {
-				-webkit-animation: moveToBottom .6s ease both;
-				animation: moveToBottom .6s ease both;
-			}
-			
-			@-webkit-keyframes moveToBottom {
-				from {}
-				to {
-					-webkit-transform: translateY(100%);
-				}
-			}
-			
-			@keyframes moveToBottom {
-				from {}
-				to {
-					-webkit-transform: translateY(100%);
-					transform: translateY(100%);
-				}
-			}
-			
+	    }
 			.hide {
 				display: none;
 			}
@@ -354,7 +337,7 @@
 							<img src="images/act_16motherDay_view6_desc4.png" />
 						</div>
 					</div>
-					<div class="con_wrap_index_botom">
+					<div class="con_wrap_index_botom moduel_six_bottom">
 						<img src="images/act_16motherDay_flower.png" />
 					</div>
 					<!--<div class="slide_up slide_up_comm">
@@ -391,11 +374,11 @@
 				<!--</div>-->
 			</div>
 			<div class="slide_up">
-				<span>^</span>
+				<img src="images/act_16motherDay_pointerUp.png" />
 			</div>
 		</div>
 
-		<audio id="audioCon" src="images/222.mp3" sortNum="0" loop="loop" preload="auto"></audio>
+		<audio id="audioCon" src="images/act_16mothre_bjmusic.mp3" sortNum="0" loop="loop" preload="auto"></audio>
 	</body>
 	<script>
 		var manifest = [];
