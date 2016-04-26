@@ -3,68 +3,83 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>给我加钱</title>
-		<script type="text/javascript" src="js/jquery-1.9.0.min.js" ></script>
+		
 		<style>
-			
+		
 		</style>
-		<script>
-		 /**
-		  * 调用此方法，渐变淡入
-		  * @param {Object} time_value  整形数字，例：500，表示500毫秒
-		  */
-			function dd(click_name,time_value){
-				if(click_name=="#btn_trian_danru"){//淡入
-					$(click_name).click(function(){
-					  	setInterval(function(){
-					  		$("#img_trian_xiaomi").fadeIn(time_value);
-					  	},500);
-				      });
-				}else{//淡出
-					$(click_name).click(function(){
-					  	setInterval(function(){
-					  		$("#img_trian_xiaomi").fadeOut(time_value);
-					  	},500);
-				      });
-				}
-					  
-			}
-			
-		   
-		</script>
 	</head>
-	<!--
-    	作者：712072174@qq.com
-    	时间：2016-04-20
-    	描述：
-    -->
 	<body>
+	
 		<div>
-			<!--展示小米圈铁耳机图片的控件-->
-			<img src="images/content-top-1.jpg" id="img_trian_xiaomi" style="width: 225px;display: none ;">
-			</img>
-			<br />
-			<!--点击按钮，显示小米图片，淡入-->
-			<input type="button" value="淡入" id="btn_trian_danru">
-			</input>
-			<br />
-			<!--点击按钮，显示小米图片，淡出--> 
-			<input type="button" value="淡出" id="btn_trian_danchu" >
-			</input>
-			
+			<!--
+				Object 对象
+				 是js的核心内容
+				   对象的本质是：
+				    由键值对组成的 无序数据集合
+				    
+				    键值对：key---value
+				    无序  
+				    数据
+				    js中 任意元素都可以认为
+				    集合
+				  格式：
+				  ｛
+				 	key：value，
+				 	key：value
+				  ｝
+				  声明 对象：
+				  1、var obj = {};声明一个空对象
+				  2、var o = new Object();  面向对象的思想
+				  3、 var obj = {
+				  	name :'zhangsan',
+				  	sex:'nan',
+:				  }
+				
+				
+				获取对象的属性：
+				1、对象.属性名
+				2、对象["属性名"]
+				
+				设置属性的值
+				 变量.属性名='z值'
+			-->
+			<script>
+				var o = new Object();
+				console.info(o);
+				var o2 = {};
+				console.info(o2);
+				var o3 = {
+					name:'zhangsan',
+					sex:'nan',
+					age:23,
+//					cn:'我在这儿'
+				}
+				console.info(o3);//Object {name: "zhangsan", sex: "nan", age: 23}
+				//src  属性名   ，'yyyy'属性值
+				o3.src = 'http';
+				console.info(o3);//Object {name: "zhangsan", sex: "nan", age: 23, src: "http"}
+				console.info(o3.src);//http
+				console.info(o3.name);//zhangsan
+				o3.name = '';
+				console.info(o3.name);//没有值
+				
+				
+				var cn = 'name';//把属性名赋值给一个变量  
+				//console.info(o3.cn);//undefined   上面虽然有赋值，但是对象里没有 cn这个属性名，所以报错   
+				console.info(o3.cn)//我在这儿     已在对象里加了一个  cn的属性名
+				
+				
+				//对象["属性名"]
+				o3.name = 'lisi';
+				console.debug(o3['name']);//lisi
+				console.debug(o3['cn']);//undefined 加引号 相当于 访问对象里的 属性名  对象里没有定义，所以报  undefined
+				console.debug(o3[cn]);//lisi   上面有 吧属性赋值给以一个变量 cn  直接获取变量是可以获取到 的
+				
+				
+				
+				
+			</script>
 		</div>
 	</body>
-	<script>
-			/*==========界面所有按钮方法监听============*/
-			/**
-			 * 所有单机操作
-			 */
-			 $(document).ready(dd("#btn_trian_danru",1500));//单机淡入按钮
-			 $(document).ready(dd("#btn_trian_danchu",500));//单机淡出按钮
-		    /**
-		     * 所有触碰操作
-		     */
-		    function touchListener(){
-		    	
-		    }	
-	</script>
+	
 </html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>给我加钱</title>
+		<script type="text/javascript" src="js/jquery-1.9.0.min.js" ></script>
+		<style>
+			
+		</style>
+		<script>
+		 /**
+		  * 调用此方法，渐变淡入
+		  * @param {Object} time_value  整形数字，例：500，表示500毫秒
+		  */
+			function dd(click_name,time_value){
+				if(click_name=="#btn_trian_danru"){//淡入
+					$(click_name).click(function(){
+					  	setInterval(function(){
+					  		$("#img_trian_xiaomi").fadeIn(time_value);
+					  	},500);
+				      });
+				}else{//淡出
+					$(click_name).click(function(){
+					  	setInterval(function(){
+					  		$("#img_trian_xiaomi").fadeOut(time_value);
+					  	},500);
+				      });
+				}
+					  
+			}
+			
+		   
+		</script>
+	</head>
+	<!--
+    	作者：712072174@qq.com
+    	时间：2016-04-20
+    	描述：
+    -->
+	<body>
+		<div>
+			<!--展示小米圈铁耳机图片的控件-->
+			<img src="images/content-top-1.jpg" id="img_trian_xiaomi" style="width: 225px;display: none ;">
+			</img>
+			<br />
+			<!--点击按钮，显示小米图片，淡入-->
+			<input type="button" value="淡入" id="btn_trian_danru">
+			</input>
+			<br />
+			<!--点击按钮，显示小米图片，淡出--> 
+			<input type="button" value="淡出" id="btn_trian_danchu" >
+			</input>
+			
+		</div>
+	</body>
+	<script>
+			/*==========界面所有按钮方法监听============*/
+			/**
+			 * 所有单机操作
+			 */
+			 $(document).ready(dd("#btn_trian_danru",1500));//单机淡入按钮
+			 $(document).ready(dd("#btn_trian_danchu",500));//单机淡出按钮
+		    /**
+		     * 所有触碰操作
+		     */
+		    function touchListener(){
+		    	
+		    }	
+	</script>
+</html>
