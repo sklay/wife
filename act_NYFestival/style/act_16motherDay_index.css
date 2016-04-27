@@ -285,7 +285,7 @@
 	padding-top: .5rem;
 }
 .moduel_one_title_wrap ,.moduel_two_title_wrap,.moduel_three_title_wrap,.moduel_fore_title_wrap,.moduel_five_title_wrap,.moduel_seven_title_wrap{
-	width: 3.5rem;
+	width: 5rem;
 	margin: 0 auto .4rem;
 }
 .moduel_one_title_wrap img ,.moduel_two_title_wrap img,.moduel_three_title_wrap img,.moduel_five_title_wrap img,.moduel_seven_title_wrap img{
@@ -455,7 +455,7 @@
 }
 
 .moduel_five_people{
-	width: 4.4rem;
+	width: 4.2rem;
 	margin: 0.5rem auto 0;
 }
 .moduel_five_people img:nth-child(1){
@@ -487,25 +487,34 @@
 	width: 100%;
 	margin: .3rem auto .5rem;
 }
+
 .moduel_six_title_wrap img:nth-child(1){
 	width: 3rem;
 	display: block;
 	margin: 0 auto;
-	-webkit-animation-duration: 1s;
-	  -webkit-animation-delay: 0s;
+	-webkit-animation-duration: 2s;
+	  -webkit-animation-delay: 1s;
 	  -webkit-animation-iteration-count: infinite;
 	  /*调用动画*/
 	  -webkit-animation-name: tada;
 	animation-name: tada
 }
 .moduel_six_title_wrap img:nth-child(2){
+	opacity: 0;
 	width:100%;
 	margin-top: .2rem;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-play-state: running;
+	/*-webkit-animation-delay: 1.5s;*/
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: bounceIn;
 }
 .moduel_six_dot{
 	width: 3rem;
 	margin: .3rem auto .5rem;
 	text-align: center;
+	-webkit-animation: three_desc 3s linear  1;
 }
 .moduel_six_dot p{
 	font-size: .55rem;
@@ -520,14 +529,28 @@
 	margin-top: 1rem;
 }
 .moduel_six_desc img:nth-child(1){
+	opacity: 0;
 	width: 3rem;
 	display: block;
 	margin: 0 auto;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-play-state: running;
+	-webkit-animation-delay: 3s;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: bounceIn;
 }
 .moduel_six_desc img:nth-child(2){
+	opacity: 0;
 	width: 4rem;
 	display: block;
 	margin: .2rem auto 0;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-play-state: running;
+	-webkit-animation-delay: 4s;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: bounceIn;
 }
 
 
@@ -544,23 +567,23 @@
 	position: relative;
 }
 .moduel_seven_title_wrap img:nth-child(2){
-	width: .65rem;
+	width: .8rem;
 	position: absolute;
-	top: 1.35rem;
+	top: 1.5rem;
 }
 .moduel_seven_word{
 	width: 4rem;
 	margin: 0 auto;
 	text-align: center;
-	font-size:24px ;
-	height: 1rem;
+	font-size:18px ;
+	height: .8rem;
 }
 .moduel_seven_word p{
-	width: 2rem;
+	width: 1.6rem;
 	display: inline-block;
-	line-height: 1rem;
+	line-height: .8rem;
 	background: #ba0808;
-	padding: 0 .4rem;
+	padding: 0 .2rem;
 	border-radius: 7px;
 	color: #fff;
 	font-weight: bold;
@@ -572,28 +595,31 @@
 	overflow: hidden;
 	position: relative;
 }
-.moduel_seven_desc img:nth-child(1){
-	width: 3rem;
+.moduel_seven_desc .sendP{
+	width: 4.4rem;
 	display: block;
-	float: right;
+	float: left;
 	margin-right: .5rem;
 	margin-top: .3rem;
+	-webkit-animation: people_move 2s linear 0s 1;
+	
+}
+.moduel_seven_desc_left{
+	position: absolute;
+	right: 0;
+	top: .2rem;
+	width: 4rem;
+}
+.moduel_seven_desc_left img:nth-child(1){
+	  width: 3.2rem;
+  	margin-left: .6rem;
 	-webkit-animation:giftBoxmove 1s cubic-bezier(.95,1.81,.03,.82) 0s 1;
 	-webkit-animation-fill-mode: forwards;
 	-webkit-transform: translateY(-25rem); 
 }
-.moduel_seven_desc img:nth-child(2){
-	width: 4rem;
-	float: left;
-	margin-left: .1rem;
-	-webkit-animation: people_move 2s linear 0s 1;
-}
-.moduel_seven_desc img:nth-child(3){
-	width: 4rem;
-	float: right;
-	position: absolute;
-	right: 0;
-	top: 1.5rem;
+.moduel_seven_desc_left img:nth-child(2){
+	width: 100%;
+	  margin-top: .3rem;
 	-webkit-animation: people_move_right 2s linear 0s 1;
 }
 .moduel_seven__botom{
@@ -601,6 +627,7 @@
 	position: fixed;
 	left: 0;
 	bottom: 0;
+	-webkit-animation: flow_move 2s;
 }
 .moduel_seven__botom img{
 	width: 100%;
@@ -612,7 +639,7 @@
 	position: fixed;
  	bottom: 0;
   background: rgba(0, 0, 0, .7);
-  /* opacity: 0; */
+   /*opacity: 0;*/ 
   left: 0;
   width: 100%;
   color: #fff;
@@ -621,6 +648,13 @@
   z-index: 8;
   /* display: none; */
   text-align: center;
+  /*-webkit-animation: flow_move 2s ease 2s;*/
+ 	-webkit-animation-duration: 2s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-play-state: running;
+	-webkit-animation-delay: 4s;
+	-webkit-animation-fill-mode: both;
+	-webkit-animation-name: flow_move;
  }
  .clickBtn_wrap span {
  	  display: inline-block;

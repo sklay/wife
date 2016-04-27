@@ -1,0 +1,148 @@
+<!DOCTYPE >
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="description" content=" ">
+	<style>
+		.trans_box {
+			padding: 20px;
+			background-color: #f0f3f9;
+			*zoom: 1;
+		}
+		
+		.trans_list {
+			width: 10%;
+			height: 64px;
+			margin: 10px 0;
+			background-color: #486AAA;
+			color: #fff;
+			text-align: center;
+		}
+		
+		.ease {
+			-webkit-transition: all 4s ease;
+			-moz-transition: all 4s ease;
+			-o-transition: all 4s ease;
+			transition: all 4s ease;
+		}
+		
+		.ease_in {
+			-webkit-transition: all 4s ease-in;
+			-moz-transition: all 4s ease-in;
+			-o-transition: all 4s ease-in;
+			transition: all 4s ease-in;
+		}
+		
+		.ease_out {
+			-webkit-transition: all 4s ease-out;
+			-moz-transition: all 4s ease-out;
+			-o-transition: all 4s ease-out;
+			transition: all 4s ease-out;
+		}
+		
+		.ease_in_out {
+			-webkit-transition: all 4s ease-in-out;
+			-moz-transition: all 4s ease-in-out;
+			-o-transition: all 4s ease-in-out;
+			transition: all 4s ease-in-out;
+		}
+		
+		.linear {
+			-webkit-transition: all 4s linear;
+			-moz-transition: all 4s linear;
+			-o-transition: all 4s linear;
+			transition: all 4s linear;
+		}
+		
+		.trans_box:hover .trans_list {
+			margin-left: 89%;
+			background-color: #beceeb;
+			color: #333;
+			-webkit-border-radius: 25px;
+			-moz-border-radius: 25px;
+			-o-border-radius: 25px;
+			border-radius: 25px;
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+		/*transition     end*/
+		/*transform start*/
+		
+		.trans_effect {
+			display: block;
+			line-height: 100px;
+			width: 100px;
+			background: #beceeb;
+			margin: 30px auto;
+			text-align: center;
+			-webkit-transition: all 2s ease-in-out;
+			-moz-transition: all 2s ease-in-out;
+			-o-transition: all 2s ease-in-out;
+			-ms-transition: all 2s ease-in-out;
+			transition: all 2s ease-in-out;
+		}
+		
+		.trans_effect:hover {
+			-webkit-transform: rotate(720deg) scale(2, 2);
+			-moz-transform: rotate(720deg) scale(2, 2);
+			-o-transform: rotate(720deg) scale(2, 2);
+			-ms-transform: rotate(720deg) scale(2, 2);
+			transform: rotate(720deg) scale(2, 2);
+		}
+		/*transform   end*/
+		/*animation   start*/
+		.test_box {
+			width:100px;
+			height:100px;
+			border:1px solid #beceeb;
+			background-color:#f0f3f9;
+			margin:40px auto;}
+
+		@-webkit-keyframes resize {
+			0% {
+				padding: 0;
+			}
+			50% {
+				padding: 0 20px;
+				background-color: rgba(190, 206, 235, 0.2);
+			}
+			100% {
+				padding: 0 100px;
+				background-color: rgba(190, 206, 235, 0.9);
+			}
+		}
+		
+		.anim_box {
+			-webkit-animation-name: resize;
+			-webkit-animation-duration: 1.5s;
+			-webkit-animation-iteration-count: 4;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-timing-function: ease-in-out;
+		}
+	</style>
+</head>
+
+<body>
+	<!--transition-->
+	<div id="transBox" class="trans_box">
+		<div class="trans_list ease">ease</div>
+		<div class="trans_list ease_in">ease-in</div>
+		<div class="trans_list ease_out">ease-out</div>
+		<div class="trans_list ease_in_out">ease-in-out</div>
+		<div class="trans_list linear">linear</div>
+	</div>
+	<hr />
+	<!--transform-->
+	<a href="/" class="trans_effect">摸我！</a>
+	<hr />
+	<hr />
+	<!--animation   start-->
+	<div class="anim_box test_box"></div>
+</body>
+
+</html>

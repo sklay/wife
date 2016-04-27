@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!--<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="description" content=" ">
+		<title>母亲节</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font-size: 12px;
+			}
+			
+			.conWrap {
+				width: 800px;
+				height: 500px;
+				background: #F0F3F9;
+			}
+			
+			.imglist {
+				width: 300px;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			.imglist img {
+				width: 100%;
+				float: left;
+				margin-top: 20px;
+				opacity: 0;
+			}
+			.imglist p {
+				width: 3rem;
+				margin: .3rem auto .5rem;
+				text-align: center;
+				font-size: .55rem;
+				font-weight: bold;
+				color: #ff1366;
+				opacity: 0;
+			}
+			
+			.imglist img:nth-child(1) {
+				-webkit-animation-duration: 1.3s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.3s;
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-name: bounceIn;
+			}
+			
+			.imglist img:nth-child(2) {
+				-webkit-animation-duration: 1.3s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.6s;
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-name: bounceIn;
+			}
+			.imglist p{
+				/*-webkit-animation-duration: 1.3s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.6s;
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-name: bounceIn;*/
+			}
+			.imglist img:nth-child(4) {
+				-webkit-animation-duration: 1.3s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 0.9s;
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-name: bounceIn;
+			}
+			
+			.imglist img:nth-child(5) {
+				-webkit-animation-duration: 1.3s;
+				-webkit-animation-iteration-count: 1;
+				-webkit-animation-play-state: running;
+				-webkit-animation-delay: 1.2s;
+				-webkit-animation-fill-mode: both;
+				-webkit-animation-name: bounceIn;
+			}
+			
+			@-webkit-keyframes bounceIn {
+				from,
+				20%,
+				40%,
+				60%,
+				80%,
+				100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, .61, .355, 1);
+					animation-timing-function: cubic-bezier(0.215, .61, .355, 1)
+				}
+				0.001% {
+					opacity: 0;
+					-webkit-transform: scale3d(.1, .1, .1);
+					transform: scale3d(.1, .1, .1)
+				}
+				20% {
+					-webkit-transform: scale3d(1.1, 1.1, 1.1);
+					transform: scale3d(1.1, 1.1, 1.1)
+				}
+				40% {
+					-webkit-transform: scale3d(.9, .9, .9);
+					transform: scale3d(.9, .9, .9)
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: scale3d(1.03, 1.03, 1.03);
+					transform: scale3d(1.03, 1.03, 1.03)
+				}
+				80% {
+					-webkit-transform: scale3d(.97, .97, .97);
+					transform: scale3d(.97, .97, .97)
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1)
+				}
+			}
+			
+			@keyframes bounceIn {
+				from,
+				20%,
+				40%,
+				60%,
+				80%,
+				100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, .61, .355, 1);
+					animation-timing-function: cubic-bezier(0.215, .61, .355, 1)
+				}
+				0.001% {
+					opacity: 0;
+					-webkit-transform: scale3d(.1, .1, .1);
+					transform: scale3d(.1, .1, .1)
+				}
+				20% {
+					-webkit-transform: scale3d(1.1, 1.1, 1.1);
+					transform: scale3d(1.1, 1.1, 1.1)
+				}
+				40% {
+					-webkit-transform: scale3d(.9, .9, .9);
+					transform: scale3d(.9, .9, .9)
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: scale3d(1.03, 1.03, 1.03);
+					transform: scale3d(1.03, 1.03, 1.03)
+				}
+				80% {
+					-webkit-transform: scale3d(.97, .97, .97);
+					transform: scale3d(.97, .97, .97)
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1)
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="conWrap">
+			<div class="imglist">
+				<img src="images/act_16motherDay_view6_desc1.png" />
+				<img src="images/act_16motherDay_view6_desc2.png" />
+				<p>••••••••</p>
+				<img src="images/act_16motherDay_view6_desc3.png" />
+				<img src="images/act_16motherDay_view6_desc4.png" />
+				<!--<p>••••••••</p>-->
+			</div>
+		</div>
+	</body>
+	<script>
+		/*祝福语显示控制*/
+		function ptimeFun(maxPL, parEle) {
+			ptime = setInterval(function() {
+				pShowFun(maxPL, parEle);
+			}, 1500);
+		}
+		/*祝福语动画*/
+		var pI = -1;
+		var ptime = null;
+		var pShowFun = function(maxPL, parEle) {
+			pI++;
+			var len = parEle.find("img").length;
+			if (pI >= len) {
+				clearInterval(ptime);
+				setTimeout(function() {
+					/*$("#userText p").fadeOut();*/
+					parEle.find("img[showNow=true]").removeAttr("showNow").fadeOut();
+					pI = -1;
+					ptime = setInterval(function() {
+						pShowFun(maxPL, parEle);
+					}, 1000);
+				}, 1000)
+				return false;
+			};
+			/*判断当本页满6行时，隐藏当前文字*/
+			if (pI % maxPL == 0 && pI > 0 && parEle.find("img[showNow=true]").length > 0) {
+				var n = Math.floor(pI / maxPL) * maxPL;
+				parEle.find("img[showNow=true]").removeAttr("showNow").fadeOut();
+				pI -= 1;
+				return false;
+			}
+			parEle.find("img").eq(pI).attr({
+				"showNow": "true"
+			}).fadeIn();
+		};
+		setTimeout(function(){
+				ptimeFun(4,$(".imglist"))
+			},1000);
+	</script>
+
+</html>
