@@ -1,0 +1,162 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>五一秒杀</title>
+		<link rel="stylesheet" href="style/main_wechat.css" />
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script>
+			(function (doc, win) {
+			        var docEl = doc.documentElement,
+			                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			                recalc    = function () {
+			                    var clientWidth = docEl.clientWidth;
+			                    if (clientWidth>=640) {
+			                        clientWidth = 640;
+			                    };
+			                    if (!clientWidth) return;
+			                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+			                };
+			        if (!doc.addEventListener) return;
+			        win.addEventListener(resizeEvt, recalc, false);
+			        doc.addEventListener('DOMContentLoaded', recalc, false);
+			    })(document, window);
+		</script>
+	</head>
+	<style>
+		*{margin:0px; padding:0px;}
+		.content{overflow:hidden;padding-bottom:25px;}
+		.content .topArea{width:100%;padding:0;}
+		.content .topArea img{width:100%;display:block;}
+		.content .promoContent{width:100%;height:100%;font-size:12px;}
+		.content .promoContent .promoList{width:100%;height:100%;}
+		.content .promoContent .promoList .promoTitle{width:100%;}
+		.content .promoContent .promoList .promoTitle img{width:100%;}
+		.content .promoContent .promoList .promoItemList{width:100%;font-size:0;}
+		.content .promoContent .promoList .promoItemList .pItem{width:50%;height:100%;margin-bottom:15px;display:inline-block;font-size:0;float:left;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv{width:95%;margin:0 auto;background:#fff;padding:10px 0px;border-radius:5px;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemIcon{display:block;width:80%;margin:0 auto;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemName{display:block;width:85%;margin:10px auto 0px auto;font-size:13px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .standard{display:block;width:85%;margin:0px auto 0px auto;font-size:12px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice{display:block;width:85%;margin:0 auto;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .tj_price{font-size:14px;font-weight:bold; color:red;margin-right:15px;}
+		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price{font-size:12px;color:#ddd;text-decoration: line-through;}
+		.floor2_right{ position: relative;}
+				.buy-button {  position: absolute;
+				padding: 1px 5px;
+		  font-size: 12px;
+		  box-sizing: border-box;
+		  text-align: center;
+		  text-decoration: none;
+		  background: #cd3636;
+		  color: #FFFFFF;
+		  border-radius: 2px;
+		  border: 0;
+		  left: 1.7rem;
+		  line-height: 20px;
+		  bottom: .15rem;
+				}
+				.prodName{  width: 90%; margin: 0 auto; height: 36px;}
+				.prodName p{font-size: 12px; word-break: break-all;}
+	</style>
+
+	<body style="background: #f44f4f;">
+		<div class="content">
+			<div class="topArea">
+				<a href="javascript:void(0)">
+					<img alt="" src="${current.imgUrl }@!ys600">
+				</a>
+				<!-- <img src="images/act_doubleFestTitle.jpg"> -->
+			</div>
+			<div class="promoContent">
+				<c:forEach items="${subList }" var="actiObj">
+					<div class="promoList">
+						<div class="promoTitle">
+							<!--<c:if test="${not empty actiObj.imgUrl}">
+							<img src="${actiObj.imgUrl}">-->
+							<img class="itemIcon" src="images/ms_02.png" />
+							<!--</c:if>-->
+						</div>
+						<div class="promoItemList">
+							<c:forEach items="${actiObj.skuArr }" var="actiItem" varStatus="st">
+								<c:choose>
+									<c:when test="${st.last && st.index % 2 == 0  }"></c:when>
+									<c:otherwise>
+										<div class="pItem">
+											<a href="javascript:void(0)">
+												<div class="itemDiv">
+													<img class="itemIcon" alt="" src="${actiItem.prodImg}@!ys300">
+													<div class="prodName">
+														<p>${actiItem.prodName }</p>
+													</div>
+
+													<div class="itemPrice">
+														<c:if test="${actiItem.price != actiItem.costPrice}">
+															<span class="yj_price">原价：${actiItem.costPrice/100 }</span>
+														</c:if>
+														</br>
+														<span class="tj_price">特价：${actiItem.price/100}</span>
+													</div>
+													<div class="floor2_right">
+														<c:if test="${actiItem.cstatus == 0}">
+															<button class="buy-button" style="background-color: #FF7B05">即将开始</button>
+														</c:if>
+														<c:if test="${actiItem.cstatus == 1}">
+															<button class="buy-button" style="background-color: #cd3636" onclick="showDrugDetails('${actiItem.skuId}')">立即购买</button>
+														</c:if>
+													</div>
+												</div>
+											</a>
+										</div>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+						</div>
+
+					</div>
+				</c:forEach>
+			</div>
+
+		</div>
+	</body>
+	<script>
+		/* $(function(){
+			$(".content").css("background","${current.remark}");
+			document.title = '${current.dirName }';
+		}); */
+		
+		
+		function is_weixin(){
+		    var ua = navigator.userAgent.toLowerCase();
+		    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+		
+		/*跳转到商品列表页*/
+		function showDrugList(category_id, category_name){
+			
+		    camore.showDrugList(category_id, category_name);
+		}
+		
+		/*跳转到商品详情页*/
+		function showDrugDetails(drug_id){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/details?skuId=" + drug_id;
+			}
+		    camore.showDrugDetails(drug_id);
+		}
+	</script>
+
+</html>
