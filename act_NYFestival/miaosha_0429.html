@@ -202,7 +202,7 @@
 									<img class="itemIcon" alt="" src="images/miaosha_prod_0429.jpg">
 									<div class="floor2_right">
 										<!--<c:if test="${actiItem.cstatus == 0}">-->
-											<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" onclick="showDrugDetails('11427181')" />
+											<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" data-product="product_ten" data-proid="11427181" />
 										<!--</c:if>
 										<c:if test="${actiItem.cstatus == 1}">-->
 											<!--<button class="buy-button" style="background-color: #cd3636" onclick="showDrugDetails('${actiItem.skuId}')">立即购买</button>-->
@@ -222,7 +222,7 @@
 								<div class="itemDiv">
 									<img class="itemIcon" alt="" src="images/miaosha_prod1_0429.jpg">
 									<div class="floor2_left">
-										<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" onclick="showDrugDetails('11427182')" />
+										<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" data-product="product_seven" data-proid="11427182" />
 										<!--<c:if test="${actiItem.cstatus == 0}">
 											<button class="buy-button" style="background-color: #FF7B05">即将开始</button>
 										</c:if>
@@ -271,6 +271,110 @@
 			}
 			camore.showDrugDetails(drug_id);
 		}
+	</script>
+<script type="text/javascript">
+
+	var timer = null ;
+	var tenReadly = false , sevenReady = false ;
+	var startTen = new Date();
+	/*startTime.setFullYear(2016, 4, 28);
+	startTime.setHours(23);
+	startTime.setMinutes(59);
+	startTime.setSeconds(59);
+	startTime.setMilliseconds(999);*/
+	startTen.setHours(10);
+	startTen.setMinutes(0);
+	startTen.setSeconds(0);
+	startTen.setMilliseconds(0);
+	var endten=startTen.getTime();
+	
+	
+	
+	var startSeven = new Date();
+	startSeven.setHours(19);
+	startSeven.setMinutes(0);
+	startSeven.setSeconds(0);
+	startSeven.setMilliseconds(0);
+	var endseven=startSeven.getTime();
+	
+	function getTenTime(endtime ){
+		var NowTime = new Date();
+		var nMS = endtime - NowTime.getTime();
+		if (nMS < 0){
+			tenReadly = true ;
+			console.debug('ten readly ') ;
+			$('img[data-product=product_ten]').unbind('click');
+			$('img[data-product=product_ten]').on('click' ,function(){
+				var drug_id = $(this).attr('data-proid') ;
+				showDrugDetails(drug_id) ;
+			});
+			if(timer && tenReadly && sevenReady){
+				window.clearInterval(timer) ;
+			}
+			
+		}else{
+		   console.debug("ten") ;
+		   tenReadly = false ;
+		   $('img[data-product=product_ten]').unbind('click');
+		   $('img[data-product=product_ten]').on('click' ,function(){
+				alert('时间还没到，别着急哦！！！') ;
+			});
+		}
+	}
+	
+	function getTimer(ten,seven){
+		var NowTime = new Date();
+		var tMS = ten - NowTime.getTime();
+		var sMS = seven -  NowTime.getTime();
+		
+		
+		if (tMS < 0){
+			tenReadly = true ;
+			console.debug('ten readly ') ;
+			$('img[data-product=product_ten]').unbind('click');
+			$('img[data-product=product_ten]').on('click' ,function(){
+				var drug_id = $(this).attr('data-proid') ;
+				showDrugDetails(drug_id) ;
+			});
+			if(timer && tenReadly && sevenReady){
+				window.clearInterval(timer) ;
+			}
+			
+		}else{
+		   console.debug("ten") ;
+		   tenReadly = false ;
+		   $('img[data-product=product_ten]').unbind('click');
+		   $('img[data-product=product_ten]').on('click' ,function(){
+				alert('时间还没到，别着急哦！！！') ;
+			});
+		}
+		
+		
+		if (sMS < 0){
+			console.debug('seven readly ') ;
+			sevenReady = true ;
+			$('img[data-product=product_seven]').unbind('click');
+			$('img[data-product=product_seven]').on('click' ,function(){
+				var drug_id = $(this).attr('data-proid') ;
+				showDrugDetails(drug_id) ;
+			});
+			
+			if(timer && tenReadly && sevenReady){
+				window.clearInterval(timer) ;
+			}
+		}else{
+		   console.debug("seven") ;
+		   sevenReady = false ;
+		   $('img[data-product=product_seven]').unbind('click');
+		   $('img[data-product=product_seven]').on('click' ,function(){
+				alert('时间还没到，别着急哦！！！') ;
+			});
+		}
+	}
+	
+	$(document).ready(function () {
+		timer = window.setInterval("getTimer("+endten+","+endseven+")", 1000);
+	});
 	</script>
 
 </html>
