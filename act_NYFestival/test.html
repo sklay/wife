@@ -1,248 +1,647 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>【药快到】寻找清明诗人</title>
-    <meta name="description" content="【药快到】吟诗作对，舍我其谁？这个清明，我最有学问！">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <meta name="format-detection" content="telephone=no, email=no" />
-    <script src="js/zepto.min.js"></script>
-    <script src="js/touch.js"></script>
-    <script src="js/fx.js"></script>
-    <script src="js/fx_methods.js"></script>
-	<script src="js/createjs-2014.12.12.min.js"></script>
-	<script src="js/preloadjs-0.6.0.min.js"></script>
-    <script src="js/common.js"></script>
-    <script src="js/html_common.js"></script>
-     
-    <style>
-        *{margin:0;padding:0;}
-        i{font-style:normal;text-align:center;}
-        html{font-size:62.5%;}
-        html,body,.contentBack,.comShineBack,.indexPage,.gamePage{width:100%;height:100%;overflow:hidden;}
-        body{font-size:10px;font-size:.1rem;font-family:Microsoft Yahei,Arial;width:6.4rem;}
-       
-        /*加载动画*/
-        @-webkit-keyframes loadImgmove {
-            0%{-webkit-transform:rotate(0deg)}
-            25%{-webkit-transform:rotate(10deg)}
-            50%{-webkit-transform:rotate(0deg)}
-            75%{-webkit-transform:rotate(-10deg)}
-            100%{-webkit-transform:rotate(0deg)}
-        }
-        #loadingPage{  width: 100%;height: 100%; background: #212e3a;}
-        .loadingImg{width:100%;box-sizing:border-box;height:4.5rem;  position: relative;}
-       .loadingImg img{width: .8rem;position:absolute; left: 2.8rem;
-        }
-        .loadingImg img:nth-child(1){  width: .6rem;
-		  left: 2.94rem;
-		  top: 2.48rem;
-		 z-index:1;
-			  -webkit-transform-origin: 50% 100%;
-			  -webkit-animation: loadImgmove 1.2s linear infinite;
-        }
-         .loadingImg img:nth-child(2){
-         	top: 3.4rem; 
-        }
-        .loadText{font-size:20px;color:#fff;text-align:center;line-height:50px;margin-top:.7rem;
-        font-weight:600;}
-        .loadShape{width:4.5rem;margin:0 auto;background:#070910; border-radius:10px;
-        height:10px;overflow:hidden;}
-        #loadShapePro{border-radius:10px;height:10px;float:left; background: rgb(255,244,209); /* Old browsers */
-           background:#75a5d5;width:0;}
-              
-         /*首页*/
-        .Pagecommonsty{background: url(images/act_16QMing_indexBJ.jpg) top center no-repeat;
-        	background-size:100% 100% ;  position: absolute;
-        }     
-        .indexComImg{width: 100%;  position: fixed;bottom: 0;  left: 0;}    
-        .indexPage_bott {  position: absolute;top: 8rem; width: 100%;left: 0;
-		}    
-        .indexPage_bott img{  width: 4.5rem; display: block;margin: 0 auto;}  
-           
-        #getActRule{   position: absolute; text-align: center;width: 100%;left: 0;
-			 top: 9.5rem;
-			  font-size: 14px;
-			  font-weight: 600;font-family: 黑体;
-		 }
-        /*活动规则*/
-       	.comWrap1 {  width: 100%; height: 100%;position: absolute;top: 0; left: 0;    display: none;
-		  background: rgba(0,0,0,.6); box-sizing: border-box;padding-top: 1.8rem;
-		}
-        .comShowWrap1 {width:5.4rem;margin:0 auto;background: url(images/act_16QMing_indexRuleBJ.png)top center no-repeat;
-        	background-size:100% 100% ;position: relative;  
-        }
-        .actRuleShow {  width: 5.4rem;color: #341111;font-size: 16px; margin: 0 auto;
-         overflow: hidden;  padding-bottom: .6rem;}
-        .comTextWrap1 p{  display: block;width: 4rem;margin: 0.3rem auto 0;}
-        .closeBtn{ position: absolute; top: .1rem;right: 0.2rem; width: .6rem;
-		}
-        .closeBtn img{ width: 100%;}
-        .actRuleText{  box-sizing: border-box; width: 4.8rem;  padding: .25rem; margin: 0 auto;}
-        .actRuleText p{font-size: 16px;color: #341111;}
-        .actRuleText  h1{  width: 2.5rem; margin: 0.45rem auto 0;}
-        .actRuleText  h1 img{width: 100%;}
-         
-         /*游戏结束*/
-         /* .gameOverWrap{ width: 100%;  height: 100%;position: absolute;top: 0; left: 0;    display: none;
+
+	<head>
+		<meta charset="UTF-8">
+		<title>【药快到】寻找清明诗人</title>
+		<meta name="description" content="【药快到】吟诗作对，舍我其谁？这个清明，我最有学问！">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script src="js/zepto.min.js"></script>
+		<script src="js/touch.js"></script>
+		<script src="js/fx.js"></script>
+		<script src="js/fx_methods.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/html_common.js"></script>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			i {
+				font-style: normal;
+				text-align: center;
+			}
+			
+			html {
+				font-size: 62.5%;
+			}
+			
+			html,
+			body,
+			.contentBack,
+			.comShineBack,
+			.indexPage,
+			.gamePage {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			body {
+				font-size: 10px;
+				font-size: .1rem;
+				font-family: Microsoft Yahei, Arial;
+				width: 6.4rem;
+			}
+			/*加载动画*/
+			
+			@-webkit-keyframes loadImgmove {
+				0% {
+					-webkit-transform: rotate(0deg)
+				}
+				25% {
+					-webkit-transform: rotate(10deg)
+				}
+				50% {
+					-webkit-transform: rotate(0deg)
+				}
+				75% {
+					-webkit-transform: rotate(-10deg)
+				}
+				100% {
+					-webkit-transform: rotate(0deg)
+				}
+			}
+			
+			#loadingPage {
+				width: 100%;
+				height: 100%;
+				background: #212e3a;
+			}
+			
+			.loadingImg {
+				width: 100%;
+				box-sizing: border-box;
+				height: 4.5rem;
+				position: relative;
+			}
+			
+			.loadingImg img {
+				width: .8rem;
+				position: absolute;
+				left: 2.8rem;
+			}
+			
+			.loadingImg img:nth-child(1) {
+				width: .6rem;
+				left: 2.94rem;
+				top: 2.48rem;
+				z-index: 1;
+				-webkit-transform-origin: 50% 100%;
+				-webkit-animation: loadImgmove 1.2s linear infinite;
+			}
+			
+			.loadingImg img:nth-child(2) {
+				top: 3.4rem;
+			}
+			
+			.loadText {
+				font-size: 20px;
+				color: #fff;
+				text-align: center;
+				line-height: 50px;
+				margin-top: .7rem;
+				font-weight: 600;
+			}
+			
+			.loadShape {
+				width: 4.5rem;
+				margin: 0 auto;
+				background: #070910;
+				border-radius: 10px;
+				height: 10px;
+				overflow: hidden;
+			}
+			
+			#loadShapePro {
+				border-radius: 10px;
+				height: 10px;
+				float: left;
+				background: rgb(255, 244, 209);
+				/* Old browsers */
+				background: #75a5d5;
+				width: 0;
+			}
+			/*首页*/
+			
+			.Pagecommonsty {
+				background: url(images/act_16QMing_indexBJ.jpg) top center no-repeat;
+				background-size: 100% 100%;
+				position: absolute;
+			}
+			
+			.indexComImg {
+				width: 100%;
+				position: fixed;
+				bottom: 0;
+				left: 0;
+			}
+			
+			.indexPage_bott {
+				position: absolute;
+				top: 8rem;
+				width: 100%;
+				left: 0;
+			}
+			
+			.indexPage_bott img {
+				width: 4.5rem;
+				display: block;
+				margin: 0 auto;
+			}
+			
+			#getActRule {
+				position: absolute;
+				text-align: center;
+				width: 100%;
+				left: 0;
+				top: 9.5rem;
+				font-size: 14px;
+				font-weight: 600;
+				font-family: 黑体;
+			}
+			/*活动规则*/
+			
+			.comWrap1 {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				background: rgba(0, 0, 0, .6);
+				box-sizing: border-box;
+				padding-top: 1.8rem;
+			}
+			
+			.comShowWrap1 {
+				width: 5.4rem;
+				margin: 0 auto;
+				background: url(images/act_16QMing_indexRuleBJ.png)top center no-repeat;
+				background-size: 100% 100%;
+				position: relative;
+			}
+			
+			.actRuleShow {
+				width: 5.4rem;
+				color: #341111;
+				font-size: 16px;
+				margin: 0 auto;
+				overflow: hidden;
+				padding-bottom: .6rem;
+			}
+			
+			.comTextWrap1 p {
+				display: block;
+				width: 4rem;
+				margin: 0.3rem auto 0;
+			}
+			
+			.closeBtn {
+				position: absolute;
+				top: .1rem;
+				right: 0.2rem;
+				width: .6rem;
+			}
+			
+			.closeBtn img {
+				width: 100%;
+			}
+			
+			.actRuleText {
+				box-sizing: border-box;
+				width: 4.8rem;
+				padding: .25rem;
+				margin: 0 auto;
+			}
+			
+			.actRuleText p {
+				font-size: 16px;
+				color: #341111;
+			}
+			
+			.actRuleText h1 {
+				width: 2.5rem;
+				margin: 0.45rem auto 0;
+			}
+			
+			.actRuleText h1 img {
+				width: 100%;
+			}
+			/*游戏结束*/
+			/* .gameOverWrap{ width: 100%;  height: 100%;position: absolute;top: 0; left: 0;    display: none;
 		  background: rgba(0,0,0,.6); box-sizing: border-box;padding-top: 2rem;} */
-        .gameOverText{  box-sizing: border-box;
-		  width: 4.8rem;
-		  padding: .4rem;
-		  margin: 0 auto;}
-		#gameScoreDesText{width: 3rem;}
-		#gameScoreDesText2{width: 3rem;} 
-        .closeAndBackClick{position: absolute; top: .1rem;right: 0.2rem; width: .6rem;
-		  }
-        .closeAndBackClick img{width: 100%;}
-        .gameOver  h1{  width: 3rem; margin: 0.45rem auto 0;}
-        .gameOver  h1 img{width: 100%;}
-        .gameOver {  width: 4.8rem;color: #341111;font-size: 16px;
-		  margin: 0 auto; overflow: hidden;
-		  }
-		
-  		.gameOverBtn{  display: block;width: 100%;
-  			margin: 0.2rem auto 0;}
-  		#goToGetHb img{width: 100%;}
-  		/*游戏页*/
-  		.startGame_topImgWrap{  width: 100%;height: 1.5rem;position: relative;}
-  		.startGame_topImg  {width: 5.4rem;display: block;  position: absolute;
-			  top: 0;left: .5rem;}
-  		.startGameBtnWrap_top {  width:100%;font-size: 18px; color: #341111;position: relative;
-		  height: 1.65rem; opacity: 0;}
-		.startGameBtnWrap_top p{  position: absolute;top: .65rem;left: 2.5rem;display: block;
-  			width: 1.4rem;text-align: center;}
-  		.startGame_bodypage{  width: 100%;position: relative;overflow: hidden;opacity: 0;}
-  		
-  		.scroTop {width: 6.2rem;  position: absolute;top: 0;left: .1rem;}
-		.startGame_bodypage  .startGame_page{
-            width:100%;-webkit-transform: translateY(-6.1rem);transform: translateY(-6.1rem);
-        }
-		.startGame_question{  width: 5rem;background: #fef4ca;  margin: 0 auto;  height: 8rem;
-			box-sizing: border-box;}
-		.scrollBody{  width: 5.2rem;margin: 0 auto;display: block;}  
-		.bottomImg{ width: 6.2rem; margin: 0 auto;display: block;  margin-top: -.3rem;}
-  		
-  		#quest_text{  position: absolute;  opacity:0;
-		  top: .6rem;
-		  width:4rem;
-		  left: 1.2rem;}
-		.question_title {width: 4rem;  margin: 0 auto ;text-align: center;   font-size: 18px;   color: #341111;  overflow: hidden;}
-		.question_title span{  float: left;}
-		/* .question_title p{text-align: center;} */
-		 .ques_remind{padding-left: 1rem;} 
-  		.ques_userCop{  border-bottom: 1px solid #341111; margin-left:.85rem;
-		  height: .6rem;line-height: .6rem;}
-		.question_queNum {  
-			 background: url(images/act_16QMing_puestion_chooseComm.png) top center no-repeat;
-			 background-size: 100% 100%;
-			  width: 4rem;color:#785734;
-			  margin: 0.3rem auto;
-			  height: .9rem;}
-	    .question_queNum p{line-height:.9rem;  padding-left: .5rem;
-			  text-align: center;
-			  font-size: 16px;}
-  		#puestion_body{  position: static; width: 4rem; margin: .8rem auto 0;}
-		  /*错误图片*/
-		.result_error_icon { background: url(images/act_16QMing_puestion_chooseError.png) top center no-repeat;
-		 background-size: 100% 100%; width: 4rem;color:#8b051c;margin: 0.3rem auto; height: .9rem;
+			
+			.gameOverText {
+				box-sizing: border-box;
+				width: 4.8rem;
+				padding: .4rem;
+				margin: 0 auto;
 			}
-		.result_error_icon p{ line-height: .9rem;  padding-left: .5rem;
-			  text-align: center;font-size: 16px;}
-		.result_right_icon {background: url(images/act_16QMing_puestion_chooseRight.png) top center no-repeat;
-		 background-size: 100% 100%;
-			  width: 4rem;color:#435619;
-			  margin: 0.3rem auto;
-			  height: .9rem;
+			
+			#gameScoreDesText {
+				width: 3rem;
 			}
-        .result_right_icon p{line-height: .9rem;  padding-left: .5rem;
-			  text-align: center; font-size: 16px;} 
-			  
-		 @-webkit-keyframes musicMove{
-            100%{-webkit-transform:rotate(360deg)}
-        }
-        @keyframes musicMove{
-            100%{transform:rotate(360deg)}
-        }
-        .musicPlay{
-            -webkit-animation:musicMove 1s linear 0s infinite;
-            animation:musicMove 1s linear 0s infinite;
-        }
-        .musicPause{
-            animation-play-state:paused;
-            -webkit-animation-play-state:paused;
+			
+			#gameScoreDesText2 {
+				width: 3rem;
+			}
+			
+			.closeAndBackClick {
+				position: absolute;
+				top: .1rem;
+				right: 0.2rem;
+				width: .6rem;
+			}
+			
+			.closeAndBackClick img {
+				width: 100%;
+			}
+			
+			.gameOver h1 {
+				width: 3rem;
+				margin: 0.45rem auto 0;
+			}
+			
+			.gameOver h1 img {
+				width: 100%;
+			}
+			
+			.gameOver {
+				width: 4.8rem;
+				color: #341111;
+				font-size: 16px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			.gameOverBtn {
+				display: block;
+				width: 100%;
+				margin: 0.2rem auto 0;
+			}
+			
+			#goToGetHb img {
+				width: 100%;
+			}
+			/*游戏页*/
+			
+			.startGame_topImgWrap {
+				width: 100%;
+				height: 1.5rem;
+				position: relative;
+			}
+			
+			.startGame_topImg {
+				width: 5.4rem;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: .5rem;
+			}
+			
+			.startGameBtnWrap_top {
+				width: 100%;
+				font-size: 18px;
+				color: #341111;
+				position: relative;
+				height: 1.65rem;
+				opacity: 0;
+			}
+			
+			.startGameBtnWrap_top p {
+				position: absolute;
+				top: .65rem;
+				left: 2.5rem;
+				display: block;
+				width: 1.4rem;
+				text-align: center;
+			}
+			
+			.startGame_bodypage {
+				width: 100%;
+				position: relative;
+				overflow: hidden;
+				opacity: 0;
+			}
+			
+			.scroTop {
+				width: 6.2rem;
+				position: absolute;
+				top: 0;
+				left: .1rem;
+			}
+			
+			.startGame_bodypage .startGame_page {
+				width: 100%;
+				-webkit-transform: translateY(-6.1rem);
+				transform: translateY(-6.1rem);
+			}
+			
+			.startGame_question {
+				width: 5rem;
+				background: #fef4ca;
+				margin: 0 auto;
+				height: 8rem;
+				box-sizing: border-box;
+			}
+			
+			.scrollBody {
+				width: 5.2rem;
+				margin: 0 auto;
+				display: block;
+			}
+			
+			.bottomImg {
+				width: 6.2rem;
+				margin: 0 auto;
+				display: block;
+				margin-top: -.3rem;
+			}
+			
+			#quest_text {
+				position: absolute;
+				opacity: 0;
+				top: .6rem;
+				width: 4rem;
+				left: 1.2rem;
+			}
+			
+			.question_title {
+				width: 4rem;
+				margin: 0 auto;
+				text-align: center;
+				font-size: 18px;
+				color: #341111;
+				overflow: hidden;
+			}
+			
+			.question_title span {
+				float: left;
+			}
+			/* .question_title p{text-align: center;} */
+			
+			.ques_remind {
+				padding-left: 1rem;
+			}
+			
+			.ques_userCop {
+				border-bottom: 1px solid #341111;
+				margin-left: .85rem;
+				height: .6rem;
+				line-height: .6rem;
+			}
+			
+			.question_queNum {
+				background: url(images/act_16QMing_puestion_chooseComm.png) top center no-repeat;
+				background-size: 100% 100%;
+				width: 4rem;
+				color: #785734;
+				margin: 0.3rem auto;
+				height: .9rem;
+			}
+			
+			.question_queNum p {
+				line-height: .9rem;
+				padding-left: .5rem;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			#puestion_body {
+				position: static;
+				width: 4rem;
+				margin: .8rem auto 0;
+			}
+			/*错误图片*/
+			
+			.result_error_icon {
+				background: url(images/act_16QMing_puestion_chooseError.png) top center no-repeat;
+				background-size: 100% 100%;
+				width: 4rem;
+				color: #8b051c;
+				margin: 0.3rem auto;
+				height: .9rem;
+			}
+			
+			.result_error_icon p {
+				line-height: .9rem;
+				padding-left: .5rem;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			.result_right_icon {
+				background: url(images/act_16QMing_puestion_chooseRight.png) top center no-repeat;
+				background-size: 100% 100%;
+				width: 4rem;
+				color: #435619;
+				margin: 0.3rem auto;
+				height: .9rem;
+			}
+			
+			.result_right_icon p {
+				line-height: .9rem;
+				padding-left: .5rem;
+				text-align: center;
+				font-size: 16px;
+			}
+			
+			@-webkit-keyframes musicMove {
+				100% {
+					-webkit-transform: rotate(360deg)
+				}
+			}
+			
+			@keyframes musicMove {
+				100% {
+					transform: rotate(360deg)
+				}
+			}
+			
+			.musicPlay {
+				-webkit-animation: musicMove 1s linear 0s infinite;
+				animation: musicMove 1s linear 0s infinite;
+			}
+			
+			.musicPause {
+				animation-play-state: paused;
+				-webkit-animation-play-state: paused;
+			}
+			
+			.gameMusic_wrap {
+				width: .8rem;
+				position: absolute;
+				right: 0.2rem;
+				top: .2rem;
+				z-index: 1;
+			}
+			
+			.gameMusic_wrap img {
+				width: 100%;
+			}
+			/*适配小屏手机*/
+			
+			@media screen and (max-height: 580px) {
+				#getActRule {
+					top: 9.4rem;
+				}
+				.scrollBody {
+					width: 5rem;
+				}
+				.startGameBtnWrap_top p {
+					top: .7rem;
+				}
+				.comWrap1 {
+					padding-top: 1.55rem;
+				}
+				.actRuleShow {
+					padding-bottom: .5rem;
+				}
+			}
+			
+			@media screen and (max-height: 480px) {
+				.indexComImg {
+					width: 5.2rem;
+					left: .6rem;
+				}
+				#getActRule {
+					top: 7.5rem;
+				}
+				.actRuleShow {
+					padding-bottom: .3rem;
+				}
+				.scrollBody {
+					margin-top: -1.7rem;
+				}
+				#puestion_body {
+					margin: 0.2rem auto;
+				}
+				.indexPage_bott {
+					top: 6.4rem;
+				}
+				.comWrap1 {
+					padding-top: .55rem;
+				}
+				.question_title p {
+					line-height: 22px;
+				}
+				.question_queNum {
+					margin: .25rem 0;
+				}
+				.indexPage_bott img {
+					width: 3.5rem;
+				}
+				#quest_text {
+					top: .1rem;
+				}
+				.result_error_icon {
+					margin: .25rem 0;
+				}
+				.result_right_icon {
+					margin: .25rem 0;
+				}
+			}
+			
+			#shareFriSha {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .8);
+				z-index: 100;
+				display: none;
+			}
+			
+			#shareFriSha img {
+				width: 100%;
+			}
+			
+			.promptDiv {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 180px;
+				height: 90px;
+				z-index: 9999;
+				display: none;
+			}
+			
+			.promptDiv .opDiv {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: none repeat scroll 0% 0% #333;
+				opacity: 0.5;
+				border-radius: 10px;
+			}
+			
+			.promptDiv .promptContent {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.promptDiv img {
+				display: block;
+				margin: 12px auto 10px auto;
+				width: 45px;
+				height: 45px;
+			}
+			
+			.promptDiv .title {
+				text-align: center;
+				color: #fff;
+				font-size: 12px;
+			}
+		</style>
+	</head>
 
-        }
-		.gameMusic_wrap{width:.8rem;  position: absolute;
-		  right: 0.2rem;
-		  top: .2rem;
-		  z-index: 1;}
+	<body>
+		<script type="text/javascript">
+			var onEnded = function() {
+				document.getElementById("audioBackMusic").play();
+			};
+			palayAudio = function() {
+				document.getElementById("#audioBackMusic").play();
+				$("#gameMusic").removeClass("musicPause");
+			};
+		</script>
+		<audio src="images/love.mp3" id="audioBackMusic" controls="controls" style="display: block;" onended="onEnded()"></audio>
+		<input type="button" value="播放测试" id="test" style="  margin-top: 2rem;height: 50px;" />
+	</body>
+	<script>
+	var ua = navigator.userAgent.toLowerCase();	
+//	if (/iphone|ipad|ipod/.test(ua)) {
+//		    //alert("iphone");		
+//	} else if (/android/.test(ua)) {
+//		    alert("android");	
+//	}
+	if(/android/.test(ua)){
+		return ;
+	}
+		$("#test").on("click", function() {
+			var oMedia = document.getElementById("audioBackMusic");
+			oMedia.volume = 0.2;
+			if (!oMedia.paused) {
+				oMedia.pause();
+				$("#gameMusic").addClass("musicPause");
+			} else {
+				oMedia.play();
+				$("#gameMusic").removeClass("musicPause");
+			}
+		});
+		//preLoad();
+	</script>
 
-        .gameMusic_wrap img{width:100%;}  
-  		/*适配小屏手机*/
-  		  @media screen and (max-height: 580px) {
-            #getActRule{ top: 9.4rem;}
-            .scrollBody { width: 5rem;}
-			.startGameBtnWrap_top p{ top: .7rem;}
-			.comWrap1 { padding-top: 1.55rem;}
-			.actRuleShow { padding-bottom: .5rem;}
-        } 
-	    @media screen and (max-height: 480px) {
-			    .indexComImg{width: 5.2rem; left: .6rem;}  
-	             #getActRule{ top: 7.5rem;}
-	            .actRuleShow { padding-bottom: .3rem;}
-	            .scrollBody { margin-top: -1.7rem;}
-				#puestion_body { margin: 0.2rem auto;}
-				.indexPage_bott {  top: 6.4rem;}
-				.comWrap1 { padding-top: .55rem;}
-				.question_title p {line-height: 22px;}
-				.question_queNum {  margin: .25rem 0;}
-				.indexPage_bott img { width: 3.5rem;}
-				#quest_text {top: .1rem;}
-				.result_error_icon{ margin: .25rem 0;}
-				.result_right_icon{  margin: .25rem 0;}
-	        }
-  		  #shareFriSha{
-            position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:100;display:none;
-	        }
-	      #shareFriSha img{
-	            width:100%;
-	        }
-        .promptDiv{position: absolute;left: 0px;top: 0px;width: 180px;height: 90px;z-index: 9999;display:none;}
-		.promptDiv .opDiv{position:absolute;left:0;top:0;width: 100%;height: 100%;background: none repeat scroll 0% 0% #333;opacity: 0.5;border-radius:10px;}
-		.promptDiv .promptContent{position:absolute;left:0;top:0;width: 100%;height: 100%;}
-		.promptDiv img{display:block;margin:12px auto 10px auto;width:45px;height:45px;}
-		.promptDiv .title{text-align: center;color:#fff;font-size:12px;}
-    </style>
-</head>
-<body>
-	<script type="text/javascript">
-var onEnded = function() {
-    document.getElementById("audioBackMusic").play();
-};
-palayAudio = function(){
-                document.getElementById("#audioBackMusic").play();
-                
-                $("#gameMusic").removeClass("musicPause");
-            
-        };
-</script>
-<audio src="images/222.mp3" id="audioBackMusic" controls="controls"  style="display: block;" onended="onEnded()"></audio>
-<input type="button" value="播放测试" id="test" style="  margin-top: 2rem;height: 50px;"/>
-</body>
-<script>
-        $("#test").on("click",function(){
-        	var oMedia=document.getElementById("audioBackMusic");
-        	oMedia.volume=0.2;
-            if( !oMedia.paused){
-                oMedia.pause();
-                $("#gameMusic").addClass("musicPause");
-            }else{
-                oMedia.play();
-                $("#gameMusic").removeClass("musicPause");
-            }
-        });
-        
-    //preLoad(); 
-</script>
 </html>

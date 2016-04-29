@@ -1,85 +1,85 @@
 <!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>-->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!DOCTYPE html>
 <html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>五一秒杀</title>
+<link rel="stylesheet" href="style/main_wechat.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	(function(doc, win) {
+		var docEl = doc.documentElement, resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize', recalc = function() {
+			var clientWidth = docEl.clientWidth;
+			if (clientWidth >= 640) {
+				clientWidth = 640;
+			}
+			;
+			if (!clientWidth)
+				return;
+			docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+		};
+		if (!doc.addEventListener)
+			return;
+		win.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+</script>
+</head>
+<style>
+* {
+	margin: 0px;
+	padding: 0px;
+}
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
-		<meta name="format-detection" content="telephone=no" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<title>五一秒杀</title>
-		<link rel="stylesheet" href="style/main_wechat.css" />
-		<script src="js/jquery-1.9.0.min.js"></script>
-		<script src="js/common.js"></script>
-		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script>
-			(function(doc, win) {
-				var docEl = doc.documentElement,
-					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-					recalc = function() {
-						var clientWidth = docEl.clientWidth;
-						if (clientWidth >= 640) {
-							clientWidth = 640;
-						};
-						if (!clientWidth) return;
-						docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
-					};
-				if (!doc.addEventListener) return;
-				win.addEventListener(resizeEvt, recalc, false);
-				doc.addEventListener('DOMContentLoaded', recalc, false);
-			})(document, window);
-		</script>
-	</head>
-	<style>
-		* {
-			margin: 0px;
-			padding: 0px;
-		}
-		
-		.content {
-			overflow: hidden;
-			/*padding-bottom: 25px;*/
-		}
-		
-		.content .topArea {
-			width: 100%;
-			padding: 0;
-		}
-		
-		.content .topArea img {
-			width: 100%;
-			display: block;
-		}
-		
-		.content .promoContent {
-			width: 100%;
-			height: 100%;
-			font-size: 12px;
-		}
-		
-		.content .promoContent .promoList {
-			width: 100%;
-			height: 100%;
-		}
-		
-		.content .promoContent .promoList .promoTitle {
-			width: 100%;
-			overflow: hidden;
-		}
-		
-		.content .promoContent .promoList .promoTitle img {
-			width: 100%;
-			float: left;
-		}
-		
-		.content .promoContent .promoList .promoItemList {
-			width: 100%;
-			font-size: 0;
-		}
-		
-		/*.content .promoContent .promoList .promoItemList .pItem {
+.content {
+	overflow: hidden;
+	/*padding-bottom: 25px;*/
+}
+
+.content .topArea {
+	width: 100%;
+	padding: 0;
+}
+
+.content .topArea img {
+	width: 100%;
+	display: block;
+}
+
+.content .promoContent {
+	width: 100%;
+	height: 100%;
+	font-size: 12px;
+}
+
+.content .promoContent .promoList {
+	width: 100%;
+	height: 100%;
+}
+
+.content .promoContent .promoList .promoTitle {
+	width: 100%;
+	overflow: hidden;
+}
+
+.content .promoContent .promoList .promoTitle img {
+	width: 100%;
+	float: left;
+}
+
+.content .promoContent .promoList .promoItemList {
+	width: 100%;
+	font-size: 0;
+}
+
+/*.content .promoContent .promoList .promoItemList .pItem {
 			width: 50%;
 			height: 100%;
 			margin-bottom: 15px;
@@ -87,74 +87,74 @@
 			font-size: 0;
 			float: left;
 		}*/
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv {
-			width: 100%;
-			margin: 0 auto;
-			position: relative;
-			/*background: #fff;
+.content .promoContent .promoList .promoItemList .pItem .itemDiv {
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+	/*background: #fff;
 			padding: 10px 0px;
 			border-radius: 5px;*/
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemIcon {
-			display: block;
-			width: 100%;
-			margin: 0 auto;
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemName {
-			display: block;
-			width: 85%;
-			margin: 10px auto 0px auto;
-			font-size: 13px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .standard {
-			display: block;
-			width: 85%;
-			margin: 0px auto 0px auto;
-			font-size: 12px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice {
-			display: block;
-			width: 85%;
-			margin: 0 auto;
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .tj_price {
-			font-size: 14px;
-			font-weight: bold;
-			color: red;
-			margin-right: 15px;
-		}
-		
-		.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price {
-			font-size: 12px;
-			color: #ddd;
-			text-decoration: line-through;
-		}
-		
-		.floor2_right {
-		  width: 2.5rem;
-		  position: absolute;
-		  bottom: 40px;
-		  right: 42px;
-				}
-		.floor2_left {
-		  width: 2.5rem;
-		  position: absolute;
-		  bottom: 40px;
-		  left: 22px;
-				}
-		/*.buy-button {
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemIcon {
+	display: block;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemName {
+	display: block;
+	width: 85%;
+	margin: 10px auto 0px auto;
+	font-size: 13px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .standard {
+	display: block;
+	width: 85%;
+	margin: 0px auto 0px auto;
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice {
+	display: block;
+	width: 85%;
+	margin: 0 auto;
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .tj_price {
+	font-size: 14px;
+	font-weight: bold;
+	color: red;
+	margin-right: 15px;
+}
+
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price {
+	font-size: 12px;
+	color: #ddd;
+	text-decoration: line-through;
+}
+
+.floor2_right {
+	width: 2.5rem;
+	position: absolute;
+	bottom: 40px;
+	right: 42px;
+}
+
+.floor2_left {
+	width: 2.5rem;
+	position: absolute;
+	bottom: 40px;
+	left: 22px;
+}
+/*.buy-button {
 			position: absolute;
 			padding: 1px 5px;
 			font-size: 12px;
@@ -169,212 +169,178 @@
 			line-height: 20px;
 			bottom: .15rem;
 		}*/
-		
-		.prodName {
-			width: 90%;
-			margin: 0 auto;
-			height: 36px;
-		}
-		
-		.prodName p {
-			font-size: 12px;
-			word-break: break-all;
-		}
-	</style>
+.prodName {
+	width: 90%;
+	margin: 0 auto;
+	height: 36px;
+}
 
-	<body >
-		<div class="content">
-			<!--标题  start-->
-			<div class="topArea">
-				<img src="images/miaosha_title_0429.jpg">
-			</div>
-			<!--标题   end-->
-			<!--产品部分   start-->
-			<div class="promoContent">
-				<div class="promoList">
-					<div class="promoTitle">
-						<img class="itemIcon" src="images/miaosha_time_0429.jpg" />
-					</div>
-					<div class="promoItemList">
-						<div class="pItem">
-							<a href="javascript:void(0)">
-								<div class="itemDiv">
-									<img class="itemIcon" alt="" src="images/miaosha_prod_0429.jpg">
-									<div class="floor2_right">
-										<!--<c:if test="${actiItem.cstatus == 0}">-->
-											<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" data-product="product_ten" data-proid="11427181" />
-										<!--</c:if>
-										<c:if test="${actiItem.cstatus == 1}">-->
-											<!--<button class="buy-button" style="background-color: #cd3636" onclick="showDrugDetails('${actiItem.skuId}')">立即购买</button>-->
-										<!--</c:if>-->
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				<!--第二时间段开抢   start-->
-					<div class="promoTitle">
-						<img class="itemIcon" src="images/miaosha_time1_0429.jpg" />
-					</div>
-					<div class="promoItemList">
-						<div class="pItem">
-							<a href="javascript:void(0)">
-								<div class="itemDiv">
-									<img class="itemIcon" alt="" src="images/miaosha_prod1_0429.jpg">
-									<div class="floor2_left">
-										<img class="itemIcon" alt="" src="images/miaosha_noStartBtn_0429.png" data-product="product_seven" data-proid="11427182" />
-										<!--<c:if test="${actiItem.cstatus == 0}">
-											<button class="buy-button" style="background-color: #FF7B05">即将开始</button>
-										</c:if>
-										<c:if test="${actiItem.cstatus == 1}">
-											<button class="buy-button" style="background-color: #cd3636" onclick="showDrugDetails('${actiItem.skuId}')">立即购买</button>
-										</c:if>-->
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<!--第二时间段开抢   end-->
-				</div>
-			</div>
-			<!--产品部分  end-->
+.prodName p {
+	font-size: 12px;
+	word-break: break-all;
+}
+</style>
+
+<body>
+	<div class="content">
+		<!--标题  start-->
+		<div class="topArea">
+			<img src="images/miaosha_title_0429.jpg">
 		</div>
-	</body>
-	<script>
-	
-		//	活动时间到后 按钮变为 理解购买；
-		var state="${state}"||true;
-		$(function(){
-//					$(".content").css("background","${current.remark}");
-//					document.title = '${current.dirName }';
-					
-					if(!state){
-						 $(".promoItemList .itemIcon").find("img").attr({src:"images/miaosha_nowBuyBtn_0429.png"});
-					}
-				}); 
-		function is_weixin() {
-			var ua = navigator.userAgent.toLowerCase();
-			if (ua.match(/MicroMessenger/i) == "micromessenger") {
-				return true;
-			} else {
-				return false;
-			}
+		<!--标题   end-->
+		<!--产品部分   start-->
+		<div class="promoContent">
+			<div class="promoList">
+				<div class="promoTitle">
+					<img class="itemIcon" src="images/miaosha_time_0429.jpg" />
+				</div>
+				<div class="promoItemList">
+					<div class="pItem">
+						<a href="javascript:void(0)">
+							<div class="itemDiv">
+								<img class="itemIcon" alt="" src="images/miaosha_prod_0429.jpg">
+								<div class="floor2_right">
+									<img class="itemIcon" alt="" style="display: none;" src="images/miaosha_noStartBtn_0429.png" data-product="product_ten" data-proid="11427181" data-status="${ten_sell_status }" />
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!--第二时间段开抢   start-->
+				<div class="promoTitle">
+					<img class="itemIcon" src="images/miaosha_time1_0429.jpg" />
+				</div>
+				<div class="promoItemList">
+					<div class="pItem">
+						<a href="javascript:void(0)">
+							<div class="itemDiv">
+								<img class="itemIcon" alt="" src="images/miaosha_prod1_0429.jpg">
+								<div class="floor2_left">
+									<img class="itemIcon" alt="" style="display: none;" src="images/miaosha_noStartBtn_0429.png" data-product="product_seven" data-proid="11427182" data-status="${seven_sell_status }"/>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				<!--第二时间段开抢   end-->
+			</div>
+		</div>
+		<!--产品部分  end-->
+	</div>
+</body>
+<script>
+	function is_weixin() {
+		var ua = navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			return true;
+		} else {
+			return false;
 		}
-		/*跳转到商品列表页*/
-		function showDrugList(category_id, category_name) {
-			camore.showDrugList(category_id, category_name);
+	}
+	/*跳转到商品列表页*/
+	/* function showDrugList(category_id, category_name) {
+		camore.showDrugList(category_id, category_name);
+	} */
+	/*跳转到商品详情页*/
+	function showDrugDetails(drug_id) {
+		
+		if (is_weixin()) {
+			location.href = "/weixin/wechat/details?skuId=" + drug_id;
 		}
-		/*跳转到商品详情页*/
-		function showDrugDetails(drug_id) {
-			if (is_weixin()) {
-				location.href = "/weixin/wechat/details?skuId=" + drug_id;
-			}
-			camore.showDrugDetails(drug_id);
-		}
-	</script>
+		camore.showDrugDetails(drug_id);
+	}
+</script>
 <script type="text/javascript">
 
-	var timer = null ;
-	var tenReadly = false , sevenReady = false ;
+	var timer = null;
+	var tenReadly = false, sevenReady = false;
 	var startTen = new Date();
-	/*startTime.setFullYear(2016, 4, 28);
-	startTime.setHours(23);
-	startTime.setMinutes(59);
-	startTime.setSeconds(59);
-	startTime.setMilliseconds(999);*/
+	/*早上十点 开抢*/
 	startTen.setHours(10);
 	startTen.setMinutes(0);
 	startTen.setSeconds(0);
 	startTen.setMilliseconds(0);
-	var endten=startTen.getTime();
-	
-	
-	
+	var endten = startTen.getTime();
+	/*晚上19点开抢  */
 	var startSeven = new Date();
 	startSeven.setHours(19);
 	startSeven.setMinutes(0);
 	startSeven.setSeconds(0);
 	startSeven.setMilliseconds(0);
-	var endseven=startSeven.getTime();
-	
-	function getTenTime(endtime ){
-		var NowTime = new Date();
-		var nMS = endtime - NowTime.getTime();
-		if (nMS < 0){
-			tenReadly = true ;
-			console.debug('ten readly ') ;
-			$('img[data-product=product_ten]').unbind('click');
-			$('img[data-product=product_ten]').on('click' ,function(){
-				var drug_id = $(this).attr('data-proid') ;
-				showDrugDetails(drug_id) ;
-			});
-			if(timer && tenReadly && sevenReady){
-				window.clearInterval(timer) ;
-			}
-			
-		}else{
-		   console.debug("ten") ;
-		   tenReadly = false ;
-		   $('img[data-product=product_ten]').unbind('click');
-		   $('img[data-product=product_ten]').on('click' ,function(){
-				alert('时间还没到，别着急哦！！！') ;
-			});
-		}
-	}
-	
-	function getTimer(ten,seven){
+	var endseven = startSeven.getTime();
+
+	function getTimer(ten, seven) {
 		var NowTime = new Date();
 		var tMS = ten - NowTime.getTime();
-		var sMS = seven -  NowTime.getTime();
-		
-		
-		if (tMS < 0){
-			tenReadly = true ;
-			console.debug('ten readly ') ;
+		var sMS = seven - NowTime.getTime();
+		if (tMS < 0) {
+			if (!tenReadly) {
+				tenReadly = true;
+				console.debug('ten readly ');
+				$('img[data-product=product_ten]').attr('src', 'images/miaosha_nowBuyBtn_0429.png');
+				$('img[data-product=product_ten]').unbind('click');
+				$('img[data-product=product_ten]').on('click', function() {
+					var drug_id = $(this).attr('data-proid');
+					var drug_status = $(this).attr('data-status') ;
+					if(!drug_status){
+						alert("此商品已售罄，下次再来吧。。。") ;
+						return  ;
+					}
+					showDrugDetails(drug_id);
+				});
+				$('img[data-product=product_ten]').show();
+				if (timer && tenReadly && sevenReady) {
+					window.clearInterval(timer);
+				}
+			}
+
+		} else {
+			console.debug("ten");
+			tenReadly = false;
+			$('img[data-product=product_ten]').attr('src', 'images/miaosha_noStartBtn_0429.png');
 			$('img[data-product=product_ten]').unbind('click');
-			$('img[data-product=product_ten]').on('click' ,function(){
-				var drug_id = $(this).attr('data-proid') ;
-				showDrugDetails(drug_id) ;
-			});
-			if(timer && tenReadly && sevenReady){
-				window.clearInterval(timer) ;
-			}
-			
-		}else{
-		   console.debug("ten") ;
-		   tenReadly = false ;
-		   $('img[data-product=product_ten]').unbind('click');
-		   $('img[data-product=product_ten]').on('click' ,function(){
+			$('img[data-product=product_ten]').show();
+			/*$('img[data-product=product_ten]').on('click' ,function(){
 				alert('时间还没到，别着急哦！！！') ;
-			});
+			});*/
 		}
-		
-		
-		if (sMS < 0){
-			console.debug('seven readly ') ;
-			sevenReady = true ;
-			$('img[data-product=product_seven]').unbind('click');
-			$('img[data-product=product_seven]').on('click' ,function(){
-				var drug_id = $(this).attr('data-proid') ;
-				showDrugDetails(drug_id) ;
-			});
-			
-			if(timer && tenReadly && sevenReady){
-				window.clearInterval(timer) ;
+
+		if (sMS < 0) {
+			console.debug('seven readly ');
+			if (!sevenReady) {
+				sevenReady = true;
+				$('img[data-product=product_seven]').attr('src', 'images/miaosha_nowBuyBtn_0429.png');
+				$('img[data-product=product_seven]').unbind('click');
+				$('img[data-product=product_seven]').on('click', function() {
+					var drug_id = $(this).attr('data-proid');
+					var drug_status = $(this).attr('data-status') ;
+					if(!drug_status){
+						alert("此商品已售罄，下次再来吧。。。") ;
+						return  ;
+					}
+					showDrugDetails(drug_id);
+				});
+				$('img[data-product=product_seven]').show();
+
+				if (timer && tenReadly && sevenReady) {
+					window.clearInterval(timer);
+				}
 			}
-		}else{
-		   console.debug("seven") ;
-		   sevenReady = false ;
-		   $('img[data-product=product_seven]').unbind('click');
-		   $('img[data-product=product_seven]').on('click' ,function(){
+		} else {
+			console.debug("seven");
+			sevenReady = false;
+			$('img[data-product=product_seven]').attr('src', 'images/miaosha_noStartBtn_0429.png');
+			$('img[data-product=product_seven]').unbind('click');
+			/* $('img[data-product=product_seven]').on('click' ,function(){
 				alert('时间还没到，别着急哦！！！') ;
-			});
+			});*/
+			$('img[data-product=product_seven]').show();
 		}
 	}
-	
-	$(document).ready(function () {
-		timer = window.setInterval("getTimer("+endten+","+endseven+")", 1000);
+
+	$(document).ready(function() {
+		timer = window.setInterval("getTimer(" + endten + "," + endseven + ")", 1000);
 	});
-	</script>
+</script>
 
 </html>

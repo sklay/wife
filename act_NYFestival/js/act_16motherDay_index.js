@@ -91,15 +91,21 @@ activity.swipe = function() {
 		console.debug(" nextAll ", $nextAll.length);
 	})
 }
-$(function() {
 
+$(function() {
 	/**取消默认滑动事件*/
 	document.addEventListener('touchmove', function(event) {
 		event.preventDefault();
 	}, false);
 
-	/**音乐控制*/
-	activity.musicCtrl();
+	/*如果不是安卓 就让音乐播放  ,并且判断版本号是不是206,206之前的 音乐不让播放*/
+	var ua = navigator.userAgent.toLowerCase();	
+		if(/android/.test(ua) && version < 206){
+			return;
+		}else{
+			/**音乐控制*/
+			activity.musicCtrl();
+		}
 
 	/**上下滑动*/
 	activity.swipe() ;
