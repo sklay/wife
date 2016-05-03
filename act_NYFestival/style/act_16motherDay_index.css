@@ -157,8 +157,8 @@
  
 /*音乐图标样式 start*/
 .music_wrap {
-	width: 27px;
-	height:27px;
+	width: 35px;
+	height:35px;
 	position: absolute;
 	top: .2rem;
 	right: .4rem;
@@ -184,7 +184,7 @@
 }
 /*上滑图标*/
 .slide_up{
-	width: .5rem;
+	width: .7rem;
 	position: absolute;
 	bottom: .5rem;
 	left: 50%;
@@ -200,6 +200,7 @@
 .index_content{
 	background: url(../images/act_16motherDay_bj1.jpg)center center no-repeat;
 	background-size:100% 100% ;
+	display: none;
 	position: relative;
 }
 .wrap_index_title_wrap{
@@ -315,7 +316,19 @@
 	float: right;
 	-webkit-animation: people_move_right 2s linear 0s 1;
 }
-
+.index_slide_up {
+	width: 1rem;
+  position: absolute;
+  bottom: .5rem;
+  left: 50%;
+  margin-left: .5rem;
+  font-size: 24px;
+  opacity: 0;
+  -webkit-animation: slide_up_move 2s infinite;
+}
+.index_slide_up img{
+	width: 100%;
+}
 /*第一幅图 end*/
 /*第二幅图 start*/
 .game_show_moduel_two{
@@ -371,6 +384,11 @@
 .moduel_three_content{
 	padding-top: .5rem;
 	margin-bottom: 1rem;
+}
+.moduel_three_title_wrap img:nth-child(2){
+	  width: 4rem;
+  display: block;
+  margin: 0.1rem auto 0;
 }
 .moduel_three_title_wrap{
 	-webkit-animation: big_move1 3s linear 0s 1;

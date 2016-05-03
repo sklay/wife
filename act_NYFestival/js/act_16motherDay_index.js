@@ -69,7 +69,6 @@ activity.swipe = function() {
 		$('.slide_up').show();
 	});
 
-
 	$(document).on('swipeUp', function() {
 		$nowPage = $('.page-current');
 		$nextPage = $nowPage.next('.common_wrap');
@@ -97,16 +96,14 @@ $(function() {
 	document.addEventListener('touchmove', function(event) {
 		event.preventDefault();
 	}, false);
-
 	/*如果不是安卓 就让音乐播放  ,并且判断版本号是不是206,206之前的 音乐不让播放*/
-	var ua = navigator.userAgent.toLowerCase();	
+	/*var ua = navigator.userAgent.toLowerCase();	
 		if(/android/.test(ua) && version < 206){
-			return;
+			//不调用播放代码
 		}else{
-			/**音乐控制*/
-			activity.musicCtrl();
-		}
-
+			activity.musicCtrl();//调用播放代码
+		}*/
+		activity.musicCtrl();//调用播放代码
 	/**上下滑动*/
 	activity.swipe() ;
 });
