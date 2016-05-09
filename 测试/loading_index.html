@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>加载页</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 14px;
+				font-family: "微軟正黑體","Microsoft Yahei";
+				background: #6fdfad;
+			}
+			.loadPage{
+				width: 100%;
+				height: 100%;
+			}
+			.load_content{
+				width: 6rem;
+				margin: 3rem auto 0;
+				overflow: hidden;
+			}
+			.laoding_move{
+				width: 3rem;
+				height: 3rem;
+				float: left;
+				position: relative;
+			}
+			.laoding_move img {
+				position: absolute;
+			}
+			.laoding_move img:nth-child(1) {
+				width: .4rem;
+				top: 0;
+  				left: .5rem;
+  				opacity: 0;
+  				-webkit-animation: dumplingmove 1.5s linear 0s infinite;
+				animation: dumplingmove 1.5s linear 0s infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.laoding_move img:nth-child(2) {
+				  width: .6rem;
+				  top: .52rem;
+				  left: .65rem;
+				  opacity: 0;
+				  -webkit-animation: handtopmove 1.5s linear 0s infinite;
+				animation: handtopmove 1.5s linear 0s infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.laoding_move img:nth-child(3) {
+				  width: .75rem;
+				  top: .78rem;
+				  left: .52rem;
+				  -webkit-animation: handmove 1.5s linear 0s infinite;
+				animation: handmove 1.5s linear 0s infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.laoding_move img:nth-child(4) {
+				  width: 1rem;
+				  top: 0;
+				  left: 50%;
+				  margin-left: -.5rem;
+			}
+			.laoding_move img:nth-child(5) {
+				  width: .6rem;
+				  top: .25rem;
+				  right: 0.8rem;
+				  opacity: 0;
+				  -webkit-animation: handtopmove 1.5s linear 0s infinite;
+				animation: handtopmove 1.5s linear 0s infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.laoding_move img:nth-child(6) {
+				  width: .8rem;
+				  top: .6rem;
+				  right: .6rem;
+				  -webkit-animation: handmove 1.5s linear 0s infinite;
+				animation: handmove 1.5s linear 0s infinite;
+				-webkit-animation-fill-mode: forwards;
+				animation-fill-mode: forwards;
+			}
+			.laoding_sty{
+				float:right;
+			}
+			
+			/*定义动画*/
+			@-webkit-keyframes dumplingmove{
+				100%{opacity: 1}
+			}
+			@keyframes dumplingmove{
+				100%{opacity: 1}
+			}
+			
+			@-webkit-keyframes handtopmove{
+				0%{opacity: .4}
+				30%{opacity: .6}
+				50%{opacity: .8}
+				100%{opacity: 1}
+			}
+			@keyframes handtopmove{
+				0%{opacity: .4}
+				30%{opacity: .6}
+				50%{opacity: .8}
+				100%{opacity: 1}
+			}
+			
+			@-webkit-keyframes handmove{
+				0%{opacity: .8}
+				30%{opacity: .6}
+				50%{opacity: .4}
+				100%{opacity: 0}
+			}
+			@keyframes handmove{
+				0%{opacity: .8}
+				30%{opacity: .6}
+				50%{opacity: .4}
+				100%{opacity: 0}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="loadPage">
+			<div class="load_content">
+				<div class="laoding_move">
+					<img src="images/loading_dumpling.png" />
+					<img src="images/loading_lefthandtop.png" />
+					<img src="images/loading_lefthand.png" />
+					<img src="images/loading_body.png" />
+					<img src="images/loading_righthandtop.png" />
+					<img src="images/loading_righthand.png" />
+				</div>
+				<div class="laoding_sty">
+					<!--<span>100%</span>
+					<div></div>-->
+					<p class="loadText">已加载<span id="loadPer">100%</span></p>
+					<div class="loadShape">
+						<span id="loadShapePro"></span>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>
