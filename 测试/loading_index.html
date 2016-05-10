@@ -24,13 +24,15 @@
 				height: 100%;
 			}
 			.load_content{
-				width: 6rem;
+				width: 100%;
 				margin: 3rem auto 0;
 				overflow: hidden;
+			      box-sizing: border-box;
+  				padding: 0 .5rem;
 			}
 			.laoding_move{
-				width: 3rem;
-				height: 3rem;
+				width: 2rem;
+				height: 1.5rem;
 				float: left;
 				position: relative;
 			}
@@ -38,63 +40,86 @@
 				position: absolute;
 			}
 			.laoding_move img:nth-child(1) {
-				width: .4rem;
+				width: .3rem;
 				top: 0;
-  				left: .5rem;
+  				left: .22rem;
   				opacity: 0;
-  				-webkit-animation: dumplingmove 1.5s linear 0s infinite;
+  				-webkit-animation: dumplingmove 1s linear 0s infinite;
 				animation: dumplingmove 1.5s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
 			.laoding_move img:nth-child(2) {
 				  width: .6rem;
-				  top: .52rem;
-				  left: .65rem;
+				  top: .34rem;
+				  left: .22rem;
 				  opacity: 0;
-				  -webkit-animation: handtopmove 1.5s linear 0s infinite;
-				animation: handtopmove 1.5s linear 0s infinite;
+				  -webkit-animation: handtopmove 1s linear 0s infinite;
+				animation: handtopmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
 			.laoding_move img:nth-child(3) {
-				  width: .75rem;
-				  top: .78rem;
-				  left: .52rem;
-				  -webkit-animation: handmove 1.5s linear 0s infinite;
-				animation: handmove 1.5s linear 0s infinite;
+				  width: .6rem;
+				  top: .6rem;
+				  left: .22rem;
+				  -webkit-animation: handmove 1s linear 0s infinite;
+				animation: handmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
 			.laoding_move img:nth-child(4) {
-				  width: 1rem;
+				  width: .8rem;
 				  top: 0;
 				  left: 50%;
-				  margin-left: -.5rem;
+				  margin-left: -.4rem;
 			}
 			.laoding_move img:nth-child(5) {
-				  width: .6rem;
-				  top: .25rem;
-				  right: 0.8rem;
+				  width: .5rem;
+				  top: .2rem;
+				  right: 0.44rem;
 				  opacity: 0;
-				  -webkit-animation: handtopmove 1.5s linear 0s infinite;
-				animation: handtopmove 1.5s linear 0s infinite;
+				  -webkit-animation: handtopmove 1s linear 0s infinite;
+				animation: handtopmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
 			.laoding_move img:nth-child(6) {
-				  width: .8rem;
-				  top: .6rem;
-				  right: .6rem;
-				  -webkit-animation: handmove 1.5s linear 0s infinite;
-				animation: handmove 1.5s linear 0s infinite;
+				  width: .6rem;
+				  top: .52rem;
+				  right: .32rem;
+				  -webkit-animation: handmove 1s linear 0s infinite;
+				animation: handmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
 			.laoding_sty{
 				float:right;
+				width: 3.4rem;
+				  line-height: 40px;
 			}
-			
+			.loadText{
+				  font-size: 28px;
+				  color: #ffda0e;
+				  text-align: center;
+				  /*line-height:34px;*/
+			}
+			.loadShape{
+				  width: 100%;
+				  margin: 0 auto;
+				  background: #ffe9c5;
+				  border-radius: 20px;
+				  height: 20px;
+				  overflow: hidden;
+				  border: 4px solid #fff;
+				  
+			}
+			#loadShapePro{
+				  border-radius: 20px;
+				  height: 20px;
+				  float: left;
+				  width: 0;
+			}
 			/*定义动画*/
 			@-webkit-keyframes dumplingmove{
 				100%{opacity: 1}
@@ -143,14 +168,13 @@
 					<img src="images/loading_righthand.png" />
 				</div>
 				<div class="laoding_sty">
-					<!--<span>100%</span>
-					<div></div>-->
-					<p class="loadText">已加载<span id="loadPer">100%</span></p>
+					<!--<p class="loadText">已加载<span id="loadPer">100%</span></p>-->
+					<p class="loadText">100%</p>
 					<div class="loadShape">
-						<span id="loadShapePro"></span>
+						<!--<span id="loadShapePro"></span>-->
+						<img id="loadShapePro" src="images/loading_icon.png" />
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</body>
