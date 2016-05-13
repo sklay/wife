@@ -1,3 +1,6 @@
+
+
+
 function Ship(ctx){
 	gameMonitor.im.loadImage(['img/player.png']);
 	this.width = 80;
@@ -12,15 +15,16 @@ function Ship(ctx){
 
 	this.setPosition = function(event){
 		if(gameMonitor.isMobile()){
-			var tarL = event.changedTouches[0].clientX;
-			var tarT = event.changedTouches[0].clientY;
+			var tarL = event.changedTouches[0].clientX;   //控制 兔子的左右移动
+//			var tarT = event.changedTouches[0].clientY;   控制 兔子的 上下移动
 		}
 		else{
-			var tarL = event.offsetX;
-			var tarT = event.offsetY;
+			var tarL = event.offsetX;			 //控制 兔子的 左右移动
+//			var tarT = event.offsetY;			控制 兔子的 上下移动
 		}
+		
 		this.left = tarL - this.width/2 - 16;
-		this.top = tarT - this.height/2;
+//		this.top = tarT - this.height/2;
 		if(this.left<0){
 			this.left = 0;
 		}
@@ -38,10 +42,13 @@ function Ship(ctx){
 
 	this.controll = function(){
 		var _this = this;
+		/*游戏舞台区*/
 		var stage = $('#gamepanel');
+		
 		var currentX = this.left,
 			currentY = this.top,
 			move = false;
+			
 		stage.on(gameMonitor.eventType.start, function(event){
 			_this.setPosition(event);
 			move = true;
@@ -56,6 +63,8 @@ function Ship(ctx){
 		});
 	}
 
+
+	/*游戏 规则 */
 	this.eat = function(foodlist){
 		for(var i=foodlist.length-1; i>=0; i--){
 			var f = foodlist[i];
@@ -88,7 +97,7 @@ function Ship(ctx){
 		}
 	}
 }
-
+/*该函数   规定  两种类型的  物品的  属性     如果实物的   类型是0   就是food1.png     否则是food2.png */
 function Food(type, left, id){
 	this.speedUpTime = 300;
 	this.id = id;
@@ -103,9 +112,12 @@ function Food(type, left, id){
 	var p = this.type == 0 ? 'img/food1.png' : 'img/food2.png';
 	this.pic = gameMonitor.im.createImage(p);
 }
+
+/*用原型的方式扩展 画布*/
 Food.prototype.paint = function(ctx){
 	ctx.drawImage(this.pic, this.left, this.top, this.width, this.height);
 }
+/*用原型的方式扩展   画布的  运动 方式*/
 Food.prototype.move = function(ctx){
 	if(gameMonitor.time % this.speedUpTime == 0){
 		this.speed *= 1.2;
@@ -165,13 +177,17 @@ var gameMonitor = {
 		var canvas = document.getElementById('stage');
 		var ctx = canvas.getContext('2d');
 
-		//绘制背景
+//		//绘制背景
 		var bg = new Image();
 		_this.bg = bg;
+		
+//		alert(_this.bg);
+		
 		bg.onload = function(){
-          	ctx.drawImage(bg, 0, 0, _this.bgWidth, _this.bgHeight);          	
+//        	ctx.drawImage(bg, 0, 0, _this.bgWidth, _this.bgHeight);          	
+			ctx.drawImage();
 		}
-		bg.src = 'img/bg.jpg';
+//		bg.src = 'img/bg.jpg';
 
 		_this.initListener(ctx);
 

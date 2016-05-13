@@ -30,9 +30,9 @@ a{
 	bottom: 20px;
 }
 #gamepanel{
-	width: 320px;
+	width: 100%;
 	margin: 0 auto;
-	height: 568px;
+	height:100%;
 	position: relative;
 	overflow: hidden;
 }
@@ -122,8 +122,8 @@ div.hearthot {
 	}
 }
 #guidePanel {
-	background: rgba(0,0,0,0.6) url(../img/startbg.png) center 50% no-repeat;
-	background-size: 219px 369px;
+	/*background: rgba(0,0,0,0.6) url(../img/startbg.png) center 50% no-repeat;*/
+	/*background-size: 219px 369px;*/
 	height: 100%;
 	left: 0;
 	position: absolute;
