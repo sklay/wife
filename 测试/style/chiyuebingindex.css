@@ -24,11 +24,12 @@ a{
 	position: relative;
 	overflow: hidden;
 }
-#startgame{
+
+/*#startgame{
 	position: absolute;
 	right: 20px;
 	bottom: 20px;
-}
+}*/
 #gamepanel{
 	width: 100%;
 	margin: 0 auto;
@@ -36,22 +37,23 @@ a{
 	position: relative;
 	overflow: hidden;
 }
-@media screen and (min-width: 1024px) {
+/*@media screen and (min-width: 1024px) {
 	#gamepanel, body, html{
 		width: 320px;
 		margin: 0 auto;
 	}
-}
+}*/
 #stage{
-	background-color: #CCC;
+	background: url(../images/act_16dumpling_indexBj.jpg)center center no-repeat;
+	background-size: 100% 100%;
 }
 
 .score-wrap {
-	background: url(../img/scorebg.png) no-repeat;
+	/*background: url(../img/scorebg.png) no-repeat;
 	background-size: 100%;
-	color: #FFF;
+	color: #FFF;*/
 	/*display: none;*/
-	font-family: "Helvetica","Microsoft YaHei",sans-serif;
+	/*font-family: "Helvetica","Microsoft YaHei",sans-serif;
 	font-style: italic;
 	font-size: 17px;
 	font-weight: 700;
@@ -64,18 +66,44 @@ a{
 	text-shadow: 1.5px 0 0 #613209,-1.5px 0 0 #613209,0 1px 0 #613209,0 -1.5px 0 #613209,1px 1px 0 #613209,-1px 1px 0 #613209,1px -1px 0 #613209,-1px -1px 0 #613209;
 	top: 10px;
 	width: 105px;
-	z-index: 1005
+	z-index: 1005*/
+	  font-size: 50px;
+	  color: #fff;
+  /*font-weight: 700;*/
+  height: 60px;
+  line-height: 60px;
+  /*letter-spacing: 2px;*/
+  /*padding: 7px 10px;*/
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  text-align: center;
+  top: 0px;
+  width: 120px;
+  z-index: 1000;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+    font-family: serif;
 }
-
+.gameBottom_bj{
+	width: 100%;
+	left: 0;
+	position: absolute;
+	bottom: 0;
+	/*z-index: 999;*/
+}
+.gameBottom_bj img{
+	width: 100%;
+}
 .score-wrap div {
-	background: url(../img/heart.png) no-repeat;
+	/*background: url(../img/heart.png) no-repeat;
 	background-size: 100%;
 	height: 26px;
 	left: 2px;
 	position: absolute;
 	top: 2px;
 	width: 26px;
-	z-index: 1009
+	z-index: 1009*/
 }
 
 div.hearthot {
@@ -121,6 +149,8 @@ div.hearthot {
 		transform: scale(1.0)
 	}
 }
+
+.clearfix:after {content: ""; display: block; clear:both;}
 #guidePanel {
 	/*background: rgba(0,0,0,0.6) url(../img/startbg.png) center 50% no-repeat;*/
 	/*background-size: 219px 369px;*/
@@ -129,9 +159,11 @@ div.hearthot {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	z-index: 10000
+	z-index: 10000;
+	box-sizing: border-box;
+	padding-top: 1.5rem;
 }
-#gameoverPanel {
+/*#gameoverPanel {
 	background: rgba(0,0,0,0.8) url(../img/gameover.png) center 30% no-repeat;
 	background-size: 230px 260px;
 	top: 0
@@ -143,16 +175,128 @@ div.hearthot {
 	position: absolute;
 	width: 100%;
 	z-index: 10000
+}*/
+
+
+.result_controllerP{
+	background: rgba(0,0,0,0.6);
+	/*top: 0*/
+	display: none;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 10000;
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+}
+.gameOver_content {
+	width: 6rem;
+	background: url(../images/act_16dumpling_gameOver1_bj.png)center center no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	position: relative;
+	padding: .4rem 0 0;
+	box-sizing: border-box;
+}
+.gameOverOne_title,.gameOverTwo_title{
+	  width: 4rem;
+  margin: 0 auto;
+  position: absolute;
+  top: -.4rem;
+  left: 50%;
+  margin-left: -2rem;
+}
+.gameOverOne_title img,.gameOverTwo_title img{
+	width: 100%;
+}
+.gameOver_text{
+	width: 5.6rem;
+	margin: 0 auto;
+	padding: .4rem .2rem;
+	box-sizing: border-box;
+}
+.gameOver_desc{
+	  width: 100%;
+	  overflow: hidden;
+	  margin-left: -.2rem;
+}
+.gameOver_desc .headIcon{
+	  width: 1.7rem;
+  float: left;
+}
+.gameOver_descText{
+	  width: 3.4rem;
+  float: right;
+  margin-top: .25rem;
+  position: relative;
+}
+.gameOver_descText span{
+	position: absolute;
+  top: 50%;
+  margin-top: -.55rem;
+  left: 50%;
+  margin-left: -78px;
+  font-size:.6rem ;
+}
+.gameOver_descText img{
+	width: 100%;
 }
 
-#resultPanel{
-	background:url(../img/endpage.jpg) center top no-repeat;
+.gameOver_btn{
+	width: 100%;
+	overflow: hidden;
 }
-
-#resultPanel,#resultPanel .weixin-share {
+.gameOver_btn img:nth-child(1){
+	width: 2.5rem;
+	display: block;
+	margin: 0 auto;
+}
+.gameOver_btn img:nth-child(2){
+	width: 4rem;
+	display: block;
+	margin: .2rem auto 0;
+}
+.gameOver_text .gameOverTwo_desc{
+	margin-left: -.25rem;
+	width: 100%;
+}
+.gameOverTwo_desc img{
+	width: 5.4rem;
+	float: left;
+}
+.gameOverTwo_btn{
+	width: 2.5rem;
+	margin: 0 auto ;
+	overflow: hidden;
+}
+.gameOverTwo_btn img{
+	width: 100%;
+	float: left;
+	  margin: .2rem 0 0;
+}
+#resultPanel,#resultPanel,#resultPanel_two, .weixin-share {
 	left: 0;
 	top: 0
 }
+.lighttext{
+	color: #e95510;
+}
+
+
+/*
+
+
+
+
+
+
+
+
+
+
+
+
+
 #resultPanel .weixin-share {
 	background: rgba(0,0,0,.8) url(../img/weixin.png) right top no-repeat;
 	background-size: 212px 196px;
@@ -162,6 +306,14 @@ div.hearthot {
 	width: 100%;
 	z-index: 100
 }
+
+
+
+
+
+
+
+
 
 #resultPanel .replay {
 	background: url(../img/replay.png) 0 0 no-repeat;
@@ -199,9 +351,7 @@ div.hearthot {
 	line-height: 1.8em;
 	margin-top: 5px;
 }
-.lighttext{
-	color: #F6DE0A;
-}
+
 .geili{
 	background: url(../img/geili.png) center no-repeat;
 }
@@ -230,3 +380,4 @@ div.hearthot {
 	border: 1px solid #6A6B6D;
 
 }
+*/

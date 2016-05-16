@@ -1,43 +1,90 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
-	<meta name="screen-orientation" content="portrait">
-    <title>端午节</title>
-    <link rel="stylesheet" type="text/css" href="style/chiyuebingindex.css">
-    <script src="js/zepto.min.js"></script>
 
-</head>
-<body>
-
-<div id="container">
-	<div id="guidePanel">
-		<button>开始</button>
-	</div>
-	<div id="gamepanel">
-		<!--<div class="score-wrap">
-            <div class="heart"></div>
-            <span id="score">0</span>
-        </div>-->
-		<canvas id="stage" ></canvas>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="initial-scale=1, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0, width=device-width">
+		<meta name="screen-orientation" content="portrait">
+		<title>端午节</title>
+		<!--<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>-->
 		
-	</div>
-	<!--<div id="gameoverPanel"></div>-->
-	<div id="resultPanel">
-        <div class="weixin-share"></div>
-        <a href="javascript:void(0)" class="replay"></a>
-        <div id="fenghao"></div>
-        <div id="scorecontent">
-        	您在<span id="stime" class="lighttext">2378</span>秒内抢到了<span id="sscore" class="lighttext">21341</span>个月饼<br>超过了<span id="suser" class="lighttext">31%</span>的用户！
-        </div>
-        <div class="textc">
-        	<span class="btn1 share">请小伙伴吃月饼</span>
-        </div>
-	</div>
-</div>
+		<link rel="stylesheet" type="text/css" href="style/chiyuebingindex.css">
+		<script src="js/zepto.min.js"></script>
+		
+	</head>
 
-<script src="js/act_16dumling_copy_0513.js"></script>
+	<body>
 
-</body>
+		<div id="container">
+			<div id="guidePanel">
+				<button>开始</button>
+			</div>
+			<!--游戏区-->
+			<div id="gamepanel">
+				<div class="score-wrap">
+					<!--<div class="heart"></div>-->
+					<span id="score">0:30</span>
+				</div>
+				<canvas id="stage"></canvas>
+				<div class="gameBottom_bj">
+					<img src="images/act_16dumpling_gameBot.png" />
+				</div>
+			</div>
+			<!--<div id="gameoverPanel"></div>-->
+			<!--没有碰上炸弹的情况-->
+			<div id="resultPanel" class="noboom_result result_controllerP">
+				<!--<div class="weixin-share"></div>
+				<a href="javascript:void(0)" class="replay"></a>
+				<div id="fenghao"></div>
+				<div id="scorecontent">
+					您在<span id="stime" class="lighttext">2378</span>秒内抢到了<span id="sscore" class="lighttext">21341</span>个月饼
+					<br>超过了<span id="suser" class="lighttext">31%</span>的用户！
+				</div>
+				<div class="textc">
+					<span class="btn1 share">请小伙伴吃月饼</span>
+				</div>-->
+				<div class="gameOver_content ">
+					<div class="gameOverOne_title">
+						<img src="images/act_16dumpling_index_starttitle.png" />
+					</div>
+					<div class="gameOver_text">
+						<div class="gameOver_desc">
+							<img class="headIcon" src="images/act_16dumpling_gameOver2_headIcon.png" />
+							<div class="gameOver_descText">
+								<span id="sscore" class="lighttext">30</span>
+								<img src="images/act_16dumpling_gameOver2_desc.png" />	
+							</div>
+						</div>
+						<div class="gameOver_btn">
+							<img src="images/act_16dumpling_gameOver1_receive.png" />
+							<img src="images/act_16dumpling_gameOver2_sharebtn.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--碰上炸弹的情况-->
+			<div id="resultPanel_two" class="noboom_result result_controllerP">
+				<div class="gameOver_content">
+					<div class="gameOverTwo_title">
+						<img src="images/act_16dumpling_index_starttitle.png" />
+					</div>
+					<div class="gameOver_text">
+						<div class="gameOverTwo_desc clearfix">
+							<img src="images/act_16dumpling_gameOver1_desc.png" />
+						</div>
+						<div class="gameOverTwo_btn">
+							<img src="images/act_16dumpling_gameOver1_receive.png" />
+							<img src="images/act_16dumpling_gameOver1_playAgain.png" />
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<!--</div>-->
+
+		<script src="js/act_16dumling_copy_0513.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+	</body>
+
 </html>

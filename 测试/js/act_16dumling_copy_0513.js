@@ -109,26 +109,32 @@ function Ship(ctx) {
 				if (l3 <= this.height / 2 + f.height / 2) {
 					foodlist[f.id] = null;
 					if (f.type == 0) {
-
-						//						$('#score').text(++gameMonitor.score);
-						//						$('.heart').removeClass('hearthot').addClass('hearthot');
-						//						setTimeout(function() {
-						//							$('.heart').removeClass('hearthot')
-						//						}, 200);
+						gameMonitor.stop();
+						//	$('#gameoverPanel').show();
+						setTimeout(function() {
+							//$('#gameoverPanel').hide();
+							$('#resultPanel_two').show();
+//							gameMonitor.getScore();
+						}, 2000);
+						//$('#score').text(++gameMonitor.score);
+						//$('.heart').removeClass('hearthot').addClass('hearthot');
+						//	setTimeout(function() {
+						//	$('.heart').removeClass('hearthot')
+						//	}, 200);
 
 					} else if (f.type == 1) {
 						//加一秒
 					} else if (f.type == 2) {
 						//减2秒
 					} else {
-						alert('游戏结束');
-						//						gameMonitor.stop();
-						//					$('#gameoverPanel').show();
-						//						setTimeout(function(){
-						////							$('#gameoverPanel').hide();
-						////							$('#resultPanel').show();
-						//							gameMonitor.getScore();
-						//						}, 2000);
+						//alert('游戏结束');
+						gameMonitor.stop();
+						//$('#gameoverPanel').show();
+						setTimeout(function() {
+							//	$('#gameoverPanel').hide();
+							$('#resultPanel').show();
+//							gameMonitor.getScore();
+						}, 2000);
 					}
 
 
@@ -234,10 +240,10 @@ var gameMonitor = {
 
 
 		bg.onload = function() {
-				//        	ctx.drawImage(bg, 0, 0, _this.bgWidth, _this.bgHeight);          	
-				ctx.drawImage();
+//				        	ctx.drawImage(bg, 0, 0, _this.bgWidth, _this.bgHeight);          	
+//				ctx.drawImage();
 			}
-			//		bg.src = 'img/bg.jpg';
+//					bg.src = 'images/act_16dumpling_geme_bottomIcon.png';
 
 		_this.initListener(ctx);
 
@@ -327,10 +333,10 @@ var gameMonitor = {
 	/*不同 物体随机产生*/
 	genorateFood: function() {
 		var genRate = 25; // 
-		var random = Math.random() +0.5 ;
-//		var rr = genRate - 1;
-//		console.info('random* genRate ========='+random* genRate);
-//		console.info(' rr ========='+ rr);
+		var random = Math.random() + 0.5;
+		//		var rr = genRate - 1;
+		//		console.info('random* genRate ========='+random* genRate);
+		//		console.info(' rr ========='+ rr);
 		if (random * genRate > genRate - 1) {
 
 			//			var left = Math.random()*(this.w - 30);
@@ -382,7 +388,7 @@ var gameMonitor = {
 				if (chi == 10) {
 					chi = 0;
 				}
-				
+
 				console.info(k);
 			}
 			shi++;

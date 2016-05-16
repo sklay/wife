@@ -1,0 +1,151 @@
+﻿$axure.loadCurrentPage({
+  "url":"游戏规则.html",
+  "generationDate":new Date(1461742324833.54),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"9ff763a80ffc41b48a48adad30069922",
+    "type":"Axure:Page",
+    "name":"游戏规则",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"3055981aaf5d48258aedb57db56a857e",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":70,
+              "y":20},
+            "size":{
+              "width":300,
+              "height":530}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"a1eeef8d002c4e969318497125095a4b",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":70,
+                  "y":20},
+                "size":{
+                  "width":300,
+                  "height":530}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/加载页/u0.png"}},
+{
+          "id":"5a0a2bbde3fb4a15999a0896a4bc3450",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "fontName":"'Arial Negreta', 'Arial'",
+            "fontSize":"28px",
+            "fontWeight":"700",
+            "location":{
+              "x":154,
+              "y":50},
+            "size":{
+              "width":146,
+              "height":40}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"63794c33f23b4c82a1355d6e1dd9e6a9",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "fontName":"'Arial Negreta', 'Arial'",
+                "fontSize":"28px",
+                "fontWeight":"700",
+                "location":{
+                  "x":154,
+                  "y":50},
+                "size":{
+                  "width":146,
+                  "height":40}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}},
+{
+          "id":"69b8a9636b47437693a0a2303234224d",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"paragraph",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":103,
+              "y":170},
+            "size":{
+              "width":234,
+              "height":370}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"e7a87f681c5947b98151c2276a6df601",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":103,
+                  "y":170},
+                "size":{
+                  "width":234,
+                  "height":370}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"resources/images/transparent.gif"}}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "3055981aaf5d48258aedb57db56a857e":{
+      "scriptId":"u0"},
+    "a1eeef8d002c4e969318497125095a4b":{
+      "scriptId":"u1"},
+    "5a0a2bbde3fb4a15999a0896a4bc3450":{
+      "scriptId":"u2"},
+    "63794c33f23b4c82a1355d6e1dd9e6a9":{
+      "scriptId":"u3"},
+    "69b8a9636b47437693a0a2303234224d":{
+      "scriptId":"u4"},
+    "e7a87f681c5947b98151c2276a6df601":{
+      "scriptId":"u5"}}});

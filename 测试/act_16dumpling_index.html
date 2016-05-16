@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<title>端午节</title>
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script src="js/act_16dumling_copy_0513.js"></script>
 		<script type="text/javascript" src="js/html_common.js"></script>
 		<link rel="stylesheet" href="style/act_16dumpling_index.css" />
 		<style>
@@ -28,13 +30,14 @@
 			}
 		</style>
 	</head>
+
 	<body>
 		<div class="content_wrap">
 			<!--首页  start -->
 			<div class="index_wrap commo_page">
 				<div class="content_index">
 					<div class="index_title">
-					<img src="images/act_16dumpling_index_title.png" />
+						<img src="images/act_16dumpling_index_title.png" />
 					</div>
 					<div class="index_thime">
 						<img src="images/act_16dumpling_index_thimeP.png" />
@@ -54,7 +57,8 @@
 						</div>
 						<div class="actRule_text">
 							<p><span class="dot"></span>凡参与活动的用户均可获得【药快到】全 场通用满48元立减7元或8元的现金券1张。</p>
-							<p><span class="dot"></span>活动有效期: <br/>2016年6月9日—2016年6月16日 </p>
+							<p><span class="dot"></span>活动有效期:
+								<br/>2016年6月9日—2016年6月16日 </p>
 							<p><span class="dot"></span>本活动最终解释权归北京康顾多健康科技 有限公司所有。</p>
 						</div>
 						<div class="actRule_btn">
@@ -67,6 +71,54 @@
 			<!--<div class="game_page commo_page">
 				
 			</div>-->
+			<!--游戏区-->
+			<div id="container">
+				<div id="gamepanel">
+					<div class="score-wrap">
+						<span id="score">0:30</span>
+					</div>
+					<canvas id="stage"></canvas>
+				</div>
+				<!--没有碰上炸弹的情况-->
+				<div id="resultPanel" class="noboom_result result_controllerP">
+					<div class="gameOver_content ">
+						<div class="gameOverOne_title">
+							<img src="images/act_16dumpling_index_starttitle.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOver_desc">
+								<img class="headIcon" src="images/act_16dumpling_gameOver2_headIcon.png" />
+								<div class="gameOver_descText">
+									<span id="sscore" class="lighttext">30</span>
+									<img src="images/act_16dumpling_gameOver2_desc.png" />
+								</div>
+							</div>
+							<div class="gameOver_btn">
+								<img src="images/act_16dumpling_gameOver1_receive.png" />
+								<img src="images/act_16dumpling_gameOver2_sharebtn.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--碰上炸弹的情况-->
+				<div id="resultPanel_two" class="noboom_result result_controllerP">
+					<div class="gameOver_content">
+						<div class="gameOverTwo_title">
+							<img src="images/act_16dumpling_index_starttitle.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOverTwo_desc clearfix">
+								<img src="images/act_16dumpling_gameOver1_desc.png" />
+							</div>
+							<div class="gameOverTwo_btn">
+								<img src="images/act_16dumpling_gameOver1_receive.png" />
+								<img src="images/act_16dumpling_gameOver1_playAgain.png" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
+
 </html>
