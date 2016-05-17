@@ -1,0 +1,346 @@
+.content {
+	width: 100%;
+	background: url(../images/act_16dumpling_getBJ.jpg) center center no-repeat;
+	background-size:100% 100% ;
+	position: relative;
+}
+
+.indexPage {
+	width: 100%;
+}
+
+
+.content_top {
+	width: 4.6rem;
+	margin: 0 auto;
+	padding-top: .3rem;
+}
+
+.content_top img {
+	width: 100%;
+}
+
+/*输入框样式*/
+.commomLogin {
+	width: 5rem;
+	margin: 0.3rem auto 0;
+}
+
+#userPhone {
+	width: 100%;
+  outline: none;
+  border: 2px solid #009184;
+  height: 45px;
+  line-height: 45px;
+  box-sizing: border-box;
+  color: #009184;
+  text-align: center;
+  background: #a2f8d2;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+::-moz-placeholder {
+	color: #009184;
+	text-align: center;
+	font-family: ""
+}
+
+:-ms-input-placeholder {
+	color: #009184;
+	text-align: center;
+}
+
+::-webkit-input-placeholder {
+	color: #009184;
+	text-align: center;
+}
+
+#getHbBtn {
+	width: 5rem;
+	outline: none;
+	border: 0;
+	margin: .25rem auto 0;
+	display: block;
+}
+
+#downText {
+	font-size: 18px;
+	font-family: 黑体;
+	text-align: center;
+	color: #000;
+	text-decoration: underline;
+	line-height: 1rem;
+}
+/*领取结果样式*/
+.getHbnNum {
+	width: 4.2rem;
+	margin: 0rem auto;
+	overflow: hidden;
+}
+
+.getHbnNum img {
+	width: 100%;
+}
+.receiveResult {
+	font-size: 16px;
+	font-weight: 600;
+	color: #000;
+	text-align: center;
+	margin: .1rem auto 0;
+}
+
+.commUsebtn {
+	width: 5rem;
+	overflow: hidden;
+	margin: 0.3rem auto 0;
+}
+
+.commUsebtn img {
+	  width: 2.2rem;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
+}
+
+.use_btn {
+	float: left;
+}
+
+.shareFri {
+	float: right;
+}
+
+
+
+
+
+/* 看看好友的手气*/
+.comShowTitle {
+	color: #920003;
+	height: 40px;
+	width: 6.2rem;
+	margin: .2rem auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.leftLineDot {
+	overflow: hidden;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-right: .3rem;
+	padding-top: 19px;
+	box-sizing: border-box;
+	width: 1.7rem;
+}
+
+.leftLineDot span {
+	float: left;
+	background: #920003;
+}
+
+.leftLineDot span:nth-child(2) {
+	position: absolute;
+	right: 3px;
+	top: 15px;
+}
+
+.rightLineDot {
+	padding: 19px 0 0 .3rem;
+	right: 0;
+	overflow: hidden;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	box-sizing: border-box;
+	width: 1.7rem;
+}
+
+.rightLineDot span {
+	float: right;
+	background: #920003;
+}
+
+.rightLineDot span:nth-child(1) {
+	position: absolute;
+	left: 3px;
+	top: 15px;
+}
+
+.comshowTitleText {
+	text-align: center;
+	line-height: 40px;
+	width: 2.8rem;
+	margin: 0 auto;;
+	font-size: 16px;
+}
+
+.friHbShow {
+	margin: .2rem auto;
+	width: 6.2rem;
+	overflow: hidden;
+	font-size: 12px;
+	border-bottom: 1px dashed #ffa1a5;
+}
+
+.userFriAvatat {
+	width: 81%;
+	overflow: hidden;
+	float: left;
+}
+
+.userFriAvatat img {
+	width: 40px;
+	height: 40px;
+	float: left;
+	border-radius: 50%;
+}
+
+.userFriInf_wrap {
+	width: 18%;
+	float: right;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.userFriInf {
+	float: left;
+	margin-left: .2rem;
+	width: 80%;
+	margin-bottom: .3rem;
+}
+
+.userFriInf strong {
+	font-size: 14px;
+	color: #dd000a;
+	line-height: 20px;
+}
+
+.userFriHbValue_wrap {
+	width: 100%;
+	height: 35px;
+	float: right;
+	background: url(../images/act_16gxy_coupon_icon.png) 0px 0 no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	line-height: 35px;
+	color: #fff;
+}
+
+.userFriHbValue {
+	font-size: 26px;
+	position: relative;
+	font-weight: 600;
+	padding-left: .28rem;
+}
+
+.userFriHbValue span {
+	font-size: 20px;
+	position: absolute;
+	font-weight: 400;
+	left: .55rem;
+}
+
+.userFriInf p {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+	color: #000;
+	line-height: 20px;
+}
+
+.activeRuleShow {
+	width: 6.2rem;
+	margin: 0 auto;
+	padding-bottom: .5rem;
+	color: #920003;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+/*app分享按钮固定样式  */
+.shareAppPage {
+	display: none;
+	width: 5.6rem;
+	overflow: hidden;
+	margin: 1rem auto;
+	}
+
+.shareAppPage button {
+	color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.5rem;
+	  line-height: 1rem;
+	  height: 1rem;
+	  border-radius: 6px;
+	  background: #ff1a6b;
+	  box-shadow: 0 5px 0 #840733;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
+}
+
+.shareAppPage button:nth-child(1) {
+	float: left;
+}
+
+.shareAppPage button:nth-child(2) {
+	float: right;
+}
+/*分享遮罩样式*/
+  #shareFriSha{
+            position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:100;display:none;
+        }
+        #shareFriSha img{
+            width:100%;
+        }
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}

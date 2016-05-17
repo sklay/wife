@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>端午节</title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<link rel="stylesheet" href="style/act_16dumpling_index.css" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 14px;
+				font-family: "微軟正黑體","Microsoft Yahei";
+				background: #6fdfad;
+			}
+			html,body,.content_wrap{
+				width: 100%;
+				height: 100%;
+			}
+			.index_wrap{
+				display: none;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		
+		<div class="content_wrap">
+			<!--加载页-->
+			<div class="loadPage">
+				<div class="load_content">
+					<div class="laoding_move">
+						<img src="images/act_16dumpling_loading_dumpling.png" />
+						<img src="images/act_16dumpling_loading_lefthandtop.png" />
+						<img src="images/act_16dumpling_loading_lefthand.png" />
+						<img src="images/act_16dumpling_loading_body.png" />
+						<img src="images/act_16dumpling_loading_righthandtop.png" />
+						<img src="images/act_16dumpling_loading_righthand.png" />
+					</div>
+					<div class="laoding_sty">
+						<!--<p class="loadText">已加载<span id="loadPer">100%</span></p>-->
+						<p class="loadText">100%</p>
+						<div class="loadShape">
+							<!--<span id="loadShapePro"></span>-->
+							<img id="loadShapePro" src="images/act_16dumpling_loading_icon.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--首页  start -->
+			<div class="index_wrap commo_page">
+				<div class="content_index">
+					<div class="index_title">
+						<img src="images/act_16dumpling_index_title.png" />
+					</div>
+					<div class="index_thime">
+						<img src="images/act_16dumpling_index_thimeP.png" />
+					</div>
+					<div class="index_clickBtn">
+						<img src="images/act_16dumpling_index_startBtn.png"/>
+					</div>
+					<div class="slide_icon">
+						<img src="images/act_16dumpling_slide_LR.png" />
+					</div>
+				</div>
+				<!--活动规则-->
+				<div class="actRule">
+					<div class="actRule_content">
+						<div class="actRule_title">
+							<img src="images/act_16dumpling_index_starttitle.png" />
+						</div>
+						<div class="actRule_text">
+							<p><span class="dot"></span>凡参与活动的用户均可获得【药快到】全 场通用满48元立减7元或8元的现金券1张。</p>
+							<p><span class="dot"></span>活动有效期:
+								<br/>2016年6月9日—2016年6月16日 </p>
+							<p><span class="dot"></span>本活动最终解释权归北京康顾多健康科技 有限公司所有。</p>
+						</div>
+						<div class="actRule_btn">
+							<img src="images/act_16dumpling_rule_btn.png" class="rule_btn"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--游戏页-->
+			<!--<div class="game_page commo_page">
+				
+			</div>-->
+			<!--游戏区-->
+			<div id="container" style="display: none;">
+				<div id="gamepanel">
+					<div class="score-wrap">
+						<span id="score" class="timeup">0:30</span>
+					</div>
+					<!--游戏画布-->
+					<canvas id="stage"></canvas>
+					
+					<div class="gameBottom_bj">
+						<img src="images/act_16dumpling_gameBot.png" />
+					</div>
+				</div>
+				<!--没有碰上炸弹的情况-->
+				<div id="resultPanel" class="noboom_result result_controllerP">
+					<div class="gameOver_content ">
+						<div class="gameOverOne_title">
+							<img src="images/act_16dumpling_gameOver2_title.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOver_desc">
+								<img class="headIcon" src="images/act_16dumpling_gameOver2_headIcon.png" />
+								<span id="sscore" class="lighttext">30</span>
+								<div class="gameOver_descText">
+									<img src="images/act_16dumpling_gameOver2_desc.png" />
+								</div>
+							</div>
+							<div class="gameOver_btn butWrap">
+								<img src="images/act_16dumpling_gameOver1_receive.png" />
+								<img src="images/act_16dumpling_gameOver2_sharebtn.png" />
+							</div>
+							<div class="shareAppPage" style="display:none">
+								<!--<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
+								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>-->
+				            </div>
+						</div>
+					</div>
+				</div>
+				<!--碰上炸弹的情况-->
+				<div id="resultPanel_two" class="noboom_result result_controllerP">
+					<div class="gameOver_content">
+						<div class="gameOverTwo_title">
+							<img src="images/act_16dumpling_gameOver1_title.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOverTwo_desc clearfix">
+								<img src="images/act_16dumpling_gameOver1_desc.png" />
+							</div>
+							<div class="gameOverTwo_btn ">
+								<img src="images/act_16dumpling_gameOver1_receive.png" />
+								<img class="playAgain"  src="images/act_16dumpling_gameOver1_playAgain.png"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="shareFriSha">
+		    <img src="images/act_16dumpling_share.png" alt="">
+		</div>
+		<script type="text/javascript" src="js/act_16dumling_index.js" ></script>
+		
+	</body>
+	<script>
+	function getUrlEle() {
+			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+				return "";
+			}
+			var urldec = location.href.split("?")[1].split("&");
+			var urlQuery = {};
+			var a, b;
+			for (var i = 0, j = urldec.length; i < j; i++) {
+				a = urldec[i].split("=")[0];
+				b = urldec[i].split("=")[1];
+				console.log(a.split("%EF%BC%9D"))
+				if (b == undefined) {
+					a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+					b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+				};
+				urlQuery[a] = b;
+			};
+			return urlQuery;
+		};
+		var version = getUrlEle().version_code || '';
+		var token = getUrlEle().user_token || '';
+		/*判断是否登录*/
+		function appShareFun(){
+			var token=getUrlEle().user_token;
+		    	if(token=="" || token ==null || token== undefined){
+		    		showResultApp("remind","请先登录后再分享");
+		    		return false;
+		    	}else{
+		    		return true;
+		    	};
+		    };
+	
+	
+		var manifest = [];
+		var preload;
+		/* window加载 */
+		var canvas = document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+		var manifest = [];
+		var preload;
+		//定义相关JSON格式文件列表
+		function setupManifest() {
+			var imgL = $("img").length;
+			for (var i = 1; i < imgL; i++)
+				manifest.push({
+					src: $("img").eq(i).attr("src")
+				});
+			var audioL = $("audio").length;
+			for (var i = 1; i < audioL; i++)
+				manifest.push({
+					src: $("audio").eq(i).attr("src")
+				});
+		};
+		//开始预加载
+		function startPreload() {
+			preload = new createjs.LoadQueue(true);
+			//注意加载音频文件需要调用如下代码行
+			preload.installPlugin(createjs.Sound);
+			//preload.on("fileload", handleFileLoad);
+			preload.on("progress", handleFileProgress);
+			preload.on("complete", loadComplete);
+			preload.loadManifest(manifest);
+		}
+		//加载中动画
+		var load = {};
+		load.loadAniBoo = true;
+		load.loadNum = 0;
+		load.loadMax = $("img").length + $("audio").length;
+		load.loadAniTime = null;
+		//	var loadPer = $("#loadPer"); //加载进度条
+		function handleFileProgress(event) {
+			if (load.loadAniBoo) {
+				load.loadAniTime = setInterval(function() {
+					/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
+					if (load.loadNum >= (load.loadMax - 1)) {
+						if (load && load.loadAniTime) {
+							clearInterval(load.loadAniTime);
+						}
+						return true;
+					}
+					load.loadNum++;
+					loadState(load);
+				}, 500)
+				load.loadAniBoo = false;
+			} else {
+				return false;
+			}
+		}
+
+		function loadState(load) {
+			var loadPer = $("#loadPer"); //加载进度条
+			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
+			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
+			loadPer.html(percLoad);
+			$("#loadShapePro").css({
+				"width": percLoad
+			})
+			$("#loadShapePro").animate({
+				width: percLoad
+			});
+		}
+		//全部资源加载完毕
+		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
+		function loadComplete(event) {
+			if (load && load.loadAniTime)
+				clearInterval(load.loadAniTime);
+			load.loadNum = load.loadMax;
+			loadState(load);
+			setTimeout(function() {
+				$('.loadPage').fadeOut(400, function() {
+					$('.loadPage').hide();
+				});
+				/*首页显示*/
+				$('div.index_wrap').show() ;
+				/*活动 规则 显示*/
+//				$('.actRule_content').addClass('.actRule_animation');
+				$('div.actRule').fadeIn(1500);
+				
+				
+				winOnLoad();
+				
+				/** 时间声明*/
+//				activity.init() ;
+				
+				
+			}, 500);
+		};
+		
+		setupManifest();
+		startPreload();
+		function winOnLoad() {
+			//去使用跳转页面
+			$(".goForUse").on("click", function() {
+				goPage();
+			});
+			/**判断app点击去使用按钮跳转的地址**/
+			function goPage(type) {
+				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+				/**判断是否是微信**/
+				if (is_weixin()) {
+					window.location.href = target_href;
+				} else {
+						if (token == "" || token == null || token == undefined || token == 'undefined') {
+							showResultApp("remind", "请先登录");
+						} else {
+							if (version && 200 <= version) {
+								gotoPage('{"type":"1"}');
+							} else {
+								window.location.href = target_href;
+							}
+						}
+					}
+				}
+			
+			$("#saveAndShare").on("click", function() {
+			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=162";
+			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=162";
+				location.href= url ;
+			});
+		}
+	</script>
+</html>

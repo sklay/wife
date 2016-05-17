@@ -1,0 +1,721 @@
+@charset "utf-8";
+.loadPage {
+	width: 100%;
+	height: 100%;
+}
+
+.load_content {
+	width: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 3rem .5rem 0;
+}
+
+.laoding_move {
+	width: 2rem;
+	height: 1.5rem;
+	float: left;
+	position: relative;
+}
+
+.laoding_move img {
+	position: absolute;
+}
+
+.laoding_move img:nth-child(1) {
+	width: .3rem;
+	top: 0;
+	left: .22rem;
+	opacity: 0;
+	-webkit-animation: dumplingmove 1s linear 0s infinite;
+	animation: dumplingmove 1.5s linear 0s infinite;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.laoding_move img:nth-child(2) {
+	width: .6rem;
+	top: .34rem;
+	left: .22rem;
+	opacity: 0;
+	-webkit-animation: handtopmove 1s linear 0s infinite;
+	animation: handtopmove 1s linear 0s infinite;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.laoding_move img:nth-child(3) {
+	width: .6rem;
+	top: .6rem;
+	left: .22rem;
+	-webkit-animation: handmove 1s linear 0s infinite;
+	animation: handmove 1s linear 0s infinite;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.laoding_move img:nth-child(4) {
+	width: .8rem;
+	top: 0;
+	left: 50%;
+	margin-left: -.4rem;
+}
+
+.laoding_move img:nth-child(5) {
+	width: .5rem;
+	top: .2rem;
+	right: 0.44rem;
+	opacity: 0;
+	-webkit-animation: handtopmove 1s linear 0s infinite;
+	animation: handtopmove 1s linear 0s infinite;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.laoding_move img:nth-child(6) {
+	width: .6rem;
+	top: .52rem;
+	right: .32rem;
+	-webkit-animation: handmove 1s linear 0s infinite;
+	animation: handmove 1s linear 0s infinite;
+	-webkit-animation-fill-mode: forwards;
+	animation-fill-mode: forwards;
+}
+
+.laoding_sty {
+	float: right;
+	width: 3.4rem;
+	line-height: 40px;
+}
+
+.loadText {
+	font-size: 28px;
+	color: #ffda0e;
+	text-align: center;
+	/*line-height:34px;*/
+}
+
+.loadShape {
+	width: 100%;
+	margin: 0 auto;
+	background: #ffe9c5;
+	border-radius: 20px;
+	height: 20px;
+	overflow: hidden;
+	border: 4px solid #fff;
+}
+
+#loadShapePro {
+	border-radius: 20px;
+	height: 20px;
+	float: left;
+	width: 0;
+}
+
+
+/*定义动画*/
+
+@-webkit-keyframes dumplingmove {
+	100% {
+		opacity: 1
+	}
+}
+
+@keyframes dumplingmove {
+	100% {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes handtopmove {
+	0% {
+		opacity: .4
+	}
+	30% {
+		opacity: .6
+	}
+	50% {
+		opacity: .8
+	}
+	100% {
+		opacity: 1
+	}
+}
+
+@keyframes handtopmove {
+	0% {
+		opacity: .4
+	}
+	30% {
+		opacity: .6
+	}
+	50% {
+		opacity: .8
+	}
+	100% {
+		opacity: 1
+	}
+}
+
+@-webkit-keyframes handmove {
+	0% {
+		opacity: .8
+	}
+	30% {
+		opacity: .6
+	}
+	50% {
+		opacity: .4
+	}
+	100% {
+		opacity: 0
+	}
+}
+
+@keyframes handmove {
+	0% {
+		opacity: .8
+	}
+	30% {
+		opacity: .6
+	}
+	50% {
+		opacity: .4
+	}
+	100% {
+		opacity: 0
+	}
+}
+
+.commo_page {
+	width: 100%;
+	height: 100%;
+	background: url(../images/act_16dumpling_indexBj.jpg)center center no-repeat;
+	background-size: 100% 100%;
+}
+
+.content_index {
+	position: relative;
+	overflow: hidden;
+}
+
+.index_title {
+	width: 5.4rem;
+	margin: 0 auto .7rem;
+	padding-top: .6rem;
+	/*overflow: hidden;*/
+}
+
+.index_title img {
+	width: 100%;
+	margin-left: .2rem;
+}
+
+.index_thime {
+	width: 100%;
+	height: 5.4rem;
+	background: url(../images/act_16dumpling_index_thimeBj.png)center center no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	text-align: center;
+}
+
+.index_thime img {
+	width: 6.2rem;
+	margin-left: 1rem;
+	padding-top: .6rem;
+	-webkit-animation-duration: 4s;
+	-webkit-animation-iteration-count: infinite;
+	/*调用动画*/
+	-webkit-animation-name: shakeMOve;
+	animation-name: shakeMOve
+}
+
+
+/*船晃动的 动画*/
+
+@-webkit-keyframes shakeMOve {
+	0% {
+		-webkit-transform: translate3d(0%, 0%, 0) translate3d(0%, 0%, 0);
+		transform: translate3d(0%, 0%, 0) translate3d(0%, 0%, 0);
+	}
+	25% {
+		-webkit-transform: translate3d(0%, 20px, 0) translate3d(-20%, 0%, 0);
+		transform: translate3d(0%, 20px, 0) translate3d(-20%, 0%, 0);
+	}
+	50% {
+		-webkit-transform: translate3d(0%, -10px, 0) translate3d(0%, 0%, 0);
+		transform: translate3d(0%, -10px, 0) translate3d(0%, 0%, 0);
+	}
+	75% {
+		-webkit-transform: translate3d(0%, 20px, 0) translate3d(-20%, 0%, 0);
+		transform: translate3d(0%, 20px, 0) translate3d(-20%, 0%, 0);
+	}
+	100% {
+		-webkit-transform: translate3d(0%, 0%, 0) translate3d(0%, 0%, 0);
+		transform: translate3d(0%, 0%, 0) translate3d(0%, 0%, 0);
+	}
+}
+
+.index_clickBtn {
+	width: 100%;
+	height: 2.4rem;
+	position: fixed;
+	bottom: 0;
+	background: url(../images/act_16dumpling_index_bottomIcon.png)center center no-repeat;
+	background-size: 100% 100%;
+	/*z-index: 1;*/
+}
+
+.index_clickBtn img {
+	  display: block;
+  width: 2.5rem;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  margin-left: -1.25rem;
+  z-index: 1;
+}
+
+.slide_icon {
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	display: none;
+}
+
+.slide_icon img {
+	width: 2rem;
+	float: left;
+	opacity: 0;
+	-webkit-animation-duration: 3s;
+	-webkit-animation-iteration-count: 3;
+	-webkit-animation-play-state: running;
+	-webkit-animation-name: hand_move;
+	animation-name: hand_move;
+}
+
+
+/*手势动画*/
+
+@-webkit-keyframes hand_move {
+	0% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 0, 0)
+	}
+	25% {
+		opacity: 0;
+		-webkit-transform: translate3d(200%, 0px, 0)
+	}
+	50% {
+		opacity: 1;
+		-webkit-transform: translate3d(0px, 0px, 0)
+	}
+	75% {
+		opacity: 0;
+		-webkit-transform: translate3d(200%, 0px, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0px, 0px, 0)
+	}
+}
+
+
+/*活动规则*/
+
+.actRule {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .6);
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+	display: none;
+}
+
+.actRule_content {
+	width: 6rem;
+	background: url(../images/act_16dumpling_rule_bj.png)center center no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	position: relative;
+	padding: .4rem 0;
+	box-sizing: border-box;
+	-webkit-animation: giftBoxmove 1s cubic-bezier(.95, 1.81, .03, .82) 2s 1;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-transform: translateY(-25rem);
+}
+/*活动规则动画*/
+.actRule_animation{
+	
+}
+ @-webkit-keyframes giftBoxmove{
+	100%{-webkit-transform:translateY(0rem)}
+	} 
+.actRule_text {
+	width: 5.6rem;
+	margin: 0 auto;
+	padding: .4rem .2rem;
+	box-sizing: border-box;
+}
+
+.actRule_text p {
+	margin: .2rem 0 0 .4rem;
+	font-size: 16px;
+	position: relative;
+	font-weight: 600;
+}
+
+.actRule_text p span {
+	width: 10px;
+	height: 10px;
+	background: #a4740d;
+	display: block;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	margin-top: -5px;
+	left: -20px;
+}
+
+.actRule_title {
+	width: 4rem;
+	margin: 0 auto;
+	position: absolute;
+	top: -.4rem;
+	left: 50%;
+	margin-left: -2rem;
+}
+
+.actRule_title img,
+.actRule_btn img {
+	width: 100%;
+}
+
+.actRule_btn {
+	width: 2.5rem;
+	margin: 0 auto;
+	position: absolute;
+	bottom: -.3rem;
+	left: 50%;
+	margin-left: -1.25rem;
+}
+
+
+/*游戏区*/
+
+#container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+#gamepanel {
+	width: 100%;
+	margin: 0 auto;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+/*#stage {
+	background: url(../images/act_16dumpling_indexBj.jpg)center center no-repeat;
+	background-size: 100% 100%;
+}*/
+
+.gameBottom_bj{
+	width: 100%;
+	left: 0;
+	position: absolute;
+	bottom: 0;
+}
+.gameBottom_bj img{
+	width: 100%;
+	float: left;
+}
+.score-wrap {
+	font-size: 50px;
+	color: #fff;
+	height: 60px;
+	line-height: 60px;
+	position: absolute;
+	left: 50%;
+	margin-left: -60px;
+	text-align: center;
+	top: 0px;
+	width: 120px;
+	z-index: 1000;
+	background: #000;
+	border-radius: 0 0 18px 18px;
+	font-family: serif;
+}
+
+/*div.hearthot {
+	-webkit-animation: fire .2s linear;
+	-o-animation: fire .2s linear;
+	animation: fire .2s linear
+}
+
+@-webkit-keyframes fire {
+	0% {
+		opacity: 1;
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1)
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: scale(3.0);
+		-moz-transform: scale(3.0);
+		-ms-transform: scale(3.0);
+		-o-transform: scale(3.0);
+		transform: scale(3.0)
+	}
+}
+
+@keyframes fire {
+	0% {
+		-webkit-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		transform: scale(1.1)
+	}
+	100% {
+		-webkit-transform: scale(1.0);
+		-moz-transform: scale(1.0);
+		-ms-transform: scale(1.0);
+		-o-transform: scale(1.0);
+		transform: scale(1.0)
+	}
+}*/
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+#guidePanel {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 10000;
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+}
+
+.result_controllerP {
+	background: rgba(0, 0, 0, 0.6);
+	display: none;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 10000;
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+}
+
+.gameOver_content {
+	width: 6rem;
+	background: url(../images/act_16dumpling_gameOver1_bj.png)center center no-repeat;
+	background-size: 100% 100%;
+	margin: 0 auto;
+	position: relative;
+	padding: .4rem 0 0;
+	box-sizing: border-box;
+}
+
+.gameOverOne_title,
+.gameOverTwo_title {
+	width: 4rem;
+	margin: 0 auto;
+	position: absolute;
+	top: -.4rem;
+	left: 50%;
+	margin-left: -2rem;
+}
+
+.gameOverOne_title img,
+.gameOverTwo_title img {
+	width: 100%;
+}
+
+.gameOver_text {
+	width: 5.6rem;
+	margin: 0 auto;
+	padding: .4rem .2rem;
+	box-sizing: border-box;
+}
+
+.gameOver_desc {
+	width: 100%;
+	overflow: hidden;
+	margin-left: -.2rem;
+	position: relative;
+}
+
+.gameOver_desc .headIcon {
+	width: 1.7rem;
+	float: left;
+}
+
+.gameOver_descText {
+	width: 3.4rem;
+	float: right;
+	margin-top: .25rem;
+	position: relative;
+}
+
+.lighttext {
+	position: absolute;
+	top: 50%;
+	margin-top: -17px;
+	left: 50%;
+	margin-left: -25px;
+	font-size: .6rem;
+}
+
+.gameOver_descText img {
+	width: 100%;
+}
+
+.gameOver_btn {
+	width: 100%;
+	overflow: hidden;
+}
+
+.gameOver_btn img:nth-child(1) {
+	width: 2.5rem;
+	display: block;
+	margin: 0 auto;
+}
+
+.gameOver_btn img:nth-child(2) {
+	width: 4rem;
+	display: block;
+	margin: .2rem auto 0;
+}
+
+.gameOver_text .gameOverTwo_desc {
+	margin-left: -.25rem;
+	width: 100%;
+}
+
+.gameOverTwo_desc img {
+	width: 5.4rem;
+	float: left;
+}
+
+.gameOverTwo_btn {
+	width: 2.5rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.gameOverTwo_btn img {
+	width: 100%;
+	float: left;
+	margin: .2rem 0 0;
+}
+
+#resultPanel,
+#resultPanel,
+#resultPanel_two{
+	left: 0;
+	top: 0
+}
+
+.lighttext {
+	color: #e95510;
+}
+
+/*app分享按钮固定样式  */
+.shareAppPage {
+	display: none;
+	width: 5.6rem;
+	overflow: hidden;
+	margin: 1rem auto;
+	}
+
+.shareAppPage button {
+	color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.5rem;
+	  line-height: 1rem;
+	  height: 1rem;
+	  border-radius: 6px;
+	  background: #ff1a6b;
+	  box-shadow: 0 5px 0 #840733;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
+}
+
+.shareAppPage button:nth-child(1) {
+	float: left;
+}
+
+.shareAppPage button:nth-child(2) {
+	float: right;
+}
+/*分享遮罩样式*/
+  #shareFriSha{
+            position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);z-index:100;display:none;
+        }
+        #shareFriSha img{
+            width:100%;
+        }
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}
