@@ -32,11 +32,21 @@
 			.index_wrap{
 				display: none;
 			}
+			.no_content{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10000;
+				background: rgba(0,0,0,.0);
+			}
 		</style>
+		
 		
 	</head>
 
-	<body>
+	<body  >
 		
 		<div class="content_wrap">
 			<!--加载页-->
@@ -108,8 +118,9 @@
 					<canvas id="stage"></canvas>
 					
 					<div class="gameBottom_bj">
-						<img src="images/act_16dumpling_gameBot.png" />
+						<img src="images/act_16dumpling_geme_bottomIconNew.png" />
 					</div>
+					<div class="no_content" ></div>
 				</div>
 				<!--没有碰上炸弹的情况-->
 				<div id="resultPanel" class="noboom_result result_controllerP">
@@ -158,7 +169,7 @@
 		<div id="shareFriSha">
 		    <img src="images/act_16dumpling_share.png" alt="">
 		</div>
-		<script type="text/javascript" src="js/act_16dumling_index.js" ></script>
+		<script type="text/javascript" src="js/act_16dumling_index.js?v="2.0001" ></script>
 		
 	</body>
 	<script>
