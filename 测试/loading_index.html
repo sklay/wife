@@ -1,65 +1,77 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<title>加载页</title>
-		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 		<script type="text/javascript" src="js/html_common.js"></script>
-		
+
 		<style>
-			*{
+			* {
 				margin: 0;
 				padding: 0;
 			}
-			body{
+			
+			body {
 				font-size: 14px;
-				font-family: "微軟正黑體","Microsoft Yahei";
+				font-family: "微軟正黑體", "Microsoft Yahei";
 				background: #6fdfad;
 			}
-			.loadPage{
+			
+			.loadPage {
 				width: 100%;
 				height: 100%;
 			}
-			.load_content{
+			
+			.load_content {
 				width: 100%;
 				margin: 3rem auto 0;
-				overflow: hidden;
-			      box-sizing: border-box;
-  				padding: 0 .5rem;
+				/*overflow: hidden;*/
+				box-sizing: border-box;
+				padding: 0 .5rem;
 			}
-			.laoding_move{
+			.clearfix:after{
+				display: block;
+				clear: both;
+			}
+			.laoding_people {
 				width: 2rem;
 				height: 1.5rem;
 				float: left;
 				position: relative;
 			}
-			.laoding_move img {
+			
+			.laoding_people img {
 				position: absolute;
 			}
-			.laoding_move img:nth-child(1) {
-				width: .3rem;
-				top: 0;
-  				left: .22rem;
-  				opacity: 0;
-  				-webkit-animation: dumplingmove 1s linear 0s infinite;
+			
+			.laoding_people img:nth-child(1) {
+				width: .4rem;
+				top: -.5rem;
+				left: 0;
+				opacity: 0;
+				-webkit-animation: dumplingmove 1s linear 0s infinite;
 				animation: dumplingmove 1.5s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
-			.laoding_move img:nth-child(2) {
-				  width: .6rem;
-				  top: .34rem;
-				  left: .22rem;
-				  opacity: 0;
-				  -webkit-animation: handtopmove 1s linear 0s infinite;
+			
+			.laoding_people img:nth-child(2) {
+				width: 1.44rem;
+				top: .2rem;
+				left: 50%;
+				margin-left: -.84rem;
+				opacity: 0;
+				-webkit-animation: handtopmove 1s linear 0s infinite;
 				animation: handtopmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
-			.laoding_move img:nth-child(3) {
+			/*.laoding_move img:nth-child(3) {
 				  width: .6rem;
 				  top: .6rem;
 				  left: .22rem;
@@ -67,24 +79,27 @@
 				animation: handmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
+			}*/
+			
+			.laoding_people img:nth-child(3) {
+				width: .8rem;
+				top: 0;
+				left: 50%;
+				margin-left: -.4rem;
 			}
-			.laoding_move img:nth-child(4) {
-				  width: .8rem;
-				  top: 0;
-				  left: 50%;
-				  margin-left: -.4rem;
-			}
-			.laoding_move img:nth-child(5) {
-				  width: .5rem;
-				  top: .2rem;
-				  right: 0.44rem;
-				  opacity: 0;
-				  -webkit-animation: handtopmove 1s linear 0s infinite;
+			
+			.laoding_people img:nth-child(4) {
+				width: 1.6rem;
+				top: .5rem;
+				left: 50%;
+				margin-left: -.9rem;
+				opacity: 0;
+				-webkit-animation: handtopmove 1s linear 0s infinite;
 				animation: handtopmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
 			}
-			.laoding_move img:nth-child(6) {
+			/*.laoding_move img:nth-child(6) {
 				  width: .6rem;
 				  top: .52rem;
 				  right: .32rem;
@@ -92,80 +107,129 @@
 				animation: handmove 1s linear 0s infinite;
 				-webkit-animation-fill-mode: forwards;
 				animation-fill-mode: forwards;
-			}
-			.laoding_sty{
-				float:right;
+			}*/
+			
+			.laoding_sty {
+				float: right;
 				width: 3.4rem;
-				  line-height: 40px;
+				line-height: 40px;
 			}
-			.loadText{
-				  font-size: 28px;
-				  color: #ffda0e;
-				  text-align: center;
-				  /*line-height:34px;*/
+			
+			.loadText {
+				font-size: 28px;
+				color: #ffda0e;
+				text-align: center;
+				/*line-height:34px;*/
 			}
-			.loadShape{
-				  width: 100%;
-				  margin: 0 auto;
-				  background: #ffe9c5;
-				  border-radius: 20px;
-				  height: 20px;
-				  overflow: hidden;
-				  border: 4px solid #fff;
-				  
+			
+			.loadShape {
+				width: 100%;
+				margin: 0 auto;
+				background: #ffe9c5;
+				border-radius: 20px;
+				height: 20px;
+				overflow: hidden;
+				border: 4px solid #fff;
 			}
-			#loadShapePro{
-				  border-radius: 20px;
-				  height: 20px;
-				  float: left;
-				  width: 0;
+			
+			#loadShapePro {
+				border-radius: 20px;
+				height: 20px;
+				float: left;
+				width: 0;
 			}
 			/*定义动画*/
-			@-webkit-keyframes dumplingmove{
-				100%{opacity: 1}
-			}
-			@keyframes dumplingmove{
-				100%{opacity: 1}
+			
+			@-webkit-keyframes dumplingmove {
+				100% {
+					opacity: 1
+				}
 			}
 			
-			@-webkit-keyframes handtopmove{
-				0%{opacity: .4}
-				30%{opacity: .6}
-				50%{opacity: .8}
-				100%{opacity: 1}
-			}
-			@keyframes handtopmove{
-				0%{opacity: .4}
-				30%{opacity: .6}
-				50%{opacity: .8}
-				100%{opacity: 1}
+			@keyframes dumplingmove {
+				100% {
+					opacity: 1
+				}
 			}
 			
-			@-webkit-keyframes handmove{
-				0%{opacity: .8}
-				30%{opacity: .6}
-				50%{opacity: .4}
-				100%{opacity: 0}
-			}
-			@keyframes handmove{
-				0%{opacity: .8}
-				30%{opacity: .6}
-				50%{opacity: .4}
-				100%{opacity: 0}
+			@-webkit-keyframes handtopmove {
+				0% {
+					opacity: .4
+				}
+				30% {
+					opacity: .6
+				}
+				50% {
+					opacity: .8
+				}
+				100% {
+					opacity: 1
+				}
 			}
 			
+			@keyframes handtopmove {
+				0% {
+					opacity: .4
+				}
+				30% {
+					opacity: .6
+				}
+				50% {
+					opacity: .8
+				}
+				100% {
+					opacity: 1
+				}
+			}
+			
+			@-webkit-keyframes handmove {
+				0% {
+					opacity: .8
+				}
+				30% {
+					opacity: .6
+				}
+				50% {
+					opacity: .4
+				}
+				100% {
+					opacity: 0
+				}
+			}
+			
+			@keyframes handmove {
+				0% {
+					opacity: .8
+				}
+				30% {
+					opacity: .6
+				}
+				50% {
+					opacity: .4
+				}
+				100% {
+					opacity: 0
+				}
+			}
 		</style>
 	</head>
+
 	<body>
 		<div class="loadPage">
-			<div class="load_content">
-				<div class="laoding_move">
+			<div class="load_content clearfix">
+				<!--<div class="laoding_move">
 					<img src="images/loading_dumpling.png" />
 					<img src="images/loading_lefthandtop.png" />
 					<img src="images/loading_lefthand.png" />
 					<img src="images/loading_body.png" />
 					<img src="images/loading_righthandtop.png" />
 					<img src="images/loading_righthand.png" />
+				</div>-->
+				<div class="laoding_people">
+					<img src="images/loading_dumpling.png" />
+					<img src="images/act_16dumpling_loadup.png" />
+					<img src="images/loading_body.png" />
+					<img src="images/act_16dumpling_loaddown.png" />
 				</div>
 				<div class="laoding_sty">
 					<!--<p class="loadText">已加载<span id="loadPer">100%</span></p>-->
@@ -178,4 +242,5 @@
 			</div>
 		</div>
 	</body>
+
 </html>

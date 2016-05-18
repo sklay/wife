@@ -41,6 +41,16 @@
 				z-index: 10000;
 				background: rgba(0,0,0,.0);
 			}
+			.timeSocerewrap{
+				width: 1rem;
+				position: absolute;
+				bottom: 80px;
+				right: 40px;
+			}
+			.timeSocerewrap img{
+				width: 100%;
+				display: none;
+			}
 		</style>
 		
 		
@@ -116,7 +126,10 @@
 					</div>
 					<!--游戏画布-->
 					<canvas id="stage"></canvas>
-					
+					<div class="timeSocerewrap">
+						<img id="addOneShowImg" src="images/act_16dumpling_game_addone.png" />
+						<img id="reduceTwohowImg" src="images/act_16dumpling_game_reduce2.png" />
+					</div>
 					<div class="gameBottom_bj">
 						<img src="images/act_16dumpling_geme_bottomIconNew.png" />
 					</div>

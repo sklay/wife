@@ -1,3 +1,5 @@
+var tu;
+var i;
 
 function games() {
 
@@ -32,7 +34,7 @@ function games() {
 	var playerWidth = 160;
 	var playerHeight = 140;
 
-	var tu = new Array();
+	tu = new Array();
 
 	bj1.src = "images/act_16dumpling_gameBj_new.jpg";
 	//bjfooter.src = "images/act_16dumpling_geme_bottomIconNew.png" ;
@@ -59,7 +61,7 @@ function games() {
 		this.image = new Image();
 	}
 
-//	var sprite = new object();
+	//	var sprite = new object();
 	var sprite = new object();
 	//sprite.x=(canvasW - playerWidth)/2;
 	sprite.x = 0;
@@ -69,7 +71,7 @@ function games() {
 	sprite.image = player;
 
 	//addListener(ca, "touchmove", move);
-//	addListener(ca, "mousemove", move);
+	//	addListener(ca, "mousemove", move);
 
 	var beginTime = new Date();
 	var gameTime = 30;
@@ -85,7 +87,7 @@ function games() {
 	function chansheng() {
 		console.debug(shi, " ， ", h);
 		if (shi % h == 0) {
-			for (var j = 2 * chi; j < 2 * (chi + 1); j++) {
+			for (j = 2 * chi; j < 2 * (chi + 1); j++) {
 				tu[j] = new object();
 				var i = Math.round(Math.random() * range);
 				if (j == 2 * chi + 1) {
@@ -119,22 +121,22 @@ function games() {
 	}
 
 	/**速度控制**/
-	//function sudukongzhi() {
-	//	console.debug("remainTime ,", remainTime);
-	//	if (remainTime > 10) {
-	//		h = 5;
-	//		sudu = 10;
-	//	} else if (remainTime > 5) {
-	//		h = 5;
-	//		sudu = 15;
-	//	} else {
-	//		h = 5;
-	//		sudu = 20;
-	//	}
-	//}
+	function sudukongzhi() {
+		console.debug("remainTime ,", remainTime);
+		if (remainTime > 10) {
+			h = 10;
+			sudu = 18;
+		} else if (remainTime > 5) {
+			h = 10;
+			sudu = 20;
+		} else {
+			h = 10;
+			sudu = 22;
+		}
+	}
 
 	function draw() {
-		//	sudukongzhi();
+		sudukongzhi();
 		chansheng();
 		/**计算得分*/
 		for (var i = 0; i < tu.length; i++) {
@@ -164,16 +166,6 @@ function games() {
 					happyPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
 					};
-					/*+1 的图标显示*/
-					var plusTime = new Image();
-					plusTime.src = "images/act_16dumpling_game_addone.png";
-					//				sprite.image = plusTime;
-					plusTime.onload = function() {
-						console.debug('canvasH is ', canvasH);
-						return
-
-						ctx.drawImage(plusTime, 10, (canvasH - 40));
-					};
 
 				}
 				//2： 图片标示 	=========乌云
@@ -187,15 +179,6 @@ function games() {
 					sprite.image = cryPlayer;
 					cryPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
-					};
-					/*-2的图标显示*/
-					var reduceTime = new Image();
-					reduceTime.src = "images/act_16dumpling_game_reduce2.png";
-					//				sprite.image = reduceTime;
-					reduceTime.onload = function() {
-						//					ctx.drawImage(sprite.image, (sprite.x+200), (sprite.y+20), 10, 10)
-						console.debug('canvasH is ', canvasH);
-						ctx.drawImage(reduceTime, 10, (canvasH - 40))
 					};
 
 					if (gameTime < 0) {
@@ -240,32 +223,54 @@ function games() {
 		}
 	}
 
-//	function addListener(element, e, fn) {
-//		if (element.addEventListener) {
-//			element.addEventListener(e, fn, false);
-//		} else {
-//			element.attachEvent("on" + e, fn);
-//		}
-//	}
+	//	function addListener(element, e, fn) {
+	//		if (element.addEventListener) {
+	//			element.addEventListener(e, fn, false);
+	//		} else {
+	//			element.attachEvent("on" + e, fn);
+	//		}
+	//	}
 
 
 
-/*手指在屏幕上滑动，页面跟随手指移动*/
-document.addEventListener("touchmove", function(e) {
-	e.preventDefault();
-	var touch = e.touches[0];
-//	alert(touch.pageX);
-	if(sprite!=null){
-		var move_jl = touch.pageX-80;//小人左边x的顶点
-		if(move_jl<0){//已经到左边距离
-			move_jl = 0;
-		}else if(move_jl>canvasW-160){//已经到右边距离
-			move_jl = canvasW-160;
+	/*手指在屏幕上滑动，页面跟随手指移动*/
+	document.addEventListener("touchmove", function(e) {
+		e.preventDefault();
+		var touch = e.touches[0];
+		//	alert(touch.pageX);
+		if (sprite != null) {
+			var move_jl = touch.pageX - 80; //小人左边x的顶点
+			if (move_jl < 0) { //已经到左边距离
+				move_jl = 0;
+			} else if (move_jl > canvasW - 160) { //已经到右边距离
+				move_jl = canvasW - 160;
+			}
+			sprite.x = move_jl;
 		}
-		sprite.x = move_jl;
-	}
-}.bind(this), false);
 
+
+		scoreCountFun();
+	}.bind(this), false);
+
+	/*控制图标显示   
+			 根据  接到的是  物体判断
+			 接到 时间    +1秒
+			 接到 乌云     -2 秒
+			 * */
+	function scoreCountFun() {
+		if (tu[i].q = 1) {
+			//如果碰到时间  +1 秒图标显示
+			$("#addOneShowImg").show();
+			setTimeout(function() {
+				$("#addOneShowImg").remove();
+			}, 500)
+		} else if (tu[i].q = 2) {
+			$("#reduceTwohowImg").show();
+			setTimeout(function() {
+				$("#reduceTwohowImg").remove();
+			}, 500)
+		}
+	};
 
 
 
@@ -326,6 +331,7 @@ $(function() {
 		$('div#container').show();
 		/**初始化游戏*/
 		games();
+
 	});
 
 	/**不服再战*/
@@ -375,7 +381,26 @@ $(function() {
 
 
 
-
 });
 
 
+/*控制图标显示   
+ 根据  接到的是  物体判断
+ 接到 时间    +1秒
+ 接到 乌云     -2 秒
+ * */
+/*function scoreCountFun(){
+        if(tu[j].q = 1){
+        	//如果碰到时间  +1 秒图标显示
+        		$("#addOneShowImg").show();
+        	 setTimeout(function(){
+	            $("#addOneShowImg").remove();
+	        },500)
+        }else if(tu[j].q = 2){
+        	$("#reduceTwohowImg").show();
+	        setTimeout(function(){
+	            $("#reduceTwohowImg").remove();
+	        },500)
+        }
+    };
+*/
