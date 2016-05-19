@@ -1,5 +1,3 @@
-var tu;
-var i;
 
 function games() {
 
@@ -34,7 +32,7 @@ function games() {
 	var playerWidth = 160;
 	var playerHeight = 140;
 
-	tu = new Array();
+	var tu = new Array();
 
 	bj1.src = "images/act_16dumpling_gameBj_new.jpg";
 	//bjfooter.src = "images/act_16dumpling_geme_bottomIconNew.png" ;
@@ -87,7 +85,7 @@ function games() {
 	function chansheng() {
 		console.debug(shi, " ， ", h);
 		if (shi % h == 0) {
-			for (j = 2 * chi; j < 2 * (chi + 1); j++) {
+			for (var j = 2 * chi; j < 2 * (chi + 1); j++) {
 				tu[j] = new object();
 				var i = Math.round(Math.random() * range);
 				if (j == 2 * chi + 1) {
@@ -166,7 +164,11 @@ function games() {
 					happyPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
 					};
-
+					//如果碰到时间  +1 秒图标显示
+					$("#addOneShowImg").show();
+					setTimeout(function() {
+						$("#addOneShowImg").hide();
+					}, 500);
 				}
 				//2： 图片标示 	=========乌云
 				else if (tu[i].q == 2) {
@@ -180,7 +182,12 @@ function games() {
 					cryPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
 					};
-
+					//如果碰到乌云 -2秒图标显示
+					$("#reduceTwohowImg").show();
+					setTimeout(function() {
+						$("#reduceTwohowImg").hide();
+					}, 500);
+					
 					if (gameTime < 0) {
 						$('.timeup').html(0);
 						gameTime = 0;
@@ -248,29 +255,8 @@ function games() {
 			sprite.x = move_jl;
 		}
 
-
-		scoreCountFun();
 	}.bind(this), false);
 
-	/*控制图标显示   
-			 根据  接到的是  物体判断
-			 接到 时间    +1秒
-			 接到 乌云     -2 秒
-			 * */
-	function scoreCountFun() {
-		if (tu[i].q = 1) {
-			//如果碰到时间  +1 秒图标显示
-			$("#addOneShowImg").show();
-			setTimeout(function() {
-				$("#addOneShowImg").remove();
-			}, 500)
-		} else if (tu[i].q = 2) {
-			$("#reduceTwohowImg").show();
-			setTimeout(function() {
-				$("#reduceTwohowImg").remove();
-			}, 500)
-		}
-	};
 
 
 
@@ -313,24 +299,27 @@ $(function() {
 	$('.rule_btn').on('click', function() {
 		$('div.actRule').hide();
 
-		/*指示图标显示*/
-		$('div.slide_icon').show();
-		/*控制图标显示  3秒后消失   ，点击按钮显示*/
-		setTimeout(function() {
-			$(".slide_icon").fadeOut("fast");
-			$(".index_clickBtn").fadeIn(2000);
-		}, 3000);
+		
 	});
 
 
 
 	/**游戏开始*/
 	$('.index_clickBtn').on('click', function() {
-		$('div.index_wrap').hide();
-		/**显示游戏区域*/
-		$('div#container').show();
-		/**初始化游戏*/
-		games();
+		/*指示图标显示*/
+		$('div.slide_icon').show();
+		/*控制图标显示  3秒后消失   ，点击按钮显示*/
+		setTimeout(function() {
+			$(".slide_icon").fadeOut("fast");
+			$(".index_clickBtn").fadeIn(2000);
+			
+			$('div.index_wrap').hide();
+			/**显示游戏区域*/
+			$('div#container').show();
+			/**初始化游戏*/
+			games();
+		}, 3000);
+		
 
 	});
 
@@ -383,24 +372,3 @@ $(function() {
 
 });
 
-
-/*控制图标显示   
- 根据  接到的是  物体判断
- 接到 时间    +1秒
- 接到 乌云     -2 秒
- * */
-/*function scoreCountFun(){
-        if(tu[j].q = 1){
-        	//如果碰到时间  +1 秒图标显示
-        		$("#addOneShowImg").show();
-        	 setTimeout(function(){
-	            $("#addOneShowImg").remove();
-	        },500)
-        }else if(tu[j].q = 2){
-        	$("#reduceTwohowImg").show();
-	        setTimeout(function(){
-	            $("#reduceTwohowImg").remove();
-	        },500)
-        }
-    };
-*/
