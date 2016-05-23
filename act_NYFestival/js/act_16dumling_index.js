@@ -80,7 +80,7 @@ function games() {
 		remainTime = gameTime - parseInt((nowTime.getTime() - beginTime.getTime()) / 1000);
 		$('.timeup').html(remainTime);
 	}
-	var range = canvasW - 85 * B;
+	var range = canvasW - 80 * B;
 
 	function chansheng() {
 		console.debug(shi, " ， ", h);
@@ -89,6 +89,7 @@ function games() {
 				tu[j] = new object();
 				var i = Math.round(Math.random() * range);
 				if (j == 2 * chi + 1) {
+					//返回数字的绝对值 abs,是absolute value的缩写
 					while (Math.abs(i - tu[2 * chi].x) < 30) {
 						i = Math.round(Math.random() * range);
 					}
@@ -123,20 +124,26 @@ function games() {
 		console.debug("remainTime ,", remainTime);
 		if (remainTime > 10) {
 			h = 10;
-			sudu = 18;
+			sudu = 25;
 		} else if (remainTime > 5) {
 			h = 10;
-			sudu = 20;
+			sudu = 35;
 		} else {
 			h = 10;
-			sudu = 22;
+			sudu = 50;
 		}
 	}
-
+	
+	/* 接到不同物体的   处理
+	 * 碰到 粽子 表情正常     分数累加
+	 碰到  时钟   表情正常    并且时间 加一秒
+	 碰到  乌云   表情  变成 哭的    时间  减   2 秒
+	 碰到  炸弹   直接 结束游戏
+	 * */
 	function draw() {
 		sudukongzhi();
 		chansheng();
-		/**计算得分*/
+		/**所有情况的   判断*/
 		for (var i = 0; i < tu.length; i++) {
 			if (jianche(sprite, tu[i])) {
 				//0： 图片标示    =====粽子

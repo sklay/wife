@@ -109,11 +109,11 @@ function Ship(ctx) {
 				if (l3 <= this.height / 2 + f.height / 2) {
 					foodlist[f.id] = null;
 					if (f.type == 0) {
-						gameMonitor.stop();
+//						gameMonitor.stop();
 						//	$('#gameoverPanel').show();
 						setTimeout(function() {
 							//$('#gameoverPanel').hide();
-							$('#resultPanel_two').show();
+//							$('#resultPanel_two').show();
 //							gameMonitor.getScore();
 						}, 2000);
 						//$('#score').text(++gameMonitor.score);
