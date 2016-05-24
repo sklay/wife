@@ -6,7 +6,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>【药快到】祝天下母亲节日快乐</title>
+		<title>端午节</title>
 		<meta name="description" content="【药快到】母亲节，给母亲爱与健康。">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
@@ -56,6 +56,7 @@
 				font-family: Microsoft Yahei, Arial;
 				/*background: #f8f7f6;*/
 			}
+			
 		</style>
 	</head>
 	<script>
@@ -72,14 +73,15 @@
 		<div class="content">
 			<div class="indexPage">
 					<div class="content_top">
-						<img class="conpon_value" src="images/act_16dumpling_get_coupon.png" />
+						<img  src="images/act_16dumpling_get_icon.png" />
+						<img  src="images/act_16dumpling_get_title.png" />
 					</div>
 					<div class="getHbWrap">
 						<div class="getHb">
 							<div class="commomLogin">
-								<!--<div class="commomLogin_coupon">
-									<img src="images/act_16motherDay_receive_coupon.png" />
-								</div>-->
+								<div class="commomLogin_coupon">
+									<img src="images/act_16dumpling_get_coupon.png" />
+								</div>
 								<input type="tel" placeholder="请输入手机号码" id="userPhone">
 								<!--<button id="getHbBtn">领取现金券</button>-->
 								<img id="getHbBtn" src="images/act_16dumpling_get_receiveBtn.png" />
@@ -88,13 +90,13 @@
 							<div class="received_result" style="display: none;">
 								<div class="receive_success" style="display: none;">
 									<div class="getHb7 getHbnNum" style="display: none;">
-										<!--<img class="getHb7_img" src="images/act_16dumpling_get_coupon.png" />-->
+										<img class="getHb7_img" src="images/act_16dumpling_get_coupon7.png" />
 										<p class="receive_text receiveResult ">恭喜您领到7元现金券！</p>
 									</div>
 								</div>
 								<div class="has_received" style="display: none;">
 									<div class="has_getHb7 getHbnNum" style="display: none">
-										<!--<img class="has_getHb7_img" src="images/act_16dumpling_get_coupon.png" />-->
+										<img class="has_getHb7_img" src="images/act_16dumpling_get_coupon7.png" />
 										<p class="has_receive_text receiveResult "></p>
 									</div>
 								</div>
@@ -305,12 +307,12 @@
 							$(".receive_success").show();
 							fromUserId = result.data.userId;
 							//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
-							if (!getHbNuM == 7) {
-								$(".conpon_value").attr("src", "images/act_16dumpling_get_coupon8.png");
+							if (getHbNuM == 7) {
+								$(".getHb7_img").attr("src", "images/act_16dumpling_get_coupon7.png");
 							} 
-//							else {
-//								$(".getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
-//							}
+							else {
+								$(".getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
+							}
 							$(".receive_text").html('恭喜您，领到' + getHbNuM + '元现金券');
 							$(".getHb7").show();
 						} else if (result.result == "fail") {
@@ -324,13 +326,12 @@
 								$(".commomLogin").hide();
 								$(".received_result").show();
 								$(".has_received").show();
-								if (!(couponValue / 100) == 7) {
-//									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon.png");
-									$(".conpon_value").attr("src", "images/act_16dumpling_get_coupon8.png");
+								if ((couponValue / 100) == 7) {
+									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon7.png");
 								} 
-//								else {
-//									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
-//								}
+								else {
+									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
+								}
 								$(".has_receive_text").html((couponValue / 100) + '元现金券已经存入您的账户');
 								$(".has_getHb7").show();
 							} else {

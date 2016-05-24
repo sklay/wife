@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-family: "微软雅黑";
+				font-size: 14px;
+			}
+			.content{
+				width: 1920px;
+				/*margin: 0 auto;*/
+				min-width: 960px;
+				text-align: center;
+				padding-top: 200px;
+			}
+			.item1{
+				width:400px ;
+				display: inline-block;
+			}
+			.clearfix:after{
+				display: block;
+				clear: both;
+			}
+			.item1_img{
+				width: 200px;
+				float: left;
+			}
+			.item1_img img{
+				width: 100%;
+			}
+			.item1_text{
+				float: right;
+				width: 200px;
+			}
+		</style>
+		
+	</head>
+	<script>
+    (function (doc, win) {
+        var docEl = doc.documentElement,
+                resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                recalc    = function () {
+                    var clientWidth = docEl.clientWidth;
+                    if (clientWidth>=640) {
+                        clientWidth = 640;
+                    };
+                    if (!clientWidth) return;
+                    docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                };
+        if (!doc.addEventListener) return;
+        win.addEventListener(resizeEvt, recalc, false);
+        doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+</script>
+	<body>
+		<div class="content">
+			<div class="item1 clearfix">
+				<div class="item1_img">
+					<img src="images/ani_img.jpg" />
+				</div>
+				<!--<div class="item1_text">
+					<p>CSS3中的矩阵指的是一个方法，书写为matrix()和matrix3d()，前者是元素2D平面的移动变换(transform)，后者则是3D变换。2D变换矩阵为3*3, 如上面矩阵示意图；3D变换则是4*4的矩阵。</p>
+				</div>-->
+				<div class="show"></div>
+			</div>
+			
+			
+		</div>
+	</body>
+	<script>
+		$(function(){
+			$('.item1 .item1_img').bind('click',function(){
+				var imgSrc = $(this).attr('src');
+				var img ="<img src='"+imgSrc+"' />";
+				
+				var con = $('.show').html(img);
+				$('.item1 .item1_img').append(con);
+			});
+			
+		})
+	</script>
+</html>

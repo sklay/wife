@@ -14,12 +14,17 @@
 	width: 4.6rem;
 	margin: 0 auto;
 	padding-top: .3rem;
+	position: relative;
 }
 
 .content_top img {
 	width: 100%;
 }
-
+.content_top img:nth-child(2){
+	width: 100%;
+	position: absolute;
+	top: 2.5rem;
+}
 /*输入框样式*/
 .commomLogin {
 	width: 5rem;
@@ -79,7 +84,13 @@
 	margin: 0rem auto;
 	overflow: hidden;
 }
-
+.commomLogin_coupon{
+	width: 4rem;
+	margin: 0 auto .3rem;
+}
+.commomLogin_coupon img{
+	width: 100%;
+}
 .getHbnNum img {
 	width: 100%;
 }

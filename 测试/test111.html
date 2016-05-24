@@ -40,7 +40,7 @@
 					 -->
 					
 					
-					<img src="images/matrix_0519.png" />
+					<!--<img src="images/matrix_0519.png" />-->
 					<!--					  这就是矩阵的运算了，简化为公式：-->
 										 
 					<!--x’=ax+cy+e
@@ -54,9 +54,22 @@
 					rotate(θ)可以有matrix(cosθ,sinθ,-sinθ,cosθ,0,0)转变而来
 					skew(θx，θy)可以由matrix(1,tan(θy),tan(θx),1,0,0)转变过来-->
 					 
+				
 
-
-
+<script>
+	for(var a = 1;a<=9;a++){
+		for(var b = 1;b<=a;b++){
+			document.write("<span>"+ a +"*"+ b +"="+(a*b)+"</span>")
+		}
+		document.write("<br/>");
+	}
+	for(var a= 1;a<=9;a++){
+		for(var b= 1;b<=a;b++){
+			document.write(a+"*"+b+'='+(a*b));
+		}
+		document.write("<br/>");
+	}
+</script>
 
 					
 	</body>
