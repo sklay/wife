@@ -212,6 +212,11 @@ function games() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
 					}
 
+					var audioBoom = document.getElementById('audioBoom');
+					
+					if (audioBoom.paused) {
+						audioBoom.play();
+					}
 					stop();
 					$('.result_controllerP').hide();
 					$('#resultPanel_two').show();
@@ -230,8 +235,11 @@ function games() {
 	function jianche(a, b) {
 		var c = a.x - b.x;
 		var d = a.y - b.y;
-		if (c < b.image.width * B && c > -a.image.width * B && d < b.image.height * B && d > -a.image.height * B) {
+		if (c < (b.image.width * B)/2 && c > (-a.image.width * B) /2&& d <( b.image.height * B)/2 && d > (-a.image.height * B)/2) {
 			return true;
+			/*碰到 的物体消失*/
+			//TODO
+			
 		} else {
 			return false;
 		}
@@ -297,6 +305,41 @@ function games() {
 
 }
 
+
+var activity = {};
+activity.musicCtrl = function() {
+	var audio = document.getElementById('audioCon');
+
+	$(".music_play").on('tap', function() {
+		$img = $(this);
+		if (!audio.paused) {
+			audio.pause();
+			$img.hide();
+			$(".music_close").show();
+		} else {
+			audio.play();
+			$(".music_close").hide();
+			$img.show();
+		}
+	});
+
+	$(".music_close").on('tap', function() {
+		$img = $(this);
+		if (audio.paused) {
+			audio.play();
+			$img.hide();
+			$(".music_play").show();
+		} else {
+			audio.pause();
+			$(".music_play").hide();
+			$img.show();
+		}
+	});
+	/**自动播放*/
+//	$(".music_close").click();
+	
+};
+
 $(function() {
 	//	games() ;
 	//	$('div#container').show() ;
@@ -325,6 +368,29 @@ $(function() {
 			$('div#container').show();
 			/**初始化游戏*/
 			games();
+			
+				var a = navigator.userAgent.toLowerCase();
+	
+	/*如果没有版本号  或者是在微信打开    音乐制动播放*/
+	if(!version || is_weixin()){
+		activity.musicCtrl();
+		/**自动播放*/
+		$(".music_close").trigger('tap');
+	}else{
+		
+		//  否则不是在微信打开 且有 版本号  
+		// 判断版本号 >= 208 并且不是安卓 
+		//   音乐自动播放   
+		if(!(version < 208 && (/android/.test(a)))){
+			activity.musicCtrl();
+			
+			// app 进来 音乐不能自动播放  ，(可能是app内部 做了限制，不让  加载音乐，防止浪费流量)
+			//  用户在 首页任意位置  触碰都会 触发音乐播放
+				console.debug("touchstart") ;
+				/**自动播放*/
+				$(".music_close").trigger('tap');
+		}
+	}
 		}, 3000);
 		
 

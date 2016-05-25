@@ -132,6 +132,11 @@
 						<img src="images/act_16dumpling_geme_bottomIconNew.png" />
 					</div>
 					<div class="no_content" ></div>
+					<!--音乐图标-->
+					<div class="music_wrap" style="display: none;">
+						<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
+						<img class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
+					</div>
 				</div>
 				<!--没有碰上炸弹的情况-->
 				<div id="resultPanel" class="noboom_result result_controllerP">
@@ -148,12 +153,12 @@
 								</div>
 							</div>
 							<div class="gameOver_btn butWrap">
-								<img  class="shareFri" src="images/act_16dumpling_gameOver1_receive.png" />
-								<img id="saveAndShare"  src="images/act_16dumpling_gameOver2_sharebtn.png" />
+								<img  class="receive_btn" src="images/act_16dumpling_gameOver1_receive.png" />
+								<img class="shareFri"  src="images/act_16dumpling_gameOver2_sharebtn.png" />
 							</div>
 							<div class="shareAppPage" style="display:none">
-								<!--<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
-								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>-->
+								<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png"></img>
+								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png"></img>
 				            </div>
 						</div>
 					</div>
@@ -169,7 +174,7 @@
 								<img src="images/act_16dumpling_gameOver1_desc.png" />
 							</div>
 							<div class="gameOverTwo_btn ">
-								<img src="images/act_16dumpling_gameOver1_receive.png" />
+								<img class="receive_btn" src="images/act_16dumpling_gameOver1_receive.png" />
 								<img class="playAgain"  src="images/act_16dumpling_gameOver1_playAgain.png"/>
 							</div>
 						</div>
@@ -182,7 +187,16 @@
 		</div>
 		<script type="text/javascript" src="js/act_16dumling_index.js?v="2.0001" ></script>
 		
+		<!--控制音乐循环播放的 问题-->
+		<script type="text/javascript">
+			var onEnded = function() {
+				document.getElementById("audioCon").play();
+			};
+		</script>
+		<audio id="audioCon" src="images/act_16dumling_bjMusic.mp3" controls="controls" style="display: none;" onended="onEnded()"></audio>
+		<audio id="audioBoom" src="images/act_16dumling_boomMusic.mp3"  controls="controls" style="display: none;"></audio>
 	</body>
+	
 	<script>
 	function getUrlEle() {
 			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
@@ -305,9 +319,6 @@
 				
 				winOnLoad();
 				
-				/** 时间声明*/
-//	 			activity.init() ;
-				
 				
 			}, 500);
 		};
@@ -338,7 +349,7 @@
 					}
 				}
 			
-			$("#saveAndShare").on("click", function() {
+			$(".receive_btn ").on("click ", function() {
 			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=162";
 			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=162";
 				location.href= url ;
