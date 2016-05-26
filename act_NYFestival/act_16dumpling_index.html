@@ -25,7 +25,7 @@
 				font-family: "微軟正黑體","Microsoft Yahei";
 				background: #6fdfad;
 			}
-			html,body,.content_wrap{
+			html,body,.content_wrap,.content_index{
 				width: 100%;
 				height: 100%;
 			}
@@ -41,6 +41,15 @@
 				z-index: 10000;
 				background: rgba(0,0,0,.0);
 			}
+			.slide_icon{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10001;
+				background: rgba(0,0,0,.6);
+			}
 			.timeSocerewrap{
 				width: 1rem;
 				position: absolute;
@@ -50,6 +59,25 @@
 			.timeSocerewrap img{
 				width: 100%;
 				display: none;
+			}
+			
+			/*适配小屏手机*/
+			@media screen and (max-height: 480px) {
+				.index_title{
+					margin: 0 auto;
+				}
+				.index_thime img {
+					padding-top: 0;
+				}
+				.index_title {
+				  padding-top: .2rem;
+				}
+				.index_thime {
+				height: 4rem;
+				}
+				.index_clickBtn img {
+				bottom: 16px;
+				}
 			}
 		</style>
 		
@@ -90,9 +118,9 @@
 					<div class="index_clickBtn">
 						<img src="images/act_16dumpling_index_startBtn.png"/>
 					</div>
-					<div class="slide_icon">
+					<!--<div class="slide_icon">
 						<img src="images/act_16dumpling_slide_LR.png" />
-					</div>
+					</div>-->
 				</div>
 				<!--活动规则-->
 				<div class="actRule">
@@ -132,6 +160,9 @@
 						<img src="images/act_16dumpling_geme_bottomIconNew.png" />
 					</div>
 					<div class="no_content" ></div>
+					<div class="slide_icon">
+						<img src="images/act_16dumpling_slide_LR.png" />
+					</div>
 					<!--音乐图标-->
 					<div class="music_wrap" style="display: none;">
 						<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
@@ -198,6 +229,7 @@
 	</body>
 	
 	<script>
+		
 	function getUrlEle() {
 			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
 				return "";
@@ -292,13 +324,14 @@
 			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
 			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
 			loadPer.html(percLoad);
-			$("#loadShapePro").css({
-				"width": percLoad
-			})
-			$("#loadShapePro").animate({
-				width: percLoad
-			});
+			$("#loadShapePro").show();
+//			$("#loadShapePro").animate({
+////				width: percLoad
+//				"-webkit-transform":"translateX(170px) transform":" translateX(170px) "
+//			});
+			$("#loadShapePro").animate({"-webkit-transform":"translateX(170px)","transform":"translateX(170px"},1500)
 		}
+		
 		//全部资源加载完毕
 		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
 		function loadComplete(event) {

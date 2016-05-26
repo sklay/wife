@@ -235,7 +235,8 @@ function games() {
 	function jianche(a, b) {
 		var c = a.x - b.x;
 		var d = a.y - b.y;
-		if (c < (b.image.width * B)/2 && c > (-a.image.width * B) /2&& d <( b.image.height * B)/2 && d > (-a.image.height * B)/2) {
+//		if (c < (b.image.width * B)/2 && c > (-a.image.width * B) /2&& d <( b.image.height * B)/2 && d > (-a.image.height * B)/2) {
+			if (c < (b.image.width * B-40) && c > (-a.image.width * B+40) && d < b.image.height * B && d > -a.image.height * B) {
 			return true;
 			/*碰到 的物体消失*/
 			//TODO
@@ -298,6 +299,7 @@ function games() {
 		//document.getElementById("f").innerHTML = fs;
 		checkTime();
 		if (remainTime <= 0) {
+			$('.timeup').html(0);
 			stop();
 			console.debug("游戏结束");
 		}
@@ -356,16 +358,18 @@ $(function() {
 
 	/**游戏开始*/
 	$('.index_clickBtn').on('click', function() {
+		$('div.index_wrap').hide();
+		$('div#container').show();
 		/*指示图标显示*/
 		$('div.slide_icon').show();
 		/*控制图标显示  3秒后消失   ，点击按钮显示*/
 		setTimeout(function() {
 			$(".slide_icon").fadeOut("fast");
-			$(".index_clickBtn").fadeIn(2000);
+//			$(".index_clickBtn").fadeIn(2000);
 			
-			$('div.index_wrap').hide();
+//			$('div.index_wrap').hide();
 			/**显示游戏区域*/
-			$('div#container').show();
+//			$('div#container').show();
 			/**初始化游戏*/
 			games();
 			

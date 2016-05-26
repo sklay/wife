@@ -2,14 +2,18 @@
 .loadPage {
 	width: 100%;
 	height: 100%;
+	position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.6);
 }
 
 .load_content {
 	width: 100%;
-	margin: 3rem auto 0;
+	margin: 0 auto;
 	/*overflow: hidden;*/
 	box-sizing: border-box;
-	padding: 0 .5rem;
+	padding: 3rem .5rem 0;
 }
 
 
@@ -88,7 +92,8 @@
 	border-radius: 14px;
 	height: 14px;
 	float: left;
-	width: 0;
+	width: 100%;
+	display: none;
 }
 
 
@@ -322,7 +327,7 @@
 	height: 5.4rem;
 	background: url(../images/act_16dumpling_index_thimeBj.png)center center no-repeat;
 	background-size: 100% 100%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	text-align: center;
 }
 
@@ -378,22 +383,20 @@
 	width: 2.5rem;
 	margin: 0 auto;
 	position: absolute;
-	bottom: 20px;
+	bottom: 16px;
 	left: 50%;
 	margin-left: -1.25rem;
 	z-index: 1;
 }
 
-.slide_icon {
-	width: 100%;
+.slide_icon img {
 	position: fixed;
 	bottom: 0;
-	display: none;
-}
-
-.slide_icon img {
+	left: 50%;
+	margin-left:-1rem ;
+	/*display: none;*/
 	width: 2rem;
-	float: left;
+	/*z-index: 100001;*/
 	opacity: 0;
 	-webkit-animation-duration: 3s;
 	-webkit-animation-iteration-count: 3;
@@ -412,19 +415,19 @@
 	}
 	25% {
 		opacity: 0;
-		-webkit-transform: translate3d(200%, 0px, 0)
+		-webkit-transform: translate3d(-100px, 0px, 0)
 	}
 	50% {
 		opacity: 1;
-		-webkit-transform: translate3d(0px, 0px, 0)
+		-webkit-transform: translate3d(150px, 0px, 0)
 	}
 	75% {
 		opacity: 0;
-		-webkit-transform: translate3d(200%, 0px, 0)
+		-webkit-transform: translate3d(-150px, 0px, 0)
 	}
 	100% {
 		opacity: 1;
-		-webkit-transform: translate3d(0px, 0px, 0)
+		-webkit-transform: translate3d(100px, 0px, 0)
 	}
 }
 
