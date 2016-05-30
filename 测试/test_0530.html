@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="images/1.jpg" id="img" />
+<button name="start" id="start">start</button>
+<button name="stop" id="stop">stop</button>
+
+<script>
+
+    var index = 0;
+    var imgName = new Array("1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg");
+    var imgCurr = document.getElementById("img");
+    var start=document.getElementById("start");
+    var stop = document.getElementById("stop");
+    
+    
+    start.onclick = function(){
+    	 interval = setInterval(function () {
+	        if (index >= imgName.length) {
+	            index = 0;
+	        } else {
+	            imgCurr.src = "images/" + imgName[index++];
+	            console.debug(imgCurr.src);
+	        }
+	
+	    }, 1000);
+    };
+   
+    
+    stop.onclick = function () {
+//  	alert(1);
+        clearInterval(interval);
+    }
+
+
+</script>
+</body>
+
+</html>

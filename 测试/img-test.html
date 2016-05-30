@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<style>
+		img{
+			width:100px;
+		}
+	</style>
+	<body>
+		<img src="images/12.jpg" onclick="change(this);"/>
+		<img src="images/act_16dumpling_crymoon.png" onclick="change(this);" />
+		<img src="images/act_16dumpling_happymoon.png" onclick="change(this);" />
+	</body>
+	<script>
+		function change(obj){
+			/*移除当前图片*/
+			$(obj).remove();
+		}
+	</script>
+</html>

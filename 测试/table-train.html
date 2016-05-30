@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+	</head>
+	
+	<body>
+		<table border="1" cellpadding="1" cellspacing="0" width="400px">
+			<tr>
+				<th>姓名</th>
+				<th>学号</th>
+				<th>班级</th>
+			</tr>
+			<tr>
+				<td onclick="change(this);" style="width:400px ;">丽丽</td>
+				<td onclick="change(this)">12</td>
+				<td onclick="change(this)">一年级</td>
+			</tr>
+			<tr>
+				<td onclick="change(this)">佳佳</td>
+				<td onclick="change(this)">12</td>
+				<td onclick="change(this)">一年级</td>
+			</tr>
+		</table>
+	</body>
+	<script>
+	/*当点击时将当前的表格 变为可编辑文本*/
+		function change(obj){
+			/*1 、获取当前的   td*/
+			var $td = $(obj);
+			/*2、判断表格里是否已经有输入框，没有则添加 */
+				if($(obj).find('input').length==0){
+					/*清空 当前td的  默认元素*/
+					$td.empty();
+					/*3、声明 一个 输入框*/
+					var $input = $("<input type='text' onblur='back(this)' />")
+					/*表输入框变为 td的元素*/
+					$td.append($input);
+					
+					/*给输入框 添加获取焦点*/
+					$td.find('input').focus();
+				}
+			}
+		/*失去焦点的时候　还是变为表格*/
+		function back(obj){
+			/*1、 获取输入框的值*/
+			var value = $(obj).val();
+			/*2、 获取 当前表格 */
+			var $td = $(obj).parent();
+			/*清空表格的 值*/
+			$td.empty();
+			/*3、 把输入框的值赋给当前的表格*/
+			$td.append(value);
+		}　
+	</script>
+</html>

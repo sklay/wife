@@ -1,12 +1,16 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!DOCTYPE html>
 <html>
 
 	<head>
 		<meta charset="UTF-8">
+		<title>粽子快到篮里来！</title>
+		<meta name="description" content="你能接到几个粽子，【药快到】等你来挑战！">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<title>端午节</title>
 		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 		<script type="text/javascript" src="js/html_common.js"></script>
 		
@@ -148,7 +152,7 @@
 			<div id="container" style="display: none;">
 				<div id="gamepanel">
 					<div class="score-wrap">
-						<span id="score" class="timeup">0:30</span>
+						<span id="score" class="timeup"></span>
 					</div>
 					<!--游戏画布-->
 					<canvas id="stage"></canvas>
@@ -178,18 +182,21 @@
 						<div class="gameOver_text">
 							<div class="gameOver_desc">
 								<img class="headIcon" src="images/act_16dumpling_gameOver2_headIcon.png" />
-								<span id="sscore" class="lighttext">30</span>
 								<div class="gameOver_descText">
 									<img src="images/act_16dumpling_gameOver2_desc.png" />
 								</div>
+								<div class="score_wrap">
+									<span id="sscore" class="lighttext"></span>
+								</div>
+								
 							</div>
 							<div class="gameOver_btn butWrap">
 								<img  class="receive_btn" src="images/act_16dumpling_gameOver1_receive.png" />
 								<img class="shareFri"  src="images/act_16dumpling_gameOver2_sharebtn.png" />
 							</div>
-							<div class="shareAppPage" style="display:none">
-								<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;"  id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png"></img>
-								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png"></img>
+							<div class="shareAppPage" >
+								<img class="gameOverBtn appShareBtn"   id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png"></img>
+								<img class="gameOverBtn appShareBtn"  id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png"></img>
 				            </div>
 						</div>
 					</div>
@@ -325,10 +332,6 @@
 			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
 			loadPer.html(percLoad);
 			$("#loadShapePro").show();
-//			$("#loadShapePro").animate({
-////				width: percLoad
-//				"-webkit-transform":"translateX(170px) transform":" translateX(170px) "
-//			});
 			$("#loadShapePro").animate({"-webkit-transform":"translateX(170px)","transform":"translateX(170px"},1500)
 		}
 		
@@ -383,10 +386,92 @@
 				}
 			
 			$(".receive_btn ").on("click ", function() {
-			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=162";
-			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=162";
+			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
+				// var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
+			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=210";
 				location.href= url ;
 			});
 		}
 	</script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+var wechatObj={};
+wechatObj.title = '粽子快到篮里来！';
+wechatObj.desc ='你能接到几个粽子，【药快到】等你来挑战！';
+wechatObj.link = 'http://' +location.host+ '/medhtml/common/act_16dumpling_index';
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16dumpling_shareImg.jpg';
+/** 默认是生产APPID*/
+var appid = 'wxade8c5e473c645e9' ;
+if(location.host.indexOf('deve') >= 0){
+	/** 准生产APPID*/
+	appid = 'wx697be0ec43c8cafa' ;
+}
+if(is_weixin()){
+	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
+			success:function(wechatReturn){
+				if (wechatReturn) {
+					wx.config({
+					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					    appId: appid, // 必填，公众号的唯一标识  
+					    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					    signature: wechatReturn.signature,// 必填，签名，见附录1
+					    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					 });
+				};
+				wx.ready(function(){
+					getWechatObj()
+				})
+			}
+		});
+};	
+
+ function shareSucc(){
+	$("#shareFriSha").hide();	
+	$(".butWrap").show();
+	$(".shareAppPage").hide();
+} 
+
+function getWechatObj(){
+	wx.onMenuShareTimeline({
+		title: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	 shareSucc() 
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	 shareSucc() 
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareQQ({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	 shareSucc() 
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareWeibo({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	 shareSucc() 
+        },
+        cancel: function () {}
+    });
+}
+</script>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+	</head>
+	<body>
+		<table border="1" cellpadding="1" cellspacing="0" width="400px">
+			<tr>
+				<th>姓名</th>
+				<th>学号</th>
+				<th>班级</th>
+				<th>操作</th>
+			</tr>
+			<tr>
+				<td onclick="change(this)" data-default = "" data-curValue = "">丽丽</td>
+				<td onclick="change(this)" data-default = "" data-curValue = "">12</td>
+				<td onclick="change(this)" data-default = "" data-curValue = "">一年级</td>
+				<td >
+					<button onclick="save(this);"  disabled="disabled">确认</button>
+					<button onclick="noSave(this);"   disabled="disabled">取消</button>
+					<button onclick="back(this);"   disabled="disabled">还原</button>
+				</td>
+			</tr>
+			<tr>
+				<td onclick="change(this)" data-default = "" data-curValue = "">佳佳</td>
+				<td onclick="change(this)" data-default = "" data-curValue = "">12</td>
+				<td onclick="change(this)" data-default = "" data-curValue = "">一年级</td>
+				<td disabled="false">
+					<button onclick="save(this);"  disabled="disabled">确认</button>
+					<button onclick="noSave(this);"   disabled="disabled">取消</button>
+					<button onclick="back(this);"   disabled="disabled">还原</button>
+				</td>
+			</tr>
+		</table>
+	</body>
+	<script>
+	/*
+	 实现 功能    1、把表格 变为可编辑 文本框
+	 		   2、输入内容后 点击确认    输入框的  的值 变为 表格 的值  输入框不在
+	 		   3、取消   输入内容后点击 取消   输入框不在， 本次操作的值  被取消   保留的是上一次操作的值
+	 		   4、返回    输入内容后   返回  输入框不在  ，本次操作的值不在   保留最初始的值
+	 * */
+	
+	/*实现表格的可编辑操作*/
+	function change(obj){
+		/*保留  表格的初始值*/
+		/*初始值 是不会被改变的  ，判断   如果初始值的属性为空   ，给初始值设置值 ，值为 表格的 原始值*/
+		if('' == $(obj).attr('data-default')){
+			$(obj).attr('data-default',$(obj).html());
+		}
+		
+		/*设置一一个 每次操作后  ，表格  新获得的值   ，这个值  会随着操作的 变化 而变化*/
+		$(obj).attr('data-curValue',$(obj).html());
+		
+		var $td = $(obj);
+		if($td.find('input').length == 0){
+			var $input = $("<input type='text'/>");
+			
+			$td.empty();
+			
+			$td.append($input);
+			
+			$td.find('input').focus();
+			
+			$td.parent().find('button').removeAttr('disabled');
+		}
+	}	
+		
+		
+		/*保存操作*/
+		function save(obj){
+			if($(obj).parent().parent().find('input')){
+				var $input = $(obj).parent().parent().find('input');
+			
+				var input_value = $input.val();
+				
+				var $td = $input.parent();
+				
+				$td.empty();
+				
+				$td.append(input_value);
+			}
+			
+		}
+		
+		
+		/*取消*/
+		function noSave(obj){
+			if($(obj).parent().parent().find('input')){
+				var $input = $(obj).parent().parent().find('input');
+				
+				var $td = $input.parent();
+				
+				$td.empty();
+				
+				var curValue = $td.attr('data-curValue');
+				
+				$td.append(curValue);
+			}
+		}
+		
+		/*还原*/
+		function back(obj){
+			if($(obj).parent().parent().find('input')){
+				var $input = $(obj).parent().parent().find('input');
+				
+				var $td = $input.parent();
+				
+				$td.empty();
+				
+				var defaultValue = $td.attr('data-default');
+				
+				$td.append(defaultValue);
+			}
+		}
+	</script>
+</html>

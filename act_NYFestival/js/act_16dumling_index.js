@@ -186,9 +186,9 @@ function games() {
 					var cryPlayer = new Image();
 					cryPlayer.src = "images/act_16dumpling_crymoon.png";
 					sprite.image = cryPlayer;
-					cryPlayer.onload = function() {
+//					cryPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
-					};
+//					};
 					//如果碰到乌云 -2秒图标显示
 					$("#reduceTwohowImg").show();
 					setTimeout(function() {
@@ -208,9 +208,9 @@ function games() {
 					var bombPlayer = new Image();
 					bombPlayer.src = "images/act_16dumpling_diemoon.png";
 					sprite.image = bombPlayer;
-					bombPlayer.onload = function() {
+//					bombPlayer.onload = function() {
 						ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight)
-					}
+//					}
 
 					var audioBoom = document.getElementById('audioBoom');
 					
@@ -246,15 +246,6 @@ function games() {
 		}
 	}
 
-	//	function addListener(element, e, fn) {
-	//		if (element.addEventListener) {
-	//			element.addEventListener(e, fn, false);
-	//		} else {
-	//			element.attachEvent("on" + e, fn);
-	//		}
-	//	}
-
-
 
 	/*手指在屏幕上滑动，页面跟随手指移动*/
 	document.addEventListener("touchmove", function(e) {
@@ -285,6 +276,9 @@ function games() {
 	function stop() {
 		clearInterval(interval);
 		$('.result_controllerP').hide();
+		 wechatObj.title = '粽子快到篮里来！';
+         wechatObj.desc ='我在【药快到】成功接到'+fs+'个粽子，你敢挑战我的记录吗？';
+         getWechatObj();
 		$('.lighttext').html(fs);
 		$('#resultPanel').show();
 	}
@@ -418,6 +412,7 @@ $(function() {
 			$("#shareFriSha").show();
 		} else {
 			if (appShareFun()) {
+				alert(111);
 				$(".butWrap").hide();
 				$(".shareAppPage").show();
 			}
