@@ -1,0 +1,35 @@
+{
+	"act_16motherDay_gethb.html": {
+		"resources": [
+			"images/act_16gxy_coupon_icon.png",
+			"images/act_commonHead_img.jpg",
+			"js/html_common.js",
+			"images/act_16motherDay_receive_bj.jpg",
+			"images/act_16motherDay_receive_coupon.png",
+			"style/act_16motherDay_gethb.css",
+			"images/act_16motherDay_receive_title.png",
+			"js/jquery-2.2.0.min.js",
+			"images/act_16motherDay_receive_coupon7.png"
+		]
+	},
+	"janli_zhouhaixia.html": {
+		"resources": [
+			"fanti.ttf",
+			"js/html_common.js",
+			"images/spite_80.png",
+			"images/spite_200.png",
+			"style/janli_zhouhaixia.css",
+			"js/jquery-1.7.2.min.js"
+		]
+	},
+	"janli_zhouhaixia2.html": {
+		"resources": [
+			"fanti.ttf",
+			"js/html_common.js",
+			"images/spite_200.png",
+			"style/janli_zhouhaixia.css",
+			"js/jquery-1.7.2.min.js",
+			"images/common_icon.png"
+		]
+	}
+}
