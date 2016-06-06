@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		/*css3  美化   复选框*/
+			.checkDiv{
+				position: relative;
+			}
+			.checklable{
+				width: 58px;
+				height: 30px;
+				background: #BBBBBB;
+				display: inline-block;
+				border: 1px solid #ddd;
+				border-radius: 116px;
+				transition: background-color 1s 2s;
+			}
+			.checklable:before{
+				position: absolute;
+				top: 1px;
+				left: 28px;
+				width: 28px;
+				height: 28px;
+				background: #fff;
+				border: 1px solid #ddd;
+				content: "";
+				border-radius: 100px;
+				transition: left 3s cubic-bezier(0, 0.63, 1, 1);
+			}
+			#checkbox_c1:checked +.checklable:before{
+				left: 58px;
+			}
+			#checkbox_c1:checked +.checklable{
+				background: #069104;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="checkDiv">
+			<input type="checkbox" id="checkbox_c1" class="chk_3" />
+			<label for="checkbox_c1" class="checklable"></label>
+		</div>
+	</body>
+	<script>
+		var myClass = function(){
+			func1 = function(){
+				alert(1);
+			};
+			this.func2 = function(){
+				alert(2);
+			};
+		}
+		myClass.prototype.func3 = function(){
+			alert(3);
+		};
+		console.debug(myClass.func2);
+	</script>
+</html>

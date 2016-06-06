@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			input{
+				border: 1px solid #000;
+				background: #F0F3F9;
+				color: #3A342A;
+			}
+			.wrong{
+				border: 1px solid #FF0000;
+			}
+			.right{
+				border: 1px solid #00ff00;
+			}
+		</style>
+		<script>
+		/*验证密码为空*/
+			function validateEmpty(elementName){
+				var objElement = document.getElementById(elementName);
+				
+				var msgElement = document.getElementById(msgElement + "Msg");
+				
+				if(objElement.value !=""){
+					objElement.className = "right";
+					msgElement.innerHTML = "<span style='color: green;'>你输入的内容正确</span>";
+					return true;
+				}else{
+					objElement.className = "wrong";
+					msgElement.innerHTML = "<span style='color:red;'>你输入的内容不正确</span>";
+					return false;
+				}
+			}
+			/**/
+			function validatePwd(){
+				return validateEmpty("pwd");
+			}
+		</script>
+	</head>
+	<body>
+		输入密码:<input type="password" name="pwd" id="pwd" />
+				<span id="pwdMsg"></span> 
+				<br/>
+				<br/>
+		确认密码:<input type="password" name="conf" id="conf" />
+				 <span id="confMsg"></span><br/>
+	</body>
+</html>

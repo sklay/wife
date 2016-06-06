@@ -1,0 +1,391 @@
+	/*首页  index  动画*/
+	/*标题动画*/
+	@-webkit-keyframes fadeIn {
+		from {
+			transform: scale(.2);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			transform: scale(.2);
+			opacity: 0;
+		}
+		to {
+			transform: scale(1);
+			opacity: 1;
+		}
+			}
+			
+
+/*药快到感恩节母亲。。。。动画*/
+ @-webkit-keyframes giftBoxmove{
+			100%{-webkit-transform:translateY(0rem)}
+} 
+
+/*母子左边出现动画*/
+@-webkit-keyframes people_move{
+	0%{
+		transform: translateX(-250px);
+		opacity: 0;
+	}
+	
+	100%{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes people_move_right{
+	0%{
+		transform: translateX(250px);
+		opacity: 0;
+	}
+	
+	100%{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+}
+
+
+
+/*底部花的动画*/
+@-webkit-keyframes flow_move{
+	from{
+		transform: translateY(156px);
+		opacity: 0;
+	}
+	to{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes slide_up_move{
+	from{
+		transform: translateY(0);
+		opacity: 1;
+	}
+	to{
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+}
+
+/*首页样式end*/
+/*展示页 start*/
+/*第一幅图 start*/
+
+@-webkit-keyframes left_move{
+	0%{
+		transform: translateX(-50px);
+	}
+	
+	50%{
+		transform: translateX(0px);
+	}
+	100%{
+		transform: translateX(50px);
+	}
+}
+@-webkit-keyframes right_move{
+	0%{
+		transform: translateX(50px);
+	}
+	
+	50%{
+		transform: translateX(0px);
+	}
+	100%{
+		transform: translateX(-50px);
+	}
+}
+
+/*第一幅图 end*/
+/*第二幅图 start*/
+
+@-webkit-keyframes big_move1{
+
+	/*
+	 * 放大后有个转效果的动画
+	 * 
+	 * */
+	0%{
+		transform: scale(1.4);	
+	}
+	50%{
+		transform: scale(.8);	
+	}
+	100%{
+		transform: scale(1);	
+	}
+}
+
+/*第二幅 end*/
+/*第三幅start*/
+
+@-webkit-keyframes three_desc{
+	0%{
+		transform: scale(0);
+	}
+	100%{
+		transform: scale(1);	
+	}
+}
+
+
+/*第三幅图end*/
+/*第四幅图start*/
+
+@-webkit-keyframes fore_desc_left{
+	0%{
+		transform: translateX(-250px);
+	}
+	
+	100%{
+		transform: translateX(0px);
+	}
+}
+@-webkit-keyframes fore_desc_right{
+	0%{
+		transform: translateX(250px);
+	}
+	
+	100%{
+		transform: translateX(0px);
+	}
+}
+
+/*第四幅图end*/
+
+/*第五幅图start*/
+
+@-webkit-keyframes big_move{
+	0%{
+		transform: scale(1.4);	
+	}
+	30%{
+		transform: scale(1);	
+	}
+	50%{
+		transform: scale(1.4);	
+	}
+	75%{
+		transform: scale(.8);	
+	}
+	100%{
+		transform: scale(1);	
+	}
+	
+}
+
+/*第五幅图end*/
+/*第六幅图start*/
+
+/*母亲节到了  动画*/
+@-webkit-keyframes tada {
+	0% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1)
+	}
+	10%,
+	20% {
+		-webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+		transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+	}
+	30%,
+	50%,
+	70%,
+	90% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+	}
+	40%,
+	60%,
+	80% {
+		-webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+		transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+	}
+	100% {
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1)
+	}
+}
+
+
+
+
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+
+
+ .slideOutUp {
+	-webkit-animation-name: slideOutUp;
+	animation-name: slideOutUp
+}
+/*音乐动画*/
+@-webkit-keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg)
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg)
+	}
+}
+
+@keyframes rotate {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg)
+	}
+	100% {
+		-webkit-transform: rotate(359deg);
+		transform: rotate(359deg)
+	}
+}
+
+.rotate {
+	-webkit-animation: rotate 1s linear;
+	animation: rotate 1s linear
+} 
+
+
+/*爱心飘下动作*/
+@-webkit-keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+@keyframes fadeInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -100%, 0);
+		transform: translate3d(0, -100%, 0)
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: none;
+		transform: none
+	}
+}
+
+
+/*文字 显示*/
+
+			@-webkit-keyframes bounceIn {
+				from,
+				20%,
+				40%,
+				60%,
+				80%,
+				100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, .61, .355, 1);
+					animation-timing-function: cubic-bezier(0.215, .61, .355, 1)
+				}
+				0.001% {
+					opacity: 0;
+					-webkit-transform: scale3d(.1, .1, .1);
+					transform: scale3d(.1, .1, .1)
+				}
+				20% {
+					-webkit-transform: scale3d(1.1, 1.1, 1.1);
+					transform: scale3d(1.1, 1.1, 1.1)
+				}
+				40% {
+					-webkit-transform: scale3d(.9, .9, .9);
+					transform: scale3d(.9, .9, .9)
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: scale3d(1.03, 1.03, 1.03);
+					transform: scale3d(1.03, 1.03, 1.03)
+				}
+				80% {
+					-webkit-transform: scale3d(.97, .97, .97);
+					transform: scale3d(.97, .97, .97)
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1)
+				}
+			}
+			
+			@keyframes bounceIn {
+				from,
+				20%,
+				40%,
+				60%,
+				80%,
+				100% {
+					-webkit-animation-timing-function: cubic-bezier(0.215, .61, .355, 1);
+					animation-timing-function: cubic-bezier(0.215, .61, .355, 1)
+				}
+				0.001% {
+					opacity: 0;
+					-webkit-transform: scale3d(.1, .1, .1);
+					transform: scale3d(.1, .1, .1)
+				}
+				20% {
+					-webkit-transform: scale3d(1.1, 1.1, 1.1);
+					transform: scale3d(1.1, 1.1, 1.1)
+				}
+				40% {
+					-webkit-transform: scale3d(.9, .9, .9);
+					transform: scale3d(.9, .9, .9)
+				}
+				60% {
+					opacity: 1;
+					-webkit-transform: scale3d(1.03, 1.03, 1.03);
+					transform: scale3d(1.03, 1.03, 1.03)
+				}
+				80% {
+					-webkit-transform: scale3d(.97, .97, .97);
+					transform: scale3d(.97, .97, .97)
+				}
+				100% {
+					opacity: 1;
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1)
+				}
+			}
+
