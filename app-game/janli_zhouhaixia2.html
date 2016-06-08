@@ -38,18 +38,14 @@
 			background: #F3CF65;
 		}
 		
-		html,
-		body,
-		.content_wrap,
-		.content,
-		.index_wrap,
-		.info_wrap,
-		.common_wrap,
-		.work_wrap,
-		.show_works,
-		.link_wrap {
-			width: 100%;
-			height: 100%;
+		html, body, .content_wrap, .content, .common_wrap {
+		    width: 100%;
+		    height: 100%;
+		    overflow: hidden;
+		}
+		.common_wrap{
+			background: url(images/back_icon.png)no-repeat center center;
+			background-size:100% 100% ;
 		}
 		
 		@font-face {
@@ -76,59 +72,21 @@
 		}
 		
 
-.pt-page-moveFromBottom {
- 	-webkit-animation: moveFromBottom .6s ease both;
- 	animation: moveFromBottom .6s ease both;
- }
- @-webkit-keyframes moveFromBottom {
- 	from {
- 		-webkit-transform: translateY(100%);
- 	}
- }
- @keyframes moveFromBottom {
- 	from {
- 		-webkit-transform: translateY(100%);
- 		transform: translateY(100%);
- 	}
- }
+
  .pt-page-moveFromTop {
  	-webkit-animation: moveFromTop .6s ease both;
  	animation: moveFromTop .6s ease both;
  }
- @-webkit-keyframes moveFromTop {
- 	from {
- 		-webkit-transform: translateY(-100%);
- 	}
- }
- @keyframes moveFromTop {
- 	from {
- 		-webkit-transform: translateY(-100%);
- 		transform: translateY(-100%);
- 	}
- }
+ 
  .pt-page-moveToBottom {
- 	-webkit-animation: moveToBottom .6s ease both;
- 	animation: moveToBottom .6s ease both;
+ 	-webkit-perspective: 800px;
+	-webkit-perspective-origin: 50% 100px;
+	-webkit-perspective-origin: 0 0;
+ 	-webkit-animation: spin-vertical .6s ease both;
+ 	animation: spin-vertical .6s ease both;
  }
- @-webkit-keyframes moveToBottom {
- 	from {}
- 	
- 	to {
- 		-webkit-transform: translateY(100%);
- 	}
- }
- @keyframes moveToBottom {
- 	from {}
- 	
- 	to {
- 		-webkit-transform: translateY(100%);
- 		transform: translateY(100%);
- 	}
- }
-	/*.index_wrap{
-		-webkit-transform-style: preserve-3d;
-		-webkit-animation: spin-vertical 5s  linear;
-	}
+ 
+	
 		@-webkit-keyframes spin-vertical {
 				from {
 					-webkit-transform: rotateX(0);
@@ -136,15 +94,18 @@
 				to {
 					-webkit-transform: rotateX(-360deg);
 				}
-			}*/
+			}
 	</style>
 
 	<body>
 		<div class="content_wrap">
 			<div class="content">
 				<!--首页-->
-				<div class="index_wrap hide common_wrap  hide">
-					<p class="index_title" style="font-family: 'Open Sans';">个人简历</p>
+				<div class="index_wrap  common_wrap  ">
+					<div>
+						<p class="index_title" style="font-family: 'Open Sans';">个人简历</p>
+					</div>
+					
 					<div class="photo_wrap fadeInUp hide">
 						<div class="my_photo_img"></div>
 						<div class="my_pic_box">
@@ -159,8 +120,11 @@
 				</div>
 				<!--index  end-->
 				<!--个人资料-->
-				<div class="info_wrap hide common_wrap">
-					<h1 style="font-family: 'Open Sans';">个人资料</h1>
+				<div class="info_wrap  common_wrap">
+					<div>
+						<h1 style="font-family: 'Open Sans';">个人资料</h1>
+					</div>
+					
 					<div class="show_wrap">
 						<span></span>
 						<div class="info_text_div">
@@ -176,8 +140,10 @@
 				</div>
 				<!--个人资料 end-->
 				<!--自我评价-->
-				<div class="common_wrap hide common_wrap">
-					<h1 style="font-family: 'Open Sans';">自我评价</h1>
+				<div class="common_wrap  common_wrap">
+					<div>
+						<h1 style="font-family: 'Open Sans';">个人资料</h1>
+					</div>
 					<div class="common_text_div">
 						<p>1、我对软件开发一直都有浓厚的兴趣，有较强的自学能力和钻研精神，对于新技术、新平台能够很的适应并发挥作用。 </p>
 						<p>2、技术是可以通过学习得到经验可以通过长期的工作积累，但是一个人的做事的态度却不容易改变，态度决定的一个事情的成败，我做事认真、细致、执行力强。</p>
@@ -187,8 +153,10 @@
 				</div>
 				<!--自我评价 end-->
 				<!--工作经历-->
-				<div class="work_wrap hide common_wrap">
-					<h1 style="font-family: 'Open Sans';">工作履历</h1>
+				<div class="work_wrap  common_wrap">
+					<div>
+						<h1 style="font-family: 'Open Sans';">个人资料</h1>
+					</div>
 					<div class="work_info">
 						<img src="images/common_icon.png" />
 					</div>
@@ -219,8 +187,10 @@
 				<!--工作简历 end-->
 
 				<!--作品展示-->
-				<div class="show_works hide common_wrap">
-					<h1 style="font-family: 'Open Sans';">作品展示</h1>
+				<div class="show_works  common_wrap">
+					<div>
+						<h1 style="font-family: 'Open Sans';">个人资料</h1>
+					</div>
 					<div id="show_works_content" class="owl-carousel owl-theme">
 						<div class="item">
 							<img src="images/act_chri_homeMod1.jpg" alt="">
@@ -239,8 +209,10 @@
 				</div>
 				<!--作品展示  end-->
 				<!--联系方式-->
-				<div class="link_wrap common_wrap hide">
-					<h1 style="font-family: 'Open Sans';">联系方式</h1>
+				<div class="link_wrap common_wrap ">
+					<div>
+						<h1 style="font-family: 'Open Sans';">个人资料</h1>
+					</div>
 					<div></div>
 				</div>
 			</div>
@@ -250,11 +222,13 @@
 		</div>
 	</body>
 	<script>
+	$(function(){
 		/**初始都隐藏**/
+		
 		$('.content .common_wrap').find("div").addClass("hide");
-		//$('.content .common_wrap').find("img").addClass("hide");
+		$('.content .common_wrap').find("img").addClass("hide");
 		$(".index_wrap").find("div").removeClass('hide').addClass("show");
-		//$(".index_content").find("img").removeClass('hide').addClass("show");
+		$(".index_wrap").find("img").removeClass('hide').addClass("show");
 		$('.index_wrap').addClass('page-current');
 		
 		
@@ -272,6 +246,8 @@
 			
 			activity.init();
 		});
+	});
+		
 	</script>
 
 </html>

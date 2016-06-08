@@ -17,11 +17,24 @@ activity.showPage = function(currPage,nextPage,css){
 		$nextPage.addClass(inClass);
 		/** 存在上一个兄弟节点*/
 		/*影藏当前的    div   显示 上一个*/
-		currPage.hide();
-		currPage.find('div').addClass('hide');
-		nextPage.show();
-		currPage.removeClass('page-current');
-		nextPage.addClass('page-current').find('div').addClass('show');
+//		currPage.hide();
+//		currPage.find('div').addClass('hide');
+//		currPage.removeClass('page-current');
+		
+		$currPage.removeClass('page-current');
+		$currPage.removeClass(outClass);
+		$currPage.addClass("hide");
+		$currPage.find("img").removeClass("show").addClass("hide");
+		$currPage.find("div").removeClass("show").addClass("hide");
+
+		$nextPage.addClass('page-current');
+		$nextPage.removeClass(inClass);
+		$nextPage.removeClass("hide");
+		$nextPage.find("img").removeClass("hide").addClass("show");
+		$nextPage.find("div").removeClass("hide").addClass("show");
+
+//		nextPage.show();
+//		nextPage.addClass('page-current').find('div').addClass('show');
 }
 
 activity.swipe = function() {
@@ -31,7 +44,7 @@ activity.swipe = function() {
 		/*获取当前显示的 div*/
 		$nowPage = $('.page-current');
 		/*获取 上一个  兄弟div*/
-		$prevPage = $nowPage.prev();
+		$prevPage = $nowPage.prev('.common_wrap');
 		
 		var css = {
 			outClass: 'pt-page-moveToBottom',
@@ -48,7 +61,7 @@ activity.swipe = function() {
 		/*获取当前显示的 div*/
 		$nowPage = $('.page-current');
 		/*获取 下一个  兄弟div*/
-		$nextPage = $nowPage.next();
+		$nextPage = $nowPage.next('.common_wrap');
 		
 		var css = {
 			outClass: 'pt-page-moveToBottom',
