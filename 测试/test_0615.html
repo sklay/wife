@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script type="text/javascript" src="js/zepto.min.js"></script>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html {
+			font-size: 62.5%;
+		}
+		
+		body {
+			width: 100%;
+			font-size: 14px;
+			font-family:STXingkai;
+		}
+		
+		html,
+		body,
+		.content,
+		.con_wrap {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		.con_wrap {
+			background: #D4E6A8;
+			position: relative;
+		}
+		
+		.con_wrap_text {
+			position: absolute;
+			left: 50%;
+			margin-left: -425px;
+			/*top: 5rem;*/
+		}
+		
+		.left_wrap_text {
+			width: 6.4rem;
+			/*height: 100%;*/
+			float: left;
+		}
+		
+		p,
+		h1 {
+			font-size: .5rem;
+			line-height: 1rem;
+		}
+		
+		.left_wrap {
+			background: #EBEFE3;
+			resize: none;
+			outline: none;
+			overflow-y: auto;
+			width: 5.6rem;
+			height: 8rem;
+			padding:.4rem;
+		}
+		
+		.right_Wrap {
+			float: right;
+			width: 1.5rem;
+			margin-top: .5rem;
+			margin-left: .6rem;
+		}
+		
+		li span {
+			display: block;
+			width: 140px;
+			height: 160px;
+			background: url(images/test_0615.png)no-repeat;
+			background-size: 100% 100%;
+		}
+		
+		.text_content_item {}
+		.user_corp{
+		    width: 1.5rem;
+    		position: absolute;
+		}
+		.user_corp img{
+			width: 100%;
+		}
+	</style>
+
+	<body>
+		<div class="content">
+			<div class="con_wrap ">
+				<div class="con_wrap_text clearfix">
+					<div class="left_wrap_text">
+						<div class="left_wrap">
+							<div class="text_content_item">
+								<p>
+									<h1>关于清明</h1></p>
+								<p>
+									但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+								</p>
+								<p>
+									我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+								</p>
+							</div>
+							<div class="text_content_item1" style="display: none;">
+								<p>
+									<h1>关于清明</h1></p>
+								<p>
+									但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+								</p>
+								<p>
+									我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+								</p>
+							</div>
+							<div class="text_content_item2" style="display: none;">
+								<p>
+									<h1>关于清明</h1></p>
+								<p>
+									但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+								</p>
+								<p>
+									我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+								</p>
+							</div>
+						</div>
+					</div>
+					<div class="right_Wrap">
+						<div class="user_corp">
+							<img src="images/test1_0615.png" />
+						</div>
+						<ul>
+							<li> <span></span></li>
+							<li> <span></span></li>
+							<li> <span></span></li>
+							<li> <span></span></li>
+							<li> <span></span></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var  iconHeight = 147;
+	/* 手指在屏幕上滑动，页面跟随手指移动 */
+	document.addEventListener("touchmove", function(e) {
+		e.preventDefault();
+		var touch = e.touches[0];
+//		if (sprite != null) {
+			var move_jl = touch.pageY - (iconHeight / 2); // 小人左边x的顶点
+			if (move_jl < 0) { // 已经到顶边距离
+				move_jl = 0;
+			} else if (move_jl > clientY - iconHeight) { // 已经到底边距离
+				move_jl = clientY - iconHeight;
+			}
+			sprite.y = move_jl;
+//		}
+
+	}.bind(this), false);
+
+//	function move(event) {
+//		sprite.y = event.clientY;
+//		if (sprite.y + iconHeight >= clientY)
+//			sprite.y = clientY - iconHeight;
+//		else if (sprite.y <= iconHeight / 2)
+//			sprite.y = 0;
+//	}
+//		
+	
+	</script>
+</html>

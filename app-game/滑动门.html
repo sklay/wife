@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: #eeeeee;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font-size: 12px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #3C3C3C;
+        }
+
+        .tab {
+            width: 298px;
+            height: 98px;
+            overflow: hidden;
+            margin: 10px;
+            border: 1px solid #eeeeee;
+            background-color: #ffffff;
+        }
+
+        .tab-title {
+            width: 300px;
+            height: 26px;
+        }
+
+        .tab-title ul li {
+            float: left;
+            width: 58px;
+            height: 26px;
+            text-align: center;
+            line-height: 26px;
+            padding: 0 1px;
+        }
+
+        .tab-title ul {
+            width: 300px;
+        }
+
+        .tab-title ul li.select {
+            font-weight: 700;
+            border-bottom: 2px solid orange;
+        }
+
+        .tab li a:hover {
+            color: orange;
+        }
+
+        .tabct {
+            margin: 20px 10px;
+            overflow: hidden;
+        }
+
+        .tabct li {
+            float: left;
+            width: 139px;
+            height: 25px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div id="tab" class="tab">
+    <div class="tab-title" id="tab-title">
+        <ul>
+            <li class="select"><a href="#">公告</a></li>
+            <li class=""><a href="#">规则</a></li>
+            <li class=""><a href="#">论坛</a></li>
+            <li class=""><a href="#">安全</a></li>
+            <li class=""><a href="#">公益</a></li>
+        </ul>
+    </div>
+    <div class="tab-content" id="tab-content">
+        <div class="tabct" style="display: block">
+            <ul>
+                <li><a href="#">淘宝招募卖家志愿者</a></li>
+                <li><a href="#">淘宝招募卖家志愿者</a></li>
+                <li><a href="#">淘宝招募卖家志愿者</a></li>
+                <li><a href="#">淘宝招募卖家志愿者</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li><a href="#">阿里推出兼职神器</a></li>
+                <li><a href="#">阿里推出兼职神器</a></li>
+                <li><a href="#">阿里推出兼职神器</a></li>
+                <li><a href="#">阿里推出兼职神器</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li><a href="#">700家热风淘宝路</a></li>
+                <li><a href="#">700家热风淘宝路</a></li>
+                <li><a href="#">700家热风淘宝路</a></li>
+                <li><a href="#">700家热风淘宝路</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li><a href="#">是赚钱还是骗子</a></li>
+                <li><a href="#">是赚钱还是骗子</a></li>
+                <li><a href="#">是赚钱还是骗子</a></li>
+                <li><a href="#">是赚钱还是骗子</a></li>
+            </ul>
+        </div>
+        <div class="tabct" style="display: none">
+            <ul>
+                <li><a href="#">淘宝用户必备神器</a></li>
+                <li><a href="#">淘宝用户必备神器</a></li>
+                <li><a href="#">淘宝用户必备神器</a></li>
+                <li><a href="#">淘宝用户必备神器</a></li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    var lis = document.getElementById("tab-title").getElementsByTagName("li");
+    var divs = document.getElementById("tab-content").getElementsByTagName("div");
+    console.debug(lis);
+    console.debug(divs);
+    var n = 0;
+    var timer;
+    for (i = 0; i < lis.length; i++) {
+        lis[i].value = i;
+        lis[i].onmouseover = function () {
+              var that=this;
+            timer = setTimeout(function () {
+                for (j = 0; j < lis.length; j++) {
+                    lis[j].className = "";
+                    divs[j].style.display = "none";
+                }
+                that.className = "select";
+                divs[that.value].style.display = "block";
+            }, 1000)
+
+        };
+
+        lis[i].onmouseout=function(){
+
+            clearTimeout(timer);
+        }
+
+    }
+
+
+
+    setInterval(function () {
+        n = n >= (lis.length - 1) ? 0 : ++n;
+        lis[n].onmouseover();
+    }, 2000);
+
+
+</script>
+
+
+</body>
+</html>

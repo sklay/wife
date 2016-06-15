@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			p{
+				font-size: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+	<!--	js页面滚动时层智能浮动定位实现(jQuery)   -->
+	<div id="float">
+		<p>js页面滚动时层智能浮动定位实现</p>
+
+	</div>
+	</body>
+	<script>
+		$.fn.smartFloat = function() {
+			var position = function(element) {
+				var top = element.position().top,
+					pos = element.css("position");
+				$(window).scroll(function() {
+					var scrolls = $(this).scrollTop();
+					if (scrolls > top) {
+						if (window.XMLHttpRequest) {
+							element.css({
+								position: "fixed",
+								top: 0
+							});
+						} else {
+							element.css({
+								top: scrolls
+							});
+						}
+					} else {
+						element.css({
+							position: "absolute",
+							top: top
+						});
+					}
+				});
+			};
+			return $(this).each(function() {
+				position($(this));
+			});
+		};
+		$("#float").smartFloat();
+		
+		
+		
+	</script>
+
+</html>

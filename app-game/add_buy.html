@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>商品信息</title>
+		<link rel="stylesheet" href="style/main_wechat.css" />
+		<link rel="stylesheet" href="style/swiper.min.css" />
+		<link rel="stylesheet" href="style/jquery.bxslider.css" />
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="js/jquery.bxslider.min.js"></script>
+
+	</head>
+	<style>
+		.divider {
+			height: 65%;
+			border-right: 1px solid #dedede;
+			position: absolute;
+			right: 0px;
+			top: 5px;
+		}
+		
+		.dividerLine {
+			height: 100%;
+			border-right: 1px solid #dedede;
+			position: absolute;
+			right: 0px;
+			top: 0px;
+		}
+		
+		.header {
+			width: 100%;
+			height: 36px;
+			line-height: 35px;
+			background: #fff;
+		}
+		
+		.header .nav {
+			width: 50%;
+			height: 35px;
+			float: left;
+			position: relative;
+		}
+		
+		.header .nav .checkArea {
+			width: 70%;
+			height: 83%;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		.header .nav .checked {
+			border-bottom: 1px solid #e5282e;
+			color: #e5282e;
+		}
+		
+		.content {
+			overflow: hidden;
+			margin-bottom: 55px;
+		}
+		
+		.content .goodsInfo {
+			width: 100%;
+			margin: 0 auto;
+			border-bottom: 1px solid #dedede;
+			background: #fff;
+		}
+		
+		.content .goodsIcon {
+			width: 100%;
+			overflow: hidden;
+			text-align: center;
+			border-bottom: 1px solid #DEDEDE;
+		}
+		
+		.content .goodsIcon img {
+			width: 100%;
+			vertical-align: middle;
+		}
+		
+		.content .goodsAbout {
+			width: 90%;
+			margin: 0 auto;
+			padding-bottom: 10px;
+		}
+		
+		.content .goodsAbout .info {
+			width: 100%;
+			float: left;
+			position: relative;
+		}
+		
+		.content .goodsAbout .info .price {
+			color: #f80707;
+			font-size: 18px;
+			margin-top: 5px;
+		}
+		
+		.content .goodsAbout .info .name {
+			font-size: 14px;
+			margin: 5px 0px;
+		}
+		
+		.content .goodsAbout .info .desc {
+			color: #cc2e2e;
+			margin: 5px 0px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		
+		.content .goodsAbout .info .desc li {
+			list-style-type: none;
+		}
+		
+		.content .goodsAbout .info .situation {
+			color: #353535;
+		}
+		
+		.content .goodsAbout .info .situation .article {
+			color: #868686;
+			width: 49%;
+			display: inline-block;
+		}
+		
+		.content .goodsAbout .info .price .original {
+			color: #868686;
+			font-size: 12px;
+			margin-left: 20px;
+			text-decoration: line-through;
+		}
+		
+		.content .goodsAbout .operate {
+			width: 20%;
+			height: 90px;
+			float: left;
+		}
+		
+		.content .goodsAbout .operate .share {
+			width: 60px;
+			height: 35px;
+			margin: 10px auto;
+			text-indent: 32px;
+			line-height: 35px;
+			background: url(images/wechat_share.png) 7px center no-repeat;
+			background-size: 20px;
+		}
+		
+		.content .production {
+			width: 100%;
+		}
+		
+		.content .production .proDiv {
+			width: 100%;
+		}
+		
+		.content .about {
+			width: 100%;
+			border-top: 1px solid #dedede;
+			border-bottom: 1px solid #dedede;
+			margin-top: 10px;
+			background: #fff;
+			padding-bottom: 10px;
+		}
+		
+		.content .about .aboutTitle {
+			font-size: 14px;
+			margin-top: 10px;
+			margin-left: 5%;
+		}
+		
+		.content .about .model {
+			width: 100%;
+			font-size: 0;
+			margin-left: 10px;
+		}
+		
+		.content .about .aboutModel {
+			width: 30%;
+			height: 100%;
+		}
+		
+		.content .about .aboutModel .aboutImg {
+			width: 100%;
+			margin: 0 auto;
+		}
+		
+		.content .about .aboutModel .aboutImg img {
+			width: 100%;
+			vertical-align: middle;
+		}
+		
+		.content .about .aboutModel .aboutName {
+			width: 100%;
+			font-size: 12px;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		
+		.content .about .aboutModel .aboutLevel {
+			margin: 4px 0px;
+			text-align: center;
+		}
+		
+		.content .about .aboutModel .aboutLevel img {
+			width: 15px;
+		}
+		
+		.content .about .aboutModel .aboutPrice {
+			color: #e5282e;
+			font-size: 13px;
+			text-align: center;
+		}
+		
+		.content .promotion {
+			width: 100%;
+			border-top: 1px solid #dedede;
+			border-bottom: 1px solid #dedede;
+			margin-top: 10px;
+			background: #fff;
+		}
+		
+		.content .promotion .proTitle {
+			overflow: hidden;
+			width: 100%;
+			box-sizing: border-box;
+			font-size: 13px;
+			margin-left: 5%;
+		}
+		
+		.content .promotion .proContent {
+			width: 90%;
+			margin: 0 auto 10px auto;
+			color: #E5282E;
+		}
+		
+		.content .promotion .proContent span {
+			font-size: 14px;
+		}
+		
+		.content .promotion .proTitle .acmark {
+			padding: 1px 8px;
+			margin-left: 10px;
+			color: #cd3232;
+			font-size: 12px;
+			border: 2px solid #cd3232;
+			display: inline-block;
+			margin-top: 4px;
+		}
+		
+		.content .proPackage {
+			width: 100%;
+			padding-bottom: 15px;
+			border-top: 1px solid #dedede;
+			background: #fff;
+			margin-top: 10px;
+		}
+		
+		.content .proPackage .packTitle {
+			width: 100%;
+			height: 40px;
+			line-height: 40px;
+			box-sizing: border-box;
+			font-size: 13px;
+			margin-left: 5%;
+		}
+		
+		.content .proPackage .package {
+			width: 90%;
+			margin: 0 auto;
+			font-size: 0;
+			box-sizing: border-box;
+		}
+		
+		.content .proPackage .package .packItem {
+			width: 90%!important;
+			border: 1px solid #dedede;
+		}
+		
+		.content .proPackage .package .packItem .itemTitle {
+			width: 20px;
+			height: 100%;
+			font-size: 12px;
+			text-align: center;
+			display: table-cell;
+			vertical-align: middle;
+			background: #f84c5c;
+			color: #fff;
+			line-height: 18px;
+		}
+		
+		.content .proPackage .package .packItem .itemCon {
+			width: 75px;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+		}
+		
+		.content .proPackage .package .packItem .itemCon img {
+			width: 100%;
+		}
+		
+		.collect {
+			width: 40px;
+			height: 35px;
+			background: url(images/wechat_collect.png) center 0 no-repeat;
+			background-size: 22px;
+			position: absolute;
+			right: 0px;
+			top: 10px;
+		}
+		
+		.toCollect {
+			background: url(images/wechat_collect_back.png) center 0 no-repeat!important;
+			background-size: 22px!important;
+		}
+		
+		.collect span {
+			position: absolute;
+			bottom: 0px;
+			left: 0;
+			display: block;
+			width: 100%;
+			text-align: center;
+			font-size: 10px;
+			color: #a7a7aa;
+		}
+		
+		.fixedMenu {
+			width: 100%;
+			height: 45px;
+			line-height: 45px;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			background: #f7f7f8;
+			z-index: 8;
+		}
+		
+		.fixedMenu .shopcart {
+			position: absolute;
+			right: 10px;
+			top: 0px;
+			width: 50px;
+			height: 45px;
+			background: url(images/wechat_shopcart.png) center 15px no-repeat;
+			background-size: 28px;
+		}
+		
+		.fixedMenu .shopcart .goodsNum {
+			position: absolute;
+			right: 4px;
+			top: 6px;
+			width: 20px;
+			height: 20px;
+			text-align: center;
+			color: #fff;
+			line-height: 20px;
+			background: #e5282e;
+			border-radius: 50%;
+		}
+		
+		.fixedMenu .num {
+			position: relative;
+			display: inline-block;
+			margin: 9px 15px 0px 15px;
+		}
+		
+		.fixedMenu .addNum {
+			border-radius: 3px;
+			padding: 0px 3px;
+			color: #FFF;
+			border: medium none;
+			background: url("images/wechat_shopcart_back.png") 33% 50% no-repeat #E5282E;
+			background-size: 20px;
+			text-indent: 25px;
+			line-height: 28px;
+			white-space: nowrap;
+			display: block;
+			margin-top: 9px;
+			margin-left: 5%;
+			width: 75%;
+		}
+	</style>
+	<script>
+		function makeScore(level) {
+			for (var i = 1; i <= 5; i++) {
+				if (i <= level) {
+					document.write('<img alt="" src="images/comments_level.png">');
+				} else {
+					document.write('<img alt="" src="images/comments_levelcount.png">');
+				}
+			}
+		}
+	</script>
+
+	<body>
+		<div class="header clearfix">
+			<div class="nav">
+				<div class="divider"></div>
+				<div id="details" class="checkArea checked">基本信息</div>
+			</div>
+			<div class="nav">
+				<div id="dinfo" class="checkArea ">药品详情</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="goodsInfo">
+				<div class="goodsIcon">
+					<ul class="bxslider">
+						<li><img src="http://imgstore.camore.cn/prod_img_ty/16/ABC_1216.jpg@!ys600" /></li>
+						<li><img src="http://imgstore.camore.cn/prod_img_ty/17/ABC_1217.jpg@!ys600" /></li>
+						<li><img src="http://imgstore.camore.cn/prod_img_ty/18/ABC_1218.jpg@!ys600" /></li>
+					</ul>
+				</div>
+				<div class="goodsAbout clearfix">
+					<div class="info">
+						<div class="price">￥: <span>96.0</span>元</div>
+						<div class="name">港辰达尔斯康牌钙咀嚼片</div>
+						<div class="desc"></div>
+						<div><span class="text">商品规格：</span><span class="val">150g(1.5g*100片)</span></div>
+						<div class="mt5"><span class="text">生产厂家：</span><span class="val">华夏协同(北京)国际医学研究院淄博分院</span></div>
+						<div class="collect toCollect"><span>收藏</span></div>
+					</div>
+				</div>
+			</div>
+			<input type="hidden" id="sId" value="102937">
+		</div>
+		<div class="fixedMenu">
+			<button class="addNum">加入清单</button>
+			<div class="shopcart">
+				<div class="goodsNum"></div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var countCart = '';
+		var _ishasDrugId = 'false';
+		$(function() {
+			if (_ishasDrugId == "true") {
+				$(".header").show();
+			} else {
+				$(".header").hide();
+			}
+			$('.bxslider').bxSlider({
+				startSlide: 0,
+				randomStart: false,
+				infiniteLoop: true
+			});
+			updateCNum();
+			document.title = '港辰达尔斯康牌钙咀嚼片';
+			$("#packageTouch").delegate(".packItem", "click", function(e) {
+				location.href = 'packages?skuId=' + $(this).find(".skuId").val();
+				e.stopPropagation();
+			});
+			$("#aboutTouch").delegate(".aboutModel", "click", function(e) {
+				shadeAll();
+				$.ajax({
+					type: 'POST',
+					url: "querySkuStatus",
+					data: "skuId=" + $(this).find(".skuId").val(),
+					success: function(result) {
+						if (result.result == "succ") {
+							location.href = 'details?skuId=' + $(this).find(".skuId").val();
+							e.stopPropagation();
+						} else if (result.result == "fail") {
+							closeShade();
+							showResult("error", result.message);
+						}
+					},
+					error: function(e) {
+						closeShade();
+						showResult("error", e);
+					}
+				})
+			});
+			/**点击购物车图片跳转到购物车页面**/
+			$(".shopcart").click(function() {
+				location.href = 'shopcart';
+			});
+			/**收藏按钮：显示收藏点击执行收藏，显示取消执行取消**/
+			$(".info .collect").click(function() {
+				var sId = $("#sId").val();
+				if (sId != "") {
+					shadeAll();
+					if ($(this).hasClass("toCollect")) {
+						$.post("collectAdd", {
+							"skuId": sId
+						}, function(data) {
+							closeShade();
+							if (data.result == "succ") {
+								showResult("success", "收藏成功");
+								$(".info .collect").removeClass("toCollect");
+								$(".info .collect span").html("已收藏");
+							} else {
+								location.href = "login";
+							}
+						});
+					} else {
+						$.post("collectRemove", {
+							"skuId": sId
+						}, function(data) {
+							closeShade();
+							if (data.result == "succ") {
+								showResult("success", "取消收藏成功");
+								$(".info .collect").addClass("toCollect");
+								$(".info .collect span").html("收藏");
+							} else if (data.result == "fail") {
+								showResult("error", data.message);
+							}
+						});
+					}
+				} else {
+					showResult("error", "获取商品信息失败");
+				}
+			});
+			/**加入购物车按钮**/
+			$(".fixedMenu .addNum").click(function() {
+				var sId = $("#sId").val();
+				if (sId == "" || sId == null) {
+					showResult("error", "获取商品信息失败");
+					return false;
+				} else {
+					shadeAll();
+					$.ajax({
+						type: 'POST',
+						url: "addCart",
+						data: "skuId=" + sId + "&type=sku",
+						success: function(data) {
+							closeShade();
+							if (data.result == "succ") {
+								countCart = data.countCart;
+								updateCNum();
+								showResult("success", "已加入清单");
+							} else if (data.result == "fail") {
+								showResult("error", data.message);
+							} else if (data.result == "noLogin") {
+								location.href = "login"; //未登录经过拦截器 返回的是login.jsp 由于是异步 在此做处理 location.href到登录页
+							}
+						},
+						error: function() {
+							closeShade();
+							showResult("error", "添加商品到清单失败");
+						}
+					});
+				}
+			});
+			/**菜单跳转**/
+			$(".checkArea").click(function() {
+				location.href = $(this).attr("id") + "?skuId=" + $("#sId").val();
+			});
+			var swiper1 = new Swiper('.swiper-container1', {
+				freeMode: true,
+				freeModeMomentumRatio: 1,
+				slidesPerView: 'auto',
+				preventClicks: true,
+				spaceBetween: 20
+			});
+			var swiper2 = new Swiper('.swiper-container2', {
+				freeMode: true,
+				freeModeMomentumRatio: 1,
+				updateOnImagesReady: true,
+				preventClicks: true,
+				slidesPerView: 3.5,
+				spaceBetween: 20 //slider之间的距离
+			});
+			$.ajax({
+				url: "http://store.ykd365.com/weixin/wechat/getwxjssign?",
+				data: {
+					url: location.href.split('#')[0]
+				},
+				success: function(wechatReturn) {
+					if (wechatReturn) {
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+							timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+							nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+							signature: wechatReturn.signature, // 必填，签名，见附录1
+							jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo", "previewImage"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+					}
+				}
+			});
+			$(".goodsIcon").click(function(e) {
+				wx.previewImage({
+					current: imgsrcs[0], // 当前显示的图片链接
+					urls: imgsrcs // 需要预览的图片链接列表
+				});
+			});
+		});
+		//获取当前商品图片数组
+		var imgsrcs = new Array();
+		imgsrcs.push('http://imgstore.camore.cn/prod_img_ty/16/ABC_1216.jpg');
+		imgsrcs.push('http://imgstore.camore.cn/prod_img_ty/17/ABC_1217.jpg');
+		imgsrcs.push('http://imgstore.camore.cn/prod_img_ty/18/ABC_1218.jpg');
+		var wechatObj = new Object();
+		wechatObj.title = $(".goodsAbout .name").text();
+		wechatObj.desc = $(".goodsAbout .desc").text();
+		wechatObj.link = location.href.indexOf("skuId") == -1 ? 'http://store.ykd365.com/weixin/wechat/details?skuId=102937' : location.href;
+		wechatObj.imgUrl = 'http://imgstore.camore.cn/prod_img_ty/16/ABC_1216.jpg';
+		wx.ready(function() {
+			// config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+			wx.onMenuShareTimeline({
+				title: wechatObj.title, // 分享标题
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareAppMessage({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareQQ({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareWeibo({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+		});
+		/**购物车数量大于0显示数量**/
+		function updateCNum() {
+			if (countCart <= 0) {
+				$(".shopcart .goodsNum").css("display", "none");
+				$(".shopcart .goodsNum").html(0);
+			} else {
+				if (countCart > 99) {
+					countCart = 99;
+				}
+				$(".shopcart .goodsNum").css("display", "block");
+				$(".shopcart .goodsNum").html(countCart);
+			}
+		}
+	</script>
+
+</html>
