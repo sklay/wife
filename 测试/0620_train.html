@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<!--<link rel="stylesheet" href="style/normalize.css" />-->
+		<link rel="stylesheet" type="text/css" href="style/bootstrap-responsive.min.css">
+		<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+		<style>
+			*{margin: 0 ;padding: 0;}
+			body{
+				background:#E2DDE2;
+			}
+			/*em{
+				margin-right: 30px;
+			}*/
+			.form-cotainer{
+				width: 50%;
+				margin: 0 auto;
+				margin-top: -264px;
+			    text-align: center;
+			}
+			.form-cotainer .form-content .kuang{
+				height: 15px;
+			    width: 300px;
+			    margin: 8px 10px 8px 50px;
+			    border-radius: 3px;
+			    background: rgba(3, 169, 244, 0.11);
+			    border: 1px solid #a1a1a1;
+			    padding: 10px 0 10px 10px;
+			    color: #00b38a;
+			    line-height: 15px;
+			    text-align: center
+			}
+			::-moz-placeholder {
+				color: #545454;
+				text-align: center;
+				font-family: ""
+			}
+			
+			:-ms-input-placeholder {
+				color: #545454;
+				text-align: center;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #545454;
+				text-align: center;
+			}
+			.form-cotainer .form-content em {
+			    /*padding-left: 50px;*/
+			    /*font-style: normal;*/
+			    font-size: 20px;
+			}
+			.form-cotainer .form-content .textarea1 {
+			    margin-left: 9px;
+			    margin-top: 5px;
+			    resize: none;
+			    background: rgba(3, 169, 244, 0.11);
+			}
+			.btn-one input[type="submit"], .btn-one input[type="button"] {
+			    border: 1px solid #fff;
+			    background: #00B38A;
+			    color: #fff;
+			    height: 40px;
+			    width: 140px;
+			    border-radius: 4px;
+			    cursor: pointer;
+			    margin-top: 10px;
+			}
+			.form-content{
+				background: #fff;
+				width: 600px;
+			}
+			form{
+				padding: 20px 0;
+				margin: 0;
+			}
+			.form-cotainer .form-content .radio1 {
+			    margin-top: 10px;
+			    margin-left: 46px;
+			}
+			.form-cotainer .form-content .ck1 {
+			    margin-top: 10px;
+			    margin-left: 48px;
+			}
+			.form-cotainer .form-content .select1 {
+			    margin: 10px 30px 10px 44px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="form-cotainer">
+			<div class="form-content">
+				<script>
+			     	var wh = $(window).height()/2;
+//			        $(".form-content").css({minHeight:wh});
+					$(".form-content").css("margin-top",wh);
+				</script>
+				<form name="ff" onsubmit="return checkForm();">
+					<div>
+						<em>手机:</em>
+						<input type="text" class="kuang" name="phone" placeholder="请输入手机号码" value="13661170116" />
+						<span id="phoneEr"></span>
+					</div>
+					<div>
+						<em>密码:</em>
+						<input type="password" class="kuang" name="pwd" placeholder="请输入密码" />
+						<span id="pwdEr"></span>
+					</div>
+					<div>
+						<em>邮箱:</em>
+						<input type="text" class="kuang" name="email" placeholder="请输入邮箱" value="380179266@qq.com" />
+						<span id="emailEr"></span>
+					</div>
+					<div>
+						<em style="margin-left: -102px;">个人简历:</em>
+						<textarea name="info" rows="7" cols="40" class="textarea1" placeholder="  请输入个人简介"></textarea>
+						<span id="infoEr"></span>
+					</div>
+					<div>
+						<em style="margin-left: -212px;">性别</em>
+						<input type="radio" class="radio1" name="rd" />男
+						<input type="radio" class="radio1 radio2" name="rd" checked="checked" />女
+					</div>
+					<div>
+						<em>兴趣</em>
+						<input type="checkbox" class="ck1" name="ck" value="1" />登山
+						<input type="checkbox" class="ck1" name="ck" value="2" checked="checked" />滑雪
+						<input type="checkbox" class="ck1" name="ck" value="3" checked="checked" />旅游
+						<input type="checkbox" class="ck1" name="ck" value="4" />唱歌
+					</div>
+					<div>
+						<em style="margin-left: -68px;">籍贯</em>
+						<select class="select1" name="city">
+							<option value="0" selected="selected">--请选择籍贯--</option>
+							<option value="1">北京</option>
+							<option value="2">山西</option>
+							<option value="3">河南</option>
+							<option value="4">湖南</option>
+						</select>
+					</div>
+					<div class="btn-one">
+						<input type="submit" value="注册" class="btn" />
+						<input id="st" type="button" value="全选" />
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</body>
+	<script>
+			//阻止表单提交
+			function checkForm() {
+				return false;
+			}
+			//定义对象
+			var formCheck = {
+				phone: false,
+				pwd: false,
+				city: false
+			};
+			/**
+			 * 验证手机号/^[1][34578][0-9]{9}$/
+			 */
+			var phone = document.getElementsByName("phone")[0];
+			//        console.debug(phone);
+			//判断手机号是否符合要求
+			phone.onblur = function() {
+				//获取输入的内容
+				var v = this.value;
+				//            console.debug(v);
+				var reg = /^[1][34578][0-9]{9}$/;
+				var f = reg.test(v);
+				//            console.debug(f);
+				var phoneEr = document.getElementById("phoneEr");
+				phoneEr.style.fontSize = "35px";
+				if (f) {
+					phoneEr.innerHTML = "√";
+					phoneEr.style.color = "#00b38a"
+				} else {
+					phoneEr.innerHTML = "×";
+					phoneEr.style.color = "#cc0000";
+				}
+			};
+			/**
+			 * 验证密码/[a-zA-Z][0-9a-zA-Z_]+/
+			 */
+			var pwd = document.getElementsByName("pwd")[0];
+			pwd.onkeyup = function() {
+				var v = this.value;
+				var leg = v.length;
+				var reg = /[a-zA-Z][0-9a-zA-Z_]+/;
+				var pwdEr = document.getElementById("pwdEr");
+				pwdEr.innerHTML = "";
+				if (leg > 6 && leg < 14) {
+					pwdEr.innerHTML = "长度√了";
+					formCheck.pwd = true;
+				} else {
+					pwdEr.innerHTML = "长度×了";
+					formCheck.pwd = false;
+				}
+				if (reg.test(v)) {
+					pwdEr.innerHTML += "格式√了";
+					formCheck.pwd = true;
+				} else {
+					pwdEr.innerHTML += "格式×了";
+					formCheck.pwd = false;
+				}
+				if (reg.test(v) && leg > 6 && leg < 14) {
+					formCheck.pwd = true;
+					pwdEr.style.color = "#03A9F4";
+				} else {
+					formCheck.pwd = false;
+					pwdEr.style.color = "#cc0000";
+				}
+			};
+			/**
+			 * 验证邮箱/^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/
+			 */
+			var email = document.getElementsByName("email")[0];
+			email.onkeyup = function() {
+					var v = this.value;
+					var leg = v.length;
+					var reg = /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/;
+					var emailEr = document.getElementById("emailEr");
+					if (leg > 6 && leg < 18) {
+						emailEr.innerHTML = "长度√了";
+						formCheck.pwd = true;
+					} else {
+						emailEr.innerHTML = "长度×了";
+						formCheck.pwd = false;
+					}
+					if (reg.test(v)) {
+						emailEr.innerHTML += "格式√了";
+						formCheck.pwd = true;
+					} else {
+						emailEr.innerHTML += "格式×了";
+						formCheck.pwd = false;
+					}
+					if (reg.test(v) && leg > 6 && leg < 18) {
+						formCheck.pwd = true;
+						emailEr.style.color = "#03A9F4";
+					} else {
+						formCheck.pwd = false;
+						emailEr.style.color = "#cc0000";
+					}
+				}
+				/*
+				  实时显示 输入了多少字
+				     添加一个提示元素<i></i>
+				     绑定事件  onkeyup
+				     获取textarea中的内容长度 并显示在 提示元素中
+				     最好提示可以输入的总长度
+				     70/150
+				     当 字符数大于 150时
+				     变成红色
+				     默认为黑色(#000000)
+				 */
+			var info = document.getElementsByName("info")[0];
+			info.onkeyup = function() {
+				var v = this.value;
+				var len = v.length;
+				//            console.debug(len);
+				var infoEr = document.getElementById("infoEr");
+				infoEr.innerHTML = len + "/150";
+				if (len > 150) {
+					//可以限制最大长度maxLenth
+					infoEr.style.color = "#cc0000";
+				} else {
+					infoEr.style.color = "#00b38a";
+				}
+			};
+			//全选/ 全取消/ 反选
+			document.getElementById("st").addEventListener("click", function() {
+				//获取所有checkbox
+				var checks = ff.ck;
+				//console.debug(checks)
+				for (var i = 0; i < checks.length; i++) {
+					//全选
+					checks[i].checked = true;
+					//全否
+					//                checks[i].checked = false;
+					//反选
+					//                if (checks[i].checked) {
+					//                    checks[i].checked = false;
+					//                } else {
+					//                    checks[i].checked = true;
+					//                }
+				}
+			});
+			/**
+			 * 验证下拉列表
+			 */
+			ff.city.onchange = function() {
+				//            console.log(this.value)
+				if (this.value == 0) {
+					alert("您选择的城市不正确!");
+					formCheck.city = false;
+				} else {
+					formCheck.city = true;
+				}
+			}
+
+			function checkForm() {
+				//判断所有项目是否都为真，为真返回true就会提交表单
+				if (formCheck.city && formCheck.pwd && formCheck.phone) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		</script>
+</html>

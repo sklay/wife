@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="description" content="你能接到几个粽子，【药快到】等你来挑战！">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html {
+			font-size: 62.5%;
+		}
+		
+		body {
+			width: 100%;
+			font-size: 14px;
+			font-family: STXingkai;
+		}
+		
+		html,
+		body,
+		.content,
+		.con_wrap {
+			width: 100%;
+			height: 100%;
+			    overflow: hidden;
+		}
+		
+		.clearfix:after {
+			content: '';
+			display: block;
+			clear: both;
+		}
+		
+		ul,
+		li {
+			list-style: none;
+		}
+		
+		.con_wrap {
+			background: #D4E6A8;
+			/*position: relative;*/
+		}
+		
+		.con_wrap_text {
+			/*position: absolute;
+			left: 50%;
+			margin-left: -150px;
+			top: 4rem; */
+			margin: .4rem auto;
+			width: 6rem;
+		}
+		
+		.left_wrap {
+			width: 4.8rem;
+			float: left;
+		}
+		
+		p,
+		h1 {
+			font-size: .3rem;
+			line-height: .6rem;
+		}
+		
+		.left_wrap div {
+			background: #EBEFE3;
+			resize: none;
+			outline: none;
+			overflow-y: auto;
+			width: 4rem;
+			height: 5rem;
+			padding: 0 .4rem;
+			/*display: none;*/
+			/*opacity: 1;*/
+			
+		}
+		.fade_move{
+			-webkit-animation:fade 1s cubic-bezier(0.32, 0.1, 0.18, 1.24);
+		}
+		@-webkit-keyframes fade{
+			from{
+				opacity: .4;
+				-webkit-transform:translateY(0px) ;
+			}
+			to{
+				opacity: 0;
+				-webkit-transform:translateY(-100px) ;
+			}
+		}
+		
+		.tab-menu {
+			float: right;
+			width: 1.2rem;
+			margin-top: .5rem;
+		}
+		li {
+			display: block;
+			width: 60px;
+			height: 50px;
+		}
+		li.tab_bj{
+			background: url(images/test_0615.png)no-repeat;
+			background-size: 100% 100%;
+			margin-top: .3rem;
+		}
+		/*.tab-menu li {
+			width: 1rem;
+			margin: 0 auto;
+		}
+		
+		.tab-menu li img {
+			width: 100%;
+		}
+		*/
+		.text_content_item {
+			width: 4rem;
+			height: 5rem;
+			padding: 0 .4rem;
+		}
+		
+		.user_corp {
+			width: 1rem;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+		
+		.user_corp img {
+			width: 100%;
+		}
+		
+		.title {
+			width: 4.4rem;
+			margin: 0 auto;
+			padding-top: .5rem;
+		}
+		
+		.title img {
+			width: 100%;
+		}
+		
+		.active {
+			background: url(images/test1_0615.png)no-repeat;
+			background-size: 100% 100%;
+			transition: all .2s cubic-bezier(0.79, 0.04, 0.5, 1.11);
+		}
+	</style>
+
+	<body>
+		<div class="content">
+			<div class="con_wrap ">
+				<div class="title">
+					<img src="images/act_16dumpling_index_title.png" />
+				</div>
+				<div class="con_wrap_text clearfix" data-index="555">
+					<div class="left_wrap">
+						<div>
+							<p>
+								<h1>关于清明</h1>
+							</p>
+							<p>
+								但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+							</p>
+							<p>
+								我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+							</p>
+						</div>
+						<div>
+							<p>
+								<h1>端午节</h1>
+							</p>
+							<p>
+								但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+							</p>
+							<p>
+								我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+							</p>
+						</div>
+						<div>
+							<p>
+								<h1>国庆节</h1>
+							</p>
+							<p>
+								但是，清明作为节日，与纯粹的节气又有所不同。 节气是我国物候变化、时令顺序的标志， 而节日则包含着一定的风俗活动和某种纪念意义。
+							</p>
+							<p>
+								我国传统的清明节大约始于周代，已有二千五百多年的历史。 清明最开始是一个很重要的节气，后来， 由于清明与寒食的日子接近，而寒食是民间禁火扫墓的日子，渐渐的， 寒食与清明就合二为一，而寒食既成为清明的别称，也变成为清明时节的一个习俗， 清明之日不动烟火，只吃凉的食品。
+							</p>
+						</div>
+					</div>
+					<ul class="tab-menu">
+						<li data-index="0" class="tab-1 tab_bj">
+						</li>
+						<li data-index="1" class="tab-2 tab_bj">
+						</li>
+						<li data-index="2" class="tab-3 tab_bj">
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			
+			selTab(0) ;
+			
+			$('ul li').each(function(i ,n){
+				$(n).on('click',function(){
+					clickFun(this) ;
+				});
+			});
+			
+			
+			function clickFun (obj){
+				var index = $(obj).attr('data-index');
+				selTab(index) ;
+			}
+			
+			
+			function selTab(tabIndex){
+				$('.left_wrap div').hide();
+				$('.left_wrap div').eq(tabIndex).show().addClass('fade_move');
+				
+				
+				$('ul li').removeClass("active").addClass("tab_bj");
+				
+				$('ul li').eq(tabIndex).removeClass("tab_bj").addClass("active");
+			}
+		});
+	</script>
+
+</html>
