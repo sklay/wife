@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.tab {
+				margin: 20px;
+				position: relative;
+			}
+			
+			.tab ul {
+				list-style: none;
+			}
+			
+			.tab > ul li {
+				float: left;
+				border: 1px solid #D4D4D4;
+				padding: 10px 21px;
+				/*margin-left: -1px;*/
+				cursor: pointer;
+				z-index: -1;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			.tab-content div {
+				position: absolute;
+				top: 81px;
+				display: none;
+				border: 1px solid #cc0000;
+				height: 65px;
+				width: 320px;
+				font-family: "萝莉体";
+				font-size: 13px;
+				padding: 10px;
+				left: 0px;
+			}
+			
+			div.active {
+				display: block;
+			}
+			
+			ul li.active {
+				border: 1px solid #cc0000;
+				position: relative;
+				z-index: 1;
+				border-bottom: 1px solid #FFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="tab" data-index="555">
+			<ul class="tab-menu">
+				<li data-index="0" class="tab-1 active">
+					<img src="img/话费.jpg" />
+					<p>充话费</p>
+				</li>
+				<li data-index="1" class="tab-2">
+					<img src="img/游戏.jpg" />
+					<p>游戏</p>
+				</li>
+				<li data-index="2" class="tab-3">
+					<img src="img/旅行.jpg" />
+					<p>旅行</p>
+				</li>
+				<li data-index="3" class="tab-4">
+					<img src="img/保险.jpg" />
+					<p>保险</p>
+				</li>
+			</ul>
+			<div class="tab-content">
+				<div class="active">
+					<p>第一部分</p>
+				</div>
+				<div>
+					<p>第二部分</p>
+				</div>
+				<div>
+					<p>第三部分</p>
+				</div>
+				<div>
+					<p>第四部分</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			//获取选项卡的父标签 ul
+			var ul = document.getElementsByClassName("tab-menu")[0];
+			//获取每一个li标签
+			var lis = ul.getElementsByTagName("li");
+			//事件委托
+			ul.addEventListener("click", showDiv4);
+			function showDiv4(e) {
+				console.debug(e.currentTarget == this);
+				console.debug(e.currentTarget);
+				console.debug(e.target);
+				
+				var li = e.target;
+				if (li.nodeName.toLowerCase() == "li") {
+					var div;
+					//清空所有div 与 LI的样式
+					for (var j = 0; j < lis.length; j++) {
+						div = document.getElementsByClassName("tab-content")[0].getElementsByTagName("div")[j];
+						div.className = "";
+						lis[j].className = "";
+					}
+					
+					li.className = "active";
+					var div1 = document.getElementsByClassName("tab-content")[0].getElementsByTagName("div")[li.dataset.index];
+					//控制谁显示出来
+					div1.className = "active";
+				}
+			}
+			
+		</script>
+	</body>
+
+</html>
