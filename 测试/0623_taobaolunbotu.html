@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				font-size:12px ;
+			}
+			a{
+				text-decoration: none;
+				color: #3c3c3c;
+			}
+			.tab{
+				width: 298px;
+				height: 98px;
+				overflow: hidden;
+				border: 1px solid #eee;
+				margin: 10px;
+			}
+			.tab-title{
+				width: 300px;
+				height: 26px;
+			}
+			.tab-title ul li{
+				float: left;
+				width: 58px;
+				height: 26px;
+				line-height: 26px;
+				text-align: center;
+				padding: 0 1px;
+			}
+			.tab-title ul{
+				width: 300px;
+			}
+			.tab-title ul li.select{
+				border-bottom: 2px solid #E2BD4C;
+				font-weight:700 ;
+			}
+			.tab li a:hover{
+				color: #E2BD4C;
+			}
+			.tabct{
+				margin: 20px 10px;
+				overflow: hidden;
+			}
+			.tabct li{
+				float: left;
+				width: 139px; /*整个的  宽度是300   两个 标签 平分  是150   减去  margin 撑开的 是10px  再减去1px  的边框线*/
+				height: 25px; /*整个的   tab 的 高度是 98  减去 标题上的 26   再减去 选中标题的 2  再减去 margin 撑开的  20  剩下的 除以2就是25*/
+				text-align: center;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="tab" class="tab">
+			<div class="tab-title" id="tab-title">
+				<ul>
+					<li class="select" data-index="0"><a href="#">公告</a></li>
+					<li data-index="1"><a href="#">规则</a></li>
+					<li data-index="2"><a href="#">论坛</a></li>
+					<li data-index="3"><a href="#">公安</a></li>
+					<li data-index="4"><a href="#">公益</a></li>
+				</ul>
+			</div>
+			<div class="tab-content" id="tab-content">
+				<div class="tabct" style="display: block;">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">首页</a></li>
+						<li><a href="#">首页</a></li>
+					</ul>
+				</div>
+				<div class="tabct" style="display: none;">
+					<ul>
+						<li><a href="#">第二页</a></li>
+						<li><a href="#">第二页</a></li>
+						<li><a href="#">第二页</a></li>
+						<li><a href="#">第二页</a></li>
+					</ul>
+				</div>
+				<div class="tabct" style="display: none;">
+					<ul>
+						<li><a href="#">第三页</a></li>
+						<li><a href="#">第三页</a></li>
+						<li><a href="#">第三页</a></li>
+						<li><a href="#">第三页</a></li>
+					</ul>
+				</div>
+				<div class="tabct" style="display: none;">
+					<ul>
+						<li><a href="#">第四页</a></li>
+						<li><a href="#">第四页</a></li>
+						<li><a href="#">第四页</a></li>
+						<li><a href="#">第四页</a></li>
+					</ul>
+				</div>
+				<div class="tabct" style="display: none;">
+					<ul>
+						<li><a href="#">第五页</a></li>
+						<li><a href="#">第五页</a></li>
+						<li><a href="#">第五页</a></li>
+						<li><a href="#">第五页</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			selTab(0) ;
+			
+			$('ul li').each(function(i ,n){
+				$(n).on('click',function(){
+					clickFun(this) ;
+				});
+			});
+			function clickFun (obj){
+				var index = $(obj).attr('data-index');
+				selTab(index) ;
+			}
+			
+			function selTab(tabIndex){
+				$('.tab-content div').hide();
+				$('.tab-content div').eq(tabIndex).show();
+				
+				$('ul li').removeClass("select");
+				
+				$('ul li').eq(tabIndex).addClass("select");
+			}
+		});
+	</script>
+</html>
