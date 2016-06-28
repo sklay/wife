@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+
+		<title>带动画效果CSS3手风琴菜单_777模板www.777moban.com</title>
+
+		<link rel="stylesheet" href="style/0624_shoufengqin.css" media="screen" type="text/css" />
+
+	</head>
+
+	<body>
+		<div class="container">
+
+			<ul>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">First Menu <i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">Second Menu <i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown">Third Menu <i class="icon-arrow"></i></a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!--<script src="js/index.js"></script>-->
+		<!--<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+			<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+			<p>来源：<a href="http://www.777moban.com/" target="_blank">777模板</a></p>
+		</div>-->
+	</body>
+	<script>
+		// Dropdown Menu
+		var dropdown = document.querySelectorAll('.dropdown');
+		//Array.prototype.slice.call
+		var dropdownArray = Array.prototype.slice.call(dropdown, 0);
+		dropdownArray.forEach(function(el) {
+			var button = el.querySelector('a[data-toggle="dropdown"]'),
+				menu = el.querySelector('.dropdown-menu'),
+				arrow = button.querySelector('i.icon-arrow');
+
+			button.onclick = function(event) {
+				if (!menu.hasClass('show')) {
+					menu.classList.add('show');
+					menu.classList.remove('hide');
+					arrow.classList.add('open');
+					arrow.classList.remove('close');
+					event.preventDefault();
+				} else {
+					menu.classList.remove('show');
+					menu.classList.add('hide');
+					arrow.classList.remove('open');
+					arrow.classList.add('close');
+					event.preventDefault();
+				}
+			};
+		})
+		Element.prototype.hasClass = function(className) {
+			return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+		};
+	</script>
+
+</html>

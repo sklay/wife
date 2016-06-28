@@ -1,0 +1,109 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>CSS3 Ribbon-777模板www.777moban.com</title>
+<style>
+* { 
+	/* Basic CSS reset */
+	margin:0; 
+	padding:0;
+}
+
+body {
+	/* These styles have nothing to do with the ribbon */
+	background-color: #51938f;
+  -webkit-background-size: 5px 5px;
+  background-size: 5px 5px;
+  background-position: 0 0, 30px 30px;
+	background-image: -webit-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+  background-image: -moz-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+  background-image: -ms-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+  background-image: -o-linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+  background-image: linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480), linear-gradient(45deg, #478480 25%, transparent 25%, transparent 75%, #478480 75%, #478480);
+	padding:35px 0 0;
+	margin:auto;
+	text-align:center;
+}
+
+.ribbon {
+	display:inline-block;
+}
+
+.ribbon:after, .ribbon:before {
+	margin-top:0.5em;
+	content: "";
+	float:left;
+	border:1.5em solid #fff;
+}
+
+.ribbon:after {
+	border-right-color:transparent;
+}
+
+.ribbon:before {
+	border-left-color:transparent;
+}
+
+.ribbon a:link, .ribbon a:visited { 
+	color:#000;
+	text-decoration:none;
+	float:left;
+	height:3.5em;
+	overflow:hidden;
+}
+
+.ribbon span {
+	background:#fff;
+	display:inline-block;
+	line-height:3em;
+	padding:0 1em;
+	margin-top:0.5em;
+	position:relative;
+
+	-webkit-transition: background-color 0.2s, margin-top 0.2s;  /* Saf3.2+, Chrome */
+	-moz-transition: background-color 0.2s, margin-top 0.2s;  /* FF4+ */
+	-ms-transition: background-color 0.2s, margin-top 0.2s;  /* IE10 */
+	-o-transition: background-color 0.2s, margin-top 0.2s;  /* Opera 10.5+ */
+	transition: background-color 0.2s, margin-top 0.2s;
+}
+
+.ribbon a:hover span {
+	background:#FFD204;
+	margin-top:0;
+}
+
+.ribbon span:before {
+	content: "";
+	position:absolute;
+	top:3em;
+	left:0;
+	border-right:0.5em solid #9B8651;
+	border-bottom:0.5em solid #fff;
+}
+
+.ribbon span:after {
+	content: "";
+	position:absolute;
+	top:3em;
+	right:0;
+	border-left:0.5em solid #9B8651;
+	border-bottom:0.5em solid #fff;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class='ribbon'>
+	<a href="http://www.777moban.com/"><span>网站首页</span></a>
+	<a href="http://www.777moban.com/"><span>关于我们</span></a>
+	<a href="http://www.777moban.com/"><span>产品中心</span></a>
+	<a href="http://www.777moban.com/"><span>联系我们</span></a>
+</div>
+
+
+</body>
+</html>
