@@ -20,19 +20,24 @@ $(function(){
     function windowAniUp(){
         num=Math.floor(Math.random()*6);
        childChoNum=Math.ceil(Math.random()*3);
-        var childImg='<img src="images/act_16womenday_children'+childChoNum+'.png" id="gamePlayChilren" alt="">';
+//      var childImg='<img src="images/act_16womenday_children'+childChoNum+'.png" id="gamePlayChilren" alt="">';
+        var childImg='<img src="images/0715_images/act_16coolIceBucket_game_hotPeople.png" id="gamePlayChilren" alt="">';
+        var bucketImg='<img src="images/0715_images/act_16coolIceBucket_game_IceBucket.png" id="gamebucket" alt="">';
         var windowAniDownTime=null;
         var clickTime=null;
 
         $(".gameWin").eq(num).find(".gameWinMainWrap").append(childImg);
-        $(".gameWin").eq(num).find(".gameWinPinkMask").animate({"transform":"translateY(-100%)","-webkit-transform":"translateY(-100%)"},300);
+         
+//      $(".gameWin").eq(num).find(".gameWinPinkMask").animate({"transform":"translateY(-100%)","-webkit-transform":"translateY(-100%)"},300);
 
         $("#gamePlayChilren").on("tap",function(){
             windowAniDownTimeBoo=false;
             scoreCountFun(num,childChoNum);
+            $(".gameWin").eq(num).find(".gameWinMainWrap").append(bucketImg);
           /*  $("#gamePlayChilren").off();*/
         });
-        $("#gamePlayChilren").animate({"transform":"scale(.8)","-webkit-transform":"scale(.8)"},300,function(){
+//      $("#gamePlayChilren").animate({"transform":"scale(.8)","-webkit-transform":"scale(.8)"},300,function(){
+       	$("#gamePlayChilren").animate({"transform":"translateY(-100%)","-webkit-transform":"translateY(-100%)"},500,function(){
             if(windowAniDownTimeBoo){
                 clearTimeout(windowAniDownTime);
                 clearTimeout(clickTime);
@@ -55,7 +60,7 @@ $(function(){
     };
     /*窗口关闭*/
     function windowAniDown(i){
-        $(".gameWin").eq(i).find(".gameWinPinkMask").animate({"transform":"translateY(0)","-webkit-transform":"translateY(0)"},100);
+//      $(".gameWin").eq(i).find(".gameWinPinkMask").animate({"transform":"translateY(0)","-webkit-transform":"translateY(0)"},100);
         $("#gamePlayChilren").animate({"transform":"scale(0)","-webkit-transform":"scale(0)"},100,function(){
             $("#gamePlayChilren").remove();
             $("#scoreShowImg").remove();
@@ -66,7 +71,8 @@ $(function(){
     };
     /*分数计算函数*/
     function scoreCountFun(wrapNum,scoreNum){
-        var ScoreShow='<img src="images/act_16womenday_game_score'+scoreNum+'.png" id="scoreShowImg" alt="">';
+//      var ScoreShow='<img src="images/act_16womenday_game_score'+scoreNum+'.png" id="scoreShowImg" alt="">';
+        var ScoreShow='<img src="images/0715_images/act_16coolIceBucket_game_score.png" id="scoreShowImg" alt="">';
         $(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(ScoreShow);
         setTimeout(function(){
             $("#scoreShowImg").remove();
