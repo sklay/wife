@@ -12,6 +12,8 @@
 		<link rel="stylesheet" href="style/act_16iceBucket_index.css" />
 		<script src="js/zepto.min.js"></script>
 		<script src="js/touch.js"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
 		<script src="js/fx.js"></script>
 		<script src="js/fx_methods.js"></script>
 		<!--<script src="js/common.js"></script>-->
@@ -103,7 +105,7 @@
 			<div class="indexPage">
 				<img class="indexComImg indexPageTitle" src="images/0715_images/act_16coolIceBucket_indexTitle.png" alt="">
 				<img class="indexComImg indexPagePeo" style="" src="images/0715_images/act_16coolIceBucket_indexPeople.png" alt="">
-				<button id="goToGamePage" class="yellowBtn"><span></span></button>
+				<button id="goToGamePage" ><span></span></button>
 				<p id="getActRule">活动规则</p>
 				<div class="actRuleShow_wrap comWrap1">
 					<div class="actRuleShow comShowWrap1">
@@ -240,18 +242,6 @@
 						<div class="startGameBtnInner">
 							<img class="game_textIcon" src="images/0715_images/act_16coolIceBucket_game_title.png" />
 							<div class="actRuleScore_wrap">
-								<!--<div class="actRuleScore">
-									<span class="actRuleAvatar"><span></span></span>
-									<i class="actRuleScoreDet">+3</i>
-								</div>
-								<div class="actRuleScore">
-									<span class="actRuleAvatar"><span></span></span>
-									<i class="actRuleScoreDet">+1</i>
-								</div>
-								<div class="actRuleScore">
-									<span class="actRuleAvatar"><span></span></span>
-									<i class="actRuleScoreDet">-1</i>
-								</div>-->
 								<div class="actRuleScore_wrap">
 									<img src="images/0715_images/act_16coolIceBucket_indexRule_people.png" />
 								</div>
@@ -264,19 +254,21 @@
 				<!--游戏时间到-->
 				<div class="gameOverWrap comWrap1">
 					<div class="gameOver comShowWrap1">
-						<h1><img src="images/act_16womenday_game_timeover.png" alt=""></h1>
+						<h1><img src="images/0715_images/act_16coolIceBucket_timeOver.png" alt=""></h1>
 						<div class="gameOverText comTextWrap1">
-							<p id="gameScoreDesText">
-
-							</p>
+							<p id="gameScoreDesText"></p>
 							<div class="butWrap">
 								<a id="goToGetHb" class="gameOverBtn"><span></span></a>
+								
+								<button class="gameOverBtn yellowBtn" id="playAgain"><span></span></button>
+								
+								
 								<button class="shareFri gameOverBtn"><span></span></button>
-								<button class="gameOverBtn yellowBtn" id="playAgain"><img src="images/act_16womenday_palyagain.png" alt=""></button>
+								<!--<button class="gameOverBtn yellowBtn" id="playAgain"><img src="images/act_16womenday_palyagain.png" alt=""></button>-->
 							</div>
 							<div class="shareAppPage" style="display:none">
-								<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;" id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
-								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>
+								<!--<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;" id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
+								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>-->
 							</div>
 						</div>
 					</div>
@@ -284,25 +276,28 @@
 			</div>
 		</div>
 		<div id="shareFriSha">
-			<img src="images/act_16womenday_share.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_shareImg.png" alt="">
 		</div>
 		<!--<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" autoplay="autoplay" style="display:none" loop preload></audio>
 		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3" id="sound_add" style="display:none" preload></audio>
 		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>-->
 		<div style="display:none">
-			<img src="images/act_16womenday_comText.png" alt="">
-			<img src="images/act_16womenday_children1.png" alt="">
-			<img src="images/act_16womenday_children2.png" alt="">
-			<img src="images/act_16womenday_children3.png" alt="">
-			<img src="images/act_16womenday_game_score1.png" alt="">
-			<img src="images/act_16womenday_game_score2.png" alt="">
-			<img src="images/act_16womenday_game_score3.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_textIcon.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_game_score.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_game_IceBucket.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_game_nohotPeople.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_game_IceWater.png" alt="">
+			<img src="images/0715_images/act_16coolIceBucket_game_hotPeople.png" alt="">
+			<!--<img src="images/act_16womenday_game_score3.png" alt="">-->
 		</div>
 	</body>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-	<script>
-		//alert(navigator.userAgent);
-		function getUrlEle() {
+		<script>
+		
+	function getUrlEle() {
+			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+				return "";
+			}
 			var urldec = location.href.split("?")[1].split("&");
 			var urlQuery = {};
 			var a, b;
@@ -318,171 +313,167 @@
 			};
 			return urlQuery;
 		};
-
-		function appShareFun() {
-			var token = getUrlEle().user_token;
-			if (token == "" || token == null || token == undefined) {
-				showResultApp("remind", "请先登录后再分享");
-				return false;
-			} else {
-				return true;
-			};
+		var version = getUrlEle().version_code || '';
+		var token = getUrlEle().user_token || '';
+		/*判断是否登录*/
+		function appShareFun(){
+			var token=getUrlEle().user_token;
+		    	if(token=="" || token ==null || token== undefined){
+		    		showResultApp("remind","请先登录后再分享");
+		    		return false;
+		    	}else{
+		    		return true;
+		    	};
+		    };
+	
+	
+		var manifest = [];
+		var preload;
+		/* window加载 */
+		var canvas = document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+		var manifest = [];
+		var preload;
+		//定义相关JSON格式文件列表
+		function setupManifest() {
+			var imgL = $("img").length;
+			for (var i = 1; i < imgL; i++)
+				manifest.push({
+					src: $("img").eq(i).attr("src")
+				});
+			var audioL = $("audio").length;
+			for (var i = 1; i < audioL; i++)
+				manifest.push({
+					src: $("audio").eq(i).attr("src")
+				});
 		};
-
-		function showResultApp(type, title) {
-			$("body").append(_prompt);
-			if (type == "remind") {
-				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_remind.png");
-			} else if (type == "success") {
-				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_ok.png");
-			} else if (type == "error") {
-				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_error.png");
-			} else {
-				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_remind.png");
-			}
-			$("#prompt").find(".title").text(title);
-			var top = ($(window).height() - 90) / 2;
-			var left = ($(window).width() - 180) / 2;
-			$("#prompt").css({
-				'top': top + "px",
-				'left': left + "px"
-			});
-			$("#prompt").show();
-			shadeAll();
-			//	$("#prompt").show();
-			setTimeout("closePrompt()", 1000);
-		};
-
-		// 调用方法
-		var oMedia = document.getElementById("audioBackMusic");
-		var preLoad = function() {
-			var timout = null;
-			var aImg = $("img");
-			var _length = aImg.length;
-			var progress = 0;
-			var audio = $("audio");
-			var loadPer = $("#loadPer");
-			for (var i = 0; i < _length; i++) {
-				aImg[i].src = aImg.eq(i).attr('src');
-			};
-			for (var i = 0; i < audio.length; i++) {
-				audio[i].src = audio.eq(i).attr('src');
-			};
-			//加载太慢时，在window.onload后5秒自动进入
-			window.addEventListener("load", function() {
-				timeOut = setTimeout(function() {
-					$("#loadShapePro").css({
-						"width": "100%"
-					})
-					loadPer.html("100%");
-					$('#loadingPage').fadeOut(function() {
-						$('#loadingPage').remove();
-						winOnLoad();
-						$(".comShineBack").fadeIn();
-						$(".indexPage").fadeIn();
-					});
-				}, 5000);
-			}, false);
-
-			aImg.on('load', function() {
-				loadEnd()
-			});
-			for (var i = 0; i < audio.length; i++) {
-				audio[i].addEventListener('canplaythrough', function(e) {
-					loadEnd();
-				}, false);
-
-			};
-
-			function loadEnd() {
-				progress++;
-				var percLoad = Math.ceil(progress / (_length + audio.length) * 100) + "%";
-				$("#loadShapePro").css({
-					"width": percLoad
-				})
-				loadPer.html(percLoad);
-				if (progress == _length + audio.length) {
-					window.addEventListener("load", function() {
-						setTimeout(function() {
-							$('#loadingPage').fadeOut(400, function() {
-								$('#loadingPage').remove();
-								winOnLoad()
-							});
-							$(".comShineBack").fadeIn();
-							$(".indexPage").fadeIn()
-							clearTimeout(timeOut);
-						}, 500);
-						document.getElementById("audioBackMusic").play();
-					}, false)
-
-				}
-			};
-
+		//开始预加载
+		function startPreload() {
+			preload = new createjs.LoadQueue(true);
+			//注意加载音频文件需要调用如下代码行
+			preload.installPlugin(createjs.Sound);
+			//preload.on("fileload", handleFileLoad);
+			preload.on("progress", handleFileProgress);
+			preload.on("complete", loadComplete);
+			preload.loadManifest(manifest);
 		}
-		preLoad();
-		/*App分享方法  */
-		function s(type) {
-			var jsonObject = {};
-			if (type == 0) {
-				jsonObject.shared_type = "0";
-				jsonObject.shared_url = wechatObj.link;
-				jsonObject.shared_title = wechatObj.title;
-				jsonObject.shared_content = wechatObj.desc;
-				jsonObject.shared_img_url = wechatObj.imgUrl;
-			} else
-			if (type == 1) {
-				jsonObject.shared_type = "1";
-				jsonObject.shared_url = wechatObj.link;
-				jsonObject.shared_title = wechatObj.desc;
-				jsonObject.shared_content = wechatObj.desc;
-				jsonObject.shared_img_url = wechatObj.imgUrl;
+		//加载中动画
+		var load = {};
+		load.loadAniBoo = true;
+		load.loadNum = 0;
+		load.loadMax = $("img").length + $("audio").length;
+		load.loadAniTime = null;
+		//	var loadPer = $("#loadPer"); //加载进度条
+		function handleFileProgress(event) {
+			if (load.loadAniBoo) {
+				load.loadAniTime = setInterval(function() {
+					/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
+					if (load.loadNum >= (load.loadMax - 1)) {
+						if (load && load.loadAniTime) {
+							clearInterval(load.loadAniTime);
+						}
+						return true;
+					}
+					load.loadNum++;
+					loadState(load);
+				}, 500)
+				load.loadAniBoo = false;
+			} else {
+				return false;
 			}
-			var jsonStr = JSON.stringify(jsonObject);
-			sharedTypeByJson(jsonStr);
-		};
+		}
 
-		function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
-			camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
-		};
-		$(".gameWin:nth-child(2n)").css({
-			"margin-left": ".5rem"
-		});
-		document.querySelector("#audioBackMusic").volume = 0.2;
-		document.querySelector("#sound_add").volume = 0;
-		document.querySelector("#sound_cut").volume = 0;
-		var musicBoo = true
-
-		function winOnLoad() {
-			/* 获取token */
-
-			$("#getActRule").on("tap", function() {
-				$(".actRuleShow_wrap").show();
-			});
-			$(".actRuleShow_wrap").on("tap", function() {
-				$(".actRuleShow_wrap").hide();
-			});
-			$("#goToGamePage").on("click", function(e) {
-				$(".comShineBack").hide();
-				$(".gamePage").fadeIn(100);
-				$(".indexPage").hide(100);
-				// document.getElementById("audioBackMusic").play();
-			});
-
-			$(".gameMusic_wrap").on("click", function() {
-				if (!oMedia.paused) {
-					document.querySelector("#audioBackMusic").pause();
-					$("#gameMusic").addClass("musicPause");
-					musicBoo = false;
-				} else {
-					document.querySelector("#audioBackMusic").play();
-					$("#gameMusic").removeClass("musicPause");
-					musicBoo = true;
-				}
-			});
-			$("#goToGetHb").on("click", function() {
-				location.href = "http://store.ykd365.com/medhtml/common/act_comSkip_page?method=act_16womenfes_gethb";
-				//location.href="http://192.168.1.177:8080//medstore-html/common/act_comSkip_page?method=act_16womenfes_gethb";
+		function loadState(load) {
+			var loadPer = $("#loadPer"); //加载进度条
+			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
+			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
+			loadPer.html(percLoad);
+			$("#loadShapePro").css({
+				"width": percLoad
 			})
+			$("#loadShapePro").animate({
+				width: percLoad
+			});
+		}
+	
+		//全部资源加载完毕
+		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
+		function loadComplete(event) {
+			if (load && load.loadAniTime)
+				clearInterval(load.loadAniTime);
+			load.loadNum = load.loadMax;
+			loadState(load);
+			setTimeout(function() {
+				  $('#loadingPage').fadeOut(400,function(){
+                              $('#loadingPage').remove();
+                              winOnLoad()
+                          });
+//                        $(".comShineBack").fadeIn();
+                          $(".indexPage").fadeIn()
+//                        clearTimeout(timeOut);
+			}, 500);
+		};
+		
+		setupManifest();
+		startPreload();
+		
+		function winOnLoad() {
+			$("#getActRule").on("tap",function(){
+            $(".actRuleShow_wrap").show();
+        	});
+        $(".actRuleShow_wrap").on("tap",function(){
+            $(".actRuleShow_wrap").hide();
+        });
+        $("#goToGamePage").on("click",function(e){
+//          $(".comShineBack").hide();
+            $(".gamePage").fadeIn(100);
+            $(".indexPage").hide(100);
+           // document.getElementById("audioBackMusic").play();
+        });
+
+        $(".gameMusic_wrap").on("click",function(){
+            if( !oMedia.paused){
+                document.querySelector("#audioBackMusic").pause();
+                $("#gameMusic").addClass("musicPause");
+                musicBoo=false;
+            }else{
+                document.querySelector("#audioBackMusic").play();
+                $("#gameMusic").removeClass("musicPause");
+                musicBoo=true;
+            }
+        });
+			
+			
+			
+			//去使用跳转页面
+			$(".goForUse").on("click", function() {
+				goPage();
+			});
+			/**判断app点击去使用按钮跳转的地址**/
+			function goPage(type) {
+				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+				/**判断是否是微信**/
+				if (is_weixin()) {
+					window.location.href = target_href;
+				} else {
+						if (token == "" || token == null || token == undefined || token == 'undefined') {
+							showResultApp("remind", "请先登录");
+						} else {
+							if (version && 200 <= version) {
+								gotoPage('{"type":"1"}');
+							} else {
+								window.location.href = target_href;
+							}
+						}
+					}
+				}
+			
+			$(".receive_btn ").on("click ", function() {
+			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
+				// var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
+			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=210";
+				location.href= url ;
+			});
 		}
 	</script>
 	<script src="js/act_16womenfes_gamecon.js"></script>
@@ -491,8 +482,6 @@
 		wechatObj.title = '【药快到】提高颜值大作战';
 		wechatObj.desc = '【药快到】脸蛋美不美，颜值高不高，测测就知道！';
 		wechatObj.link = 'http://store.ykd365.com/medhtml/common/act_16womenfes_index';
-		//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
-		//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
 		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16womenday_shareIcon.jpg';
 
 		if (is_weixin()) {
