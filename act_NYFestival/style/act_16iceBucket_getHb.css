@@ -24,63 +24,41 @@ body,
 }
 
 body {
-	width100%;
+	width:100%;
 	font-size: 10px;
 	font-size: .1rem;
 	font-family: Microsoft Yahei, Arial;
 	width: 6.4rem;
 }
 
-
 .content {
 	width: 100%;
 	position: relative;
-	height: 9.8rem;
+	height: 9.4rem;
 	background: url(../images/act_16coolIceBucket_indexBj.jpg)center center no-repeat;
-	background-size:100% 100% ;
-	
+	background-size: 100% 100%;
 }
 
-.indexPageTitle {
-    /*width: 5.4rem;
-   	padding-top: .6rem;*/
-}
+
 .indexComImg {
-	width: 4.4rem;
-    display: block;
-    margin: 0 auto;
-    padding-top: .4rem;
+	width: 5rem;
+	display: block;
+	margin: 0 auto;
+	padding-top: .4rem;
 }
-.childSty{
-	width: 3.4rem;
-    padding-top: 0;
-    margin: -.25rem auto .2rem;
-}
-/*
-#loadingPage {
-	width: 100%;
-	overflow: hidden;
-	box-sizing: border-box;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 9999;
-	background: transparent;
-}*/
 
+.childSty {
+	width: 3rem;
+	padding-top: 0;
+	margin: -.6rem auto .2rem;
+}
 
 /*首页*/
 
-/*.indexPage {
+
+.commShow_title img {
 	width: 100%;
-	background: transparent;
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}*/
-
-
+}
 
 #getHbBtn {
 	margin: .18rem auto .2rem;
@@ -94,18 +72,19 @@ body {
 	background: linear-gradient(to bottom, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);
 	box-shadow: 0 2px 2px #ed3442, 0 -2px 0 #fff3c6;*/
 	background: #a7d421;
-    box-shadow: inset 0 -6px 9px #88bb10;
-    border: 3px solid #fff;
+	box-shadow: inset 0 -6px 9px #88bb10;
+	border: 3px solid #fff;
+	outline: none;
 }
 
 #getHbBtn span {
 	display: block;
-    width: 200px;
-    height: 25px;
-    margin: 0 auto;
-    background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat;
-    background-size: 126% auto;
-    background-position: 16px -136px;
+	width: 200px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 126% auto;
+	background-position: 16px -136px;
 }
 
 #getActRule {
@@ -136,11 +115,9 @@ body {
 	padding-top: 1.5rem;
 }
 
-.actRuleShow {}
 
 .comShowWrap1 {
 	width: 5.6rem;
-	/*max-height:80%;*/
 	background: #f7ac47;
 	border-radius: 5px;
 	box-shadow: 0 -2px #fcd8a0;
@@ -155,7 +132,6 @@ body {
 	background: url(images/act_16womenday_comText.png) 0 -180px no-repeat;
 	background-size: 145% 462%;
 	height: 50px;
-	;
 	width: 2.5rem;
 	margin: 0 auto;
 	overflow: hidden;
@@ -168,7 +144,6 @@ body {
 	width: 44px;
 }
 
-.actRuleText {}
 
 .comTextWrap1 {
 	width: 5.3rem;
@@ -212,7 +187,7 @@ body {
 	margin-left: .1rem;
 }
 
-.actRuleScore:nth-child(1) .actRuleAvatar span {
+/*.actRuleScore:nth-child(1) .actRuleAvatar span {
 	background: url(images/act_16womenday_children1.png) 0 0 no-repeat;
 	background-size: 100% 107%;
 	display: block;
@@ -237,7 +212,7 @@ body {
 	width: 95%;
 	height: 131%;
 	margin: -8% auto 0;
-}
+}*/
 
 .actRuleAvatar {
 	display: block;
@@ -326,31 +301,17 @@ body {
 #downText {
 	font-size: 18px;
 	font-family: 黑体;
-	font-weight: 600;
+	font-weight: 900;
 	text-align: center;
 	/*line-height:.4rem;*/
-	color: #761f2c;
+	color: #0d4b6e;
 }
 
-.gethb_girl {
-	position: absolute;
-	width: 1.25rem;
-	left: 0.3rem;
-	top: 4rem;
-}
-
-.gethb_boy {
-	position: absolute;
-	width: 1.3rem;
-	right: .45rem;
-	top: 4.35rem;
-}
 
 .has_received,
 .receive_success {
-	display: none;
 	width: 4rem;
-	margin: 0 auto;
+	margin: 0.3rem auto .5rem;
 	border-radius: 5px;
 	box-sizing: border-box;
 	background: #48ddf4;
@@ -358,8 +319,8 @@ body {
 }
 
 .getHbnNum img:nth-child(1) {
-	width: 3rem;
-	margin: .2rem auto;
+	width: 3.3rem;
+	margin: .3rem auto;
 	display: block;
 }
 
@@ -379,9 +340,19 @@ body {
 	font-size: 16px;
 	color: #761f2c;
 	height: 40px;
-	width: 6.2rem;
+	width: 4.8rem;
 	margin: .2rem auto;
 	overflow: hidden;
+}
+
+.comShowTitle {
+	color: #761f2c;
+	height: 40px;
+	width: 4.8rem;
+	padding: 0 .2rem;
+	margin: .2rem auto;
+	overflow: hidden;
+	position: relative;
 }
 
 .friHbShow {
@@ -389,7 +360,7 @@ body {
 	width: 6.2rem;
 	overflow: hidden;
 	font-size: 12px;
-	border-bottom: 1px solid #761f2c;
+	border-bottom: 1px solid #4ebaf8;
 }
 
 .userFriAvatat {
@@ -421,7 +392,7 @@ body {
 
 .userFriInf strong {
 	font-size: 14px;
-	color: #761f2c;
+	color: #4ebaf8;
 	line-height: 20px;
 }
 
@@ -430,7 +401,7 @@ body {
 	height: 40px;
 	float: right;
 	text-align: center;
-	background: url(images/act_16womenday_valueback.png) 0px 0 no-repeat;
+	background: url(../images/act_16coolIceBucket_receive_couponIcon.png) 0px 0 no-repeat;
 	background-size: 100% 90%;
 	overflow: hidden;
 	line-height: 35px;
@@ -447,7 +418,7 @@ body {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	width: 100%;
-	color: #761f2c;
+	color: #4ebaf8;
 	line-height: 20px;
 }
 
@@ -455,7 +426,7 @@ body {
 	width: 6.2rem;
 	margin: 0 auto;
 	padding-bottom: .5rem;
-	color: #761f2c;
+	color: #4ebaf8;
 	line-height: 30px;
 	font-size: 14px;
 }
@@ -478,17 +449,23 @@ body {
 	font-weight: 600;
 }
 
-.downloadP {
-	/*margin-top: .2rem;*/
-}
-
 .common_useStyle {
 	margin: 0 auto;
 	overflow: hidden;
 	padding-bottom: .3rem;
 	width: 5rem;
 }
-
+.gethb_people {
+	position: absolute;
+    width: 1.3rem;
+    left: 0.4rem;
+    top: 3.75rem;
+}
+.gethb_bucket {     position: absolute;
+    width: 1rem;
+    right: .6rem;
+    top: 3.3rem;
+}
 .use_btn {
 	margin: .25rem auto;
 	border: none;
@@ -497,19 +474,19 @@ body {
 	box-sizing: border-box;
 	height: 44px;
 	display: block;
-	background: -webkit-linear-gradient(top, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);
-	background: linear-gradient(to bottom, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);
-	box-shadow: 0 2px 2px #ed3442, 0 -2px 0 #fff3c6;
+	border: 3px solid #fff;
+	background: -webkit-linear-gradient(to bottom, rgba(255, 148, 190, 1) 0%, rgba(255, 114, 38, 1) 51%, rgba(255, 102, 19, 1) 77%, rgba(255, 55, 12, 1) 90%, rgba(255, 47, 21, 1) 95%, #ff945a 100%);
+    background: linear-gradient(to bottom, rgba(255, 148, 190, 1) 0%, rgba(255, 114, 38, 1) 51%, rgba(255, 102, 19, 1) 77%, rgba(255, 55, 12, 1) 90%, rgba(255, 47, 21, 1) 95%, #ff945a 100%);
 }
 
 .use_btn span {
-	background: url(images/act_16womenday_comText.png) 0 -102px no-repeat;
-	background-size: 100% 842%;
 	display: block;
-	height: 60%;
-	margin: 0 auto;
-	overflow: hidden;
-	width: 2.7rem;
+    width: 200px;
+    height: 25px;
+    margin: 0 auto;
+    background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat;
+    background-size: 120% auto;
+    background-position: 10px -160px;
 }
 
 .shareFri {
@@ -521,18 +498,19 @@ body {
 	height: 44px;
 	display: block;
 	box-shadow: inset 0 2px 2px 0 #def3e5;
-	background: -webkit-linear-gradient(top, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, #34cbed 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);
-	background: linear-gradient(to bottom, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, #34cbed 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);
+	background: -webkit-linear-gradient(to bottom, rgba(194, 255, 100, 1) 1%, rgba(168, 213, 36, 1) 41%, rgba(167,212, 33, 1) 66%, rgba(155, 203, 26, 1) 80%, #88bb10 90%, rgba(143, 191, 20, 1) 95%, #abcf29 100%);
+	background: linear-gradient(to bottom, rgba(194, 255, 100, 1) 1%, rgba(168, 213, 36, 1) 41%, rgba(167,212, 33, 1) 66%, rgba(155, 203, 26, 1) 80%, #88bb10 90%, rgba(143, 191, 20, 1) 95%, #abcf29 100%);
+    border: 3px solid #fff;
 }
 
 .shareFri span {
-	background: url(images/act_16womenday_comText.png) 0 -126px no-repeat;
-	background-size: 130% 842%;
 	display: block;
-	width: 2.2rem;
-	height: 60%;
-	margin: 0 auto;
-	overflow: hidden;
+    width: 200px;
+    height: 25px;
+    margin: 0 auto;
+    background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat;
+    background-size: 126% auto;
+    background-position: 16px -136px;
 }
 
 .ActRule_content {
@@ -554,76 +532,7 @@ body {
 	width: 4.5rem;
 }
 
-.noLoginBox {
-	margin: 4.5rem auto 0;
-	/* width: 4rem; */
-	width: 60%;
-	text-align: center;
-	background: #fff;
-	/* line-height: 40px; */
-	border-radius: 5%;
-	height: 20%;
-}
 
-.closeShade {
-	width: 60px;
-	float: right;
-	color: #333;
-	font-size: 16px;
-	text-align: center;
-	height: 60px;
-	border-radius: 15px;
-	position: absolute;
-	top: 4.6rem;
-	right: 1rem;
-}
-
-.closeShade span {
-	width: 20px;
-	height: 20px;
-	line-height: 20px;
-	border: .03rem solid #333;
-	display: block;
-	margin: 0 auto;
-	border-radius: 50%;
-}
-
-.sureButn {
-	display: block;
-	width: 54%;
-	color: #fff;
-	text-align: center;
-	font-size: .4rem;
-	box-sizing: border-box;
-	line-height: 38px;
-	border-radius: 8px;
-	background: #fff;
-	margin: 0 auto;
-	border: 0;
-	background: #ce3537;
-	color: 18px;
-	font-size: 18px;
-}
-
-.common_boxSty {
-	position: fixed;
-	width: 100%;
-	height: 100%;
-	z-index: 110;
-	top: 0;
-	background-color: rgba(0, 0, 0, .5);
-}
-
-.contBottom {
-	position: fixed;
-	bottom: 88px;
-	left: 0;
-	/* width: 100%; */
-	width: 20px;
-	height: 10px;
-	-webkit-border-radius: 0 0 200px 200px;
-	background: #ed4e61;
-}
 
 #shareFriSha {
 	position: absolute;

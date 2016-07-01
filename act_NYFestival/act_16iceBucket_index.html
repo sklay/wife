@@ -24,7 +24,7 @@
 					width: 5.2rem;
 				}
 				#goToGamePage {
-					margin: .25rem auto;
+					margin: .35rem auto;
 				}
 				.indexPageTitle {
 					margin-top: 5%;
@@ -40,14 +40,18 @@
 					margin: .5rem auto 0;
 				}
 			}
-			
+			@media screen and (max-height: 580px) {
+				#goToGamePage {
+					margin: .15rem auto;
+				}
+			}
 			@media screen and (max-height: 480px) {
 				.loadingImg {
 					margin: 2rem auto 0;
 				}
-				#getActRule {
+				/*#getActRule {
 					line-height: 0;
-				}
+				}*/
 				.loadText {
 					margin-top: .4rem;
 				}
@@ -77,6 +81,14 @@
 				}
 				.gameMainCon {
 					height: 75%;
+				}
+				#gamePlayChilren{
+					width: 2.5rem;
+					left: .2rem;
+					bottom:24%;
+				}
+				#nohotChilren{
+					top:-.6rem;
 				}
 			}
 		</style>
@@ -278,9 +290,9 @@
 		<div id="shareFriSha">
 			<img src="images/0715_images/act_16coolIceBucket_shareImg.png" alt="">
 		</div>
-		<!--<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" autoplay="autoplay" style="display:none" loop preload></audio>
+		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" autoplay="autoplay" style="display:none" loop preload></audio>
 		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3" id="sound_add" style="display:none" preload></audio>
-		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>-->
+		<!--<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>-->
 		<div style="display:none">
 			<img src="images/0715_images/act_16coolIceBucket_textIcon.png" alt="">
 			<img src="images/0715_images/act_16coolIceBucket_game_score.png" alt="">
@@ -326,7 +338,7 @@
 		    	};
 		    };
 	
-	
+		 var oMedia=document.getElementById("audioBackMusic");
 		var manifest = [];
 		var preload;
 		/* window加载 */
@@ -417,6 +429,11 @@
 		setupManifest();
 		startPreload();
 		
+		
+		document.querySelector("#audioBackMusic").volume=0.2;
+	    document.querySelector("#sound_add").volume=0;
+//	    document.querySelector("#sound_cut").volume=0;
+	    var musicBoo=true
 		function winOnLoad() {
 			$("#getActRule").on("tap",function(){
             $(".actRuleShow_wrap").show();
@@ -476,7 +493,7 @@
 			});
 		}
 	</script>
-	<script src="js/act_16womenfes_gamecon.js"></script>
+	<script src="js/act_16iceBucket_index.js"></script>
 	<script>
 		var wechatObj = {};
 		wechatObj.title = '【药快到】提高颜值大作战';

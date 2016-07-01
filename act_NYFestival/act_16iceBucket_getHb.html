@@ -22,13 +22,10 @@
 				/** 准生产APPID*/
 				appid = 'wx697be0ec43c8cafa';
 			}
-		 // 	appid = 'wx697be0ec43c8cafa';
 			var codeActId = '${codeActId}' || '';
-			/* var codeActId = 162; */
 			var act_url = '${act_url}' || '' ;
 			// 新追加一个参数
 			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%2f'+codeActId+'%3fact_url=' + act_url;
-		//	var redirect_uri = 'http%3a%2f%2f' + 'deve.ykd365.com' + '%2fmedhtml%2fcommon%2factivity%2f'+codeActId+'%3fact_url=' + act_url;
 			console.debug(' cur href is ', redirect_uri);
 			
 			if (is_weixin()) {
@@ -72,123 +69,124 @@
 	<body>
 		<div class="content">
 			<div class="indexPage">
-					<!--<div class="content_top">-->
 						<img class="indexComImg indexPageTitle"  src="images/act_16coolIceBucket_indexTitle.png" />
 						<img class="indexComImg childSty"  src="images/act_16coolIceBucket_indexPeople.png" />
-					<!--</div>-->
 					<div class="getHbWrap">
 						<div class="getHb">
 							<div class="commomLogin">
-								<!--<div class="commomLogin_coupon">
-									<img src="images/act_16dumpling_get_coupon.png" />
-								</div>-->
 								<input type="tel" placeholder="请输入手机号码" id="userPhone">
 								<button id="getHbBtn"><span></span></button>
-								<!--<img id="getHbBtn" src="images/act_16dumpling_get_receiveBtn.png" />-->
 								<p id="downText" class="downloadP goForUse">下载药快到App立即参与</p>
 							</div>
 							<div class="received_result" style="display: none;">
+								<img class="gethb_people" src="images/act_16coolIceBucket_receive_people.png" />
+                   				<img class="gethb_bucket" src="images/0715_images/act_16coolIceBucket_game_IceBucket.png" />
 								<div class="receive_success" style="display: none;">
-									<div class="getHb7 getHbnNum" style="display: none;">
-										<img class="getHb7_img" src="images/act_16dumpling_get_coupon7.png" />
-										<p class="receive_text receiveResult ">恭喜您领到7元现金券！</p>
+									<div class="getHb7 getHbnNum" style="display:none">
+										<img  src="images/act_16coolIceBucket_receive_text7.png" />
+		                   				<img  src="images/act_16coolIceBucket_receive_coupon7.png" />
+									</div>
+									<div class="getHb8 getHbnNum" style="display:none">
+										<img  src="images/act_16coolIceBucket_receive_text8.png" />
+		                   				<img  src="images/act_16coolIceBucket_receive_coupon8.png" />
 									</div>
 								</div>
 								<div class="has_received" style="display: none;">
-									<div class="has_getHb7 getHbnNum" style="display: none">
-										<img class="has_getHb7_img" src="images/act_16dumpling_get_coupon7.png" />
-										<p class="has_receive_text receiveResult "></p>
+									<div class="has_getHb7 getHbnNum" style="display:none">
+										<img style="margin: .2rem  auto .1rem" src="images/act_16coolIceBucket_hasreceive_text7.png" />
+		                   				<img src="images/act_16coolIceBucket_receive_coupon7.png" />
+									</div>
+									<div class="has_getHb8 getHbnNum" style="display:none">
+										<img style="margin: .2rem  auto .1rem" src="images/act_16coolIceBucket_hasreceive_text8.png" />
+		                   				<img src="images/act_16coolIceBucket_receive_coupon8.png" />
 									</div>
 								</div>
 								<div class="commUsebtn">
-									<!--<button class="use_btn goForUse" id="goForUse">去使用</button>
-									<button class="shareFri shareForFri" id="small_ShareFri">邀请好友</button>
-									-->
-									<img class="use_btn goForUse" id="goForUse" src="images/act_16dumpling_get_useBtn.png" />
-									<img class="shareFri shareForFri" id="small_ShareFri" src="images/act_16dumpling_get_shareBtn.png" />
+									<button class="use_btn goForUse" id="goForUse"><span></span></button>
+									<button class="shareFri shareForFri" id="small_ShareFri"><span></span></button>
 								</div>
 							</div>
 						</div>
 						<div class="shareAppPage">
 							<!--<button class="shareAppBtn" id="shareAppPage_shareFir">分享给好友</button>
 							<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>-->
-							<img class="shareAppBtn" id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png" />
-							<img class="shareAppBtn" id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png" />
+							<!--<img class="shareAppBtn" id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png" />
+							<img class="shareAppBtn" id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png" />-->
 						</div>
 					</div>
 			</div>
 			<!--看朋友手气 start-->
-			<c:if test="${ not empty coupList }">
-			<div class="friHbShowWrap ">
-				<div class="comShowTitle">
-					<div class="leftLineDot">
-						<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+			<div class="mainConWrap">
+			<div class="mainCon">
+				<div class="friHbShowWrap">
+					<div class="comShowTitle" style="    margin-top: .5rem;">
+						<div class="comshowTitleText commShow_title">
+							<!--~~~~~~~看看朋友的手气~~~~~~~-->
+							<img src="images/act_16coolIceBucket_receive_showFri_title.png" />
+						</div>
 					</div>
-					<div class="comshowTitleText">看看朋友的手气</div>
-					<div class="rightLineDot">
-						<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
-					</div>
-				</div>
-				<c:forEach var="rc" items="${coupList}" varStatus="status">
 					<div class="friHbShow">
 						<div class="userFriAvatat">
-							<c:if test="${ not empty rc.headimgurl }">
-								<img src="${rc.headimgurl }" alt="头像" />
-							</c:if>
-							<c:if test="${ empty rc.headimgurl }">
-								<img src="images/act_commonHead_img.jpg" alt="头像" />
-							</c:if>
+							<img src="images/act_commonHead_img.jpg" alt="头像" />
 							<div class="userFriInf">
-								<strong>${rc.nickname } </strong>
-								<c:if test="${700 == rc.couponValue}">
-									<p>人品爆发，这波福利我收啦!</p>
-								</c:if>
-								<c:if test="${800 == rc.couponValue}">
-									<p>又给这么大红包，药快到太给力啦!</p>
-								</c:if>
+								<strong>杀生丸</strong>
+								<p>人品爆发，这波福利我收啦!</p>
 							</div>
 						</div>
 						<div class="userFriInf_wrap">
-							<c:if test="${700 == rc.couponValue}">
-								<div class="userFriHbValue_wrap">
-									<span class="userFriHbValue">7<span>元</span></span>
-								</div>
-							</c:if>
-							<c:if test="${800 == rc.couponValue}">
-								<div class="userFriHbValue_wrap">
-									<span class="userFriHbValue">8<span>元</span></span>
-								</div>
-							</c:if>
+							<div class="userFriHbValue_wrap">
+								<span class="userFriHbValue">7元</span>
+							</div>
 						</div>
 					</div>
-				</c:forEach>
-			</div>
-		</c:if>
-		
-			<!--看朋友手气 end-->
-			<!--活动规则 start-->
-			<div class="activeRuleShowWrap ">
-				<div class="comShowTitle">
-					<div class="leftLineDot">
-						<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-					</div>
-					<div class="comshowTitleText">活动细则</div>
-					<div class="rightLineDot">
-						<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+					<div class="friHbShow">
+						<div class="userFriAvatat">
+							<img src="images/act_commonHead_img.jpg" alt="头像" />
+							<div class="userFriInf">
+								<strong>杀生丸</strong>
+								<p>又给这么大红包，药快到太给力啦!</p>
+							</div>
+						</div>
+						<div class="userFriInf_wrap">
+							<div class="userFriHbValue_wrap">
+								<span class="userFriHbValue">8元</span>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="activeRuleShow">
-					<p>1.活动有效期：${startTime} — ${endTime}。</p>
-					<p>2.需下载药快到App，使用手机号登录方可使用。</p>
-					<p>3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。</p>
-					<p>4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。</p>
-					<p>5.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+
+				<div class="activeRuleShowWrap">
+					<div class="comShowTitle">
+						<div class="comshowTitleText commShow_title" >
+							<!--~~~~~~~~活动细则~~~~~~~~-->
+							<img src="images/act_16coolIceBucket_receive_ruleTitle.png" />
+						</div>
+					</div>
+					<div class="activeRuleShow">
+						<p>
+							1.活动有效期：2016年3月7日——2016年3月13日。
+						</p>
+						<p>
+							2.需下载药快到App，使用手机号登录方可使用。
+						</p>
+						<p>
+							3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。
+						</p>
+						<p>
+							4.每个订单只能使用一张券，不与其他现金券叠加使用,且不找零。
+						</p>
+						<p>
+							5.本活动最终解释权归北京康顾多健康科技有限公司所有。
+						</p>
+					</div>
 				</div>
+				
 			</div>
+		</div>
 			<!--活动规则 end-->
 		</div>
 		<div id="shareFriSha">
-		    <img src="images/act_16dumpling_share.png" alt="">
+		    <img src="images/0715_images/act_16coolIceBucket_shareImg.png" alt="">
 		</div>
 	</body>
 	<script>
@@ -224,9 +222,9 @@
 			if (!is_weixin()) {
 				$(".downloadP").html("查看优惠券");
 			}
-			$(".friHbShowWrap .friHbShow:last-child").css({
-				"borderBottom" : "none"
-			});
+//			$(".friHbShowWrap .friHbShow:last-child").css({
+//				"borderBottom" : "none"
+//			});
 		})();
 	
 		window.onload = function() {
@@ -243,10 +241,10 @@
 				/*前端随机产生的邀请码传给后台，后台接受到这个值返回给前端，前端根据这个邀请码判断领取到的优惠券的金额*/
 				var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
 				if (getCodeNum) {
-					var _inviteCode = '16DWJ01';
+					var _inviteCode = '16BTLQ01';
 					var getHbNuM = 7;
 				} else {
-					var _inviteCode = '16DWJ02';
+					var _inviteCode = '16BTLQ02';
 					var getHbNuM = 8;
 				}
 				var _fromChannel = 'hongbao';
@@ -261,18 +259,17 @@
 						$("#userPhone").val("");
 						if (result.result == "succ") {
 							console.log("succ");
-							$(".commomLogin").hide();
-							$(".received_result").show();
+		 					$(".childSty").hide();
+		 					$(".commomLogin").hide();
+							$(".received_result").show(); 
 							$(".receive_success").show();
-							fromUserId = result.data.userId;
-							if (getHbNuM == 7) {
-								$(".getHb7_img").attr("src", "images/act_16dumpling_get_coupon7.png");
-							} 
-							else {
-								$(".getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
-							}
-							$(".receive_text").html('恭喜您，领到' + getHbNuM + '元现金券');
-							$(".getHb7").show();
+		 					fromUserId = result.data.userId;
+		 					if(getHbNuM==7){
+		 						$(".getHb7").show();
+		 						 
+		 					}else{
+		 						$(".getHb8").show();
+		 					}
 						} else if (result.result == "fail") {
 							if (result.data.msg == "received") {
 								console.log("received");
@@ -281,17 +278,15 @@
 								if (couponInfo) {
 									couponValue = JSON.parse(couponInfo).couponValue || ''
 								}
-								$(".commomLogin").hide();
+								$(".childSty").hide();
+			    				$(".commomLogin").hide();
 								$(".received_result").show();
 								$(".has_received").show();
-								if ((couponValue / 100) == 7) {
-									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon7.png");
-								} 
-								else {
-									$(".has_getHb7_img").attr("src", "images/act_16dumpling_get_coupon8.png");
-								}
-								$(".has_receive_text").html((couponValue / 100) + '元现金券已经存入您的账户');
-								$(".has_getHb7").show();
+		 						if(7==couponValue/100){
+			    					$(".has_getHb7").show();
+			    				}else{
+			    					$(".has_getHb8").show();
+			    				}
 							} else {
 								alert(result.data.msg);
 								waitClose();
