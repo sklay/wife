@@ -554,7 +554,7 @@ body {
     position: absolute;
     left: .45rem;
     /*top: -.85rem;*/
-   bottom: 26%;
+   bottom: 25%;
     -webkit-transform-origin: 50% 100%;
     transform-origin: 50% 100%;
     z-index: 4;
@@ -666,7 +666,7 @@ body {
 #nohotChilren{
 	width: 2rem;
     position: absolute;
-    top: -.35rem;
+    top: -.25rem;
     left: .25rem;
     z-index: 2;
 }
@@ -705,9 +705,10 @@ body {
 	box-sizing: border-box;
 	height: 44px;
 	display: block;
+	outline: none;
 }
 
-#goToGetHb {
+#goToGetHb .gameOverBtn{
 	/*background: #f35f72;
 	-webkit-box-shadow: inset 1px 2px 2px 0 #fddccd;
 	box-shadow: inset 1px 2px 2px 0 #fddccd;
@@ -720,14 +721,14 @@ body {
     border: 3px solid #fff;
 }
 
-#goToGetHb span {
+#goToGetHb .gameOverBtn span {
     width: 112px;
     height: 25px;
     display: block;
     /* width: 2.7rem; */
     margin: 0 auto;
     background: url(../images/0715_images/act_16coolIceBucket_textIcon.png)no-repeat;
-    background-position: 16px -54px;
+    background-position: 14px -57px;
     background-size: 231% auto;
 }
 
@@ -799,7 +800,9 @@ body {
 }
 
 #shareFriSha img {
-	width: 100%;
+	width: 4rem;
+	display: block;
+	margin: 0 auto;
 }
 
 .promptDiv {

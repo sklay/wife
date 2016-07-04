@@ -116,14 +116,15 @@ $(function() {
 		var nohotchild = '<img src="images/0715_images/act_16coolIceBucket_game_nohotPeople.png" id="nohotChilren" alt="">';
 		var bucketImg_water = '<img src="images/0715_images/act_16coolIceBucket_game_IceWater.png" id="gamebucket_water" alt="">';
 
-		$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(ScoreShow);
+		
 		$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(bucketImg);
 		setTimeout(function() {
-			$("#scoreShowImg").remove();
+			
 			/*先追加桶，改变人物状态*/
 			$("#gamebucket").remove();
 			/*重新换一个桶*/
 			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(bucketImg_water);
+			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(ScoreShow);
 			
 			/*热的人物消失*/
 			$("#gamebucket").remove();
@@ -131,6 +132,8 @@ $(function() {
 			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(nohotchild);
 
 			setTimeout(function() {
+				$("#scoreShowImg").remove();
+				
 				$("#nohotChilren").remove();
 
 				$("#gamebucket_water").remove();
@@ -144,7 +147,7 @@ $(function() {
 
 	/*倒计时函数*/
 	function timeCountDownFun() {
-		var timeCountDown = 300;
+		var timeCountDown = 30;
 		var countDownTime = null;
 		var widthWrap = document.getElementById("gameCountDownColor_wrap");
 		var countDownWrapW = window.getComputedStyle(widthWrap, null).width;

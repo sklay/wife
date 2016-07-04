@@ -237,8 +237,10 @@ ul li{
 	background: #fff;
 	color: #000;
 }
+
 .tabct_tab_content_item{
 	width: 254px;
+	height: 170px;
 	margin: 24px auto;
 }
 .tabct_tab_content_item input{
@@ -306,10 +308,239 @@ ul li{
 	float: left;
 	
 }
+.new_wrap_left_content{
+	width: 700px;
+	margin: 0 auto;
+	padding: 0 20px;
+    box-sizing: border-box;
+}
+.nlc_title {
+	padding: 10px 10px 5px;
+	height: 30px;
+	border-bottom: 2px solid #e7e7e7;
+}
+.nlc_title_l{
+	width: 400px;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+}
+.nlc_title_l h2{
+	float: left;
+}
+.nlc_title_l .nlc_title_tab{
+	width: 200px;
+	float: right;
+	margin-top: -34px;
+}
+.nlc_title_l .nlc_title_tab li{
+	float: left;
+	width: 100px;
+	text-align: center;
+	background: #2b1670;
+	position: relative;
+	color: #fff;
+}
+.nlc_title_l .nlc_title_tab li.check{
+	background: #cd0800;
+}
+.nlc_title_l .nlc_title_tab li.check:after{
+	display: block;
+    content: " ";
+    position: absolute;
+    bottom: 0px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+}
+.nlc_title a{
+	float: right;
+	margin-top: 14px;
+	text-decoration: none;
+	color: #000;
+}
+
+.nlc_title_tab_content{
+	height: 170px;
+	margin: 35px auto 0;
+}
+.news_content_list {
+	height: 170px;
+}
+.left_imgList{
+	float: left;
+}
+.right_news_content{
+	float: right;
+}
 .new_wrap_right{
 	width: 290px;
 	height: 292px;
 	background: #f6f6f6;
 	float: right;
 	box-shadow:inset -1px 0 17px #d4d4d4;
+}
+
+.right_news_content li{
+	width: 360px;
+	font-size: 14px;
+	color: #7e7e7e;
+	margin-bottom: 36px;
+	/*overflow: hidden;*/
+}
+.right_news_content li span.dot{
+	    width: 5px;
+    height: 5px;
+    display: block;
+    background: #000;
+    margin: 4px 3px -12px -12px;
+}
+.right_news_content li span:nth-child(2){
+	float: left;
+}
+.right_news_content li span:nth-child(3){
+	float: right;
+}
+.r_content{
+	    width: 260px;
+    padding: 0 17px;
+    box-sizing: border-box;
+    margin: 30px auto 0;
+}
+.r_content h2{
+	    border-bottom: 2px solid #7e7e7e;
+    padding: 3px 0;
+}
+.r_content h2 sub{
+	 margin-left: 12px;
+	 color: #999;
+}
+.r_content_item{
+	margin-top: 30px;
+	color: #999999;
+	line-height: 30px;
+	font-size: 14px;
+}
+.fuli_zc{
+	width:1000px ;
+	height: 120px;
+	margin: 15px auto;
+}
+.fuli_zc img{
+	width: 100%;
+}
+
+.pro_sercice{
+	width: 1000px;
+	height: 350px;
+	margin: 0 auto;
+	background: #fff;
+}
+.pro_l{
+	width:300px ;
+	height: 350px;
+	float: left;
+	background: #fafafa;
+	box-shadow: inset -1px 0px 10px #D4D4D4;
+}
+.pro_l_code{
+	width:260px ;
+	height: 115px;
+	margin: 20px auto;
+	background: url(../images/BSHT_bjIcon.jpg)no-repeat;
+	background-size: 100% 100%;
+}
+.code_wrap{
+	width: 240px;
+	padding:20px 5px;
+	box-sizing: border-box;
+	margin: 0 auto;
+}
+.code_img{
+	float: left;
+}
+.code_wrap_content{
+	float: right;
+	
+	color: #fff;
+}
+.code_wrap_content p{
+	font-size: 16px;
+	line-height: 30px;
+}
+.code_wrap_content a{
+	width: 86px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	display: block;
+	outline: none;
+	text-decoration: none;
+	color: #fff;
+	background: #c8c7c7;
+	border-radius: 4px;
+}
+.remark{
+	color: #da251d;
+	padding:20px 20px 0;
+	font-size: 16px;
+	
+}
+.meg_content{
+	width: 260px;
+	margin: 15px auto 0;
+	font-size: 16px;
+	color: #999;
+	line-height: 30px;
+}
+.pro_r{
+	width:700px ;
+	height: 350px;
+	float: right;
+}
+.pro_r h2{
+	padding: 20px;
+	color: #999;
+}
+.defer_pro{
+	width: 700px;
+	height: 270px;
+	padding: 0 10px;
+	box-sizing: border-box;
+	margin-top: 16px;
+}
+.defer_pro_comm{
+	width: 156px;
+	height: 270px;
+	float: left;
+	color: #808080;
+	border-right: 2px solid #e6e5eb;
+	margin-left: 10px;
+}
+.defer_pro_4{
+	border:none;
+}
+.defer_pro_4 img{
+	margin-top: 10px;
+	width: 100%;
+}
+.defer_pro_comm p{
+	margin-top: 20px;
+}
+
+
+.boot{
+	width: 100%;
+	background: #2b1670;
+	height: 247px;
+	margin-top: 5px;
+	box-shadow: inset 0 -10px 10px #1d0e4d;
+}
+
+.boot_list{
+	width: 100px;
+	height: 50px;
 }

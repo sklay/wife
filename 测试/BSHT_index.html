@@ -11,6 +11,14 @@
 		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
 		<script src="owl-carousel/owl.carousel.min.js"></script>
+		<style>
+			.owl-pagination{
+				position: absolute;
+			    bottom: 10px;
+			    left: 50%;
+			    margin-left: -52px;
+			}
+		</style>
 	</head>
 	<body>
 		<!-- head start-->
@@ -142,21 +150,21 @@
 						</div>
 						<div class="tabct" style="display: none;">
 							<div class="tabct_tab_nav clearfix">
-									<ul>
-										<li class="select" data-index="0"></i>快件查询</li>
-										<li data-index="1"></i>在线寄件</li>
-									</ul>
-								</div>
-								<div class="tabct_tab_content">
-									<div class="tabct_tab_content_item clearfix" style="display: block;">
-										<input type="text" placeholder="输入运单号" />
-										<div class="search">
-											<span></span>
-										</div>
-									</div>
-									<div class="tabct_tab_content_item1" style="display: none;">
+								<ul>
+									<li class="select" data-index="0"></i>快件查询</li>
+									<li data-index="1"></i>在线寄件</li>
+								</ul>
+							</div>
+							<div class="tabct_tab_content">
+								<div class="tabct_tab_content_item clearfix" style="display: block;">
+									<input type="text" placeholder="输入运单号" />
+									<div class="search">
+										<span></span>
 									</div>
 								</div>
+								<div class="tabct_tab_content_item1" style="display: none;">
+								</div>
+							</div>
 						</div>
 						<div class="tabct" style="display: none;">
 							<div class="tabct_tab_nav clearfix">
@@ -182,11 +190,149 @@
 			<!--轮播图结束-->
 			<div class="new_wrap clearfix">
 				<div class="new_wrap_left">
-					
+					<div class="new_wrap_left_content">
+						<div class="nlc_title clearfix">
+							<div class="nlc_title_l clearfix">
+								<h2 class="news_title">新闻资讯<sub>NEWS</sub></h2>
+								<div class="nlc_title_tab clearfix">
+									<ul>
+										<li class="check" data-index="0"></i>公司新闻</li>
+										<li data-index="1"></i>行业动态</li>
+									</ul>
+								</div>
+							</div>
+							<a href="#" class="show_more">查看更多</a>
+						</div>
+						<div class="nlc_title_tab_content">
+							<div class="news_content_list clearfix" style="display: block;">
+								<div class="left_imgList">
+									<img src="images/BSHT_morePeo.jpg" />
+								</div>
+								<div class="right_news_content">
+									<ul>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>关于美国东海岸地区暴风雪红色预警...</span>
+											<span>2016-7-04</span>
+										</li>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>共论电商新发展 探寻运营新模式 ...</span>
+											<span>2016-7-04</span>
+										</li>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>关于2015年速运快递等服务新版价格...</span>
+											<span>2016-7-04</span>
+										</li>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>“开年送福利 让年货飞”活动价格公告...</span>
+											<span>2016-7-04</span>
+										</li>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>电子账户升级通知...</span>
+											<span>2016-7-04</span>
+										</li>
+										<li class="clearfix">
+											<span class="dot"></span>
+											<span>顺丰APP新版萌动上线！...</span>
+											<span>2016-7-04</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="news_content_list1" style="display: none;">
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="new_wrap_right"></div>
+				<div class="new_wrap_right">
+					<div class="r_content">
+						<h2>最新公告<sub>NOTES</sub></h2>
+						<div class="r_content_item">
+							2015年春节期间，百事亨通将为广大用户，提供春节极速运送服务。<br /> [2015-5-23]
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--专场-->
+			<div class="fuli_zc">
+				<img src="images/BSHT_navIcon.jpg" />
+			</div>
+			<!--产品与服务-->
+			<div class="pro_sercice clearfix">
+				<div class="pro_l">
+					<div class="pro_l_code ">
+						<div class="code_wrap clearfix">
+							<div class="code_img">
+								<img src="images/BSHT_codeIcon.jpg" />
+							</div>
+							<div class="code_wrap_content">
+								<p>百事亨通APP</p>
+								<p>便捷下便，及时查询</p>
+								<a href="#">手机扫描下载</a>
+							</div>
+						</div>
+					</div>
+					<p class="remark"> 特别失效异常动态</p>
+					<div class="meg_content">
+						<p>受天气影响，未来3天，黑龙江、吉林、新疆部分地区有大雪或暴雪；上海、浙江、江苏、广东、福建、台湾部分地区有大到暴雨。</p>
+					</div>
+				</div>
+				<div class="pro_r">
+					<h2>产品与服务</h2>
+					<div class="defer_pro clearfix">
+						<div class="defer_pro_1 defer_pro_comm">
+							<h3>新产品</h3>
+							<p>代收贷款</p>
+							<p>专机次晨达/次日达</p>
+							<p>港台件</p>
+							<p>国际件</p>
+						</div>
+						<div class="defer_pro_2 defer_pro_comm">
+							<h3>新产品</h3>
+							<p>8小时同城区域当日件</p>
+							<p>12小时次晨达</p>
+							<p>24小时次日达</p>
+							<p>36小时隔日达</p>
+							<p>48小时隔日达</p>
+							<p>72小时件</p>
+						</div>
+						<div class="defer_pro_3 defer_pro_comm">
+							<h3>增值服务</h3>
+							<p>创配一体服务</p>
+							<p>到付件业务</p>
+							<p>代取件业务</p>
+							<p>签单返还</p>
+							<p>夜间服务</p>
+						</div>
+						<div class="defer_pro_4 defer_pro_comm">
+							<h3>亨通广告位2</h3>
+							<img src="images/BSHT_proImg.jpg" />
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+	
+	<div class="boot">
+		<div class="boot_list">
+			<ul>
+				<li>网站首页</li>
+				<li>关于我们</li>
+				<li>付款方式</li>
+				<li>隐藏策略</li>
+				<li>会员服务</li>
+				<li>投诉建议</li>
+				<li>联系我们</li>
+			</ul>
+		</div>
+		<div class="">
+			
+		</div>
+	</div>
 	</body>
 	<script>
 	$(function(){
