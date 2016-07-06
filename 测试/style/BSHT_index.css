@@ -399,7 +399,7 @@ ul li{
 	height: 292px;
 	background: #f6f6f6;
 	float: right;
-	box-shadow:inset -1px 0 17px #d4d4d4;
+	box-shadow:inset 1px 0 8px #d4d4d4;
 }
 
 .right_news_content li{
@@ -427,7 +427,7 @@ ul li{
 	    width: 260px;
     padding: 0 17px;
     box-sizing: border-box;
-    margin: 30px auto 0;
+    margin: 10px auto 0;
 }
 .r_content h2{
 	    border-bottom: 2px solid #7e7e7e;

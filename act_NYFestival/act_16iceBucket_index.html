@@ -294,7 +294,7 @@
 		<div id="shareFriSha">
 			<img src="images/0715_images/act_16coolIceBucket_shareImg.png" alt="">
 		</div>
-		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" autoplay="autoplay" style="display:none" loop preload></audio>
+		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" style="display:none" loop preload></audio>
 		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3" id="sound_add" style="display:none" preload></audio>
 		<!--<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>-->
 		<div style="display:none">
@@ -449,7 +449,8 @@
 //          $(".comShineBack").hide();
             $(".gamePage").fadeIn(100);
             $(".indexPage").hide(100);
-           // document.getElementById("audioBackMusic").play();
+           /**点击开始按钮触发 音乐点击播放事件*/
+             $('.gameMusic_wrap').trigger('click') ;
         });
 
         $(".gameMusic_wrap").on("click",function(){

@@ -18,6 +18,9 @@
 			    left: 50%;
 			    margin-left: -52px;
 			}
+			.active{
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
@@ -82,56 +85,54 @@
 					<div class="left_icon"></div>
 					<div class="right_icon"></div>
 				</div>
-				<div class="tab">
+				<div class="tab" id="tab">
 					<div class="item_nav clearfix">
-						<ul>
+						<ul data-tab-id="#tab">
 							<li class="select" data-index="0"><i class="icon-1"></i>运单追踪</li>
 							<li data-index="1"><i class="icon-2"></i>运费查询</li>
 							<li data-index="2"><i class="icon-3"></i>失效查询</li>
-							<li data-index="3"><i class="icon-4"></i>拂去网点查询</li>
+							<li data-index="3"><i class="icon-4"></i>网点查询</li>
 						</ul>
 					</div>
 					<div class="tab-content" id="tab-content clearfix">
 						<div class="tabct" style="display: block;">
-						<!--<div class="tabct_tab ">-->
 							<div class="tabct_tab_nav clearfix">
 								<ul>
-									<li class="select" data-tab="0"></i>快件查询</li>
-									<li data-tab="1"></i>在线寄件</li>
+									<li class="select" data-tab="#waybill_0"></i>快件查询</li>
+									<li data-tab="#waybill_1"></i>在线寄件</li>
 								</ul>
 							</div>
 							<div class="tabct_tab_content">
-								<div class="tabct_tab_content_item clearfix" style="display: block;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="waybill_0" class="tabct_tab_content_item clearfix" style="display: block;">
+									<input type="text" placeholder="输入运单号1-1" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
-								<div class="tabct_tab_content_item" style="display: none;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="waybill_1" class="tabct_tab_content_item" style="display: none;">
+									<input type="text" placeholder="输入运单号1-2" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
 							</div>
-						<!--</div>-->
 					</div>
 						<div class="tabct" style="display: none;">
 							<div class="tabct_tab_nav clearfix">
 								<ul>
-									<li class="select" data-tab="0"></i>快件查询</li>
-									<li data-tab="1"></i>在线寄件</li>
+									<li class="select" data-tab="#freight_0"></i>快件查询</li>
+									<li data-tab="#freight_1"></i>在线寄件</li>
 								</ul>
 							</div>
 							<div class="tabct_tab_content">
-								<div class="tabct_tab_content_item clearfix" style="display: block;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="freight_0" class="tabct_tab_content_item clearfix" style="display: block;">
+									<input type="text" placeholder="输入运单号2-1" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
-								<div class="tabct_tab_content_item" style="display: none;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="freight_1" class="tabct_tab_content_item" style="display: none;">
+									<input type="text" placeholder="输入运单号2-2" />
 									<div class="search">
 										<span></span>
 									</div>
@@ -141,19 +142,19 @@
 						<div class="tabct" style="display: none;">
 							<div class="tabct_tab_nav clearfix">
 								<ul>
-									<li class="select" data-tab="0"></i>快件查询</li>
-									<li data-tab="1"></i>在线寄件</li>
+									<li class="select" data-tab="#invalid_0"></i>快件查询</li>
+									<li data-tab="#invalid_1"></i>在线寄件</li>
 								</ul>
 							</div>
 							<div class="tabct_tab_content">
-								<div class="tabct_tab_content_item clearfix" style="display: block;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="invalid_0" class="tabct_tab_content_item clearfix" style="display: block;">
+									<input type="text" placeholder="输入运单号3-1" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
-								<div class="tabct_tab_content_item" style="display: none;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="invalid_1" class="tabct_tab_content_item" style="display: none;">
+									<input type="text" placeholder="输入运单号3-2" />
 									<div class="search">
 										<span></span>
 									</div>
@@ -163,43 +164,25 @@
 						<div class="tabct" style="display: none;">
 							<div class="tabct_tab_nav clearfix">
 								<ul>
-									<li class="select" data-tab="0"></i>快件查询</li>
-									<li data-tab="1"></i>在线寄件</li>
+									<li class="select" data-tab="#network_0"></i>快件查询</li>
+									<li data-tab="#network_1"></i>在线寄件</li>
 								</ul>
 							</div>
 							<div class="tabct_tab_content">
-								<div class="tabct_tab_content_item clearfix" style="display: block;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="network_0" class="tabct_tab_content_item clearfix" style="display: block;">
+									<input type="text" placeholder="输入运单号4-1" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
-								<div class="tabct_tab_content_item" style="display: none;">
-									<input type="text" placeholder="输入运单号" />
+								<div id="network_1" class="tabct_tab_content_item" style="display: none;">
+									<input type="text" placeholder="输入运单号4-2" />
 									<div class="search">
 										<span></span>
 									</div>
 								</div>
 							</div>
 						</div>
-						<!--<div class="tabct" style="display: none;">
-							<div class="tabct_tab_nav clearfix">
-									<ul>
-										<li class="select" data-index="0"></i>快件查询</li>
-										<li data-index="1"></i>在线寄件</li>
-									</ul>
-								</div>
-								<div class="tabct_tab_content">
-									<div class="tabct_tab_content_item clearfix" style="display: block;">
-										<input type="text" placeholder="输入运单号" />
-										<div class="search">
-											<span></span>
-										</div>
-									</div>
-									<div class="tabct_tab_content_item1" style="display: none;">
-									</div>
-								</div>
-						</div>-->
 					</div>
 				</div>
 			</div>
@@ -392,37 +375,48 @@
 		});
 		
 		selTab(0) ;
-		selTab_n(0);
+//		selTab_n(0);
 			
+			/*控制  运单追踪 -  网点查询    四个tab 键*/
 			$('.item_nav ul li').each(function(i ,n){
 				$(n).on('click',function(){
 					clickFun(this) ;
 				});
 			});
 			function clickFun (obj){
-				var index = $(obj).attr('data-index');
+				$obj = $(obj) ;
+				/*当前点击的 li的  下标*/
+				var index = $obj.attr('data-index');
+				
+				/*当前点击的 li 的 父级  ul*/
+				var tabId = $obj.parent().attr('data-tab-id') ;
+				
 				selTab(index) ;
 				
 				
-				$(obj).parent().parent(".item_nav").parent().find(".tab-content .tabct").eq(index).find(".tabct_tab_nav ul li").eq(0).addClass("select")
-				
-				var t = $(obj).parent().parent(".item_nav").parent().find(".tab-content .tabct").eq(index).find(".tabct_tab_nav ul li").attr('data-tab');
-				
-				$('.tabct_tab_content .tabct_tab_content_item').eq(t).show();
+		//可以去掉 是因为初始化 的方法   selTab_n(0); 这个被去掉  ，内部的 切换  在 初始时 在 样式里 控制了第一个的li 和 这个Li对应的
+		//  层的  内容的 显示
+				/*通过ul 找到当前点击的  li 对应显示的tabct  并找到这个tabct 下面的li ,并去掉li 的样式  */
+//				$(tabId).find(".tab-content .tabct").eq(index).find(".tabct_tab_nav ul li").removeClass("select") ;
+//				/*通过ul 找到当前点击的  li 对应显示的tabct  并找到这个tabct 下面的li ,并给这个li 的第一个加上select样式  */
+//				$(tabId).find(".tab-content .tabct").eq(index).find(".tabct_tab_nav ul li").eq(0).addClass("select");
+//				/*通过ul 找到当前点击的  li 对应显示的tabct  并找到这个tabct 下面的li , 获取这个li 的属性*/
+//				var t = $(tabId).find(".tab-content .tabct").eq(index).find(".tabct_tab_nav ul li").attr('data-tab');
+//				/*让和这个 对应的  li  的 层 tabct_tab_content_item  显示*/
+//				$('.tabct_tab_content .tabct_tab_content_item').eq(t).show();
 			
 			}
-			
 			function selTab(tabIndex){
 				$('.tab-content .tabct').hide();
 				$('.tab-content .tabct').eq(tabIndex).show();
-				$('.tabct .tabct_tab_nav ').show();
-				
+//				$('.tabct .tabct_tab_nav ').show();
 				
 				$('.item_nav ul li').removeClass("select");
 				
 				$('.item_nav ul li').eq(tabIndex).addClass("select");
-				
 			}
+			
+			
 			
 				/*每个目录内部的  切换*/
 			$('.tabct_tab_nav ul li').each(function(i ,n){
@@ -431,23 +425,34 @@
 				});
 			});
 			function clickCon (obj){
-				var index_tab = $(obj).attr('data-tab');
-				selTab_n(index_tab);
+				$obj = $(obj) ;
+				/*获取当前点击的 li 的 属性*/
+				var index_tab = $obj.attr('data-tab');
+				console.debug("index_tab " ,index_tab)
 				
-//				
-//				var t = $(obj).parent().parent(".item_nav").parent().find(".tab-content .tabct").eq(index_tab).find(".tabct_tab_nav ul li").attr('data-tab');
-//				
-//				$('.tabct_tab_content .tabct_tab_content_item').eq(t).show();
+				/**控制当前点击选中的样式*/
+				$obj.siblings().removeClass("select") ;
+				$obj.addClass("select") ;
+				
+				/**控制当前点击的 对应的层的内容显示*/
+				$item = $(index_tab) ;
+				$item.siblings().hide() ;
+				$item.show() ;
+				
+//				selTab_n(index_tab);
 			}
-			
-		
 			function selTab_n(tabIndex){
-				$('.tabct_tab_content .tabct_tab_content_item').hide();
-				$('.tabct_tab_content .tabct_tab_content_item').eq(tabIndex).show();
-				
-				$('.tabct_tab_nav ul li').removeClass("select");
-				
-				$('.tabct_tab_nav ul li').eq(tabIndex).addClass("select");
+				/**控制显示内容*/
+//				$item = $(tabIndex) ;
+//				$item.siblings().hide() ;
+//				$item.show() ;
+
+//				$('.tabct_tab_content .tabct_tab_content_item').hide();
+//				$('.tabct_tab_content .tabct_tab_content_item').eq(tabIndex).show();
+//				
+//				$('.tabct_tab_nav ul li').removeClass("select");
+//				
+//				$('.tabct_tab_nav ul li').eq(tabIndex).addClass("select");
 			}
 			
 			

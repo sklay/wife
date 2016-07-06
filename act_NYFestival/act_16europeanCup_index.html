@@ -1,0 +1,580 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>党在我心中，永远跟党走</title>
+<meta name="description" content="药快到祝中国共产党生日快乐">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!--<base href="../">-->
+<link rel="stylesheet" href="style/act_16europeanCup_index.css" />
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/html_common.js"></script>
+<script>
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var codeActId = '${codeActId}' || '';
+	var act_url = '${act_url}' || '';
+	// 新追加一个参数
+	var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%2f' + codeActId + '%3fact_url=' + act_url;
+	console.debug(' cur href is ', redirect_uri);
+
+	if (is_weixin()) {
+		var grantBoo = "${grantFail}";
+		if (grantBoo == "true" || grantBoo == true) {
+			var grantFailUserId = "${fromUserId}";
+			location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+		}
+	}
+</script>
+
+</head>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+<body>
+	<div class="con_wrap">
+		<div class="con_index">
+			<div class="con_index_title">
+				<img src="images/act_16europeanCup_index_title.png" />
+			</div>
+			<div class="con_index_btn clearFix">
+				<ul class="">
+					<li><button data-tab="#trueBall" data-input-css="way_one" class="trueBall_btn">真球迷阵营</button></li>
+					<li><button data-tab="#falseBall" data-input-css="way_two" class="falseBall_btn">伪球迷阵营</button></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="content_tab" id="trueBall">
+			<div class="indexPage_true indexPage_comm">
+				<div class="content_top">
+					<img src="images/act_16europeanCup_trueTitle_1.jpg" /> 
+					<img src="images/act_16europeanCup_trueTitle_2.jpg" /> 
+					<img src="images/act_16europeanCup_trueTitle_3.jpg" /> 
+					<img src="images/act_16europeanCup_trueTitle_4.jpg" /> 
+					<img src="images/act_16europeanCup_trueTitle_5.jpg" />
+				</div>
+				<div class="getHbWrap">
+					<div class="getHb">
+						<div class="commomLogin true_commomLogin">
+							<input type="tel" placeholder="请输入手机号码" class="userPhone way_one">
+							<button class="getHbBtn">领取现金券</button>
+							<button class="downText downloadP goForUse">下载“药快到”APP立即参与</button>
+						</div>
+						
+					</div>
+					<!-- <div class="shareAppPage">
+						<button class="shareAppBtn" id="shareAppPage_shareFir">分享给好友</button>
+						<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>
+					</div> -->
+				</div>
+			</div>
+			<div class="getHb_result">
+				<div class="getTitle">
+					<img src="images/act_16europeanCup_getTitle.png" />
+				</div>
+				<div class="received_result" style="display: none;">
+					<div class="has_coupon" style="display: none;">
+						<div class="receive_success" >
+							<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+							<img class="getBall" src="images/act_16europeanCup_getball.png" />
+							<div class="getHb7 getHbnNum" style="display: none;">
+								<img class="getHb7_img" src="images/act_16europeanCup_getCoupon.png" />
+								<p class="receive_text receiveResult ">恭喜您，领到10元现金券!</p>
+							</div>
+						</div>
+						<div class="has_received" >
+							<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+							<img class="getBall" src="images/act_16europeanCup_getball.png" />
+							<div class="has_getHb7 getHbnNum" style="display: none">
+								<img class="has_getHb7_img" src="images/act_16europeanCup_getCoupon.png" />
+								<p class="has_receive_text receiveResult ">10元现金券已经放入您的账户啦！</p>
+							</div>
+						</div>
+
+						<div class="commUsebtn">
+							<button class="use_btn goForUse" >去使用</button>
+							<button class="shareFri shareForFri" >邀请好友</button>
+						</div>
+					</div>
+					<div class="over_received" >
+						<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+						<img class="getBall" style="bottom: 1.5rem;" src="images/act_16europeanCup_getball.png" />
+						<div class="has_over">
+							<img class="has_getHb7_img" src="images/act_16SixOne_couponGray.png" />
+						</div>
+						<button class="downText downloadP goForUse">下载“药快到”APP</button>
+						<p class="pText">新人送30元现金券</p>
+					</div>
+				</div>
+
+				<div class="shareAppPage">
+					<button class="shareAppBtn shareAppPage_shareFir" >分享给好友</button>
+					<button class="shareAppBtn shareAppPage_friRound" >分享到朋友圈</button>
+				</div>
+			</div>
+
+			<!--看朋友手气 start-->
+			<c:if test="${ not empty coupList }">
+				<div class="friHbShowWrap ">
+					<div class="comShowTitle">
+						<div class="leftLineDot">
+							<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+						</div>
+						<div class="comshowTitleText">看看朋友的手气</div>
+						<div class="rightLineDot">
+							<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+						</div>
+					</div>
+					<c:forEach var="rc" items="${coupList}" varStatus="status">
+						<div class="friHbShow">
+							<div class="userFriAvatat">
+								<c:if test="${ not empty rc.headimgurl }">
+									<img src="${rc.headimgurl }" alt="头像" />
+								</c:if>
+								<c:if test="${ empty rc.headimgurl }">
+									<img src="images/act_commonHead_img.jpg" alt="头像" />
+								</c:if>
+								<div class="userFriInf">
+									<strong>${rc.nickname } </strong>
+									<p>药快到太给力了,这福利真爽快!</p>
+								</div>
+							</div>
+							<div class="userFriInf_wrap">
+								<div class="userFriHbValue_wrap">
+									<span class="userFriHbValue">10<span>元</span></span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>
+
+			<!--看朋友手气 end-->
+			<!--活动规则 start-->
+			<div class="activeRuleShowWrap ">
+				<div class="comShowTitle">
+					<div class="leftLineDot">
+						<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+					</div>
+					<div class="comshowTitleText">活动细则</div>
+					<div class="rightLineDot">
+						<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+					</div>
+				</div>
+				<div class="activeRuleShow">
+					<p>1.活动有效期：${startTime} — ${endTime}。</p>
+					<p>2.需下载药快到App，使用手机号登录方可使用。</p>
+					<p>3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。</p>
+					<p>4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。</p>
+					<p>5.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+			</div>
+			<!--活动规则 end-->
+		</div>
+
+		<div class="content_tab" id="falseBall">
+			<div class="indexPage_false indexPage_comm">
+					<div class="content_top">
+					<img src="images/act_16europeanCup_falseTitle_1.jpg" /> 
+					<img src="images/act_16europeanCup_falseTitle_2.jpg" /> 
+					<img src="images/act_16europeanCup_falseTitle_3.jpg" /> 
+					<img src="images/act_16europeanCup_falseTitle_4.jpg" /> 
+					<img src="images/act_16europeanCup_falseTitle_5.jpg" />
+				</div>
+				<div class="getHbWrap">
+					<div class="getHb">
+						<div class="commomLogin">
+							<input type="tel" placeholder="请输入手机号码" class="userPhone way_two">
+							<button class="getHbBtn">领取现金券</button>
+							<button class="downText downloadP goForUse">下载“药快到”APP立即参与</button>
+						</div>
+						
+					</div>
+					<!-- <div class="shareAppPage">
+						<button class="shareAppBtn" id="shareAppPage_shareFir">分享给好友</button>
+						<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>
+					</div> -->
+				</div>
+			</div>
+			<div class="getHb_result">
+				<div class="getTitle">
+					<img src="images/act_16europeanCup_getTitle.png" />
+				</div>
+				<div class="received_result" style="display: none;">
+					<div class="has_coupon" style="display: none;">
+						<div class="receive_success" >
+							<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+							<img class="getBall" src="images/act_16europeanCup_getball.png" />
+							<div class="getHb7 getHbnNum" style="display: none;">
+								<img class="getHb7_img" src="images/act_16europeanCup_getCoupon.png" />
+								<p class="receive_text receiveResult ">恭喜您，领到10元现金券!</p>
+							</div>
+						</div>
+						<div class="has_received" >
+							<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+							<img class="getBall" src="images/act_16europeanCup_getball.png" />
+							<div class="has_getHb7 getHbnNum" style="display: none">
+								<img class="has_getHb7_img" src="images/act_16europeanCup_getCoupon.png" />
+								<p class="has_receive_text receiveResult ">10元现金券已经放入您的账户啦！</p>
+							</div>
+						</div>
+
+						<div class="commUsebtn">
+							<button class="use_btn goForUse" >去使用</button>
+							<button class="shareFri shareForFri" >邀请好友</button>
+						</div>
+					</div>
+					<div class="over_received" >
+						<img class="getBear" src="images/act_16europeanCup_getBear.png" />
+						<img class="getBall" style="bottom: 1.5rem;" src="images/act_16europeanCup_getball.png" />
+						<div class="has_over">
+							<img class="has_getHb7_img" src="images/act_16SixOne_couponGray.png" />
+						</div>
+						<button class="downText downloadP goForUse">下载“药快到”APP</button>
+						<p class="pText">新人送30元现金券</p>
+					</div>
+				</div>
+
+				<div class="shareAppPage">
+					<button class="shareAppBtn shareAppPage_shareFir" >分享给好友</button>
+					<button class="shareAppBtn shareAppPage_friRound" >分享到朋友圈</button>
+				</div>
+			</div>
+			<!--看朋友手气 start-->
+			<c:if test="${ not empty coupList }">
+				<div class="friHbShowWrap ">
+					<div class="comShowTitle">
+						<div class="leftLineDot">
+							<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+						</div>
+						<div class="comshowTitleText">看看朋友的手气</div>
+						<div class="rightLineDot">
+							<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+						</div>
+					</div>
+					<c:forEach var="rc" items="${coupList}" varStatus="status">
+						<div class="friHbShow">
+							<div class="userFriAvatat">
+								<c:if test="${ not empty rc.headimgurl }">
+									<img src="${rc.headimgurl }" alt="头像" />
+								</c:if>
+								<c:if test="${ empty rc.headimgurl }">
+									<img src="images/act_commonHead_img.jpg" alt="头像" />
+								</c:if>
+								<div class="userFriInf">
+									<strong>${rc.nickname } </strong>
+									<p>药快到太给力了,这福利真爽快!</p>
+								</div>
+							</div>
+							<div class="userFriInf_wrap">
+								<div class="userFriHbValue_wrap">
+									<span class="userFriHbValue">10<span>元</span></span>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>
+
+			<!--看朋友手气 end-->
+			<!--活动规则 start-->
+			<div class="activeRuleShowWrap ">
+				<div class="comShowTitle">
+					<div class="leftLineDot">
+						<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+					</div>
+					<div class="comshowTitleText">活动细则</div>
+					<div class="rightLineDot">
+						<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+					</div>
+				</div>
+				<div class="activeRuleShow">
+					<p>1.活动有效期：${startTime} — ${endTime}。</p>
+					<p>2.需下载药快到App，使用手机号登录方可使用。</p>
+					<p>3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。</p>
+					<p>4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。</p>
+					<p>5.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+				</div>
+			</div>
+			<!--活动规则 end-->
+		</div>
+
+	</div>
+	<%@ include file="act_common_sharePage.jsp"%>
+</body>
+<script>
+	var phoneNum = '${phoneNum}';
+	var fromUserId = '${userId}';
+	var inputCss= "" ;
+	var wechatObj = new Object();
+	//alert(location.href);
+	/*从新的url里获取token 和version 的值  */
+	function getUrlEle() {
+		if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+			return "";
+		}
+		var urldec = location.href.split("?")[1].split("&");
+		var urlQuery = {};
+		var a, b;
+		for (var i = 0, j = urldec.length; i < j; i++) {
+			a = urldec[i].split("=")[0];
+			b = urldec[i].split("=")[1];
+			console.log(a.split("%EF%BC%9D"))
+			if (b == undefined) {
+				a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+				b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+			}
+			;
+			urlQuery[a] = b;
+		}
+		;
+		return urlQuery;
+	};
+	var token = getUrlEle().token;
+	var version = getUrlEle().version;
+	(function() {
+		if (!is_weixin()) {
+			$(".downloadP").html("查看优惠券");
+		}
+		$(".friHbShowWrap .friHbShow:last-child").css({
+			"borderBottom" : "none"
+		});
+	})();
+
+	window.onload = function() {
+		/* 点击切换 */
+		$('.con_index_btn ul li button').each(function(i, n) {
+			$(n).on('click', function() {
+				clickCon(this);
+			});
+		});
+		function clickCon(obj) {
+			$obj = $(obj);
+			/*获取当前点击的 li 的 属性*/
+			var index_tab = $obj.attr('data-tab');
+			inputCss = $obj.attr('data-input-css');
+			/**控制当前点击的 对应的层的内容显示*/
+			$item = $(index_tab);
+			$item.siblings().hide();
+			$item.show();
+		}
+
+		$(".getHbWrap").on("click", ".getHbBtn", function() {
+			waitShow();
+			$_phoneno = $("."+inputCss).val();
+			var regno = /1[3-8]+\d{9}/;
+			if ($_phoneno == "" || $_phoneno == "请输入手机号码" || !regno.test($_phoneno)) {
+				waitClose();
+				alert("请输入正确的手机号码")
+				return false
+			};
+			var _inviteCode = '16YKDOZB02';
+			var _fromChannel = 'hongbao';
+			/* var phone_num = $("."+inputCss).val(); */
+			$.ajax({
+				type : "post",
+				url : "newGetCoupAjax",
+				data : "phone=" + $_phoneno + "&inviteCode=" + _inviteCode + "&fromChannel=" + _fromChannel,
+				success : function(result) {
+					console.debug("result");
+					waitClose();
+					$(".userPhone").val("");
+					if (result.result == "succ") {
+						console.log("succ");
+						$(".indexPage_comm").hide();
+						$(".getHb_result").show()
+						$(".received_result").show();
+						$(".has_coupon").show();
+						$(".receive_success").show();
+						fromUserId = result.data.userId;
+						wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
+						$(".getHb7").show();
+					} else if (result.result == "fail") {
+						if (result.data.msg == "received") {
+							console.log("received");
+							$(".indexPage_comm").hide();
+							$(".getHb_result").show()
+							$(".received_result").show();
+							$(".has_coupon").show();
+							$(".has_received").show();
+							$(".has_getHb7").show();
+						} else if (result.data.empty == 'sendout') {
+							console.debug('已经抢光了');
+							//已经抢光了
+							$(".indexPage_comm").hide();
+							$(".getHb_result").show()
+							$(".received_result").show();
+							$(".over_received").show();
+						} else {
+							alert(result.data.msg);
+							waitClose();
+						}
+					}
+				},
+				error : function() {
+					alert("发送请求失败");
+					waitClose();
+				}
+			});
+		});
+
+		//去使用跳转页面
+		$(".goForUse").on("click", function() {
+			goPage(1);
+		});
+		/**判断app点击去使用按钮跳转的地址**/
+		function goPage(type) {
+			var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+			/**判断是否是微信**/
+			if (is_weixin()) {
+				window.location.href = target_href;
+			} else {
+				if (token == "" || token == null || token == undefined) {
+					showResultApp("remind", "请先登录");
+				} else {
+					if (version && 200 <= version) {
+						gotoPage('{"type":"1"}');
+					} else {
+						window.location.href = target_href;
+					}
+					;
+				}
+			}
+		}
+
+		/* app分享事件*/
+		$(".getHbWrap").on("click", ".shareForFri", function() {
+			if (is_weixin()) {
+				$("#shareshade").css("height", $(".content").height());
+				$("#shareshade").show();
+			} else {
+				if (token == "" || token == null || token == undefined) {
+					showResultApp("remind", "请先登录");
+				} else {
+					$(".received_result").hide();
+					$(".shareAppPage").show();
+				}
+			}
+		});
+		$(".shareAppPage").on("click", function(e) {
+			var ev = e.target;
+			if (ev.nodeName != "BUTTON") {
+				$(".shareAppPage").hide();
+				$(".commUsebtn").show();
+			}
+		});
+		//app分享点击
+		$(".shareAppPage_shareFir").on("click", function() {
+			if (token == "" || token == null || token == undefined) {
+				showResultApp("remind", "请先登录");
+			} else {
+				s(0);
+			}
+		});
+		$(".shareAppPage_friRound").on("click", function() {
+			if (token == "" || token == null || token == undefined) {
+				showResultApp("remind", "请先登录");
+			} else {
+				s(1);
+			}
+		});
+	}
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+	wechatObj.title = '党在我心中，永远跟党走';
+	wechatObj.desc = '药快到祝中国共产党生日快乐';
+	wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16partyDay_hareImg.jpg';
+
+	if (is_weixin()) {
+		$.ajax({
+			url : "/medhtml/common/getwxjssign?",
+			data : {
+				url : location.href.split('#')[0]
+			},
+			success : function(wechatReturn) {
+				if (wechatReturn) {
+					wx.config({
+						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId : appid, // 必填，公众号的唯一标识
+						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
+						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
+						signature : wechatReturn.signature,// 必填，签名，见附录1
+						jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
+					// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+				}
+				;
+				wx.ready(function() {
+					getMenuShare();
+				});
+			}
+		});
+	};
+
+	wx.ready(function() {
+		getWechatObj()
+	})
+	function getWechatObj() {
+		wx.onMenuShareTimeline({
+			title : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareAppMessage({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareQQ({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareWeibo({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+	}
+</script>
+
+</html>
