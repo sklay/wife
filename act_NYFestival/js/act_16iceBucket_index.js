@@ -1,23 +1,60 @@
 $(function() {
+	
+	
+	var gameImg = ['0','1','2','3','4','5'] ;
+	var _gameImg = ['0','1','2','3','4','5'] ;
+	var bg_music = 'http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3' ;
+	var bg_sound = 'images/act_16coolIceBucket_waterMusic.mp3' ;
+	
 	var gameScore = 0; // 分数统计
 	var gameContinue = true; // 是否点击
 	var num = 0; // 指定当前窗口下标
-	var windowAniDownTime = null;
-	/*var musicConSrc = document.getElementById("scorePlus");*/
-	/*var sound_add = document.getElementById("sound_add");*/
-	/*sound_add.volume = 0.5;*/
-	var game_sound = null;
-	var sound_add = null;
+	
+	/*音乐播放器*/
+	var bgAudio = $("#audio_span") ;
+	bgAudio.jPlayer({
+		ready: function () {
+			$(this).jPlayer("setMedia", {
+				mp3:bg_sound
+			});
+		},
+		play: function() {
+		//	$(this).jPlayer("pauseOthers");
+		},
+		ended: function() {  
+//			$(this).jPlayer("setMedia", {
+//				mp3:bg_sound
+//			});
+//          $(this).jPlayer("play");  
+        } ,
+		swfPath: "js/jplayer",
+		supplied: "mp3",
+		wmode: "window"
+	});
+	
 	
 	/* 如果没有版本号 或者是在微信打开 音乐制动播放 */
-	
-	
 	/* 开始 */
 	$("#startGame").on("tap", function() {
 		$(".startGameBtnWrap").hide();
-		
+		console.debug("game start") ;
 		gameStart();
+		
 	});
+	var audio_music = document.getElementById('audioBackMusic') ;
+	
+	/**音乐图标*/
+	$('.gameMusic_wrap').on('click',function(){
+		
+		if(audio_music.paused){
+			$(this).show().find('img').removeClass('musicPause').addClass('musicPlay') ;
+			audio_music.play() ;
+		}else{
+			$(this).find('img').removeClass('musicPlay').addClass('musicPause') ;
+			audio_music.pause() ;
+		}
+	});
+	
 	
 	/* 游戏主函数 */
 	function gameStart() {
@@ -25,119 +62,75 @@ $(function() {
 		gameScore = 0; // 分数统计
 		gameContinue = true; // 是否点击
 		num = 0; // 指定当前窗口下标
-		windowAniDownTime = null;
 
 		timeCountDownFun();
-		windowAniUpFun();
 		console.debug("game start");
-	};
-
-	// 窗口随机函数
-	function countWinNumFun() {
-		var numRan = Math.floor(Math.random() * 12000);
-		var numScope = [ 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000, 11000, 12000 ]
-		var numSort = [ 0, 4, 3, 5, 1, 2, 5, 2, 4, 3, 1, 0 ]
-		for (var i = 0, j = numScope.length; i < j; i++) {
-			if (numRan <= numScope[i]) {
-				num = numSort[i];
-				break;
-			}
+		
+		games() ;
+		if(playMusic){
+			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay') ;
+			audio_music.play() ;
 		}
 	};
 
-	/* 人物弹起 */
-	function windowAniUpFun() {
-		/* 调用 洞口 随机数 */
-		countWinNumFun();
-
-		if (!gameContinue) {
-			return;
+function games(){
+//	 setInterval(function() {},1000) ;
+	if(gameImg.length <= 2){
+		gameImg = _gameImg.slice(0) ;
+	}
+	var num = Math.floor(Math.random()*gameImg.length); 
+	//然后删掉此索引的数组元素,这时候temp_array变为新的数组 
+	gameImg.splice(num, 1); 
+	console.debug("num", num);
+	if (!gameContinue) {
+		console.debug("游戏已经结束") ;
+		return;
+	}
+	var $childImg = $('#gamePlayChilren').clone(true) ;
+	var $parentNode = $(".gameWin").eq(num).find(".gameWinMainWrap") ;
+	$parentNode.append($childImg);
+	
+	/**定时清除*/
+	setTimeout(function() {
+		$childImg.remove();
+		if (gameContinue) {
+			games();
 		}
-		// num = Math.floor(Math.random() * 6);
-		console.debug("num", num);
+	}, 1000);	
+}
 
-		var childImg = '<img src="images/act_16coolIceBucket_game_hotPeople.png" id="gamePlayChilren" alt="">';
-
-		$(".gameWin").eq(num).find(".gameWinMainWrap").append(childImg);
-
-		$("#gamePlayChilren").one("touchstart", function(e) {
-			/**取消默认事件*/
-			e.preventDefault();
-			if (!gameContinue) {
-				return;
-			}
-			$("#gamePlayChilren").remove();
-			/* 调用 冰桶击中 分数统计方法 */
-			scoreCountFun(num);
-			/*sound_add.currentTime = 0;
-			if(hasMusic){
-				sound_add.play();
-			}*/
-		});
-
-		var wh = $(window).height();
-		if (wh <= 480) {
-			scaleNum = .6;
-		} else {
-			scaleNum = .8;
-		}
-		$("#gamePlayChilren").animate({
-			"transform" : "scale(" + scaleNum + ")",
-			"-webkit-transform" : "scale(" + scaleNum + ")"
-		}, 500, function() {
-
-			$("#gamePlayChilren").animate({
-				"transform" : "scale(0)",
-				'opacity' : 0,
-				"-webkit-transform" : "scale(0)"
-			}, 500, function() {
-				setTimeout(function() {
-					$("#gamePlayChilren").remove();
-					$("#gamePlayChilren").unbind('touchstart');
-					if (gameContinue) {
-						windowAniUpFun();
-					}
-				}, 200);
-			});
-		});
-	};
 	/*
 	 * 冰桶 浇中 ，分数计算函数 这个方法处理 以下事件 1、点击出现的人物 2、点击人物 ，人物被击中
 	 * （1）右上角出现冰桶，冰桶换成倒水状态，原来冰桶消失 （2）人物 被换成 另一个人物 ，原来人物消失 （3）出现+1 分
 	 * 
 	 */
-	function scoreCountFun(wrapNum) {
-		var ScoreShow = '<img src="images/act_16coolIceBucket_game_score.png" id="scoreShowImg" alt="">';
-		var nohotchild = '<img src="images/act_16coolIceBucket_game_nohotPeople.png" id="nohotChilren" alt="">';
-		var bucketImg_water = '<img src="images/act_16coolIceBucket_game_IceWater.png" id="gamebucket_water" alt="">';
-		var bucketImg = '<img src="images/act_16coolIceBucket_game_IceBucket.png" id="gamebucket" alt="">';
+	function scoreCountFun(wrap) {
+		/**+1的图标*/
+		var $scoreShow = $('#scoreShowImg').clone(true);
+		/**淋雨后的人物*/
+		var $nohotchild = $('#nohotChilren').clone(true) ;
+		/**冰桶*/
+		var $bucketImg_water = $('#gamebucket_water').clone(true);
+		/**冰桶倒下*/
+		var $bucketImg = $('#gamebucket').clone(true);
 		
-		$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(bucketImg);
-		setTimeout(function() {
-
+		wrap.append($bucketImg);
+		
+		$bucketImg.fadeTo(200,1 ,function(){
 			/* 先追加桶，改变人物状态 */
-			$("#gamebucket").remove();
+			$bucketImg.remove();
 			/* 重新换一个桶 */
-			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(bucketImg_water);
-			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(ScoreShow);
+			wrap.append($bucketImg_water);
+			wrap.append($scoreShow);
 			/* 重新换一个人物 */
-			$(".gameWin").eq(wrapNum).find(".gameWinMainWrap").append(nohotchild);
+			wrap.append($nohotchild);
 
 			setTimeout(function() {
-				$("#scoreShowImg").remove();
-				$("#nohotChilren").remove();
-				$("#gamebucket_water").remove();
+				$scoreShow.remove();
+				$nohotchild.remove();
+				$bucketImg_water.remove();
 			}, 300)
-		}, 500)
-		
-		
-		/*if(sound_add){
-			game_sound.jPlayer("option", "loop", false);
-			game_sound.jPlayer("setMedia", {
-				mp3:  $("#sound_add").attr('data-water-src')
-			});
-			game_sound.jPlayer("play");
-		}*/
+		});
 		
 		gameScore += 1;
 
@@ -147,27 +140,22 @@ $(function() {
 	/* 倒计时函数 */
 	function timeCountDownFun() {
 		
-		/*if(game_sound && game_sound.jPlayer("option", "loop")){
-			game_sound.jPlayer("pause"); 
-		}*/
-		
 		var timeCountDown = 30;
 		var countDownTime = null;
-		var widthWrap = document.getElementById("gameCountDownColor_wrap");
-		var countDownWrapW = window.getComputedStyle(widthWrap, null).width;
 		countDownTime = setInterval(function() {
 			timeCountDown--;
 			if (timeCountDown < 1) {
 				gameContinue = false;
-				$("#gamePlayChilren").remove();
-				$("#scoreShowImg").remove();
-				windowAniDown = null;
 				clearInterval(countDownTime);
 				timeCountDown = 0;
 
 				$("#gameScoreDesText").html("恭喜您成功帮助" + gameScore + "人降温， 这个夏天我要凉爽凉爽哒");
 
 				$(".gameOverWrap").show();
+				if(playMusic){
+					$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause') ;
+					audio_music.pause() ;
+				}
 			};
 			var countDownShowW = Math.ceil(timeCountDown / 30 * 100);
 			$("#gameCountDownTime").html(timeCountDown);
@@ -184,13 +172,6 @@ $(function() {
 		
 		gameStart();
 		
-		if(game_sound){
-			game_sound.jPlayer("option", "loop", true);
-			game_sound.jPlayer("setMedia", {
-				mp3:  $("#audioBackMusic").attr('data-bg-src')
-			});
-			game_sound.jPlayer("play");
-		}
 	});
 
 	// 分享按钮
@@ -200,7 +181,7 @@ $(function() {
 		if (is_weixin()) {
 			$("#shareFriSha").show();
 		} else {
-			if (appShareFun()) {
+			if (isLogin()) {
 				$(".butWrap").hide();
 				$(".shareAppPage").show();
 			}
@@ -215,18 +196,42 @@ $(function() {
 
 	// app分享点击
 	$("#shareAppPage_shareFir").on("tap", function() {
-		if (appShareFun()) {
+		if (isLogin()) {
 			s(0);
 		}
 		$(".butWrap").show();
 		$(".shareAppPage").hide();
 	});
 	$("#shareAppPage_friRound").on("tap", function() {
-		if (appShareFun()) {
+		if (isLogin()) {
 			s(1)
 		}
 		$(".butWrap").show();
 		$(".shareAppPage").hide();
 	});
+	document.addEventListener("touchmove", function(b) {
+		b.preventDefault();
+	}, false);
+
+	$('.gameWinMainWrap').on('tap',function(){
+		var $this = $(this) ;
+		var $childImg = $this.find('[name=gamePlayChilren]') ;
+		var isTouched = $childImg.length ;
+		if(!isTouched){
+			return  ;
+		}
+		console.debug() ;
+		$childImg.remove();
+		
+		if(playMusic){
+			bgAudio.jPlayer("setMedia", {
+				mp3:bg_sound //+"?v="+ new Date().getTime()
+			});
+            bgAudio.jPlayer("play"); 
+
+		}
+		
+		scoreCountFun($this);
+	})
 
 })
