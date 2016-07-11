@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -13,12 +14,7 @@ html {
 	font-size: 62.5%;
 }
 
-html,
-body,
-.contentBack,
-.comShineBack,
-.indexPage,
-.gamePage {
+html, body, .contentBack, .comShineBack, .indexPage, .gamePage {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -32,11 +28,10 @@ body {
 }
 
 .contentBack {
-	background: -webkit-radial-gradient(60% 30%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);
+	background: -webkit-radial-gradient(50% 50%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);
 	width: 100%;
 	position: relative;
 }
-
 
 #loadingPage {
 	width: 100%;
@@ -50,44 +45,15 @@ body {
 	background: -webkit-radial-gradient(60% 30%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);
 }
 
-
-/*加载动画*/
-
-/*@-webkit-keyframes loadImgmove {
-	0% {
-		-webkit-transform: rotate(0deg)
-	}
-	25% {
-		-webkit-transform: rotate(20deg)
-	}
-	50% {
-		-webkit-transform: rotate(0deg)
-	}
-	75% {
-		-webkit-transform: rotate(-20deg)
-	}
-	100% {
-		-webkit-transform: rotate(0deg)
-	}
-}*/
-
 .loadingImg {
 	width: 2.5rem;
 	margin: 2rem auto 0;
 	box-sizing: border-box;
-	
 }
 
 .loadingImg img {
 	width: 100%;
-	/*width: .9rem;
-	-webkit-transform-origin: 50% 100%;
-	-webkit-animation: loadImgmove 1s linear infinite;*/
 }
-
-/*.loadingImg img:nth-child(1) {
-	width: 1rem;
-}*/
 
 .loadText {
 	font-size: 20px;
@@ -116,23 +82,15 @@ body {
 	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
 	/* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	;
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */;
 	width: 0;
 }
 
-
 /*首页*/
-
 .indexPage {
 	width: 100%;
-	background: url(../images/0715_images/act_16coolIceBucket_index_bj.jpg)center center no-repeat;
-	/*position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 2;
-	display: none;*/
-	background-size:100% 100% ;
+	background: url(../images/act_16coolIceBucket_indexBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
 }
 
 .indexComImg {
@@ -140,9 +98,11 @@ body {
 	margin: 0 auto;
 	width: 3.8rem;
 }
-.indexPagePeo{
+
+.indexPagePeo {
 	margin-top: -.45rem;
 }
+
 .indexPageTitle {
 	width: 4.8rem;
 	margin-top: 10%
@@ -154,8 +114,7 @@ body {
 	height: .78rem;
 	border-radius: 50px;
 	background: #c2ef3d;
-	/*box-shadow: 0 2px 2px #ed3442, 0 -2px 0 #fff3c6;*/
-	box-shadow: 0 -2px 0 #4090f4,inset 0 2px 2px 0 #faf7d2,inset 0  0 3px 5px  #b2e71f;
+	box-shadow: 0 -2px 2px #4090f4, inset 0 3px 2px #faf7d2, inset 0 -7px 4px #ace51b;
 	margin: .55rem auto;
 	display: block;
 	outline: none;
@@ -163,15 +122,15 @@ body {
 }
 
 #goToGamePage span {
-	background: url(../images/0715_images/act_16coolIceBucket_textIcon.png)no-repeat;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
 	background-position: 16px 2px;
-    background-size: 349% auto;
-    display: block;
-    width: 82px;
-    height: 25px;
-    line-height: 32px;
-    margin: 0 auto;
-    overflow: hidden;
+	background-size: 349% auto;
+	display: block;
+	width: 82px;
+	height: 25px;
+	line-height: 32px;
+	margin: 0 auto;
+	overflow: hidden;
 }
 
 #getActRule {
@@ -202,14 +161,15 @@ body {
 	padding-top: 1.5rem;
 }
 
-.actRuleShow {}
+.actRuleShow {
+	
+}
 
 .comShowWrap1 {
 	width: 5.6rem;
 	/*max-height:80%;*/
 	background: #4ebaf8;
 	border-radius: 5px;
-	/*box-shadow: 0 -2px #fcd8a0;*/
 	margin: 0 auto;
 	padding-top: 14px;
 	padding-bottom: 10px;
@@ -218,18 +178,14 @@ body {
 }
 
 .actRuleShow .actRuleShow_title {
-	/*background: url(../images/0715_images/act_16coolIceBucket_indexRUle_title.png) 0 -180px no-repeat;
-	background-size: 145% 462%;
-	height: 50px;
-	width: 2.5rem;
-	margin: 0 auto;
-	overflow: hidden;*/
 	width: 2.5rem;
 	margin: 0 auto;
 }
-.actRuleShow .actRuleShow_title img{
+
+.actRuleShow .actRuleShow_title img {
 	width: 100%;
 }
+
 .actRuleClose {
 	position: absolute;
 	right: -10px;
@@ -237,15 +193,14 @@ body {
 	width: 44px;
 }
 
-.actRuleText {}
+.actRuleText {
+	
+}
 
 .comTextWrap1 {
 	width: 4.8rem;
 	margin: 0 auto;
-	/*background: #ffe38d;*/
 	border-radius: 8px;
-	/*box-shadow: inset 1px 2px 2px #ab7121, inset -1px -2px 2px #ab7121;*/
-	/*box-sizing: border-box;*/
 	padding: .4rem;
 	color: #fff;
 	font-weight: bold;
@@ -260,13 +215,10 @@ body {
 	overflow: hidden;
 	margin: .2rem auto;
 }
-.actRuleScore_wrap img{
+
+.actRuleScore_wrap img {
 	width: 100%;
 }
-/*.actRuleScore {
-	float: left;
-	margin-left: .34rem;
-}*/
 
 .actRuleScore i {
 	display: block;
@@ -280,36 +232,14 @@ body {
 	;
 }
 
-/*.actRuleShow_wrap .actRuleScore:nth-child(1) {
-	margin-left: .1rem;
-}*/
-
 .actRuleScore .actRuleAvatar span {
-	background: url(../images/0715_images/act_16coolIceBucket_indexRule_people.png) 0 0 no-repeat;
+	background: url(../images/act_16coolIceBucket_indexRule_people.png) 0 0 no-repeat;
 	background-size: 100% 107%;
 	display: block;
 	width: 93%;
 	height: 131%;
 	margin: -31% auto 0;
 }
-/*
-.actRuleScore:nth-child(2) .actRuleAvatar span {
-	background: url(images/act_16womenday_children2.png) 0 0 no-repeat;
-	background-size: 100% 95%;
-	display: block;
-	width: 100%;
-	height: 131%;
-	margin: -11% auto 0;
-}
-
-.actRuleScore:nth-child(3) .actRuleAvatar span {
-	background: url(images/act_16womenday_children3.png) 0 0 no-repeat;
-	background-size: 100% 91%;
-	display: block;
-	width: 95%;
-	height: 131%;
-	margin: -8% auto 0;
-}*/
 
 .actRuleAvatar {
 	display: block;
@@ -320,9 +250,7 @@ body {
 	overflow: hidden;
 }
 
-
 /*游戏页面*/
-
 .gamePage {
 	display: none;
 }
@@ -355,13 +283,12 @@ body {
 }
 
 .gameCountDownColor_wrap {
-	background:rgb(241, 185, 155);
-	 background: -webkit-linear-gradient(top,rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
-    background: linear-gradient(top,rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%); 
+	background: rgb(241, 185, 155);
+	background: -webkit-linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
+	background: linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
 	border: 4px solid #761f2c;
 	border-radius: 10px;
 	height: 10px;
-	;
 	width: 4rem;
 	margin-left: .6rem;
 }
@@ -424,18 +351,16 @@ body {
 	font-weight: 900;
 }
 
-@-webkit-keyframes musicMove {
-	100% {
-		-webkit-transform: rotate(360deg)
-	}
+@-webkit-keyframes musicMove { 100% {
+	-webkit-transform: rotate(360deg)
 }
 
-@keyframes musicMove {
-	100% {
-		transform: rotate(360deg)
-	}
+}
+@keyframes musicMove { 100% {
+	transform: rotate(360deg)
 }
 
+}
 .musicPlay {
 	-webkit-animation: musicMove 1s linear 0s infinite;
 	animation: musicMove 1s linear 0s infinite;
@@ -458,13 +383,10 @@ body {
 	height: 30%;
 	float: left;
 	margin-top: .4rem;
-	/*overflow:hidden*/
-	;
 	position: relative
 }
 
-.gameWin:nth-child(1),
-.gameWin:nth-child(2) {
+.gameWin:nth-child(1), .gameWin:nth-child(2) {
 	margin-top: 0;
 }
 
@@ -486,17 +408,11 @@ body {
 }
 
 .gameWinMainWrap {
-	/*border: 2px solid #761f2c;*/
 	height: 85%;
-	/*background: -webkit-linear-gradient(top, rgba(252, 223, 143, 1) 0%, #f7bd22 90%, #eeaa1e 92%, #e59615 100%);*/
-	/* Chrome10-25,Safari5.1-6 */
-	/*background: linear-gradient(to bottom, rgba(252, 223, 143, 1) 0%, #f7bd22 90%, #eeaa1e 92%, #e59615 100%);*/
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	position: relative;
 	border-top: none;
 	margin: 13% auto 0;
 	width: 2.5rem;
-	/*border-radius: 0 0 10px 10px;*/
 }
 
 .gameWinPinkMaskWrap {
@@ -513,7 +429,7 @@ body {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url(../images/0715_images/act_16coolIceBucket_game_yongRound.png)0 0 no-repeat;
+	background: url(../images/act_16coolIceBucket_game_yongRound.png) 0 0 no-repeat;
 	background-size: 100% 100%;
 }
 
@@ -541,47 +457,19 @@ body {
 }
 
 #gamePlayChilren {
-	/*width: 100%;
+	width: 2rem;
 	position: absolute;
-	left: 0;
-	bottom: 8%;
+	left: .45rem;
+	bottom: 25%;
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
-	z-index: 100;
+	z-index: 4;
 	-webkit-transform: scale(0);
-	transform: scale(0);*/
-	width: 2rem;
-    position: absolute;
-    left: .45rem;
-    /*top: -.85rem;*/
-   bottom: 25%;
-    -webkit-transform-origin: 50% 100%;
-    transform-origin: 50% 100%;
-    z-index: 4;
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    display: block;
+	transform: scale(0);
+	display: block;
 }
 
-
-/*   @keyframes gamePlayChilMove{
-            100%{transform:scale(.8)}
-        }
-        .gamePlayCon{
-            animation:gamePlayChilMove 300ms linear 1;
-            -webkit-animation-fill-mode: forwards;;
-            animation-fill-mode: forwards;;
-        }
-        @keyframes gamePlayChilBackMove{
-            100%{transform:scale(0)}
-        }
-        .gamePlayBackCon{
-            animation:gamePlayChilBackMove 200ms linear 1;
-        }*/
-
-
 /*游戏开始按钮 */
-
 .startGameBtnWrap {
 	position: absolute;
 	top: 0;
@@ -597,13 +485,8 @@ body {
 .startGameBtn {
 	width: 5.2rem;
 	margin: 0 auto;
-	
 	box-sizing: border-box;
 	padding: .15rem;
-	/*background: -webkit-linear-gradient(top, #f9bd69 0%, #f7ac47 100%);*/
-	/* Chrome10-25,Safari5.1-6 */
-	/*background: linear-gradient(to bottom, #f9bd69 0%, #f7ac47 100%);*/
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .startGameBtnInner {
@@ -613,11 +496,13 @@ body {
 	padding: .5rem 0;
 	border-radius: 5px;
 }
-.game_textIcon{
+
+.game_textIcon {
 	width: 3rem;
 	display: block;
 	margin: 0 auto;
 }
+
 .startGameBtnTitle {
 	width: 3.7rem;
 	margin: 0 auto .5rem;
@@ -626,52 +511,53 @@ body {
 
 #startGame {
 	width: 3rem;
-    line-height: .78rem;
-    height: .78rem;
-    border-radius: 50px;
-    background: #ff6613;
-    /* box-shadow: 0 2px 2px #ed3442, 0 -2px 0 #fff3c6; */
-    box-shadow: inset 0 -6px 9px #ff2f15;
-    margin: .55rem auto;
-    display: block;
-    outline: none;
-    border: none;
-    border: 3px solid #fff;
-    /*box-shadow: 0px 0px 0px 2px #fff,inset 0 2px 2px 0 #faf7d2,inset 0 0 12px 3px #ff2f15;*/
+	line-height: .78rem;
+	height: .78rem;
+	border-radius: 50px;
+	background: #ff6613;
+	box-shadow: inset 0 -6px 9px #ff2f15;
+	margin: .55rem auto;
+	display: block;
+	outline: none;
+	border: none;
+	border: 3px solid #fff;
 }
-#startGame span{
-	background: url(../images/0715_images/act_16coolIceBucket_textIcon.png)no-repeat;
-    background-position: 16px -38px;
-    background-size: 349% auto;
-    display: block;
-    width: 82px;
-    height: 25px;
-    line-height: 32px;
-    margin: 0 auto;
-    overflow: hidden;
+
+#startGame span {
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-position: 16px -38px;
+	background-size: 349% auto;
+	display: block;
+	width: 82px;
+	height: 25px;
+	line-height: 32px;
+	margin: 0 auto;
+	overflow: hidden;
 }
-#gamebucket{
+
+#gamebucket {
 	width: 1rem;
-    position: absolute;
-    top: -0.65rem;
-    left: 1.6rem;
+	position: absolute;
+	top: -0.65rem;
+	left: 1.6rem;
 }
-#gamebucket_water{
+
+#gamebucket_water {
 	width: 2.8rem;
-    position: absolute;
-    top: -.9rem;
-    left: -.3rem;
-    z-index: 4;
+	position: absolute;
+	top: -.9rem;
+	left: -.3rem;
+	z-index: 4;
 }
-#nohotChilren{
+
+#nohotChilren {
 	width: 2rem;
-    position: absolute;
-    top: -.25rem;
-    left: .25rem;
-    z-index: 2;
+	position: absolute;
+	top: -.25rem;
+	left: .25rem;
+	z-index: 2;
 }
 /*游戏结束*/
-
 .gameOverWrap {
 	z-index: 10;
 	font-size: 16px;
@@ -683,15 +569,22 @@ body {
 }
 
 .gameOverWrap .gameOverText {
-	width: 4.4rem;
-	padding: .4rem;
+	width: 4.6rem;
+	padding: .4rem .2rem;
 }
 
 .gameOverWrap h1 {
 	width: 2rem;
 	margin: 0 auto;
 }
-#gameScoreDesText{margin: .3rem 0 .5rem;}
+
+#gameScoreDesText {
+	margin: .3rem 0 .5rem;
+	width: 4.6rem;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+}
+
 .gameOverWrap h1 img {
 	width: 100%;
 }
@@ -700,64 +593,61 @@ body {
 	width: 100%;
 	border-radius: .4rem;
 	margin: .26rem auto 0;
-	border: 2px solid #761f2c;
-	/*height:50px;*/
+	border: 2px solid #fff;
 	box-sizing: border-box;
 	height: 44px;
+	line-height: 40px;
 	display: block;
 	outline: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 900;
 }
 
-#goToGetHb .gameOverBtn{
-	/*background: #f35f72;
-	-webkit-box-shadow: inset 1px 2px 2px 0 #fddccd;
-	box-shadow: inset 1px 2px 2px 0 #fddccd;
-	background: -webkit-linear-gradient(top, rgba(247, 137, 145, 1) 1%, rgba(243, 95, 114, 1) 41%, rgba(243, 95, 114, 1) 65%, rgba(242, 83, 101, 1) 81%, rgba(238, 38, 49, 1) 89%, rgba(241, 45, 61, 1) 95%, #f45068 100%);*/
-	/* Chrome10-25,Safari5.1-6 */
-	/*background: linear-gradient(to bottom, rgba(247, 137, 145, 1) 1%, rgba(243, 95, 114, 1) 41%, rgba(243, 95, 114, 1) 65%, rgba(242, 83, 101, 1) 81%, rgba(238, 38, 49, 1) 89%, rgba(241, 45, 61, 1) 95%, #f45068 100%);*/
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+.shareAppPage button:nth-child(1) {
+	background: -webkit-linear-gradient(top, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	background: linear-gradient(to bottom, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
+	box-shadow: inset 0 3px 4px 0 #F3DA7B, inset 0 -4px 7px 0 #E5B82F, 0 -2px 2px #45a0f6;
+}
+
+.shareAppPage button:nth-child(2) {
+	margin-top: 1rem;
+	background: #a7d421;
+	box-shadow: inset 0 3px 4px 0 #c2e164, inset 0 -4px 7px 0 #96c31a, 0 -2px 2px #45a0f6;
+}
+
+#goToGetHb .gameOverBtn {
 	background: #ff6613;
-    box-shadow: inset 0 -6px 9px #ff2f15;
-    border: 3px solid #fff;
+	box-shadow: inset 0 -6px 9px #ff2f15;
+	border: 3px solid #fff;
 }
 
 #goToGetHb .gameOverBtn span {
-    width: 112px;
-    height: 25px;
-    display: block;
-    /* width: 2.7rem; */
-    margin: 0 auto;
-    background: url(../images/0715_images/act_16coolIceBucket_textIcon.png)no-repeat;
-    background-position: 14px -57px;
-    background-size: 231% auto;
+	width: 112px;
+	height: 25px;
+	display: block;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-position: 12px -57px;
+	background-size: 231% auto;
 }
 
 .gameOverText .shareFri {
-	/*background: #4cdef4;*/
-	/*-webkit-box-shadow: inset 0 2px 2px 0 #def3e5;
-	box-shadow: inset 0 2px 2px 0 #def3e5;
-	background: -webkit-linear-gradient(top, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, rgba(55, 207, 239, 1) 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);*/
-	/* Chrome10-25,Safari5.1-6 */
-	/*background: linear-gradient(to bottom, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, rgba(55, 207, 239, 1) 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);*/
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	background: #ffaa17;
-    box-shadow: inset 0 -6px 9px #ff790c;
-    border: 3px solid #fff;
-	
-	
+	box-shadow: inset 0 -6px 9px #ff790c;
+	border: 3px solid #fff;
 }
 
 .gameOverText .shareFri span {
 	display: block;
-    width: 134px;
-    height: 25px;
-     margin: 0 auto; 
-     background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat; 
-    background-size: 194% auto;
-    background-position: 16px -112px;
-	
+	width: 134px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 194% auto;
+	background-position: 14px -110px;
 }
-
 
 #playAgain img {
 	display: block;
@@ -767,25 +657,19 @@ body {
 }
 
 .yellowBtn {
-	/*background: -webkit-linear-gradient(top, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);*/
-	/* Chrome10-25,Safari5.1-6 */
-	/*background: linear-gradient(to bottom, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);*/
-	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	/*-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
-	box-shadow: inset 0 2px 2px 0 #ffefaf;*/
 	background: #a7d421;
-    box-shadow: inset 0 -6px 9px #88bb10;
-    border: 3px solid #fff;
-	
+	box-shadow: inset 0 -6px 9px #88bb10;
+	border: 3px solid #fff;
 }
-.yellowBtn span{
+
+.yellowBtn span {
 	display: block;
-    width: 112px;
-    height: 25px;
-    margin: 0 auto; 
-    background: url(../images/0715_images/act_16coolIceBucket_textIcon.png) no-repeat; 
-    background-size: 231% auto;
-    background-position: 16px -86px;
+	width: 112px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 231% auto;
+	background-position: 14px -84px;
 }
 
 #shareFriSha {
@@ -802,7 +686,7 @@ body {
 #shareFriSha img {
 	width: 4rem;
 	display: block;
-	margin: 0 auto;
+	margin: 0.5rem auto;
 }
 
 .promptDiv {

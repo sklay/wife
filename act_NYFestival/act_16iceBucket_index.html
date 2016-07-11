@@ -1,585 +1,600 @@
 <!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
 <!DOCTYPE html>
 <html lang="en">
 
-	<head>
-		<meta charset="UTF-8">
-		<title>【药快到】提高颜值大作战</title>
-		<meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta name="format-detection" content="telephone=no, email=no" />
-		<link rel="stylesheet" href="style/act_16iceBucket_index.css" />
-		<script src="js/zepto.min.js"></script>
-		<script src="js/touch.js"></script>
-		<script src="js/preloadjs-0.6.0.min.js"></script>
-		<script src="js/createjs-2014.12.12.min.js"></script>
-		<script src="js/fx.js"></script>
-		<script src="js/fx_methods.js"></script>
-		<!--<script src="js/common.js"></script>-->
-		<script type="text/javascript" src="js/html_common.js"></script>
-		<style>
-			@media screen and (max-height: 540px) {
-				.indexPageTitle {
-					width: 5.2rem;
-				}
-				#goToGamePage {
-					margin: .35rem auto;
-				}
-				.indexPageTitle {
-					margin-top: 5%;
-				}
-				#getActRule {
-					line-height: 30px;
-				}
-				.startGameBtnWrap,
-				.comWrap1 {
-					padding-top: .8rem;
-				}
-				#startGame {
-					margin: .5rem auto 0;
-				}
-			}
-			@media screen and (max-height: 580px) {
-				#goToGamePage {
-					margin: .15rem auto;
-				}
-			}
-			@media screen and (max-height: 480px) {
-				.loadingImg {
-					margin: 2rem auto 0;
-				}
-				/*#getActRule {
+<head>
+<meta charset="UTF-8">
+<title>清凉一“夏”，领取药快到的馈赠</title>
+<meta name="description" content="炎炎夏日，快把清凉带回家~">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="style/act_16iceBucket_index.css" />
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/preloadjs-0.6.0.min.js"></script>
+<script src="js/createjs-2014.12.12.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/fx_methods.js"></script>
+<!--<script src="js/common.js"></script>-->
+
+<style>
+@media screen and (max-height: 540px) {
+	.indexPageTitle {
+		width: 5.2rem;
+	}
+	.comTextWrap1 {
+		padding: .2rem .4rem;
+	}
+	#goToGamePage {
+		margin: .35rem auto;
+	}
+	.indexPageTitle {
+		margin-top: 5%;
+	}
+	#getActRule {
+		line-height: 30px;
+		bottom: .3rem;
+	}
+	.startGameBtnWrap, .comWrap1 {
+		padding-top: .8rem;
+	}
+	#startGame {
+		margin: .5rem auto 0;
+	}
+	.comShowWrap1 {
+		padding-bottom: 0;
+	}
+}
+
+@media screen and (max-height: 580px) {
+	#goToGamePage {
+		margin: .15rem auto;
+	}
+}
+
+@media screen and (max-height: 480px) {
+	.loadingImg {
+		margin: 2rem auto 0;
+	}
+	/*#getActRule {
 					line-height: 0;
 				}*/
-				.loadText {
-					margin-top: .4rem;
-				}
-				.comWrap1 {
-					padding-top: .5rem;
-					overflow: hidden;
-				}
-				.indexComImg {
-					width: 3.4rem;
-				}
-				.indexPageTitle {
-					width: 5rem;
-				}
-				.gamePageTop {
-					height: 14%;
-				}
-				.gameWinMainWrap {
-					margin: 9% auto 0;
-				}
-				.gameScoreDiv img {
-					width: .8rem;
-				}
-				.gameScoreText {
-					height: .5rem;
-					line-height: .5rem;
-					font-size: 14px;
-				}
-				.gameMainCon {
-					height: 75%;
-				}
-				#gamePlayChilren{
-					width: 2.5rem;
-					left: .2rem;
-					bottom:24%;
-				}
-				#nohotChilren{
-					top:-.6rem;
-				}
-			}
-		</style>
-		<script>
-			var _hmt = _hmt || [];
-			(function() {
-				var hm = document.createElement("script");
-				hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
-				var s = document.getElementsByTagName("script")[0];
-				s.parentNode.insertBefore(hm, s);
-			})();
-		</script>
-	</head>
+	.loadText {
+		margin-top: .4rem;
+	}
+	.comWrap1 {
+		padding-top: .5rem;
+		overflow: hidden;
+	}
+	.indexComImg {
+		width: 3rem;
+	}
+	.indexPageTitle {
+		width: 4.5rem;
+	}
+	.gamePageTop {
+		height: 14%;
+	}
+	.gameWinMainWrap {
+		margin: 9% auto 0;
+	}
+	.gameScoreDiv img {
+		width: .8rem;
+	}
+	.gameScoreText {
+		height: .5rem;
+		line-height: .5rem;
+		font-size: 14px;
+	}
+	.gameMainCon {
+		height: 75%;
+	}
+	#gamePlayChilren {
+		width: 2.5rem;
+		left: .2rem;
+		bottom: 24%;
+	}
+	#nohotChilren {
+		top: -.6rem;
+	}
+}
+</style>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
 
-	<body>
-		<div class="contentBack">
-			<!--加载页-->
-			<div id="loadingPage">
-				<div class="loadingImg">
-					<img src="images/0715_images/act_16coolIceBucket_loading.gif" alt="">
-				</div>
-				<p class="loadText">Loading……<span id="loadPer"></span></p>
-				<div class="loadShape"><span id="loadShapePro"></span></div>
+<body>
+	<div class="contentBack">
+		<!--加载页-->
+		<div id="loadingPage">
+			<div class="loadingImg">
+				<img src="images/act_16coolIceBucket_loading.gif" alt="">
 			</div>
-			<!--首页-->
-			<div class="indexPage">
-				<img class="indexComImg indexPageTitle" src="images/0715_images/act_16coolIceBucket_indexTitle.png" alt="">
-				<img class="indexComImg indexPagePeo" style="" src="images/0715_images/act_16coolIceBucket_indexPeople.png" alt="">
-				<button id="goToGamePage" ><span></span></button>
-				<p id="getActRule">活动规则</p>
-				<div class="actRuleShow_wrap comWrap1">
-					<div class="actRuleShow comShowWrap1">
-						<img class="closeBtn actRuleClose" src="images/0715_images/act_16coolIceBucket_indexRuleBtn.png" alt="">
-						<div class="actRuleShow_title">
-							<img  src="images/0715_images/act_16coolIceBucket_indexRUle_title.png" alt="">
+			<p class="loadText">
+				Loading……<span id="loadPer"></span>
+			</p>
+			<div class="loadShape">
+				<span id="loadShapePro"></span>
+			</div>
+		</div>
+		<!--首页-->
+		<div class="indexPage">
+			<img class="indexComImg indexPageTitle" src="images/act_16coolIceBucket_indexTitle.png" alt=""> <img class="indexComImg indexPagePeo" style="" src="images/act_16coolIceBucket_indexPeople.png" alt="">
+			<button id="goToGamePage">
+				<span></span>
+			</button>
+			<p id="getActRule">活动规则</p>
+			<div class="actRuleShow_wrap comWrap1">
+				<div class="actRuleShow comShowWrap1">
+					<img class="closeBtn actRuleClose" src="images/act_16coolIceBucket_indexRuleBtn.png" alt="">
+					<div class="actRuleShow_title">
+						<img src="images/act_16coolIceBucket_indexRUle_title.png" alt="">
+					</div>
+					<div class="actRuleText comTextWrap1">
+						<p>1、游戏说明</p>
+						<p>游戏时间内，人物冒出瞬间，点击即可帮助人物降温，时间到则游戏结束。</p>
+						<div class="actRuleScore_wrap">
+							<img src="images/act_16coolIceBucket_indexRule_people.png" />
 						</div>
-						<div class="actRuleText comTextWrap1">
-							<p>1、游戏说明</p>
-							<p>
-								游戏时间内，人物冒出瞬间，点击即可帮助人物降温，时间到则游戏结束。
-							</p>
+						<p>2、活动时间</p>
+						<p>2016年7月15日——2016年7月24日。</p>
+						<p style="margin-top: .2rem">3、活动奖励</p>
+						<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						<p style="margin-top: .2rem">4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--游戏页-->
+		<div class="gamePage">
+			<div class="gamePageTop">
+				<div class="gameClockIcon">
+					<img src="images/act_16coolIceBucket_game_clock.png" alt="">
+					<div class="gameCountDown_wrap">
+						<p>
+							剩余时间：<span id="gameCountDownTime">30</span>秒
+						</p>
+						<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
+							<span id="gameCountDownColor"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameMusic_wrap" style="display: none;">
+					<img src="images/act_16coolIceBucket_music.png" alt="" id="gameMusic" class="musicPlay">
+				</div>
+			</div>
+			<div class="gameMainCon">
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameWin">
+					<div class="gameWinMainWrap">
+						<div class="gameWinPinkMaskWrap">
+							<span class="gameWinPinkMask"></span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<!--游戏开始页面-->
+			<div class="startGameBtnWrap">
+				<div class="startGameBtn">
+					<div class="startGameBtnInner">
+						<img class="game_textIcon" src="images/act_16coolIceBucket_game_title.png" />
+						<div class="actRuleScore_wrap">
 							<div class="actRuleScore_wrap">
-								<img src="images/0715_images/act_16coolIceBucket_indexRule_people.png" />
+								<img src="images/act_16coolIceBucket_indexRule_people.png" />
 							</div>
-							<p>2、活动时间</p>
-							<p>
-								2016年7月15日——2016年7月24日。
-							</p>
-							<p style="margin-top:.2rem">3、活动奖励</p>
-							<p>
-								凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。
-							</p>
-							<p style="margin-top:.2rem">4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
-
 						</div>
+						<button id="startGame" class="yellowBtn">
+							<span></span>
+						</button>
 					</div>
 				</div>
 			</div>
-			<!--游戏页-->
-			<div class="gamePage">
-				<div class="gamePageTop">
-					<div class="gameClockIcon">
-						<img src="images/0715_images/act_16coolIceBucket_game_clock.png" alt="">
-						<div class="gameCountDown_wrap">
-							<p>剩余时间：<span id="gameCountDownTime">30</span>秒</p>
-							<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
-								<span id="gameCountDownColor"></span>
-							</div>
+			<!--游戏时间到-->
+			<div class="gameOverWrap comWrap1">
+				<div class="gameOver comShowWrap1">
+					<h1>
+						<img src="images/act_16coolIceBucket_timeOver.png" alt="">
+					</h1>
+					<div class="gameOverText comTextWrap1">
+						<p id="gameScoreDesText"></p>
+						<div class="butWrap">
+							<a id="goToGetHb">
+								<button class="gameOverBtn">
+									<span></span>
+								</button>
+							</a>
+							<button class="gameOverBtn yellowBtn" id="playAgain">
+								<span></span>
+							</button>
+							<button class="shareFri gameOverBtn">
+								<span></span>
+							</button>
 						</div>
-					</div>
-					<div class="gameMusic_wrap">
-						<img src="images/0715_images/act_16coolIceBucket_music.png" alt="" id="gameMusic" class="musicPlay">
-					</div>
-				</div>
-				<!--<div class="gameScoreWrap">
-					<div class="gameScoreDiv">
-						<img src="images/act_16womenday_mask.png" alt="">
-						<div class="gameScoreText">颜值:<span id="gameScore">0</span></div>
-					</div>
-				</div>-->
-				<div class="gameMainCon">
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<!--<img src="images/act_16womenday_game_score1.png" id="scoreShowImg" alt="">-->
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-
-							</div>-->
-							<!-- <img src="images/act_16womenday_children1.png" id="gamePlayChilren" alt="">-->
-						</div>
-					</div>
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-							</div>-->
-						</div>
-					</div>
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-							</div>-->
-						</div>
-					</div>
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-							</div>-->
-						</div>
-					</div>
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-							</div>-->
-						</div>
-					</div>
-					<div class="gameWin">
-						<!--<span class="gameWinTop"></span>-->
-						<div class="gameWinMainWrap">
-							<div class="gameWinPinkMaskWrap">
-								<span class="gameWinPinkMask"></span>
-							</div>
-
-							<!--<div class="gameWinChildren_wrap">
-								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
-							</div>-->
-						</div>
-					</div>
-
-				</div>
-
-				<!--游戏开始页面-->
-				<div class="startGameBtnWrap">
-					<div class="startGameBtn">
-						<div class="startGameBtnInner">
-							<img class="game_textIcon" src="images/0715_images/act_16coolIceBucket_game_title.png" />
-							<div class="actRuleScore_wrap">
-								<div class="actRuleScore_wrap">
-									<img src="images/0715_images/act_16coolIceBucket_indexRule_people.png" />
-								</div>
-							</div>
-							<button id="startGame" class="yellowBtn"><span></span></button>
-							<!--<img src="images/act_16womenday_start_but.png" id="startGame" alt="">-->
-						</div>
-					</div>
-				</div>
-				<!--游戏时间到-->
-				<div class="gameOverWrap comWrap1">
-					<div class="gameOver comShowWrap1">
-						<h1><img src="images/0715_images/act_16coolIceBucket_timeOver.png" alt=""></h1>
-						<div class="gameOverText comTextWrap1">
-							<p id="gameScoreDesText"></p>
-							<div class="butWrap">
-								<a id="goToGetHb">
-									<button class="gameOverBtn">
-										<span></span>
-									</button>
-								</a>
-								
-								<button class="gameOverBtn yellowBtn" id="playAgain"><span></span></button>
-								
-								
-								<button class="shareFri gameOverBtn"><span></span></button>
-								<!--<button class="gameOverBtn yellowBtn" id="playAgain"><img src="images/act_16womenday_palyagain.png" alt=""></button>-->
-							</div>
-							<div class="shareAppPage" style="display:none">
-								<!--<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;" id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
-								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>-->
-							</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameOverBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
+							<button class="gameOverBtn appShareBtn" id="shareAppPage_friRound">分享到朋友圈</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="shareFriSha">
-			<img src="images/0715_images/act_16coolIceBucket_shareImg.png" alt="">
-		</div>
-		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" style="display:none" loop preload></audio>
-		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3" id="sound_add" style="display:none" preload></audio>
-		<!--<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>-->
-		<div style="display:none">
-			<img src="images/0715_images/act_16coolIceBucket_textIcon.png" alt="">
-			<img src="images/0715_images/act_16coolIceBucket_game_score.png" alt="">
-			<img src="images/0715_images/act_16coolIceBucket_game_IceBucket.png" alt="">
-			<img src="images/0715_images/act_16coolIceBucket_game_nohotPeople.png" alt="">
-			<img src="images/0715_images/act_16coolIceBucket_game_IceWater.png" alt="">
-			<img src="images/0715_images/act_16coolIceBucket_game_hotPeople.png" alt="">
-			<!--<img src="images/act_16womenday_game_score3.png" alt="">-->
-		</div>
-	</body>
-	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script>
-		
+	</div>
+	<div id="shareFriSha">
+		<img src="images/act_16coolIceBucket_shareImg.png" alt="">
+	</div>
+	<!-- <audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" style="display: none" loop preload></audio> -->
+	
+	
+	<div id="audioBackMusic" data-bg-src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3"   style="display: none;" ></div>
+	<div id="sound_add" data-water-src="images/act_16coolIceBucket_waterMusic.mp3" style="display: none" ></div>
+	<div style="display: none">
+		<img src="images/act_16coolIceBucket_textIcon.png" alt=""> 
+		<img src="images/act_16coolIceBucket_game_score.png" alt=""> 
+		<img src="images/act_16coolIceBucket_game_IceBucket.png" alt=""> 
+		<img src="images/act_16coolIceBucket_game_nohotPeople.png" alt=""> 
+		<img src="images/act_16coolIceBucket_game_IceWater.png" alt=""> 
+		<img src="images/act_16coolIceBucket_game_hotPeople.png" alt="">
+	</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
 	function getUrlEle() {
-			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
-				return "";
-			}
-			var urldec = location.href.split("?")[1].split("&");
-			var urlQuery = {};
-			var a, b;
-			for (var i = 0, j = urldec.length; i < j; i++) {
-				a = urldec[i].split("=")[0];
-				b = urldec[i].split("=")[1];
-				console.log(a.split("%EF%BC%9D"))
-				if (b == undefined) {
-					a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
-					b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
-				};
-				urlQuery[a] = b;
-			};
-			return urlQuery;
-		};
-		var version = getUrlEle().version_code || '';
-		var token = getUrlEle().user_token || '';
-		/*判断是否登录*/
-		function appShareFun(){
-			var token=getUrlEle().user_token;
-		    	if(token=="" || token ==null || token== undefined){
-		    		showResultApp("remind","请先登录后再分享");
-		    		return false;
-		    	}else{
-		    		return true;
-		    	};
-		    };
-	
-		 var oMedia=document.getElementById("audioBackMusic");
-		var manifest = [];
-		var preload;
-		/* window加载 */
-		var canvas = document.getElementById("myCanvas");
-		var stage = new createjs.Stage(canvas);
-		var manifest = [];
-		var preload;
-		//定义相关JSON格式文件列表
-		function setupManifest() {
-			var imgL = $("img").length;
-			for (var i = 1; i < imgL; i++)
-				manifest.push({
-					src: $("img").eq(i).attr("src")
-				});
-			var audioL = $("audio").length;
-			for (var i = 1; i < audioL; i++)
-				manifest.push({
-					src: $("audio").eq(i).attr("src")
-				});
-		};
-		//开始预加载
-		function startPreload() {
-			preload = new createjs.LoadQueue(true);
-			//注意加载音频文件需要调用如下代码行
-			preload.installPlugin(createjs.Sound);
-			//preload.on("fileload", handleFileLoad);
-			preload.on("progress", handleFileProgress);
-			preload.on("complete", loadComplete);
-			preload.loadManifest(manifest);
+		if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+			return "";
 		}
-		//加载中动画
-		var load = {};
-		load.loadAniBoo = true;
-		load.loadNum = 0;
-		load.loadMax = $("img").length + $("audio").length;
-		load.loadAniTime = null;
-		//	var loadPer = $("#loadPer"); //加载进度条
-		function handleFileProgress(event) {
-			if (load.loadAniBoo) {
-				load.loadAniTime = setInterval(function() {
-					/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
-					if (load.loadNum >= (load.loadMax - 1)) {
-						if (load && load.loadAniTime) {
-							clearInterval(load.loadAniTime);
-						}
-						return true;
+		var urldec = location.href.split("?")[1].split("&");
+		var urlQuery = {};
+		var a, b;
+		for (var i = 0, j = urldec.length; i < j; i++) {
+			a = urldec[i].split("=")[0];
+			b = urldec[i].split("=")[1];
+			console.log(a.split("%EF%BC%9D"))
+			if (b == undefined) {
+				a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+				b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+			}
+			;
+			urlQuery[a] = b;
+		}
+		;
+		return urlQuery;
+	};
+	var version = getUrlEle().version_code || '';
+	var token = getUrlEle().user_token || '';
+	
+	var a = navigator.userAgent.toLowerCase();
+	if (!version || is_weixin() || (!(version < 208 && (/android/.test(a)))) ) {
+		game_sound = $("#audioBackMusic");
+		sound_add = $("#sound_add");
+		game_sound.jPlayer({
+			ready: function (event) {
+				$(this).jPlayer("setMedia", {
+					mp3: $("#audioBackMusic").attr('data-bg-src')
+					/* mp3: $("#sound_add").attr('data-water-src') */
+				});
+			},
+			swfPath: "./js",
+			supplied: "mp3",
+			wmode: "window",
+			loop: true
+		});
+		
+	}
+	/**是否要播放音乐*/
+	
+	/* var hasMusic = false ;
+	var a = navigator.userAgent.toLowerCase();
+	if(!version || is_weixin() || !(version < 208 && (/android/.test(a)))){
+		hasMusic = true ;
+	} */
+	/*判断是否登录*/
+	function appShareFun() {
+		var token = getUrlEle().user_token;
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+		;
+	};
+
+	var oMedia = document.getElementById("audioBackMusic");
+	var manifest = [];
+	var preload;
+	/* window加载 */
+	var canvas = document.getElementById("myCanvas");
+	var stage = new createjs.Stage(canvas);
+	//多余
+//	var manifest = [];
+	var preload;
+	//定义相关JSON格式文件列表
+	function setupManifest() {
+		var imgL = $("img").length;
+		for (var i = 1; i < imgL; i++)
+			manifest.push({
+				src : $("img").eq(i).attr("src")
+			});
+		/* var audioL = $("audio").length;
+		for (var i = 1; i < audioL; i++)
+			manifest.push({
+				src : $("audio").eq(i).attr("src")
+			}); */
+	};
+	//开始预加载
+	function startPreload() {
+		preload = new createjs.LoadQueue(true);
+		//注意加载音频文件需要调用如下代码行
+		preload.installPlugin(createjs.Sound);
+		//preload.on("fileload", handleFileLoad);
+		preload.on("progress", handleFileProgress);
+		preload.on("complete", loadComplete);
+		preload.loadManifest(manifest);
+	}
+	//加载中动画
+	var load = {};
+	load.loadAniBoo = true;
+	load.loadNum = 0;
+	load.loadMax = $("img").length ;
+	load.loadAniTime = null;
+	//	var loadPer = $("#loadPer"); //加载进度条
+	function handleFileProgress(event) {
+		if (load.loadAniBoo) {
+			load.loadAniTime = setInterval(function() {
+				/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
+				if (load.loadNum >= (load.loadMax - 1)) {
+					if (load && load.loadAniTime) {
+						clearInterval(load.loadAniTime);
 					}
-					load.loadNum++;
-					loadState(load);
-				}, 500)
-				load.loadAniBoo = false;
+					return true;
+				}
+				load.loadNum++;
+				loadState(load);
+			}, 500)
+			load.loadAniBoo = false;
+		} else {
+			return false;
+		}
+	}
+
+	function loadState(load) {
+		var loadPer = $("#loadPer"); //加载进度条
+		var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
+		console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
+		loadPer.html(percLoad);
+		$("#loadShapePro").css({
+			"width" : percLoad
+		})
+		$("#loadShapePro").animate({
+			width : percLoad
+		});
+	}
+
+	//全部资源加载完毕
+	/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
+	function loadComplete(event) {
+		if (load && load.loadAniTime)
+			clearInterval(load.loadAniTime);
+		load.loadNum = load.loadMax;
+		loadState(load);
+		setTimeout(function() {
+			$('#loadingPage').fadeOut(400, function() {
+				$('#loadingPage').remove();
+				winOnLoad()
+			});
+			$(".indexPage").fadeIn()
+		}, 500);
+	};
+
+	setupManifest();
+	startPreload();
+
+	 /* document.querySelector("#audioBackMusic").volume = 0.2;
+	document.querySelector("#sound_add").volume = 0;  */
+	var musicBoo = true
+	function winOnLoad() {
+		/*活动规则的显示与隐藏*/
+		$("#getActRule").on("tap", function() {
+			$(".actRuleShow_wrap").show();
+		});
+		$(".actRuleShow_wrap").on("tap", function() {
+			$(".actRuleShow_wrap").hide();
+		});
+		$("#goToGamePage").on("click", function(e) {
+			$(".gamePage").fadeIn(100);
+			$(".indexPage").hide(100);
+			/**点击开始按钮触发 音乐点击播放事件*/
+			/* if(hasMusic){
+				$('.gameMusic_wrap').show().click();
+			} */
+			/** TODO 
+			if(game_sound){
+				$(".gameMusic_wrap").show();
+				game_sound.jPlayer("play"); 
+			} */
+		});
+		/*音乐播放*/
+		$(".gameMusic_wrap").on("click", function() {
+			if (!oMedia.paused) {
+				/* document.querySelector("#audioBackMusic").pause(); */
+				game_sound.jPlayer( "clearMedia") ;
+				$("#gameMusic").addClass("musicPause");
+				musicBoo = false;
 			} else {
-				return false;
+				/* document.querySelector("#audioBackMusic").play(); */
+				if(game_sound){
+					game_sound.jPlayer("play"); 
+				}
+				$("#gameMusic").removeClass("musicPause");
+				musicBoo = true;
 			}
-		}
+		});
 
-		function loadState(load) {
-			var loadPer = $("#loadPer"); //加载进度条
-			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
-			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
-			loadPer.html(percLoad);
-			$("#loadShapePro").css({
-				"width": percLoad
-			})
-			$("#loadShapePro").animate({
-				width: percLoad
-			});
-		}
-	
-		//全部资源加载完毕
-		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
-		function loadComplete(event) {
-			if (load && load.loadAniTime)
-				clearInterval(load.loadAniTime);
-			load.loadNum = load.loadMax;
-			loadState(load);
-			setTimeout(function() {
-				  $('#loadingPage').fadeOut(400,function(){
-                              $('#loadingPage').remove();
-                              winOnLoad()
-                          });
-//                        $(".comShineBack").fadeIn();
-                          $(".indexPage").fadeIn()
-//                        clearTimeout(timeOut);
-			}, 500);
-		};
-		
-		setupManifest();
-		startPreload();
-		
-		
-		document.querySelector("#audioBackMusic").volume=0.2;
-	    document.querySelector("#sound_add").volume=0;
-//	    document.querySelector("#sound_cut").volume=0;
-	    var musicBoo=true
-		function winOnLoad() {
-			$("#getActRule").on("tap",function(){
-            $(".actRuleShow_wrap").show();
-        	});
-        $(".actRuleShow_wrap").on("tap",function(){
-            $(".actRuleShow_wrap").hide();
-        });
-        $("#goToGamePage").on("click",function(e){
-//          $(".comShineBack").hide();
-            $(".gamePage").fadeIn(100);
-            $(".indexPage").hide(100);
-           /**点击开始按钮触发 音乐点击播放事件*/
-             $('.gameMusic_wrap').trigger('click') ;
-        });
-
-        $(".gameMusic_wrap").on("click",function(){
-            if( !oMedia.paused){
-                document.querySelector("#audioBackMusic").pause();
-                $("#gameMusic").addClass("musicPause");
-                musicBoo=false;
-            }else{
-                document.querySelector("#audioBackMusic").play();
-                $("#gameMusic").removeClass("musicPause");
-                musicBoo=true;
-            }
-        });
-			
-			
-			
-			//去使用跳转页面
-			$(".goForUse").on("click", function() {
-				goPage();
-			});
-			/**判断app点击去使用按钮跳转的地址**/
-			function goPage(type) {
-				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
-				/**判断是否是微信**/
-				if (is_weixin()) {
-					window.location.href = target_href;
+		//去使用跳转页面
+		$(".goForUse").on("click", function() {
+			goPage();
+		});
+		/**判断app点击去使用按钮跳转的地址**/
+		function goPage(type) {
+			var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+			/**判断是否是微信**/
+			if (is_weixin()) {
+				window.location.href = target_href;
+			} else {
+				if (token == "" || token == null || token == undefined || token == 'undefined') {
+					showResultApp("remind", "请先登录");
 				} else {
-						if (token == "" || token == null || token == undefined || token == 'undefined') {
-							showResultApp("remind", "请先登录");
-						} else {
-							if (version && 200 <= version) {
-								gotoPage('{"type":"1"}');
-							} else {
-								window.location.href = target_href;
-							}
-						}
+					if (version && 200 <= version) {
+						gotoPage('{"type":"1"}');
+					} else {
+						window.location.href = target_href;
 					}
 				}
-			
-			$("#goToGetHb ").on("click ", function() {
-				//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
-				// var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16dumpling_gethb&user_token="+token+"&version_code="+version+"&codeActId=210";
-//			 	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16dumpling_gethb&user_token=" + token + "&version_code="+version+"&codeActId=210";
-//				location.href= url ;
-					location.href = "act_16iceBucket_getHb.html";
-			
-			});
+			}
 		}
-	</script>
-	<script src="js/act_16iceBucket_index.js"></script>
-	<script>
-		var wechatObj = {};
-		wechatObj.title = '【药快到】提高颜值大作战';
-		wechatObj.desc = '【药快到】脸蛋美不美，颜值高不高，测测就知道！';
-		wechatObj.link = 'http://store.ykd365.com/medhtml/common/act_16womenfes_index';
-		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16womenday_shareIcon.jpg';
+		/*点击领取*/
+		$("#goToGetHb ").on("click ", function() {
+			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token="+token+"&version_code="+version+"&codeActId=270";
+			var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
+			//	var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code="+version+"&codeActId=270";
+			location.href = url;
+		});
+	}
+</script>
+<script src="js/act_16iceBucket_index.js?v=0.0.0.0.1"></script>
+<script>
+	var wechatObj = {};
+	wechatObj.title = '清凉一“夏”，领取药快到的馈赠';
+	wechatObj.desc = '炎炎夏日，快把清凉带回家~';
+	wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16iceBucket_index';
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg';
 
-		if (is_weixin()) {
-			$.ajax({
-				url: "/medhtml/common/getwxjssign?",
-				data: {
-					url: location.href.split('#')[0]
-				},
-				success: function(wechatReturn) {
-					if (wechatReturn) {
-						wx.config({
-							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-							appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 
-							/*  appId: 'wx697be0ec43c8cafa', // 必填，公众号的唯一标识 */
-							timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
-							nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
-							signature: wechatReturn.signature, // 必填，签名，见附录1
-							jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-						});
-					};
-					wx.ready(function() {
-						getWechatObj()
-					})
+	if (is_weixin()) {
+		$.ajax({
+			url : "/medhtml/common/getwxjssign?",
+			data : {
+				url : location.href.split('#')[0]
+			},
+			success : function(wechatReturn) {
+				if (wechatReturn) {
+					wx.config({
+						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId : 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 
+						/*  appId: 'wx697be0ec43c8cafa', // 必填，公众号的唯一标识 */
+						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
+						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
+						signature : wechatReturn.signature, // 必填，签名，见附录1
+						jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
+					// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
 				}
-			});
-		};
+				;
+				wx.ready(function() {
+					getWechatObj()
+				})
+			}
+		});
+	};
 
-		function shareSucc() {
-			$("#shareFriSha").hide();
-			$(".butWrap").show();
-			$(".shareAppPage").hide();
-		}
+	function shareSucc() {
+		$("#shareFriSha").hide();
+		$(".butWrap").show();
+		$(".shareAppPage").hide();
+	}
 
-		function getWechatObj() {
-			wx.onMenuShareTimeline({
-				title: wechatObj.desc, // 分享描述
-				link: wechatObj.link, // 分享链接
-				imgUrl: wechatObj.imgUrl, // 分享图标
-				success: function() {
-					shareSucc()
-				},
-				cancel: function() {}
-			});
-			wx.onMenuShareAppMessage({
-				title: wechatObj.title, // 分享标题
-				desc: wechatObj.desc, // 分享描述
-				link: wechatObj.link, // 分享链接
-				imgUrl: wechatObj.imgUrl, // 分享图标
-				success: function() {
-					shareSucc()
-				},
-				cancel: function() {}
-			});
-			wx.onMenuShareQQ({
-				title: wechatObj.title, // 分享标题
-				desc: wechatObj.desc, // 分享描述
-				link: wechatObj.link, // 分享链接
-				imgUrl: wechatObj.imgUrl, // 分享图标
-				success: function() {
-					shareSucc()
-				},
-				cancel: function() {}
-			});
-			wx.onMenuShareWeibo({
-				title: wechatObj.title, // 分享标题
-				desc: wechatObj.desc, // 分享描述
-				link: wechatObj.link, // 分享链接
-				imgUrl: wechatObj.imgUrl, // 分享图标
-				success: function() {
-					shareSucc()
-				},
-				cancel: function() {}
-			});
-		}
-	</script>
+	function getWechatObj() {
+		wx.onMenuShareTimeline({
+			title : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+				shareSucc()
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareAppMessage({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+				shareSucc()
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareQQ({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+				shareSucc()
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareWeibo({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+				shareSucc()
+			},
+			cancel : function() {
+			}
+		});
+	}
+</script>
 
 </html>
