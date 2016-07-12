@@ -1,0 +1,1333 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>-->
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>【药快到】提高颜值大作战</title>
+		<meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<script src="js/zepto.min.js"></script>
+		<script src="js/touch.js"></script>
+		<script src="js/fx.js"></script>
+		<script src="js/fx_methods.js"></script>
+		<script src="js/common.js"></script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			i {
+				font-style: normal;
+				text-align: center;
+			}
+			
+			html {
+				font-size: 62.5%;
+			}
+			
+			html,
+			body,
+			.contentBack,
+			.comShineBack,
+			.indexPage,
+			.gamePage {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			body {
+				font-size: 10px;
+				font-size: .1rem;
+				font-family: Microsoft Yahei, Arial;
+				width: 6.4rem;
+			}
+			
+			.contentBack {
+				background: -webkit-radial-gradient(60% 30%, #f58999 0%, #f58797 10%, #f48293 30%, #f16a7b 70%, #ed5063 100%);
+				width: 100%;
+				position: relative;
+			}
+			
+			.comShineBack {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				overflow: hidden;
+				display: none;
+				z-index: 1;
+			}
+			
+			.comShineBack img {
+				width: 100%;
+				height: 100%;
+				float: left;
+			}
+			
+			#loadingPage {
+				width: 100%;
+				overflow: hidden;
+				box-sizing: border-box;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 9999;
+				background: transparent;
+			}
+			/*加载动画*/
+			
+			@-webkit-keyframes loadImgmove {
+				0% {
+					-webkit-transform: rotate(0deg)
+				}
+				25% {
+					-webkit-transform: rotate(20deg)
+				}
+				50% {
+					-webkit-transform: rotate(0deg)
+				}
+				75% {
+					-webkit-transform: rotate(-20deg)
+				}
+				100% {
+					-webkit-transform: rotate(0deg)
+				}
+			}
+			
+			.loadingImg {
+				width: 3rem;
+				margin: 2.5rem auto 0;
+				box-sizing: border-box;
+				height: 100%;
+			}
+			
+			.loadingImg img {
+				width: .9rem;
+				-webkit-transform-origin: 50% 100%;
+				-webkit-animation: loadImgmove 1s linear infinite;
+			}
+			
+			.loadingImg img:nth-child(1) {
+				width: 1rem;
+			}
+			
+			.loadText {
+				font-size: 20px;
+				color: #761f2c;
+				text-align: center;
+				line-height: 50px;
+				margin-top: .7rem;
+				font-weight: 600;
+			}
+			
+			.loadShape {
+				width: 4.5rem;
+				margin: 0 auto;
+				background: #d84a5d;
+				border-radius: 10px;
+				height: 10px;
+				overflow: hidden;
+			}
+			
+			#loadShapePro {
+				border-radius: 10px;
+				height: 10px;
+				float: left;
+				background: rgb(255, 244, 209);
+				/* Old browsers */
+				background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				;
+				width: 0;
+			}
+			/*首页*/
+			
+			.indexPage {
+				background: transparent;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 2;
+				display: none;
+			}
+			
+			.indexComImg {
+				display: block;
+				margin: 0 auto;
+				width: 3.9rem
+			}
+			
+			.indexPageTitle {
+				width: 5.4rem;
+				margin-top: 10%
+			}
+			
+			#goToGamePage {
+				width: 3rem;
+				line-height: .78rem;
+				height: .78rem;
+				border-radius: 20px;
+				box-shadow: 0 2px 2px #ed3442, 0 -2px 0 #fff3c6;
+				margin: .55rem auto;
+				display: block;
+				outline: none;
+				border: none;
+			}
+			
+			#goToGamePage span {
+				background: url(images/act_16womenday_comText.png) 0 0 no-repeat;
+				background-size: 184% 870%;
+				display: block;
+				width: 60%;
+				height: 60%;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			#getActRule {
+				color: #761f2c;
+				font-weight: 900;
+				font-family: SimHei;
+				text-align: center;
+				font-size: 14px;
+				position: absolute;
+				bottom: .2rem;
+				left: 0;
+				width: 100%;
+				line-height: 35px;
+			}
+			
+			.actRuleShow_wrap {
+				display: none;
+			}
+			
+			.comWrap1 {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: rgba(0, 0, 0, .6);
+				box-sizing: border-box;
+				padding-top: 1.5rem;
+			}
+			
+			.actRuleShow {}
+			
+			.comShowWrap1 {
+				width: 5.6rem;
+				/*max-height:80%;*/
+				background: #f7ac47;
+				border-radius: 5px;
+				box-shadow: 0 -2px #fcd8a0;
+				margin: 0 auto;
+				padding-top: 14px;
+				padding-bottom: 10px;
+				box-sizing: border-box;
+				position: relative;
+			}
+			
+			.actRuleShow h1 {
+				background: url(images/act_16womenday_comText.png) 0 -180px no-repeat;
+				background-size: 145% 462%;
+				height: 50px;
+				;
+				width: 2.5rem;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			
+			.actRuleClose {
+				position: absolute;
+				right: -10px;
+				top: -15px;
+				width: 44px;
+			}
+			
+			.actRuleText {}
+			
+			.comTextWrap1 {
+				width: 5.3rem;
+				margin: 0 auto;
+				background: #ffe38d;
+				border-radius: 8px;
+				box-shadow: inset 1px 2px 2px #ab7121, inset -1px -2px 2px #ab7121;
+				box-sizing: border-box;
+				padding: .4rem;
+				color: #761f2c;
+				font-weight: bold;
+			}
+			
+			.actRuleText p {
+				font-size: 12px;
+			}
+			
+			.actRuleScore_wrap {
+				overflow: hidden;
+				margin: .2rem auto;
+			}
+			
+			.actRuleScore {
+				float: left;
+				margin-left: .34rem;
+			}
+			
+			.actRuleScore i {
+				display: block;
+				width: 1.2rem;
+				border-radius: 15px;
+				height: .3rem;
+				color: #f06476;
+				font-size: 14px;
+				font-weight: 600;
+				margin-top: .1rem;
+				;
+			}
+			
+			.actRuleShow_wrap .actRuleScore:nth-child(1) {
+				margin-left: .1rem;
+			}
+			
+			.actRuleScore:nth-child(1) .actRuleAvatar span {
+				background: url(images/act_16womenday_children1.png) 0 0 no-repeat;
+				background-size: 100% 107%;
+				display: block;
+				width: 93%;
+				height: 131%;
+				margin: -31% auto 0;
+			}
+			
+			.actRuleScore:nth-child(2) .actRuleAvatar span {
+				background: url(images/act_16womenday_children2.png) 0 0 no-repeat;
+				background-size: 100% 95%;
+				display: block;
+				width: 100%;
+				height: 131%;
+				margin: -11% auto 0;
+			}
+			
+			.actRuleScore:nth-child(3) .actRuleAvatar span {
+				background: url(images/act_16womenday_children3.png) 0 0 no-repeat;
+				background-size: 100% 91%;
+				display: block;
+				width: 95%;
+				height: 131%;
+				margin: -8% auto 0;
+			}
+			
+			.actRuleAvatar {
+				display: block;
+				border-radius: 50%;
+				background: #fff;
+				width: 1.2rem;
+				height: 1.2rem;
+				overflow: hidden;
+			}
+			/*游戏页面*/
+			
+			.gamePage {
+				display: none;
+			}
+			
+			.gamePageTop {
+				background: #31c2d8;
+				width: 100%;
+				height: 10%;
+				padding: .1rem .2rem;
+				box-sizing: border-box;
+			}
+			
+			.gameClockIcon {
+				height: 100%;
+				overflow: hidden;
+				width: 5rem;
+				float: left;
+			}
+			
+			.gameClockIcon img {
+				max-height: 100%;
+				width: .8rem;
+				float: left;
+			}
+			
+			.gameCountDown_wrap p {
+				font-size: 14px;
+				color: #fff;
+				line-height: .45rem;
+			}
+			
+			.gameCountDownColor_wrap {
+				background: #409eaf;
+				border: 4px solid #761f2c;
+				border-radius: 10px;
+				height: 10px;
+				;
+				width: 4rem;
+				margin-left: .6rem;
+			}
+			
+			.gameCountDownColor_wrap span {
+				display: block;
+				height: 100%;
+				border-radius: 0 10px 10px 0;
+				margin-left: .05rem;
+				width: 100%;
+				background: rgb(255, 244, 209);
+				/* Old browsers */
+				background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			}
+			
+			.gameMusic_wrap {
+				width: .8rem;
+				float: right;
+				box-sizing: border-box;
+				padding-top: 2px;
+			}
+			
+			.gameMusic_wrap img {
+				width: 100%;
+			}
+			
+			.gameScoreWrap {
+				max-height: 10%;
+				width: 100%;
+				padding-top: 10px;
+				box-sizing: border-box;
+			}
+			
+			.gameScoreDiv {
+				width: 3rem;
+				overflow: hidden;
+				margin: 0 auto;
+			}
+			
+			.gameScoreDiv img {
+				width: 1rem;
+				float: left;
+			}
+			
+			.gameScoreText {
+				width: 2.4rem;
+				margin-top: .2rem;
+				margin-left: .6rem;
+				background: #d8394d;
+				border-radius: 8px;
+				height: .6rem;
+				line-height: .6rem;
+				color: #fff;
+				font-size: 16px;
+				text-align: center;
+				font-family: SimHei;
+				font-weight: 900;
+			}
+			
+			@-webkit-keyframes musicMove {
+				100% {
+					-webkit-transform: rotate(360deg)
+				}
+			}
+			
+			@keyframes musicMove {
+				100% {
+					transform: rotate(360deg)
+				}
+			}
+			
+			.musicPlay {
+				-webkit-animation: musicMove 1s linear 0s infinite;
+				animation: musicMove 1s linear 0s infinite;
+			}
+			
+			.musicPause {
+				animation-play-state: paused;
+				-webkit-animation-play-state: paused;
+			}
+			
+			.gameMainCon {
+				height: 80%;
+				overflow: hidden;
+				box-sizing: border-box;
+				padding: 0.5rem;
+			}
+			
+			.gameWin {
+				width: 2.45rem;
+				height: 30%;
+				float: left;
+				margin-top: .4rem;
+				/*overflow:hidden*/
+				;
+				position: relative
+			}
+			
+			.gameWin:nth-child(1),
+			.gameWin:nth-child(2) {
+				margin-top: 0;
+			}
+			
+			.gameWinTop {
+				width: 100%;
+				border-radius: 8px;
+				height: 15%;
+				position: absolute;
+				z-index: 5;
+				top: 0;
+				left: 0;
+				background: -webkit-linear-gradient(top, rgba(252, 223, 143, 1) 0%, #f7bd22 70%, rgba(215, 121, 16, 1) 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(252, 223, 143, 1) 0%, #f7bd22 70%, rgba(215, 121, 16, 1) 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				border: 2px solid #761f2c;
+				display: block;
+				box-sizing: border-box;
+			}
+			
+			.gameWinMainWrap {
+				border: 2px solid #761f2c;
+				height: 85%;
+				background: -webkit-linear-gradient(top, rgba(252, 223, 143, 1) 0%, #f7bd22 90%, #eeaa1e 92%, #e59615 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(252, 223, 143, 1) 0%, #f7bd22 90%, #eeaa1e 92%, #e59615 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				position: relative;
+				border-top: none;
+				margin: 13% auto 0;
+				width: 2.1rem;
+				border-radius: 0 0 10px 10px;
+			}
+			
+			.gameWinPinkMaskWrap {
+				position: absolute;
+				top: 0;
+				left: .15rem;
+				width: 1.8rem;
+				z-index: 2;
+				height: 92%;
+				overflow: hidden;
+			}
+			
+			.gameWinPinkMask {
+				display: block;
+				width: 100%;
+				height: 100%;
+				background: -webkit-linear-gradient(top, rgba(232, 93, 110, 1) 0%, rgba(190, 42, 60, 1) 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(232, 93, 110, 1) 0%, rgba(190, 42, 60, 1) 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				box-shadow: 2px 2px 2px #fff6a2, -2px 0px 2px #fff6a2;
+			}
+			
+			.gameWinChildren_wrap {
+				height: 92%;
+				width: 1.8rem;
+				margin: 0 auto;
+				box-shadow: 2px 2px 2px #fff6a2, -2px 0px 2px #fff6a2;
+				background: #31c2d8;
+				position: relative;
+			}
+			
+			.gameWinShineBack {
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			
+			#scoreShowImg {
+				position: absolute;
+				top: 0;
+				right: -28px;
+				z-index: 10;
+				width: .5rem;
+			}
+			
+			#gamePlayChilren {
+				width: 100%;
+				position: absolute;
+				left: 0;
+				bottom: 8%;
+				-webkit-transform-origin: 50% 100%;
+				transform-origin: 50% 100%;
+				z-index: 100;
+				-webkit-transform: scale(0);
+				transform: scale(0);
+			}
+			/*   @keyframes gamePlayChilMove{
+            100%{transform:scale(.8)}
+        }
+        .gamePlayCon{
+            animation:gamePlayChilMove 300ms linear 1;
+            -webkit-animation-fill-mode: forwards;;
+            animation-fill-mode: forwards;;
+        }
+        @keyframes gamePlayChilBackMove{
+            100%{transform:scale(0)}
+        }
+        .gamePlayBackCon{
+            animation:gamePlayChilBackMove 200ms linear 1;
+        }*/
+			/*游戏开始按钮 */
+			
+			.startGameBtnWrap {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .8);
+				z-index: 10;
+				padding-top: 1.5rem;
+				box-sizing: border-box;
+			}
+			
+			.startGameBtn {
+				width: 5.2rem;
+				margin: 0 auto;
+				border-radius: 5px;
+				box-sizing: border-box;
+				padding: .15rem;
+				background: -webkit-linear-gradient(top, #f9bd69 0%, #f7ac47 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, #f9bd69 0%, #f7ac47 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			}
+			
+			.startGameBtnInner {
+				background: #ffe38d;
+				margin: 0 auto;
+				box-sizing: border-box;
+				padding: .5rem 0;
+			}
+			
+			.startGameBtnTitle {
+				width: 3.7rem;
+				margin: 0 auto .5rem;
+				display: block;
+			}
+			
+			#startGame {
+				display: block;
+				margin: .8rem auto 0;
+				width: 2.5rem;
+			}
+			/*游戏结束*/
+			
+			.gameOverWrap {
+				z-index: 10;
+				font-size: 16px;
+				display: none;
+			}
+			
+			.gameOverWrap .gameOver {
+				width: 5.2rem;
+			}
+			
+			.gameOverWrap .gameOverText {
+				width: 4.8rem;
+				padding: .5rem;
+			}
+			
+			.gameOverWrap h1 {
+				width: 3rem;
+				margin: .1rem auto;
+			}
+			
+			.gameOverWrap h1 img {
+				width: 100%;
+			}
+			
+			.gameOverBtn {
+				width: 100%;
+				border-radius: .4rem;
+				margin: .26rem auto 0;
+				border: 2px solid #761f2c;
+				/*height:50px;*/
+				box-sizing: border-box;
+				height: 44px;
+				display: block;
+			}
+			
+			#goToGetHb {
+				background: #f35f72;
+				-webkit-box-shadow: inset 1px 2px 2px 0 #fddccd;
+				box-shadow: inset 1px 2px 2px 0 #fddccd;
+				background: -webkit-linear-gradient(top, rgba(247, 137, 145, 1) 1%, rgba(243, 95, 114, 1) 41%, rgba(243, 95, 114, 1) 65%, rgba(242, 83, 101, 1) 81%, rgba(238, 38, 49, 1) 89%, rgba(241, 45, 61, 1) 95%, #f45068 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(247, 137, 145, 1) 1%, rgba(243, 95, 114, 1) 41%, rgba(243, 95, 114, 1) 65%, rgba(242, 83, 101, 1) 81%, rgba(238, 38, 49, 1) 89%, rgba(241, 45, 61, 1) 95%, #f45068 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			}
+			
+			#goToGetHb span {
+				display: block;
+				width: 2.7rem;
+				margin: 0 auto;
+				background: url(images/act_16womenday_comText.png) 0 -25px no-repeat;
+				background-size: 134% 800%;
+				height: 80%;
+			}
+			
+			.gameOverText .shareFri {
+				background: #4cdef4;
+				-webkit-box-shadow: inset 0 2px 2px 0 #def3e5;
+				box-shadow: inset 0 2px 2px 0 #def3e5;
+				background: -webkit-linear-gradient(top, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, rgba(55, 207, 239, 1) 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(101, 226, 241, 1) 1%, rgba(76, 222, 244, 1) 41%, rgba(76, 222, 244, 1) 66%, rgba(55, 207, 239, 1) 80%, rgba(55, 207, 239, 1) 90%, rgba(56, 207, 239, 1) 95%, #5adbf1 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			}
+			
+			.gameOverText .shareFri span {
+				display: block;
+				width: 2.7rem;
+				margin: 0 auto;
+				background: url(images/act_16womenday_comText.png) 0 -56px no-repeat;
+				background-size: 111% 1005%;
+				height: 60%;
+			}
+			
+			@media screen and (max-height: 540px) {
+				.indexPageTitle {
+					width: 5.2rem;
+				}
+				#goToGamePage {
+					margin: .25rem auto;
+				}
+				.indexPageTitle {
+					margin-top: 5%;
+				}
+				#getActRule {
+					line-height: 30px;
+				}
+				.startGameBtnWrap,
+				.comWrap1 {
+					padding-top: .8rem;
+				}
+				#startGame {
+					margin: .5rem auto 0;
+				}
+			}
+			
+			@media screen and (max-height: 480px) {
+				.loadingImg {
+					margin: 2rem auto 0;
+				}
+				#getActRule {
+					line-height: 0;
+				}
+				.loadText {
+					margin-top: .4rem;
+				}
+				.comWrap1 {
+					padding-top: .5rem;
+					overflow: hidden;
+				}
+				.indexComImg {
+					width: 3.4rem;
+				}
+				.indexPageTitle {
+					width: 5rem;
+				}
+				.gamePageTop {
+					height: 14%;
+				}
+				.gameWinMainWrap {
+					margin: 9% auto 0;
+				}
+				.gameScoreDiv img {
+					width: .8rem;
+				}
+				.gameScoreText {
+					height: .5rem;
+					line-height: .5rem;
+					font-size: 14px;
+				}
+				.gameMainCon {
+					height: 75%;
+				}
+			}
+			
+			#playAgain img {
+				display: block;
+				margin: 0 auto;
+				width: 1.8rem;
+				height: 50%;
+			}
+			
+			.yellowBtn {
+				background: -webkit-linear-gradient(top, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);
+				/* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom, rgba(255, 230, 120, 1) 0%, rgba(255, 224, 79, 1) 51%, rgba(255, 223, 76, 1) 77%, rgba(255, 207, 35, 1) 90%, rgba(255, 212, 42, 1) 95%, #ffdd42 100%);
+				/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
+				box-shadow: inset 0 2px 2px 0 #ffefaf;
+			}
+			
+			#shareFriSha {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .8);
+				z-index: 100;
+				display: none;
+			}
+			
+			#shareFriSha img {
+				width: 100%;
+			}
+			
+			.promptDiv {
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				width: 180px;
+				height: 90px;
+				z-index: 99;
+				display: none;
+			}
+			
+			.promptDiv .opDiv {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background: none repeat scroll 0% 0% #333;
+				opacity: 0.5;
+				border-radius: 10px;
+			}
+			
+			.promptDiv .promptContent {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.promptDiv img {
+				display: block;
+				margin: 12px auto 10px auto;
+				width: 45px;
+				height: 45px;
+			}
+			
+			.promptDiv .title {
+				text-align: center;
+				color: #fff;
+				font-size: 12px;
+			}
+		</style>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<div class="contentBack">
+			<div class="comShineBack">
+				<img src="images/act_16womenday_index_backshine.png" alt="">
+			</div>
+			<!--加载页-->
+			<div id="loadingPage">
+				<div class="loadingImg">
+					<img src="images/act_16womenday_comhead1.png" alt="">
+					<img src="images/act_16womenday_comhead2.png" alt="">
+					<img src="images/act_16womenday_comhead3.png" alt="">
+				</div>
+				<p class="loadText">Loading……<span id="loadPer"></span></p>
+				<div class="loadShape"><span id="loadShapePro"></span></div>
+			</div>
+			<!--首页-->
+			<div class="indexPage">
+				<img class="indexComImg indexPageTitle" src="images/act_16womenday_index_title.png" alt="">
+				<img class="indexComImg" style="" src="images/act_16womenday_index_child.png" alt="">
+				<button id="goToGamePage" class="yellowBtn"><span></span></button>
+				<p id="getActRule">活动规则</p>
+				<div class="actRuleShow_wrap comWrap1">
+					<div class="actRuleShow comShowWrap1">
+						<img class="closeBtn actRuleClose" src="images/act_16womenday_index_close.png" alt="">
+						<h1></h1>
+						<div class="actRuleText comTextWrap1">
+							<p>1、游戏说明</p>
+							<p>
+								游戏时间内，各类人物冒出瞬间，点击即可获得颜值，时间到则游戏结束。
+							</p>
+							<div class="actRuleScore_wrap">
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">+3</i>
+								</div>
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">+1</i>
+								</div>
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">-1</i>
+								</div>
+							</div>
+							<p>2、活动时间</p>
+							<p>
+								2016年3月7日——2016年3月13日。
+							</p>
+							<p style="margin-top:.2rem">3、活动奖励</p>
+							<p>
+								凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。
+							</p>
+							<p style="margin-top:.2rem">4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--游戏页-->
+			<div class="gamePage">
+				<div class="gamePageTop">
+					<div class="gameClockIcon">
+						<img src="images/act_16womenday_clock.png" alt="">
+						<div class="gameCountDown_wrap">
+							<p>剩余时间：<span id="gameCountDownTime">30</span>秒</p>
+							<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
+								<span id="gameCountDownColor"></span>
+							</div>
+						</div>
+					</div>
+					<div class="gameMusic_wrap">
+						<img src="images/act_16womenday_music.png" alt="" id="gameMusic" class="musicPlay">
+					</div>
+				</div>
+				<div class="gameScoreWrap">
+					<div class="gameScoreDiv">
+						<img src="images/act_16womenday_mask.png" alt="">
+						<div class="gameScoreText">颜值:<span id="gameScore">0</span></div>
+					</div>
+				</div>
+				<div class="gameMainCon">
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<!--<img src="images/act_16womenday_game_score1.png" id="scoreShowImg" alt="">-->
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+
+							</div>
+							<!-- <img src="images/act_16womenday_children1.png" id="gamePlayChilren" alt="">-->
+						</div>
+					</div>
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+							</div>
+						</div>
+					</div>
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+							</div>
+						</div>
+					</div>
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+							</div>
+						</div>
+					</div>
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+							</div>
+						</div>
+					</div>
+					<div class="gameWin">
+						<span class="gameWinTop"></span>
+						<div class="gameWinMainWrap">
+							<div class="gameWinPinkMaskWrap">
+								<span class="gameWinPinkMask"></span>
+							</div>
+
+							<div class="gameWinChildren_wrap">
+								<img src="images/act_16womenday_windowback.jpg" alt="" class="gameWinShineBack">
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<!--游戏开始页面-->
+				<div class="startGameBtnWrap">
+					<div class="startGameBtn">
+						<div class="startGameBtnInner">
+							<img class="startGameBtnTitle" src="images/act_16womenday_start_text.png" alt="">
+							<div class="actRuleScore_wrap">
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">+3</i>
+								</div>
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">+1</i>
+								</div>
+								<div class="actRuleScore">
+									<span class="actRuleAvatar"><span></span></span>
+									<i class="actRuleScoreDet">-1</i>
+								</div>
+							</div>
+							<img src="images/act_16womenday_start_but.png" id="startGame" alt="">
+						</div>
+					</div>
+				</div>
+				<!--游戏时间到-->
+				<div class="gameOverWrap comWrap1">
+					<div class="gameOver comShowWrap1">
+						<h1><img src="images/act_16womenday_game_timeover.png" alt=""></h1>
+						<div class="gameOverText comTextWrap1">
+							<p id="gameScoreDesText">
+
+							</p>
+							<div class="butWrap">
+								<a id="goToGetHb" class="gameOverBtn"><span></span></a>
+								<button class="shareFri gameOverBtn"><span></span></button>
+								<button class="gameOverBtn yellowBtn" id="playAgain"><img src="images/act_16womenday_palyagain.png" alt=""></button>
+							</div>
+							<div class="shareAppPage" style="display:none">
+								<img class="gameOverBtn appShareBtn" style="margin-top:.5rem;border:none;" id="shareAppPage_shareFir" src="images/act_16womenday_forfriend.png"></img>
+								<img class="gameOverBtn appShareBtn" style="margin-top:1rem;border:none;" id="shareAppPage_friRound" src="images/act_16womenday_forfriendtound.png"></img>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="shareFriSha">
+			<img src="images/act_16womenday_share.png" alt="">
+		</div>
+		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" autoplay="autoplay" style="display:none" loop preload></audio>
+		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3" id="sound_add" style="display:none" preload></audio>
+		<audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music1.mp3" id="sound_cut" style="display:none" preload></audio>
+		<div style="display:none">
+			<img src="images/act_16womenday_comText.png" alt="">
+			<img src="images/act_16womenday_children1.png" alt="">
+			<img src="images/act_16womenday_children2.png" alt="">
+			<img src="images/act_16womenday_children3.png" alt="">
+			<img src="images/act_16womenday_game_score1.png" alt="">
+			<img src="images/act_16womenday_game_score2.png" alt="">
+			<img src="images/act_16womenday_game_score3.png" alt="">
+		</div>
+	</body>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		//alert(navigator.userAgent);
+		function getUrlEle() {
+			var urldec = location.href.split("?")[1].split("&");
+			var urlQuery = {};
+			var a, b;
+			for (var i = 0, j = urldec.length; i < j; i++) {
+				a = urldec[i].split("=")[0];
+				b = urldec[i].split("=")[1];
+				console.log(a.split("%EF%BC%9D"))
+				if (b == undefined) {
+					a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+					b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+				};
+				urlQuery[a] = b;
+			};
+			return urlQuery;
+		};
+
+		function appShareFun() {
+			var token = getUrlEle().user_token;
+			if (token == "" || token == null || token == undefined) {
+				showResultApp("remind", "请先登录后再分享");
+				return false;
+			} else {
+				return true;
+			};
+		};
+
+		function showResultApp(type, title) {
+			$("body").append(_prompt);
+			if (type == "remind") {
+				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_remind.png");
+			} else if (type == "success") {
+				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_ok.png");
+			} else if (type == "error") {
+				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_error.png");
+			} else {
+				$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_remind.png");
+			}
+			$("#prompt").find(".title").text(title);
+			var top = ($(window).height() - 90) / 2;
+			var left = ($(window).width() - 180) / 2;
+			$("#prompt").css({
+				'top': top + "px",
+				'left': left + "px"
+			});
+			$("#prompt").show();
+			shadeAll();
+			//	$("#prompt").show();
+			setTimeout("closePrompt()", 1000);
+		};
+
+		// 调用方法
+
+		var oMedia = document.getElementById("audioBackMusic");
+		var preLoad = function() {
+			var timout = null;
+			var aImg = $("img");
+			var _length = aImg.length;
+			var progress = 0;
+			var audio = $("audio");
+			var loadPer = $("#loadPer");
+			for (var i = 0; i < _length; i++) {
+				aImg[i].src = aImg.eq(i).attr('src');
+			};
+			for (var i = 0; i < audio.length; i++) {
+				audio[i].src = audio.eq(i).attr('src');
+			};
+			//加载太慢时，在window.onload后5秒自动进入
+			window.addEventListener("load", function() {
+				timeOut = setTimeout(function() {
+					$("#loadShapePro").css({
+						"width": "100%"
+					})
+					loadPer.html("100%");
+					$('#loadingPage').fadeOut(function() {
+						$('#loadingPage').remove();
+						winOnLoad();
+						$(".comShineBack").fadeIn();
+						$(".indexPage").fadeIn();
+					});
+				}, 5000);
+			}, false);
+
+			aImg.on('load', function() {
+				loadEnd()
+			});
+			for (var i = 0; i < audio.length; i++) {
+				audio[i].addEventListener('canplaythrough', function(e) {
+					loadEnd();
+				}, false);
+
+			};
+
+			function loadEnd() {
+				progress++;
+				var percLoad = Math.ceil(progress / (_length + audio.length) * 100) + "%";
+				$("#loadShapePro").css({
+					"width": percLoad
+				})
+				loadPer.html(percLoad);
+				if (progress == _length + audio.length) {
+					window.addEventListener("load", function() {
+						setTimeout(function() {
+							$('#loadingPage').fadeOut(400, function() {
+								$('#loadingPage').remove();
+								winOnLoad()
+							});
+							$(".comShineBack").fadeIn();
+							$(".indexPage").fadeIn()
+							clearTimeout(timeOut);
+						}, 500);
+						document.getElementById("audioBackMusic").play();
+					}, false)
+
+				}
+			};
+
+		}
+		preLoad();
+		/*App分享方法  */
+		function s(type) {
+			var jsonObject = {};
+			if (type == 0) {
+				jsonObject.shared_type = "0";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.title;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			} else
+			if (type == 1) {
+				jsonObject.shared_type = "1";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.desc;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			}
+			var jsonStr = JSON.stringify(jsonObject);
+			sharedTypeByJson(jsonStr);
+		};
+
+		function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
+			camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
+		};
+		$(".gameWin:nth-child(2n)").css({
+			"margin-left": ".5rem"
+		});
+		document.querySelector("#audioBackMusic").volume = 0.2;
+		document.querySelector("#sound_add").volume = 0;
+		document.querySelector("#sound_cut").volume = 0;
+		var musicBoo = true
+
+		function winOnLoad() {
+			/* 获取token */
+
+			$("#getActRule").on("tap", function() {
+				$(".actRuleShow_wrap").show();
+			});
+			$(".actRuleShow_wrap").on("tap", function() {
+				$(".actRuleShow_wrap").hide();
+			});
+			$("#goToGamePage").on("click", function(e) {
+				$(".comShineBack").hide();
+				$(".gamePage").fadeIn(100);
+				$(".indexPage").hide(100);
+				// document.getElementById("audioBackMusic").play();
+			});
+
+			$(".gameMusic_wrap").on("click", function() {
+				if (!oMedia.paused) {
+					document.querySelector("#audioBackMusic").pause();
+					$("#gameMusic").addClass("musicPause");
+					musicBoo = false;
+				} else {
+					document.querySelector("#audioBackMusic").play();
+					$("#gameMusic").removeClass("musicPause");
+					musicBoo = true;
+				}
+			});
+			$("#goToGetHb").on("click", function() {
+				location.href = "http://store.ykd365.com/medhtml/common/act_comSkip_page?method=act_16womenfes_gethb";
+				//location.href="http://192.168.1.177:8080//medstore-html/common/act_comSkip_page?method=act_16womenfes_gethb";
+			})
+		}
+	</script>
+	<script src="js/act_16womenfes_gamecon.js"></script>
+	<script>
+		var wechatObj = {};
+		wechatObj.title = '【药快到】提高颜值大作战';
+		wechatObj.desc = '【药快到】脸蛋美不美，颜值高不高，测测就知道！';
+		wechatObj.link = 'http://store.ykd365.com/medhtml/common/act_16womenfes_index';
+		//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx697be0ec43c8cafa&redirect_uri=http%3a%2f%2fdeve.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+		//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxade8c5e473c645e9&redirect_uri=http%3a%2f%2fstore.ykd365.com%2fmedhtml%2fcommon%2fact_16womenfes_gethb&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"'+fromUserId+'"}#wechat_redirect';
+		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16womenday_shareIcon.jpg';
+
+		if (is_weixin()) {
+			$.ajax({
+				url: "/medhtml/common/getwxjssign?",
+				data: {
+					url: location.href.split('#')[0]
+				},
+				success: function(wechatReturn) {
+					if (wechatReturn) {
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 
+							/*  appId: 'wx697be0ec43c8cafa', // 必填，公众号的唯一标识 */
+							timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+							nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+							signature: wechatReturn.signature, // 必填，签名，见附录1
+							jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+					};
+					wx.ready(function() {
+						getWechatObj()
+					})
+				}
+			});
+		};
+
+		function shareSucc() {
+			$("#shareFriSha").hide();
+			$(".butWrap").show();
+			$(".shareAppPage").hide();
+		}
+
+		function getWechatObj() {
+			wx.onMenuShareTimeline({
+				title: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {
+					shareSucc()
+				},
+				cancel: function() {}
+			});
+			wx.onMenuShareAppMessage({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {
+					shareSucc()
+				},
+				cancel: function() {}
+			});
+			wx.onMenuShareQQ({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {
+					shareSucc()
+				},
+				cancel: function() {}
+			});
+			wx.onMenuShareWeibo({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {
+					shareSucc()
+				},
+				cancel: function() {}
+			});
+		}
+	</script>
+
+</html>
