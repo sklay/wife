@@ -684,6 +684,7 @@ ul li{
 	text-align:center ;
 	float: left;
 	margin-right: 10px;
+	cursor: pointer;
 }
 .service_conWrap_nav li.select{
 	background: #2b1670;
