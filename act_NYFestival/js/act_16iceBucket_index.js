@@ -1,8 +1,8 @@
 $(function() {
 	
 	
-	var gameImg = ['0','1','2','3','4','5'] ;
-	var _gameImg = ['0','1','2','3','4','5'] ;
+	/*var gameImg = ['0','1','2','3','4','5'] ;
+	var _gameImg = ['0','1','2','3','4','5'] ;*/
 	var bg_music = 'http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3' ;
 	var bg_sound = 'images/act_16coolIceBucket_waterMusic.mp3' ;
 	
@@ -72,15 +72,33 @@ $(function() {
 			audio_music.play() ;
 		}
 	};
-
+var my_num_arr = [0,1,2,3,4,5];
+var persion_count = 0;//小人弹出的次数
 function games(){
 //	 setInterval(function() {},1000) ;
-	if(gameImg.length <= 2){
-		gameImg = _gameImg.slice(0) ;
+//	if(gameImg.length <= 2){
+//		gameImg = _gameImg.slice(0) ;
+//	}
+//	var num = Math.floor(Math.random()*gameImg.length); 
+	persion_count++;//次数
+	if(persion_count%my_num_arr.length==1||persion_count%my_num_arr.length==3){//玩了一圈后，随机打乱位置
+		for(var i = 0 ;i<my_num_arr.length;i++){//这种算法叫做“洗牌算法”
+			//找到某个随机数
+			var index = Math.floor(Math.random()*(my_num_arr.length-i));
+			console.log('index-->'+index);
+			//交换
+			var t = my_num_arr[index];
+			my_num_arr[index] = my_num_arr[my_num_arr.length-1-i];
+			my_num_arr[my_num_arr.length-1-i] = t;
+		}
 	}
-	var num = Math.floor(Math.random()*gameImg.length); 
+	 //当前游戏位置对应数组下标
+	//循环算法
+	var num = my_num_arr [ persion_count % my_num_arr.length ]; 
+	
+	
 	//然后删掉此索引的数组元素,这时候temp_array变为新的数组 
-	gameImg.splice(num, 1); 
+//	gameImg.splice(num, 1); 
 	console.debug("num", num);
 	if (!gameContinue) {
 		console.debug("游戏已经结束") ;
@@ -139,18 +157,19 @@ function games(){
 
 	/* 倒计时函数 */
 	function timeCountDownFun() {
-		
-		var timeCountDown = 30;
+		var timeCountDown = 3;
 		var countDownTime = null;
 		countDownTime = setInterval(function() {
 			timeCountDown--;
 			if (timeCountDown < 1) {
+				
 				gameContinue = false;
 				clearInterval(countDownTime);
 				timeCountDown = 0;
 
 				$("#gameScoreDesText").html("恭喜您成功帮助" + gameScore + "人降温， 这个夏天我要凉爽凉爽哒");
-
+				 
+				clickBoo = false;
 				$(".gameOverWrap").show();
 				if(playMusic){
 					$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause') ;
@@ -166,11 +185,16 @@ function games(){
 	}
 
 	/* 再次游戏 */
-	$("#playAgain").on("click", function() {
-		$("#scoreShowImg").remove();
-		$(".gameOverWrap").fadeOut();
+	 clickBoo = false;
+	$("#playAgain").on("click", function(e) {
+		if(!clickBoo){
+			 clickBoo = true;
+			$("#scoreShowImg").remove();
+			$(".gameOverWrap").fadeOut();
+			
+			gameStart();
+		}
 		
-		gameStart();
 		
 	});
 

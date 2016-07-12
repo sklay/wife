@@ -6,7 +6,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>清凉一“夏”，领取药快到的馈赠</title>
+<title>清凉一"夏"领药快到现金券</title>
 <meta name="description" content="炎炎夏日，快把清凉带回家~">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name="format-detection" content="telephone=no, email=no" />
@@ -59,6 +59,19 @@ body {
 		padding-bottom: .4rem;
 	}
 }
+@media screen and (max-height:580px) {
+	.content {
+		padding-bottom: .4rem;
+	}
+	#downText{
+		margin-top:.4rem;
+	}
+	.commUsebtn {
+		margin: -.2rem auto 0;
+	}
+}
+
+
 </style>
 </head>
 <script>
@@ -89,18 +102,22 @@ body {
 						<img class="gethb_people" src="images/act_16coolIceBucket_receive_people.png" /> <img class="gethb_bucket" src="images/act_16coolIceBucket_get_IceBucket.png" />
 						<div class="receive_success" style="display: none;">
 							<div class="getHb7 getHbnNum" style="display: none">
-								<img src="images/act_16coolIceBucket_receive_text7.png" /> <img src="images/act_16coolIceBucket_receive_coupon7.png" />
+								<img src="images/act_16coolIceBucket_receive_text7.png" /> 
+								<img src="images/act_16coolIceBucket_receive_coupon7.png" />
 							</div>
 							<div class="getHb8 getHbnNum" style="display: none">
-								<img src="images/act_16coolIceBucket_receive_text8.png" /> <img src="images/act_16coolIceBucket_receive_coupon8.png" />
+								<img src="images/act_16coolIceBucket_receive_text8.png" /> 
+								<img src="images/act_16coolIceBucket_receive_coupon8.png" />
 							</div>
 						</div>
 						<div class="has_received" style="display: none;">
 							<div class="has_getHb7 getHbnNum" style="display: none">
-								<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text7.png" /> <img src="images/act_16coolIceBucket_receive_coupon7.png" />
+								<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text7.png" /> 
+								<img src="images/act_16coolIceBucket_receive_coupon7.png" />
 							</div>
 							<div class="has_getHb8 getHbnNum" style="display: none">
-								<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text8.png" /> <img src="images/act_16coolIceBucket_receive_coupon8.png" />
+								<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text8.png" /> 
+								<img src="images/act_16coolIceBucket_receive_coupon8.png" />
 							</div>
 						</div>
 						<div class="commUsebtn">
@@ -361,7 +378,7 @@ body {
 </script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
-	wechatObj.title = '清凉一“夏”，领取药快到的馈赠';
+	wechatObj.title = '清凉一"夏"领药快到现金券';
 	wechatObj.desc = '炎炎夏日，快把清凉带回家~';
 	wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16iceBucket_index';
 	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg';

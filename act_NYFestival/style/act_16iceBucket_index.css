@@ -372,6 +372,7 @@ body {
 }
 
 .gameMainCon {
+	width:6.4rem;
 	height: 80%;
 	overflow: hidden;
 	box-sizing: border-box;
