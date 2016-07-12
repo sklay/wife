@@ -9,7 +9,7 @@
 <meta name="description" content="炎炎夏日，快把清凉带回家~">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name="format-detection" content="telephone=no, email=no" />
-<link rel="stylesheet" href="style/act_16iceBucket_index.css" />
+<link rel="stylesheet" href="style/act_16iceBucket_index.css?v=000001" />
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/html_common.js"></script>
 <script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
@@ -20,7 +20,7 @@
 <script src="js/fx.js"></script>
 <script src="js/fx_methods.js"></script>
 <!--<script src="js/common.js"></script>-->
-
+<script type="text/javascript" src="js/utils.js" ></script>
 <style>
 @media screen and (max-height: 540px) {
 	.indexPageTitle {
@@ -270,11 +270,7 @@
 	<div id="shareFriSha">
 		<img src="images/act_16coolIceBucket_shareImg.png" alt="">
 	</div>
-	<!-- <audio src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" id="audioBackMusic" style="display: none" loop preload></audio> -->
 	
-	
-	<div id="audioBackMusic" data-bg-src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3"   style="display: none;" ></div>
-	<div id="sound_add" data-water-src="images/act_16coolIceBucket_waterMusic.mp3" style="display: none" ></div>
 	<div style="display: none">
 		<img src="images/act_16coolIceBucket_textIcon.png" alt=""> 
 		<img src="images/act_16coolIceBucket_game_score.png" alt=""> 
@@ -283,164 +279,71 @@
 		<img src="images/act_16coolIceBucket_game_IceWater.png" alt=""> 
 		<img src="images/act_16coolIceBucket_game_hotPeople.png" alt="">
 	</div>
+	<div style="display: none;" class="gameMusic_wrap2">
+		<div id="audio_span"></div>
+		<!-- 初始人物     -->
+		<img src="images/act_16coolIceBucket_game_hotPeople.png" id="gamePlayChilren" name="gamePlayChilren" alt="">
+		<!-- +1的图标 -->
+		<img src="images/act_16coolIceBucket_game_score.png" id="scoreShowImg" alt="">
+		<!-- 淋雨后的人物-->
+		<img src="images/act_16coolIceBucket_game_nohotPeople.png" id="nohotChilren" alt="">
+		<!-- 冰桶 -->
+		<img src="images/act_16coolIceBucket_game_IceWater.png" id="gamebucket_water" alt="">
+		<!-- 冰桶倒下 -->
+		<img src="images/act_16coolIceBucket_game_IceBucket.png" id="gamebucket" alt="">
+		<script>
+			
+			function end(){
+				document.getElementById('audioBackMusic').play() ;
+			}
+		</script>
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" style="display: none;" onended="javascript:end();"></audio>
+		<audio id="sound_add" src="images/act_16coolIceBucket_waterMusic.mp3" style="display: none" ></audio>
+	
+	</div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/act_16iceBucket_index.js?v=0.0.0.1.19"></script>
 <script>
-	function getUrlEle() {
-		if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
-			return "";
-		}
-		var urldec = location.href.split("?")[1].split("&");
-		var urlQuery = {};
-		var a, b;
-		for (var i = 0, j = urldec.length; i < j; i++) {
-			a = urldec[i].split("=")[0];
-			b = urldec[i].split("=")[1];
-			console.log(a.split("%EF%BC%9D"))
-			if (b == undefined) {
-				a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
-				b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
-			}
-			;
-			urlQuery[a] = b;
-		}
-		;
-		return urlQuery;
-	};
-	var version = getUrlEle().version_code || '';
-	var token = getUrlEle().user_token || '';
 	
-	var a = navigator.userAgent.toLowerCase();
-	if (!version || is_weixin() || (!(version < 208 && (/android/.test(a)))) ) {
-		game_sound = $("#audioBackMusic");
-		sound_add = $("#sound_add");
-		game_sound.jPlayer({
-			ready: function (event) {
-				$(this).jPlayer("setMedia", {
-					mp3: $("#audioBackMusic").attr('data-bg-src')
-					/* mp3: $("#sound_add").attr('data-water-src') */
-				});
-			},
-			swfPath: "./js",
-			supplied: "mp3",
-			wmode: "window",
-			loop: true
-		});
-		
-	}
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
 	/**是否要播放音乐*/
+	var playMusic = getAppStatus() ;
 	
-	/* var hasMusic = false ;
-	var a = navigator.userAgent.toLowerCase();
-	if(!version || is_weixin() || !(version < 208 && (/android/.test(a)))){
-		hasMusic = true ;
-	} */
-	/*判断是否登录*/
-	function appShareFun() {
-		var token = getUrlEle().user_token;
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
 		if (token == "" || token == null || token == undefined) {
 			showResultApp("remind", "请先登录后再分享");
 			return false;
 		} else {
 			return true;
 		}
-		;
-	};
-
-	var oMedia = document.getElementById("audioBackMusic");
-	var manifest = [];
-	var preload;
-	/* window加载 */
-	var canvas = document.getElementById("myCanvas");
-	var stage = new createjs.Stage(canvas);
-	//多余
-//	var manifest = [];
-	var preload;
-	//定义相关JSON格式文件列表
-	function setupManifest() {
-		var imgL = $("img").length;
-		for (var i = 1; i < imgL; i++)
-			manifest.push({
-				src : $("img").eq(i).attr("src")
-			});
-		/* var audioL = $("audio").length;
-		for (var i = 1; i < audioL; i++)
-			manifest.push({
-				src : $("audio").eq(i).attr("src")
-			}); */
-	};
-	//开始预加载
-	function startPreload() {
-		preload = new createjs.LoadQueue(true);
-		//注意加载音频文件需要调用如下代码行
-		preload.installPlugin(createjs.Sound);
-		//preload.on("fileload", handleFileLoad);
-		preload.on("progress", handleFileProgress);
-		preload.on("complete", loadComplete);
-		preload.loadManifest(manifest);
 	}
-	//加载中动画
-	var load = {};
-	load.loadAniBoo = true;
-	load.loadNum = 0;
-	load.loadMax = $("img").length ;
-	load.loadAniTime = null;
-	//	var loadPer = $("#loadPer"); //加载进度条
-	function handleFileProgress(event) {
-		if (load.loadAniBoo) {
-			load.loadAniTime = setInterval(function() {
-				/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
-				if (load.loadNum >= (load.loadMax - 1)) {
-					if (load && load.loadAniTime) {
-						clearInterval(load.loadAniTime);
-					}
-					return true;
-				}
-				load.loadNum++;
-				loadState(load);
-			}, 500)
-			load.loadAniBoo = false;
-		} else {
-			return false;
+	
+	
+	/**初始化预加载部分*/
+	setupManifest({
+		image:true,
+		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:"#loadingPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			$(".indexPage").fadeIn() ;
+			initFunction();
 		}
-	}
+	});
 
-	function loadState(load) {
-		var loadPer = $("#loadPer"); //加载进度条
-		var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
-		console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
-		loadPer.html(percLoad);
-		$("#loadShapePro").css({
-			"width" : percLoad
-		})
-		$("#loadShapePro").animate({
-			width : percLoad
-		});
-	}
-
-	//全部资源加载完毕
-	/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
-	function loadComplete(event) {
-		if (load && load.loadAniTime)
-			clearInterval(load.loadAniTime);
-		load.loadNum = load.loadMax;
-		loadState(load);
-		setTimeout(function() {
-			$('#loadingPage').fadeOut(400, function() {
-				$('#loadingPage').remove();
-				winOnLoad()
-			});
-			$(".indexPage").fadeIn()
-		}, 500);
-	};
-
-	setupManifest();
-	startPreload();
-
-	 /* document.querySelector("#audioBackMusic").volume = 0.2;
-	document.querySelector("#sound_add").volume = 0;  */
-	var musicBoo = true
-	function winOnLoad() {
+	/**声明一些事件*/
+	function initFunction() {
+		
 		/*活动规则的显示与隐藏*/
 		$("#getActRule").on("tap", function() {
 			$(".actRuleShow_wrap").show();
@@ -448,58 +351,13 @@
 		$(".actRuleShow_wrap").on("tap", function() {
 			$(".actRuleShow_wrap").hide();
 		});
-		$("#goToGamePage").on("click", function(e) {
+		$("#goToGamePage").on("tap", function(e) {
+			console.debug("go");
 			$(".gamePage").fadeIn(100);
 			$(".indexPage").hide(100);
-			/**点击开始按钮触发 音乐点击播放事件*/
-			/* if(hasMusic){
-				$('.gameMusic_wrap').show().click();
-			} */
-			/** TODO 
-			if(game_sound){
-				$(".gameMusic_wrap").show();
-				game_sound.jPlayer("play"); 
-			} */
+			
 		});
-		/*音乐播放*/
-		$(".gameMusic_wrap").on("click", function() {
-			if (!oMedia.paused) {
-				/* document.querySelector("#audioBackMusic").pause(); */
-				game_sound.jPlayer( "clearMedia") ;
-				$("#gameMusic").addClass("musicPause");
-				musicBoo = false;
-			} else {
-				/* document.querySelector("#audioBackMusic").play(); */
-				if(game_sound){
-					game_sound.jPlayer("play"); 
-				}
-				$("#gameMusic").removeClass("musicPause");
-				musicBoo = true;
-			}
-		});
-
-		//去使用跳转页面
-		$(".goForUse").on("click", function() {
-			goPage();
-		});
-		/**判断app点击去使用按钮跳转的地址**/
-		function goPage(type) {
-			var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
-			/**判断是否是微信**/
-			if (is_weixin()) {
-				window.location.href = target_href;
-			} else {
-				if (token == "" || token == null || token == undefined || token == 'undefined') {
-					showResultApp("remind", "请先登录");
-				} else {
-					if (version && 200 <= version) {
-						gotoPage('{"type":"1"}');
-					} else {
-						window.location.href = target_href;
-					}
-				}
-			}
-		}
+		
 		/*点击领取*/
 		$("#goToGetHb ").on("click ", function() {
 			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token="+token+"&version_code="+version+"&codeActId=270";
@@ -508,92 +366,19 @@
 			location.href = url;
 		});
 	}
-</script>
-<script src="js/act_16iceBucket_index.js?v=0.0.0.0.1"></script>
-<script>
-	var wechatObj = {};
-	wechatObj.title = '清凉一“夏”，领取药快到的馈赠';
-	wechatObj.desc = '炎炎夏日，快把清凉带回家~';
-	wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16iceBucket_index';
-	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg';
 
-	if (is_weixin()) {
-		$.ajax({
-			url : "/medhtml/common/getwxjssign?",
-			data : {
-				url : location.href.split('#')[0]
-			},
-			success : function(wechatReturn) {
-				if (wechatReturn) {
-					wx.config({
-						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-						appId : 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 
-						/*  appId: 'wx697be0ec43c8cafa', // 必填，公众号的唯一标识 */
-						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
-						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
-						signature : wechatReturn.signature, // 必填，签名，见附录1
-						jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
-					// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-					});
-				}
-				;
-				wx.ready(function() {
-					getWechatObj()
-				})
+	if (is_weixin()){
+		shareWeiXin({
+			title: '清凉一“夏”，领取药快到的馈赠',
+			desc: '炎炎夏日，快把清凉带回家~',
+			link: 'http://' + location.host + '/medhtml/common/act_16iceBucket_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg' ,
+			shareSucc:function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
 			}
-		});
-	};
-
-	function shareSucc() {
-		$("#shareFriSha").hide();
-		$(".butWrap").show();
-		$(".shareAppPage").hide();
-	}
-
-	function getWechatObj() {
-		wx.onMenuShareTimeline({
-			title : wechatObj.desc, // 分享描述
-			link : wechatObj.link, // 分享链接
-			imgUrl : wechatObj.imgUrl, // 分享图标
-			success : function() {
-				shareSucc()
-			},
-			cancel : function() {
-			}
-		});
-		wx.onMenuShareAppMessage({
-			title : wechatObj.title, // 分享标题
-			desc : wechatObj.desc, // 分享描述
-			link : wechatObj.link, // 分享链接
-			imgUrl : wechatObj.imgUrl, // 分享图标
-			success : function() {
-				shareSucc()
-			},
-			cancel : function() {
-			}
-		});
-		wx.onMenuShareQQ({
-			title : wechatObj.title, // 分享标题
-			desc : wechatObj.desc, // 分享描述
-			link : wechatObj.link, // 分享链接
-			imgUrl : wechatObj.imgUrl, // 分享图标
-			success : function() {
-				shareSucc()
-			},
-			cancel : function() {
-			}
-		});
-		wx.onMenuShareWeibo({
-			title : wechatObj.title, // 分享标题
-			desc : wechatObj.desc, // 分享描述
-			link : wechatObj.link, // 分享链接
-			imgUrl : wechatObj.imgUrl, // 分享图标
-			success : function() {
-				shareSucc()
-			},
-			cancel : function() {
-			}
-		});
+		}) ;
 	}
 </script>
 
