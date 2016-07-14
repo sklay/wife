@@ -4,34 +4,15 @@ $(function() {
 	/*var gameImg = ['0','1','2','3','4','5'] ;
 	var _gameImg = ['0','1','2','3','4','5'] ;*/
 	var bg_music = 'http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3' ;
-	var bg_sound = 'images/act_16coolIceBucket_waterMusic.mp3' ;
+	var bg_sound = 'http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3' ;
 	
 	var gameScore = 0; // 分数统计
 	var gameContinue = true; // 是否点击
 	var num = 0; // 指定当前窗口下标
-	
-	/*音乐播放器*/
-	var bgAudio = $("#audio_span") ;
-	bgAudio.jPlayer({
-		ready: function () {
-			$(this).jPlayer("setMedia", {
-				mp3:bg_sound
-			});
-		},
-		play: function() {
-		//	$(this).jPlayer("pauseOthers");
-		},
-		ended: function() {  
-//			$(this).jPlayer("setMedia", {
-//				mp3:bg_sound
-//			});
-//          $(this).jPlayer("play");  
-        } ,
-		swfPath: "js/jplayer",
-		supplied: "mp3",
-		wmode: "window"
-	});
-	
+	var audio_music = document.getElementById('audioBackMusic') ;
+	var sound_music = document.getElementById('sound_add') ;
+	var gameView = null ;
+	var scoreView = null ;
 	
 	/* 如果没有版本号 或者是在微信打开 音乐制动播放 */
 	/* 开始 */
@@ -41,10 +22,9 @@ $(function() {
 		gameStart();
 		
 	});
-	var audio_music = document.getElementById('audioBackMusic') ;
 	
 	/**音乐图标*/
-	$('.gameMusic_wrap').on('click',function(){
+	$('.gameMusic_wrap').on('tap',function(){
 		
 		if(audio_music.paused){
 			$(this).show().find('img').removeClass('musicPause').addClass('musicPlay') ;
@@ -65,8 +45,10 @@ $(function() {
 
 		timeCountDownFun();
 		console.debug("game start");
+		setTimeout(function() {
+			games() ;
+		}, 300)
 		
-		games() ;
 		if(playMusic){
 			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay') ;
 			audio_music.play() ;
@@ -75,11 +57,6 @@ $(function() {
 var my_num_arr = [0,1,2,3,4,5];
 var persion_count = 0;//小人弹出的次数
 function games(){
-//	 setInterval(function() {},1000) ;
-//	if(gameImg.length <= 2){
-//		gameImg = _gameImg.slice(0) ;
-//	}
-//	var num = Math.floor(Math.random()*gameImg.length); 
 	persion_count++;//次数
 	if(persion_count%my_num_arr.length==1||persion_count%my_num_arr.length==3){//玩了一圈后，随机打乱位置
 		for(var i = 0 ;i<my_num_arr.length;i++){//这种算法叫做“洗牌算法”
@@ -104,12 +81,32 @@ function games(){
 		console.debug("游戏已经结束") ;
 		return;
 	}
-	var $childImg = $('#gamePlayChilren').clone(true) ;
+	var $childImg = $('#gamePlayChilren').clone() ;
 	var $parentNode = $(".gameWin").eq(num).find(".gameWinMainWrap") ;
+	
+	$(".gameWin").find('[name=gamePlayChilren]').remove() ;
+	
+	$(".gameWin").find('[id=scoreShowImg]').remove() ;
+	$(".gameWin").find('[id=nohotChilren]').remove() ;
+	$(".gameWin").find('[id=gamebucket_water]').remove() ;
+	$(".gameWin").find('[id=gamebucket]').remove() ;
+		
 	$parentNode.append($childImg);
 	
+//	$childImg.one("touchstart",function(e){
+//     if(playMusic){
+//			sound_music.currentTime=0;
+//  		sound_music.play();
+//		}
+//		scoreCountFun($parentNode);
+//      e.preventDefault();
+//  });
+	
 	/**定时清除*/
-	setTimeout(function() {
+	if(gameView){
+		clearTimeout(gameView)
+	}
+	gameView = setTimeout(function() {
 		$childImg.remove();
 		if (gameContinue) {
 			games();
@@ -124,13 +121,20 @@ function games(){
 	 */
 	function scoreCountFun(wrap) {
 		/**+1的图标*/
-		var $scoreShow = $('#scoreShowImg').clone(true);
+		var $scoreShow = $('#scoreShowImg').clone();
 		/**淋雨后的人物*/
-		var $nohotchild = $('#nohotChilren').clone(true) ;
+		var $nohotchild = $('#nohotChilren').clone() ;
 		/**冰桶*/
-		var $bucketImg_water = $('#gamebucket_water').clone(true);
+		var $bucketImg_water = $('#gamebucket_water').clone();
 		/**冰桶倒下*/
-		var $bucketImg = $('#gamebucket').clone(true);
+		var $bucketImg = $('#gamebucket').clone();
+		
+		
+		wrap.find('[name=gamePlayChilren]').remove() ;
+		$(".gameWin").find('[id=scoreShowImg]').remove() ;
+		$(".gameWin").find('[id=nohotChilren]').remove() ;
+		$(".gameWin").find('[id=gamebucket_water]').remove() ;
+		$(".gameWin").find('[id=gamebucket]').remove() ;
 		
 		wrap.append($bucketImg);
 		
@@ -142,8 +146,10 @@ function games(){
 			wrap.append($scoreShow);
 			/* 重新换一个人物 */
 			wrap.append($nohotchild);
-
-			setTimeout(function() {
+			if(scoreView){
+				clearTimeout(scoreView)
+			}
+			scoreView = setTimeout(function() {
 				$scoreShow.remove();
 				$nohotchild.remove();
 				$bucketImg_water.remove();
@@ -157,7 +163,7 @@ function games(){
 
 	/* 倒计时函数 */
 	function timeCountDownFun() {
-		var timeCountDown = 3;
+		var timeCountDown = 30;
 		var countDownTime = null;
 		countDownTime = setInterval(function() {
 			timeCountDown--;
@@ -236,7 +242,6 @@ function games(){
 	document.addEventListener("touchmove", function(b) {
 		b.preventDefault();
 	}, false);
-
 	$('.gameWinMainWrap').on('tap',function(){
 		var $this = $(this) ;
 		var $childImg = $this.find('[name=gamePlayChilren]') ;
@@ -248,14 +253,11 @@ function games(){
 		$childImg.remove();
 		
 		if(playMusic){
-			bgAudio.jPlayer("setMedia", {
-				mp3:bg_sound //+"?v="+ new Date().getTime()
-			});
-            bgAudio.jPlayer("play"); 
-
+			sound_music.currentTime=0;
+    		sound_music.play();
 		}
-		
+	
 		scoreCountFun($this);
 	})
-
+	
 })

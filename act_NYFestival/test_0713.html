@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/easeljs-0.8.0.min.js" ></script>
+		<script type="text/javascript" src="js/Rect.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.main{
+				width: 80%;
+				margin: 0 auto;
+			}
+			#gameView{
+				width: 100%;
+				margin: 20px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<canvas id="gameView" width="" height=""></canvas>
+		</div>
+	</body>
+	<script>
+		 var stage = new createjs.Stage("gameView");
+	    var gameView = new createjs.Container();
+	    //刷新事件
+	    createjs.Ticker.setFPS(30);
+	    createjs.Ticker.addEventListener("tick", stage);
+	    stage.addChild(gameView);
+		
+		//初始化个数
+		var n = 2;
+		//创建一个添加Rect
+		function addRect(){
+			var x = parseInt(Math.random()*n); //0
+        	var y = parseInt(Math.random()*n); //1
+			 for (var indexX = 0; indexX < n; indexX++) {
+				for (var indexY = 0; indexY < n; indexY++) {
+					 var color = "#ff0000";
+	                var RectColor = "#ff00ff";
+	                var rect = new Rect(n,color,RectColor);
+	                gameView.addChild(rect);
+					//如何随机一个当前需要用户区分颜色的图形
+					//记录每一个rect 的x值  y值
+					 //如果随机当前一个需要用户区分颜色的图形
+	                rect.x = indexX; //记录每一个rect的x值和y值
+	                rect.y = indexY;
+	                console.log(x+","+y);
+                
+                
+					if(rect.x == x && rect.y == y){
+						rect.setRectType(2);
+					}
+					
+					 rect.x = indexX * (getSize()/n);
+                	rect.y = indexY * (getSize()/n);
+                
+					if(rect.getRectType() == 2){
+						rect.addEventListener("click",clickRect);
+					}
+				}
+			}
+		}
+		
+		function clickRect(){
+			//清楚画布
+			gameView.removeAllChildren();
+			//没次点击增加
+			if(n<10){
+				
+			n++;
+			}
+			addRect();
+			
+			
+		}
+		
+	     getCanvasSize();
+		 addRect();
+		
+		//设置画布
+		function getCanvasSize(){
+			var gView = document.getElementById("gameView");
+			var w = window.innerWidth;
+			var h = window.innerHeight;
+			gView.setAttribute("width",w);
+			gView.setAttribute("height",h);
+		}
+		
+		
+		//适应屏幕大小的动态设置
+		function getSize(){
+			if(window.innerHeight>=window.innerWidth){
+				return window.innerWidth;
+			}else{
+				return window.innerHeight;
+			}
+		}
+	</script>
+</html>

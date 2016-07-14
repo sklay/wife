@@ -163,7 +163,7 @@
 							<img src="images/act_16coolIceBucket_indexRule_people.png" />
 						</div>
 						<p>2、活动时间</p>
-						<p>2016年7月15日——2016年7月24日。</p>
+						<p>2016年7月19日——2016年7月24日。</p>
 						<p style="margin-top: .2rem">3、活动奖励</p>
 						<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
 						<p style="margin-top: .2rem">4、本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
@@ -312,13 +312,14 @@
 				document.getElementById('audioBackMusic').play() ;
 			}
 		</script>
-		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3" style="display: none;" onended="javascript:end();"></audio>
-		<audio id="sound_add" src="images/act_16coolIceBucket_waterMusic.mp3" style="display: none" ></audio>
-	
+		
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+		<!--<audio id="sound_add" src="images/act_16coolIceBucket_waterMusic.mp3" style="display: none" ></audio>-->
+		<audio id="sound_add" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_music0.mp3 " style="display:none" preload></audio>
 	</div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-<script src="js/act_16iceBucket_index.js?v=0.0.0.1.19"></script>
+<script src="js/act_16iceBucket_index.js?v=1.0"></script>
 <script>
 	/* var wh=$(window).height();
 	alert(wh); */
@@ -395,7 +396,7 @@
 			desc: '炎炎夏日，快把清凉带回家~',
 			link: 'http://' + location.host + '/medhtml/common/act_16iceBucket_index',
 			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg' ,
-			shareSucc:function() {
+			shareSucc: function() {
 				$("#shareFriSha").hide();
 				$(".butWrap").show();
 				$(".shareAppPage").hide();
