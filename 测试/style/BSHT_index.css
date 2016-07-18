@@ -109,6 +109,7 @@ ul li{
 	float: left;
 	color: #555;
 	font-size: 16px;
+	cursor: pointer;
 }
 /* nav end*/
 /*concontainer start*/
@@ -727,5 +728,210 @@ ul li{
 }
 .service_step_item{
 	width: 800px;
+    float: right;
+    padding: 0 0 0 80px;
+    box-sizing: border-box;
+}
+.service_step_item:after{
+	content: "";
+	display: block;
+	
+}
+.dash_line:before{
+	content: "";
+    display: block;
+    width: 0px;
+    height: 320px;
+    border: 1px dashed #000;
+    float: left;
+    margin-left: 6px;
+    margin-top: 5px;
+}
+.dash_line1:before{
+    height: 244px;
+}
+.dash_line2:before{
+    height: 320px;
+}
+
+.service_flow_item_l {
+	position: relative;
+}
+.dash_line,.dash_line3{
+	width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    top: 5px;
+    left: 120px;
+}
+.dash_line:after,.dash_line3:after{
+	content: "";
+	display: block;
+	width: 8px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+.service_step_item P{
+	line-height: 25px;
+}
+
+#service_item h3{
+	color: #ff0000;
+	margin-bottom: 30px;
+}
+#service_item p{
+	margin: 20px 0;
+	font-size: 15px;
+}
+#Freight select{
+	background: url(../images/sort_down.png)200px 8px no-repeat;
+	background-size:15px 10px ;
+	width: 230px;
+	height: 26px;
+	margin-bottom: 20px;
+	-moz-appearance: none;
+    -webkit-appearance:none;
+            appearance:none;  
+    border-radius: 4px;
+    outline: none;
+}
+
+#Freight label{
+	font-size: 14px;
+    text-align: justify;
+    letter-spacing: 8px;
+    color: #8a8a8a;
+    margin-left: 8px;
+}
+#Freight input{
+	width: 60px;
+	height: 24px;
+	margin-bottom: 20px;
+	outline: none;
+	border-radius:4px ;
+}
+#Freight input.searchBtn{
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #8a8a8a;
+	font-size: 14px;
+	color: #fff;
+	border: 0;
+	outline: none;
+	margin-left: 110px;
+	margin-top: 20px;
+	cursor: pointer;
+	border-radius:4px ;
+}
+.show_freight{
+	color: #8a8a8a;
+	float: left;
+}
+.show_freight span{
+	color: #da251d;
+	font-size: 16px;
+	margin: 0 10px 0 15px;
+	font-weight:600 ;
+}
+.nowBuy{
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	background: #da251d;
+	font-size: 14px;
+	color: #fff;
+	border: 0;
+	outline: none;
+	margin-left: 30px;
+	cursor: pointer;
+	border-radius:4px ;
+}
+.watch{
+	margin-top: 160px;
+	overflow: hidden;
+}
+.watch h3{
+	color: #da251d;
+	float: left;
+}
+.watch p{
+	color: #8a8a8a;
+	margin-left: 30px;
+	line-height: 20px;
+}
+
+/*核心业务*/
+.core_business_item{
+	width: 920px;
+	height: 124px;
+	border: 1px dashed #cecece;
+	margin-bottom: 20px;
+	padding: 34px 50px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.core_business_item:hover{
+	border: 1px solid #cecece;
+}
+#core_business div.core_business_itemSpe{
+	height: 100px;
+	padding: 17px 50px;
+}
+.core_business_itemIcon{
+	width: 50px;
+	height: 54px;
+	background: url(../images/BSHT_serviceIcon.png)no-repeat;
+	background-position:0 0 ;
+	float: left;
+	
+}
+.core_business_itemTex{
 	float: right;
+	width: 700px;
+}
+.core_business_itemTex h3 ,#Contraband h3{
+	color: #da251d;
+}
+.core_business_itemTex p{
+	line-height: 20px;
+}
+.core_business_itemIcon2{
+	width: 60px;
+	height: 59px;
+	background-position:0 -58px ;
+}
+.core_business_itemIcon3{
+	width: 54px;
+	height: 65px;
+	background-position:0 -119px ;
+}
+.core_business_itemIcon4{
+	width: 62px;
+	height: 61px;
+	background-position:0 -182px ;
+}
+.core_business_itemIcon5{
+	width: 55px;
+	height: 61px;
+	background-position:0 -244px ;
+}
+.core_business_itemIcon5{
+	width: 54px;
+	height: 58px;
+	background-position:0 -304px ;
+}
+
+/*违禁物品*/
+#Contraband .Contraband_text{
+	margin: 20px 0 20px 20px;
 }
