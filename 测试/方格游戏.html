@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=" utf-8">
+		<meta charset="UTF-8">
+	 <title>【药快到】远离节后综合征</title>
+    <meta name="description" content="假期过完不想上班？药快到帮你找回状态！"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>九宫格</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 320px;
+				height: 320px;
+				/*background: #999;*/
+				padding-top: 60px;
+				padding-left: 60px;
+			}
+			
+			.box li {
+				float: left;
+				list-style: none
+			}
+			
+			.box li a {
+				border: 5px solid #aaa;
+				display: block;
+				width: 100px;
+				height: 100px;
+				text-decoration: none;
+				margin: 0 0 -5px -5px;
+				position: relative;
+				z-index: 0;
+				text-align: center;
+				line-height: 60px;
+				color: #fff;
+				font-size: 30px;
+			}
+			
+			.box li a:hover {
+				border: 5px solid #333;
+				z-index: 1;
+			}
+			
+			.active{
+				background: #4BB1CF;
+			}
+			.normal{
+				background: #869791;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="box">
+		</ul>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="artTemplate/template.js" ></script>
+	<script>
+
+		$(function() {
+			var maxRow = 3;
+			var maxCol = 3;
+			var positions = [];
+			var posOrigs = [] ;
+			var container = [] ;
+			/**行*/
+			for(var row = 0; row < maxRow; row++) {
+				/**列*/
+				for(var col = 0; col < maxCol; col++) {
+					posOrigs.push(row + '-' + col);
+					var node = {} ;
+					node.pos = row + '-' + col ;
+					positions.push(node);
+				}
+			}
+			
+			for(var i = 0; i < (maxRow * maxCol); i++) {
+				var pos = positions[i] ;
+				pos.data = i+1 ;
+				positions[i] = pos;
+			}
+			positions.sort(function() {
+				return 0.5 - Math.random()
+			});
+			console.debug(positions.join(','));
+			
+			var rows = [] ;
+			for(var point = 0 ;point < positions.length ;point++){
+				
+				var css = "normal" ;
+				var rowPoint = {} ;
+				rowPoint.original = posOrigs[point] ;
+				rowPoint.css = css ;
+				rowPoint.current = positions[point].pos ;
+				rowPoint.data = positions[point].data ;
+				rows.push(rowPoint) ;
+			}
+//			template.config('escape', false) ;
+			var gridRows = template('game-tpl',{'rows': rows || []}) ;	
+			    	
+			$('ul.box').html(gridRows) ;
+			
+			$('ul.box li').on('click',function(){
+				console.debug('container before ',container.join(',') , ', size :' ,container.length) ;
+				var $this = $(this);
+				var $original = $this.attr('data-original') ;
+				var index = container.indexOf($original) ;
+				if(index > -1){
+					$('ul.box li[data-original='+$original+'] a').removeClass('active').addClass("normal") ;
+					container.splice(index, 1);
+					return  ;
+				}
+				
+				if(container.length > 1){
+					var last = container.pop() ;
+					container = [] ;
+					container.push(last) ;
+				}
+				container.push($original) ;
+				
+				$('ul.box li a').removeClass('active').addClass('normal') ;
+				$.each(container, function(i ,n) {
+					$('ul.box li[data-original='+n+'] a').addClass('active').removeClass("normal") ;
+				});
+				
+				if(container.length == 2){
+					exchange(container) ;
+					compare() ;
+					container = [] ;
+				}
+				
+				console.debug('container after ',container.join(','), ', size :' ,container.length) ;
+				
+			}) ;
+			
+			function exchange(nodes){
+				var first = nodes[0] ;
+				var last = nodes[1] ;
+				
+				var first_li = $('ul.box li[data-original='+first+']')
+				var first_a = first_li.find('a').clone(false) ;
+				
+				var last_li = $('ul.box li[data-original='+last+']')
+				var last_a = last_li.find('a').clone(false) ;
+				
+				first_li.html(last_a).find("a").removeClass('active').addClass('normal') ;
+				last_li.html(first_a).find("a").removeClass('active').addClass('normal') ;
+				
+			}
+			
+			function compare(){
+				var $originals = [] ;
+				var $currents = [] ;
+				$.each($('ul.box li'), function(i ,n) {
+					var $li = $(n) ;
+					var $a = $(n).find('a') ;
+					
+					var $original = $li.attr('data-original') ;
+					var $current = $a.attr('data-current') ;
+					$originals.push($original) ;
+					$currents.push($current) ;
+				});
+				
+				console.debug($originals.join(',') ,' - ' , $currents.join(','))
+				if($originals.length != 0 && $originals.join(',') == $currents.join(',')){
+					alert("成功") ;
+					console.debug("成功") ;
+				}
+			}
+		});
+	</script>
+<script type="text/template" id="game-tpl">
+	{{each rows as row i }}
+	<li data-original="{{row.original }}">
+		<a href="javascript:void(0);" data-current="{{row.current }}" class="{{row.css }}" >{{row.data }}</a>
+	</li>
+	{{/each}}
+</script>
+</html>
