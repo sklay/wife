@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>HTML5 Canvas API与文件拖放API实现拼图游戏</title>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	</head>
+
+	<body>
+		<canvas id="15-puzzle"></canvas>
+	</body>
+	<script>
+		window.onload = function() {
+
+			var W = window.innerHeight / 2,
+				H = W;
+
+			var canvas = document.getElementById('15-puzzle');
+
+			var ctx = canvas.getContext('2d');
+
+			var frames, time;
+
+			canvas.width = W;
+
+			canvas.height = H;
+
+			var tileWidth = W / 4,
+				tileHeight = H / 5;
+
+			ctx.font = tileHeight / 2 + 'px Helvetica';
+
+			var I1 = 0; //记录鼠标点击和移动的位置
+
+			var I = 0;
+
+			var J1 = 0;
+
+			var J = 0;
+
+			var fillC = false; //用于改变文字的颜色
+
+			var tiles = { //界面对象
+
+				tiles: [
+					[0, 1, 2, 3],
+					[4, 5, 6, 7],
+					[8, 9, 10, 11],
+					[12, 13, 14, 15]
+				],
+
+				rightTiles: [
+					[1, 2, 3, 4],
+					[5, 6, 7, 8],
+					[9, 10, 11, 12],
+					[13, 14, 15, 0]
+				],
+
+				draw: function() { //绘制自己
+
+					var x = 0,
+						y = 0;
+					
+					//内边框线
+					ctx.strokeStyle = "#FF0000";
+
+					var tile, width, height, posX, posY;
+
+					for(var i = 0; i < this.tiles.length; i++) {
+
+						for(var j = 0; j < this.tiles[0].length; j++) {
+
+							tile = this.tiles[i][j];
+
+							if(tile != 0) {
+
+								width = ctx.measureText(tile).width;
+
+								height = tileHeight / 2;
+
+								posX = x * tileWidth + (tileWidth - width) / 2;
+
+								posY = y * tileHeight + tileHeight - (height / 2);
+
+								var fillStyle;
+
+								tile == this.rightTiles[i][j] ? fillStyle = "#0F0" : fillStyle = "#FFF";
+
+								ctx.fillStyle = fillStyle;
+
+								ctx.fillText(this.tiles[i][j], posX, posY);
+
+								ctx.beginPath();
+
+								ctx.rect(x * tileWidth, y * tileHeight, tileWidth, tileHeight);
+
+								ctx.stroke();
+
+							}
+
+							x++;
+
+						}
+
+						x = 0;
+
+						y++;
+
+					}
+
+				},
+
+				//打乱二维数组
+
+				randomize: function() {
+
+					var aux = [];
+
+					for(var i = 0; i < this.tiles.length; i++) {
+
+						for(var j = 0; j < this.tiles[0].length; j++) {
+
+							aux.push(this.tiles[i][j]);
+
+						}
+
+					}
+
+					aux = shuffle(aux);
+
+					for(var i = 0; i < this.tiles.length; i++) {
+
+						for(var j = 0; j < this.tiles[0].length; j++) {
+
+							this.tiles[i][j] = aux[j + i * 4];
+
+						}
+
+					}
+
+				}
+
+			}
+
+			//启动游戏
+
+			function init() {
+
+				tiles.randomize();
+
+				frames = 0, time = 0;
+
+				run();
+
+			}
+
+			function run() {
+
+				frames++;
+
+				update();
+
+				draw();
+
+				if(end()) document.getElementById("msg").innerHTML = "你成功了!!!!";
+
+				window.requestAnimationFrame(run, canvas);
+
+			}
+
+			//更新
+
+			function update() {
+
+				if(frames % 60 === 0) {
+
+					if(time < 999) {
+
+						time++;
+
+					}
+
+				}
+
+				if(inx(I, J) && tiles.tiles[I][J] != 0) {
+
+					if(inx(I - 1, J) && tiles.tiles[I - 1][J] == 0) swap(I, J, I - 1, J);
+
+					if(inx(I + 1, J) && tiles.tiles[I + 1][J] == 0) swap(I, J, I + 1, J);
+
+					if(inx(I, J - 1) && tiles.tiles[I][J - 1] == 0) swap(I, J, I, J - 1);
+
+					if(inx(I, J + 1) && tiles.tiles[I][J + 1] == 0) swap(I, J, I, J + 1);
+
+				}
+
+			}
+
+			//绘制
+
+			function draw() {
+
+				drawBackground();
+
+				tiles.draw();
+
+			}
+
+			//画背景
+
+			function drawBackground() {
+
+				ctx.fillStyle = "#000";
+
+				ctx.fillRect(0, 0, W, H);
+
+				ctx.fillStyle = "#AAA";
+
+				ctx.fillRect(0, tileHeight * 4, tileWidth * 4, tileHeight);
+
+				drawRestart();
+
+				drawTime();
+
+			}
+
+			//画重新开始按钮
+
+			function drawRestart() {
+
+				ctx.strokeStyle = "#FFF";
+
+				ctx.beginPath();
+
+				ctx.rect(0, tileHeight * 4, tileWidth * 2.5, tileHeight);
+
+				ctx.stroke();
+
+				var text = "RESTART";
+
+				var width = ctx.measureText(text).width;
+
+				var height = tileHeight / 2;
+
+				var textX = (tileWidth * 2.5 - width) / 2;
+
+				var textY = tileHeight * 5 - (height / 2);
+
+				ctx.fillStyle = fillC ? "#FF0" : "#FFF";
+
+				ctx.fillText(text, textX, textY);
+
+			}
+
+			//画游戏计时
+
+			function drawTime() {
+
+				ctx.strokeStyle = "#FFF";
+
+				ctx.beginPath();
+
+				ctx.rect(tileWidth * 2.5, tileHeight * 4, tileWidth * 1.5, tileHeight);
+
+				ctx.stroke();
+
+				var width = ctx.measureText(time).width;
+
+				var height = tileHeight / 2;
+
+				var textX = tileWidth * 2.5 + (tileWidth * 1.5 - width) / 2;
+
+				var textY = tileHeight * 5 - (height / 2);
+
+				ctx.fillStyle = "#000";
+
+				ctx.fillText(time, textX, textY);
+
+			}
+
+			init();
+
+			function shuffle(array) { //打乱一个一维数组
+
+				array.sort(function() {
+					return 0.5 - Math.random()
+				})
+
+				return array;
+
+			}
+
+			//鼠标点击 
+
+			canvas.onclick = function(e) {
+
+				var e = window.event || e;
+
+				var rect = this.getBoundingClientRect();
+
+				var mouseX = e.clientX - rect.left; //获取鼠标在canvsa中的坐标
+
+				var mouseY = e.clientY - rect.top;
+
+				J = Math.floor(mouseX / tileWidth);
+
+				I = Math.floor(mouseY / tileHeight);
+
+				if(I == 4 & J < 3) init();
+
+			}
+
+			//鼠标移动
+
+			canvas.onmousemove = function(e) {
+
+				var e = window.event || e; //
+
+				var rect = this.getBoundingClientRect();
+
+				var mouseX = e.clientX - rect.left; //获取鼠标在canvsa中的坐标
+
+				var mouseY = e.clientY - rect.top;
+
+				J1 = Math.floor(mouseX / tileWidth);
+
+				I1 = Math.floor(mouseY / tileHeight);
+
+				if(I1 == 4 & J1 < 3) fillC = true; //改变重新开始按钮的颜色
+
+				else fillC = false;
+
+			}
+
+			//鼠标移动,要改变文字颜色
+
+			canvas.onmouseout = function() {
+
+				fillC = false;
+
+			}
+
+			//交换二维数组两个位置的值
+
+			function swap(a, b, x, y) {
+
+				var temp = tiles.tiles[a][b];
+
+				tiles.tiles[a][b] = tiles.tiles[x][y];
+
+				tiles.tiles[x][y] = temp;
+
+			}
+
+			//是否出边界
+
+			function inx(x, y) {
+
+				if(0 <= x && x < tiles.tiles.length && 0 <= y && y < tiles.tiles[0].length) return true;
+
+				return false;
+
+			}
+
+			//是否完成游戏
+
+			function end() {
+
+				for(var m = 0; m < tiles.tiles.length; m++) {
+
+					for(var n = 0; n < tiles.tiles[0].length; n++) {
+
+						if(tiles.tiles[m][n] != tiles.rightTiles[m][n]) return false;
+
+					}
+
+				}
+
+				return true;
+
+			}
+
+		}
+	</script>
+
+</html>

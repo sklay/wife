@@ -742,7 +742,7 @@ ul li{
     display: block;
     width: 0px;
     height: 320px;
-    border: 1px dashed #000;
+    border: 1px dashed #999;
     float: left;
     margin-left: 6px;
     margin-top: 5px;
@@ -866,7 +866,6 @@ ul li{
 }
 .watch p{
 	color: #8a8a8a;
-	margin-left: 30px;
 	line-height: 20px;
 }
 

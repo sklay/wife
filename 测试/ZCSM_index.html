@@ -1,10 +1,141 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<div class=""></div>
-	</body>
+<head>
+<meta charset="UTF-8">
+<title>HTML5 Canvas API与文件拖放API实现拼图游戏</title>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+</head>
+
+<body>
+	<!--有错    未排除-->
+	<canvas id="scene" width="1350" height="600"></canvas>
+</body>
+<script>
+	var canvas;
+	var ctx;
+	
+	var box_x = 0;
+	var box_y = 0;
+	var box_width = 800;
+	var box_height = 600;
+	var title_width = 160;
+	var title_height = 90;
+	
+	var row = 4;
+	var col = 4;
+	
+	var deck;
+	var choose;
+	var first_pick = false;
+	
+	var img ;
+	
+	//object 
+	function Slice(sx,sy,sw,sh,image){
+		this.x = sx;
+		this.y = sy;
+		this.w = sw;
+		this.h = sh;
+		this.image = image;
+	}
+	
+	//functions
+	function makeDeck(){
+		deck = new Array(row);
+		choose = new Array(row);
+		for(var i = 0;i<row;i++){
+			deck[i] =new Array(col);
+			choose[i] = new Array(col);
+			
+			for(var j = 0;j<col;j++){
+				deck[i][j] = new Slice(title_width * j,title_height*i,title_width,title_height,img);
+				choose[i][j] = false;
+			}
+		}
+	}
+	function shuffle(){
+		return .5 - Math.random();
+	}
+	function clear(){
+		ctx.clearRect(0,0,canvas.width,canvas.height);
+	}
+	
+	function drawScene(){
+		clear();
+		for(var i = 0;i<row;i++){
+			for(var j = 0;j<col;j++){
+				
+				var sx = j * title_width;
+				var sy = j * title_height;
+				
+//				console.debug("sx",sx,"sy",sy,"title_width",title_width,"title_height",title_height);
+				
+				if(choose[i][j] == false){
+					
+					ctx.globalAlpha=0.1;
+
+                ctx.drawImage(img, deck[i][j].x,deck[i][j].y, deck[i][j].w, deck[i][j].h,sx,sy,tile_width,tile_height);
+
+                ctx.globalAlpha=1;
+					
+				}else{
+					ctx.drawImage(img,deck[i][j].x,deck[i][j].y,deck[i][j].w,deck[i][j].h,sx,sy,title_width,title_height);
+				}
+			}
+			ctx.drawImage(img,title_width*col+50,0,title_width*col,title_height*row);
+		}
+	}
+	$(document).ready(function(){
+		canvas = document.getElementById("scene");
+		ctx = canvas.getContext('2d');
+		
+		img = new Image();
+		img.src = "images/1_1.png";
+		img.load = function (){
+			makeDeck();
+			var cnt = deck.length*deck[0].length;
+			for(var k = 0;k<3*cnt;k++){
+				var row1 = Math.floor(Math.random() *deck.length);
+				var col1 = Math.floor(Math.random() *deck[0].length);
+				var row2 = Math.floor(Math.random() *deck.length);
+				var col2 = Math.floor(Math.random() *deck[0].length);
+				var temp = deck[row1][col1];
+				deck[row1][col1] = deck[row2][col2];
+				deck[row2][col2] = temp;
+			}
+		}
+		
+		setInterval(drawScene,30);
+		$('#scene').click(function(e){
+			var mouseX = e.layerX || 0;
+			var mouseY = e.layerY || 0;
+			if(e.originalEvent.layerX){
+				mouseX = e.originalEvent.layerX;
+				mouseY = e.originalEvent.layerY;
+			}
+			var cur_row = Math.floor(mouseY / title_height);
+			var cur_col = Math.floor(mouseX / title_width);
+			
+			
+			if(first_pick == false){
+				choose[cur_row][cur_col] = true;
+				first_pick = true;
+			}else{
+				for(var i = 0;i<choose.length;i++){
+					for(var j = 0;j<choose[0].length;j++){
+						if(choose[i][j]&& !(i ==　cur_row &&j==　cur_col)){
+							var temp;
+							temp = deck[i][j];
+							deck[i][j] = deck[cur_row][cur_col];
+							deck[cur_row][cur_col] = temp;
+							
+							first_pick = false;
+							choose[i][j] = false;
+						}
+					}
+				}
+			}
+		});
+	});
+</script>
 </html>
