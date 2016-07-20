@@ -15,31 +15,42 @@
 				margin: 0;
 				padding: 0;
 			}
+			html,body,.con_wrap{
+				width: 100%;
+				height: 100%;
+			}
+			.con_wrap{
+				background: url(images/pt_start_bg.jpg)center center no-repeat;
+				background-size: 100% 100%;
+			}
 			
 			.box {
-				width: 320px;
-				height: 320px;
+				width:90%;
+				height: 280px;
 				/*background: #999;*/
-				padding-top: 60px;
-				padding-left: 60px;
+				padding-top: 100px;
+				/*padding-left: 60px;*/
+				margin: 0 auto;
 			}
 			
 			.box li {
 				float: left;
-				list-style: none
+				list-style: none;
+				width: 90px;
+				height: 90px;
 			}
 			
 			.box li a {
 				border: 5px solid #aaa;
 				display: block;
-				width: 100px;
-				height: 100px;
+				width: 90px;
+				height: 90px;
 				text-decoration: none;
-				margin: 0 0 -5px -5px;
+				/*margin: 0 0 -5px -5px;*/
 				position: relative;
 				z-index: 0;
 				text-align: center;
-				line-height: 60px;
+				line-height: 90px;
 				color: #fff;
 				font-size: 30px;
 			}
@@ -59,8 +70,11 @@
 	</head>
 
 	<body>
-		<ul class="box">
-		</ul>
+		<div class="con_wrap">
+			<ul class="box">
+			</ul>
+		</div>
+		
 	</body>
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="artTemplate/template.js" ></script>
