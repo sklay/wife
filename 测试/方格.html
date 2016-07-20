@@ -24,22 +24,22 @@
 			}
 			
 			.box li a {
-				border: 5px solid #aaa;
+				border: 1px solid #aaa;
 				display: block;
-				width: 100px;
-				height: 100px;
+				width: 90px;
+				height: 90px;
 				text-decoration: none;
-				margin: 0 0 -5px -5px;
+				margin: 0 0 -1px -1px;
 				position: relative;
 				z-index: 0;
 				text-align: center;
-				line-height: 60px;
+				line-height: 70px;
 				color: #fff;
-				font-size: 30px;
+			/*	font-size: 30px;*/
 			}
 			
 			.box li a:hover {
-				border: 5px solid #333;
+				border: 1px solid #333;
 				z-index: 1;
 			}
 			
@@ -79,7 +79,7 @@
 			}
 			
 			for(var i = 0; i < (maxRow * maxCol - 1 ); i++) {
-				positions.push(i+1);
+				positions.push('images/games/pt-'+(i+1)+'.png');
 			}
 			positions.sort(function() {
 				return 0.5 - Math.random()
@@ -146,7 +146,11 @@
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
 	<li data-original="{{row.original }}">
-		<a href="javascript:void(0);" data-current="{{row.data }}" class="{{row.css }}" >{{row.data }}</a>
+		<a href="javascript:void(0);" class="{{row.css }}" >
+			{{if row.data }}
+			<img width="90px" height="90px" src="{{row.data }}">
+			{{/if}}
+		</a>
 	</li>
 	{{/each}}
 </script>

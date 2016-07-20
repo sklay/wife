@@ -20,7 +20,8 @@
 				height: 100%;
 			}
 			.con_wrap{
-				background: url(images/pt_start_bg.jpg)center center no-repeat;
+				background: url(images/games/pt_start_bg.jpg)center center no-repeat;
+				/*background: #333333;*/
 				background-size: 100% 100%;
 			}
 			
@@ -99,7 +100,7 @@
 			
 			for(var i = 0; i < (maxRow * maxCol); i++) {
 				var pos = positions[i] ;
-				pos.data = i+1 ;
+				pos.data = 'images/games/pt-'+(i+1)+'.png' ;
 				positions[i] = pos;
 			}
 			positions.sort(function() {
@@ -195,7 +196,7 @@
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
 	<li data-original="{{row.original }}">
-		<a href="javascript:void(0);" data-current="{{row.current }}" class="{{row.css }}" >{{row.data }}</a>
+		<a href="javascript:void(0);" data-current="{{row.current }}" class="{{row.css }}" ><img width="90px" height="90px" src="{{row.data }}"></a>
 	</li>
 	{{/each}}
 </script>
