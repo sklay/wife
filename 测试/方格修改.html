@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset=" utf-8">
+		<title>九宫格</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta content="telephone=no" name="format-detection" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 273px;
+				height: 273px;
+				/*background: #999;*/
+				padding-top: 60px;
+				padding-left: 60px;
+			}
+			
+			.box li {
+				float: left;
+				list-style: none
+			}
+			
+			.box li a {
+				border: 1px solid #aaa;
+				display: block;
+				width: 90px;
+				height: 90px;
+				text-decoration: none;
+				margin: 0 0 -1px -1px;
+				position: relative;
+				z-index: 0;
+				text-align: center;
+				line-height: 70px;
+				color: #fff;
+				/*	font-size: 30px;*/
+			}
+			
+			.box li a:hover {
+				border: 1px solid #333;
+				z-index: 1;
+			}
+			
+			.freak {
+				background: #000018;
+			}
+			
+			.normal {
+				background: #869791;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="box">
+		</ul>
+
+		<span id='times'></span>
+	</body>
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="artTemplate/template.js"></script>
+	<script>
+		$(function() {
+
+			speller = {
+				init: function(n) {
+					this.maxRow = 3;
+					this.maxCol = 3;
+					this.imageName = 'images/games/pt-{index}.png';
+					this.positions = [];
+					this.hard = n || 5;
+					this.step = this.useTime = 0;
+					this.blank = 8;
+					this.tag = 'li';
+					this.content = 'ul.box'
+					this.createGrid();
+					clearInterval(this.timer);
+					this.timer = setInterval(function() {
+						speller.useTime++; /* 累加时间并格式化显示 */
+						$('#times').html('0' + parseInt(speller.useTime / 60)).slice(-2) + ':' + ('0' + speller.useTime % 60).slice(-2);
+					}, 1000);
+				},
+
+				createGrid: function() {
+					for(var i = 0; i < 9; i++) {
+						var posData = {};
+						posData.pos = i;
+						posData.image = this.imageName.replace("{index}", (i + 1));
+						posData.css = ((i + 1) == 9) ? 'freak' : "normal";
+						this.positions.push(posData);
+					}
+
+					this.random();
+
+					var gridRows = template('game-tpl', {
+						'rows': this.positions || []
+					});
+					$(this.content).html(gridRows);
+					$(this.content + ' li a img').eq(this.blank).hide();
+					console.debug(this.blank);
+				},
+				random: function() {
+					var ps = this.positions;
+					l = ps.length;
+					me = this;
+					//					ps[this.blank].style.display = "none";
+					$('#' + me.blank).hide();
+					var en = function(n) {
+						var arr = [];
+						/** 计算右边的邻居*/
+						if(n < 8 && n % 3 != 2) {
+							arr.push(n + 1);
+						}
+						/** 计算左边的邻居*/
+						if(n > 0 && n % 3 != 0) {
+							arr.push(n - 1);
+						}
+						/** 计算上边的邻居*/
+						if(n > 2) {
+							arr.push(n - 3);
+						}
+						/** 计算下边的邻居*/
+						if(n < 6) {
+							arr.push(n + 3);
+						}
+						console.debug(" arrar ", n, ' , array ', arr.join(','));
+						/**在邻居中随机一个惊醒交换*/
+						return arr[parseInt(Math.random() * arr.length)] * 1;
+					}
+					var getp = function(n) {
+						for(var i = 0; i < l; i++) {
+							var posData = ps[i];
+							if(i == n) {
+								return i;
+							}
+						}
+					}
+					for(var i = 0; i < me.hard; i++) {
+						this.move2(getp(en(this.blank * 1)));
+					}
+
+					console.debug("blank pos done ", this.blank);
+				},
+				move2: function(index) {
+
+					var target = this.positions[index];
+					var source = this.positions[this.blank];
+
+					this.positions[index] = source;
+					this.positions[this.blank] = target;
+
+					console.debug('攻略 ', this.blank + ' ---> ' + index);
+
+					this.blank = index * 1;
+				},
+				move: function(node) {
+					var pos = $(node).attr('data-pos') * 1,
+						POS = this.blank * 1,
+						abs = Math.abs(pos - POS),
+						max = pos > POS ? pos : POS;
+					//					console.debug('pos is ', pos, ' nBlank POS is  ', POS, ' abs is  ', abs, ' max is ', max);
+
+					/** abs == 3 在上边或者下边; abs == 1 &&  max % 3 != 0 控制在左边或右边 */
+					if(abs == 3 || (abs == 1 && max % 3 != 0)) {
+						var $blank = $(this.content).find(this.tag).eq(POS);
+						var $nBlank = $(this.content).find(this.tag).eq(pos);
+						var $blankId = $blank.attr('id');
+						var $nBlankId = $nBlank.attr('id');
+
+						var $blankA = $blank.children().clone(false);
+						var $nBlankA = $nBlank.children().clone(false);
+
+						$nBlank.html($blankA);
+						$blank.html($nBlankA);
+
+						$nBlank.attr({
+							"id": $blankId
+						});
+						$blank.attr({
+							'id': $nBlankId
+						});
+						this.blank = pos;
+					}
+					/**否则不是邻居*/
+					else {
+						return;
+					}
+					if(this.check()) {
+						$(this.content + ' li a img').eq(this.blank).show();
+						alert('你成功了');
+					};
+				},
+				check: function() {
+					var lis = $(this.content).find(this.tag);
+					for(var i = 0; i < lis.length; i++) {
+						console.debug($(lis[i]).attr('data-pos'), "  ", $(lis[i]).attr('id'));
+						if(i != $(lis[i]).attr('id')) {
+							return false;
+						}
+					}
+					return true;
+				}
+			}
+
+			speller.init(20);
+
+		});
+	</script>
+	<script type="text/template" id="game-tpl">
+		{{each rows as row i }}
+		<li data-pos="{{i }}" id="{{row.pos }}" onclick="speller.move(this);">
+			<a href="javascript:void(0);" class="{{row.css }}">
+				<img width="90px" height="90px" src="{{row.image }}">
+			</a>
+		</li>
+		{{/each}}
+	</script>
+
+</html>
