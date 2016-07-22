@@ -2,62 +2,93 @@
 <html>
 
 	<head>
-		<meta charset=" utf-8">
-		<title>九宫格</title>
+	<meta charset=" utf-8">
+	<meta charset="UTF-8">
+	<title>拼图</title>
+    <meta name="description" content="拼图"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="artTemplate/template.js" ></script>
+	<script type="text/javascript" src="js/html_common.js" ></script>
 		<style type="text/css">
-			* {
+				* {
 				margin: 0;
 				padding: 0;
 			}
+			html,body,.con_wrap{
+				width: 100%;
+				height: 100%;
+			}
+			.con_wrap{
+				background: url(images/games/pt_start_bg.jpg)center center no-repeat;
+				background-size: 100% 100%;
+			}
 			
+			.box_wrap{
+				width:5.4rem;
+				height: 5.4rem;
+				margin: 0 auto;
+				padding-top: 100px;
+			}
 			.box {
-				width: 320px;
-				height: 320px;
-				/*background: #999;*/
-				padding-top: 60px;
-				padding-left: 60px;
+				list-style: none;
+				/*width:5.4rem;*/
+				height: 5.2rem;
+				/*padding-top: 100px;*/
+				border: 4px solid #eee;
+				overflow: hidden;
+				margin-left: -5px;
 			}
 			
 			.box li {
 				float: left;
-				list-style: none
+				list-style: none;
+				width:1.7rem;
+				height: 1.7rem;
+				border: 2px solid #eee;
+			}
+			.box li a img{
+				width:1.7rem;
+				height: 1.7rem;
 			}
 			
 			.box li a {
-				border: 1px solid #aaa;
 				display: block;
-				width: 90px;
-				height: 90px;
+				width:1.7rem;
+				height: 1.7rem;
 				text-decoration: none;
-				margin: 0 0 -1px -1px;
-				position: relative;
-				z-index: 0;
 				text-align: center;
-				line-height: 70px;
-				color: #fff;
-			/*	font-size: 30px;*/
+				/*line-height: 1.6rem;*/
+				/*overflow: hidden;*/
 			}
-			
-			.box li a:hover {
-				border: 1px solid #333;
+			/*.box li a:hover {
+				border: 2px solid #eee;
 				z-index: 1;
 			}
-			
-			.freak{
-				background: #000018;
+			*/
+			.active{
+				background: #4BB1CF;
 			}
 			.normal{
 				background: #869791;
+			}
+			.freak{
+				background: #000018;
 			}
 		</style>
 	</head>
 
 	<body>
-		<ul class="box">
-		</ul>
+		<div class="con_wrap">
+			<div class="box_wrap">
+				<ul class="box">
+				</ul>
+			</div>
+		</div>
 	</body>
-	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-	<script type="text/javascript" src="artTemplate/template.js" ></script>
+	
 	<script>
 		var tiles = [
 			[0, 1, 2],
