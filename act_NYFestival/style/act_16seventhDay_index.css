@@ -133,11 +133,11 @@ body {
 	line-height: .78rem;
 	height: .78rem;
 	border-radius: 50px;
-	background: #fcf9a5;
+	background: linear-gradient(to bottom, #fcf9a5 0%, #fae78c 70%, #f9de80 100%);
 	font-family: "楷体";
 	font-size: 22px;
 	color: #681c1b;
-	box-shadow: 0 4px 2px rgba(208, 62, 81, 0.4), inset 0 -7px 4px rgba(249, 222, 128, 0.37);
+	box-shadow: 0 4px 2px rgba(208, 62, 81, 0.4);
 	position: absolute;
 	bottom: 1.8rem;
 	left: 50%;
@@ -258,7 +258,7 @@ body {
 .gamePageTop {
 	background: #63ecbe;
 	width: 100%;
-	height: 10%;
+	height: 12%;
 	padding: .1rem .2rem;
 	box-sizing: border-box;
 }
@@ -275,11 +275,15 @@ body {
 	width: .8rem;
 	float: left;
 }
-
+.gameCountDown_wrap{
+	width: 1rem;
+    float: left;
+    text-align: center;
+    line-height: .77rem;
+}
 .gameCountDown_wrap p {
-	font-size: 14px;
-	color: #ffc11e;
-	line-height: .45rem;
+	font-size: 20px;
+	color: #78232f;
 }
 .gameMusic_wrap {
 	width: .8rem;
@@ -292,6 +296,83 @@ body {
 	width: 100%;
 }
 
+
+.gameMainCon{
+		width: 5.9rem;
+	    height: 5.8rem;
+	    margin: .6rem auto 0;
+	    /*max-width: 10rem;*/
+	   background: #63ecbd;
+	   
+	}
+.gameMainCon ul {
+	    box-sizing: border-box;
+    	padding: 5px;
+	    height: 5.8rem;
+	    box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.75);
+	    overflow: hidden;
+}
+		
+.gameMainCon ul li {
+	width: 1.9rem;
+	height: 1.9rem;
+	float: left;
+	list-style: none;
+	
+}
+
+.gameMainCon ul li a {
+	width: 1.8rem;
+	height: 1.8rem;
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+}
+.gameMainCon ul li a img{
+	width: 100%;
+	border: 0;
+}
+
+.freak {
+	background: #000018;
+}
+
+.normal {
+	 background: #63ecbd;
+}
+
+.showOrigin{
+	width: 5.8rem;
+    margin: .4rem auto 0;
+}
+.showOriginBtn{
+	float: right;
+    width: 2rem;
+    height: .8rem;
+    border-radius: 24px;
+    border: 0;
+    background: #63ecbd;
+    outline: none;
+    font-size: 19px;
+    line-height: .8rem;
+}
+/*原图*/
+.game_origin{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .6);
+    box-sizing: border-box;
+    padding-top: 1.5rem;
+    display: none;
+}
+.game_origin img{
+	width: 5.4rem;
+	margin: 0 auto;
+	display: block;
+}
 /*游戏结果*/
 
 
@@ -340,16 +421,12 @@ body {
 }
 
 .shareAppPage button:nth-child(1) {
-	background: -webkit-linear-gradient(top, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
-	background: linear-gradient(to bottom, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
-	-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
-	box-shadow: inset 0 3px 4px 0 #F3DA7B, inset 0 -4px 7px 0 #E5B82F, 0 -2px 2px #45a0f6;
+	background: linear-gradient(to bottom, #ffc72f 0%, #ffbf1b 40%, #ffb400 100%);
 }
 
 .shareAppPage button:nth-child(2) {
 	margin-top: 1rem;
-	background: #a7d421;
-	box-shadow: inset 0 3px 4px 0 #c2e164, inset 0 -4px 7px 0 #96c31a, 0 -2px 2px #45a0f6;
+	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 }
 
 .toGetReward {
@@ -371,11 +448,10 @@ body {
 	background-size: 231% auto;
 }*/
 
-.gameFailText .shareFri {
+/*.gameFailText .shareFri {
 	background: #ffaa17;
 	box-shadow: inset 0 -6px 9px #ff790c;
-	border: 3px solid #fff;
-}
+}*/
 
 /*.gameFailText .shareFri span {
 	display: block;

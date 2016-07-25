@@ -5,7 +5,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>清凉一"夏"领药快到现金券</title>
+<title>七夕节</title>
 <meta name="description" content="炎炎夏日，快把清凉带回家~">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name="format-detection" content="telephone=no, email=no" />
@@ -32,50 +32,20 @@
 	
 } 
 @media screen and (max-height: 480px) {
-	
+	.gameSuccWrap{
+    	padding-top: .6rem;
+	}
+	.gameFail .gameFailText{
+		padding: 0 .2rem;
+	}
+	.gameFail .gameFailTitle img:nth-child(2) {
+    	margin: -.5rem auto 0rem;
+}
 	}
 	
-	.box {
-				width: 273px;
-				height: 273px;
-				/*background: #999;*/
-				padding-top: 60px;
-				/*padding-left: 60px;*/
-				    margin: 0 auto;
-			}
+	
 			
-			.box li {
-				float: left;
-				list-style: none
-			}
-			
-			.box li a {
-				border: 1px solid #aaa;
-				display: block;
-				width: 90px;
-				height: 90px;
-				text-decoration: none;
-				margin: 0 0 -1px -1px;
-				position: relative;
-				z-index: 0;
-				text-align: center;
-				line-height: 70px;
-				color: #fff;
-				/*	font-size: 30px;*/
-			}
-			
-			.box li a:hover {
-				border: 1px solid #333;
-				z-index: 1;
-			}
-			
-			.freak {
-				background: #000018;
-			}
-			
-			.normal {
-				background: #869791;
-			}
+		
 </style>
 <script>
 	var _hmt = _hmt || [];
@@ -141,8 +111,14 @@
 			<div class="gameMainCon">
 				<ul class="box">
 				</ul>
+				<div class="showOrigin">
+					<button class="showOriginBtn">查看原图</button>
+				</div>
 			</div>
-
+			<!--原图-->
+			<div class="game_origin">
+				<img src="images/act_16seventhDay_game_oraginImg.jpg" />
+			</div>
 			
 			<!--挑战失败页-->
 			<div class="gameFailWrap comWrap1">
@@ -192,9 +168,17 @@
 	</div>
 	
 	<div style="display: none">
-		
+		<img  src="images/act_16seventhDay_game_pt-1.png">
+		<img  src="images/act_16seventhDay_game_pt-2.png">
+		<img  src="images/act_16seventhDay_game_pt-3.png">
+		<img  src="images/act_16seventhDay_game_pt-4.png">
+		<img  src="images/act_16seventhDay_game_pt-5.png">
+		<img  src="images/act_16seventhDay_game_pt-6.png">
+		<img  src="images/act_16seventhDay_game_pt-7.png">
+		<img  src="images/act_16seventhDay_game_pt-8.png">
+		<img  src="images/act_16seventhDay_game_pt-9.png">
 	</div>
-	<div style="display: none;" class="gameMusic_wrap2">
+	<div style="display: none;" class="gameM	usic_wrap2">
 		<div id="audio_span"></div>
 		
 		<script>
@@ -215,7 +199,7 @@
 	{{each rows as row i }}
 	<li data-pos="{{i }}" id="{{row.pos }}" onclick="speller.move(this);">
 		<a href="javascript:void(0);" class="{{row.css }}">
-			<img width="90px" height="90px" src="{{row.image }}">
+			<img  src="{{row.image }}">
 		</a>
 	</li>
 	{{/each}}
@@ -277,8 +261,9 @@
 		
 		/*点击领取*/
 		$("#goToGetHb ").on("click ", function() {
-			// var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
-			var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code="+version+"&codeActId=270";
+			var url = "http://192.168.1.193:8020/act_NYFestival/act_16seventhDay_getHb.html"
+//			 var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
+//			var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code="+version+"&codeActId=270";
 			location.href = url;
 		});
 	}

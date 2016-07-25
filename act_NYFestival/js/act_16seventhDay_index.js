@@ -4,7 +4,7 @@ $(function() {
 	var sound_music = document.getElementById('sound_add') ;
 	var gameView = null ;
 	var scoreView = null ;
-	
+	var timeCountDown = 180;
 	
 	/**音乐图标*/
 	$('.gameMusic_wrap').on('tap',function(){
@@ -78,7 +78,7 @@ $(function() {
 						'rows': this.positions || []
 					});
 					$(this.content).html(gridRows);
-//					$(this.content + ' li a img').eq(this.blank).hide();
+					$(this.content + ' li a img').eq(this.blank).hide();
 					console.debug(this.blank);
 				},
 				random: function() {
@@ -168,9 +168,10 @@ $(function() {
 						return;
 					}
 					if(this.check()) {
-//						$(this.content + ' li a img').eq(this.blank).show();
+						$(this.content + ' li a img').eq(this.blank).show();
 						//挑战成功显示
 						$(".gameSuccWrap").show();
+						clearInterval(timeCountDown);
 						
 						if(playMusic){
 						$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause') ;
@@ -193,16 +194,23 @@ $(function() {
 			speller.init(20);
 	}
 
+	//点击查看显示原图
+	$(".showOriginBtn").on("click", function(e) {
+		var event = e || window.event;
+		event.stopPropagation();
+			$(".game_origin").show();
+	});
+	$(".game_origin").on("tap", function(e) {
+		var event = e || window.event;
+		event.stopPropagation();
+			$(".game_origin").hide();
+	});
 	
-	function scoreCountFun(wrap) {
-		
-		
-	
-	};
+//	function scoreCountFun(wrap) {
+//	};
 
 	/* 倒计时函数 */
 	function timeCountDownFun() {
-		var timeCountDown = 30;
 		var countDownTime = null;
 		countDownTime = setInterval(function() {
 			timeCountDown--;
@@ -228,6 +236,7 @@ $(function() {
 	/* 再次游戏 */
 	 clickBoo = false;
 	$("#playAgain").on("click", function(e) {
+		timeCountDown = 180;
 		if(!clickBoo){
 			 clickBoo = true;
 			$(".gameFailWrap").fadeOut();
