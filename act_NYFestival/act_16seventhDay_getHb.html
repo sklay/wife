@@ -72,38 +72,30 @@
 <body>
 	<div class="content">
 		<div class="indexPage">
-			<!--<img class="indexComImg indexPageTitle" src="images/act_16coolIceBucket_indexTitle.png" /> 
-			<img class="indexComImg childSty" src="images/act_16coolIceBucket_indexPeople.png" />-->
 			<div class="getHbWrap">
 				<div class="getHb">
 					<div class="commomLogin" >
 						<input type="tel" placeholder="输入手机号" id="userPhone">
 						<button id="getHbBtn">领取红包</button>
-						<p id="downText" class="downloadP goForUse">下载药快到App立即参与</p>
+						<p id="downText" class="downloadP goForUse">下载药快到App</p>
 					</div>
 					<div class="received_result" style="display: none;">
-						<!--<img class="gethb_people" src="images/act_16coolIceBucket_receive_people.png" /> 
-						<img class="gethb_bucket" src="images/act_16coolIceBucket_get_IceBucket.png" />-->
 						<div class="receive_success" style="display: none;">
 							<div class="getHb7 getHbnNum" style="display: none">
-								<!--<img src="images/act_16coolIceBucket_receive_text7.png" />--> 
 								<p style="font-size: 16px;">恭喜您领到7元现金券!</p>
 								<img src="images/act_16coolIceBucket_receive_coupon7.png" />
 							</div>
 							<div class="getHb8 getHbnNum" style="display: none">
-								<!--<img src="images/act_16coolIceBucket_receive_text8.png" />--> 
 								<p style="font-size: 16px;">恭喜您领到8元现金券!</p>
 								<img src="images/act_16coolIceBucket_receive_coupon8.png" />
 							</div>
 						</div>
 						<div class="has_received" style="display: none;">
 							<div class="has_getHb7 getHbnNum" style="display: none">
-								<!--<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text7.png" />--> 
 								<p>7元现金券<br/>早就已经存入到您的账户啦!</p>
 								<img src="images/act_16coolIceBucket_receive_coupon7.png" />
 							</div>
 							<div class="has_getHb8 getHbnNum" style="display: none">
-								<!--<img style="margin: .2rem auto .1rem" src="images/act_16coolIceBucket_hasreceive_text8.png" />--> 
 								<p>8元现金券<br/>早就已经存入到您的账户啦!</p>
 								<img src="images/act_16coolIceBucket_receive_coupon8.png" />
 							</div>
@@ -123,7 +115,7 @@
 		<!--看朋友手气 start-->
 		<div class="mainConWrap">
 			<div class="mainCon">
-				<c:if test="${ not empty coupList }">
+				<!--<c:if test="${ not empty coupList }">
 					<div class="friHbShowWrap ">
 						<div class="comShowTitle">
 							<div class="leftLineDot">
@@ -168,7 +160,53 @@
 							</div>
 						</c:forEach>
 					</div>
-				</c:if>
+				</c:if>-->
+				
+				
+				<div class="friHbShowWrap ">
+				<div class="comShowTitle">
+					<div class="leftLineDot">
+						<span style="height:1px;width:1.4rem;"></span>
+						<span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+					</div>
+					<div class="comshowTitleText">
+						看看朋友的手气
+					</div>
+					<div class="rightLineDot">
+						<span style="width:6px;height:6px;transform: rotate(40deg);-o-transform: rotate(40deg);-webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+						<span style="height:1px;width:1.4rem;"></span>
+					</div>
+				</div>
+				<div class="friHbShow">
+					<div class="userFriAvatat">
+						<img src="images/act_commonHead_img.jpg" alt="头像" />
+						<div class="userFriInf">
+							<strong>小明 </strong>
+							<p>人品爆发，这波福利我收啦!</p>
+						</div>
+					</div>
+					<div class="userFriInf_wrap">
+						<div class="userFriHbValue_wrap">
+							<span class="userFriHbValue">7<span>元</span></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="friHbShow">
+					<div class="userFriAvatat">
+						<img src="images/act_commonHead_img.jpg" alt="头像" />
+						<div class="userFriInf">
+							<strong>小明 </strong>
+							<p>人品爆发，这波福利我收啦!</p>
+						</div>
+					</div>
+					<div class="userFriInf_wrap">
+						<div class="userFriHbValue_wrap">
+							<span class="userFriHbValue">8<span>元</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
 
 				<div class="activeRuleShowWrap">
 					<div class="comShowTitle">
@@ -229,9 +267,9 @@
 		if (!is_weixin()) {
 			$(".downloadP").html("查看优惠券");
 		}
-		//			$(".friHbShowWrap .friHbShow:last-child").css({
-		//				"borderBottom" : "none"
-		//			});
+			$(".friHbShowWrap .friHbShow:last-child").css({
+				"borderBottom" : "none"
+			});
 	})();
 
 	window.onload = function() {
@@ -248,10 +286,10 @@
 			/*前端随机产生的邀请码传给后台，后台接受到这个值返回给前端，前端根据这个邀请码判断领取到的优惠券的金额*/
 			var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
 			if (getCodeNum) {
-				var _inviteCode = '16BTTZLQ01';
+				var _inviteCode = '16QxlQ01';
 				var getHbNuM = 7;
 			} else {
-				var _inviteCode = '16BTTZLQ02';
+				var _inviteCode = '16QxlQ02';
 				var getHbNuM = 8;
 			}
 			var _fromChannel = 'hongbao';
@@ -376,8 +414,8 @@
 <script>
 	wechatObj.title = '清凉一"夏"领药快到现金券';
 	wechatObj.desc = '炎炎夏日，快把清凉带回家~';
-	wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16iceBucket_index';
-	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16iceBucket_shareImg.jpg';
+	wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16seventhDay_index';
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16seventhDay_shareImg.jpg';
 
 	if (is_weixin()) {
 		$.ajax({

@@ -136,6 +136,7 @@ body {
 	background: linear-gradient(to bottom, #fcf9a5 0%, #fae78c 70%, #f9de80 100%);
 	font-family: "楷体";
 	font-size: 22px;
+	font-weight: 600;
 	color: #681c1b;
 	box-shadow: 0 4px 2px rgba(208, 62, 81, 0.4);
 	position: absolute;
@@ -145,6 +146,7 @@ body {
 	display: block;
 	outline: none;
 	border: none;
+	text-align: center;
 }
 
 #goToGamePage span {
@@ -161,16 +163,16 @@ body {
 
 #getActRule {
 	color: #681c1b;
-	/*font-weight: 900;*/
 	font-family: SimHei;
 	text-align: center;
 	font-size: 20px;
 	position: absolute;
-	bottom: .6rem;
-	left: 0;
-	width: 100%;
-	line-height: 35px;
-	text-decoration: underline;
+	bottom: .8rem;
+	left: 50%;
+	margin-left: -.8rem;
+	width: 1.6rem;
+	line-height: 28px;
+	border-bottom: 1px solid #681c1b;	
 }
 
 .actRuleShow_wrap,.gameOverWrap  {
@@ -191,7 +193,7 @@ body {
 
 .comShowWrap1 {
 	width: 5.6rem;
-	background: linear-gradient(to bottom, #74f6c9 0%, #6ef3c6 10%, #5ae6b7 30%, #3dd6a3 70%, #35d19d 100%);
+	background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);
 	border-radius: 20px;
 	margin: 0 auto;
 	padding-top: 14px;
@@ -219,7 +221,7 @@ body {
 	position: absolute;
 	right: -10px;
 	top: -15px;
-	width: 44px;
+	width: 40px;
 }
 
 
@@ -258,7 +260,7 @@ body {
 .gamePageTop {
 	background: #63ecbe;
 	width: 100%;
-	height: 12%;
+	height: 10%;
 	padding: .1rem .2rem;
 	box-sizing: border-box;
 }
@@ -279,7 +281,7 @@ body {
 	width: 1rem;
     float: left;
     text-align: center;
-    line-height: .77rem;
+    line-height: .95rem;
 }
 .gameCountDown_wrap p {
 	font-size: 20px;
@@ -298,19 +300,19 @@ body {
 
 
 .gameMainCon{
-		width: 5.9rem;
-	    height: 5.8rem;
-	    margin: .6rem auto 0;
-	    /*max-width: 10rem;*/
-	   background: #63ecbd;
+	width: 5.8rem;
+    height: 5.8rem;
+    margin: 1.2rem auto 0;
+    /*max-width: 10rem;*/
+    background: #63ecbd;
 	   
 	}
 .gameMainCon ul {
-	    box-sizing: border-box;
-    	padding: 5px;
-	    height: 5.8rem;
-	    box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.75);
-	    overflow: hidden;
+    box-sizing: border-box;
+	padding:.1rem .05rem;
+    height: 5.8rem;
+    box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);
+    overflow: hidden;
 }
 		
 .gameMainCon ul li {
@@ -343,18 +345,19 @@ body {
 
 .showOrigin{
 	width: 5.8rem;
-    margin: .4rem auto 0;
+    margin: .3rem auto 0;
 }
 .showOriginBtn{
-	float: right;
-    width: 2rem;
-    height: .8rem;
-    border-radius: 24px;
+    float: right;
+    width: 1.6rem;
+    height: .9rem;
+    border-radius: 16px;
     border: 0;
     background: #63ecbd;
     outline: none;
-    font-size: 19px;
-    line-height: .8rem;
+    font-size: 16px;
+    line-height: .9rem;
+    font-weight: 600;
 }
 /*原图*/
 .game_origin{
@@ -408,14 +411,13 @@ body {
 	width: 100%;
 	border-radius: .4rem;
 	margin: .26rem auto 0;
-	/*border: 2px solid #fff;*/
 	box-sizing: border-box;
 	height: 44px;
 	line-height: 40px;
 	display: block;
 	outline: none;
 	color: #fff;
-	font-size: 18px;
+	font-size: 24px;
 	font-weight: 900;
 	border: 0;
 }

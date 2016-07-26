@@ -24,6 +24,7 @@ body {
 	font-size: .1rem;
 	font-family: Microsoft Yahei, Arial;
 	width: 6.4rem;
+	background: #fdf9fa;
 }
 
 .indexPage {
@@ -38,7 +39,7 @@ body {
 	position: absolute;
     bottom: .3rem;
     left: 50%;
-    margin-left: -2.25rem;
+    margin-left: -2.5rem;
 }
 .indexComImg {
 	width: 5rem;
@@ -65,11 +66,12 @@ body {
 	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 	border-radius: .4rem;
 	box-sizing: border-box;
-	height: 44px;
+	height: 38px;
+	line-height: 38px;
 	display: block;
 	outline: none;
 	color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     box-shadow: 0px 3px 4px rgba(211, 63, 81, 0.65);
 }
@@ -223,7 +225,7 @@ body {
 }
 
 .getHb {
-	width: 4.5rem;
+	width: 5rem;
 	margin: 0 auto;
 	position: relative;
 }
@@ -232,8 +234,8 @@ body {
 	width: 100%;
 	outline: none;
 	border: 0;
-	height: 44px;
-	line-height: 44px;
+	height: 38px;
+	line-height: 38px;
 	box-sizing: border-box;
 	color: #4e4e4e;
 	text-align: center;
@@ -264,12 +266,14 @@ body {
 	font-weight: 900;
 	text-align: center;
 	color: #fff;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
+	width: 2.5rem;
+    margin: 0 auto;
 }
 
 .has_received, .receive_success {
 	width: 4.5rem;
-	margin: 0.3rem auto .5rem;
+	margin: 0.4rem auto 0;
 	border-radius: 5px;
 	box-sizing: border-box;
 	background: #48ddf4;
@@ -284,12 +288,20 @@ body {
 
 .getHbnNum img:nth-child(2) {
 	width: 3.7rem;
-	margin: 0 auto .3rem;
+	margin: 0 auto .1rem;
 	display: block;
+}
+.receive_success .getHbnNum p{
+	margin: 0.3rem auto;
+	text-align: center;
+}
+.has_received .getHbnNum p{
+	padding: .13rem .44rem;
+    box-sizing: border-box;
 }
 .getHbnNum p{
     width: 3.6rem;
-    margin: 0.2rem auto;
+    margin: 0 auto;
     font-size: 14px;
     font-weight: 600;
     color: #761f2c;
@@ -298,7 +310,7 @@ body {
     -moz-text-shadow: #000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
 }
 .commUsebtn {
-	width: 4rem;
+	width: 5rem;
 	margin: 0 auto;
 }
 
@@ -412,7 +424,7 @@ body {
 	height: 40px;
 	float: right;
 	text-align: center;
-	background: url(../images/act_16coolIceBucket_receive_couponIcon.png) 0px 0 no-repeat;
+	background: url(../images/act_16seventhDay_valueback.png) 0px 0 no-repeat;
 	background-size: 100% 90%;
 	overflow: hidden;
 	line-height: 36px;
@@ -483,11 +495,12 @@ body {
 	background: linear-gradient(to bottom, #af6fff 0%, #8951ed 40%, #703ee2 100%);
 	border-radius: .4rem;
 	box-sizing: border-box;
-	height: 44px;
+	height: 38px;
+	line-height: 38px;
 	display: block;
 	outline: none;
 	color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -507,12 +520,13 @@ body {
 	width: 100%;
 	border-radius: .4rem;
 	box-sizing: border-box;
-	height: 44px;
+	height: 38px;
+	line-height: 38px;
 	display: block;
     background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 	outline: none;
 	color: #fff;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -536,7 +550,7 @@ body {
 .shareAppPage {
 	display: none;
 	width: 4.6rem;
-	margin: 2rem auto 1.5rem;
+	margin: 0 auto .2rem;
 }
 
 .shareAppPage button {
