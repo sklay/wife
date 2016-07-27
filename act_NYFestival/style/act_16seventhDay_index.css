@@ -44,22 +44,22 @@ body {
 	background: -webkit-radial-gradient(50% 50%, #80f0cc 0%, #89f2d1 10%, #94f3d6 30%, #73eec5 70%, #63ecbd 100%);
 }
 
-.loadingImg {
+/*.loadingImg {
 	width: 2.5rem;
-	margin: 2rem auto 0;
+	
 	box-sizing: border-box;
 }
 
 .loadingImg img {
 	width: 100%;
-}
+}*/
 
 .loadText {
 	font-size: 20px;
 	color: #4e6f9f;
 	text-align: center;
 	line-height: 50px;
-	margin-top: .3rem;
+	margin-top: 4rem;
 	font-weight: 600;
 }
 
@@ -229,20 +229,20 @@ body {
 	width: 4.8rem;
 	margin: 0 auto;
 	border-radius: 8px;
-	padding:0 .3rem;
+	padding:0 .3rem .2rem;
 	color: #681c1b;
 	font-weight: bold;
 	overflow: hidden;
+	font-size: 14px;
 }
 
 .actRuleText p {
-	font-size: 12px;
-	line-height: 22px;
-	margin-left: .35rem;
+	line-height: 28px;
+	margin-left: .5rem;
 }
 .actRuleText span {
 	float: left;
-	line-height: 22px;
+	line-height: 28px;
 }
 .actRuleScore_wrap {
 	width: 1.2rem;
@@ -309,7 +309,7 @@ body {
 	}
 .gameMainCon ul {
     box-sizing: border-box;
-	padding:.1rem .05rem;
+	padding:.08rem .05rem;
     height: 5.8rem;
     box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);
     overflow: hidden;
@@ -324,8 +324,8 @@ body {
 }
 
 .gameMainCon ul li a {
-	width: 1.8rem;
-	height: 1.8rem;
+	width: 1.85rem;
+	height: 1.85rem;
 	display: block;
 	margin: 0 auto;
 	text-decoration: none;
@@ -411,15 +411,16 @@ body {
 	width: 100%;
 	border-radius: .4rem;
 	margin: .26rem auto 0;
-	box-sizing: border-box;
-	height: 44px;
+	/*box-sizing: border-box;*/
+	height: 40px;
 	line-height: 40px;
 	display: block;
 	outline: none;
 	color: #fff;
-	font-size: 24px;
+	font-size: 20px;
 	font-weight: 900;
 	border: 0;
+	text-align: center;
 }
 
 .shareAppPage button:nth-child(1) {

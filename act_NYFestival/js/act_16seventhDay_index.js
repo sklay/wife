@@ -1,9 +1,6 @@
 $(function() {
 
 	var audio_music = document.getElementById('audioBackMusic');
-	var sound_music = document.getElementById('sound_add');
-	var gameView = null;
-	var scoreView = null;
 
 	/**音乐图标*/
 	$('.gameMusic_wrap').on('tap', function() {
@@ -149,7 +146,7 @@ $(function() {
 					POS = this.blank * 1,
 					abs = Math.abs(pos - POS),
 					max = pos > POS ? pos : POS;
-				//console.debug('pos is ', pos, ' nBlank POS is  ', POS, ' abs is  ', abs, ' max is ', max);
+//				console.debug('pos is ', pos, ' nBlank POS is  ', POS, ' abs is  ', abs, ' max is ', max);
 
 				/** abs == 3 在上边或者下边; abs == 1 &&  max % 3 != 0 控制在左边或右边 */
 				if(abs == 3 || (abs == 1 && max % 3 != 0)) {
@@ -201,7 +198,7 @@ $(function() {
 			}
 		}
 
-		speller.init(20);
+		speller.init(10);
 	}
 
 	//点击查看显示原图
@@ -216,8 +213,6 @@ $(function() {
 		$(".game_origin").hide();
 	});
 
-	//	function scoreCountFun(wrap) {
-	//	};
 
 	/* 再次游戏 */
 	clickBoo = false;
@@ -228,7 +223,11 @@ $(function() {
 			gameStart();
 		}
 	});
-
+	//去使用跳转页面
+		$(".goForUse").on("click", function() {
+			var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+			window.location.href = target_href;
+		});
 	// 分享按钮
 	$(".shareFri").on("tap", function(e) {
 		var event = e || window.event;
@@ -264,25 +263,25 @@ $(function() {
 		$(".butWrap").show();
 		$(".shareAppPage").hide();
 	});
-	document.addEventListener("touchmove", function(b) {
-		b.preventDefault();
-	}, false);
-	$('.gameWinMainWrap').on('tap', function() {
-		var $this = $(this);
-		var $childImg = $this.find('[name=gamePlayChilren]');
-		var isTouched = $childImg.length;
-		if(!isTouched) {
-			return;
-		}
-		console.debug();
-		$childImg.remove();
-
-		if(playMusic) {
-			sound_music.currentTime = 0;
-			sound_music.play();
-		}
-
-		scoreCountFun($this);
-	})
+//	document.addEventListener("touchmove", function(b) {
+//		b.preventDefault();
+//	}, false);
+//	$('.gameWinMainWrap').on('tap', function() {
+//		var $this = $(this);
+//		var $childImg = $this.find('[name=gamePlayChilren]');
+//		var isTouched = $childImg.length;
+//		if(!isTouched) {
+//			return;
+//		}
+//		console.debug();
+//		$childImg.remove();
+//
+//		if(playMusic) {
+//			sound_music.currentTime = 0;
+//			sound_music.play();
+//		}
+//
+//		scoreCountFun($this);
+//	})
 
 })
