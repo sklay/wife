@@ -36,16 +36,20 @@ $(function() {
 	function games() {
 		speller = {
 			init: function(n) {
-				this.maxRow = 3;
-				this.maxCol = 3;
+//				this.maxRow = 3;
+//				this.maxCol = 3;
 				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
+				//  九个各=格子的位置
 				this.positions = [];
+				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
 				this.hard = n || 5;
-				this.step = 0;
+				
+//				this.step = 0;  记录 移动的步 数
 				this.blank = 8;
 				this.useTime = 180;
 				this.tag = 'li';
-				this.content = 'ul.box'
+				this.content = 'ul.box';
+				//初始化 布局
 				this.createGrid();
 				if(this.timer)
 					clearInterval(this.timer);
@@ -68,7 +72,7 @@ $(function() {
 
 				}, 1000);
 			},
-
+			// 调用模版  构建 初始化数据 
 			createGrid: function() {
 				for(var i = 0; i < 9; i++) {
 					var posData = {};
@@ -87,6 +91,7 @@ $(function() {
 				$(this.content + ' li a img').eq(this.blank).hide();
 				console.debug(this.blank);
 			},
+			//打乱顺序随机算法     算出 当前黑块位置的 邻居   并且随机其中一个  与黑块交换
 			random: function() {
 				var ps = this.positions;
 				l = ps.length;
@@ -129,6 +134,8 @@ $(function() {
 
 				console.debug("blank pos done ", this.blank);
 			},
+			
+			//交换    当前位置 和  随机出来的  邻居  交换
 			move2: function(index) {
 
 				var target = this.positions[index];
@@ -141,8 +148,14 @@ $(function() {
 
 				this.blank = index * 1;
 			},
+			
+			
+			
+			//点击  时  交换的方法
 			move: function(node) {
+				//当前点击的  位置
 				var pos = $(node).attr('data-pos') * 1,
+				//当期 黑块的 位置     *1  是保证 整数
 					POS = this.blank * 1,
 					abs = Math.abs(pos - POS),
 					max = pos > POS ? pos : POS;
@@ -150,17 +163,23 @@ $(function() {
 
 				/** abs == 3 在上边或者下边; abs == 1 &&  max % 3 != 0 控制在左边或右边 */
 				if(abs == 3 || (abs == 1 && max % 3 != 0)) {
+					//当前黑块所在区域
 					var $blank = $(this.content).find(this.tag).eq(POS);
+					//当前黑块相邻的 区域
 					var $nBlank = $(this.content).find(this.tag).eq(pos);
+					// 黑块区域保存的 原始位置值
 					var $blankId = $blank.attr('id');
+					//当前黑块相邻区域保存的 原始值
 					var $nBlankId = $nBlank.attr('id');
-
+					//  获取 黑块中的 内容  clone(false)  此方法表示只复制 内容  不复制 方法
 					var $blankA = $blank.children().clone(false);
 					var $nBlankA = $nBlank.children().clone(false);
 
 					$nBlank.html($blankA);
 					$blank.html($nBlankA);
-
+					
+					
+					//重新设置属性  改变 所在区域内部的值
 					$nBlank.attr({
 						"id": $blankId
 					});
