@@ -82,12 +82,29 @@ $(function() {
 					this.positions.push(posData);
 				}
 
-				this.random();
+				
+				var randomDone = false ;
 
+				while(!randomDone){
+					this.random();
+					console.debug("random") ;
+					$.each(this.positions, function(i ,n) {
+						if(i != n.pos){
+							randomDone = true ;
+							return ;
+						}
+						console.debug(i , "  = > " , n.pos) ;
+					});
+				}
+				
 				var gridRows = template('game-tpl', {
 					'rows': this.positions || []
 				});
 				$(this.content).html(gridRows);
+				$(this.content + ' li').on('tap',function(){
+					speller.move(this);					
+				}) ;
+				
 				$(this.content + ' li a img').eq(this.blank).hide();
 				console.debug(this.blank);
 			},
@@ -120,16 +137,16 @@ $(function() {
 					/**在邻居中随机一个惊醒交换*/
 					return arr[parseInt(Math.random() * arr.length)] * 1;
 				}
-				var getp = function(n) {
-					for(var i = 0; i < l; i++) {
-						var posData = ps[i];
-						if(i == n) {
-							return i;
-						}
-					}
-				}
+//				var getp = function(n) {
+//					for(var i = 0; i < l; i++) {
+//						var posData = ps[i];
+//						if(i == n) {
+//							return i;
+//						}
+//					}
+//				}
 				for(var i = 0; i < me.hard; i++) {
-					this.move2(getp(en(this.blank * 1)));
+					this.move2(en(this.blank * 1));
 				}
 
 				console.debug("blank pos done ", this.blank);
@@ -217,7 +234,7 @@ $(function() {
 			}
 		}
 
-		speller.init(12);
+		speller.init(10);
 	}
 
 	//点击查看显示原图
