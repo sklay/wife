@@ -217,7 +217,7 @@ $(function() {
 			}
 		}
 
-		speller.init(10);
+		speller.init(12);
 	}
 
 	//点击查看显示原图
