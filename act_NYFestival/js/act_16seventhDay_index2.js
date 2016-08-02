@@ -36,6 +36,7 @@ $(function() {
 	function games() {
 		speller = {
 			init: function(n) {
+				this.lastIndex = 8;
 				this.maxRow = 3;
 				this.maxCol = 3;
 				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
@@ -78,7 +79,20 @@ $(function() {
 					this.positions.push(posData);
 				}
 
-				this.random();
+//				this.random();
+				var randomDone = false ;
+
+				while(!randomDone){
+					this.random();
+					console.debug("random") ;
+					$.each(this.positions, function(i ,n) {
+						if(i != n.pos){
+							randomDone = true ;
+							return ;
+						}
+						console.debug(i , "  = > " , n.pos) ;
+					});
+				}
 
 				var gridRows = template('game-tpl', {
 					'rows': this.positions || []
@@ -91,7 +105,7 @@ $(function() {
 				var ps = this.positions;
 				l = ps.length;
 				me = this;
-				var lastIndex = 8;
+				
 				//					ps[this.blank].style.display = "none";
 				$('#' + me.blank).hide();
 				var en = function(n) {
@@ -117,14 +131,14 @@ $(function() {
 					/**在邻居中随机一个惊醒交换*/ 
 					return arr[parseInt(Math.random() * arr.length)] * 1;
 				}
-				var getp = function(n) {
-					for(var i = 0; i < l; i++) {
-						var posData = ps[i];
-						if(i == n) {
-							return i;
-						}
-					}
-				}
+//				var getp = function(n) {
+//					for(var i = 0; i < l; i++) {
+//						var posData = ps[i];
+//						if(i == n) {
+//							return i;
+//						}
+//					}
+//				}
 				for(var i = 0; i < me.hard; i++) {
 					lastIndex = en(this.blank * 1);
 					this.move2(lastIndex);

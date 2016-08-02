@@ -61,7 +61,7 @@ $(function() {
 						clearInterval(speller.timer);
 
 						clickBoo = false;
-						$(".gameFailWrap").show();
+						$(".gameFailWrap").fadeIn(500);
 
 						if(playMusic) {
 							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
@@ -212,7 +212,7 @@ $(function() {
 				if(this.check()) {
 					$(this.content + ' li a img').eq(this.blank).show();
 					//挑战成功显示
-					$(".gameSuccWrap").show();
+					$(".gameSuccWrap").fadeIn(500);
 //					clearInterval(timeCountDown);
 					clearInterval(this.timer);
 					
