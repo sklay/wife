@@ -49,6 +49,7 @@ $(function() {
 				this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
+				this.lastIndex = this.blank ;
 				//初始化 布局
 				this.createGrid();
 				if(this.timer)
@@ -133,23 +134,19 @@ $(function() {
 					if(n < 6) {
 						arr.push(n + 3);
 					}
-					console.debug(" arrar ", n, ' , array ', arr.join(','));
+					var index = arr.indexOf(me.lastIndex); 
+					if (index > -1) { 
+						arr.splice(index, 1);
+					}
+					
 					/**在邻居中随机一个惊醒交换*/
 					return arr[parseInt(Math.random() * arr.length)] * 1;
 				}
-//				var getp = function(n) {
-//					for(var i = 0; i < l; i++) {
-//						var posData = ps[i];
-//						if(i == n) {
-//							return i;
-//						}
-//					}
-//				}
 				for(var i = 0; i < me.hard; i++) {
-					this.move2(en(this.blank * 1));
+					var randVal = en(this.blank * 1);
+					this.move2(randVal);
 				}
-
-				console.debug("blank pos done ", this.blank);
+				
 			},
 			
 			//交换    当前位置 和  随机出来的  邻居  交换
@@ -157,7 +154,7 @@ $(function() {
 
 				var target = this.positions[index];
 				var source = this.positions[this.blank];
-
+				this.lastIndex = this.blank ;
 				this.positions[index] = source;
 				this.positions[this.blank] = target;
 
@@ -225,7 +222,7 @@ $(function() {
 			check: function() {
 				var lis = $(this.content).find(this.tag);
 				for(var i = 0; i < lis.length; i++) {
-					console.debug($(lis[i]).attr('data-pos'), "  ", $(lis[i]).attr('id'));
+//					console.debug($(lis[i]).attr('data-pos'), "  ", $(lis[i]).attr('id'));
 					if(i != $(lis[i]).attr('id')) {
 						return false;
 					}
