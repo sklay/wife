@@ -39,7 +39,7 @@ $(function() {
 //				this.maxRow = 3;
 //				this.maxCol = 3;
 				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
-				//  九个各=格子的位置
+				//  九个格子的位置
 				this.positions = [];
 				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
 				this.hard = n || 5;
@@ -83,9 +83,8 @@ $(function() {
 					this.positions.push(posData);
 				}
 
-				
 				var randomDone = false ;
-
+				//判断数组里的顺序是否则真的 被打乱 ，被打乱返回   true 
 				while(!randomDone){
 					this.random();
 					console.debug("random") ;
@@ -111,11 +110,9 @@ $(function() {
 			},
 			//打乱顺序随机算法     算出 当前黑块位置的 邻居   并且随机其中一个  与黑块交换
 			random: function() {
-				var ps = this.positions;
-				l = ps.length;
 				me = this;
-				//					ps[this.blank].style.display = "none";
-				$('#' + me.blank).hide();
+				//	ps[this.blank].style.display = "none";
+				//$('#' + me.blank).hide();
 				var en = function(n) {
 					var arr = [];
 					/** 计算右边的邻居*/
@@ -134,7 +131,10 @@ $(function() {
 					if(n < 6) {
 						arr.push(n + 3);
 					}
+					
+					// lastIndex 记录的是上一次的值  根据这个值随机出它的邻居， 根据这个邻居随机出来的 值比较 是否还存在这个值
 					var index = arr.indexOf(me.lastIndex); 
+					//根据 返回的 索引位置 ，如果这个索引存在 则 值存在把lastIndex去掉 
 					if (index > -1) { 
 						arr.splice(index, 1);
 					}
@@ -231,7 +231,7 @@ $(function() {
 			}
 		}
 
-		speller.init(10);
+		speller.init(6);
 	}
 
 	//点击查看显示原图
