@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>推箱子</title>
+		<link rel="stylesheet" type="text/css" href="style/index_css.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js" ></script>
+
+	</head>
+
+	<body>
+		<!--可制做的微信活动相关游戏地址
+		1、点球：http://9138b6ddfcfc.ih5.cn/idea/qMF0Jzh
+		2、推箱子：http://www.mycodes.net/166/8707.htm
+		3、投篮：http://16886.jiangnanqiguai.com/glgs/?gm=5218497060
+		4、看图猜成语：http://16886.jiangnanqiguai.com/ktccy
+		5、听音乐猜歌名：http://16886.jiangnanqiguai.com/fkcgm/?gm=6416795085
+		6、方块大侠：http://16886.jiangnanqiguai.com/fkdx
+		7、围住鬼子：http://16886.jiangnanqiguai.com/wzgz
+		8、接水管：http://www.yxdown.com/h5/367128.html-->
+
+		<div class="index_wrap">
+			<div class="game">
+				
+			</div>
+		</div>
+
+	</body>
+	<script>
+	$(function(){
+		//当前人物的位置
+		var people_x = 4;
+		var people_y = 4;
+		//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
+		var tArray = [
+			["9", "9", "1", "1", "1", "9", "9", "9"],
+			["9", "9", "1", "0", "1", "9", "9", "9"],
+			["9", "9", "1", "0", "1", "1", "1", "1"],
+			["1", "1", "1", "2", "0", "2", "0", "1"],
+			["1", "0", "0", "2", "3", "1", "1", "1"],
+			["1", "1", "1", "1", "2", "1", "9", "9"],
+			["9", "9", "9", "1", "0", "1", "9", "9"],
+			["9", "9", "9", "1", "1", "1", "9", "9"],
+		];
+		//判断是否胜利点的坐标数组
+		var mArray = [
+			[4, 1],
+			[1, 3],
+			[3, 6],
+			[6, 4],
+		];
+		//点击游戏小图片时，传入相应位置。例，4，5
+		function onClickByIndex(i, j) {
+			if(tArray[i][j] == 1 || tArray[i][j] == 3 || tArray[i][j] == 9) {
+				//点的是强 或自己人物，或黑色区域
+				return; //什么也不操作
+			}
+			if(tArray[i][j] == 2) { //点击的是箱子
+				var index = getMoveBox(i, j); //0表示不能移动，1左，2上，3下，4右。
+				if(index == 0) { //不能移动
+					return; //什么也不操作
+				}
+				/*（注意，顺序不能错，先交换物，再交换箱子）*/
+				if(index == 1) { //箱子向左。
+					/*箱子的位置向哪个方向移动*/
+					changeImgAndData(i, j - 1, i, j); //交换
+				}
+				else if(index==2){
+					changeImgAndData(i - 1, j, i, j); //交换
+				}
+				else if(index==3){
+					changeImgAndData(i + 1, j, i, j); //交换
+				}
+				else if(index==4){
+					changeImgAndData(i, j + 1, i, j); //交换
+				}
+				/*人向哪个方向移动*/
+				changeImgAndData(i, j, people_x, people_y); //人的交换
+				/*设置人的当前位置*/
+				people_x = i;
+				people_y = j;
+				isGameOver(); //游戏是否结束
+			} else if(tArray[i][j] == 0) { //点击的是人物
+				/*if() {
+					//判断点击 空位置的时  人物 是否可以和空位子交换
+				}*/
+				
+				/*人物位置数据与当前点击的位置数据进行交换。*/
+				changeImgAndData(i, j, people_x, people_y);
+				/*设置人的当前位置*/
+				people_x = i;
+				people_y = j;
+			}
+
+		}
+		
+		
+		//箱子移动的 方法
+		function getMoveBox(i,j){
+			
+		}
+		//根据下标交换图片与数据
+		function changeImgAndData(i1, j1, i2, j2) {
+			/*1、交换图片，其中数据为0的图片是秀明的*/
+			//……
+			/*2、交换数据*/
+			var t = tArray[i1][j1];
+			tArray[i1][j1] = tArray[i2][j2];
+			tArray[i2][j2] = t;
+		}
+
+		function isGameOver() {
+			for(var i = 0; i < mArray.length; i++) {
+				if(tArray[mArray[i][0]][mArray[i][1]] != 2) {
+					return;
+				}
+			}
+			alert('游戏结束');
+		}
+		
+	});
+		
+	</script>
+
+</html>
