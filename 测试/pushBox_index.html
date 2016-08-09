@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title>推箱子</title>
+		<link rel="stylesheet" type="text/css" href="style/pushBox_index.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js" ></script>
+	</head>
+	<style>
+		.blc{
+			background: #333;
+		}
+		.dot{
+			background: url(images/box-8.png)no-repeat;
+		}
+		.whi{
+			background: url(images/box-6.png)no-repeat;
+		}
+		.box{
+			background: url(images/box-2.png)no-repeat;
+		}
+		.people{
+			background: url(images/box-3.png)no-repeat;
+		}
+	</style>
+	<body>
+		<div class="index_wrap">
+			<div class="gameMainCon">
+				<ul class="game">
+					<!--<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="whi">1</li>
+					<li class="dot">4</li>
+					<li class="whi">1</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="whi">1</li>
+					<li>0</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="box">2</li>
+					<li>0</li>
+					<li class="box">2</li>
+					<li class="dot">4</li>
+					<li class="whi">1</li>
+					
+					<li class="whi">1</li>
+					<li class="dot">4</li>
+					<li>0</li>
+					<li class="box">2</li>
+					<li class="people">3</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="box">2</li>
+					<li class="whi">1</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="whi">1</li>
+					<li class="dot">4</li>
+					<li class="whi">1</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					
+					
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="whi">1</li>
+					<li class="blc">9</li>
+					<li class="blc">9</li>-->
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script>
+		alert("开始1");
+	</script>
+	
+	<script type="text/javascript" src="js/artTemplate/template.js"></script>
+	<script>
+		alert("开始2");
+	</script>
+	<script type="text/javascript" src="js/pushBox_index.js" ></script>
+	<script type="text/template" id="game-tpl">
+		{{each rows as row i }}
+		<li style="background: #ff0000;" data-pos="{{i }}" id="{{row.pos }}" >
+			<a href="javascript:void(0);" class="{{row.css }}">
+				<img  src="{{row.image }}" />
+			</a>
+		</li>
+		{{/each}}
+	</script>
+	<script>
+		alert("开始3");
+	</script>
+
+</html>

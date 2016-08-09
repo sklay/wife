@@ -7,9 +7,10 @@
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<title>推箱子</title>
-		<link rel="stylesheet" type="text/css" href="style/index_css.css" />
+		<link rel="stylesheet" type="text/css" href="style/pushBox_index.css" />
 		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 		<script type="text/javascript" src="js/html_common.js" ></script>
+		<script type="text/javascript" src="js/artTemplate/template.js"></script>
 
 	</head>
 
@@ -25,27 +26,106 @@
 		8、接水管：http://www.yxdown.com/h5/367128.html-->
 
 		<div class="index_wrap">
-			<div class="game">
-				
+			<div class="gameMainCon">
+				<ul class="game">
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li><li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+					<li>1</li>
+					<li>2</li>
+					<li>3</li>
+					<li>4</li>
+					<li>5</li>
+					<li>6</li>
+					<li>7</li>
+					<li>8</li>
+					<li>9</li>
+					<li>10</li>
+					<li>11</li>
+					<li>12</li>
+					<li>13</li>
+					<li>14</li>
+					<li>15</li>
+					<li>16</li>
+				</ul>
 			</div>
 		</div>
-
 	</body>
+	<script type="text/template" id="game-tpl">
+		{{each rows as row i }}
+		<li data-pos="{{i }}" id="{{row.pos }}" >
+			<a href="javascript:void(0);" class="{{row.css }}">
+				<img  src="{{row.image }}" />
+			</a>
+		</li>
+		{{/each}}
+	</script>
 	<script>
 	$(function(){
 		//当前人物的位置
 		var people_x = 4;
 		var people_y = 4;
-		//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
+		this.positions = [];
+		
+		this.tag = 'li';
+		this.content = 'ul.box';
+//		var i,j;
+//		this.imageName = 'images/box-{index}.png';
+		
+		//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人 4:点；
 		var tArray = [
-			["9", "9", "1", "1", "1", "9", "9", "9"],
+			["9", "9", "1", "4", "1", "9", "9", "9"],
 			["9", "9", "1", "0", "1", "9", "9", "9"],
 			["9", "9", "1", "0", "1", "1", "1", "1"],
-			["1", "1", "1", "2", "0", "2", "0", "1"],
-			["1", "0", "0", "2", "3", "1", "1", "1"],
+			["1", "1", "1", "2", "0", "2", "0", "4"],
+			["4", "0", "0", "2", "3", "1", "1", "1"],
 			["1", "1", "1", "1", "2", "1", "9", "9"],
 			["9", "9", "9", "1", "0", "1", "9", "9"],
-			["9", "9", "9", "1", "1", "1", "9", "9"],
+			["9", "9", "9", "1", "4", "1", "9", "9"],
 		];
 		//判断是否胜利点的坐标数组
 		var mArray = [
@@ -54,6 +134,44 @@
 			[3, 6],
 			[6, 4],
 		];
+		
+		
+		
+		// 调用模版  构建 初始化数据 
+			function createGrid(i,j){
+				for(var i = 0; i < 64; i++) {
+					var m = tArray[i][j];
+					console.log(m);
+					i = m;
+					var posData = {};
+					posData.pos = i;
+					if(i == 1){
+						posData.image = 'images/box-6.png';
+					}else if(i == 2){
+						posData.image = 'images/box-2.png';
+					}else if(i == 3){
+						posData.image = 'images/box-3.png';
+					}
+					else if(i == 4){
+						posData.image = 'images/box-8.png';
+					}
+					else if(i == 9){
+						posData.image = 'images/box-4.png';
+					}
+					else{
+						posData.image = 'images/box-5.png';
+					}
+					this.positions.push(posData);
+				}
+				var gridRows = template('game-tpl', {
+					'rows': this.positions || []
+				});
+				$(this.content).html(gridRows);
+			}
+		
+		createGrid();
+		
+		
 		//点击游戏小图片时，传入相应位置。例，4，5
 		function onClickByIndex(i, j) {
 			if(tArray[i][j] == 1 || tArray[i][j] == 3 || tArray[i][j] == 9) {
