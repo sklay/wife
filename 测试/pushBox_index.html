@@ -108,26 +108,17 @@
 			</div>
 		</div>
 	</body>
-	<script>
-		alert("开始1");
-	</script>
 	
 	<script type="text/javascript" src="js/artTemplate/template.js"></script>
-	<script>
-		alert("开始2");
-	</script>
 	<script type="text/javascript" src="js/pushBox_index.js" ></script>
 	<script type="text/template" id="game-tpl">
 		{{each rows as row i }}
-		<li style="background: #ff0000;" data-pos="{{i }}" id="{{row.pos }}" >
+		<li data-pos="{{i }}" id="{{row.pos }}" >
 			<a href="javascript:void(0);" class="{{row.css }}">
 				<img  src="{{row.image }}" />
 			</a>
 		</li>
 		{{/each}}
-	</script>
-	<script>
-		alert("开始3");
 	</script>
 
 </html>

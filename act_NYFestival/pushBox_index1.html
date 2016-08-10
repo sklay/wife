@@ -155,14 +155,14 @@
 			<div class="gameMainCon">
 				<ul class="box">
 				</ul>
-				<div class="showOrigin">
+				<!--<div class="showOrigin">
 					<button class="showOriginBtn">查看原图</button>
-				</div>
+				</div>-->
 			</div>
 			<!--原图-->
-			<div class="game_origin">
+			<!--<div class="game_origin">
 				<img src="images/act_16seventhDay_game_oraginImg.jpg" />
-			</div>
+			</div>-->
 			
 			<!--挑战失败页-->
 			<div class="gameFailWrap comWrap1">
@@ -241,8 +241,8 @@
 
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
-	<li data-pos="{{i }}" id="{{row.pos }}" >
-		<a href="javascript:void(0);" class="{{row.css }}">
+	<li data-pos="{{i }}" id="{{row.pos }}" class="{{row.css }}">
+		<a href="javascript:void(0);" >
 			<img  src="{{row.image }}">
 		</a>
 	</li>

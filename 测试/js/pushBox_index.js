@@ -10,7 +10,7 @@ $(function() {
 				this.positions = [];
 
 				this.tag = 'li';
-				this.content = 'ul.box';
+				this.content = 'ul.game';
 				//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人 4:点；
 				this.tArray = [
 					["9", "9", "1", "1", "1", "9", "9", "9"],
@@ -74,7 +74,7 @@ $(function() {
 			onClickByIndex: function(i,j) {
 //		onClickByIndex:function(i,j){
 				if(tArray[i][j] == 1 || tArray[i][j] == 3 || tArray[i][j] == 9) {
-					//点的是强 或自己人物，或黑色区域
+					//点的是墙 或自己人物，或黑色区域
 					return; //什么也不操作
 				}
 				if(tArray[i][j] == 2) { //点击的是箱子

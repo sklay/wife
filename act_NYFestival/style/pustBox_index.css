@@ -319,26 +319,29 @@ body {
 	height: .8rem;
 	float: left;
 	list-style: none;
-	background: #fff;
+	/*background: #fff;*/
+	
 }
 
 .gameMainCon ul li a {
-	width: .75rem;
-	height: .75rem;
+	width: .8rem;
+	height: .8rem;
 	display: block;
 	margin: 0 auto;
 	text-decoration: none;
+	
 }
 .gameMainCon ul li a img{
 	width: 100%;
 	border: 0;
 }
 .freak {
-	background: #000018;
+	z-index: 1;
+	background:url(../images/box-8.png)no-repeat;
 }
 
 .normal {
-	 background: #63ecbd;
+	background:url(../images/box-5.png)no-repeat;
 }
 
 .showOrigin{
