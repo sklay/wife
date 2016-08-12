@@ -1,0 +1,18 @@
+/*
+    ����backtop
+*/
+
+.zy {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 23px;
+    height: 36px;
+    width: 36px;
+    background: rgba(0,0,0,0.8) url(../images/pdj_2_sprites.png) -268px -357px no-repeat;
+    background-size: 320px auto;
+    border: 1px solid #757575;
+    border-top: 1px solid #4b4b4b;
+    border-radius: 0 0 0 4px;
+}

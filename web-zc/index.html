@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width" name="viewport">
+		<!--不识别成电话号码-->
+		<meta name="format-detection" content="telephone=no">
+		<link href="images/icon.png" rel="shortcut icon bookmark">
+		<link href="css/common.css" rel="stylesheet">
+		<link href="css/swiper-3.3.1.min.css" rel="stylesheet">
+		<link href="css/app.css" rel="stylesheet">
+		<link href="css/footer.css" rel="stylesheet">
+		<link href="css/backtop.css" rel="stylesheet">
+		<title>智晨上门</title>
+		<script src="js/jquery-2.2.3.js"></script>
+		<script src="js/swiper-3.3.1.jquery.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/backtop.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+
+			<!--轮播图部分-->
+			<section>
+				<div class="search">
+					<a href="#">
+
+					</a>
+				</div>
+
+				<div class="swiper-container" id="swiper-container1">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"></div>
+						<div class="swiper-slide"></div>
+						<div class="swiper-slide"></div>
+						<div class="swiper-slide"></div>
+					</div>
+					<!--分页器部分-->
+					<div class="swiper-pagination">
+
+					</div>
+
+					<!--定位部分代码-->
+
+					<div class="l1">
+						<div class="li">
+							<i class="licon"></i>
+						</div>
+						<div class="lt">
+							<div class="d0 location">
+								<p>回龙观西大街</p>
+								<!--下尖头图标-->
+								<i class="cg"></i>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="ballNum4">
+					<a href="market.html?ball=market">
+						超市
+					</a>
+					<a href="market.html?ball=takeout">
+						外卖
+					</a>
+					<a href="market.html?ball=cake">
+						蛋糕
+					</a>
+					<a href="market.html?ball=service">
+						服务
+					</a>
+
+				</div>
+
+				<div class="swiper2">
+					<div class="swiper-container" id="swiper-container2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<img src="images/l21.jpg" />
+							</div>
+							<div class="swiper-pagination">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!--限时秒杀-->
+				<div class="shopkill clearfloat">
+					<ul>
+						<li class="sk">
+							<a href="buybuy.html">
+								<span class="sk1s">
+									<i></i>
+									限时秒杀
+								</span>
+								<b class="sktime">
+								<i>00</i>
+								:
+								<i>00</i>
+								:
+								<i>00</i>
+								:
+							</b>
+								<span class="sks">			
+					        </span>
+							</a>
+
+						</li>
+						<li class="sk">
+							<a href="priceDay.html">
+								<span class="sk1s">
+								<i class="xs"></i>
+								新鲜肉汁
+								</span>
+								<span class="tt">天天特价购</span>
+								<img class="skimg" src="images/shop4.png" />
+							</a>
+
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="nearshop">
+					<span>
+						
+						<i class="nsi"></i>
+						附近的商家
+					</span>
+
+				</div>
+
+				<ul class="shoplist"></ul>
+
+				<a class="zy" href="javascript:void 0;" style="bottom: 140px;"></a>
+
+				<footer class="k index">
+					<a class="index" href="index.html">首页</a>
+					<a class="homeCategorySearch" href="homeCategorySearch.html">分类</a>
+					<a class="cartList" href="cartList.html">购物车</a>
+					<a class="orderList" href="orderList.html">订单</a>
+					<a class="mine" href="mine.html">我的</a>
+				</footer>
+
+			</section>
+
+		</div>
+
+		<script>
+			var mySwiper1 = new Swiper('#swiper-container1', {
+				//设置分页器显示	，pagination默认值为null
+				pagination: '.swiper-pagination',
+				//一定时间自动轮播
+				autoplay: 2000,
+				//调整轮播速度。默认为300
+				speed: 1000,
+				//设置用户操作swiper之后，是否禁止autoplay。默认值ture:停止。如果设为false,用户操作之后自动切换不会停止
+				autoplayDisableOnInteraction: false,
+				//loop值为ture，设置循环轮播
+				loop: true,
+
+			})
+
+			var mySwiper2 = new Swiper('#swiper-container2', {
+					//设置分页器显示	，pagination默认值为null
+					pagination: '.swiper-pagination',
+					//loop值为ture，设置循环轮播
+					loop: true,
+
+				})
+				//设置第二个轮播图不自动轮播	
+			mySwiper2.params.autoplay = false;
+		</script>
+
+	</body>
+
+</html>
