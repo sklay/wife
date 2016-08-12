@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,width=device-width"
+          name="viewport">
+    <meta name="format-detection" content="telephone=no">
+    <link href="images/icon.png" rel="shortcut icon bookmark">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/swiper-3.3.1.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
+    <link href="css/backtop.css" rel="stylesheet">
+    <title>智晨上门</title>
+    <script src="js/jquery-2.2.3.js"></script>
+    <script src="js/swiper-3.3.1.jquery.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/backtop.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <section>
+        <div class="search">
+            <a href="#"></a>
+        </div>
+        <div class="swiper-container" id="swiper-container1">
+            <div class="swiper-wrapper" id="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img class="swper1img" src="">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swper1img" src="">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swper1img" src="">
+                </div>
+                <div class="swiper-slide">
+                    <img class="swper1img" src="">
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="l1">
+            <div class="li">
+                <i class="licon"></i>
+            </div>
+            <div class="lt">
+                <div class="d0 location">
+                    <p>回龙观西大街</p>
+                    <i class="cg"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="ballNum4">
+            <a href="market.html?ball=market">
+                <img src="images/ball1.png">
+                超市
+            </a>
+            <a href="market.html?ball=takeout">
+                <img src="images/ball2.png">
+                外卖
+            </a>
+            <a href="market.html?ball=cake">
+                <img src="images/ball3.png">
+                蛋糕
+            </a>
+            <a href="market.html?ball=service">
+                <img src="images/ball4.png">
+                服务
+            </a>
+        </div>
+
+        <div class="swiper2">
+            <div class="swiper-container" id="swiper-container2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/l21.jpg">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="shopkill clearfloat">
+            <ul>
+                <li class="sk">
+                    <a href="#">
+                        <span class="sk1s">
+                            <i></i>
+                            限时秒杀
+                        </span>
+                        <b class="sktime">
+                            <i>00</i>
+                            :
+                            <i>50</i>
+                            :
+                            <i>41</i>
+                        </b>
+                    </a>
+                    <span class="sks">
+                        <img src="">
+                        <img src="">
+                        <img src="">
+                    </span>
+                </li>
+                <li class="sk">
+                    <a href="#">
+                        <span class="sk1s">
+                            <i class="xs"></i>
+                            新鲜肉汁
+                        </span>
+                        <span class="tt">天天特价购</span>
+                        <img class="skimg" src="images/shop4.png">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="nearshop">
+            <span>
+                <i class="nsi"></i>
+                附近的商家
+            </span>
+        </div>
+
+        <ul class="shoplist">
+            <li class="shopli">
+                <div class="br">
+                    <img class="bl" src="">
+
+                    <div class="bm">
+                        <h2></h2>
+
+                        <div>
+                            <p class="bn">
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                                <i></i>
+                            </p>
+                        </div>
+                        <p class="cb"></p>
+                    </div>
+                    <div class="bs">
+                        <span class="d4"></span>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <a class="zy" href="javascript:void 0;" style="bottom: 140px;"></a>
+
+        <footer class="k index">
+            <a class="index" href="index.html">首页</a>
+            <a class="homeCategorySearch" href="homeCategorySearch.html">分类</a>
+            <a class="cartList" href="cartList.html">购物车</a>
+            <a class="orderList" href="orderList.html">订单</a>
+            <a class="mine" href="mine.html">我的</a>
+        </footer>
+
+    </section>
+
+</div>
+
+<script>
+
+    var mySwiper1 = new Swiper('#swiper-container1', {
+        pagination: '.swiper-pagination',
+        autoplay: 2000,
+        speed: 1000,
+        autoplayDisableOnInteraction: false,
+        loop: true,
+    })
+
+    var mySwiper2 = new Swiper('#swiper-container2', {
+//        pagination: '.swiper-pagination',
+        loop: true,
+        noSwiping: true
+    });
+    mySwiper2.params.autoplay = false;
+
+
+</script>
+
+</body>
+</html>

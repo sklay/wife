@@ -1,0 +1,70 @@
+.k {
+    position: fixed;
+    z-index: 801;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    border-top: 1px solid #d9d9d9;
+}
+
+.k a {
+    float: left;
+    vertical-align: top;
+    width: 20%;
+    font-size: 13px;
+    line-height: 17px;
+    text-align: center;
+    padding-top: 30px;
+    height: 20px;
+    background-image: url("../images/nav2.png");
+    background-repeat: no-repeat;
+    background-size: 22px 500px;
+}
+
+.k.index a.index {
+    background-position: center 0;
+    color: #39ac69;
+}
+
+.k.mine a.mine {
+    background-position: center -200px;
+    color: #39ac69;
+}
+
+.k.orderList a.orderList {
+    background-position: center -150px;
+    color: #39ac69;
+}
+
+.k.homeCategorySearch a.homeCategorySearch {
+    background-position: center -50px;
+    color: #39ac69;
+}
+
+.k.cartList a.cartList {
+    background-position: center -100px;
+    color: #39ac69;
+}
+
+.k a.index {
+    background-position: center -250px;
+}
+
+.k a.homeCategorySearch {
+    background-position: center -300px;
+}
+
+.k a.cartList {
+    background-position: center -350px;
+}
+
+.k a.orderList {
+    background-position: center -400px;
+}
+
+.k a.mine {
+    background-position: center -450px;
+}

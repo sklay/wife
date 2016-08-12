@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        ul li{
+            list-style: none;
+            margin:  20px auto;
+        }
+
+        a{
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+
+    </style>
+    <script src="jquery-2.2.3.js"></script>
+</head>
+<body>
+
+<ul>
+    <li>
+        <h3>暂无</h3>
+        <a href="#">暂无</a>
+        <a href="#">暂无</a>
+    </li>
+    <li>
+        <h3>暂无</h3>
+        <a href="#">暂无</a>
+        <a href="#">暂无</a>
+    </li>
+    <li>
+        <h3>暂无</h3>
+        <a href="#">暂无</a>
+        <a href="#">暂无</a>
+    </li>
+    <li>
+        <h3>暂无</h3>
+        <a href="#">暂无</a>
+        <a href="#">暂无</a>
+    </li>
+</ul>
+
+<script>
+
+
+    /*var xhr =null ;
+    //创建ajax对象
+    if(window.XMLHttpRequest){
+        xhr = new XMLHttpRequest();
+    }else if(window.ActiveXObject){
+        xhr = new ActiveXObject();
+    }
+
+    xhr.onreadystatechange = function(){  //onreadystatechange:当状态改变就会触发的一个回调函数
+        if(xhr.readyState == 4){ //0 1 2 3 4      4：请求完成
+            if(xhr.status == 200){       //200：成功
+                var data = xhr.responseText;
+                console.log(data);
+                viewAdapter(JSON.parse(data));// string  ->   转换成json
+                // eval('var a = 10;console.log(a)');
+            }
+        }
+
+    }
+
+    xhr.open("get","http://localhost/wynews.php?newid=1");
+    xhr.send();
+    //操作DOM来适配页面数据
+
+    var j = 0;
+    function viewAdapter(data){
+        var newstitle = document.getElementsByTagName("h3");//返回的是 []
+        for(var i = 0;i<data.newstitle.length;i++){  //最好按照数据源作为视图的导向 
+            if (newstitle.length > j) { //4  4          
+                if(data.newstitle[i]){
+                    newstitle[i].innerHTML = data.newstitle[i];
+                }else{
+                    newstitle[i].innerHTML = "您下手慢了";
+                }
+                var newscotent = document.getElementsByTagName("li")[i].children;//nth-child()
+                newscotent[1].innerHTML = data.content1[i];
+                newscotent[2].innerHTML = data.content2[i];
+            }else{
+                var li = document.createElement("li");
+                var h3 = document.createElement("h3");
+                li.appendChild(h3);
+                var a1 = document.createElement("a");
+                li.appendChild(a1);
+                var a2 = document.createElement("a");
+                li.appendChild(a2);
+                document.getElementsByTagName("ul")[0].appendChild(li);
+                if(data.newstitle[j]){
+                    h3.innerHTML = data.newstitle[j];
+                }else{
+                    newstitle[j].innerHTML = "您下手慢了";
+                }
+                a1.innerHTML = data.content1[j];
+                a2.innerHTML = data.content2[j];
+            }
+            j++; 
+        }
+      
+    }
+*/
+
+$(function(){
+    $.ajax({
+        type:"get",
+        url:"http://localhost:80/ajaxDemo/wynews.php",
+        data:{
+            newid:1
+        },
+        beforeSend:function(){
+            console.log("发送之前");
+        },
+        success:function(data,status,xhr){
+            console.log(data);
+            console.log(status);
+            console.log(xhr);
+            viewAdapter(JSON.parse(data));
+        },
+        error:function(xhr){
+
+        },
+        complete:function(){
+            console.log("请求完成");
+        }
+    })
+
+    var j = 0;
+    function viewAdapter(data){
+        var newstitle = document.getElementsByTagName("h3");//返回的是 []
+        for(var i = 0;i<data.newstitle.length;i++){  //最好按照数据源作为视图的导向 
+            if (newstitle.length > j) { //4  4          
+                if(data.newstitle[i]){
+                    newstitle[i].innerHTML = data.newstitle[i];
+                }else{
+                    newstitle[i].innerHTML = "您下手慢了";
+                }
+                var newscotent = document.getElementsByTagName("li")[i].children;//nth-child()
+                newscotent[1].innerHTML = data.content1[i];
+                newscotent[2].innerHTML = data.content2[i];
+            }else{
+                var li = document.createElement("li");
+                var h3 = document.createElement("h3");
+                li.appendChild(h3);
+                var a1 = document.createElement("a");
+                li.appendChild(a1);
+                var a2 = document.createElement("a");
+                li.appendChild(a2);
+                document.getElementsByTagName("ul")[0].appendChild(li);
+                if(data.newstitle[j]){
+                    h3.innerHTML = data.newstitle[j];
+                }else{
+                    newstitle[j].innerHTML = "您下手慢了";
+                }
+                a1.innerHTML = data.content1[j];
+                a2.innerHTML = data.content2[j];
+            }
+            j++; 
+        }
+      
+    }
+
+
+})
+
+
+
+
+</script>
+
+</body>
+</html>

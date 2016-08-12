@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+ <script src="../jquery-2.2.3.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	
+	$(function(){
+		
+		$.ajax({
+		type:"post",
+		url:"php/banner.php",
+		async:true,
+		ssuccess:function(data){
+		var imgs=data.bannerimg
+			
+			for(var i=0;i<data.length;i++){
+				
+				var container=$(".container");
+				console.debug(container);
+				var img=$("<img/>");
+				img.attr("src",data[i]);
+				img.appendTo($(".container"))
+				
+			}
+			
+			
+			
+		}
+	});
+		
+		
+	})
+	
+	
+	
+	
+		
+		
+		
+	</script>
+	</head>
+	
+	
+	<body>
+		
+		<div class="container"></div>
+	</body>
+</html>

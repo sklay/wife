@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="jquery-2.2.3.js" ></script>
+	<script type="text/javascript">
+	
+	$(function(){
+		
+		$.ajax({
+			type:"get",
+			url:"zhichenshop/banner.php",
+			async:true,
+			success:function(res){
+				var bannerimg=res.bannerimg;
+				var length=bannerimg.length;
+				for(var i=0;i<length;i++){
+					
+					var img=$("<img style='width: 400px;'/>");
+					img.attr("src",bannerimg[i]);
+					img.appendTo($(".container"))
+					
+				}
+				
+				
+				
+				
+				
+			}
+			
+			
+			
+			
+			
+			
+		});
+
+
+		
+		
+		
+		
+	})
+		
+		
+		
+		
+	</script>
+	<body>
+		
+		<div class="container"></div>
+	</body>
+</html>

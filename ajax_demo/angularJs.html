@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<title></title>
+		<link rel="stylesheet" href="bootstrap.css" />
+		<script src="angular-1.3.9.js"></script>
+		<script src="jquery-2.2.3.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div ng-app="myApp" ng-controller="studentController">
+			
+			<table class="for table table-condensed table-bordered" >
+				
+			</table>
+		<table ng-repeat="desc in fruit" class="table table-condensed table-bordered" style="text-align: center;">
+				<tr>
+					<td>{{desc.fruitdesc[0]}}</td>
+
+					<td>{{desc.fruitdesc[1]}}</td>
+
+					<td>{{desc.fruitdesc[2]}}</td>
+
+					<td>{{desc.fruitdesc[3]}}</td>
+
+					<td>{{desc.fruitdesc[4]}}</td>
+
+					<td>{{desc.fruitdesc[5]}}</td>
+
+				</tr>
+
+				<tr>
+					<td><img src="{{desc.fruitimg[0]}}" /></td>
+					<td><img src="{{desc.fruitimg[1]}}" /></td>
+					<td><img src="{{desc.fruitimg[2]}}" /></td>
+					<td><img src="{{desc.fruitimg[3]}}" /></td>
+					<td><img src="{{desc.fruitimg[4]}}" /></td>
+					<td><img src="{{desc.fruitimg[5]}}" /></td>
+
+				</tr>
+
+			</table>
+
+		</div>
+
+		<script type="text/javascript">
+			angular.module("myApp", [])
+				.controller("studentController", function($scope, $http) {
+
+					$http.get("http://localhost/ajaxDemo/zhichenshop/category.php?category=水果蔬菜")
+						.success(function(response) {
+
+							$scope.fruit = response;
+
+//							for(var i = 0; i < response.length; i++) {
+//								
+//								console.debug(i)
+//
+//								var tr = $("<tr></tr>");
+//								tr.appendTo($("table.for"));
+//								
+//								
+//
+//								for(var j = 0; j < response[i].fruitdesc.length; j++) {
+//
+//
+//									var desTd = $("<td></td>");
+//									desTd.html(response[i].fruitdesc[j]);
+//									desTd.appendTo(tr);
+//									var imgTd = $("<td></td>");
+//									var img = $("<img/>");
+//									img.attr("src", response[i].fruitimg[j]);
+//									img.appendTo(imgTd);
+//									imgTd.appendTo(tr);
+//
+//								}
+//
+//							}
+
+						})
+
+				})
+		</script>
+	</body>
+
+</html>

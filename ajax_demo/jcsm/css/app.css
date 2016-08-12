@@ -1,0 +1,958 @@
+/*
+    覆盖了swiper分页器
+*/
+.swiper-slide{
+    width: 100%;
+}
+
+.swiper-slide img{
+    width: 100%;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets{
+    text-align: right;
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 2px;
+}
+
+
+.swiper-pagination-bullet {
+    width: 3px;
+    height: 3px;
+    display: inline-block;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    background: transparent;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fff;
+}
+
+/*
+    覆盖了swiper分页器结束
+*/
+
+.search{
+    position: fixed;
+    right: 10px;
+    top: 5px;
+    background-color: rgba(199, 199, 199, 0.6);
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    z-index: 9999;
+}
+
+.search a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index_icon24.png) no-repeat;
+    background-size: 20px 390px;
+    background-position: 5px -55px;
+}
+
+/*
+    定位区域
+*/
+
+.l1{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    height: 45px;
+}
+
+.l1 .li{
+    display: block;
+    width: 60px;
+    height: 15px;
+    position: relative;
+    top: -15px;
+    z-index: 8;
+    background: url("//static-o2o.360buyimg.com/daojia/new/images/index/index_icon_301.png") 0px -65px / 60px 240px no-repeat;
+    background-position: 0px -65px;
+    margin: 0px auto -20px;
+}
+
+.l1 .li .licon{
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+    top: 5px;
+    position: relative;
+    background: url("//static-o2o.360buyimg.com/daojia/new/images/index/index_icon_301.png") -22px -93px / 60px 240px no-repeat;
+    background-position: -22px -93px;
+}
+
+.lt .d0 {
+    position: relative;
+    color: rgb(107, 104, 61);
+    margin-top: 20px;
+    background: rgba(199, 199, 199, 0.4);
+}
+
+.location {
+    max-width: 70%;
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    margin: 26px auto 0px;
+    background: rgba(40, 43, 40, 0.4);
+    border-radius: 23px;
+}
+
+.l1 .location p {
+    float: left;
+    max-width: 66%;
+    color: rgb(102, 102, 102);
+    padding: 0px 25px;
+}
+
+.l1 .cg {
+    float: left;
+    height: 30px;
+    width: 20px;
+    position: relative;
+    left: -15px;
+    background: url("//static-o2o.360buyimg.com/daojia/new/images/index/index_icon_301.png") -20px -120px / 60px 240px no-repeat;
+    background-position: -20px -120px;
+}
+
+/*
+    定位区域结束
+*/
+
+
+/*
+    导航区域
+*/
+
+.ballNum4{
+    min-height: 90px;
+    overflow-y: hidden;
+    text-align: center;
+    background: rgb(255, 255, 255);
+}
+
+.ballNum4 a {
+    float: left;
+    vertical-align: top;
+    font-size: 12px;
+    line-height: 20px;
+    color: rgb(102, 102, 102);
+    width: 25%;
+    height: 70px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 13px 0px 7px;
+    overflow: hidden;
+}
+
+.ballNum4 a img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    background-image: url("../images/index_ball_default_2.0.png");
+    background-size: 100%;
+    margin: 0px auto;
+}
+
+/*
+    第二个轮播区域
+*/
+
+.swiper2{
+    padding: 5px;
+}
+
+/*
+    商品列表区域
+*/
+
+.shopkill{
+    margin-top: 10px;
+}
+
+.shopkill .sk{
+    float: left;
+    width: 49.5%;
+    background-color: #fff;
+    height: 130px;
+}
+
+.sk:nth-child(1){
+    margin-right: 1%;
+}
+
+.sk1s i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index_icon24.png) no-repeat;
+    background-size: 20px 390px;
+    position: relative;
+    top: 5px;
+    background-position: 0px -271px;
+}
+
+.sk1s{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #ff546c;
+    font-size: 18px;
+}
+
+.sktime{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    position: relative;
+    height: 20px;
+    color: #000;
+    display: block;
+    margin-top: 5px;
+}
+
+.sktime i{
+    font-style: normal;
+    background-color: #575959;
+    border-radius: 5px;
+    color: #fff;
+    padding: 2px;
+    font-weight: normal;
+}
+
+.sks{
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.sks img{
+    position: absolute;
+    display: block;
+    width: 64px;
+    height: 64px;
+    left: 30%;
+    margin-top: 5px;
+}
+
+.sk1s i.xs{
+    background-position: 0px -210px;
+}
+
+.tt{
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #afb498;
+}
+
+.skimg{
+    width: 64px;
+    height: 64px;
+    margin-left: 30%;
+}
+
+.clearfloat{
+    clear: both;
+    overflow: hidden;
+}
+
+/*
+    商品列表区域结束
+*/
+
+/*
+     附近商家
+*/
+
+.nearshop{
+    font-size: 14px;
+    line-height: 25px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #70704e;
+    text-align: center;
+    position: relative;
+    margin: 10px auto;
+}
+
+.nearshop:before {
+    content: '';
+    height: 1px;
+    border-top: 1px solid #DEDEDE;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    left: 10%;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+}
+
+.nearshop span {
+    position: relative;
+    padding: 0 10px;
+    background-color: #F4F4F4;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    color: #666666;
+}
+
+.nsi{
+    display: inline-block;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index_shop_list.png) no-repeat;
+    width: 27px;
+    height: 25px;
+    background-position: 0px 0px;
+    background-size: 25px 60px;
+    vertical-align: top;
+    position: relative;
+}
+
+
+/*
+    商品list
+*/
+
+.shoplist{
+    margin: 0 5px;
+}
+
+.shoplist .shopli{
+    padding: 10px 10px 5px 10px;
+    min-height: 70px;
+    border: 1px solid #e7e9e4;
+    border-radius: 5px;
+    margin-top: 10px;
+    background: #fff;
+}
+
+.br {
+    position: relative;
+    font-size: 0;
+    min-height: 55px;
+    padding-bottom: 5px;
+}
+
+.bl {
+    float: left;
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    border: 1px solid #e8e8e8;
+    display: inline-block;
+}
+
+.bm {
+    font-size: 12px;
+    color: #666;
+    margin-left: 60px;
+}
+
+.bm h2 {
+    font-size: 16px;
+    line-height: 16px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 58%;
+    margin-top: 1px;
+}
+
+.bn {
+    font-size: 0;
+    height: 15px;
+    overflow: hidden;
+    margin: 2px 0 6px 0;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.bn i {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index.png) -1px 0px no-repeat;
+    background-size: 15px 200px;
+}
+
+.cb {
+    font-size: 11px;
+    line-height: 11px;
+    height: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #666666;
+}
+
+.bs {
+    width: 78px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 30px;
+    font-size: 0px;
+    text-align: right;
+}
+
+.d4 {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index_icon_301.png) no-repeat;
+    -webkit-background-size: 60px 240px;
+    background-size: 60px 240px;
+    background-position: -13px -174px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    margin-top: 13px;
+}
+
+
+/*
+    分类：搜索
+*/
+
+.u2 {
+    position: fixed;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 45px;
+    color: #555;
+    font-size: 17px;
+    text-align: center;
+    line-height: 44px;
+    background-color: #fff;
+    transform: translateZ(0);
+}
+
+.u8 {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    right: 8px;
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #e6e6e6;
+    height: 28px;
+    padding: 0 5px 0 20px;
+}
+
+.ub {
+    background-image: url("../images/search_bar_sprites.png");
+    background-size: 44px auto;
+    background-repeat: no-repeat;
+}
+.u9 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: -8px -8px;
+    width: 44px;
+    height: 44px;
+}
+
+.ud {
+    padding: 3px 0;
+    vertical-align: top;
+    outline: none;
+    background: transparent;
+    border: none;
+    font-family: "microsoft yahei",Verdana,Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    height: 28px;
+    width: 100%;
+    padding-left: 15px;
+}
+
+.a1x {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-position: -8px -140px;
+    width: 28px;
+    height: 28px;
+}
+
+/*
+   分类搜索结束
+*/
+
+/*
+    分类：leftMenu
+*/
+
+.uj {
+    position: fixed;
+    left: 0;
+    top: 45px;
+    bottom: 50px;
+    width: 90px;
+    z-index: 2;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background-color: #f8f8f8;
+}
+
+.ul {
+    height: 43px;
+    padding-left: 14px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #666666;
+    white-space: nowrap;
+    border-bottom: 1px solid #e8e8e8;
+    border-right: 1px solid #e8e8e8;
+    background-color: #f8f8f8;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.uj .um {
+    padding-left: 11px;
+    color: #47b34f;
+    background-color: #FFF;
+    border-left: 3px solid #47b34f;
+    border-right-color: #FFF;
+}
+
+/*
+
+    分类：leftMenu ending
+*/
+
+/*
+
+    分类：rightContent
+*/
+
+.hasSearch {
+    margin-top: 44px;
+}
+
+.uk {
+    padding-left: 95px;
+    padding-bottom: 50px;
+    background-color: #FFF;
+    -webkit-overflow-scrolling: touch;
+}
+
+.un {
+    padding-top: 9px;
+}
+
+.uo {
+    height: 19px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    margin-left: 7%;
+    line-height: 19px;
+    font-size: 13px;
+    color: #666666;
+}
+.uq {
+    font-size: 0;
+}
+
+.ur {
+    display: inline-block;
+    width: 33%;
+    min-height: 94px;
+    margin-top: 6px;
+}
+
+.us {
+    display: block;
+    width: 62px;
+    height: 62px;
+    margin: 0 auto;
+    background-image: url("../images/show_default.png");
+    background-size: 100%;
+    background-color: #f4f4f4;
+}
+
+.ut {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #7d7d7d;
+    padding: 8px 0;
+}
+
+
+/*
+    分类搜索：
+*/
+
+.u4 {
+    display: block;
+    position: absolute;
+    right: 0;
+    font-size: 14px;
+    width: 44px;
+    height: 44px;
+}
+
+.hasCancel {
+    right: 42px;
+}
+
+.ua {
+    position: absolute;
+    top: 44px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    overflow: auto;
+    background: #f4f4f4;
+    min-height: 400px;
+}
+
+.tu {
+    padding: 8px;
+    background-position: -8px -94px;
+    padding-left: 28px;
+    background-color: #f4f4f4;
+    color: #555;
+}
+
+.tv {
+    padding: 15px 0 0 10px;
+    background: #fff;
+    text-align: left;
+}
+
+.tv a {
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 10px;
+    width: 20%;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+    vertical-align: top;
+}
+
+.tw {
+    padding-bottom: 5px;
+    background-color: #f4f4f4;
+}
+
+.tx {
+    padding: 8px;
+    background-position: -8px -49px;
+    padding-left: 28px;
+    background-color: #f4f4f4;
+}
+
+.r::before {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid #e8e8e8;
+    position: absolute;
+    bottom: -1px;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+/*
+    分类aotu
+*/
+
+.tz li {
+    height: 40px;
+    line-height: 40px;
+    background: #fff;
+    position: relative;
+}
+
+.tz a {
+    display: block;
+    padding-left: 20px;
+    width: 85%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*
+    超市
+*/
+
+.mt{
+    width: 100%;
+}
+
+.mt img{
+    display: block;
+    width: 100%;
+}
+
+.y {
+    margin-top: 10px;
+}
+
+.a6 {
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    font-size: 0;
+}
+
+.a6.actcount6 li {
+    background-color: #fff;
+    width: 49.5%;
+    margin-left: 0;
+    font-size: 0;
+}
+
+.a6 li {
+    display: inline-block;
+    width: 49.5%;
+    height: 68px;
+    vertical-align: top;
+    position: relative;
+}
+
+.da::before {
+    height: 100%;
+    content: '';
+    width: 1px;
+    border-right: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+}
+
+.a6.actcount6 li.sequence0 a, .a6.actcount6 li.sequence2 a, .a6.actcount6 li.sequence4 a {
+    border-right: 2px solid #F3F6F4;
+}
+
+.a6.actcount6 li a {
+    border-bottom: 2px solid #F3F6F4;
+}
+
+.a6 li a {
+    display: block;
+    height: 100%;
+    position: relative;
+    padding-right: 70px;
+    line-height: 24px;
+    text-align: left;
+    z-index: 6;
+}
+
+.a6 li a em {
+    display: block;
+    color: #39ac69;
+    font-size: 15px;
+    padding-top: 21px;
+    padding-left: 10px;
+    line-height: 15px;
+    height: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.a6 li a span {
+    display: block;
+    font-size: 12px;
+    height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+.a6 li span {
+    color: #999;
+}
+
+.a6.actcount6 li a img {
+    top: 12px;
+    width: 50px;
+    height: 50px;
+}
+
+.a6 li a img {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    width: 55px;
+    height: 55px;
+}
+
+.u::after {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-top: 2px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+/*
+    超市：附近商家
+*/
+
+.cc {
+    font-size: 14px;
+    line-height: 25px;
+    height: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #70704e;
+    text-align: center;
+    position: relative;
+}
+
+.cc:before {
+    content: '';
+    height: 1px;
+    border-top: 1px solid #DEDEDE;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    left: 10%;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+}
+
+.cc span {
+    position: relative;
+    padding: 0 10px;
+    background-color: #F4F4F4;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    font-size: 15px;
+    color: #666666;
+}
+
+.cr {
+    display: inline-block;
+    background: url(//static-o2o.360buyimg.com/daojia/new/images/index/index_shop_list.png) no-repeat;
+    width: 27px;
+    height: 25px;
+    background-position: 0px 0px;
+    background-size: 25px 60px;
+    vertical-align: top;
+    position: relative;
+}
+
+/*
+    侧边栏导航
+*/
+
+.zp {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 60px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.8) url(//static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) -223px -357px no-repeat;
+    background-size: 320px auto;
+    border: 1px solid #757575;
+    border-radius: 4px 0 0 4px;
+}
+
+.zq {
+    display: none;
+    position: absolute;
+    right: -1px;
+    bottom: 42px;
+    width: 95px;
+    border: 1px solid #757575;
+    background: rgba(0,0,0,0.8);
+}
+
+.zq a {
+    display: block;
+    padding-left: 38px;
+    border-bottom: 1px solid #4b4b4b;
+    line-height: 35px;
+    height: 35px;
+    color: #fff;
+    background-image: url(//static-o2o.360buyimg.com/daojia/new/images/icon/bmenu.png);
+    background-repeat: no-repeat;
+    background-size: 16px 300px;
+}
+.zr {
+    background-position: 10px 0;
+}
+
+.zs {
+    background-position: 10px -50px;
+}
+
+.zt {
+    background-position: 10px -100px;
+}
+
+.zu {
+    background-position: 10px -150px;
+}
+
+.zv {
+    background-position: 10px -200px;
+}
+
+.zw {
+    background-position: 10px -250px;
+    border: none;
+}
+
+.zx {
+    position: absolute;
+    bottom: -12px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    z-index: 15;
+    border-width: 6px;
+    border-color: rgba(0,0,0,0.8) transparent transparent transparent;
+    border-style: solid;
+}
+
