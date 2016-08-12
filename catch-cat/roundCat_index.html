@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>围住神经猫</title>
+    <link rel="stylesheet" href="style/pustBox_index.css?v=000001" />
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<script type="text/javascript" src="js/html_common.js"></script>
+	<script src="js/zepto.min.js"></script>
+	<script src="js/touch.js"></script>
+	<script src="js/fx.js"></script>
+	<script src="js/fx_methods.js"></script>
+	<script type="text/javascript" src="js/utils.js" ></script>
+</head>
+<body>
+	<div class="gameMainCon">
+		<ul class="box">
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="js/artTemplate/template.js"></script>
+<script type="text/javascript" src="js/roundCat_index.js" ></script>
+<script type="text/template" id="game-tpl">
+	{{each rows as row i }}
+	<li data-pos="{{i }}" id="{{row.pos }}">
+		<a href="javascript:void(0);"  class="{{row.css }}">
+			<!--<img  src="{{row.image }}">-->
+		</a>
+	</li>
+	{{/each}}
+</script>
+</html>
