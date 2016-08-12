@@ -31,7 +31,6 @@ $(function() {
 				
 				
 
-//				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
 				//  九个格子的位置
 				this.positions = [];
 				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
@@ -44,7 +43,7 @@ $(function() {
 				this.content = 'ul.box';
 				this.lastIndex = this.blank;
 				//初始化 布局
-				this.createGrid();
+				this.creatMax();
 				if(this.timer)
 					clearInterval(this.timer);
 				this.timer = setInterval(function() {
@@ -55,76 +54,62 @@ $(function() {
 						clearInterval(speller.timer);
 
 						clickBoo = false;
-//						$(".gameFailWrap").fadeIn(500);
-
-//						if(playMusic) {
-//							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
-//							audio_music.pause();
-//						}
 					};
 					$("#gameCountDownTime").html(speller.useTime);
 
 				}, 1000);
 			},
 
+
 			// 调用模版  构建 初始化数据 
-			createGrid: function() {
-				for(var i = 0; i < 9; i++) {
-					for(var j = 0; j < 9; j++) {
-						console.log(i + "    " + j);
-						var m = this.tArray[i][j];
+			creatMax: function() {
+				
+				var dot_num = [];
+				for(var i = 0;i<81;i++){
+					dot_num.push(i);
+//					this.tArray.push(i);
+					var si= parseInt(i/9);
+					var sj= parseInt(i%9)
+					this.tArray[si][sj]=0;
+				}
+				var persion_count = 0;//小人弹出的次数
+				persion_count++;//次数
+//				if(persion_count%dot_num.length==1||persion_count%dot_num.length==3){//玩了一圈后，随机打乱位置
+					for(var i = 0 ;i< 7;i++){//这种算法叫做“洗牌算法”
+						//找到某个随机数
+						var index = Math.floor(Math.random()*(dot_num.length-i));
+						console.log('index-->'+index);
+						//交换
+						var t = dot_num[index];
+						dot_num[index] = dot_num[dot_num.length-1-i];
+						dot_num[dot_num.length-1-i] = t;
 						
-						console.log(m);
+						//t/9 表示行   9  表示列    t%9 表示列
+						 this.tArray [parseInt(t/9)][parseInt(t%9)]=1;
+					}
+//				}
+				for(var i = 0 ;i < 9; i++){
+					for(var j = 0 ;j<9; j++){
 						var posData = {};
-						posData.pos = i;
-						
-						//9：黑图，0：占位透明图，1：白墙，2：可移动的箱子，3：可移动的小人
-						if(m == 1) {
-							//白色墙面区域
+						posData.pos = "img"+(i*9+j);
+						if(this.tArray [i][j] == 0){
 							posData.css = "normal";
-						} else if(m == 2) {
-							//箱子的 位置
-							posData.css = "normal";
-						} else if(m == 3) {
-							//小人的位置
-							posData.css = "normal";
-						} 
-//						else if(m == 4) {
-//							posData.css = 'freak';
-//							posData.image = 'images/box-7.png';
-//						} 
-						else if(m == 9) {
-							//黑块区域
-							posData.css = "normal";
-						} else {
-							//占位透明图
-							posData.css = 'freak';
+						}else{
+							posData.css = "freak";
 						}
-						
-						
+//						if(i%2 == 0){
+//							css({marginLeft:".3rem"});
+//							$("li").style();
+//					    }
+						console.log("二维数组的值"+this.tArray [i][j])
 						this.positions.push(posData);
 					}
-
+					
 				}
 				var gridRows = template('game-tpl', {
 					'rows': this.positions || []
 				});
 				$(this.content).html(gridRows);
-
-					//设置 li的 偶数行的 样式
-//				var num  = [] ;
-//				$('li').each(function(index,n){
-//					var num = $(n).attr("data-pos");
-//					$("li:eq(index)").attr("data-url")
-//					num.push(n);
-//					
-//					if(num = 9 || num == 27 || num == 45 || num == 63){
-//						$(n).css({marginLeft:".3rem"});
-//					}else{
-//						return;
-//					}
-//					
-//				})
 				
 				$(this.content + ' li').on('tap', function() {
 
@@ -133,8 +118,87 @@ $(function() {
 					//					alert(pos);
 					speller.onClickByIndex(parseInt(pos / 8), pos % 8);
 				});
-
+				FormData
+				/*设置li样式   让 基数行 或者偶数 行  向右   偏移 半个元素的宽度      超出  行的部分  隐藏 但是  不改变数组的 元素*/
+				for(var i = 0 ;i < 81; i++){
+					for(var j = 0 ;j<9; j++){
+						if(i%2==0&&j==0){
+							$("#img"+(i*9+j)).css({marginLeft:".35rem"});
+						}else if(i%2==0&&j==8){
+							$("#img"+(i*9+j)).css({display:"none"});
+						}
+					}
+				}
+				
 			},
+
+
+
+//
+//			// 调用模版  构建 初始化数据 
+//			createGrid: function() {
+//				for(var i = 0; i < 9; i++) {
+//					for(var j = 0; j < 9; j++) {
+//						console.log(i + "    " + j);
+//						var m = this.tArray[i][j];
+//						
+//						console.log(m);
+//						var posData = {};
+//						posData.pos = i;
+//						
+//						//9：黑图，0：占位透明图，1：白墙，2：可移动的箱子，3：可移动的小人
+//						if(m == 1) {
+//							//白色墙面区域
+//							posData.css = "normal";
+//						} else if(m == 2) {
+//							//箱子的 位置
+//							posData.css = "normal";
+//						} else if(m == 3) {
+//							//小人的位置
+//							posData.css = "normal";
+//						} 
+//						else if(m == 9) {
+//							//黑块区域
+//							posData.css = "normal";
+//						} else {
+//							//占位透明图
+//							posData.css = 'freak';
+//						}
+//						
+//						
+//						this.positions.push(posData);
+//					}
+//
+//				}
+//				var gridRows = template('game-tpl', {
+//					'rows': this.positions || []
+//				});
+//				$(this.content).html(gridRows);
+//
+//					//设置 li的 偶数行的 样式
+////				var num  = [] ;
+////				$('li').each(function(index,n){
+////					var num = $(n).attr("data-pos");
+////					$("li:eq(index)").attr("data-url")
+////					num.push(n);
+////					
+////					if(num = 9 || num == 27 || num == 45 || num == 63){
+////						$(n).css({marginLeft:".3rem"});
+////					}else{
+////						return;
+////					}
+////					
+////				})
+//				
+//				$(this.content + ' li').on('tap', function() {
+//
+//					//从0到63 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
+//					var pos = $(this).attr('data-pos') * 1;
+//					//					alert(pos);
+//					speller.onClickByIndex(parseInt(pos / 8), pos % 8);
+//				});
+//
+//			},
 
 			//点击游戏小图片时，传入相应位置。例，4，5
 			onClickByIndex: function(i, j) {
