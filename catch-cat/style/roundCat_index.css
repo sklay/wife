@@ -299,32 +299,31 @@ body {
 
 
 .gameMainCon{
-	width: 6.4rem;
+	width: 6.3rem;
 	height: 6.4rem;
 	/*background:url(../images/box-5.png)repeat;*/
-	
 	margin: 1.3rem auto;
 }
 
 .gameMainCon ul {
-    box-sizing: border-box;
-	padding:.08rem .05rem;
+    /*box-sizing: border-box;
+	padding:.08rem .05rem;*/
     height: 6.4rem;
     /*box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);*/
     overflow: hidden;
 }
 		
 .gameMainCon ul li {
-	width: .7rem;
-	height: .7rem;
+	width: .65rem;
+	height: .65rem;
 	float: left;
 	list-style: none;
 	/*background: #ccc;*/
 }
 
 .gameMainCon ul li a {
-	width: .65rem;
-	height: .65rem;
+	width: .6rem;
+	height: .6rem;
 	display: block;
 	margin: 0 auto;
 	text-decoration: none;

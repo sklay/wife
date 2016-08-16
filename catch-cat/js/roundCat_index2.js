@@ -123,14 +123,18 @@ $(function() {
 					//当前点击的  点
 					var curi = parseInt(pos / 9);
 					var curj = pos % 9;
-					if(speller.tArray[curi][curj] != 2){
-						 $(this).find("a").css("background","#4E6F9F");
+					//如果不是0 的  不可以走
+					if(speller.tArray[curi][curj] != 0){
+						return;
 					}
-					speller.onClickByIndex(speller.people_x, speller.people_y);
-					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
-				        alert("游戏结束");
-				        return;
-				    }
+					//把当前点击的 位置变成障碍物
+					$(this).find("a").css("background","#4E6F9F");
+					speller.tArray[curi][curj] = 2;
+					speller.onClickByIndex(curi,curi);
+//					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
+//				        alert("游戏结束");
+//				        return;
+//				    }
 				});
 				
 				 
@@ -158,63 +162,29 @@ $(function() {
 
 				//点击时  猫移动  并传入猫的 坐标
 			onClickByIndex: function(i, j) {
+				
 				//点的障碍物区
 //				if(this.tArray[i][j] == 1) {
 //					return; //什么也不操作
 //				}
 				//点击的是空白处 
 //				if(this.tArray[i][j] == 0) {
-					// 猫移动 的六个  方向  1 left  2 left up   3  right up   4 right  5  right down 6  left  down
+					// -1:游戏胜利，-2：游戏失败，其他数：交换
 					var index = this.getMoveCat(this.people_x, this.people_y);
+					
 					console.log("点击时index是    "+index);
-//					if(index == 0) { //不能移动
-//						return; //什么也不操作
-//					}
-					if(index == 1) {
-						// left
-//						alert(i -1);
-						this.changeImgAndData(i -1 , j, i, j); //交换
-						
-					} else if(index == 2) {
-						//left up 
-						if(j%2 == 0){
-							this.changeImgAndData(i,j-1,i,j); //交换
-						}else{
-							this.changeImgAndData(i-1,j-1,i,j); //交换
-						}
-						
-					} else if(index == 3) {
-						if(j%2 == 0){
-							this.changeImgAndData(i+1,j-1,i,j); //交换
-						}else{
-							this.changeImgAndData(i,j-1,i,j); //交换
-						}
-					} else if(index == 4) {
-						//right 
-						this.changeImgAndData(i + 1 , j, i, j); //交换
-					}else if(index == 5) {
-						//right down
-						if(j%2 == 0){
-							this.changeImgAndData(i+1,j+1,i,j); //交换
-						}else{
-							this.changeImgAndData(i,j+1,i,j); //交换
-						}
-					} else if(index == 6) {
-						//left down
-						if(j%2 == 0){
-							this.changeImgAndData(i,j+1,i,j); //交换
-						}else{
-							this.changeImgAndData(i-1,j+1,i,j); //交换
-						}
+					if(index == -2) { //不能移动
+						alert("游戏失败");
+					}else if(index == -1){
+						alert("赢了");
 					}else{
-						alert("结束了");
+						this.changeImgAndData(parseInt(index/9),index%9, this.people_x, this.people_y); //交换
 					}
-					/*猫向  哪个方向移动*/
-					this.changeImgAndData(i, j, this.people_x, this.people_y);
+
 					/*设置人的当前位置*/
-					this.people_x = i;
-					this.people_y = j;
-					this.isGameOver(); //游戏是否结束
+					this.people_x = parseInt(index/9);
+					this.people_y = index%9;
+//					this.isGameOver(); //游戏是否结束
 //				} 
 			},
 
@@ -240,21 +210,15 @@ $(function() {
 				/*2、交换数据*/
 //				alert(i1+","+j1);
 				var t = this.tArray[i1][j1];
-				if(this.tArray[i1][j1] == 0){
-					this.tArray[i1][j1] = this.tArray[i2][j2];
-				}
-				
+				this.tArray[i1][j1] = this.tArray[i2][j2];
 				this.tArray[i2][j2] = t;
 			},
 
 			//箱子可移动的 方法   
 			//0表示不能移动，1左，2上，3下，4右。
 			getMoveCat: function(i, j) {
- 
-				
 				/*2、判断奇数偶数决定两个可不可以走*/
 			    //不要的变量i,j位置1
-			    var wz_1 = (i%2==0?);
 			    //不要的变量i,j位置2
 			    var shu_arr_9 = [];//能走的位置
 			    for(var k_1=i-1;k_1<=i+1;k_1++){
@@ -262,9 +226,9 @@ $(function() {
 			    		if(k_1==i&&k_2==j){//中间位置不要
 							continue;			    			
 			    		}
-			    		//位置超出边界不要
+			    		//位置超出边界不要  输了
 			    		if(k_1<0||k_1>8||k_2<0||k_2>8){
-							 continue;
+			    			return -2;
 						}
 			    		//有两个不可能
 			    		if(i%2==0){
@@ -280,154 +244,19 @@ $(function() {
 			    				continue;	
 			    			}
 			    		}
+			    		//如果是障碍物  也不添加到 可能 移动的 随机的数里去
+			    		if(this.tArray[k_1][k_2] != 0){
+			    			continue;
+			    		}
 			    		shu_arr_9.push(k_1*9+k_2);
 			    	}
 			    }
-			    /*3、得到一个可以走的数组，随机取出一个数*/
+			    /*3、得到一个可以走的数组，随机取出一个数   胜利了*/
 			    if(shu_arr_9.length==0){
 			    	return -1;
 			    }
 			    var index_shu_arr = parseInt(shu_arr_9.length *Math.random());
 			    return shu_arr_9[index_shu_arr];
-			    
-			    
-				//记录下当前点击的点    最后 围住 时  判断  该条路线上 是否还有可移动的 位置
-				var  distanceMap = [];
-				console.log("distanceMap   "+distanceMap);
-				//left
-				var can = true ;
-				for(var y = this.people_y; y>= 0 ;y--){
-					//如果左边障碍物  就不往左边移动
-					if(this.tArray[this.people_x][j] == 1){
-						can = false; 
-//						distanceMap [1] = this.people_x - i;
-						distanceMap.push(this.people_y - j);
-						break;
-					}
-				}
-				if(can){
-						return 1;
-					}
-				//left up
-				var can = true ;
-				var x = this.people_x , y = this.people_y;
-				while(true){
-					if(this.tArray[x][y] == 1){
-						can = false; 
-//						distanceMap [2] = this.people_y - y;
-						distanceMap.push(this.people_y - y);
-						break;
-					}
-					//当往左上移动的时候    横坐标不变    纵坐标在   -1
-					if(y%2 == 1){
-						y--;
-					}
-					x--;
-					//判断 当前的  左边的  边界
-					if(x < 0 || y < 0){
-						break;
-					}
-				}
-				if(can){
-						return 2;
-					}
-				
-				//right up 
-				var can = true ;
-				var x = this.people_x , y = this.people_y;
-				while(true){
-					if(this.tArray[x][y] == 1){
-						can = false; 
-//						distanceMap [3] = this.people_y - y;
-						distanceMap.push(this.people_y - y);
-						break;
-					}
-					//当往右上移动的时候    横坐标不变    纵坐标在   -1
-					if(y%2 == 0){
-						y++;
-					}
-					x--;
-					//判断 当前的  左边的  边界
-					if(x > 8 || y < 0){
-						break;
-					}
-				}
-				if(can){
-						return 3;
-					}
-				
-				//right
-				var can = true ;
-				for(var j = this.people_y; j < 9 ;j++){
-					//如果左边障碍物  就不往左边移动
-					if(this.tArray[i][j] == 1){
-						can = false; 
-//						distanceMap [4] = i - this.people_x;
-						distanceMap.push(j - this.people_y);
-						break;
-					}
-				}
-				if(can){
-						return 4;
-					}
-				
-				//right down 
-				var can = true ;
-				var x = this.people_x , y = this.people_y;
-				while(true){
-					if(this.tArray[x][y] == 1){
-						can = false; 
-//						distanceMap [5] = y - this.people_y;
-						distanceMap.push(y - this.people_y);
-						break;
-					}
-					//当往左上移动的时候    横坐标不变    纵坐标在   -1
-					if(y%2 == 1){
-			            y--;
-			        }
-			        x--;
-			        if(y>8 ||x>8){
-			            break;
-			        }
-				}
-				if(can){
-						return 5;
-					}
-				//left down 
-				var can = true ;
-				var x = this.people_x , y = this.people_y;
-				while(true){
-					if(this.tArray[x][y] == 1){
-						can = false; 
-//						distanceMap [6] = y - this.people_y;
-						distanceMap.push(y - this.people_y);
-						break;
-					}
-					//当往左上移动的时候    横坐标不变    纵坐标在   -1
-					 if(y%2==0){
-			            y--;
-			        }
-			        x++;
-			        if(y>8||x<0){
-			            break;
-			        }
-				}
-				if(can){
-						return 6;
-					}
-				//
-				var maxDir = -1,maxValue= -1;
-			    for(var dir = 0;dir <distanceMap.length;dir++){
-			        if(distanceMap[dir]>maxValue){
-			            maxValue = distanceMap[dir];
-			            maxDir = dir;
-			        }
-			    }
-			    if(maxValue>1){
-			        return maxDir;
-			    }else{
-			        return 0;
-			    }
 			},
 
 			isGameOver: function() {
