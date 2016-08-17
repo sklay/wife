@@ -11,17 +11,43 @@ $(function() {
 				//二维数组
 				this.tArray = [[],[],[],[],[],[],[],[],[]];
 
+				//判断是否胜利点的坐标数组
+				this.mArray = [
+					[4, 1],
+					[1, 3],
+					[3, 6],
+					[6, 4],
+				];
+				
+				
+
 				//  九个格子的位置
 				this.positions = [];
 				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
+//				this.hard = n || 5;
 
-				this.step = 0;  //记录 移动的步 数
+				//				this.step = 0;  记录 移动的步 数
 				this.blank = 8;
+				this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
 				this.lastIndex = this.blank;
 				//初始化 布局
 				this.creatMax();
+				if(this.timer)
+					clearInterval(this.timer);
+				this.timer = setInterval(function() {
+					speller.useTime--; /* 累加时间并格式化显示 */
+
+					if(speller.useTime < 1) {
+						console.debug("clear")
+						clearInterval(speller.timer);
+
+						clickBoo = false;
+					};
+					$("#gameCountDownTime").html(speller.useTime);
+
+				}, 1000);
 			},
 
 
@@ -43,6 +69,9 @@ $(function() {
 				}
 				
 				
+//				var persion_count = 0;//小人弹出的次数
+//				persion_count++;//次数
+//				if(persion_count%dot_num.length==1||persion_count%dot_num.length==3){//玩了一圈后，随机打乱位置
 					for(var i = 0 ;i< 7;i++){//这种算法叫做“洗牌算法”
 						//找到某个随机数 作为下标
 						var index = Math.floor(Math.random()*(dot_num.length-i));
@@ -58,8 +87,9 @@ $(function() {
 						dot_num[dot_num.length-1-i] = t;
 						
 						//t/9 表示行   9  表示列    t%9 表示列  最后找到的  7的  数    ，把这七个 坐标中的 值 改为1
-						 this.tArray [parseInt(t/9)][t%9] = 1;
+						 this.tArray [parseInt(t/9)][t%9]=1;
 					}
+//				}
 
 				//按9* 9  排列  
 				for(var i = 0 ;i < 9; i++){
@@ -87,32 +117,34 @@ $(function() {
 				$(this.content).html(gridRows);
 				
 				$(this.content + ' li').on('tap', function() {
+
 					//从0到81 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
 					var pos = $(this).attr('data-pos') * 1;
 					//当前点击的  点
 					var curi = parseInt(pos / 9);
 					var curj = pos % 9;
-					//当前点击的坐标数据不是1  表示 不是是障碍物或者 猫 
-					if(speller.tArray[curi][curj] != 0){
-						return;
+					if(speller.tArray[curi][curj] != 2){
+						 $(this).find("a").css("background","#4E6F9F");
 					}
-					//改变 点击的颜色
-					$(this).find("a").css("background","#4E6F9F");
-					//并且改变里面的数据
-					speller.tArray[curi][curj] = 2;
-					
-//					if(speller.tArray[curi][curj] != 2){
-//						 $(this).find("a").css("background","#4E6F9F");
-//					}
-					speller.onClickByIndex();
-					
-//					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
-//				        alert("游戏结束");
-//				        return;
-//				    }
+					speller.onClickByIndex(speller.people_x, speller.people_y);
+					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
+				        alert("游戏结束");
+				        return;
+				    }
 				});
 				
 				 
+				/*设置li样式   让 基数行 或者偶数 行  向右   偏移 半个元素的宽度      超出  行的部分  隐藏 但是  不改变数组的 元素*/
+//				for(var i = 0 ;i < 81; i++){
+//					for(var j = 0 ;j<9; j++){
+//						if(i%2==0 && j==0){
+//							$("#img"+(i*9+j)).css({marginLeft:".35rem"});
+//						}
+//						else if(i%2==0 && j==8){
+//							$("#img"+(i*9+j)).css({display:"none"});
+//						}
+//					}
+//				}
 				for(var i = 0 ;i < 9; i++){
 					for(var j = 0 ;j<9; j++){
             			  //表示偶数行
@@ -124,77 +156,66 @@ $(function() {
 			},
 
 
-			onClickByIndex: function() {
-				
+				//点击时  猫移动  并传入猫的 坐标
+			onClickByIndex: function(i, j) {
+				//点的障碍物区
+//				if(this.tArray[i][j] == 1) {
+//					return; //什么也不操作
+//				}
 				//点击的是空白处 
+//				if(this.tArray[i][j] == 0) {
 					// 猫移动 的六个  方向  1 left  2 left up   3  right up   4 right  5  right down 6  left  down
 					var index = this.getMoveCat(this.people_x, this.people_y);
 					console.log("点击时index是    "+index);
-//					
+//					if(index == 0) { //不能移动
+//						return; //什么也不操作
+//					}
 					if(index == 1) {
 						// left
 //						alert(i -1);
-						this.changeImgAndData(this.people_x,this.people_y - 1,this.people_x, this.people_y); //交换
-//						this.people_x = this.people_x;
-//						this.people_y = this.people_y - 1;
+						this.changeImgAndData(i -1 , j, i, j); //交换
+						
 					} else if(index == 2) {
 						//left up 
 						if(j%2 == 0){
-							this.changeImgAndData(this.people_x - 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(i,j-1,i,j); //交换
 						}else{
-							this.changeImgAndData(this.people_x - 1,this.people_y - 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(i-1,j-1,i,j); //交换
 						}
 						
 					} else if(index == 3) {
 						if(j%2 == 0){
-							this.changeImgAndData(this.people_x - 1,this.people_y + 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y + 1;
+							this.changeImgAndData(i+1,j-1,i,j); //交换
 						}else{
-							this.changeImgAndData(this.people_x - 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(i,j-1,i,j); //交换
 						}
 					} else if(index == 4) {
 						//right 
-						this.changeImgAndData(this.people_x,this.people_y + 1,this.people_x, this.people_y); //交换
-//						this.people_x = this.people_x;
-//						this.people_y = this.people_y + 1;
+						this.changeImgAndData(i + 1 , j, i, j); //交换
 					}else if(index == 5) {
 						//right down
 						if(j%2 == 0){
-							this.changeImgAndData(this.people_x + 1,this.people_y + 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y + 1;
+							this.changeImgAndData(i+1,j+1,i,j); //交换
 						}else{
-							this.changeImgAndData(this.people_x + 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(i,j+1,i,j); //交换
 						}
 					} else if(index == 6) {
 						//left down
 						if(j%2 == 0){
-							this.changeImgAndData(this.people_x + 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(i,j+1,i,j); //交换
 						}else{
-							this.changeImgAndData(this.people_x + 1,this.people_y - 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y - 1;
+							this.changeImgAndData(i-1,j+1,i,j); //交换
 						}
 					}else{
 						alert("结束了");
 					}
-//					/*猫向  哪个方向移动*/
-//					this.changeImgAndData(i, j, this.people_x, this.people_y);
+					/*猫向  哪个方向移动*/
+					this.changeImgAndData(i, j, this.people_x, this.people_y);
 					/*设置人的当前位置*/
-//					this.people_x = i;
-//					this.people_y = j;
+					this.people_x = i;
+					this.people_y = j;
 					this.isGameOver(); //游戏是否结束
+//				} 
 			},
 
 			//根据下标交换图片与数据
@@ -229,17 +250,19 @@ $(function() {
 			//箱子可移动的 方法   
 			//0表示不能移动，1左，2上，3下，4右。
 			getMoveCat: function(i, j) {
-				//记录下不能移动的点    最后 围住 时  判断  该条路线上 是否还有可移动的 位置
+ 
+			    
+				//记录下当前点击的点    最后 围住 时  判断  该条路线上 是否还有可移动的 位置
 				var  distanceMap = [];
 				console.log("distanceMap   "+distanceMap);
 				//left
 				var can = true ;
 				for(var y = this.people_y; y>= 0 ;y--){
 					//如果左边障碍物  就不往左边移动
-					if(this.tArray[this.people_x][y] == 1){
+					if(this.tArray[this.people_x][j] == 1){
 						can = false; 
 //						distanceMap [1] = this.people_x - i;
-						distanceMap.push(this.people_y - y);
+						distanceMap.push(this.people_y - j);
 						break;
 					}
 				}
@@ -296,12 +319,12 @@ $(function() {
 				
 				//right
 				var can = true ;
-				for(var y = this.people_y; y < 9 ;y++){
+				for(var j = this.people_y; j < 9 ;j++){
 					//如果左边障碍物  就不往左边移动
-					if(this.tArray[this.people_x][y] == 1){
+					if(this.tArray[i][j] == 1){
 						can = false; 
 //						distanceMap [4] = i - this.people_x;
-						distanceMap.push(y - this.people_y);
+						distanceMap.push(j - this.people_y);
 						break;
 					}
 				}
@@ -353,18 +376,19 @@ $(function() {
 				if(can){
 						return 6;
 					}
-//				var maxDir = -1,maxValue= -1;
-//			    for(var dir = 0;dir <distanceMap.length;dir++){
-//			        if(distanceMap[dir]>maxValue){
-//			            maxValue = distanceMap[dir];
-//			            maxDir = dir;
-//			        }
-//			    }
-//			    if(maxValue>1){
-//			        return maxDir;
-//			    }else{
-//			        return 0;
-//			    }
+				//
+				var maxDir = -1,maxValue= -1;
+			    for(var dir = 0;dir <distanceMap.length;dir++){
+			        if(distanceMap[dir]>maxValue){
+			            maxValue = distanceMap[dir];
+			            maxDir = dir;
+			        }
+			    }
+			    if(maxValue>1){
+			        return maxDir;
+			    }else{
+			        return 0;
+			    }
 			},
 
 			isGameOver: function() {

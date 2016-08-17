@@ -11,54 +11,39 @@ $(function() {
 				//二维数组
 				this.tArray = [[],[],[],[],[],[],[],[],[]];
 
-				//判断是否胜利点的坐标数组
-				this.mArray = [
-					[4, 1],
-					[1, 3],
-					[3, 6],
-					[6, 4],
-				];
-				
-				
-
 				//  九个格子的位置
 				this.positions = [];
-				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
-//				this.hard = n || 5;
 
-				//				this.step = 0;  记录 移动的步 数
+				this.step = 0;  //记录 移动的步 数
 				this.blank = 8;
-				this.useTime = 180;
+//				this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
 				this.lastIndex = this.blank;
 				//初始化 布局
 				this.creatMax();
-				if(this.timer)
-					clearInterval(this.timer);
-				this.timer = setInterval(function() {
-					speller.useTime--; /* 累加时间并格式化显示 */
-
-					if(speller.useTime < 1) {
-						console.debug("clear")
-						clearInterval(speller.timer);
-
-						clickBoo = false;
-					};
-					$("#gameCountDownTime").html(speller.useTime);
-
-				}, 1000);
+//				if(this.timer)
+//					clearInterval(this.timer);
+//				this.timer = setInterval(function() {
+//					speller.useTime--; /* 累加时间并格式化显示 */
+//
+//					if(speller.useTime < 1) {
+//						console.debug("clear")
+//						clearInterval(speller.timer);
+//
+//						clickBoo = false;
+//					};
+//					$("#gameCountDownTime").html(speller.useTime);
+//
+//				}, 1000);
 			},
 
 
 			// 调用模版  构建 初始化数据 
 			creatMax: function() {
-				
 				var dot_num = [];
 				for(var i = 0;i<81;i++){
-					
 					dot_num.push(i);
-					
 					//   i/9  和行 取商  表示横坐标
 					var si= parseInt(i/9);
 					// i%9  和 列 取余  表示纵坐标
@@ -69,9 +54,6 @@ $(function() {
 				}
 				
 				
-//				var persion_count = 0;//小人弹出的次数
-//				persion_count++;//次数
-//				if(persion_count%dot_num.length==1||persion_count%dot_num.length==3){//玩了一圈后，随机打乱位置
 					for(var i = 0 ;i< 7;i++){//这种算法叫做“洗牌算法”
 						//找到某个随机数 作为下标
 						var index = Math.floor(Math.random()*(dot_num.length-i));
@@ -89,7 +71,6 @@ $(function() {
 						//t/9 表示行   9  表示列    t%9 表示列  最后找到的  7的  数    ，把这七个 坐标中的 值 改为1
 						 this.tArray [parseInt(t/9)][t%9]=1;
 					}
-//				}
 
 				//按9* 9  排列  
 				for(var i = 0 ;i < 9; i++){
@@ -100,6 +81,7 @@ $(function() {
 							posData.css = "normal";
 						}else if(this.tArray [i][j] == 2){
 							posData.css = "styleCat";
+//							posData.image = 'images/rabbit_cry.GIF';
 						}
 						else {
 							posData.css = "freak";
@@ -117,7 +99,7 @@ $(function() {
 				$(this.content).html(gridRows);
 				
 				$(this.content + ' li').on('tap', function() {
-
+				
 					//从0到81 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
 					var pos = $(this).attr('data-pos') * 1;
 					//当前点击的  点
@@ -129,26 +111,12 @@ $(function() {
 					}
 					//把当前点击的 位置变成障碍物
 					$(this).find("a").css("background","#4E6F9F");
+					//并且改变里面的数据
 					speller.tArray[curi][curj] = 2;
-					speller.onClickByIndex(curi,curi);
-//					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
-//				        alert("游戏结束");
-//				        return;
-//				    }
+//					speller.onClickByIndex(curi,curi);
+					speller.onClickByIndex();
 				});
-				
-				 
-				/*设置li样式   让 基数行 或者偶数 行  向右   偏移 半个元素的宽度      超出  行的部分  隐藏 但是  不改变数组的 元素*/
-//				for(var i = 0 ;i < 81; i++){
-//					for(var j = 0 ;j<9; j++){
-//						if(i%2==0 && j==0){
-//							$("#img"+(i*9+j)).css({marginLeft:".35rem"});
-//						}
-//						else if(i%2==0 && j==8){
-//							$("#img"+(i*9+j)).css({display:"none"});
-//						}
-//					}
-//				}
+			
 				for(var i = 0 ;i < 9; i++){
 					for(var j = 0 ;j<9; j++){
             			  //表示偶数行
@@ -158,34 +126,31 @@ $(function() {
 					}
 				}
 			},
-
-
-				//点击时  猫移动  并传入猫的 坐标
-			onClickByIndex: function(i, j) {
-				
-				//点的障碍物区
-//				if(this.tArray[i][j] == 1) {
-//					return; //什么也不操作
-//				}
-				//点击的是空白处 
-//				if(this.tArray[i][j] == 0) {
+			
+//			onClickByIndex: function() {
+				//猫 走的 路线
+				onClickByIndex: function() {
 					// -1:游戏胜利，-2：游戏失败，其他数：交换
+					//index 即是返回的  猫  能走货不能走的 数
 					var index = this.getMoveCat(this.people_x, this.people_y);
 					
 					console.log("点击时index是    "+index);
 					if(index == -2) { //不能移动
-						alert("游戏失败");
+						alert("猫跑了，游戏失败");
+						$(speller.content + ' li').unbind("tap"); 
 					}else if(index == -1){
-						alert("赢了");
+						alert("赢了，"+"你用了"+(this.step+1)+"步。");
+						$(speller.content + ' li').unbind("tap"); 
 					}else{
+						//能交换的数 的坐标 和 猫的位置交换
 						this.changeImgAndData(parseInt(index/9),index%9, this.people_x, this.people_y); //交换
 					}
 
-					/*设置人的当前位置*/
+					/*设置猫的当前位置*/
 					this.people_x = parseInt(index/9);
 					this.people_y = index%9;
-//					this.isGameOver(); //游戏是否结束
-//				} 
+					//统计步数
+					this.step++;
 			},
 
 			//根据下标交换图片与数据
@@ -213,9 +178,7 @@ $(function() {
 				this.tArray[i1][j1] = this.tArray[i2][j2];
 				this.tArray[i2][j2] = t;
 			},
-
-			//箱子可移动的 方法   
-			//0表示不能移动，1左，2上，3下，4右。
+			//猫可以移动的 方向    传进猫的 坐标
 			getMoveCat: function(i, j) {
 				/*2、判断奇数偶数决定两个可不可以走*/
 			    //不要的变量i,j位置1
@@ -251,10 +214,11 @@ $(function() {
 			    		shu_arr_9.push(k_1*9+k_2);
 			    	}
 			    }
-			    /*3、得到一个可以走的数组，随机取出一个数   胜利了*/
+			    /*3、得到一个可以走的数组，如果这个数组长度为0  没有可以走 的就 胜利了*/
 			    if(shu_arr_9.length==0){
 			    	return -1;
 			    }
+			    //从能走的  数里  随机出一个数 返回
 			    var index_shu_arr = parseInt(shu_arr_9.length *Math.random());
 			    return shu_arr_9[index_shu_arr];
 			},
