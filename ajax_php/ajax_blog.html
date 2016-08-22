@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+	</head>
+	<body>
+		<script>
+			$.ajax({
+				type:"get";
+				url:"http//192.168.1.193/web006json2.php";
+				dataType:"json";
+				success:function(data){
+					viewAdpter(data);
+				}
+			})
+			function viewAdpter(data){
+				$(data).each(index,el){
+					console
+				}
+			}
+		</script>
+	</body>
+</html>
