@@ -254,6 +254,7 @@ body {
 	/*display: none;*/
 	background: url(../images/act_16seventhDay_gameBj.jpg)center center no-repeat;
 	background-size: 100% 100%;
+	position: relative;
 }
 
 .gamePageTop {
@@ -296,14 +297,50 @@ body {
 .gameMusic_wrap img {
 	width: 100%;
 }
+/*背景的 布局*/
+.gameMainCon2{
+	width: 6.4rem;
+	height: 6.4rem;
+	margin: 1.3rem auto;
+}
 
+.gameMainCon2 ul {
+    /*box-sizing: border-box;
+	padding:.08rem .05rem;*/
+    height: 6.4rem;
+    /*box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);*/
+    overflow: hidden;
+}
+		
+.gameMainCon2 ul li {
+	width: .8rem;
+	height: .8rem;
+	float: left;
+	list-style: none;
+	/*background: #fff;*/
+	
+}
 
+.gameMainCon2 ul li a {
+	width: .8rem;
+	height: .8rem;
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+	
+}
+.gameMainCon2 ul li a img{
+	width: 100%;
+	border: 0;
+}
+/*游戏的  布局*/
 .gameMainCon{
 	width: 6.4rem;
 	height: 6.4rem;
 	/*background:url(../images/box-5.png)repeat;*/
-	
-	margin: 1.3rem auto;
+	position: absolute;
+	z-index: 2;
+	top: 1.86rem;
 }
 
 .gameMainCon ul {

@@ -59,7 +59,7 @@ $(function() {
 					[6, 4],
 				];
 				
-				
+//				
 //				this.bjArray = [
 //					["1", "1", "1", "1", "1", "1", "1", "1"],
 //					["1", "1", "1", "0", "1", "1", "1", "1"],
@@ -73,6 +73,7 @@ $(function() {
 //				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
 				//  九个格子的位置
 				this.positions = [];
+				this.positions2 = [];
 				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
 				this.hard = n || 5;
 
@@ -81,9 +82,10 @@ $(function() {
 				this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
+				this.content2 = 'ul.box2';
 				this.lastIndex = this.blank;
 				//初始化 布局
-//				this.creatBJ();
+				this.creatBJ();
 				this.createGrid();
 				if(this.timer)
 					clearInterval(this.timer);
@@ -106,15 +108,27 @@ $(function() {
 
 				}, 1000);
 			},
-//			creatBJ:function(){
-//				for(var i = 0; i < 8; i++){
-//					for(var j = 0; j < 8; j++){
-//						
-//						console.log(i + "    " + j);
-//						var m = this.bjArray[i][j];
-//						console.log(m);
-//						var posData = {};
-//						posData.pos = i;
+			creatBJ:function(){
+				for(var i = 0; i < 8; i++){
+					for(var j = 0; j < 8; j++){
+						var posData = {};
+						posData.pos = i;
+						console.log(i + "    " + j);
+						 var isPoint = 0;//1：是，0：不是
+						 for(var i_2 = 0 ;i_2<this.mArray.length;i_2++){
+						 	if(this.mArray[i_2][0]==i&&this.mArray[i_2][1]==j){
+						 		isPoint = 1;
+						 		break;
+						 	}
+						 } 
+						if(isPoint == 0){
+							//添加墙的图片
+							posData.image = 'images/box-5.png';
+						}else{
+							//墙上带点的图片
+							posData.image = 'images/box-8.png';
+						}
+						
 //						if(m == 1) {
 //							//白色墙面区域
 //							posData.css = "normal";
@@ -122,15 +136,15 @@ $(function() {
 //							//箱子的 位置
 //							posData.css = "freak";
 //						}
-//						
-//						this.positions.push(posData);
-//					}
-//				}
-//				var gridRows = template('game-tpl', {
-//					'rows': this.positions || []
-//				});
-//				$(this.content).html(gridRows);
-//			},
+						
+						this.positions2.push(posData);
+					}
+				}
+				var gridRows = template('game-tpl2', {
+					'rows': this.positions2 || []
+				});
+				$(this.content2).html(gridRows);
+			},
 			// 调用模版  构建 初始化数据 
 			createGrid: function() {
 				for(var i = 0; i < 8; i++) {
@@ -332,7 +346,7 @@ $(function() {
 						return;
 					}
 				}
-				alert('游戏结束');
+//				alert('游戏结束');
 			}
 
 		}
