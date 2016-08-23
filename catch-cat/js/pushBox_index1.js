@@ -25,59 +25,76 @@ $(function() {
 	/* 游戏主函数 */
 	function gameStart() {
 		//	timeCountDownFun();
-		games();
+			games(1);
 		if(playMusic) {
 			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
 			audio_music.play();
 		}
 
 	};
+	var people_x = 4;
+	var people_y = 4;
+	//n表示 关数
+	function games(n) {
 
-	function games() {
 		speller = {
-			init: function(n) {
-				//当前人物的位置
-				this.people_x = 4;
-				this.people_y = 4;
-				//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
-				this.tArray = [
-					["9", "9", "1", "1", "1", "9", "9", "9"],
-					["9", "9", "1", "0", "1", "9", "9", "9"],
-					["9", "9", "1", "0", "1", "1", "1", "1"],
-					["1", "1", "1", "2", "0", "2", "0", "1"],
-					["1", "0", "0", "2", "3", "1", "1", "1"],
-					["1", "1", "1", "1", "2", "1", "9", "9"],
-					["9", "9", "9", "1", "0", "1", "9", "9"],
-					["9", "9", "9", "1", "1", "1", "9", "9"],
-				];
+			init: function() {
+//				this.n = n;
+				if(n == 1){
+					//当前人物的位置
+					this.people_x = 4;
+					this.people_y = 4;
+					//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
+					this.tArray = [
+						["9", "9", "1", "1", "1", "9", "9", "9"],
+						["9", "9", "1", "0", "1", "9", "9", "9"],
+						["9", "9", "1", "0", "1", "1", "1", "1"],
+						["1", "1", "1", "2", "0", "2", "0", "1"],
+						["1", "0", "0", "2", "3", "1", "1", "1"],
+						["1", "1", "1", "1", "2", "1", "9", "9"],
+						["9", "9", "9", "1", "0", "1", "9", "9"],
+						["9", "9", "9", "1", "1", "1", "9", "9"],
+					];
+	
+					//判断是否胜利点的坐标数组
+					this.mArray = [
+						[4, 1],
+						[1, 3],
+						[3, 6],
+						[6, 4],
+					];
+				}else if(n == 2){
+					this.people_x = 6;
+					this.people_y = 4;
+					//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
+					this.tArray = [
+						["9", "9", "1", "1", "1", "9", "9", "9"],
+						["9", "1", "0", "0", "1", "1", "1", "1"],
+						["9", "1", "0", "0", "0", "0", "0", "1"],
+						["1", "0", "0", "0", "1", "2", "1", "9"],
+						["1", "0", "2", "0", "0", "0", "1", "9"],
+						["1", "0", "0", "2", "2", "0", "0", "1"],
+						["9", "1", "0", "0", "3", "0", "1", "9"],
+						["9", "9", "1", "1", "1", "1", "1", "9"],
+					];
+	
+					//判断是否胜利点的坐标数组
+					this.mArray = [
+						[1, 2],
+						[1, 3],
+						[2, 4],
+						[4, 5],
+					];
+				}
 
-				//判断是否胜利点的坐标数组
-				this.mArray = [
-					[4, 1],
-					[1, 3],
-					[3, 6],
-					[6, 4],
-				];
-				
-//				
-//				this.bjArray = [
-//					["1", "1", "1", "1", "1", "1", "1", "1"],
-//					["1", "1", "1", "0", "1", "1", "1", "1"],
-//					["1", "1", "1", "1", "1", "1", "1", "1"],
-//					["1", "1", "1", "1", "1", "1", "0", "1"],
-//					["1", "0", "1", "1", "1", "1", "1", "1"],
-//					["1", "1", "1", "1", "1", "1", "1", "1"],
-//					["1", "1", "1", "1", "0", "1", "1", "1"],
-//					["1", "1", "1", "1", "1", "1", "1", "1"],
-//				];
-//				this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
+				//this.imageName = 'images/act_16seventhDay_game_pt-{index}.png';
 				//  九个格子的位置
 				this.positions = [];
 				this.positions2 = [];
 				//默认难易度    如果  n 没有传 则是5 （黑块 移动on个次数）
-				this.hard = n || 5;
+				//this.hard = n || 5;
 
-				//				this.step = 0;  记录 移动的步 数
+				//this.step = 0;  记录 移动的步 数
 				this.blank = 8;
 				this.useTime = 180;
 				this.tag = 'li';
@@ -87,6 +104,11 @@ $(function() {
 				//初始化 布局
 				this.creatBJ();
 				this.createGrid();
+				//倒计时
+				this.clearShu();
+			},
+			
+			clearShu:function(){
 				if(this.timer)
 					clearInterval(this.timer);
 				this.timer = setInterval(function() {
@@ -108,13 +130,14 @@ $(function() {
 
 				}, 1000);
 			},
+			//创建背景模板
 			creatBJ:function(){
 				for(var i = 0; i < 8; i++){
 					for(var j = 0; j < 8; j++){
 						var posData = {};
 						posData.pos = i;
 						console.log(i + "    " + j);
-						 var isPoint = 0;//1：是，0：不是
+						 var isPoint = 0;//  是不是墙上带点的图片 1：是，0：不是
 						 for(var i_2 = 0 ;i_2<this.mArray.length;i_2++){
 						 	if(this.mArray[i_2][0]==i&&this.mArray[i_2][1]==j){
 						 		isPoint = 1;
@@ -129,14 +152,6 @@ $(function() {
 							posData.image = 'images/box-8.png';
 						}
 						
-//						if(m == 1) {
-//							//白色墙面区域
-//							posData.css = "normal";
-//						} else if(m == 0) {
-//							//箱子的 位置
-//							posData.css = "freak";
-//						}
-						
 						this.positions2.push(posData);
 					}
 				}
@@ -145,45 +160,35 @@ $(function() {
 				});
 				$(this.content2).html(gridRows);
 			},
+			
 			// 调用模版  构建 初始化数据 
 			createGrid: function() {
 				for(var i = 0; i < 8; i++) {
 					for(var j = 0; j < 8; j++) {
 						console.log(i + "    " + j);
 						var m = this.tArray[i][j];
-						
-						console.log(m);
+						//console.log(m);
 						var posData = {};
 						posData.pos = i;
 						
 						//9：黑图，0：占位透明图，1：白墙，2：可移动的箱子，3：可移动的小人
 						if(m == 1) {
 							//白色墙面区域
-//							posData.css = "normal";
 							posData.image = 'images/box-6.png';
 						} else if(m == 2) {
 							//箱子的 位置
-//							posData.css = "normal";
 							posData.image = 'images/box-2.png';
 						} else if(m == 3) {
 							//小人的位置
-//							posData.css = "normal";
 							posData.image = 'images/box-3.png';
 						} 
-//						else if(m == 4) {
-//							posData.css = 'freak';
-//							posData.image = 'images/box-7.png';
-//						} 
 						else if(m == 9) {
 							//黑块区域
-//							posData.css = "normal";
 							posData.image = 'images/box-4.png';
 						} else {
 							//占位透明图
-//							posData.css = 'freak';
 							posData.image = 'images/box-7.png';
 						}
-						
 						
 						this.positions.push(posData);
 					}
@@ -193,27 +198,34 @@ $(function() {
 					'rows': this.positions || []
 				});
 				$(this.content).html(gridRows);
-
+				
+				
+				//点击开始
 				$(this.content + ' li').on('tap', function() {
 
 					//从0到63 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
 					var pos = $(this).attr('data-pos') * 1;
-					//					alert(pos);
+					console.log(this.people_x+"，"+this.people_y);
+					//		alert(pos);
 					speller.onClickByIndex(parseInt(pos / 8), pos % 8);
 				});
 
 			},
 
+			
 			//点击游戏小图片时，传入相应位置。例，4，5
 			onClickByIndex: function(i, j) {
-
+                console.log("onClickByIndex-->"+i+","+j+",this.tArray[i][j]-->"+this.tArray[i][j]);
 				//				alert(i+","+j);
 				if(this.tArray[i][j] == 1 || this.tArray[i][j] == 3 || this.tArray[i][j] == 9) {
 					//点的是强 或自己人物，或黑色区域
+					console.log("点的是强 或自己人物，或黑色区域");
 					return; //什么也不操作
 				}
 				if(this.tArray[i][j] == 2) { //点击的是箱子
+					
 					var index = this.getMoveBox(i, j); //0表示不能移动，1左，2上，3下，4右。
+					console.log("0表示不能移动，1左，2上，3下，4右。index-->"+index);
 //					alert("箱子     "+index);
 					if(index == 0) { //不能移动
 						return; //什么也不操作
@@ -242,23 +254,24 @@ $(function() {
 					if(Pindex == 0) { //不能移动
 						return; //什么也不操作
 					}
-					/*（注意，顺序不能错，先交换物，再交换箱子）*/
-					if(Pindex == 1) { //箱子向左。
-						//箱子的位置向哪个方向移动*
-						this.changeImgAndData(i, j - 1, i, j); //交换
-					} else if(Pindex == 2) {
-						this.changeImgAndData(i - 1, j, i, j); //交换
-					} else if(Pindex == 3) {
-						this.changeImgAndData(i + 1, j, i, j); //交换
-					} else if(Pindex == 4) {
-						this.changeImgAndData(i, j + 1, i, j); //交换
-					}
-
+//					/*（注意，顺序不能错，先交换物，再交换箱子）*/
+//					if(index == 1) { //箱子向左。
+//						/*箱子的位置向哪个方向移动*/
+//						this.changeImgAndData(i, j - 1, i, j); //交换
+//					} else if(index == 2) {
+//						this.changeImgAndData(i - 1, j, i, j); //交换
+//					} else if(index == 3) {
+//						this.changeImgAndData(i + 1, j, i, j); //交换
+//					} else if(index == 4) {
+//						this.changeImgAndData(i, j + 1, i, j); //交换
+//					}
 					/*人物位置数据与当前点击的位置数据进行交换。*/
+					console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
 					this.changeImgAndData(i, j, this.people_x, this.people_y);
 					/*设置人的当前位置*/
 					this.people_x = i;
 					this.people_y = j;
+					console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
 				}
 			},
 
@@ -323,9 +336,13 @@ $(function() {
 				var imgori;
 
 				//图片的位置
+				console.log("==changeImgAndData,imgId1-->"+imgId1+",this.tag)-->"+this.tag);
 				var $blank = $(this.content).find(this.tag).eq(imgId1);
+				console.log("==changeImgAndData,$blank-->"+$blank);
 				//图片2位置
+				console.log("==changeImgAndData,imgId1-->"+imgId2+",this.tag)-->"+this.tag);
 				var $nBlank = $(this.content).find(this.tag).eq(imgId2);
+				console.log("==changeImgAndData,$blank-->"+$nBlank);
 				//  获取 黑块中的 内容  clone(false)  此方法表示只复制 内容  不复制 方法
 				var $blankA = $blank.children().clone(false);
 				var $nBlankA = $nBlank.children().clone(false);
@@ -347,11 +364,14 @@ $(function() {
 					}
 				}
 //				alert('游戏结束');
+				$(".less_1").remove();
+				$(".less_2").show();
+				games(2);
 			}
 
 		}
 
-		speller.init(6);
+		speller.init();
 	}
 
 	//点击查看显示原图

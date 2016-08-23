@@ -112,8 +112,27 @@ body {
 	width: 100%;
 	background: url(../images/act_16roundRabbit_indexBj2.jpg) center center no-repeat;
 	background-size: 100% 100%;
+	position: relative;
 }
-
+.move_rabbit{
+	width: 3.8rem;
+	/*margin: 0 auto;*/
+	position: absolute;
+	left: 50%;
+	top:4.8rem;
+	margin-left: -1.9rem;
+	overflow: hidden;
+}
+.move_rabbit img:nth-child(1){
+	width: 2rem;
+	display: block;
+	float: left;
+}
+.move_rabbit img:nth-child(2){
+	width: 1.6rem;
+	display: block;
+	float: right;
+}
 .indexComImg {
 	display: block;
 	margin: 0 auto;
@@ -133,13 +152,14 @@ body {
 	width: 3rem;
 	line-height: .78rem;
 	height: .78rem;
-	border-radius: 50px;
-	background: linear-gradient(to bottom, #fcf9a5 0%, #fae78c 70%, #f9de80 100%);
-	font-family: "楷体";
+	/*border-radius: 50px;*/
+	/*background: -webkit-linear-gradient(top, #ffe889 0%, #fee272 70%, #fdd135 100%);
+	background: linear-gradient(to bottom, #ffe889 0%, #fee272 70%, #fdd135 100%);*/
+	/*font-family: "楷体";
 	font-size: 22px;
 	font-weight: 600;
-	color: #681c1b;
-    box-shadow: 0 6px 2px #160137;
+	color: #ed3f2e;*/
+    /*box-shadow: 0 6px 2px #160137;*/
 	position: absolute;
 	bottom: 1.8rem;
 	left: 50%;
@@ -147,7 +167,7 @@ body {
 	display: block;
 	outline: none;
 	border: none;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 #goToGamePage span {
@@ -194,7 +214,8 @@ body {
 
 .comShowWrap1 {
 	width: 5.6rem;
-	background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);
+	background: -webkit-linear-gradient(top, #774965 0%, #704263 10%, #54245c 30%, #401158 70%, #3e0f57 100%);
+	background: linear-gradient(to bottom, #774965 0%, #704263 10%, #54245c 30%, #401158 70%, #3e0f57 100%);
 	border-radius: 20px;
 	margin: 0 auto;
 	padding-top: 14px;
@@ -209,14 +230,6 @@ body {
 	left: 50%;
 	margin-left: -1.2rem;
 }
-.actRuleShow .actRuleShow_title {
-	width: 1.8rem;
-	margin: 1.2rem auto 0.2rem;
-}
-
-.actRuleShow .actRuleShow_title img {
-	width: 100%;
-}
 
 .actRuleClose {
 	position: absolute;
@@ -230,9 +243,9 @@ body {
 	width: 4.8rem;
 	margin: 0 auto;
 	border-radius: 8px;
-	padding:0 .3rem .2rem;
-	color: #681c1b;
-	font-weight: bold;
+	margin-top: 1.7rem;
+	padding-bottom: .2rem;
+	color: #fff;
 	overflow: hidden;
 	font-size: 14px;
 }
@@ -254,19 +267,18 @@ body {
 /*游戏页*/
 .gamePage {
 	/*display: none;*/
-	background: url(../images/act_16seventhDay_gameBj.jpg)center center no-repeat;
+	background: url(../images/act_16roundRabbit_gameBj.jpg)center center no-repeat;
 	background-size: 100% 100%;
 }
 
 .gamePageTop {
-	background: #63ecbe;
-	width: 100%;
-	height: 10%;
-	padding: .1rem .2rem;
-	box-sizing: border-box;
+	width: 5.4rem;
+	margin: 0.5rem auto .8rem;
 }
-
-.gameClockIcon {
+.gamePageTop img{
+	width: 100%;
+}
+/*.gameClockIcon {
 	height: 100%;
 	overflow: hidden;
 	width: 5rem;
@@ -297,86 +309,63 @@ body {
 
 .gameMusic_wrap img {
 	width: 100%;
-}
+}*/
 
 
 .gameMainCon{
-	width: 5.8rem;
-    height: 5.8rem;
-    margin: 1.2rem auto 0;
-    /*max-width: 10rem;*/
-    background: #63ecbd;
-	   
-	}
-.gameMainCon ul {
-    box-sizing: border-box;
-	padding:.08rem .05rem;
-    height: 5.8rem;
-    box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);
-    overflow: hidden;
+	width: 6.3rem;
+	height: 6.4rem;
+	/*background:url(../images/box-5.png)repeat;*/
+	margin: 1.3rem auto;
 }
-		
+
+.gameMainCon ul {
+    /*box-sizing: border-box;
+	padding:.08rem .05rem;*/
+    height: 6.4rem;
+    /*box-shadow: 0px 0px 4px 4px rgba(177, 117, 137, 0.5);*/
+    /*overflow: hidden;*/
+}
+.clearfix{
+	content: '';
+	display: block;
+	clear:both;
+}		
 .gameMainCon ul li {
-	width: 1.9rem;
-	height: 1.9rem;
+	width: .65rem;
+	height: .65rem;
 	float: left;
 	list-style: none;
-	
+	/*background: #ccc;*/
 }
 
 .gameMainCon ul li a {
-	width: 1.85rem;
-	height: 1.85rem;
+	width: .6rem;
+	height: .6rem;
 	display: block;
 	margin: 0 auto;
 	text-decoration: none;
+	/*background: #C05757;*/
+	border-radius: 50%;
 }
 .gameMainCon ul li a img{
 	width: 100%;
 	border: 0;
+    margin-top: -.6rem;
 }
-
 .freak {
-	background: #000018;
+	background:#ffc222;
 }
 
 .normal {
-	 background: #63ecbd;
+	background: #cdaeb8;
+}
+.styleCat{
+	/*background: #ff00ff;*/
+	background: #cdaeb8;
 }
 
-.showOrigin{
-	width: 5.8rem;
-    margin: .3rem auto 0;
-}
-.showOriginBtn{
-    float: right;
-    width: 1.6rem;
-    height: .9rem;
-    border-radius: 16px;
-    border: 0;
-    background: #63ecbd;
-    outline: none;
-    font-size: 16px;
-    line-height: .9rem;
-    font-weight: 600;
-}
-/*原图*/
-.game_origin{
-	width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, .6);
-    box-sizing: border-box;
-    padding-top: 1.5rem;
-    display: none;
-}
-.game_origin img{
-	width: 5.4rem;
-	margin: 0 auto;
-	display: block;
-}
+
 /*游戏结果*/
 
 
@@ -387,7 +376,15 @@ body {
 	display: none;
 	padding-top: 1rem;
 }
-
+.gameSuccTitle .pText{
+	font-size: 22px;
+}
+.gameSuccTitle p{
+	color: #fff;
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+}
 .gameSuccWrap .gameFail,.gameFailWrap .gameFail {
 	width: 5.2rem;
 	background:transparent;
@@ -395,6 +392,7 @@ body {
 }
 
 .gameSuccWrap .gameFailText,.gameFailWrap .gameFailText {
+	margin-top:0 ;
 	width: 3.5rem;
 	padding: .4rem .2rem;
 }
@@ -404,9 +402,7 @@ body {
 	width: 100%;
 }
 .gameFailTitle  img:nth-child(2) {
-	width: 2.4rem;
-	display: block;
-	margin: -.5rem auto 0.3rem;
+	margin-top: .3rem;
 }
 .gameFailBtn {
 	width: 100%;
@@ -425,21 +421,31 @@ body {
 }
 
 .shareAppPage button:nth-child(1) {
-	background: linear-gradient(to bottom, #ffc72f 0%, #ffbf1b 40%, #ffb400 100%);
+	/*background: -webkit-linear-gradient(top, #ffc72f 0%, #ffb80a 40%, #ffb400 100%);*/
+	background: linear-gradient(to bottom, #ffc72f 0%, #ffb80a 40%, #ffb400 100%);
 }
 
 .shareAppPage button:nth-child(2) {
 	margin-top: 1rem;
+	background: -webkit-linear-gradient(top, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 }
 
 .toGetReward {
-	background: linear-gradient(to bottom, #ffc72f 0%, #ffbf1b 40%, #ffb400 100%);
+	background: -webkit-linear-gradient(top, #ffc72f 0%, #ffb80a 40%, #ffb400 100%);
+	background: linear-gradient(to bottom, #ffc72f 0%, #ffb80a 40%, #ffb400 100%);
 }
-.shareFri,#playAgain {
+
+.shareFri{
+	background: -webkit-linear-gradient(top, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 }
+#playAgain {
+	background: -webkit-linear-gradient(top, #fe3c3c 0%, #e72c1e 40%, #d01d00 100%);
+	background: linear-gradient(to bottom, #fe3c3c 0%, #e72c1e 40%, #d01d00 100%);
+}
 .downloadP{
+	background: -webkit-linear-gradient(top, #fe3c3c 0%, #ea2f22 40%, #d01d00 100%);
 	background: linear-gradient(to bottom, #fe3c3c 0%, #ea2f22 40%, #d01d00 100%);
 }
 /*#goToGetHb .gameFailBtn span {

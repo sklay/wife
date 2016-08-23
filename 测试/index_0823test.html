@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>焦点轮播图</title>
+   <style type="text/css">
+       * {
+           margin: 0;
+           padding: 0;
+           text-decoration: none;
+       }
+
+       body {
+           padding: 20px;
+       }
+
+       #container {
+           width: 600px;
+           height: 400px;
+           border: 3px solid #333;
+           overflow: hidden;
+           position: relative;
+       }
+
+       #list {
+           height: 400px;
+           position: absolute;
+           /*为什么加了过渡left值就会出现偏差？？？*/
+           /*-webkit-transition: left 1s;*/
+           z-index: 1;
+       }
+
+       #list img {
+           float: left;
+           width: 600px;
+       }
+
+       #buttons {
+           position: absolute;
+           height: 10px;
+           width: 100px;
+           z-index: 2;
+           bottom: 20px;
+           left: 250px;
+       }
+
+       #buttons span {
+           cursor: pointer;
+           float: left;
+           border: 1px solid #fff;
+           width: 10px;
+           height: 10px;
+           border-radius: 50%;
+           background: #333;
+           margin-right: 5px;
+       }
+
+       #buttons .on {
+           background: orangered;
+       }
+
+       .arrow {
+           cursor: pointer;
+           display: none;
+           line-height: 39px;
+           text-align: center;
+           font-size: 36px;
+           font-weight: bold;
+           width: 40px;
+           height: 40px;
+           position: absolute;
+           z-index: 2;
+           top: 180px;
+           background-color: RGBA(0, 0, 0, .3);
+           color: #fff;
+       }
+
+       .arrow:hover {
+           background-color: RGBA(0, 0, 0, .7);
+       }
+
+       #container:hover .arrow {
+           display: block;
+       }
+
+       #prev {
+           left: 20px;
+       }
+
+       #next {
+           right: 20px;
+       }
+   </style>
+
+   <script>
+       window.onload = function () {
+           var oImgList = document.getElementById('list');
+           var aImg = oImgList.getElementsByTagName('img');
+           var aButtons = document.getElementById('buttons').getElementsByTagName('span');
+           var oPrev = document.getElementById('prev');
+           var oNext = document.getElementById('next');
+           var timer = null;
+           var iSpeed = 5;
+           var index = 1;
+
+           function showButton() {
+               for (var i = 0; i < aButtons.length; i++) {
+                   aButtons[i].className = '';
+               }
+               aButtons[index - 1].className = 'on';
+           }
+
+           animate(0);
+
+           oImgList.style.width = aImg[0].offsetWidth * aImg.length + 'px';
+            //加了这句话之后就出问题。
+           oImgList.style.webkitTransition = "all 1s";
+
+           function animate(offset) {
+               oImgList.style.left = oImgList.offsetLeft + offset + 'px';
+               if (oImgList.offsetLeft < -2400) {
+                   oImgList.style.left = 0 + 'px';
+               } else if (oImgList.offsetLeft > 0) {
+                   oImgList.style.left = -2400 + 'px';
+               }
+               showButton();
+           }
+
+//
+//         oNext.onclick = function () {
+//             index = (index == 5 ? 1 : ++index);
+//             animate(-600);
+//         };
+           
+           var rightTime = new Date().getTime();//每个按钮点击的时间1秒内不可再点击
+           var leftTime = new Date().getTime();
+           oNext.onclick = function () {
+               if(new Date().getTime() - rightTime < 1000){
+                   return;
+               }
+               rightTime = new Date().getTime();
+               index = (index == 5 ? 1 : ++index);
+               animate(-600);
+           };
+           
+//         oPrev.onclick = function () {
+//             index = (index == 1 ? 5 : --index);
+//             animate(600);
+//         };
+			oPrev.onclick = function () {
+               if(new Date().getTime() - leftTime < 1000){
+                   return;
+               }
+               leftTime = new Date().getTime();
+               index = (index == 1 ? 5 : --index);
+               animate(600);
+           };
+           for (var i = 0; i < aButtons.length; i++) {
+               aButtons[i].onclick = function () {
+                   //获取点击时候的index值，自定义属性只能通过getAttribute获取
+                   var iMyIndex = parseInt(this.getAttribute('index'));
+                   var offset = -600 * (iMyIndex - index);
+                   index = iMyIndex;
+                   animate(offset);
+               };
+           }
+           
+       };
+   </script>
+</head>
+<body>
+
+<div id="container">
+   <div id="list">
+       <!--<img src="img/5.jpg" alt="1"/>-->
+       <img src="img/1.jpg" alt="1"/>
+       <img src="img/2.jpg" alt="2"/>
+       <img src="img/3.jpg" alt="3"/>
+       <img src="img/4.jpg" alt="4"/>
+       <img src="img/5.jpg" alt="5"/>
+       <!--<img src="img/1.jpg" alt="5"/>-->
+   </div>
+   <div id="buttons">
+       <span index="1" class="on"></span>
+       <span index="2"></span>
+       <span index="3"></span>
+       <span index="4"></span>
+       <span index="5"></span>
+   </div>
+   <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+   <a href="javascript:;" id="next" class="arrow">&gt;</a>
+</div>
+
+</body>
+</html>

@@ -69,9 +69,6 @@
 }
 
 @media screen and (max-height: 580px) {
-	.gamePageTop{
-		height: 12%;
-	}
 	.gameMainCon{
 		margin: .8rem auto 0;
 	}
@@ -115,21 +112,25 @@
 		</div>
 		<!--首页-->
 		<div class="indexPage">
-			<button id="goToGamePage">开始游戏</button>
+			<div class="move_rabbit">
+				<img src="images/act_16roundRabbit_index_rabbit1.png" alt="">
+				<img src="images/act_16roundRabbit_index_rabbit2.png" alt="">
+			</div>
+			<!--<button id="goToGamePage">开始守护</button>-->
+			<img id="goToGamePage" src="images/act_16roundRabbit_index_startBtn.png" />
 			<p id="getActRule">活动规则</p>
 			<div class="actRuleShow_wrap comWrap1">
 				<div class="actRuleShow comShowWrap1">
-					<img class="closeBtn actRuleClose" src="images/act_16seventhDay_indexRuleBTn.png" alt="">
-					<img class="rulePeoloe" src="images/act_16seventhDay_ruleIcon.png" />
-					<div class="actRuleShow_title">
-						<img src="images/act_16seventhDay_ruletitle.png" alt="">
-					</div>
+					<img class="closeBtn actRuleClose" src="images/act_16roundRabbit_index_ruleClose.png" alt="">
+					<img class="rulePeoloe" src="images/act_16roundRabbit_index_ruleTitle.png" />
 					<div class="actRuleText comTextWrap1">
-						<span>1、</span><p>在规定的游戏时间内，通过移动图片，完成拼图;</p>
-						<span>2、</span><p>点击查看“看看原图”可以查看完整的拼图；</p>
-						<span>3、</span><p>活动时间：8月9日0:00——8月16日23:59。</p>
-						<span>4、</span><p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
-						<span>5、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+						<span>1、</span><p>游戏说明</p>
+						<span></span><p>点击空心的圆点，围成一个圈，即可阻止月兔下凡若月兔跑出边界，则游戏失败。</p>
+						<span>2、</span><p>活动时间</p>
+						<span></span><p>8月9日0:00——8月16日23:59。</p>
+						<span>3、</span><p>活动奖励</p>
+						<span></span><p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						<span>4、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 
 					</div>
 				</div>
@@ -138,61 +139,48 @@
 		<!--游戏页-->
 		<div class="gamePage">
 			<div class="gamePageTop">
-				<div class="gameClockIcon">
-					<img src="images/act_16coolIceBucket_game_clock.png" alt="">
-					<div class="gameCountDown_wrap">
-						<p id="gameCountDownTime"></p>
-					</div>
-				</div>
-				<div class="gameMusic_wrap" style="display: none;">
-					<img src="images/act_16coolIceBucket_music.png" alt="" id="gameMusic" class="musicPlay">
-				</div>
+				<img src="images/act_16roundRabbit_gameTitle.png" alt="">
 			</div>
 			<!--游戏页-->
 			<div class="gameMainCon">
-				<ul class="box">
+				<ul class="box clearfix">
 				</ul>
-				<div class="showOrigin">
-					<button class="showOriginBtn">查看原图</button>
-				</div>
 			</div>
-			<!--原图-->
-			<div class="game_origin">
-				<img src="images/act_16seventhDay_game_oraginImg.jpg" />
-			</div>
-			
 			<!--挑战失败页-->
 			<div class="gameFailWrap comWrap1">
 				<div class="gameFail comShowWrap1">
 					<div class="gameFailTitle">
-						<img src="images/act_16seventhDay_gameFail_title.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+						<img src="images/act_16roundRabbit_gameFail_title.png" alt="">
+						<img src="images/act_16roundRabbit_gameFail_desc.png" alt="">
 					</div>
 					<div class="gameFailText comTextWrap1">
 						<div class="butWrap">
 							<a id="goToGetHb">
-								<button class="gameFailBtn toGetReward">去抽奖</button>
+								<button class="gameFailBtn toGetReward">领取中秋红包</button>
 							</a>
-							<button class="gameFailBtn " id="playAgain">不服再战</button>
-							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+							<button class="gameFailBtn shareFri">邀请好友</button>
+							<button class="gameFailBtn " id="playAgain">重新再来</button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_friRound">分享到朋友圈</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="gameSuccWrap comWrap1">
 				<div class="gameFail comShowWrap1">
-					<div class="gameFailTitle">
-						<img src="images/act_16seventhDay_gameSucc_title.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+					<div class="gameFailTitle gameSuccTitle">
+						<img src="images/act_16roundRabbit_gameSuccess_title.png" alt="">
+						<p class="pText"></p>
+						<p>成功守！护！月！兔！</p>
 					</div>
 					<div class="gameFailText comTextWrap1">
 						<div class="butWrap">
 							<a id="goToGetHb">
-								<button class="gameFailBtn toGetReward">去抽奖</button>
+								<button class="gameFailBtn toGetReward">领取中秋红包</button>
 							</a>
-							<button class="gameFailBtn shareFri" >邀请好友</button>
+							<button class="gameFailBtn shareFri">邀请好友</button>
 							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
 						</div>
 						<div class="shareAppPage" style="display: none">
@@ -234,13 +222,16 @@
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="artTemplate/template.js"></script>
-<script src="js/act_16seventhDay_index.js?v=4.0"></script>
+<script src="js/act_16roundRabbit_index.js?v=4.0"></script>
 
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
 	<li data-pos="{{i }}" id="{{row.pos }}" >
 		<a href="javascript:void(0);" class="{{row.css }}">
-			<img  src="{{row.image }}">
+			{{if row.css == 'styleCat'}}
+			<img id="imgSty" data-s="1" src='images/act_16roundRabbit_index_rabbit1.png'>
+			{{/if}}
+			<!--<img  src="{{row.image }}">-->
 		</a>
 	</li>
 	{{/each}}
