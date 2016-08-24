@@ -1,18 +1,18 @@
 $(function() {
 
-	var audio_music = document.getElementById('audioBackMusic');
-
-	/**音乐图标*/
-	$('.gameMusic_wrap').on('tap', function() {
-
-		if(audio_music.paused) {
-			$(this).show().find('img').removeClass('musicPause').addClass('musicPlay');
-			audio_music.play();
-		} else {
-			$(this).find('img').removeClass('musicPlay').addClass('musicPause');
-			audio_music.pause();
-		}
-	});
+//	var audio_music = document.getElementById('audioBackMusic');
+//
+//	/**音乐图标*/
+//	$('.gameMusic_wrap').on('tap', function() {
+//
+//		if(audio_music.paused) {
+//			$(this).show().find('img').removeClass('musicPause').addClass('musicPlay');
+//			audio_music.play();
+//		} else {
+//			$(this).find('img').removeClass('musicPlay').addClass('musicPause');
+//			audio_music.pause();
+//		}
+//	});
 
 	/* 开始 */
 	$("#goToGamePage").on("tap", function() {
@@ -25,25 +25,26 @@ $(function() {
 	/* 游戏主函数 */
 	function gameStart() {
 		//	timeCountDownFun();
-		//游戏真正的 结束了  才 开始游戏
+		//调用游戏开始前 ，先把游戏设置为开始状态
 		this.isOver = 0;
 		games();
 		
-		if(playMusic) {
-			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
-			audio_music.play();
-		}
+//		if(playMusic) {
+//			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
+//			audio_music.play();
+//		}
 
 	};
 
 	function games() {
 		speller = {
 			init: function() {
-				//当前猫的位置
+				//兔子初始时的左坐标点
 				this.people_x = 4;
 				this.people_y = 5;
+				//全局变量 ，游戏是否开始， 0表示未开始
 				this.isOver = 0;
-				//二维数组
+				//二维数组，存储所有的 圆的位置有三个值 ，0表示 普通的 圆   1表示障碍物区    2表示 兔子
 				this.tArray = [
 					[],
 					[],
@@ -55,13 +56,12 @@ $(function() {
 					[],
 					[]
 				];
-
-				//  九个格子的位置
+				//  81个圈的位置
 				this.positions = [];
 
 				this.step = 0; //记录 移动的步 数
 				this.blank = 8;
-				//				this.useTime = 180;
+				//	this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
 				this.lastIndex = this.blank;
@@ -92,31 +92,34 @@ $(function() {
 					var si = parseInt(i / 9);
 					// i%9  和 列 取余  表示纵坐标
 					var sj = i % 9;
-					//二维数组中的 值为0
+					//二维数组中的 值为0，0表示普通的 圆
 					this.tArray[si][sj] = 0;
+					//this.tArray[4][5] 这个位置的值设为2， 2表示兔子
 					this.tArray[4][5] = 2;
 				}
 
-				//随机出 7个数作为 障碍区
+				//循环其次从dot_num这个数组随机出 7个数的位置作为 障碍区
 				for(var i = 0; i < 7; i++) { //这种算法叫做“洗牌算法”
-					//找到某个随机数 作为下标
+					//找到某个随机数 作为下标，每找一次数组 的长度 减去一次
 					var index = Math.floor(Math.random() * (dot_num.length - i));
-					//如果下标是 41 表示该位置   是  猫的 位置   不参与 交换
+					//如果下标是 41 表示该位置   是  兔子的 位置   不参与 交换
 					if(index == 41) {
 						i--;
 						continue;
 					}
 					console.log('index-->' + index);
-					//交换  根据上面找到的下标   和 最后一个数 做交换     
+					//交换  根据上面找到的下标 ，把随机出来的7个位置 中的数和原数组中的 最后一个中的数交换    
 					var t = dot_num[index];
+					//dot_num.length - 1 - i 表示新数组中最后一个位置上的数  把最后一个数给随机出来的那个位置上
 					dot_num[index] = dot_num[dot_num.length - 1 - i];
+					//随机出来的数给最后一个位置上
 					dot_num[dot_num.length - 1 - i] = t;
 
-					//t/9 表示行   9  表示列    t%9 表示列  最后找到的  7的  数    ，把这七个 坐标中的 值 改为1
+					//t/9 表示行   9  表示列    t%9 表示列  最后找到的  7的  数    ，把这七个 坐标中的 值 改为1，1表示障碍物
 					this.tArray[parseInt(t / 9)][t % 9] = 1;
 				}
 
-				//按9* 9  排列  
+				//按9* 9  排列  并出示所有的 布局
 				for(var i = 0; i < 9; i++) {
 					for(var j = 0; j < 9; j++) {
 						var posData = {};
@@ -130,19 +133,19 @@ $(function() {
 							posData.css = "freak";
 						}
 
-						console.log("二维数组的值" + this.tArray[i][j])
+						console.log("二维数组的值" + this.tArray[i][j]);
+						//将特定的  样式放置到 对应的位置里
 						this.positions.push(posData);
 					}
 				}
 				
-				
+				//调用模板，让64个圈一次排列
 				var gridRows = template('game-tpl', {
 					'rows': this.positions || []
 				});
 				$(this.content).html(gridRows);
-
+				//点击  开始
 				$(this.content + ' li').on('tap', function() {
-					
 					//从0到81 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
 					var pos = $(this).attr('data-pos') * 1;
 					//当前点击的  点
@@ -172,29 +175,26 @@ $(function() {
 				}
 			},
 
-			//			onClickByIndex: function() {
-			//猫 走的 路线
+			//兔子行走的 路线
 			onClickByIndex: function() {
 				// -1:游戏胜利，-2：游戏失败，其他数：交换
-				//index 即是返回的  猫  能走货不能走的 数
+				//index 即是返回的  兔子  能走或者不能走的 数
 				var index = this.getMoveCat(this.people_x, this.people_y);
 
 				console.log("点击时index是    " + index);
-				if(index == -2) { //不能移动
+				if(index == -2) { 
+					//猫跑了，游戏失败
 					this.isFail();
-					//						alert("猫跑了，游戏失败");
-					//						$(speller.content + ' li').unbind("tap"); 
 
 				} else if(index == -1) {
+					//赢了
 					this.isSuccess();
-					//						alert("赢了，"+"你用了"+(this.step+1)+"步。");
-					//						$(speller.content + ' li').unbind("tap"); 
 				} else {
-					//能交换的数 的坐标 和 猫的位置交换
+					//根据返回的能交换的数 算出坐标   和兔子的 位置交换
 					this.changeImgAndData(parseInt(index / 9), index % 9, this.people_x, this.people_y); //交换
 				}
 
-				/*设置猫的当前位置*/
+				/*重新设置兔子的当前位置*/
 				this.people_x = parseInt(index / 9);
 				this.people_y = index % 9;
 				//统计步数
@@ -226,12 +226,12 @@ $(function() {
 				this.tArray[i1][j1] = this.tArray[i2][j2];
 				this.tArray[i2][j2] = t;
 			},
-			//猫可以移动的 方向    传进猫的 坐标
+			//兔子可以移动的 方向   把兔子的 坐标传进来
 			getMoveCat: function(i, j) {
-				/*2、判断奇数偶数决定两个可不可以走*/
-				//不要的变量i,j位置1
-				//不要的变量i,j位置2
-				var shu_arr_9 = []; //能走的位置
+				/*、判断奇数偶数决定两个可不可以走*/
+				var shu_arr_9 = []; //存放 所有能走的位置
+				//这边的 循环是否是   兔子 能走的 八个点的 区域 （去掉 因为排列后位置 错开的 不能走的两个点  其中的   六个区域的循环）
+				//从这八个区域里   筛选  能走的点
 				for(var k_1 = i - 1; k_1 <= i + 1; k_1++) {
 					for(var k_2 = j - 1; k_2 <= j + 1; k_2++) {
 						if(k_1 == i && k_2 == j) { //中间位置不要
@@ -241,7 +241,7 @@ $(function() {
 						if(k_1 < 0 || k_1 > 8 || k_2 < 0 || k_2 > 8) {
 							return -2;
 						}
-						//有两个不可能
+						//有两个不可能  表示兔子在偶数行
 						if(i % 2 == 0) {
 							if(k_1 == i - 1 && k_2 == j + 1) { //右上不要
 								continue;
@@ -259,6 +259,7 @@ $(function() {
 						if(this.tArray[k_1][k_2] != 0) {
 							continue;
 						}
+						//把能走的坐标算出 一个数 放到 数组中
 						shu_arr_9.push(k_1 * 9 + k_2);
 					}
 				}
@@ -284,6 +285,7 @@ $(function() {
 				speller.isOver = 1;
 			},
 			timeFun:function(){
+				//两个兔子的 图片来回交换
 				setTimeout(function(){
 						var dataNum = $(".styleCat #imgSty").attr('data-s');
 						if(dataNum == 1){
@@ -291,9 +293,10 @@ $(function() {
 						}else{
 							$(".styleCat #imgSty").attr('src','images/act_16roundRabbit_index_rabbit1.png');
 						}
-						dataNum=dataNum* (-1);
+						dataNum = dataNum * (-1);
 						 $(".styleCat #imgSty").attr('data-s',dataNum);
 						 console.log("dataNum    ",dataNum);
+						 //如果开始调用定时器
 						 if(speller.isOver == 0){
 						 	speller.timeFun();
 						 }

@@ -69,8 +69,8 @@
 }
 
 @media screen and (max-height: 580px) {
-	.gameMainCon{
-		margin: .8rem auto 0;
+	.move_rabbit{
+		top: 3.8rem;
 	}
 	.gameSuccWrap, .gameFailWrap{
     	padding-top: .5rem;
@@ -113,8 +113,8 @@
 		<!--首页-->
 		<div class="indexPage">
 			<div class="move_rabbit">
-				<img src="images/act_16roundRabbit_index_rabbit1.png" alt="">
-				<img src="images/act_16roundRabbit_index_rabbit2.png" alt="">
+				<img class="rabbit_move" data-p="1" src="images/act_16roundRabbit_index_rabbit1.png" alt="">
+				<img class="rabbit_Tmove" data-pt="1" src="images/act_16roundRabbit_index_rabbit2.png" alt="">
 			</div>
 			<!--<button id="goToGamePage">开始守护</button>-->
 			<img id="goToGamePage" src="images/act_16roundRabbit_index_startBtn.png" />
@@ -199,15 +199,9 @@
 	<div style="display: none">
 		<img  src="images/act_16seventhDay_game_pt-1.png">
 		<img  src="images/act_16seventhDay_game_pt-2.png">
-		<img  src="images/act_16seventhDay_game_pt-3.png">
-		<img  src="images/act_16seventhDay_game_pt-4.png">
-		<img  src="images/act_16seventhDay_game_pt-5.png">
-		<img  src="images/act_16seventhDay_game_pt-6.png">
-		<img  src="images/act_16seventhDay_game_pt-7.png">
-		<img  src="images/act_16seventhDay_game_pt-8.png">
-		<img  src="images/act_16seventhDay_game_pt-9.png">
+		
 	</div>
-	<div style="display: none;" class="gameM	usic_wrap2">
+	<!--<div style="display: none;" class="gameM	usic_wrap2">
 		<div id="audio_span"></div>
 		
 		<script>
@@ -217,8 +211,8 @@
 			}
 		</script>
 		
-		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
-	</div>
+		<!--<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>-->
+	<!--</div>-->
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="artTemplate/template.js"></script>
@@ -239,7 +233,7 @@
 <script>
 	/* var wh=$(window).height();
 	alert(wh); */
-	
+	var isEnd = 0;
 	/**全局变量*/
 	/**手机app版本号*/
 	var version = getUrlParam("version_code") || '';
@@ -263,20 +257,48 @@
 	/**初始化预加载部分*/
 	setupManifest({
 		image:true,
-		audio:true,
+//		audio:true,
 		progressText:"#loadPer",
 		progressBar:"#loadShapePro",
 		progressContent:"#loadingPage",
 		finished:function(){
 			console.debug("加载完成 进入index") ;
 			$(".indexPage").fadeIn() ;
+			timer();
 			initFunction();
+//			clearTimeout( timer );
 		}
 	});
-
+	
+	function timer(){
+		setTimeout(function(){
+			var dataNum = $(".rabbit_move").attr('data-p');
+			var dataNumT = $(".rabbit_Tmove").attr('data-pt');
+			if(dataNum == 1){
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit2.png');
+				$(".rabbit_move").css({width:"1.6rem"});
+			}else{
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit1.png');
+			}
+			if(dataNum == 1){
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit1.png');
+			}else{
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit2.png');
+				$(".rabbit_move").css({width:"1.6rem"});
+			}
+			dataNum = dataNum * (-1);
+			dataNumT = dataNumT * (-1);
+			
+			$(".rabbit_move").attr('data-p',dataNum);
+			$(".rabbit_Tmove").attr('data-pt',dataNumT);
+			//如果开始调用定时器
+			 if(isEnd == 0){
+			 	timer();
+			 }
+		},500)
+	}
 	/**声明一些事件*/
 	function initFunction() {
-		
 		/*活动规则的显示与隐藏*/
 		$("#getActRule").on("tap", function() {
 			$(".actRuleShow_wrap").show();
@@ -285,6 +307,7 @@
 			$(".actRuleShow_wrap").hide();
 		});
 		$("#goToGamePage").on("tap", function(e) {
+			isEnd == 1;
 			console.debug("go");
 			$(".gamePage").fadeIn(100);
 			$(".indexPage").hide(100);
