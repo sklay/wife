@@ -70,7 +70,7 @@
 
 @media screen and (max-height: 580px) {
 	.move_rabbit{
-		top: 3.8rem;
+		top: 4.5rem;
 	}
 	.gameSuccWrap, .gameFailWrap{
     	padding-top: .5rem;
@@ -193,26 +193,21 @@
 		</div>
 	</div>
 	<div id="shareFriSha">
-		<img src="images/act_16seventhDay_indexshare.png" alt="">
+		<img src="images/act_16roundRabbit_shareIcon.png" alt="">
 	</div>
 	
-	<div style="display: none">
-		<img  src="images/act_16seventhDay_game_pt-1.png">
-		<img  src="images/act_16seventhDay_game_pt-2.png">
-		
-	</div>
+
+	<!--音频-->
 	<!--<div style="display: none;" class="gameM	usic_wrap2">
 		<div id="audio_span"></div>
-		
 		<script>
-			
 			function end(){
 				document.getElementById('audioBackMusic').play() ;
 			}
 		</script>
 		
-		<!--<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>-->
-	<!--</div>-->
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+	</div>-->
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="artTemplate/template.js"></script>
@@ -225,7 +220,6 @@
 			{{if row.css == 'styleCat'}}
 			<img id="imgSty" data-s="1" src='images/act_16roundRabbit_index_rabbit1.png'>
 			{{/if}}
-			<!--<img  src="{{row.image }}">-->
 		</a>
 	</li>
 	{{/each}}
@@ -266,25 +260,27 @@
 			$(".indexPage").fadeIn() ;
 			timer();
 			initFunction();
-//			clearTimeout( timer );
 		}
 	});
 	
 	function timer(){
+//		return;
 		setTimeout(function(){
 			var dataNum = $(".rabbit_move").attr('data-p');
 			var dataNumT = $(".rabbit_Tmove").attr('data-pt');
 			if(dataNum == 1){
+				$(".rabbit_move").css({width:"1.3rem"});
 				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit2.png');
-				$(".rabbit_move").css({width:"1.6rem"});
 			}else{
+				$(".rabbit_move").css({width:"1.6rem"});
 				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit1.png');
 			}
 			if(dataNum == 1){
+				$(".rabbit_Tmove").css({width:"1.6rem"});
 				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit1.png');
 			}else{
+				$(".rabbit_Tmove").css({width:"1.3rem"});
 				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit2.png');
-				$(".rabbit_move").css({width:"1.6rem"});
 			}
 			dataNum = dataNum * (-1);
 			dataNumT = dataNumT * (-1);
@@ -316,7 +312,7 @@
 		
 		/*点击领取*/
 		$("#goToGetHb ").on("click ", function() {
-			var url = "http://192.168.1.193:8020/act_NYFestival/act_16seventhDay_getHb.html"
+			var url = "http://192.168.1.193:8020/act_NYFestival/act_16roundRabbit_getHb.html"
 //			 var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
 //			var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16iceBucket_getHb&user_token=" + token + "&version_code="+version+"&codeActId=270";
 			location.href = url;
@@ -333,8 +329,8 @@
 			appid: appid,
 			title: '清凉一"夏"领药快到现金券',
 			desc: '炎炎夏日，快把清凉带回家~',
-			link: 'http://' + location.host + '/medhtml/common/act_16seventhDay_index',
-			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16seventhDay_shareImg.jpg' ,
+			link: 'http://' + location.host + '/medhtml/common/act_16roundRabbit_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16roundRabbit_shareImg.jpg' ,
 			shareSucc: function() {
 				$("#shareFriSha").hide();
 				$(".butWrap").show();

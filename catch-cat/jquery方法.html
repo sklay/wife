@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+</head>
+<body>
+
+
+
+
+<script>
+
+    //position()函数用于返回当前匹配元素相对于其被定位的祖辈元素的偏移，也就是相对于被定位的祖辈元素的坐标。该函数只对可见元素有效。
+//与offset()不同的是：position()返回的是相对于被定位的祖辈元素的坐标，offset()返回的是相对于当前文档的坐标。此外，position()函数无法用于设置操作。如果当前元素的祖辈元素全部都是默认定位(static)，那么该函数返回的偏移位置与offset()函数相同。
+   //offsetParent() 获得被定位的最近祖先元素。
+
+
+    var docHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    var threePartitionheight = $("#threePartition").position().top+ $("#threePartition").offsetParent().offset().top;
+    var recommend = false;
+
+    $(window).scroll(function() {
+        var scrollHeight = $(window).scrollTop();
+        if (threePartitionheight < scrollHeight + docHeight) {
+
+            if (recommend == false) {
+
+                $.ajax({
+                    type: "post",
+                    url: "/sxt_officialwebsite/getThreePartitionByHtml.do",
+                    success: function (msg) {
+                        var threePartition = msg.threePartition;
+                        var lis = $("#threePartition li");
+                        for (var j = 0; j < lis.length; j++) {
+                            var str = threePartition[0].t_link.split(",");
+                            var a = $(lis[j]).find("a");
+                            if (str[4] == "1") {
+                                a.attr("href", str[0]);
+                            } else if (str[4] == "2") {
+                                a.attr("href", str[1]);
+                            } else if (str[4] == "3") {
+                                a.attr("href", str[2]);
+                            } else {
+                                a.attr("href", str[3]);
+                            }
+
+                            var s = a.find("img");
+                            s.attr("src", threePartition[j].photo);
+                            s.css("display", "block");
+                            var p = $(lis[j]).find("p");
+                            var words = threePartition[j].t_word.split(",")
+                            p.html(words[0]);
+                            var span = $("<span></span>");
+                            span.html(words[1]);
+                            span.appendTo(p);
+                        }
+                    }
+                });
+
+            }
+
+            recommend = true;
+            console.debug(recommend);
+            console.debug(scrollHeight);
+
+        }
+    })
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -321,10 +321,8 @@ $(function() {
 	});
 
 	/* 再次游戏 */
-//	clickBoo = false;
 	$("#playAgain").on("tap", function(e) {
 		if(speller.isOver == 1) {
-//			clickBoo = true;
 			$(".gameFailWrap").fadeOut();
 			gameStart();
 		}
@@ -339,6 +337,7 @@ $(function() {
 		var event = e || window.event;
 		event.stopPropagation();
 		if(is_weixin()) {
+//			$("#shareFriSha").css("height", $(".content").height());
 			$("#shareFriSha").show();
 		} else {
 			if(isLogin()) {
@@ -369,25 +368,5 @@ $(function() {
 		$(".butWrap").show();
 		$(".shareAppPage").hide();
 	});
-	//	document.addEventListener("touchmove", function(b) {
-	//		b.preventDefault();
-	//	}, false);
-	//	$('.gameWinMainWrap').on('tap', function() {
-	//		var $this = $(this);
-	//		var $childImg = $this.find('[name=gamePlayChilren]');
-	//		var isTouched = $childImg.length;
-	//		if(!isTouched) {
-	//			return;
-	//		}
-	//		console.debug();
-	//		$childImg.remove();
-	//
-	//		if(playMusic) {
-	//			sound_music.currentTime = 0;
-	//			sound_music.play();
-	//		}
-	//
-	//		scoreCountFun($this);
-	//	})
 
 })

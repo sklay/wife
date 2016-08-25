@@ -31,9 +31,65 @@ body {
 	width: 100%;
 	position: relative;
 	height: 9.4rem;
-	background: url(../images/act_16seventhDay_indexBj.jpg) center center no-repeat;
+	background: url(../images/act_16roundRabbit_indexBj2.jpg) center center no-repeat;
 	background-size: 100% 100%;
-	/*padding-bottom: .4rem;*/
+	padding-bottom: .4rem;
+	position: relative;
+}
+.result_page{
+	width: 100%;
+	position: relative;
+	height: 9.4rem;
+	background: url(../images/act_16roundRabbit_gameBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
+	padding-bottom: .4rem;
+	position: relative;
+}
+.received_result{
+    position: absolute;
+    width: 5rem;
+    top: 4.4rem;
+    left: 50%;
+    margin-left: -2.5rem;
+}
+.gamePageTop {
+	width: 5.4rem;
+	padding-top: .5rem;
+	margin: 0 auto ;
+}
+.gamePageTop img{
+	width: 100%;
+}
+.move_rabbit{
+	width: 3.4rem;
+	position: absolute;
+	left: 50%;
+	margin-left: -1.7rem;
+	top: 3.8rem;
+	/*margin: 0 auto;*/
+	overflow: hidden;
+}
+.move_rabbit .rabbit_move{
+	width: 1.6rem;
+	float: left;
+}
+.move_rabbit .rabbit_Tmove{
+	width: 1.3rem;
+	float: right;
+}
+
+.result_page .top_rabbit{
+	width: 3.6rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.result_page .top_rabbit .rabbit_move{
+	width: 1.6rem;
+	float: left;
+}
+.result_page .top_rabbit .rabbit_Tmove{
+	width: 1.3rem;
+	float: right;
 }
 .getHbWrap{
 	position: absolute;
@@ -63,7 +119,7 @@ body {
 	margin: .18rem auto .2rem;
 	border: none;
 	width: 100%;
-	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+	background: linear-gradient(to bottom, #73d6a4 0%, #65c89c 40%, #50b28f 100%);
 	border-radius: .4rem;
 	box-sizing: border-box;
 	height: 38px;
@@ -73,7 +129,7 @@ body {
 	color: #fff;
     font-size: 20px;
     font-weight: 600;
-    box-shadow: 0px 3px 4px rgba(211, 63, 81, 0.65);
+    /*box-shadow: 0px 3px 4px rgba(211, 63, 81, 0.65);*/
 }
 
 /*#getHbBtn span {
@@ -241,7 +297,7 @@ body {
 	text-align: center;
 	border-radius: .4rem;
 	background: #fff;
-	font-size: 18px;
+	font-size: 20px;
 }
 
 ::-moz-placeholder {
@@ -273,11 +329,11 @@ body {
 
 .has_received, .receive_success {
 	width: 4.5rem;
-	margin: 0.4rem auto 0;
+	margin: 0 auto;
 	border-radius: 5px;
 	box-sizing: border-box;
-	background: #48ddf4;
-	border: .06rem solid #761f2c;
+	background: #ffdf73;
+	/*border: .06rem solid #761f2c;*/
 }
 
 /*.getHbnNum img:nth-child(1) {
@@ -285,13 +341,30 @@ body {
 	margin: .3rem auto;
 	display: block;
 }*/
-
+.getHbnNum_desc{
+	width: 4rem;
+    margin: 0rem auto;
+    overflow: hidden;
+    padding: .2rem 0;
+}
+.getHbnNum_desc img{
+    float: left;
+    width: .8rem;
+}
+.getHbnNum_desc p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #761f2c;
+    margin: 0.15rem auto;
+    float: right;
+}
 .getHbnNum img:nth-child(2) {
 	width: 3.7rem;
-	margin: 0 auto .1rem;
+	margin: 0 auto;
+    padding-bottom: .1rem;
 	display: block;
 }
-.receive_success .getHbnNum p{
+/*.receive_success .getHbnNum p{
 	margin: 0.3rem auto;
 	text-align: center;
 }
@@ -308,7 +381,7 @@ body {
     text-shadow: #fff 2px 0 0,#fff 0 2px 0,#fff -2px 0 0,#fff 0 -2px 0;
     -webkit-text-shadow: #000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
     -moz-text-shadow: #000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
-}
+}*/
 .commUsebtn {
 	width: 5rem;
 	margin: 0 auto;
@@ -523,7 +596,7 @@ body {
 	height: 38px;
 	line-height: 38px;
 	display: block;
-    background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+    background: linear-gradient(to bottom, #73d6a4 0%, #65c89c 40%, #50b28f 100%);
 	outline: none;
 	color: #fff;
     font-size: 20px;
@@ -573,7 +646,7 @@ body {
 }
 
 .shareAppPage button:nth-child(2) {
-	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+	background: linear-gradient(to bottom, #73d6a4 0%, #65c89c 40%, #50b28f 100%);
 }
 
 #shareFriSha {
@@ -587,8 +660,8 @@ body {
 }
 
 #shareFriSha img {
-	width: 4rem;
-	margin: 0.5rem auto;
+	width: 5rem;
+	margin: 1.2rem auto;
 	display: block;
 }
 
