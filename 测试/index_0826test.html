@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>点击缩小图片</title>
+   <script type="text/javascript" src="js/jquery-2.1.1.min.js" ></script>
+   <style type="text/css">
+       * {
+           margin: 0;
+           padding: 0;
+       }
+	#container{
+		width:600px;
+		margin: 0 auto;
+	}
+	.imgSty{
+		width: 600px;
+	}
+	button{
+		width: 80px;
+		height: 30px;
+		background: #006699;
+		border: 0;
+		cursor: pointer;
+	}
+      
+   </style>
+
+  
+</head>
+<body>
+<div id="container">
+   <img data-pos="1" class="imgSty" src="img/2.jpg" alt="1"/>
+   <div class="">
+	   <button id="butSma">点击缩小</button>
+	   <button id="butBack">点击还原</button>
+   </div>
+</div>
+</body>
+ <script>
+ 	/*点击时改变图片的宽度，1秒之内只能点击一次*/
+ 	var sw = $(".imgSty").width();
+ 	//每个按钮点击的时间1秒内不可再点击
+ 	var rightTime = new Date().getTime();
+    //点击缩小
+    $("#butSma").click(function(){
+    	$('.imgSty').attr("data-pos","1232");
+     	if(new Date().getTime() - rightTime < 1000){
+	    	return;
+	    }
+     	rightTime = new Date().getTime();
+     	var w = $(".imgSty").width();
+     	if(w>60){
+     		var nw = (w-50) + 'px';
+     		$(".imgSty").css("width",nw);
+     	}
+    });
+     //点击还原
+    $("#butBack").click(function(){
+      	var bw = sw+"px";
+ 		$(".imgSty").css("width",bw);
+    });
+   
+ </script>
+</html>

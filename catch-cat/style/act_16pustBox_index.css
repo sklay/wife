@@ -302,7 +302,12 @@ body {
 .gameMainCon2{
 	width: 6.4rem;
 	height: 6.4rem;
-	margin: 1.3rem auto;
+	/*margin: 1.3rem auto;*/
+	position: absolute;
+	z-index: 0;
+	top: 1.86rem;
+	left: 50%;
+	margin-left: -3.2rem;
 }
 
 .gameMainCon2 ul {
@@ -318,6 +323,7 @@ body {
 	height: .8rem;
 	float: left;
 	list-style: none;
+	border-radius: 10px;
 	/*background: #fff;*/
 	
 }
@@ -327,6 +333,7 @@ body {
 	height: .8rem;
 	display: block;
 	margin: 0 auto;
+	border-radius: 10px;
 	text-decoration: none;
 	
 }
@@ -342,6 +349,8 @@ body {
 	position: absolute;
 	z-index: 2;
 	top: 1.86rem;
+	left: 50%;
+	margin-left: -3.2rem;
 }
 
 .gameMainCon ul {
@@ -357,6 +366,7 @@ body {
 	height: .8rem;
 	float: left;
 	list-style: none;
+	border-radius: 10px;
 	/*background: #fff;*/
 	
 }
@@ -366,6 +376,7 @@ body {
 	height: .8rem;
 	display: block;
 	margin: 0 auto;
+	border-radius: 10px;
 	text-decoration: none;
 	
 }

@@ -113,8 +113,9 @@
            animate(0);
 
            oImgList.style.width = aImg[0].offsetWidth * aImg.length + 'px';
-            //加了这句话之后就出问题。
-           oImgList.style.webkitTransition = "all 1s";
+//			oImgList.style.width = document.getElementById('list').style.width + 'px';
+            //加了这句话之后就出问题。  是由时间 延迟引起的   
+           oImgList.style.webkitTransition = "all 1s ";
 
            function animate(offset) {
                oImgList.style.left = oImgList.offsetLeft + offset + 'px';
@@ -125,36 +126,40 @@
                }
                showButton();
            }
-
-//
-//         oNext.onclick = function () {
-//             index = (index == 5 ? 1 : ++index);
-//             animate(-600);
-//         };
            
-           var rightTime = new Date().getTime();//每个按钮点击的时间1秒内不可再点击
-           var leftTime = new Date().getTime();
+			//点击下一张
            oNext.onclick = function () {
-               if(new Date().getTime() - rightTime < 1000){
-                   return;
-               }
-               rightTime = new Date().getTime();
                index = (index == 5 ? 1 : ++index);
                animate(-600);
            };
            
-//         oPrev.onclick = function () {
-//             index = (index == 1 ? 5 : --index);
-//             animate(600);
+//         var rightTime = new Date().getTime();//每个按钮点击的时间1秒内不可再点击
+//         var leftTime = new Date().getTime();
+//         oNext.onclick = function () {
+//             if(new Date().getTime() - rightTime < 1000){
+//                 return;
+//             }
+//             rightTime = new Date().getTime();
+//             index = (index == 5 ? 1 : ++index);
+//             animate(-600);
 //         };
-			oPrev.onclick = function () {
-               if(new Date().getTime() - leftTime < 1000){
-                   return;
-               }
-               leftTime = new Date().getTime();
+
+           //点击上 一张
+           oPrev.onclick = function () {
                index = (index == 1 ? 5 : --index);
                animate(600);
            };
+
+//			oPrev.onclick = function () {
+//             if(new Date().getTime() - leftTime < 1000){
+//                 return;
+//             }
+//             leftTime = new Date().getTime();
+//             index = (index == 1 ? 5 : --index);
+//             animate(600);
+//         };
+           
+           
            for (var i = 0; i < aButtons.length; i++) {
                aButtons[i].onclick = function () {
                    //获取点击时候的index值，自定义属性只能通过getAttribute获取
