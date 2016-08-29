@@ -25,6 +25,7 @@ body {
 	font-size: 10px;
 	font-size: .1rem;
 	font-family: Microsoft Yahei, Arial;
+	 -webkit-tap-highlight-color:rgba(0,0,0,0); 
 }
 .contentBack {
 	/*background: -webkit-radial-gradient(50% 50%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);*/
@@ -339,7 +340,8 @@ body {
 	text-decoration: none;
 	/*background: #C05757;*/
 	border-radius: 50%;
-	outline: none;
+	outline-style: none;
+	border: 0;
 }
 /*.gameMainCon ul li a:focus{outline:none;}*/
 .gameMainCon ul li a img{

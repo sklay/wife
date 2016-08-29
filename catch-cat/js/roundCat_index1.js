@@ -92,24 +92,16 @@ $(function() {
 					//当前点击的  点
 					var curi = parseInt(pos / 9);
 					var curj = pos % 9;
-					//当前点击的坐标数据不是1  表示 不是是障碍物或者 猫 
-					if(speller.tArray[curi][curj] != 0){
+					//如果不是0 的  不可以走
+					if(speller.tArray[curi][curj] != 0) {
 						return;
 					}
-					//改变 点击的颜色
-					$(this).find("a").css("background","#4E6F9F");
+					//把当前点击的 位置变成障碍物
+					$(this).find("a").css("background", "#4E6F9F");
 					//并且改变里面的数据
 					speller.tArray[curi][curj] = 2;
-					
-//					if(speller.tArray[curi][curj] != 2){
-//						 $(this).find("a").css("background","#4E6F9F");
-//					}
+					//					speller.onClickByIndex(curi,curi);
 					speller.onClickByIndex();
-					
-//					if(speller.people_x == 0 || speller.people_x==8 ||speller.people_y == 0 || speller.people_y==8){
-//				        alert("游戏结束");
-//				        return;
-//				    }
 				});
 				
 				 
@@ -125,121 +117,75 @@ $(function() {
 
 
 			onClickByIndex: function() {
-				
-				//点击的是空白处 
+					
 					// 猫移动 的六个  方向  1 left  2 left up   3  right up   4 right  5  right down 6  left  down
 					var index = this.getMoveCat(this.people_x, this.people_y);
-					console.log("点击时index是    "+index);
-//					
+					
 					if(index == 1) {
 						// left
 //						alert(i -1);
-						this.changeImgAndData(this.people_x,this.people_y - 1,this.people_x, this.people_y); //交换
-//						this.people_x = this.people_x;
-//						this.people_y = this.people_y - 1;
+						this.changeImgAndData(this.people_x-1,this.people_y,this.people_x, this.people_y); //交换
 					} else if(index == 2) {
 						//left up 
-						if(j%2 == 0){
-							this.changeImgAndData(this.people_x - 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
+						if(this.people_y%2 == 0){
+							this.changeImgAndData(this.people_x,this.people_y - 1,this.people_x, this.people_y); //交换
 						}else{
 							this.changeImgAndData(this.people_x - 1,this.people_y - 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
 						}
 						
 					} else if(index == 3) {
-						if(j%2 == 0){
-							this.changeImgAndData(this.people_x - 1,this.people_y + 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y + 1;
+						if(this.people_y%2 == 0){
+							this.changeImgAndData(this.people_x + 1,this.people_y - 1,this.people_x, this.people_y); //交换
 						}else{
-							this.changeImgAndData(this.people_x - 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x - 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(this.people_x,this.people_y - 1,this.people_x, this.people_y); //交换
 						}
 					} else if(index == 4) {
 						//right 
-						this.changeImgAndData(this.people_x,this.people_y + 1,this.people_x, this.people_y); //交换
-//						this.people_x = this.people_x;
-//						this.people_y = this.people_y + 1;
+						this.changeImgAndData(this.people_x + 1,this.people_y,this.people_x, this.people_y); //交换
 					}else if(index == 5) {
 						//right down
-						if(j%2 == 0){
+						if(this.people_y%2 == 0){
 							this.changeImgAndData(this.people_x + 1,this.people_y + 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y + 1;
 						}else{
-							this.changeImgAndData(this.people_x + 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y;
+							this.changeImgAndData(this.people_x,this.people_y + 1,this.people_x, this.people_y); //交换
 						}
 					} else if(index == 6) {
 						//left down
-						if(j%2 == 0){
-							this.changeImgAndData(this.people_x + 1,this.people_y,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y;
+						if(this.people_y%2 == 0){
+							this.changeImgAndData(this.people_x,this.people_y + 1,this.people_x, this.people_y); //交换
 						}else{
-							this.changeImgAndData(this.people_x + 1,this.people_y - 1,this.people_x, this.people_y); //交换
-//							this.people_x = this.people_x + 1;
-//							this.people_y = this.people_y - 1;
+							this.changeImgAndData(this.people_x - 1,this.people_y + 1,this.people_x, this.people_y); //交换
 						}
 					}else{
-						alert("结束了");
+						alert("游戏结束");
 					}
-//					/*猫向  哪个方向移动*/
+////					/*猫向  哪个方向移动*/
 //					this.changeImgAndData(i, j, this.people_x, this.people_y);
-					/*设置人的当前位置*/
+//					/*设置人的当前位置*/
 //					this.people_x = i;
 //					this.people_y = j;
-					this.isGameOver(); //游戏是否结束
+//					this.isGameOver(); //游戏是否结束
+					 if(this.people_x == 0 || this.people_x==8 ||this.people_y == 0 || this.people_y){
+					        alert("输了，游戏结束");
+					        return;
+					    }
 			},
 
-			//根据下标交换图片与数据
-			changeImgAndData: function(i1, j1, i2, j2) {
-				/*1、交换图片，其中数据为0的图片是秀明的*/
-				//图片的交换
-				var imgId1 = i1 * 9 + j1;
-				var imgId2 = i2 * 9 + j2;
-				//	var imgori;
+		
 
-				//图片的位置
-				var $blank = $(this.content).find(this.tag).eq(imgId1);
-				//图片2位置
-				var $nBlank = $(this.content).find(this.tag).eq(imgId2);
-				//  获取 黑块中的 内容  clone(false)  此方法表示只复制 内容  不复制 方法
-				var $blankA = $blank.children().clone(false);
-				var $nBlankA = $nBlank.children().clone(false);
-
-				$nBlank.html($blankA);
-				$blank.html($nBlankA);
-
-				/*2、交换数据*/
-//				alert(i1+","+j1);
-				var t = this.tArray[i1][j1];
-				if(this.tArray[i1][j1] == 0){
-					this.tArray[i1][j1] = this.tArray[i2][j2];
-				}
-				
-				this.tArray[i2][j2] = t;
-			},
-
-			//箱子可移动的 方法   
-			//0表示不能移动，1左，2上，3下，4右。
+			//兔子可以移动的  方向1 left  
 			getMoveCat: function(i, j) {
 				//记录下不能移动的点    最后 围住 时  判断  该条路线上 是否还有可移动的 位置
 				var  distanceMap = [];
 				console.log("distanceMap   "+distanceMap);
 				//left
 				var can = true ;
-				for(var y = this.people_y; y>= 0 ;y--){
+				for(var x = this.people_x; x>= 0 ;x--){
 					//如果左边障碍物  就不往左边移动
-					if(this.tArray[this.people_x][y] == 1){
+					if(this.tArray[x][this.people_y] == 1){
 						can = false; 
 //						distanceMap [1] = this.people_x - i;
-						distanceMap.push(this.people_y - y);
+						distanceMap.push(this.people_x - x);
 						break;
 					}
 				}
@@ -258,9 +204,9 @@ $(function() {
 					}
 					//当往左上移动的时候    横坐标不变    纵坐标在   -1
 					if(y%2 == 1){
-						y--;
+						x--;
 					}
-					x--;
+					y--;
 					//判断 当前的  左边的  边界
 					if(x < 0 || y < 0){
 						break;
@@ -296,12 +242,12 @@ $(function() {
 				
 				//right
 				var can = true ;
-				for(var y = this.people_y; y < 9 ;y++){
+				for(var x = this.people_x; x < 9 ;x++){
 					//如果左边障碍物  就不往左边移动
 					if(this.tArray[this.people_x][y] == 1){
 						can = false; 
 //						distanceMap [4] = i - this.people_x;
-						distanceMap.push(y - this.people_y);
+						distanceMap.push(x - this.people_x);
 						break;
 					}
 				}
@@ -321,9 +267,9 @@ $(function() {
 					}
 					//当往左上移动的时候    横坐标不变    纵坐标在   -1
 					if(y%2 == 1){
-			            y--;
+			            x++;
 			        }
-			        x--;
+			        y++;
 			        if(y>8 ||x>8){
 			            break;
 			        }
@@ -343,9 +289,9 @@ $(function() {
 					}
 					//当往左上移动的时候    横坐标不变    纵坐标在   -1
 					 if(y%2==0){
-			            y--;
+			            x--;
 			        }
-			        x++;
+			        y++;
 			        if(y>8||x<0){
 			            break;
 			        }
@@ -365,6 +311,35 @@ $(function() {
 //			    }else{
 //			        return 0;
 //			    }
+			},
+
+			//根据下标交换图片与数据
+			changeImgAndData: function(i1, j1, i2, j2) {
+				/*1、交换图片，其中数据为0的图片是秀明的*/
+				//图片的交换
+				var imgId1 = i1 * 9 + j1;
+				var imgId2 = i2 * 9 + j2;
+				//	var imgori;
+
+				//图片的位置
+				var $blank = $(this.content).find(this.tag).eq(imgId1);
+				//图片2位置
+				var $nBlank = $(this.content).find(this.tag).eq(imgId2);
+				//  获取 黑块中的 内容  clone(false)  此方法表示只复制 内容  不复制 方法
+				var $blankA = $blank.children().clone(false);
+				var $nBlankA = $nBlank.children().clone(false);
+
+				$nBlank.html($blankA);
+				$blank.html($nBlankA);
+
+				/*2、交换数据*/
+//				alert(i1+","+j1);
+				var t = this.tArray[i1][j1];
+				if(this.tArray[i1][j1] == 0){
+					this.tArray[i1][j1] = this.tArray[i2][j2];
+				}
+				
+				this.tArray[i2][j2] = t;
 			},
 
 			isGameOver: function() {

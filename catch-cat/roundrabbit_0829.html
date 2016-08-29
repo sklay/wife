@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+	</body>
+	<script>
+		//判断当前兔子是在基数行还是在偶数行
+		var c = 12;
+
+		var ra = (c / 9) % 2;//1
+		var rp = (c / 9 + 1) % 2;//0
+
+		c - 1
+		c + 1
+		c + 8 + ra;
+		c + 9 + ra;
+		c - 8 - rp
+		c - 9 - rp;
+
+		var c = 21;
+
+		var ra = (c / 9) % 2;//0
+		var rp = (c / 9 + 1) % 2;//1
+
+		c - 1
+		c + 1
+		c + 8 + ra;
+		c + 9 + ra;
+		c - 8 - rp
+		c - 9 - rp;
+
+
+
+
+		var zaw = []; //  已经被堵死的位置，
+
+		var rt = 8;
+//		rt / 9 == (0 | 8) && rt % 9 = (0 | 1) 
+			if (rt / 9 == 0 || rt / 9 == 8 || rt % 9 ==0 || rt % 9 == 8){
+				return over;
+			}
+		// 返回要跳转的位置       c表示当前的位置
+		function cu(c) {
+
+			var ra = (c / 9) % 2;
+			var rp = (c / 9 + 1) % 2;
+
+//			c - 1
+//			c + 1
+//			c + 8 + ra;
+//			c + 9 + ra;
+//			c - 8 - rp
+//			c - 9 - rp;
+
+			var next = [];
+			var a = 8; //走的最长的 步数
+
+			//六个点  的递归
+			
+			
+			//往左走
+			if(!zaw.containt(c - 1)) {
+				var s = moveSum(c - 1, 0)
+				if(s == 0) {
+					return c - 1;
+				}
+				if(a > s) {
+					next = [];
+					next.push(c - 1);
+				} else if(a = s) {
+					next.push(c - 1);
+				}
+			}
+			//往右走
+			if(!zaw.containt(c + 1)) {
+				var s = moveSum(c + 1, 0)
+				if(s == 0) {
+					return c + 1;
+				}
+				if(a > s) {
+					next = [];
+					next.push(c + 1);
+				} else if(a = s) {
+					next.push(c + 1);
+				}
+			}
+
+			if(next.length > 0) {
+				return next[Math.random(next.length - 1)];
+			}
+
+		}
+
+		//  兔子移动的 路线 rt 表示 0 - 80 sum 走的步数   la上一次走的 点
+
+		function moveSum(rt, sum, la) {
+			if(!sum) sum = 0;
+			if(!la) la = [];
+
+			//表示游戏结束
+			if (rt / 9 == 0 || rt / 9 == 8 || rt % 9 ==0 || rt % 9 == 8){
+				return sum;
+			}
+			var s = 100;
+			la.push(rt);
+			//共有六个方向  rt -1  左边这个方向 上的点如果不包含在障碍物里    递归 ，找出这个方向要走几步
+			if(!zaw.containt(rt - 1) && !la.containt(rt - 1)) {
+				var b = [];
+				$.each(la, function(i, o) {
+					b.push(o);
+				});
+
+				s = min(moveSum(rt - 1, sum + 1, b), s);
+			}
+
+			if(!zaw.containt(rt + 1) && !la.containt(rt + 1)) {
+				var b = [];
+				$.each(la, function(i, o) {
+					b.push(o);
+				});
+				s = min(moveSum(rt + 1, sum + 1, la), s);
+			}
+
+			return s;
+
+		}
+	</script>
+
+</html>
