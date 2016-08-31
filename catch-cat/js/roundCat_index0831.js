@@ -125,7 +125,7 @@ $(function() {
 				//点击时传入兔子的 当前位置
 				var curPos = this.people_x*9+this.people_y;
 				var curIndex = speller.curRabbit(curPos);
-//				 console.log("this.people_x    ",this.people_x);
+				 console.log("this.people_x    ",this.people_x);
 				var curposi = parseInt(curIndex / 9);
 				var curposj = curIndex % 9;
 				
@@ -142,8 +142,8 @@ $(function() {
 	
 				//六个点  的递归
 				//往左走
-				if($.inArray(cur - 1, this.zaw)<0) {
-					var s = this.getMoveCat(cur - 1,0,this.lastIndex[cur-(cur - 1)]);
+				if($.inArray((cur - 1), this.zaw)<0) {
+					var s = this.getMoveCat(cur - 1,s,this.lastIndex[cur]);
 					if(s == 0) {
 						return cur - 1;
 					}
@@ -156,7 +156,7 @@ $(function() {
 				}
 				//往右走
 				if($.inArray(cur + 1, this.zaw)<0) {
-					var s = this.getMoveCat(cur + 1,0,this.lastIndex[(cur + 1)-cur])
+					var s = this.getMoveCat(cur + 1,s,this.lastIndex[cur])
 					if(s == 0) {
 						return cur + 1;
 					}
@@ -170,7 +170,7 @@ $(function() {
 				//左上
 				if((cur%9)%2 == 0){
 					if($.inArray(cur - 9, this.zaw)<0) {
-						var s = this.getMoveCat(cur - 9,0,this.lastIndex[cur-(cur - 9)])
+						var s = this.getMoveCat(cur - 9,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur - 9;
 						}
@@ -183,7 +183,7 @@ $(function() {
 					}
 				}else{
 					if($.inArray(cur - 10, this.zaw)<0) {
-						var s = this.getMoveCat(cur - 10,0,this.lastIndex[cur-(cur - 10)])
+						var s = this.getMoveCat(cur - 10,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur - 10;
 						}
@@ -198,7 +198,7 @@ $(function() {
 				//右上
 				if((cur%9)%2 == 0){
 					if($.inArray(cur - 8, this.zaw)<0) {
-						var s = this.getMoveCat(cur - 8,0,this.lastIndex[cur-(cur - 8)])
+						var s = this.getMoveCat(cur - 8,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur - 8;
 						}
@@ -211,7 +211,7 @@ $(function() {
 					}
 				}else{
 					if($.inArray(cur - 9, this.zaw)<0) {
-						var s = this.getMoveCat(cur - 9,0,this.lastIndex[cur-(cur - 9)])
+						var s = this.getMoveCat(cur - 9,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur - 9;
 						}
@@ -226,7 +226,7 @@ $(function() {
 				//右下
 				if((cur%9)%2 == 0){
 					if($.inArray(cur + 10, this.zaw)<0) {
-						var s = this.getMoveCat(cur +10,0,this.lastIndex[(cur +10)-cur])
+						var s = this.getMoveCat(cur +10,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur + 10;
 						}
@@ -239,7 +239,7 @@ $(function() {
 					}
 				}else{
 					if($.inArray(cur + 9, this.zaw)<0) {
-						var s = this.getMoveCat(cur + 9,0,this.lastIndex[(cur +9)-cur])
+						var s = this.getMoveCat(cur + 9,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur + 9;
 						}
@@ -254,7 +254,7 @@ $(function() {
 				
 				if((cur%9)%2 == 0){
 					if($.inArray(cur + 9, this.zaw)<0) {
-						var s = this.getMoveCat(cur + 9,0,this.lastIndex[(cur +9)-cur])
+						var s = this.getMoveCat(cur + 9,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur + 9;
 						}
@@ -267,7 +267,7 @@ $(function() {
 					}
 				}else{
 					if($.inArray(cur + 8, this.zaw)<0) {
-						var s = this.getMoveCat(cur + 8,0,this.lastIndex[(cur +8)-cur])
+						var s = this.getMoveCat(cur + 8,s,this.lastIndex[cur])
 						if(s == 0) {
 							return cur + 8;
 						}

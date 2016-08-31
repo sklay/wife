@@ -2,6 +2,7 @@ $(function() {
 
 		this.isOver = 0;
 		games();
+		
 	function games() {
 		speller = {
 			init: function() {
@@ -65,7 +66,7 @@ $(function() {
 				}
 
 				//循环其次从dot_num这个数组随机出 7个数的位置作为 障碍区
-				for(var i = 0; i < 7; i++) { //这种算法叫做“洗牌算法”
+				for(var i = 0; i < 12; i++) { //这种算法叫做“洗牌算法”
 					//找到某个随机数 作为下标，每找一次数组 的长度 减去一次
 					var index = Math.floor(Math.random() * (dot_num.length - i));
 					//如果下标是 41 表示该位置   是  兔子的 位置   不参与 交换
@@ -73,7 +74,7 @@ $(function() {
 						i--;
 						continue;
 					}
-					console.log('index-->' + index);
+					//console.log('index-->' + index);
 					//交换  根据上面找到的下标 ，把随机出来的7个位置 中的数和原数组中的 最后一个中的数交换    
 					var t = dot_num[index];
 					//dot_num.length - 1 - i 表示新数组中最后一个位置上的数  把最后一个数给随机出来的那个位置上
@@ -99,7 +100,7 @@ $(function() {
 							posData.css = "freak";
 						}
 
-						console.log("二维数组的值" + this.tArray[i][j]);
+					//	console.log("二维数组的值" + this.tArray[i][j]);
 						//将特定的  样式放置到 对应的位置里
 						this.positions.push(posData);
 					}
@@ -122,7 +123,7 @@ $(function() {
 						return;
 					}
 					//把当前点击的 位置变成障碍物
-					$(this).find("a").css("background", "#4E6F9F");
+					$(this).find("a").addClass('freak').css("background", "#4E6F9F");
 					//并且改变里面的数据
 					speller.tArray[curi][curj] = 2;
 					//					speller.onClickByIndex(curi,curi);
@@ -147,7 +148,7 @@ $(function() {
 				//index 即是返回的  兔子  能走或者不能走的 数
 				var index = this.getMoveCat(this.people_x, this.people_y);
 
-				console.log("点击时index是    " + index);
+				console.log("要移动到index是    " + index);
 				if(index == -2) { 
 					//猫跑了，游戏失败
 					this.isFail();
@@ -194,6 +195,7 @@ $(function() {
 			},
 			//兔子可以移动的 方向   把兔子的 坐标传进来
 			getMoveCat: function(i, j) {
+				console.debug("a") ;
 				/*、判断奇数偶数决定两个可不可以走*/
 				var shu_arr_9 = []; //存放 所有能走的位置
 				//这边的 循环是否是   兔子 能走的 八个点的 区域 （去掉 因为排列后位置 错开的 不能走的两个点  其中的   六个区域的循环）
@@ -233,23 +235,393 @@ $(function() {
 				if(shu_arr_9.length == 0) {
 					return -1;
 				}
+				
+				console.debug("brothers , " ,shu_arr_9.join(',')) ;
+				/**寻找最短路径*/
+				shu_arr_9 = this.getCatMoveStep(shu_arr_9) ;
 				//从能走的  数里  随机出一个数 返回
 				var index_shu_arr = parseInt(shu_arr_9.length * Math.random());
 				return shu_arr_9[index_shu_arr];
 			},
+			getCatMoveStep :function(array){
+				
+				var $this = this ;
+				var cat = $('ul.box a.styleCat').parent().attr('data-pos') *1;
+				/**算出当前猫所在的行*/
+				var rows = (cat%9 == 0) ? parseInt(cat/9): Math.ceil(cat/9) ;
+				var rightMax = rows*9 - 1 ;
+				var leftMin = (rows-1) * 9 ;
+				/**判断猫是否已经逃出*/
+				if(cat == rightMax || cat == leftMin || 0 >= rows || 9 <= rows){
+					return -2 ;
+				}
+				//所有的障碍物
+				var freakPos = [] ;
+				$('ul.box a.freak').each(function(i , n){
+					var pos = $(n).parent().attr('data-pos') *1 ;
+					freakPos.push(pos) ;
+				}) ;
+				
+				console.debug("障碍物位置 -----> " , freakPos.join(',')) ;
+				
+				var rsts = [] ;
+				/**判断当前行是奇数还是偶数行*/
+				var rowEven = (cat%9 == 0) ? ((rows + 1)%2 == 0) :((rows%2)== 0) ;
+				/**左上*/
+				var lt_offset = rowEven ? -9 :-10 ;
+				/**右上*/
+				var rt_offset = rowEven ? -8 :-9 ;
+				/**左*/
+				var l_offset = -1 ;
+				/**右*/
+				var r_offset = 1 ;
+				/**左下*/
+				var lb_offset = rowEven ? 9 : 8 ;
+				/**右下*/
+				var rb_offset = rowEven ? 10 :9 ;
+				console.debug(cat  , "    rowEven   " ,rowEven) ;
+				
+				/**获取右上线路节点*/
+				var rtpos = cat*1 + rt_offset*1 ;
+				/**存在右上节点*/
+				if($.inArray(rtpos, array) != -1){
+					var positions = $this.rightTop(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(rtpos+"-"+ l) ;
+					}
+				}
+				/**获取左上线路节点*/
+				var ltpos = cat*1 + lt_offset*1 ;
+				/**存在右上节点*/
+				if($.inArray(ltpos, array) != -1){
+					var positions = $this.leftTop(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(ltpos+"-"+ l) ;
+					}
+				}
+				
+				/**获取左边线路节点*/
+				var lpos = cat*1 + l_offset*1 ;
+				/**存在左边节点*/
+				if($.inArray(lpos, array) != -1){
+					var positions = $this.left(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(lpos+"-"+ l) ;
+					}
+				}
+				
+				/**获取右边线路节点*/
+				var rpos = cat*1 + r_offset*1 ;
+				/**存在左边节点*/
+				if($.inArray(rpos, array) != -1){
+					var positions = $this.right(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(rpos+"-"+ l) ;
+					}
+				}
+				
+				/**获取右下线路节点*/
+				var rbpos = cat*1 + rb_offset*1 ;
+				/**存在左边节点*/
+				if($.inArray(rbpos, array) != -1){
+					var positions = $this.rightButtom(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(rbpos+"-"+ l) ;
+					}
+				}
+				
+				/**获取左下线路节点*/
+				var lbpos = cat*1 + lb_offset*1 ;
+				/**存在左边节点*/
+				if($.inArray(lbpos, array) != -1){
+					var positions = $this.leftButtom(cat) ;
+					var bool = true ;
+					/**判断改线路上是否有障碍物*/
+					if(positions && positions.length > 0){
+						$.each(positions, function(i , n) {
+							if($.inArray(n*1, freakPos) != -1){
+								bool = false ;
+							} ;
+						});
+					}
+					/**没有障碍物时获取该线路的节点个数*/
+					if(bool){
+						var l = positions.length ;
+						rsts.push(lbpos+"-"+ l) ;
+					}
+				}
+				
+				console.debug(" rsts --- > " , rsts.join(",")) ;
+				
+				if(rsts && rsts.length > 0){
+					var shortLine = [] ;
+					var p = rsts[0].split('-')[0];
+					var s = rsts[0].split('-')[1];
+					$.each(rsts ,function(i ,n){
+						var _p = n.split('-')[0];
+						var _s = n.split('-')[1];
+						if( 0 < (s*1 - _s*1)){
+							p = _p ;
+							s = _s ;
+						}
+//						console.debug("_p ->  " , _p , "  ,  _s -> " ,_s) ;
+					});
+					console.debug("p ->  " , p , "  ,  s -> " ,s) ;
+					
+					shortLine.push(p) ;
+					return shortLine ;
+				}else{
+					return array ;
+				}
+			
+			},
+			/**右上路线*/
+			rightTop :function (cat){
+				
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+				var rightTopArray = [] ;
+				if(rows < 2 ){
+					return rightTopArray ;
+				}
+				console.debug("rows --- > " ,rows) ;
+				/**判断猫是否在当前行的中心**/
+				var rowMiddle = (rows -1)*9 + 4 ;
+				var nodes = 0 ; 
+				var step = 0 ;
+				/**中间或中间偏右*/
+				if(rowMiddle >= cat){
+					nodes = rows ;
+					step = (nodes%2 == 0) ?8 :9;
+				}
+				/**中间偏左*/
+				else{
+					var rowMax = rows*9 - 1 ;
+					nodes = 2*(rowMax-cat) + 1 ;
+					nodes = (rows%2 == 0) ? nodes :nodes + 1 ;
+					step = (nodes%2 != 0) ?8 :9;
+				}
+			//console.debug("nodes --- > " ,nodes) ; 
+				
+				var pos = cat ;
+				for(var i = 0 ; i< nodes-1 ;i++){
+					pos = pos - step;
+					if(pos<0){
+						return rightTopArray ;
+					}
+					rightTopArray.push(pos) ;
+					step = (step==8) ? 9 :8 ;
+				}
+				return rightTopArray;
+			},
+
+
+			/**左上路线*/
+			leftTop :function (cat){
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+				console.debug("rows --- > " ,rows) ;
+				var leftTopArray = [] ;
+				if(rows < 2 ){
+					return leftTopArray ;
+				}
+				/**判断猫是否在当前行的中心**/
+				var rowMiddle = (rows -1)*9 + 4 ;
+				var nodes = 0 ; 
+				/**中间或中间偏左*/
+				if(rowMiddle <= cat){
+					nodes = rows ;
+				}
+				/**中间偏右*/
+				else{
+					var rowMin = (rows-1)*9;
+					nodes = 2*(cat-rowMin) ;
+					nodes = (rows%2 == 0) ? nodes+2 :nodes + 1 ;
+				}
+			//console.debug("nodes --- > " ,nodes) ; 
+				var step = (nodes%2 == 0) ? 9 :10;
+				var pos = cat ;
+				for(var i = 0 ; i< nodes-1 ;i++){
+					pos = pos - step;
+					leftTopArray.push(pos) ;
+					step = (step == 9 ) ? 10 : 9 ;
+				}
+				return leftTopArray;
+			},
+			
+			
+			/**左下路线*/
+			leftButtom :function (cat){
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+				console.debug("rows --- > " ,rows) ;
+				var leftButtomArray = [] ;
+				if(rows >= 9 ){
+					return leftButtomArray ;
+				}
+				/**判断猫是否在当前行的中心**/
+				var rowMiddle = (rows -1)*9 + 4 ;
+				var nodes = 0 ; 
+				/**中间或中间偏左*/
+				if(rowMiddle <= cat){
+					nodes = 9 - rows+1 ;
+				}
+				/**中间偏右*/
+				else{
+					var rowMin = (rows-1)*9;
+					nodes = 2*(cat-rowMin) ;
+					nodes = (rows%2 == 0) ? nodes+2 :nodes + 1 ;
+				}
+			//console.debug("nodes --- > " ,nodes) ; 
+				var step = (nodes%2 == 0) ? 9 :8;
+				var pos = cat ;
+				for(var i = 0 ; i< nodes-1 ;i++){
+					pos = pos + step;
+					leftButtomArray.push(pos) ;
+					step = (step == 9 ) ? 8 : 9 ;
+				}
+				return leftButtomArray;
+			},
+
+			/**右下路线*/
+			rightButtom:function (cat){
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+			//	console.debug("rows --- > " ,rows) ;
+				var rightButtomArray = [] ;
+				if(rows >= 9 ){
+					return rightButtomArray ;
+				}
+				/**判断猫是否在当前行的中心**/
+				var rowMiddle = (rows -1)*9 + 4 ;
+				var nodes = 0 ; 
+				var step = 0 ;
+				/**中间或中间偏右*/
+				if(rowMiddle >= cat){
+					nodes = 9 - rows + 1 ;
+					step = (nodes%2 != 0) ?9 :10;
+				}
+				/**中间偏左*/
+				else{
+					var rowMax = rows*9 - 1 ;
+					nodes = 2*(rowMax-cat);
+					nodes = (rows%2 == 0) ? nodes :nodes + 1 ;
+					step = (nodes%2 != 0) ?9 :10;
+				}
+			//console.debug("nodes --- > " ,nodes) ; 
+				
+				var pos = cat ;
+				for(var i = 0 ; i< nodes-1 ;i++){
+					pos = pos + step;
+					if(pos> 80){
+						return rightButtomArray ;
+					}
+					rightButtomArray.push(pos) ;
+					step = (step==9) ? 10 :9 ;
+				}
+				return rightButtomArray;
+			},
+
+
+			/**左边路线*/
+			left:function (cat){
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+			//	console.debug("rows --- > " ,rows) ;
+				var leftArray = [] ;
+				var rowMin = (rows -1)*9;
+				
+				if(rowMin < cat){
+					var nodes = cat - rowMin;
+					for(var i = 1 ; i <= nodes ;i++){
+						var pos = cat - i ;
+						leftArray.push(pos) ;
+					}
+				}
+				return leftArray;
+			},
+
+			/**右边路线*/
+			 right:function(cat){
+				var rows = (cat%9 == 0) ? Math.ceil(cat/9) + 1 : Math.ceil(cat/9) ;
+			//	console.debug("rows --- > " ,rows) ;
+				var rightArray = [] ;
+				var rowMax = rows*9 - 1 ;
+				
+				if(rowMax > cat){
+					var nodes = rowMax - cat ;
+					for(var i = 1 ; i <= nodes ;i++){
+						var pos = cat + i ;
+						rightArray.push(pos) ;
+					}
+				}
+				return rightArray;
+			},
+
 
 			isSuccess: function() {
 				$(speller.content + ' li').unbind("tap");
+				alert("花了" + stepNum + "步围住了");
 				//挑战成功显示
-				$(".gameSuccWrap").fadeIn(500);
-				alert("花了" + stepNum + "步");
+//				$(".gameSuccWrap").fadeIn(500);
 //				$(".gameSuccWrap .pText").html("花了" + stepNum + "步");
-				speller.isOver = 1;
+//				speller.isOver = 1;
 			},
 			isFail: function() {
 				$(speller.content + ' li').unbind("tap");
-				$(".gameFailWrap").fadeIn(500);
-				speller.isOver = 1;
+				alert("跑了 ，你输了");
+//				$(".gameFailWrap").fadeIn(500);
+//				speller.isOver = 1;
 			},
 			timeFun:function(){
 				//两个兔子的 图片来回交换
@@ -262,7 +634,7 @@ $(function() {
 						}
 						dataNum = dataNum * (-1);
 						 $(".styleCat #imgSty").attr('data-s',dataNum);
-						 console.log("dataNum    ",dataNum);
+					//	 console.log("dataNum    ",dataNum);
 						 //如果开始调用定时器
 						 if(speller.isOver == 0){
 						 	speller.timeFun();
