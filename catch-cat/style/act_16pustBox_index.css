@@ -41,32 +41,34 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 9999;
-	background: -webkit-radial-gradient(50% 50%, #80f0cc 0%, #89f2d1 10%, #94f3d6 30%, #73eec5 70%, #63ecbd 100%);
+	background: -webkit-radial-gradient(60% 30%, #df707a 10%, #d65b65 35%, #cf4b55 55%, #c63641 75%, #c4323c 100%);
 }
 
-/*.loadingImg {
-	width: 2.5rem;
-	
+.loadingImg {
+	width: 1rem;
+	margin:2.5rem auto 0;
 	box-sizing: border-box;
 }
 
 .loadingImg img {
 	width: 100%;
-}*/
+}
 
 .loadText {
 	font-size: 20px;
-	color: #4e6f9f;
+	color: #fff;
 	text-align: center;
 	line-height: 50px;
-	margin-top: 4rem;
 	font-weight: 600;
 }
 
 .loadShape {
 	width: 4.5rem;
 	margin: 0 auto;
-	background: #4e6f9f;
+	/*background: #4e6f9f;*/
+	background: rgb(163,41,50);
+    background: -webkit-linear-gradient(top, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
+    background: linear-gradient(to bottom, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
 	border-radius: 10px;
 	height: 10px;
 	overflow: hidden;
@@ -109,11 +111,11 @@ body {
 /*首页*/
 .indexPage {
 	width: 100%;
-	background: url(../images/act_16seventhDay_indexBj.jpg) center center no-repeat;
+	background: url(../images/act_16pushBox_indexBj.jpg) center center no-repeat;
 	background-size: 100% 100%;
 }
 
-.indexComImg {
+/*.indexComImg {
 	display: block;
 	margin: 0 auto;
 	width: 3.8rem;
@@ -126,8 +128,17 @@ body {
 .indexPageTitle {
 	width: 4.8rem;
 	margin-top: 10%
+}*/
+.indexP_title{
+	width: 5.6rem;
+	margin: 1.6rem auto .8rem;
 }
-
+.indexP_title img{
+	width: 100%;
+}
+.indexP_title img:nth-child(2){
+	margin: .2rem 0 0 .2rem;
+}
 #goToGamePage {
 	width: 3rem;
 	line-height: .78rem;
@@ -139,10 +150,11 @@ body {
 	font-weight: 600;
 	color: #681c1b;
 	box-shadow: 0 4px 2px rgba(208, 62, 81, 0.4);
-	position: absolute;
+	/*position: absolute;
 	bottom: 1.8rem;
 	left: 50%;
-	margin-left:-1.5rem ;
+	margin-left:-1.5rem ;*/
+	margin: 0 auto;
 	display: block;
 	outline: none;
 	border: none;
@@ -166,13 +178,15 @@ body {
 	font-family: SimHei;
 	text-align: center;
 	font-size: 20px;
-	position: absolute;
+	/*position: absolute;
 	bottom: .8rem;
 	left: 50%;
-	margin-left: -.8rem;
+	margin-left: -.8rem;*/
 	width: 1.6rem;
+	text-align: center;
+	margin: .5rem auto 0;
 	line-height: 28px;
-	border-bottom: 1px solid #681c1b;	
+	/*border-bottom: 1px solid #681c1b;*/	
 }
 
 .actRuleShow_wrap,.gameOverWrap  {
@@ -234,6 +248,7 @@ body {
 	font-weight: bold;
 	overflow: hidden;
 	font-size: 14px;
+	background: #c4323c;
 }
 
 .actRuleText p {
@@ -395,7 +410,7 @@ body {
 	background:url(../images/box-5.png)no-repeat;
 }
 
-.showOrigin{
+/*.showOrigin{
 	width: 5.8rem;
     margin: .3rem auto 0;
 }
@@ -410,9 +425,9 @@ body {
     font-size: 16px;
     line-height: .9rem;
     font-weight: 600;
-}
+}*/
 /*原图*/
-.game_origin{
+/*.game_origin{
 	width: 100%;
     height: 100%;
     position: absolute;
@@ -427,7 +442,7 @@ body {
 	width: 5.4rem;
 	margin: 0 auto;
 	display: block;
-}
+}*/
 /*游戏结果*/
 
 
@@ -445,19 +460,54 @@ body {
 	padding-top:0 ;
 }
 
-.gameSuccWrap .gameFailText,.gameFailWrap .gameFailText {
-	width: 3.5rem;
-	padding: .4rem .2rem;
+.gameFailTitle{
+	width: 4.5rem;
+    margin: .8rem auto 0;
 }
-
-
 .gameFailTitle  img {
 	width: 100%;
 }
-.gameFailTitle  img:nth-child(2) {
-	width: 2.4rem;
-	display: block;
-	margin: -.5rem auto 0.3rem;
+.success_title{
+    margin: .2rem 0 .5rem 0;
+}
+.success_title h1{
+	text-align: center;
+    color: #fff;
+    font-size: 24px;
+}
+.gameSuccWrap .gameFailText,.gameFailWrap .gameFailText {
+    width: 4.8rem;
+    margin: -.7rem auto 0;
+	padding: .4rem .2rem;
+    background: #c4323c;
+}
+.butWrap{
+    width: 4rem;
+    margin: 0 auto;
+}
+#goToGetHb span{
+    display: block;
+    width: 2rem;
+    margin: 0 auto;
+    background: url(images/act_16pushBox_btnIcon.png) 0 -43px no-repeat;
+    background-size: 192% auto;
+    height: 80%;
+}
+.shareFri,#playAgain span{
+    display: block;
+    width: 2.7rem;
+    margin: 0 auto;
+    background: url(images/act_16pushBox_btnIcon.png) 0 -66px no-repeat;
+    background-size: 134% auto;
+    height: 80%;
+}
+.downloadP span{
+    display: block;
+    width: 2rem;
+    margin: 0 auto;
+    background: url(images/act_16pushBox_btnIcon.png) 0 -105px no-repeat;
+    background-size: 200% auto;
+    height: 80%;
 }
 .gameFailBtn {
 	width: 100%;
@@ -485,13 +535,35 @@ body {
 }
 
 .toGetReward {
-	background: linear-gradient(to bottom, #ffc72f 0%, #ffbf1b 40%, #ffb400 100%);
+    background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
+    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 }
 .shareFri,#playAgain {
-	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+	/*background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+	background: #4cdef4;
+    -webkit-box-shadow: inset 0 2px 2px 0 #def3e5;
+    box-shadow: inset 0 2px 2px 0 #def3e5;
+    background: -webkit-linear-gradient(top, rgba(101,226,241,1) 1%,rgba(76,222,244,1) 41%,rgba(76,222,244,1) 66%,rgba(55,207,239,1) 80%,rgba(55,207,239,1) 90%,rgba(56,207,239,1) 95%,#5adbf1 100%);*/
+ 	background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
 .downloadP{
-	background: linear-gradient(to bottom, #fe3c3c 0%, #ea2f22 40%, #d01d00 100%);
+	/*background: -webkit-linear-gradient(top, rgba(255,230,120,1) 0%,rgba(255,224,79,1) 51%,rgba(255,223,76,1) 77%,rgba(255,207,35,1) 90%,rgba(255,212,42,1) 95%,#ffdd42 100%);
+    background: linear-gradient(to bottom, rgba(255,230,120,1) 0%,rgba(255,224,79,1) 51%,rgba(255,223,76,1) 77%,rgba(255,207,35,1) 90%,rgba(255,212,42,1) 95%,#ffdd42 100%);
+    -webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
+    box-shadow: inset 0 2px 2px 0 #ffefaf;*/
+    
+    background: #adcc4e;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #c6db83;
+    box-shadow: inset 1px 2px 2px 0 #c6db83;
+    background: -webkit-linear-gradient(top,#c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80% ,#93b023 90%,#b0c53b 100%);
+    background: linear-gradient(to bottom, #c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80%,#93b023 90%,#b0c53b 100%);
 }
 /*#goToGetHb .gameFailBtn span {
 	width: 112px;

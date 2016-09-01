@@ -97,7 +97,7 @@ $(function() {
 
 				//this.step = 0;  记录 移动的步 数
 				this.blank = 8;
-				this.useTime = 180;
+//				this.useTime = 180;
 				this.tag = 'li';
 				this.content = 'ul.box';
 				this.content2 = 'ul.box2';
@@ -106,31 +106,31 @@ $(function() {
 				this.creatBJ();
 				this.createGrid();
 				//倒计时
-				this.clearShu();
+//				this.clearShu();
 			},
 			
-			clearShu:function(){
-				if(this.timer)
-					clearInterval(this.timer);
-				this.timer = setInterval(function() {
-					speller.useTime--; /* 累加时间并格式化显示 */
-
-					if(speller.useTime < 1) {
-						console.debug("clear")
-						clearInterval(speller.timer);
-
-						clickBoo = false;
-						$(".gameFailWrap").fadeIn(500);
-
-						if(playMusic) {
-							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
-							audio_music.pause();
-						}
-					};
-					$("#gameCountDownTime").html(speller.useTime);
-
-				}, 1000);
-			},
+//			clearShu:function(){
+//				if(this.timer)
+//					clearInterval(this.timer);
+//				this.timer = setInterval(function() {
+//					speller.useTime--; /* 累加时间并格式化显示 */
+//
+//					if(speller.useTime < 1) {
+//						console.debug("clear")
+//						clearInterval(speller.timer);
+//
+//						clickBoo = false;
+//						$(".gameFailWrap").fadeIn(500);
+//
+//						if(playMusic) {
+//							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
+//							audio_music.pause();
+//						}
+//					};
+//					$("#gameCountDownTime").html(speller.useTime);
+//
+//				}, 1000);
+//			},
 			//创建背景模板
 			creatBJ:function(){
 				for(var i = 0; i < 8; i++){
@@ -386,7 +386,8 @@ $(function() {
 						return;
 					}
 				}
-//				alert('游戏结束');
+//				alert("成功了");
+				$(".gameSuccWrap").fadeIn(500);
 			}
 
 		}

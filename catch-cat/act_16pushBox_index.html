@@ -106,9 +106,9 @@
 	<div class="contentBack">
 		<!--加载页-->
 		<div id="loadingPage">
-			<!--<div class="loadingImg">
-				<img src="images/act_16seventhDay_indexLOading.gif" alt="">
-			</div>-->
+			<div class="loadingImg">
+				<img src="images/act_16pushBox_loadingP.png" alt="">
+			</div>
 			<p class="loadText">
 				Loading……<span id="loadPer"></span>
 			</p>
@@ -118,6 +118,10 @@
 		</div>
 		<!--首页-->
 		<div class="indexPage">
+			<div class="indexP_title">
+				<img  src="images/act_16pushBox_indexTitle.png" />
+				<img  src="images/act_16pushBox_indexPeople.png" />
+			</div>
 			<button id="goToGamePage">开始游戏</button>
 			<p id="getActRule">活动规则</p>
 			<div class="actRuleShow_wrap comWrap1">
@@ -163,31 +167,29 @@
 					</ul>
 				</div>
 			</div>
-			<!--<div class="less_2" style="display: none;">
-				<div class="gameMainCon">
-					<ul class="box">
-					</ul>
-				</div>
-				<div class="gameMainCon2">
-					<ul class="box2">
-					</ul>
-				</div>
-			</div>-->
+			
 			<!--挑战失败页-->
 			<div class="gameFailWrap comWrap1">
 				<div class="gameFail comShowWrap1">
 					<div class="gameFailTitle">
-						<img src="images/act_16seventhDay_gameFail_title.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+						<img src="images/act_16pushBox_gameFailTitle.png" alt="">
 					</div>
 					<div class="gameFailText comTextWrap1">
 						<div class="butWrap">
-							<a id="goToGetHb">
-								<button class="gameFailBtn toGetReward">去抽奖</button>
+							<div class="success_title" style="">
+		  						<h1>别灰心，送你个红包  </h1>
+								<h1>不！服！再！战！</h1>
+		  					</div>
+							<button class="gameFailBtn " id="playAgain"><span></span></button>
+							<a id="goToGetHb" class="gameFailBtn toGetReward">
+								<!--<button >去抽奖</button>-->
+								<span></span>
 							</a>
-							<button class="gameFailBtn " id="playAgain">不服再战</button>
-							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+							<button class="gameFailBtn shareFri" ><span></span></button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_friRound">分享到朋友圈</button>
 						</div>
 					</div>
 				</div>
@@ -195,17 +197,22 @@
 			<div class="gameSuccWrap comWrap1">
 				<div class="gameFail comShowWrap1">
 					<div class="gameFailTitle">
-						<img src="images/act_16seventhDay_gameSucc_title.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
-						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+						<img src="images/act_16pushBox_gameSuccTitle.png" alt="">
 					</div>
 					<div class="gameFailText comTextWrap1">
+						<div class="success_title" style="">
+	  						<h1>开箱有礼</h1>
+							<h1>欢乐过十一</h1>
+	  					</div>
 						<div class="butWrap">
-							<a id="goToGetHb">
+							<!--<a id="goToGetHb">
 								<button class="gameFailBtn toGetReward">去抽奖</button>
+							</a>-->
+							<a id="goToGetHb" class="gameFailBtn toGetReward">
+								<span></span>
 							</a>
-							<button class="gameFailBtn shareFri" >邀请好友</button>
-							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+							<button class="gameFailBtn shareFri" ><span></span></button>
+							<button class="downloadP goForUse gameFailBtn"><span></span></button>
 						</div>
 						<div class="shareAppPage" style="display: none">
 							<button class="gameFailBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
@@ -281,7 +288,6 @@
 			return true;
 		}
 	}
-	
 	/**初始化预加载部分*/
 	setupManifest({
 		image:true,
