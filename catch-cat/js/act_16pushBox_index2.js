@@ -15,7 +15,7 @@ $(function() {
 	});
 
 	/* 开始 */
-	$("#goToGamePage").on("tap", function() {
+	$("#startGame").on("tap", function() {
 		$(".startGameBtnWrap").hide();
 		console.debug("game start");
 		gameStart();

@@ -122,21 +122,24 @@
 				<img  src="images/act_16pushBox_indexTitle.png" />
 				<img  src="images/act_16pushBox_indexPeople.png" />
 			</div>
-			<button id="goToGamePage">开始游戏</button>
-			<p id="getActRule">活动规则</p>
+			<button id="goToGamePage"><span></span></button>
+			<h1 id="getActRule"></h1>
 			<div class="actRuleShow_wrap comWrap1">
 				<div class="actRuleShow comShowWrap1">
-					<img class="closeBtn actRuleClose" src="images/act_16seventhDay_indexRuleBTn.png" alt="">
-					<img class="rulePeoloe" src="images/act_16seventhDay_ruleIcon.png" />
-					<div class="actRuleShow_title">
+					<img class="closeBtn actRuleClose" src="images/act_16pushBox_startCloseBtn.png" alt="">
+					<!--<img class="rulePeoloe" src="images/act_16seventhDay_ruleIcon.png" />-->
+					<!--<div class="actRuleShow_title">
 						<img src="images/act_16seventhDay_ruletitle.png" alt="">
-					</div>
+					</div>-->
+					 <h1></h1>
 					<div class="actRuleText comTextWrap1">
-						<span>1、</span><p>在规定的游戏时间内，通过移动图片，完成拼图;</p>
-						<span>2、</span><p>点击查看“看看原图”可以查看完整的拼图；</p>
-						<span>3、</span><p>活动时间：8月9日0:00——8月16日23:59。</p>
-						<span>4、</span><p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
-						<span>5、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+						<span>1、</span><p>游戏说明</p>
+						<p>点击控制卡通人物移动，并推动箱子到插红旗的指定位置。</p>
+						<span>2、</span><p>活动时间</p>
+						<p>2016年9月30日——2016年10月</p>
+						<span>3、</span><p>活动奖励</p>
+						<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						<span>4、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
 
 					</div>
 				</div>
@@ -144,13 +147,21 @@
 		</div>
 		<!--游戏页-->
 		<div class="gamePage">
-			<div class="gamePageTop">
-				<!--<div class="gameClockIcon">
-					<img src="images/act_16coolIceBucket_game_clock.png" alt="">
-					<div class="gameCountDown_wrap">
-						<p id="gameCountDownTime"></p>
+			<!--游戏开始页面-->
+			<div class="startGameBtnWrap">
+				<div class="startGameBtn">
+					<div class="startGameBtnInner">
+						<img class="game_textIcon" src="images/act_16pushBox_startTitle.png" />
+						<div class="startGamePeo">
+							<img src="images/act_16pushBox_startPeo.png" />
+						</div>
+						<button id="startGame" class="yellowBtn">
+							<span></span>
+						</button>
 					</div>
-				</div>-->
+				</div>
+			</div>
+			<div class="gamePageTop">
 				<div class="gameMusic_wrap" style="display: none;">
 					<img src="images/act_16pushBox_musicIcon.png" alt="" id="gameMusic" class="musicPlay">
 				</div>
@@ -185,7 +196,7 @@
 								<!--<button >去抽奖</button>-->
 								<span></span>
 							</a>
-							<button class="gameFailBtn shareFri" ><span></span></button>
+							<button class="gameFailBtn shareFri failShareBtn" ><span></span></button>
 						</div>
 						<div class="shareAppPage" style="display: none">
 							<button class="gameFailBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
@@ -224,7 +235,7 @@
 		</div>
 	</div>
 	<div id="shareFriSha">
-		<img src="images/act_16seventhDay_indexshare.png" alt="">
+		<img src="images/act_16pushBox_share.png" alt="">
 	</div>
 	
 	<div style="display: none">

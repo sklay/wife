@@ -131,7 +131,7 @@ body {
 }*/
 .indexP_title{
 	width: 5.6rem;
-	margin: 1.6rem auto .8rem;
+	margin: 1rem auto .8rem;
 }
 .indexP_title img{
 	width: 100%;
@@ -140,16 +140,19 @@ body {
 	margin: .2rem 0 0 .2rem;
 }
 #goToGamePage {
-	width: 3rem;
+	width: 3.5rem;
 	line-height: .78rem;
 	height: .78rem;
 	border-radius: 50px;
-	background: linear-gradient(to bottom, #fcf9a5 0%, #fae78c 70%, #f9de80 100%);
-	font-family: "楷体";
-	font-size: 22px;
+	background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #fff3cf;
+    box-shadow: inset 0 3px 2px 0 #fff3cf;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
+	/*font-family: "楷体";*/
+	/*font-size: 22px;
 	font-weight: 600;
-	color: #681c1b;
-	box-shadow: 0 4px 2px rgba(208, 62, 81, 0.4);
+	color: #681c1b;*/
 	/*position: absolute;
 	bottom: 1.8rem;
 	left: 50%;
@@ -162,31 +165,23 @@ body {
 }
 
 #goToGamePage span {
-	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
-	background-position: 16px 2px;
-	background-size: 349% auto;
-	display: block;
-	width: 82px;
-	height: 25px;
-	line-height: 32px;
-	margin: 0 auto;
-	overflow: hidden;
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-position: 4px 0px;
+    background-size: 194% auto;
+    display: block;
+    width: 114px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 20px;
 }
 
 #getActRule {
-	color: #681c1b;
-	font-family: SimHei;
-	text-align: center;
-	font-size: 20px;
-	/*position: absolute;
-	bottom: .8rem;
-	left: 50%;
-	margin-left: -.8rem;*/
-	width: 1.6rem;
-	text-align: center;
-	margin: .5rem auto 0;
-	line-height: 28px;
-	/*border-bottom: 1px solid #681c1b;*/	
+    background: url(../images/act_16pushBox_btnIcon.png) 20px -538px no-repeat;
+    background-size: 195% auto;
+    height: 29px;
+    width: 144px;
+    margin: 0.3rem auto 0;
+    overflow: hidden;
 }
 
 .actRuleShow_wrap,.gameOverWrap  {
@@ -207,7 +202,8 @@ body {
 
 .comShowWrap1 {
 	width: 5.6rem;
-	background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);
+	/*background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);*/
+	background: #c4323c;
 	border-radius: 20px;
 	margin: 0 auto;
 	padding-top: 14px;
@@ -222,13 +218,21 @@ body {
 	left: 50%;
 	margin-left: -1.2rem;
 }
-.actRuleShow .actRuleShow_title {
+/*.actRuleShow .actRuleShow_title {
 	width: 1.8rem;
 	margin: 1.2rem auto 0.2rem;
 }
 
 .actRuleShow .actRuleShow_title img {
 	width: 100%;
+}*/
+ .actRuleShow h1{
+    background: url(../images/act_16pushBox_btnIcon.png) 10px -218px no-repeat;
+    background-size: 293% 388%;
+    height: 87px;
+    width: 2.5rem;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 .actRuleClose {
@@ -238,13 +242,16 @@ body {
 	width: 40px;
 }
 
-
+.actRuleShow .actRuleText {
+	background: transparent;
+	font-weight: normal;
+}
 .comTextWrap1 {
 	width: 4.8rem;
 	margin: 0 auto;
 	border-radius: 8px;
 	padding:0 .3rem .2rem;
-	color: #681c1b;
+	color: #fff;
 	font-weight: bold;
 	overflow: hidden;
 	font-size: 14px;
@@ -303,6 +310,66 @@ body {
 	font-size: 20px;
 	color: #78232f;
 }*/
+
+.startGameBtnWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 10;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+}
+.startGameBtn {
+    width: 5.2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: .15rem;
+}
+.startGameBtnInner {
+    background: #c4323c;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: .5rem 0;
+    border-radius: 5px;
+}
+.game_textIcon {
+    width: 3rem;
+    display: block;
+    margin: 0 auto;
+}
+.startGamePeo {
+    width: 2rem;
+    overflow: hidden;
+    margin: .2rem auto;
+}
+.startGamePeo img{
+	width: 100%;
+}
+#startGame {
+    width: 3rem;
+    line-height: .78rem;
+    height: .78rem;
+    border-radius: 50px;
+    background: #ffc40d;
+    box-shadow:inset 0 2px 2px 0 #ffd656,inset 0 -6px 9px #ffa208;
+    margin: .55rem auto;
+    display: block;
+    outline: none;
+    border: none;
+}
+#startGame span {
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-position: 20px -36px;
+    background-size: 243% auto;
+    display: block;
+    width: 92px;
+    height: 33px;
+    margin: 0 auto;
+    overflow: hidden;
+}
 .gameMusic_wrap {
 	width: .8rem;
 	float: right;
@@ -447,7 +514,7 @@ body {
 
 
 .gameSuccWrap,.gameFailWrap {
-	background: rgba(0, 0, 0, .8);
+    background: rgba(32, 4, 8, 0.8);
 	z-index: 10;
 	font-size: 16px;
 	display: none;
@@ -467,12 +534,15 @@ body {
 .gameFailTitle  img {
 	width: 100%;
 }
+.gameFailText .success_title h1{
+	font-size:18px ;
+}
 .success_title{
     margin: .2rem 0 .5rem 0;
 }
 .success_title h1{
 	text-align: center;
-    color: #fff;
+    /*color: #fff;*/
     font-size: 24px;
 }
 .gameSuccWrap .gameFailText,.gameFailWrap .gameFailText {
@@ -487,27 +557,51 @@ body {
 }
 #goToGetHb span{
     display: block;
-    width: 2rem;
+    width: 172px;
     margin: 0 auto;
-    background: url(images/act_16pushBox_btnIcon.png) 0 -43px no-repeat;
-    background-size: 192% auto;
-    height: 80%;
+    background: url(../images/act_16pushBox_btnIcon.png) 24px -82px no-repeat;
+    background-size: 150% auto;
+    height: 31px;
 }
-.shareFri,#playAgain span{
+.shareFri span,#playAgain span{
     display: block;
-    width: 2.7rem;
     margin: 0 auto;
-    background: url(images/act_16pushBox_btnIcon.png) 0 -66px no-repeat;
-    background-size: 134% auto;
-    height: 80%;
+    background: url(../images/act_16pushBox_btnIcon.png) 27px -102px no-repeat;
+    background-size: 85% auto;
+    width: 245px;
+    height: 32px;
 }
 .downloadP span{
     display: block;
-    width: 2rem;
+    width: 172px;
     margin: 0 auto;
-    background: url(images/act_16pushBox_btnIcon.png) 0 -105px no-repeat;
-    background-size: 200% auto;
-    height: 80%;
+    background: url(../images/act_16pushBox_btnIcon.png) 24px -167px no-repeat;
+    background-size: 146% auto;
+    height: 30px
+}
+.gameFailWrap #playAgain span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 27px -196px no-repeat;
+    background-size: 178% auto;
+    width: 137px;
+    height: 28px;
+}
+.gameFailWrap #goToGetHb span{
+    display: block;
+    width: 282px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 20px -181px no-repeat;
+    background-size: 71% auto;
+    height: 30px;
+}
+.gameFailWrap .shareFri span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 37px -197px no-repeat;
+    background-size: 78% auto;
+    width: 242px;
+    height: 32px;
 }
 .gameFailBtn {
 	width: 100%;
@@ -526,22 +620,33 @@ body {
 }
 
 .shareAppPage button:nth-child(1) {
-	background: linear-gradient(to bottom, #ffc72f 0%, #ffbf1b 40%, #ffb400 100%);
-}
-
-.shareAppPage button:nth-child(2) {
-	margin-top: 1rem;
-	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
-}
-
-.toGetReward {
     background: #ffc40d;
     -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
     box-shadow: inset 1px 2px 2px 0 #ffd656;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 }
-.shareFri,#playAgain {
+
+.shareAppPage button:nth-child(2) {
+	margin-top: 1rem;
+    background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+}
+
+.toGetReward ,#playAgain{
+    background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
+    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+}
+/*.gameSuccWrap #goToGetHb{
+	
+}*/
+.shareFri{
 	/*background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
 	background: #4cdef4;
     -webkit-box-shadow: inset 0 2px 2px 0 #def3e5;
@@ -553,7 +658,7 @@ body {
     background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
     background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
-.downloadP{
+.downloadP ,.failShareBtn{
 	/*background: -webkit-linear-gradient(top, rgba(255,230,120,1) 0%,rgba(255,224,79,1) 51%,rgba(255,223,76,1) 77%,rgba(255,207,35,1) 90%,rgba(255,212,42,1) 95%,#ffdd42 100%);
     background: linear-gradient(to bottom, rgba(255,230,120,1) 0%,rgba(255,224,79,1) 51%,rgba(255,223,76,1) 77%,rgba(255,207,35,1) 90%,rgba(255,212,42,1) 95%,#ffdd42 100%);
     -webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
