@@ -117,7 +117,7 @@ body {
 	position:relative
 }
 .move_rabbit{
-	width: 3.4rem;
+	width: 3.5rem;
 	position: absolute;
 	left: 50%;
 	margin-left: -1.7rem;
@@ -129,7 +129,7 @@ body {
 	float: left;
 }
 .move_rabbit .rabbit_Tmove{
-	width: 1.3rem;
+	width: 1.6rem;
 	float: right;
 }
 .indexComImg {
@@ -370,7 +370,7 @@ body {
 	z-index: 10;
 	font-size: 16px;
 	display: none;
-	padding-top: 1rem;
+	padding-top: .5rem;
 }
 .gameSuccTitle .pText{
 	font-size: 22px;

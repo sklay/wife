@@ -113,8 +113,8 @@
 		<!--首页-->
 		<div class="indexPage">
 			<div class="move_rabbit">
-				<img class="rabbit_move" data-p="1" src="images/act_16roundRabbit_index_rabbit1.png" alt="">
-				<img class="rabbit_Tmove" data-pt="1" src="images/act_16roundRabbit_index_rabbit2.png" alt="">
+				<img class="rabbit_move" data-p="1" src="images/act_16roundRabbit_index_rabbit_le.png" alt="">
+				<img class="rabbit_Tmove" data-pt="1" src="images/act_16roundRabbit_index_rabbit_ri.png" alt="">
 			</div>
 			<!--<button id="goToGamePage">开始守护</button>-->
 			<img id="goToGamePage" src="images/act_16roundRabbit_index_startBtn.png" />
@@ -258,30 +258,28 @@
 		finished:function(){
 			console.debug("加载完成 进入index") ;
 			$(".indexPage").fadeIn() ;
-			timer();
-			if(isEnd == 0){
-				isEnd == 1;
-				initFunction();
-			}
-			
+			initFunction();
 		}
 	});
 	
 	function timer(){
-//		return;
 		setTimeout(function(){
 			var dataNum = $(".rabbit_move").attr('data-p');
 			var dataNumT = $(".rabbit_Tmove").attr('data-pt');
 			if(dataNum == 1){
-				$(".rabbit_move").css({width:"1.3rem"});
-				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit2.png');
-				$(".rabbit_Tmove").css({width:"1.6rem"});
-				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit1.png');
+				
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit_le.png');
+//				$(".rabbit_move").css({width:"1.3rem"});
+				
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit_ri.png');
+//				$(".rabbit_Tmove").css({width:"1.6rem"});
 			}else{
-				$(".rabbit_move").css({width:"1.6rem"});
-				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit1.png');
-				$(".rabbit_Tmove").css({width:"1.3rem"});
-				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit2.png');
+				
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit_ri.png');
+//				$(".rabbit_move").css({width:"1.6rem"});
+				
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit_le.png');
+//				$(".rabbit_Tmove").css({width:"1.3rem"});
 			}
 			dataNum = dataNum * (-1);
 			dataNumT = dataNumT * (-1);
@@ -296,6 +294,8 @@
 	}
 	/**声明一些事件*/
 	function initFunction() {
+		isEnd = 0;
+		timer();
 		/*活动规则的显示与隐藏*/
 		$("#getActRule").on("tap", function() {
 			$(".actRuleShow_wrap").show();
@@ -307,6 +307,7 @@
 			console.debug("go");
 			$(".gamePage").fadeIn(100);
 			$(".indexPage").hide(100);
+			isEnd = 1;
 		});
 		
 		/*点击领取*/
