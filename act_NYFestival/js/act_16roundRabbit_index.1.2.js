@@ -1,5 +1,5 @@
 $(function() {
-
+// 解决的是   找兔子行走的点中  这些点的邻居 包括邻居的 邻居  是不是可以到达边缘   如果没有到达边缘的  则表示  兔子已经被围住了
 	var stepNum = 0;
 	/* 开始 */
 	$("#goToGamePage").on("tap", function() {
@@ -52,88 +52,9 @@ $(function() {
 					// this.tArray[4][5] 这个位置的值设为2， 2表示兔子
 					this.tArray[4][5] = 2;
 				}
-				var allFreak = [] ;
-				
-				//top Rand
-				var randTop = Math.floor( Math.random()*3) + 3 ;
-				var tp = [] ;
-				for(var i = 0 ; i < randTop ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = parseInt(p/9);
-						var y = (p%9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}
-				allFreak = allFreak.concat(tp) ;
-				
-				//bottom Rand
-				var randBottom = Math.floor( Math.random()*3) + 3 ;
-				tp = [] ;
-				for(var i = 0 ; i < randBottom ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = parseInt(p/9) + 7 ;
-						var y = (p%9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}	
-				allFreak = allFreak.concat(tp) ;
-				
-				
-				//left Rand
-				var randLeft = Math.floor( Math.random()*3) + 3 ;
-				tp = [] ;
-				for(var i = 0 ; i < randLeft ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = (p%9) ;
-						var y = parseInt(p/9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-					allFreak = allFreak.concat(tp) ;
-					
-				}
-				
-				//right Rand
-				var randRight = Math.floor( Math.random()*3) + 3 ;
-				for(var i = 0 ; i < randRight ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = (p%9) ;
-						var y = parseInt(p/9)+7;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}
-				
-				
-				
-				/**其他位置随机*/
-				var zaw = Math.floor( Math.random() * 5);
+
+				// 随机从dot_num这个数组随机出 7个数的位置作为 障碍区   这种算法叫做“洗牌算法”
+				var zaw = Math.floor( Math.random() * 5) + 8;
 				for (var i = 0; i < zaw; i++) { 
 					// 找到某个随机数 作为下标，每找一次数组 的长度 减去一次
 					var index = Math.floor(Math.random() * (dot_num.length - i));
@@ -142,6 +63,7 @@ $(function() {
 						i--;
 						continue;
 					}
+					// console.log('index-->' + index);
 					// 交换 根据上面找到的下标 ，把随机出来的7个位置 中的数和原数组中的 最后一个中的数交换
 					var t = dot_num[index];
 					// dot_num.length - 1 - i 表示新数组中最后一个位置上的数 把最后一个数给随机出来的那个位置上
@@ -153,7 +75,6 @@ $(function() {
 					this.tArray[parseInt(t / 9)][t % 9] = 1;
 				}
 
-
 				// 按9* 9 排列 并出示所有的 布局
 				for (var i = 0; i < 9; i++) {
 					for (var j = 0; j < 9; j++) {
@@ -164,10 +85,9 @@ $(function() {
 						} else if (this.tArray[i][j] == 2) {
 							posData.css = "styleCat";
 						} else {
-							console.debug('this.tArray[i][j] ----> ' , this.tArray[i][j]);
 							posData.css = "freak";
 						}
-						
+
 						// console.log("二维数组的值" + this.tArray[i][j]);
 						// 将特定的 样式放置到 对应的位置里
 						this.positions.push(posData);
@@ -216,17 +136,31 @@ $(function() {
 				// index 即是返回的 兔子 能走或者不能走的 数
 				var index = this.getMoveCat(this.people_x, this.people_y);
 
-				/**围住后无路可走直接成功*/
-				if(index == -1){
-					++stepNum;
-					this.isSuccess();
-					return;
-				}
+			//	console.log("要移动到index是    " + index);
+//				if (index == -2) {
+//					// 猫跑了，游戏失败
+//					this.isFail();
+//
+//				} else if (index == -1) {
+//					// 赢了
+//					this.isSuccess();
+//				} else {
+//					// 根据返回的能交换的数 算出坐标 和兔子的 位置交换
+//					this.changeImgAndData(parseInt(index / 9), index % 9, this.people_x, this.people_y); // 交换
+//				}
+
+				//TODO 还需要修改
+//				if(index == -1){
+//					this.isSuccess();
+//					return;
+//				}
 				var ci = parseInt(index / 9);
 				var cj = index % 9;
 				if(ci == 0 || ci == 8 || cj == 0 || cj == 8){
 					//如果移动的 位置在边界处 就是失败
 					this.isFail();
+					/**结束了就不在交换位置*/
+					return ;
 				}
 				this.changeImgAndData(ci, cj, this.people_x, this.people_y); // 交换
 				/* 重新设置兔子的当前位置 */
@@ -301,7 +235,6 @@ $(function() {
 				}
 				/* 3、得到一个可以走的数组，如果这个数组长度为0 没有可以走 的就 胜利了 */
 //				if (shu_arr_9.length == 0) {
-				//这边表示 猫已经无路的情况
 //					return -1;
 //				}
 
@@ -372,6 +305,10 @@ $(function() {
 						var l = positions.length;
 						rsts.push(rtpos + "-" + l);
 					}
+//					else{
+						//有障碍物时  返回  -1  //TODO 还需要修改  有漏洞
+//						zawP.push(-1);
+//					}
 				}
 				/** 获取左上线路节点 */
 				var ltpos = cat * 1 + lt_offset * 1;
@@ -393,6 +330,9 @@ $(function() {
 						var l = positions.length;
 						rsts.push(ltpos + "-" + l);
 					}
+//					else{
+//						zawP.push(-1);
+//					}
 				}
 
 				/** 获取左边线路节点 */
@@ -415,6 +355,9 @@ $(function() {
 						var l = positions.length;
 						rsts.push(lpos + "-" + l);
 					}
+//					else{
+//						zawP.push(-1);
+//					}
 				}
 
 				/** 获取右边线路节点 */
@@ -437,6 +380,9 @@ $(function() {
 						var l = positions.length;
 						rsts.push(rpos + "-" + l);
 					}
+//					else{
+//						zawP.push(-1);
+//					}
 				}
 
 				/** 获取右下线路节点 */
@@ -463,6 +409,9 @@ $(function() {
 						var l = positions.length;
 						rsts.push(rbpos + "-" + l);
 					}
+//					else{
+//						zawP.push(-1);
+//					}
 				}
 
 				/** 获取左下线路节点 */
@@ -485,6 +434,9 @@ $(function() {
 						var l = positions.length;
 						rsts.push(lbpos + "-" + l);
 					}
+//					else{
+//						zawP.push(-1);
+//					}
 				}
 
 			//	console.debug(" rsts --- > ", rsts.join(","));
@@ -508,6 +460,8 @@ $(function() {
 					return shortLine;
 				} else {
 					console.debug('.canGo(cat)' , this.canGo(cat)) ;
+//					return zawP;
+//					return array;
 					return this.canGo(cat) ;
 				}
 
@@ -687,7 +641,7 @@ $(function() {
 				return rightArray;
 			},
 			/*
-			判断传入的circle是否在边界上  传入兔子的位置
+			判断传入的circle是否在边界上
 			 */
 			isCircleAtEdge :function(cat){
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
@@ -705,7 +659,7 @@ $(function() {
 				/**不在边缘*/
 				return false ;
 			},
-			//通过找兔子下一步走的点的邻居 看这些邻居里是否有到达边缘的
+			
 			getCircleNeighbor :function(cat ,direction ){
 				
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
@@ -727,7 +681,7 @@ $(function() {
 		            return '-1' ;
 		        }
 		    },
-			/** 兔子 可以走的 点 */
+			/** 右边路线 */
 			canGo : function(cat) {
 //				console.debug("cat" , cat)
 
@@ -740,23 +694,20 @@ $(function() {
 				});
 
 //				console.debug("障碍物位置 ++++++++ ", freakPos.join(','));
-				//是障碍物 或者是可以不用算邻居的点
-				var ignoreArr=[];
-				//是要求的邻居的点
+				
+				var ignoreArr=[]; 
     			var toDealWithArr=[cat]; 
 				while(true){
 //					console.debug(toDealWithArr.join(",")) ;
-					//没有邻居了 返回-1 兔子已经被围住了
 			        if(toDealWithArr.length<1){
-			        	console.debug("成功") ;
-			        	rst.push(-1) ;
+			        	console.debug("失败") ;
+			        	rst.push(0) ;
 			            return rst;
 			        }else{
-			        	//记录第一走过的点   表示这个点已经走过了
 			            var _first=toDealWithArr.shift();
 			            ignoreArr.push(_first);
 			            if($.inArray(_first ,freakPos) == -1 && this.isCircleAtEdge(_first)){
-			            	//conlose.log("this.isCircleAtEdge(_first)  ",this.isCircleAtEdge(_first));
+			            	
 			            	var key = _first +"" ;
 			            	var search = true ;
 			            	var steps = [] ;
@@ -781,28 +732,21 @@ $(function() {
 			            }else{
 			            	var temp = [] ;
 			                for(var i=0;i<=5;i++){
-			                	//返回兔子要走的  目标的位置  ，就是当前兔子所在的邻居的点
 			                    var nbr=this.getCircleNeighbor(_first,i);
-			                    if(nbr< 0){
+			                    if(nbr< 0 || nbr > 80){
 			                    	continue ;
 			                    }
-			                    if(nbr > 80){
-			                    	continue ;
-			                    }
-			                    // 判断这个目标位置是 障碍物还是需要算邻居的
+			                    // if(!( ignoreArr.indexOf(nbr) > -1 || toDealWithArr.indexOf(nbr)>-1  ))
 			                    if(!( $.inArray(nbr,ignoreArr) > -1 || $.inArray(nbr,toDealWithArr) > -1 )){
-				                   //如果是障碍物  添加到障碍物里
-			                    	if($.inArray(nbr ,freakPos) != -1){
+				                    if($.inArray(nbr ,freakPos) != -1){
 				                        ignoreArr.push(nbr);
 				                    }else{
-				                    	//否则添加到 要算邻居的点里
 				                        toDealWithArr.push(nbr);
 				                        /**没有障碍物*/
 				                    	temp.push(nbr) ;
 				                    }
 			                    }
 			                }
-			                //最后返回的是要走的下一步的点  并且这些点的 邻居是不是在障碍物里
 			                allPos.push(_first +"|"+temp.join(',')) ;
 			            }
 			        }

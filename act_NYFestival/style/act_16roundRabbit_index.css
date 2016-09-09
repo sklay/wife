@@ -331,7 +331,9 @@ body {
 	border: 0;
 	/*background: #ccc;*/
 }
-
+.gameMainCon ul li.m-l-3{
+	margin-left: .33rem;
+}
 .gameMainCon ul li a {
 	width: .6rem;
 	height: .6rem;

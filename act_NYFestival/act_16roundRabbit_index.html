@@ -211,12 +211,12 @@
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="artTemplate/template.js"></script>
-<script src="js/aact_16roundRabbit_index_optimize.js?v=4.0"></script>
+<script src="js/act_16roundRabbit_index.1.5.js?v=4.0"></script>
 
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
-	<li data-pos="{{i }}" id="{{row.pos }}" >
-		<a href="javascript:void(0);" class="{{row.css }}">
+	<li data-pos="{{row.coordinate}}" data-index="{{row.index }}" class="{{row.left}}">
+		<a href='javascript:void(0);' class="{{row.css }}">
 			{{if row.css == 'styleCat'}}
 			<img id="imgSty" data-s="1" src='images/act_16roundRabbit_index_rabbit1.png'>
 			{{/if}}

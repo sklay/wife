@@ -27,227 +27,219 @@ $(function() {
 				// 全局变量 ，游戏是否开始， 0表示未开始
 				this.isOver = 0;
 				// 二维数组，存储所有的 圆的位置有三个值 ，0表示 普通的 圆 1表示障碍物区 2表示 兔子
-				this.tArray = [ [], [], [], [], [], [], [], [], [] ];
+				this.tArray = [];
 				// 81个圈的位置
 				this.positions = [];
 
 				this.blank = 8;
 				this.tag = 'li';
 				this.content = 'ul.box';
+				/**正常稍微圆*/
+				this.circles = "normal" ;
+				/**障碍物*/
+				this.obstacle = "freak" ;
+				/**人物*/
+				this.people = "styleCat" ;
+				
 				this.lastIndex = this.blank;
 				// 初始化 布局
+				this.x = 9 ;
+				this.y = 9 ;
 				this.creatMax();
 			},
 
 			// 调用模版 构建 初始化数据
 			creatMax : function() {
-				var dot_num = [];
-				for (var i = 0; i < 81; i++) {
-					dot_num.push(i);
-					// 获取横坐标 i/9 和  纵坐标 i%9   
-					var si = parseInt(i / 9);
-					var sj = i % 9;
-					// 设置 没给坐标上的  数据   0 表示 圆  
-					this.tArray[si][sj] = 0;
-					// this.tArray[4][5] 这个位置的值设为2， 2表示兔子
-					this.tArray[4][5] = 2;
-				}
-				var allFreak = [] ;
 				
-				//top Rand
-				var randTop = Math.floor( Math.random()*3) + 3 ;
-				var tp = [] ;
-				for(var i = 0 ; i < randTop ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = parseInt(p/9);
-						var y = (p%9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}
-				allFreak = allFreak.concat(tp) ;
+				var allPoints = [];
 				
-				//bottom Rand
-				var randBottom = Math.floor( Math.random()*3) + 3 ;
-				tp = [] ;
-				for(var i = 0 ; i < randBottom ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = parseInt(p/9) + 7 ;
-						var y = (p%9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}	
-				allFreak = allFreak.concat(tp) ;
-				
-				
-				//left Rand
-				var randLeft = Math.floor( Math.random()*3) + 3 ;
-				tp = [] ;
-				for(var i = 0 ; i < randLeft ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = (p%9) ;
-						var y = parseInt(p/9) ;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-					allFreak = allFreak.concat(tp) ;
+				for (var _i = 0; _i < this.x; _i++) {
 					
-				}
-				
-				//right Rand
-				var randRight = Math.floor( Math.random()*3) + 3 ;
-				for(var i = 0 ; i < randRight ;i++ ){
-					var c = true ;
-					while(c){
-						var p = Math.floor( Math.random()*18) ;
-						var x = (p%9) ;
-						var y = parseInt(p/9)+7;
-						var _pos = x + "-" + y ;
-						if($.inArray(_pos , allFreak) == -1){
-							this.tArray[x][y] = 1 ;
-							c = false ;
-							tp.push(_pos) ;
-						}
-					}
-				}
-				
-				
-				
-				/**其他位置随机*/
-				var zaw = Math.floor( Math.random() * 5);
-				for (var i = 0; i < zaw; i++) { 
-					// 找到某个随机数 作为下标，每找一次数组 的长度 减去一次
-					var index = Math.floor(Math.random() * (dot_num.length - i));
-					// 如果下标是 41 表示该位置 是 兔子的 位置 不参与 交换
-					if (index == 41) {
-						i--;
-						continue;
-					}
-					// 交换 根据上面找到的下标 ，把随机出来的7个位置 中的数和原数组中的 最后一个中的数交换
-					var t = dot_num[index];
-					// dot_num.length - 1 - i 表示新数组中最后一个位置上的数 把最后一个数给随机出来的那个位置上
-					dot_num[index] = dot_num[dot_num.length - 1 - i];
-					// 随机出来的数给最后一个位置上
-					dot_num[dot_num.length - 1 - i] = t;
-
-					// 最后找到的 7的 数    设置 横坐标t/9 和纵坐标 t%9   ，把这七个 坐标中的 值 改为1，1表示障碍物
-					this.tArray[parseInt(t / 9)][t % 9] = 1;
-				}
-
-
-				// 按9* 9 排列 并出示所有的 布局
-				for (var i = 0; i < 9; i++) {
-					for (var j = 0; j < 9; j++) {
-						var posData = {};
-						posData.pos = "img" + (i * 9 + j);
-						if (this.tArray[i][j] == 0) {
-							posData.css = "normal";
-						} else if (this.tArray[i][j] == 2) {
-							posData.css = "styleCat";
-						} else {
-							console.debug('this.tArray[i][j] ----> ' , this.tArray[i][j]);
-							posData.css = "freak";
+					for (var _j = 0;  _j < this.y; _j++) {
+						var point = {} ;
+						var index = _i * 9  + _j ;
+						var x_y = _i +'-'+ _j ;
+						point.coordinate = x_y ;
+						point.index = index ;
+						point.css = this.circles ;
+						
+						if(this.people_x == _i && this.people_y== _j ){
+							point.css = this.people ;
 						}
 						
-						// console.log("二维数组的值" + this.tArray[i][j]);
-						// 将特定的 样式放置到 对应的位置里
-						this.positions.push(posData);
+						point.left = (_j % 2 == 0 && _i % 2 != 0 && _j == 0) ? 'm-l-3' :'' ;
+						allPoints.push(point) ;
 					}
 				}
-
-				// 调用模板，让81个圈一次排列
-				var gridRows = template('game-tpl', {
-					'rows' : this.positions || []
-				});
-				$(this.content).html(gridRows);
-				// 点击 开始
-				$(this.content + ' li').on('tap', function() {
-					// 获取点击的当前的 li 的  data-pos 属性 ，这个属性存储了 0-81 的 数字
-					var pos = $(this).attr('data-pos') * 1;
-					// 根据当前点击的点 获取横坐标 pos / 9 和纵坐标  pos % 9
-					var curi = parseInt(pos / 9);
-					var curj = pos % 9;
-					// 只有当前点击的位置  上的数据是0   表示是普通的圆  才是可以走
-					if (speller.tArray[curi][curj] != 0) {
-						return;
-					}
-					// 把当前点击的 位置变成障碍物
-					$(this).find("a").addClass('freak').css("background", "#ffc222");
-					// 并且改变里面的数据
-					speller.tArray[curi][curj] = 2;
-					// speller.onClickByIndex(curi,curi);
-					speller.onClickByIndex();
-				});
-				// 所有偶数行 向左偏移半个 圈
-				for (var i = 0; i < 9; i++) {
-					for (var j = 0; j < 9; j++) {
-						// 表示偶数行
-						if (j % 2 == 0) {
-							$("#img" + (((i * 2) + 1) * 9)).css({
-								marginLeft : ".32rem"
-							});
+				
+				/**随机生成障碍物*/
+				allPoints = this.randomObstacle(allPoints) ;
+				
+				/**生成画布*/
+				this.drawing(allPoints) ;
+				
+			},	
+			randomObstacle :function(allPoints){
+				
+				var _people = this.people ;
+				var _circles = this.circles ;
+				var _obstacle = this.obstacle ;
+				
+				var tp = [] ;
+				var freaks = [] ;
+				/**上两行障碍物*/
+				var count = Math.floor( Math.random()*3) + 3 ;
+				for(var i = 0 ; i < count ;i++ ){
+					var c = true ;
+					while(c){
+						var _pos = Math.floor( Math.random()*18) ;
+						var point = allPoints[_pos] ;
+						if($.inArray(point.coordinate , freaks) == -1){
+							c = false ;
+							tp.push(point.coordinate) ;
+							point.css = _obstacle ;
+							allPoints[_pos] = point ;
+							
+//							console.debug("pos -> 上    " ,_pos) ;
 						}
 					}
 				}
+				
+				freaks = freaks.concat(tp) ;
+				tp = [] ;
+				
+				/**下两行障碍物*/
+				count = Math.floor( Math.random()*3) + 3 ;
+				for(var i = 0 ; i < count ;i++ ){
+					var c = true ;
+					while(c){
+						var _pos = Math.floor( Math.random()*18) ;
+						var x = parseInt(_pos/9) + 7 ;
+						var y = (_pos%9) ;
+						_pos = 9*x + y*1 ;
+						
+						var point = allPoints[_pos] ;
+						if($.inArray(point.coordinate , freaks) == -1){
+							c = false ;
+							tp.push(point.coordinate) ;
+							point.css = _obstacle ;
+							allPoints[_pos] = point ;
+							
+//							console.debug("pos -> 下    " ,_pos) ;
+						}
+					}
+				}
+				freaks = freaks.concat(tp) ;
+				tp = [] ;
+				
+				/**左两行障碍物*/
+				count = Math.floor( Math.random()*3) + 3 ;
+				for(var i = 0 ; i < count ;i++ ){
+					var c = true ;
+					while(c){
+						var _pos = Math.floor( Math.random()*18) ;
+						var x = (_pos%9) ;
+						var y = parseInt(_pos/9) ;
+						_pos = 9*x + y*1 ;
+						
+						var point = allPoints[_pos] ;
+						if($.inArray(point.coordinate , freaks) == -1){
+							c = false ;
+							tp.push(point.coordinate) ;
+							point.css = _obstacle ;
+							allPoints[_pos] = point ;
+							
+//							console.debug("pos -> 左   " ,_pos) ;
+						}
+					}
+				}
+				freaks = freaks.concat(tp) ;
+				tp = [] ;
+				
+				/**右两行障碍物*/
+				count = Math.floor( Math.random()*3) + 3 ;
+				for(var i = 0 ; i < count ;i++ ){
+					var c = true ;
+					while(c){
+						var _pos = Math.floor( Math.random()*18) ;
+						var x = (_pos%9) ;
+						var y = parseInt(_pos/9)+7;
+						_pos = 9*x + y*1 ;
+						
+						var point = allPoints[_pos] ;
+						if($.inArray(point.coordinate , freaks) == -1){
+							c = false ;
+							tp.push(point.coordinate) ;
+							point.css = _obstacle ;
+							allPoints[_pos] = point ;
+							
+//							console.debug("pos -> 右   " ,_pos) ;
+						}
+					}
+				}
+				
+				return allPoints ;
+			} ,
+			
+			/**生成画布*/
+			drawing :function(points){
+				var gridRows = template('game-tpl', {
+					'rows' : points|| []
+				});
+				$(this.content).html(gridRows);
+				
+				/**点击事件声明*/
+				this.circleClick() ;
 			},
-
-			// 兔子行走的 路线
-			onClickByIndex : function() {
-				// -1:游戏胜利，-2：游戏失败，其他数：交换
-				// index 即是返回的 兔子 能走或者不能走的 数
-				var index = this.getMoveCat(this.people_x, this.people_y);
-
-				/**围住后无路可走直接成功*/
-				if(index == -1){
-					++stepNum;
-					this.isSuccess();
-					return;
-				}
-				var ci = parseInt(index / 9);
-				var cj = index % 9;
-				if(ci == 0 || ci == 8 || cj == 0 || cj == 8){
-					//如果移动的 位置在边界处 就是失败
-					this.isFail();
-				}
-				this.changeImgAndData(ci, cj, this.people_x, this.people_y); // 交换
-				/* 重新设置兔子的当前位置 */
-				this.people_x = parseInt(index / 9);
-				this.people_y = index % 9;
-				// 统计步数
-				++stepNum;
+			
+			/**点击事件*/
+			circleClick :function(){
+				var _this = this ;
+				var _content = _this.content ;
+				var _obstacle = _this.obstacle ;
+				var _circles = _this.circles ;
+				var _people = _this.people ;
+				$(_content).find('li a').unbind('click') ;
+				/**声明事件*/
+				$(_content).find('li a.' + _circles).each(function(){
+					$(this).on('click' ,function(){
+						
+						++stepNum ;
+						$(this).addClass(_obstacle).removeClass(_circles) ;
+						console.debug("s") ;
+						var pos = $(_content).find('li a.' + _people).parent().attr('data-index') ;
+						console.debug("pos - >>  " , pos) ;
+						var to = _this.getCatMoveStep(pos) *1;
+						console.debug("newPos - >>  " , to) ;
+						
+						/**被围住了*/
+						if(to == -1){
+							_this.isSuccess() ;
+						}
+						/**顶部 --- 右边 --- 底部边 --- 底部边**/
+						else if((0 < to && to < 9) || to % 9 == 8 || (  72 < to && to < 80 ) || to % 9 == 0){
+							_this.isFail() ;
+							_this.changeImgAndData(pos ,to) ;
+						} else {
+							_this.changeImgAndData(pos ,to) ;
+						}
+						
+						/**点击事件声明*/
+						_this.circleClick() ;
+					})
+				});
 			},
 
 			// 根据下标交换图片与数据
-			changeImgAndData : function(i1, j1, i2, j2) {
+			changeImgAndData : function(from ,to) {
 				/* 1、交换图片，其中数据为0的图片是秀明的 */
 				// 图片的交换
-				var imgId1 = i1 * 9 + j1;
-				var imgId2 = i2 * 9 + j2;
 				// var imgori;
 
 				// 图片的位置
-				var $blank = $(this.content).find(this.tag).eq(imgId1);
+				var $blank = $(this.content).find('li').eq(from);
 				// 图片2位置
-				var $nBlank = $(this.content).find(this.tag).eq(imgId2);
+				var $nBlank = $(this.content).find('li').eq(to);
 				// 获取 黑块中的 内容 clone(false) 此方法表示只复制 内容 不复制 方法
 				var $blankA = $blank.children().clone(false);
 				var $nBlankA = $nBlank.children().clone(false);
@@ -255,67 +247,11 @@ $(function() {
 				$nBlank.html($blankA);
 				$blank.html($nBlankA);
 
-				/* 2、交换数据 */
-				// alert(i1+","+j1);
-				var t = this.tArray[i1][j1];
-				this.tArray[i1][j1] = this.tArray[i2][j2];
-				this.tArray[i2][j2] = t;
+				
 			},
-			// 兔子可以移动的 方向 把兔子的 坐标传进来
-			getMoveCat : function(i, j) {
-				/* 、判断奇数偶数决定两个可不可以走 */
-				var shu_arr_9 = []; // 存放 所有能走的位置
-				// 这边的 循环是否是 兔子 能走的 八个点的 区域 （去掉 因为排列后位置 错开的 不能走的两个点 其中的 六个区域的循环）
-				// 从这八个区域里 筛选 能走的点
-				for (var k_1 = i - 1; k_1 <= i + 1; k_1++) {
-					for (var k_2 = j - 1; k_2 <= j + 1; k_2++) {
-						if (k_1 == i && k_2 == j) { //如果相等 ，表示是兔子的位子 即 中间位置不要
-							continue;
-						}
-						// 位置超出边界不要 
-						if (k_1 < 0 || k_1 > 8 || k_2 < 0 || k_2 > 8) {
-							//return -2;
-							continue
-						}
-						// 有两个不可能 表示兔子在偶数行
-						if (i % 2 == 0) {
-							if (k_1 == i - 1 && k_2 == j + 1) { // 右上不要
-								continue;
-							} else if (k_1 == i + 1 && k_2 == j + 1) { // 右下不要
-								continue;
-							}
-						} else {
-							if (k_1 == i - 1 && k_2 == j - 1) { // 左上不要
-								continue;
-							} else if (k_1 == i + 1 && k_2 == j - 1) { // 左下不要
-								continue;
-							}
-						}
-						// 如果是障碍物 也不添加到 可能 移动的 随机的数里去
-						if (this.tArray[k_1][k_2] != 0) {
-							continue;
-						}
-						// 把能走的坐标算出 一个数 放到 数组中
-						shu_arr_9.push(k_1 * 9 + k_2);
-					}
-				}
-				/* 3、得到一个可以走的数组，如果这个数组长度为0 没有可以走 的就 胜利了 */
-//				if (shu_arr_9.length == 0) {
-				//这边表示 猫已经无路的情况
-//					return -1;
-//				}
-
-			//	console.debug("brothers , ", shu_arr_9.join(','));
-				/** 寻找最短路径 */
-				shu_arr_9 = this.getCatMoveStep(shu_arr_9);
-				// 从能走的 数里 随机出一个数 返回
-				var index_shu_arr = parseInt(shu_arr_9.length * Math.random());
-				return shu_arr_9[index_shu_arr];
-			},
-			getCatMoveStep : function(array) {
+			getCatMoveStep : function(cat) {
 
 				var $this = this;
-				var cat = $('ul.box a.styleCat').parent().attr('data-pos') * 1;
 				
 				/** 算出当前猫所在的行 */
 				var rows = (cat % 9 == 0) ? parseInt(cat / 9) : Math.ceil(cat / 9);
@@ -328,14 +264,12 @@ $(function() {
 
 				var freakPos = [];
 				$('ul.box a.freak').each(function(i, n) {
-					var pos = $(n).parent().attr('data-pos') * 1;
+					var pos = $(n).parent().attr('data-index') * 1;
 					freakPos.push(pos);
 				});
 
-			//	console.debug("障碍物位置 -----> ", freakPos.join(','));
 
 				var rsts = [];
-				var zawP = [];
 				/** 判断当前行是奇数还是偶数行 */
 				var rowEven = (cat % 9 == 0) ? ((rows + 1) % 2 == 0) : ((rows % 2) == 0);
 				/** 左上 */
@@ -352,10 +286,11 @@ $(function() {
 				var rb_offset = rowEven ? 10 : 9;
 			//	console.debug(cat, "    rowEven   ", rowEven);
 
+
 				/** 获取右上线路节点 */
 				var rtpos = cat * 1 + rt_offset * 1;
 				/** 存在右上节点 */
-				if ($.inArray(rtpos, array) != -1) {
+				if ($.inArray(rtpos, freakPos) == -1 ) {
 					var positions = $this.rightTop(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -364,19 +299,20 @@ $(function() {
 							if ($.inArray(n * 1, freakPos) != -1) {
 								bool = false;
 							}
-							;
 						});
 					}
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(rtpos +" -------右上----- > " , positions.join(','))
 						rsts.push(rtpos + "-" + l);
 					}
 				}
+				
 				/** 获取左上线路节点 */
 				var ltpos = cat * 1 + lt_offset * 1;
 				/** 存在右上节点 */
-				if ($.inArray(ltpos, array) != -1) {
+				if ($.inArray(ltpos, freakPos) == -1  ) {
 					var positions = $this.leftTop(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -385,12 +321,12 @@ $(function() {
 							if ($.inArray(n * 1, freakPos) != -1) {
 								bool = false;
 							}
-							;
 						});
 					}
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(ltpos +" -----左上------ > " , positions.join(','))
 						rsts.push(ltpos + "-" + l);
 					}
 				}
@@ -398,7 +334,7 @@ $(function() {
 				/** 获取左边线路节点 */
 				var lpos = cat * 1 + l_offset * 1;
 				/** 存在左边节点 */
-				if ($.inArray(lpos, array) != -1) {
+				if ($.inArray(lpos, freakPos) == -1 ) {
 					var positions = $this.left(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -407,20 +343,20 @@ $(function() {
 							if ($.inArray(n * 1, freakPos) != -1) {
 								bool = false;
 							}
-							;
 						});
 					}
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(lpos +" ------左边------ > " , positions.join(','))
 						rsts.push(lpos + "-" + l);
 					}
 				}
 
 				/** 获取右边线路节点 */
 				var rpos = cat * 1 + r_offset * 1;
-				/** 存在左边节点 */
-				if ($.inArray(rpos, array) != -1) {
+				/** 存在右边节点 */
+				if ($.inArray(rpos, freakPos) == -1 ) {
 					var positions = $this.right(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -429,12 +365,12 @@ $(function() {
 							if ($.inArray(n * 1, freakPos) != -1) {
 								bool = false;
 							}
-							;
 						});
 					}
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(rpos +" ------右边------ > " , positions.join(','))
 						rsts.push(rpos + "-" + l);
 					}
 				}
@@ -442,7 +378,7 @@ $(function() {
 				/** 获取右下线路节点 */
 				var rbpos = cat * 1 + rb_offset * 1;
 				/** 存在左边节点 */
-				if ($.inArray(rbpos, array) != -1) {
+				if ($.inArray(rbpos, freakPos) == -1 ) {
 					var positions = $this.rightButtom(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -451,16 +387,13 @@ $(function() {
 							//有障碍物的  点除外
 							if ($.inArray(n * 1, freakPos) != -1) {
 								bool = false;
-							}else{
-								//这边再加上判断这条线上点的 邻居是不是有在边缘的   要是这些点  的邻居有在边缘的   就表示猫还没有被围住
-								//判断这些邻居  时  所有的可通行的点中 存在  重复的 邻居   需要记录这些邻居  如果这个邻居之前存在过就不用
-								
-							};
+							}
 						});
 					}
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(rbpos +" ------右下------ > " , positions.join(','))
 						rsts.push(rbpos + "-" + l);
 					}
 				}
@@ -468,7 +401,7 @@ $(function() {
 				/** 获取左下线路节点 */
 				var lbpos = cat * 1 + lb_offset * 1;
 				/** 存在左边节点 */
-				if ($.inArray(lbpos, array) != -1) {
+				if ($.inArray(lbpos, freakPos) == -1 ) {
 					var positions = $this.leftButtom(cat);
 					var bool = true;
 					/** 判断改线路上是否有障碍物 */
@@ -483,11 +416,12 @@ $(function() {
 					/** 没有障碍物时获取该线路的节点个数 */
 					if (bool) {
 						var l = positions.length;
+						console.debug(lbpos +" ------左下------ > " , positions.join(','))
 						rsts.push(lbpos + "-" + l);
 					}
 				}
 
-			//	console.debug(" rsts --- > ", rsts.join(","));
+				console.debug(" rsts --- > ", rsts.join(","));	
 
 				if (rsts && rsts.length > 0) {
 					var shortLine = [];
@@ -500,21 +434,19 @@ $(function() {
 							p = _p;
 							s = _s;
 						}
-						// console.debug("_p -> " , _p , " , _s -> " ,_s) ;
+						 console.debug("_p -> " , _p , " , _s -> " ,_s) ;
 					});
-				//	console.debug("p ->  ", p, "  ,  s -> ", s);
 
-					shortLine.push(p);
-					return shortLine;
+					return p *1;
 				} else {
-					console.debug('.canGo(cat)' , this.canGo(cat)) ;
+				//	console.debug('.canGo(cat)' , this.canGo(cat)) ;
 					return this.canGo(cat) ;
 				}
 
 			},
 			/** 右上路线 */
 			rightTop : function(cat) {
-
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				var rightTopArray = [];
 				if (rows < 2) {
@@ -553,6 +485,7 @@ $(function() {
 
 			/** 左上路线 */
 			leftTop : function(cat) {
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 			//	console.debug("rows --- > ", rows);
 				var leftTopArray = [];
@@ -585,6 +518,7 @@ $(function() {
 
 			/** 左下路线 */
 			leftButtom : function(cat) {
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 			//	console.debug("rows --- > ", rows);
 				var leftButtomArray = [];
@@ -617,6 +551,7 @@ $(function() {
 
 			/** 右下路线 */
 			rightButtom : function(cat) {
+				cat = cat *1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				// console.debug("rows --- > " ,rows) ;
 				var rightButtomArray = [];
@@ -655,6 +590,7 @@ $(function() {
 
 			/** 左边路线 */
 			left : function(cat) {
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				// console.debug("rows --- > " ,rows) ;
 				var leftArray = [];
@@ -672,6 +608,7 @@ $(function() {
 
 			/** 右边路线 */
 			right : function(cat) {
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				// console.debug("rows --- > " ,rows) ;
 				var rightArray = [];
@@ -686,10 +623,20 @@ $(function() {
 				}
 				return rightArray;
 			},
-			/*
-			判断传入的circle是否在边界上  传入兔子的位置
-			 */
+			
 			isCircleAtEdge :function(cat){
+				
+				var to = cat * 1 ;
+				
+				/**顶部 --- 右边 --- 底部边 --- 底部边**/
+				 return ((0 < to && to < 9) || to % 9 == 8 || (  72 < to && to < 80 ) || to % 9 == 0) ;
+				
+			},
+			/*
+			判断传入的circle是否在边界上
+			 */
+			isCircleAtEdge2 :function(cat){
+				cat = cat*1 ;
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				console.debug('row is  ' , rows) ;
 				/**第一行 或 最后一行*/
@@ -705,13 +652,14 @@ $(function() {
 				/**不在边缘*/
 				return false ;
 			},
-			//通过找兔子下一步走的点的邻居 看这些邻居里是否有到达边缘的
+			
 			getCircleNeighbor :function(cat ,direction ){
+				cat = cat*1 ;
 				
 				var rows = (cat % 9 == 0) ? Math.ceil(cat / 9) + 1 : Math.ceil(cat / 9);
 				rows = (rows%2) == 0 ;
 		        switch (direction){
-		        	case 0: //Direction.LEFT:
+		        	case 0: //Direction.LEFT:{}
 		             return   pos = cat - 1;
 		            case 1: //Direction.RIGHT:
 		             return   pos = cat + 1;
@@ -727,36 +675,32 @@ $(function() {
 		            return '-1' ;
 		        }
 		    },
-			/** 兔子 可以走的 点 */
+			/** 右边路线 */
 			canGo : function(cat) {
 //				console.debug("cat" , cat)
 
-				var rst = [] ;
+				cat = cat*1 ;
 				var freakPos = [];
 				var allPos = [] ;
 				$('ul.box a.freak').each(function(i, n) {
-					var pos = $(n).parent().attr('data-pos') * 1;
+					var pos = $(n).parent().attr('data-index') * 1;
 					freakPos.push(pos);
 				});
 
 //				console.debug("障碍物位置 ++++++++ ", freakPos.join(','));
-				//是障碍物 或者是可以不用算邻居的点
-				var ignoreArr=[];
-				//是要求的邻居的点
+				
+				var ignoreArr=[]; 
     			var toDealWithArr=[cat]; 
 				while(true){
-//					console.debug(toDealWithArr.join(",")) ;
-					//没有邻居了 返回-1 兔子已经被围住了
+					console.debug(toDealWithArr.join(",")) ;
 			        if(toDealWithArr.length<1){
 			        	console.debug("成功") ;
-			        	rst.push(-1) ;
-			            return rst;
+			            return -1;
 			        }else{
-			        	//记录第一走过的点   表示这个点已经走过了
 			            var _first=toDealWithArr.shift();
 			            ignoreArr.push(_first);
 			            if($.inArray(_first ,freakPos) == -1 && this.isCircleAtEdge(_first)){
-			            	//conlose.log("this.isCircleAtEdge(_first)  ",this.isCircleAtEdge(_first));
+			            	
 			            	var key = _first +"" ;
 			            	var search = true ;
 			            	var steps = [] ;
@@ -767,42 +711,46 @@ $(function() {
 			            			if($.inArray(key , neighbors) > -1){
 			            				steps.push(key) ;
 			            				key = pos ;
-			            				if(pos == cat){
+			            				if(pos*1 == cat*1){
 			            					search = false ;
-			            					console.debug('steps is ' ,steps , "  ,  "+ key) ;
+			            					console.debug('steps is ' ,steps , "  , 原位置    "+ key) ;
 				            			}
 			            			}
 			            		});
 			            	}
 			            	
-			            	console.debug("继续走" ,_first) ;
-			            	rst.push(steps[steps.length-1] * 1) ;
-			            	return rst;
+//			            	for(var i = (steps.length - 1) ; i<= 0 ;i--){
+//			            		if(key*1 != steps[i]*1){
+//			            			return steps[i]*1 ;
+//			            			console.debug('steps is ' ,steps , "下一步  ---->>>>>>   " ,steps[i]*1) ;
+//			            		}
+//			            	}
+			            	
+			            	
+			            	var nextStep = $.inArray(cat+"", steps ) != -1 ? steps[steps.length-2] * 1 : steps[steps.length-1] ;
+			            	console.debug('steps is ' ,steps , "下一步  ---->>>>>>   " ,nextStep) ;
+			            	return nextStep;
 			            }else{
 			            	var temp = [] ;
 			                for(var i=0;i<=5;i++){
-			                	//返回兔子要走的  目标的位置  ，就是当前兔子所在的邻居的点
 			                    var nbr=this.getCircleNeighbor(_first,i);
-			                    if(nbr< 0){
+			                    if(nbr < 0 ){
 			                    	continue ;
 			                    }
-			                    if(nbr > 80){
+			                    if( nbr > 80){
 			                    	continue ;
 			                    }
-			                    // 判断这个目标位置是 障碍物还是需要算邻居的
+			                    // if(!( ignoreArr.indexOf(nbr) > -1 || toDealWithArr.indexOf(nbr)>-1  ))
 			                    if(!( $.inArray(nbr,ignoreArr) > -1 || $.inArray(nbr,toDealWithArr) > -1 )){
-				                   //如果是障碍物  添加到障碍物里
-			                    	if($.inArray(nbr ,freakPos) != -1){
+				                    if($.inArray(nbr ,freakPos) != -1){
 				                        ignoreArr.push(nbr);
 				                    }else{
-				                    	//否则添加到 要算邻居的点里
 				                        toDealWithArr.push(nbr);
 				                        /**没有障碍物*/
 				                    	temp.push(nbr) ;
 				                    }
 			                    }
 			                }
-			                //最后返回的是要走的下一步的点  并且这些点的 邻居是不是在障碍物里
 			                allPos.push(_first +"|"+temp.join(',')) ;
 			            }
 			        }
