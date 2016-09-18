@@ -280,15 +280,15 @@ body {
 	position: relative;
 }
 
-/*.gamePageTop {
-	background: #63ecbe;
+.gamePageTop {
+	background: rgba(43, 46, 45, 0.19);
 	width: 100%;
 	height: 10%;
 	padding: .1rem .2rem;
 	box-sizing: border-box;
-}*/
+}
 
-/*.gameClockIcon {
+.gameClockIcon {
 	height: 100%;
 	overflow: hidden;
 	width: 5rem;
@@ -300,16 +300,38 @@ body {
 	width: .8rem;
 	float: left;
 }
-.gameCountDown_wrap{
-	width: 1rem;
-    float: left;
-    text-align: center;
-    line-height: .95rem;
-}
+
 .gameCountDown_wrap p {
-	font-size: 20px;
-	color: #78232f;
-}*/
+	font-size: 14px;
+	color: #ffc11e;
+	line-height: .45rem;
+}
+
+.gameCountDownColor_wrap {
+	background: rgb(241, 185, 155);
+	background: -webkit-linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
+	background: linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
+	border: 4px solid #761f2c;
+	border-radius: 10px;
+	height: 10px;
+	width: 4rem;
+	margin-left: .6rem;
+}
+
+.gameCountDownColor_wrap span {
+	display: block;
+	height: 100%;
+	border-radius: 0 10px 10px 0;
+	margin-left: .05rem;
+	width: 100%;
+	background: rgb(255, 244, 209);
+	/* Old browsers */
+	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
 
 .startGameBtnWrap {
     position: absolute;
@@ -371,11 +393,10 @@ body {
     overflow: hidden;
 }
 .gameMusic_wrap {
-	width: .8rem;
-	float: right;
-	box-sizing: border-box;
-	padding-top: .5rem;
-    margin-right: .5rem;
+	    width: .8rem;
+    float: right;
+    box-sizing: border-box;
+    padding-top: 2px;
 }
 
 .gameMusic_wrap img {

@@ -68,7 +68,7 @@ $(function() {
 
 				//this.step = 0;  记录 移动的步 数
 				this.blank = 6;
-//				this.useTime = 180;
+				this.useTime = 15;
 				this.tag = 'li';
 				this.content = 'ul.box';
 				this.content2 = 'ul.box2';
@@ -77,31 +77,35 @@ $(function() {
 //				this.creatBJ();
 				this.createGrid();
 				//倒计时
-//				this.clearShu();
+				this.clearShu();
 			},
 			
-//			clearShu:function(){
-//				if(this.timer)
-//					clearInterval(this.timer);
-//				this.timer = setInterval(function() {
-//					speller.useTime--; /* 累加时间并格式化显示 */
-//
-//					if(speller.useTime < 1) {
-//						console.debug("clear")
-//						clearInterval(speller.timer);
-//
-//						clickBoo = false;
-//						$(".gameFailWrap").fadeIn(500);
-//
-//						if(playMusic) {
-//							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
-//							audio_music.pause();
-//						}
-//					};
-//					$("#gameCountDownTime").html(speller.useTime);
-//
-//				}, 1000);
-//			},
+			clearShu:function(){
+				if(this.timer)
+					clearInterval(this.timer);
+				this.timer = setInterval(function() {
+					speller.useTime--; /* 累加时间并格式化显示 */
+
+					if(speller.useTime < 1) {
+						console.debug("clear")
+						clearInterval(speller.timer);
+
+						clickBoo = false;
+						$(".gameFailWrap").fadeIn(500);
+
+						if(playMusic) {
+							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
+							audio_music.pause();
+						}
+					};
+					var countDownShowW = Math.ceil(speller.useTime / 15 * 100);
+					$("#gameCountDownTime").html(speller.useTime);
+					$("#gameCountDownColor").css({
+						"width" : countDownShowW + "%"
+					});
+
+				}, 1000);
+			},
 			
 			// 调用模版  构建 初始化数据 
 			createGrid: function() {
@@ -191,33 +195,41 @@ $(function() {
 					//判断点击 空位置的时  人物 是否可以和空位子交换
 //					var Pindex = this.getMovePeople(i, j); //0表示不能移动，1左，2上，3下，4右。
 					//剩下的任意位置都能交换  所以不用判断和哪个方位交换
-					if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2 ){
-						//TOBO 这边出现问题   原因是没有判断边界的位置
-						//上下边是墙  左边是箱子
-						console.log("我点击的 是空白位置2")
-						return; 
-					}
+//					if(this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2 ){
+//						//TOBO 这边出现问题   原因是没有判断边界的位置
+//						//上下边是墙  左边是箱子
+//						console.log("我点击的 是空白位置2")
+//						return; 
+//					}
+//					if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2 ){
+//						//TOBO 这边出现问题   原因是没有判断边界的位置
+//						//上下边是墙  左边是箱子
+//						console.log("我点击的 是空白位置2")
+//						return; 
+//					}
 //					else if(this.tArray[i-1][j] == 2 && this.tArray[i][j-1] == 2 && this.tArray[i][j+1] == 1){
 //						//上面是 箱子  左边是 箱子  右面是 墙
 //						return; 
 //					}
-					else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i][j-1] == 1){
-						//上面是箱子  右边是箱子  左边是墙
-						return; 
-					}else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 1){
-						//上面是箱子  右边是箱子  下边是墙
-						return; 
-					}
-					else if(this.tArray[i-1][j] == 1 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 2){
-						//上面是墙    右边是箱子  下边是箱子
-						return; 
-					}else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 2 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
-						//上面是 墙  其他三面是  箱子
-						return; 
-					}else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
-						//上下面是   左右是箱子
-						return; 
-					}else{
+//					else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i][j-1] == 1){
+//						//上面是箱子  右边是箱子  左边是墙
+//						return; 
+//					}else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 1){
+//						//上面是箱子  右边是箱子  下边是墙
+//						return; 
+//					}
+//					else if(this.tArray[i-1][j] == 1 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 2){
+//						//上面是墙    右边是箱子  下边是箱子
+//						return; 
+//					}else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 2 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
+//						//上面是 墙  其他三面是  箱子
+//						return; 
+//					}
+//					else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
+//						//上下面是   左右是箱子
+//						return; 
+//					}
+//					else{
 						/*（注意，顺序不能错，先交换物，再交换箱子）*/
 						/*人物位置数据与当前点击的位置数据进行交换。*/
 						console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
@@ -226,10 +238,22 @@ $(function() {
 						this.people_x = i;
 						this.people_y = j;
 						console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
+//					}
+					//循环寻找邻居，看点击的位置及他的邻居 及邻居的邻居是否有通路，如果有 通路人物就能跟点击的位置进行交换
+					//调一个  cango  的方法
+					//TODO  未完善
+					var index = cango();
+					if(index == -1){
+						rerurn;
+					}else{
+						console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
+						this.changeImgAndData(i, j, this.people_x, this.people_y);
+						/*设置人的当前位置*/
+						this.people_x = i;
+						this.people_y = j;
+						console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
 					}
 					
-					
-//					
 				}
 			},
 
@@ -381,14 +405,14 @@ $(function() {
 	});
 
 	// app分享点击
-	$("#shareAppPage_shareFir").on("tap", function() {
+	$(".shareAppPage_shareFir").on("tap", function() {
 		if(isLogin()) {
 			s(0);
 		}
 		$(".butWrap").show();
 		$(".shareAppPage").hide();
 	});
-	$("#shareAppPage_friRound").on("tap", function() {
+	$(".shareAppPage_friRound").on("tap", function() {
 		if(isLogin()) {
 			s(1)
 		}
