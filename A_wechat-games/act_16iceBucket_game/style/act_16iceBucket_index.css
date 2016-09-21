@@ -1,0 +1,757 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+i {
+	font-style: normal;
+	text-align: center;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body, .contentBack, .comShineBack, .indexPage, .gamePage {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	font-size: 10px;
+	font-size: .1rem;
+	font-family: Microsoft Yahei, Arial;
+	width: 6.4rem;
+}
+
+.contentBack {
+	background: -webkit-radial-gradient(50% 50%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);
+	width: 100%;
+	position: relative;
+}
+
+#loadingPage {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: -webkit-radial-gradient(60% 30%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);
+}
+
+.loadingImg {
+	width: 2.5rem;
+	margin: 2rem auto 0;
+	box-sizing: border-box;
+}
+
+.loadingImg img {
+	width: 100%;
+}
+
+.loadText {
+	font-size: 20px;
+	color: #4e6f9f;
+	text-align: center;
+	line-height: 50px;
+	margin-top: .3rem;
+	font-weight: 600;
+}
+
+.loadShape {
+	width: 4.5rem;
+	margin: 0 auto;
+	background: #4e6f9f;
+	border-radius: 10px;
+	height: 10px;
+	overflow: hidden;
+}
+
+#loadShapePro {
+	border-radius: 10px;
+	height: 10px;
+	float: left;
+	background: rgb(255, 244, 209);
+	/* Old browsers */
+	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */;
+	width: 0;
+}
+
+/*首页*/
+.indexPage {
+	width: 100%;
+	background: url(../images/act_16coolIceBucket_indexBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
+}
+
+.indexComImg {
+	display: block;
+	margin: 0 auto;
+	width: 3.8rem;
+}
+
+.indexPagePeo {
+	margin-top: -.45rem;
+}
+
+.indexPageTitle {
+	width: 4.8rem;
+	margin-top: 10%
+}
+
+#goToGamePage {
+	width: 3rem;
+	line-height: .78rem;
+	height: .78rem;
+	border-radius: 50px;
+	background: #c2ef3d;
+	box-shadow: 0 -2px 2px #4090f4, inset 0 3px 2px #faf7d2, inset 0 -7px 4px #ace51b;
+	margin: .55rem auto;
+	display: block;
+	outline: none;
+	border: none;
+}
+
+#goToGamePage span {
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-position: 16px 2px;
+	background-size: 349% auto;
+	display: block;
+	width: 82px;
+	height: 25px;
+	line-height: 32px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#getActRule {
+	color: #0d4b6e;
+	font-weight: 900;
+	font-family: SimHei;
+	text-align: center;
+	font-size: 18px;
+	position: absolute;
+	bottom: .4rem;
+	left: 0;
+	width: 100%;
+	line-height: 35px;
+}
+
+.actRuleShow_wrap {
+	display: none;
+}
+
+.comWrap1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .6);
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+}
+
+.actRuleShow {
+	
+}
+
+.comShowWrap1 {
+	width: 5.6rem;
+	/*max-height:80%;*/
+	background: #4ebaf8;
+	border-radius: 5px;
+	margin: 0 auto;
+	padding-top: 14px;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.actRuleShow .actRuleShow_title {
+	width: 2.5rem;
+	margin: 0 auto;
+}
+
+.actRuleShow .actRuleShow_title img {
+	width: 100%;
+}
+
+.actRuleClose {
+	position: absolute;
+	right: -10px;
+	top: -15px;
+	width: 44px;
+}
+
+.actRuleText {
+	
+}
+
+.comTextWrap1 {
+	width: 4.8rem;
+	margin: 0 auto;
+	border-radius: 8px;
+	padding: .4rem;
+	color: #fff;
+	font-weight: bold;
+}
+
+.actRuleText p {
+	font-size: 12px;
+}
+
+.actRuleScore_wrap {
+	width: 1.2rem;
+	overflow: hidden;
+	margin: .2rem auto;
+}
+
+.actRuleScore_wrap img {
+	width: 100%;
+}
+
+.actRuleScore i {
+	display: block;
+	width: 1.2rem;
+	border-radius: 15px;
+	height: .3rem;
+	color: #f06476;
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: .1rem;
+	;
+}
+
+.actRuleScore .actRuleAvatar span {
+	background: url(../images/act_16coolIceBucket_indexRule_people.png) 0 0 no-repeat;
+	background-size: 100% 107%;
+	display: block;
+	width: 93%;
+	height: 131%;
+	margin: -31% auto 0;
+}
+
+.actRuleAvatar {
+	display: block;
+	border-radius: 50%;
+	background: #fff;
+	width: 1.2rem;
+	height: 1.2rem;
+	overflow: hidden;
+}
+
+/*游戏页面*/
+.gamePage {
+	display: none;
+}
+
+.gamePageTop {
+	background: #4e6f9f;
+	width: 100%;
+	height: 10%;
+	padding: .1rem .2rem;
+	box-sizing: border-box;
+}
+
+.gameClockIcon {
+	height: 100%;
+	overflow: hidden;
+	width: 5rem;
+	float: left;
+}
+
+.gameClockIcon img {
+	max-height: 100%;
+	width: .8rem;
+	float: left;
+}
+
+.gameCountDown_wrap p {
+	font-size: 14px;
+	color: #ffc11e;
+	line-height: .45rem;
+}
+
+.gameCountDownColor_wrap {
+	background: rgb(241, 185, 155);
+	background: -webkit-linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
+	background: linear-gradient(top, rgb(244, 157, 44) 0%, rgb(245, 160, 48) 40%, rgb(241, 172, 82) 58%, rgb(236, 172, 88) 100%);
+	border: 4px solid #761f2c;
+	border-radius: 10px;
+	height: 10px;
+	width: 4rem;
+	margin-left: .6rem;
+}
+
+.gameCountDownColor_wrap span {
+	display: block;
+	height: 100%;
+	border-radius: 0 10px 10px 0;
+	margin-left: .05rem;
+	width: 100%;
+	background: rgb(255, 244, 209);
+	/* Old browsers */
+	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.gameMusic_wrap {
+	width: .8rem;
+	float: right;
+	box-sizing: border-box;
+	padding-top: 2px;
+}
+
+.gameMusic_wrap img {
+	width: 100%;
+}
+
+.gameScoreWrap {
+	max-height: 10%;
+	width: 100%;
+	padding-top: 10px;
+	box-sizing: border-box;
+}
+
+.gameScoreDiv {
+	width: 3rem;
+	overflow: hidden;
+	margin: 0 auto;
+}
+
+.gameScoreDiv img {
+	width: 1rem;
+	float: left;
+}
+
+.gameScoreText {
+	width: 2.4rem;
+	margin-top: .2rem;
+	margin-left: .6rem;
+	background: #d8394d;
+	border-radius: 8px;
+	height: .6rem;
+	line-height: .6rem;
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+	font-family: SimHei;
+	font-weight: 900;
+}
+
+@-webkit-keyframes musicMove { 100% {
+	-webkit-transform: rotate(360deg)
+}
+
+}
+@keyframes musicMove { 100% {
+	transform: rotate(360deg)
+}
+
+}
+.musicPlay {
+	-webkit-animation: musicMove 1s linear 0s infinite;
+	animation: musicMove 1s linear 0s infinite;
+}
+
+.musicPause {
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
+
+.gameMainCon {
+	width:6.4rem;
+	height: 80%;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 0.5rem;
+}
+
+.gameWin {
+	width: 2.7rem;
+	height: 30%;
+	float: left;
+	margin-top: .4rem;
+	position: relative
+}
+
+.gameWin:nth-child(1), .gameWin:nth-child(2) {
+	margin-top: 0;
+}
+
+.gameWinTop {
+	width: 100%;
+	border-radius: 8px;
+	height: 15%;
+	position: absolute;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	background: -webkit-linear-gradient(top, rgba(252, 223, 143, 1) 0%, #f7bd22 70%, rgba(215, 121, 16, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(252, 223, 143, 1) 0%, #f7bd22 70%, rgba(215, 121, 16, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	border: 2px solid #761f2c;
+	display: block;
+	box-sizing: border-box;
+}
+
+.gameWinMainWrap {
+	height: 85%;
+	position: relative;
+	border-top: none;
+	margin: 13% auto 0;
+	width: 2.5rem;
+}
+
+.gameWinPinkMaskWrap {
+	position: absolute;
+	top: 0;
+	left: .15rem;
+	width: 2.2rem;
+	z-index: 2;
+	height: 92%;
+	overflow: hidden;
+}
+
+.gameWinPinkMask {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: url(../images/act_16coolIceBucket_game_yongRound.png) 0 0 no-repeat;
+	background-size: 100% 100%;
+}
+
+.gameWinChildren_wrap {
+	height: 92%;
+	width: 1.8rem;
+	margin: 0 auto;
+	box-shadow: 2px 2px 2px #fff6a2, -2px 0px 2px #fff6a2;
+	background: #31c2d8;
+	position: relative;
+}
+
+.gameWinShineBack {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#scoreShowImg {
+	position: absolute;
+	top: 0;
+	right: -28px;
+	z-index: 10;
+	width: .5rem;
+}
+
+#gamePlayChilren {
+	width: 2rem;
+	position: absolute;
+	left: .45rem;
+	bottom: 25%;
+	-webkit-transform-origin: 50% 100%;
+	transform-origin: 50% 100%;
+	z-index: 4;
+	-webkit-transform: scale(.8);
+	transform: scale(.8);
+	display: block;
+	animation:circle 1s ;
+	-webkit-animation: circle 1s ; 
+}
+@-webkit-keyframes circle{
+	from{ 
+		-webkit-transform:scale(0); 
+		transform:scale(0)
+		}
+	to{ 
+		-webkit-transform:scale(0.8);opacity: 1 ;
+		transform:scale(0.8);opacity: 1
+		}
+}
+
+@keyframes circle{
+	from{ 
+		-webkit-transform:scale(0); 
+		transform:scale(0);
+		 }
+	to{ 
+		-webkit-transform:scale(0.8);opacity: 1 ;
+		transform:scale(0.8);opacity: 1
+		}
+}
+
+
+/*游戏开始按钮 */
+.startGameBtnWrap {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	z-index: 10;
+	padding-top: 1.5rem;
+	box-sizing: border-box;
+}
+
+.startGameBtn {
+	width: 5.2rem;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: .15rem;
+}
+
+.startGameBtnInner {
+	background: #4ebaf8;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: .5rem 0;
+	border-radius: 5px;
+}
+
+.game_textIcon {
+	width: 3rem;
+	display: block;
+	margin: 0 auto;
+}
+
+.startGameBtnTitle {
+	width: 3.7rem;
+	margin: 0 auto .5rem;
+	display: block;
+}
+
+#startGame {
+	width: 3rem;
+	line-height: .78rem;
+	height: .78rem;
+	border-radius: 50px;
+	background: #ff6613;
+	box-shadow: inset 0 -6px 9px #ff2f15;
+	margin: .55rem auto;
+	display: block;
+	outline: none;
+	border: none;
+	border: 3px solid #fff;
+}
+
+#startGame span {
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-position: 16px -38px;
+	background-size: 349% auto;
+	display: block;
+	width: 82px;
+	height: 25px;
+	line-height: 32px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#gamebucket {
+	width: 1rem;
+	position: absolute;
+	top: -0.65rem;
+	left: 1.6rem;
+}
+
+#gamebucket_water {
+	width: 2.8rem;
+	position: absolute;
+	top: -.9rem;
+	left: -.3rem;
+	z-index: 4;
+}
+
+#nohotChilren {
+	width: 2rem;
+	position: absolute;
+	top: -.25rem;
+	left: .25rem;
+	z-index: 2;
+}
+/*游戏结束*/
+.gameOverWrap {
+	z-index: 10;
+	font-size: 16px;
+	display: none;
+}
+
+.gameOverWrap .gameOver {
+	width: 5.2rem;
+}
+
+.gameOverWrap .gameOverText {
+	width: 4.6rem;
+	padding: .4rem .2rem;
+}
+
+.gameOverWrap h1 {
+	width: 2rem;
+	margin: 0 auto;
+}
+
+#gameScoreDesText {
+	margin: .3rem 0 .5rem;
+	width: 4.6rem;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+}
+
+.gameOverWrap h1 img {
+	width: 100%;
+}
+
+.gameOverBtn {
+	width: 100%;
+	border-radius: .4rem;
+	margin: .26rem auto 0;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	height: 44px;
+	line-height: 40px;
+	display: block;
+	outline: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 900;
+}
+
+.shareAppPage button:nth-child(1) {
+	background: -webkit-linear-gradient(top, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	background: linear-gradient(to bottom, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
+	box-shadow: inset 0 3px 4px 0 #F3DA7B, inset 0 -4px 7px 0 #E5B82F, 0 -2px 2px #45a0f6;
+}
+
+.shareAppPage button:nth-child(2) {
+	margin-top: 1rem;
+	background: #a7d421;
+	box-shadow: inset 0 3px 4px 0 #c2e164, inset 0 -4px 7px 0 #96c31a, 0 -2px 2px #45a0f6;
+}
+
+#goToGetHb .gameOverBtn {
+	background: #ff6613;
+	box-shadow: inset 0 -6px 9px #ff2f15;
+	border: 3px solid #fff;
+}
+
+#goToGetHb .gameOverBtn span {
+	width: 112px;
+	height: 25px;
+	display: block;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-position: 12px -57px;
+	background-size: 231% auto;
+}
+
+.gameOverText .shareFri {
+	background: #ffaa17;
+	box-shadow: inset 0 -6px 9px #ff790c;
+	border: 3px solid #fff;
+}
+
+.gameOverText .shareFri span {
+	display: block;
+	width: 134px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 194% auto;
+	background-position: 14px -110px;
+}
+
+#playAgain img {
+	display: block;
+	margin: 0 auto;
+	width: 1.8rem;
+	height: 50%;
+}
+
+.yellowBtn {
+	background: #a7d421;
+	box-shadow: inset 0 -6px 9px #88bb10;
+	border: 3px solid #fff;
+}
+
+.yellowBtn span {
+	display: block;
+	width: 112px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 231% auto;
+	background-position: 14px -84px;
+}
+
+#shareFriSha {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	z-index: 100;
+	display: none;
+}
+
+#shareFriSha img {
+	width: 4rem;
+	display: block;
+	margin: 0.5rem auto;
+}
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}

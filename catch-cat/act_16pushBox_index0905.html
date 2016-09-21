@@ -287,7 +287,7 @@
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
 	<li data-pos="{{i }}" id="{{row.pos }}" class="{{row.css }}">
-		<a href="javascript:void(0);" >
+		<a href="javascript:void(0);" data-flag="{{row.flag}}">
 			<img  src="{{row.image }}">
 		</a>
 	</li>

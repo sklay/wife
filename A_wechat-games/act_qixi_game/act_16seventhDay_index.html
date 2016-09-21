@@ -1,0 +1,327 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>鹤桥之喜，心随礼动</title>
+<meta name="description" content="七夕到，叫上小伙伴，快来领药快到现金券吧">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="style/act_16seventhDay_index.css?v=000001" />
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/preloadjs-0.6.0.min.js"></script>
+<script src="js/createjs-2014.12.12.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/fx_methods.js"></script>
+<script type="text/javascript" src="js/utils.js" ></script>
+<style>
+@media screen and (max-height: 540px) {
+	.gamePageTop{
+		height: 12%;
+	}
+	.gameMainCon{
+		margin: 1rem auto 0;
+	}
+	.gameSuccWrap, .gameFailWrap{
+    	padding-top: .5rem;
+	}
+	.actRuleText p {
+	    line-height: 20px;
+	}
+	.actRuleText span {
+	    line-height: 20px;
+	}
+}
+@media screen and (max-height: 480px) {
+	.loadText{
+		margin-top: 3rem;
+	}
+	#getActRule {
+		width: 1.7rem;
+	}
+	#goToGamePage{
+    	bottom: 1.4rem;		
+	}
+	#getActRule{
+		bottom: .4rem;
+	}
+	.actRuleText p {
+	    line-height: 20px;
+	}
+	.actRuleText span {
+	    line-height: 20px;
+	}
+	.actRuleShow_wrap {
+		padding-top: 1rem;
+	}
+	.gamePageTop{
+		height: 12%;
+	}
+	.gameMainCon{
+		margin: .2rem auto 0;
+	}
+	.showOrigin {
+	    margin: .2rem auto 0;
+	}
+	.gameSuccWrap, .gameFailWrap{
+    	padding-top: .2rem;
+	}
+	.gameFail .gameFailText{
+		padding: 0 .2rem;
+	}
+	.gameFail .gameFailTitle img:nth-child(2) {
+    	margin: -.7rem auto 0rem;
+	}
+	
+}
+
+
+		
+</style>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+
+<body>
+	<div class="contentBack">
+		<!--加载页-->
+		<div id="loadingPage">
+			<p class="loadText">
+				Loading……<span id="loadPer"></span>
+			</p>
+			<div class="loadShape">
+				<span id="loadShapePro"></span>
+			</div>
+		</div>
+		<!--首页-->
+		<div class="indexPage">
+			<button id="goToGamePage">开始游戏</button>
+			<p id="getActRule">活动规则</p>
+			<div class="actRuleShow_wrap comWrap1">
+				<div class="actRuleShow comShowWrap1">
+					<img class="closeBtn actRuleClose" src="images/act_16seventhDay_indexRuleBTn.png" alt="">
+					<img class="rulePeoloe" src="images/act_16seventhDay_ruleIcon.png" />
+					<div class="actRuleShow_title">
+						<img src="images/act_16seventhDay_ruletitle.png" alt="">
+					</div>
+					<div class="actRuleText comTextWrap1">
+						<span>1、</span><p>在规定的游戏时间内，通过点击图片，使图片移动;</p>
+						<span>2、</span><p>点击查看“看看原图”可以查看完整的拼图；</p>
+						<span>3、</span><p>活动时间：8月9日0:00——8月16日23:59。</p>
+						<span>4、</span><p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						<span>5、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--游戏页-->
+		<div class="gamePage">
+			<div class="gamePageTop">
+				<div class="gameClockIcon">
+					<img src="images/act_16coolIceBucket_game_clock.png" alt="">
+					<div class="gameCountDown_wrap">
+						<p id="gameCountDownTime"></p>
+					</div>
+				</div>
+				<div class="gameMusic_wrap" style="display: none;">
+					<img src="images/act_16coolIceBucket_music.png" alt="" id="gameMusic" class="musicPlay">
+				</div>
+			</div>
+			<!--游戏页-->
+			<div class="gameMainCon">
+				<ul class="box">
+				</ul>
+				<div class="showOrigin">
+					<button class="showOriginBtn">查看原图</button>
+				</div>
+			</div>
+			<!--原图-->
+			<div class="game_origin">
+				<img src="images/act_16seventhDay_game_oraginImg.jpg" />
+			</div>
+			
+			<!--挑战失败页-->
+			<div class="gameFailWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameFailTitle">
+						<img src="images/act_16seventhDay_gameFail_title.png" alt="">
+						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
+						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="butWrap">
+							<a id="goToGetHb">
+								<button class="gameFailBtn toGetReward">去抽奖</button>
+							</a>
+							<button class="gameFailBtn " id="playAgain">不服再战</button>
+							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gameSuccWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameFailTitle">
+						<img src="images/act_16seventhDay_gameSucc_title.png" alt="">
+						<img src="images/act_16seventhDay_gameSucc_people.png" alt="">
+						<img src="images/act_16seventhDay_gameSucc_desc.png" alt="">
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="butWrap">
+							<a id="goToGetHb">
+								<button class="gameFailBtn toGetReward">去抽奖</button>
+							</a>
+							<button class="gameFailBtn shareFri" >邀请好友</button>
+							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn" id="shareAppPage_friRound">分享到朋友圈</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="shareFriSha">
+		<img src="images/act_16seventhDay_indexshare.png" alt="">
+	</div>
+	
+	<div style="display: none">
+		<img  src="images/act_16seventhDay_game_pt-1.png">
+		<img  src="images/act_16seventhDay_game_pt-2.png">
+		<img  src="images/act_16seventhDay_game_pt-3.png">
+		<img  src="images/act_16seventhDay_game_pt-4.png">
+		<img  src="images/act_16seventhDay_game_pt-5.png">
+		<img  src="images/act_16seventhDay_game_pt-6.png">
+		<img  src="images/act_16seventhDay_game_pt-7.png">
+		<img  src="images/act_16seventhDay_game_pt-8.png">
+		<img  src="images/act_16seventhDay_game_pt-9.png">
+	</div>
+	<div style="display: none;" class="gameM	usic_wrap2">
+		<div id="audio_span"></div>
+		
+		<script>
+			
+			function end(){
+				document.getElementById('audioBackMusic').play() ;
+			}
+		</script>
+		
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16seventhDay_bjmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+	</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/artTemplate/template.js"></script>
+<script src="js/act_16seventhDay_index.js?v=4.0"></script>
+
+<script type="text/template" id="game-tpl">
+	{{each rows as row i }}
+	<li data-pos="{{i }}" id="{{row.pos }}" >
+		<a href="javascript:void(0);" class="{{row.css }}">
+			<img  src="{{row.image }}" />
+		</a>
+	</li>
+	{{/each}}
+</script>
+<script>
+	/* var wh=$(window).height();
+	alert(wh); */
+	
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
+	/**是否要播放音乐*/
+	var playMusic = getAppStatus() ;
+	
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	/**初始化预加载部分*/
+	setupManifest({
+		image:true,
+		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:"#loadingPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			$(".indexPage").fadeIn() ;
+			initFunction();
+		}
+	});
+
+	/**声明一些事件*/
+	function initFunction() {
+		
+		/*活动规则的显示与隐藏*/
+		$("#getActRule").on("tap", function() {
+			$(".actRuleShow_wrap").show();
+		});
+		$(".actRuleShow_wrap").on("tap", function() {
+			$(".actRuleShow_wrap").hide();
+		});
+		$("#goToGamePage").on("tap", function(e) {
+			console.debug("go");
+			$(".gamePage").fadeIn(100);
+			$(".indexPage").hide(100);
+			
+		});
+		
+		/*点击领取*/
+		$("#goToGetHb ").on("click ", function() {
+			var url = "http://127.0.0.1:8020/A_wechat-games/act_qixi_game/act_16seventhDay_getHb.html";
+		   // var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16seventhDay_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=300";
+		   //var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16seventhDay_getHb&user_token=" + token + "&version_code="+version+"&codeActId=302";
+			location.href = url;
+		});
+	}
+	
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var wechatObj={
+			appid: appid,
+			title: '鹤桥之喜，心随礼动',
+			desc: '七夕到，叫上小伙伴，快来领药快到现金券吧',
+			link: 'http://' + location.host + '/medhtml/common/act_16seventhDay_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16seventhDay_shareImg.jpg',
+			shareSucc: function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
+			}
+		}
+	if (is_weixin()){
+		shareWeiXin(wechatObj) ;
+	}
+</script>
+
+</html>

@@ -1,0 +1,343 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>粽子快到篮里来！</title>
+		<meta name="description" content="你能接到几个粽子，【药快到】等你来挑战！">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+		
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<script src="js/utils.js"></script>
+		<link rel="stylesheet" href="style/act_16dumpling_index.css" />
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 14px;
+				font-family: "微軟正黑體","Microsoft Yahei";
+				background: #6fdfad;
+			}
+			html,body,.content_wrap,.content_index{
+				width: 100%;
+				height: 100%;
+			}
+			.index_wrap{
+				display: none;
+			}
+			.no_content{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10000;
+				background: rgba(0,0,0,.0);
+			}
+			.slide_icon{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 10001;
+				background: rgba(0,0,0,.6);
+			}
+			.timeSocerewrap{
+				width: 1rem;
+				position: absolute;
+				bottom: 100px;
+				right: 40px;
+			}
+			.timeSocerewrap img{
+				width: 100%;
+				display: none;
+			}
+			
+			/*适配小屏手机*/
+			@media screen and (max-height: 480px) {
+				.index_title{
+					margin: 0 auto;
+				}
+				.index_thime img {
+					padding-top: 0;
+				}
+				.index_title {
+				  padding-top: .2rem;
+				}
+				.index_thime {
+				height: 4rem;
+				}
+				.index_clickBtn img {
+				bottom: 16px;
+				}
+				.score_wrap {
+				top: .30rem;
+				}
+			}
+			
+			
+		</style>
+		
+		
+	</head>
+
+	<body  >
+		
+		<div class="content_wrap">
+			<!--加载页-->
+			<div class="loadPage">
+				<div class="load_content clearfix">
+					<div class="loading_people">
+						<img class="loading_people_d" data-p="1" src="images/act_16dumpling_loading_down.png" />
+						<!--<img src="images/act_16dumpling_loadup.png" />
+						<img src="images/act_16dumpling_loading_body.png" />
+						<img src="images/act_16dumpling_loaddown.png" />-->
+					</div>
+					<div class="loading_sty">
+						<p class="loadText"><span id="loadPer"></span></p>
+						<div class="loadShape">
+							<img id="loadShapePro" src="images/act_16dumpling_loading_icon.png" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--首页  start -->
+			<div class="index_wrap commo_page">
+				<div class="content_index">
+					<div class="index_title">
+						<img src="images/act_16dumpling_index_title.png" />
+					</div>
+					<div class="index_thime">
+						<img src="images/act_16dumpling_index_thimeP.png" />
+					</div>
+					<div class="index_clickBtn">
+						<img src="images/act_16dumpling_index_startBtn.png"/>
+					</div>
+				</div>
+				<!--活动规则-->
+				<div class="actRule">
+					<div class="actRule_content">
+						<div class="actRule_title">
+							<img src="images/act_16dumpling_index_starttitle.png" />
+						</div>
+						<div class="actRule_text">
+							<p><span class="dot"></span>凡参与活动的用户均可获得【药快到】全场通用满48元立减7元或8元的现金券1张。</p>
+							<p><span class="dot"></span>活动有效期:
+								<br/>2016年6月8日—2016年6月16日 </p>
+							<p><span class="dot"></span>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+						</div>
+						<div class="actRule_btn">
+							<img src="images/act_16dumpling_rule_btn.png" class="rule_btn"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--游戏页-->
+			<!--游戏区-->
+			<div id="container" style="display: none;">
+				<div id="gamepanel">
+					<div class="score-wrap">
+						<span id="score" class="timeup"></span>
+					</div>
+					<!--游戏画布-->
+					<canvas id="stage"></canvas>
+					<div class="timeSocerewrap">
+						<img id="addOneShowImg" src="images/act_16dumpling_game_addone.png" />
+						<img id="reduceTwohowImg" src="images/act_16dumpling_game_reduce2.png" />
+					</div>
+					<div class="gameBottom_bj">
+						<img src="images/act_16dumpling_geme_bottomIconNew.png" />
+					</div>
+					<div class="no_content" ></div>
+					<div class="slide_icon">
+						<img src="images/act_16dumpling_slide_LR.png" />
+					</div>
+					<!--音乐图标-->
+					<div class="music_wrap" style="display: none;">
+						<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
+						<img class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
+					</div>
+				</div>
+				<!--没有碰上炸弹的情况-->
+				<div id="resultPanel" class="noboom_result result_controllerP">
+					<div class="gameOver_content ">
+						<div class="gameOverOne_title">
+							<img src="images/act_16dumpling_gameOver2_title.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOver_desc">
+								<img class="headIcon" src="images/act_16dumpling_gameOver2_headIcon.png" />
+								<div class="gameOver_descText">
+									<img src="images/act_16dumpling_gameOver2_desc.png" />
+									<div class="score_wrap">
+										<span id="sscore" class="lighttext"></span>
+									</div>
+								</div>
+								
+								
+							</div>
+							<div class="gameOver_btn butWrap">
+								<img  class="receive_btn" src="images/act_16dumpling_gameOver1_receive.png" />
+								<img class="shareFri"  src="images/act_16dumpling_gameOver2_sharebtn.png" />
+							</div>
+							<div class="shareAppPage" >
+								<img class="gameOverBtn appShareBtn"   id="shareAppPage_shareFir" src="images/act_16dumpling_get_shareTofriBtn.png"></img>
+								<img class="gameOverBtn appShareBtn"  id="shareAppPage_friRound" src="images/act_16dumpling_get_shareToFritoundBtn.png"></img>
+				            </div>
+						</div>
+					</div>
+				</div>
+				<!--碰上炸弹的情况-->
+				<div id="resultPanel_two" class="noboom_result result_controllerP">
+					<div class="gameOver_content">
+						<div class="gameOverTwo_title">
+							<img src="images/act_16dumpling_gameOver1_title.png" />
+						</div>
+						<div class="gameOver_text">
+							<div class="gameOverTwo_desc clearfix">
+								<img src="images/act_16dumpling_gameOver1_desc.png" />
+							</div>
+							<div class="gameOverTwo_btn ">
+								<img class="receive_btn" src="images/act_16dumpling_gameOver1_receive.png" />
+								<img class="playAgain"  src="images/act_16dumpling_gameOver1_playAgain.png"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="shareFriSha">
+		    <img src="images/act_16dumpling_share.png" alt="">
+		</div>
+		
+		
+		<div id="audioCon" data-bg-src="images/act_16dumling_bjMusic0602.mp3"  data-boom-src="images/act_16dumling_boomMusic0602.mp3" style="display: none;" ></div>
+		
+		<script type="text/javascript" src="js/act_16dumling_index.js?v=2.0001" ></script>
+		
+	</body>
+	
+	<script>
+	/* var wh=$(window).height();
+	alert(wh); */
+	var isEnd = 0;
+	
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
+	/**是否要播放音乐*/
+	var playMusic = getAppStatus() ;
+	
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	/**初始化预加载部分*/
+	setupManifest({
+		image:true,
+//		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:".loadPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			
+			$(".index_wrap").fadeIn() ;
+			initFunction();
+			isEnd = 1;
+		}
+	});
+	(function() {
+		isEnd == 0;
+		timer();
+	})();
+	function timer(){
+		setTimeout(function(){
+			var dataNum = $(".loading_people_d").attr('data-p');
+			if(dataNum == 1){
+				$(".loading_people_d").attr('src','images/act_16dumpling_loading_down.png');
+			}else{
+				$("loading_people_d").attr('src','images/act_16dumpling_loading_up.png');
+			}
+			dataNum = dataNum * (-1);
+			
+			$(".rabbit_move").attr('data-p',dataNum);
+			//如果开始调用定时器
+			 if(isEnd == 0){
+			 	timer();
+			 }
+		},500)
+	}
+	
+	/**声明一些事件*/
+	function initFunction() {
+		/*活动规则的显示与隐藏*/
+		$("div.actRule").on("tap", function() {
+			$('div.actRule').fadeIn(1500);
+		});
+		$("div.actRule").on("tap", function() {
+			$("div.actRule").hide();
+		});
+//		$(".index_clickBtn").on("tap", function(e) {
+//			console.debug("go");
+//			$("#container").fadeIn(100);
+//			$(".index_wrap").hide(100);
+//			isEnd = 1;
+//		});
+		
+		/*点击领取*/
+		$(".receive_btn").on("click ", function() {
+			var url = "http://127.0.0.1:8020/A_wechat-games/act_16dumpling_game/act_16dumpling_getHb.html"
+			//var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16roundRabbit_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=350";
+			//var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16roundRabbit_getHb&user_token=" + token + "&version_code="+version+"&codeActId=350";
+			location.href = url;
+		});
+	}
+	
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var wechatObj={
+			appid: appid,
+			title: '粽子快到篮里来！',
+			desc: '【药快到】端午节福利，玩游戏还有优惠拿，这种好事一般人我不告诉他！抢奖速来！',
+			link: 'http://' + location.host + '/medhtml/common/act_16roundRabbit_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16roundRabbit_shareImg.jpg' ,
+			shareSucc: function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
+			}
+		}
+	if (is_weixin()){
+		shareWeiXin(wechatObj) ;
+	}
+</script>
+</html>

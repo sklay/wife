@@ -1,0 +1,321 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>中秋月满人团圆</title>
+<meta name="description" content="中秋佳节领药快到现金券">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="style/act_16roundRabbit_index.css?v=000001" />
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/preloadjs-0.6.0.min.js"></script>
+<script src="js/createjs-2014.12.12.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/fx_methods.js"></script>
+<script type="text/javascript" src="js/utils.js" ></script>
+<style>
+@media screen and (max-height: 480px) {
+	.loadText{
+		margin-top: 3rem;
+	}
+	#goToGamePage{
+    	bottom: 1.2rem;		
+	}
+	#getActRule{
+		bottom: .4rem;
+	}
+	.actRuleShow_wrap {
+		padding-top: 1rem;
+	}
+	.indexPage .move_rabbit{
+	    bottom: 2.5rem;
+	}
+	.gamePageTop {
+	    width: 5rem;
+	    margin: 0.15rem auto 0;
+	}
+	.gameMainCon{
+		margin: 0 auto;
+	}
+	.gameSuccWrap, .gameFailWrap{
+    	padding-top: .2rem;
+	}
+	.gameFail .gameFailText{
+		padding: 0 .2rem;
+	}
+	.gameFail .gameFailTitle {
+    	width: 4rem;
+    	margin: 0 auto;
+	}
+}
+	
+@media screen and (max-height: 540px) {
+	 .move_rabbit{
+		bottom: 2.95rem;
+	} 
+}
+		
+</style>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+
+<body>
+	<div class="contentBack">
+		<!--加载页-->
+		<div id="loadingPage">
+			<p class="loadText">
+				Loading……<span id="loadPer"></span>
+			</p>
+			<div class="loadShape">
+				<span id="loadShapePro"></span>
+			</div>
+		</div>
+		<!--首页-->
+		<div class="indexPage">
+			<div class="move_rabbit">
+				<img class="rabbit_move" data-p="1" src="images/act_16roundRabbit_index_rabbit_le.png" alt="">
+				<img class="rabbit_Tmove" data-pt="1" src="images/act_16roundRabbit_index_rabbit_ri.png" alt="">
+			</div>
+			<!--<button id="goToGamePage">开始守护</button>-->
+			<img id="goToGamePage" src="images/act_16roundRabbit_index_startBtn.png" />
+			<p id="getActRule">活动规则</p>
+			<div class="actRuleShow_wrap comWrap1">
+				<div class="actRuleShow comShowWrap1">
+					<img class="closeBtn actRuleClose" src="images/act_16roundRabbit_index_ruleClose.png" alt="">
+					<img class="rulePeoloe" src="images/act_16roundRabbit_index_ruleTitle.png" />
+					<div class="actRuleText comTextWrap1">
+						<div>
+							<span>1、</span><p>游戏说明</p>
+							<p>点击空心的圆点，围成一个圈，即可阻止月兔下凡若月兔跑出边界，则游戏失败。</p>
+						</div>
+						<div>
+							<span>2、</span><p>活动时间</p>
+							<p>9月13日0:00——9月20日23:59。</p>
+						</div>
+						<div>
+							<span>3、</span><p>活动奖励</p>
+							<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						</div>
+						<div>
+							<span>4、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--游戏页-->
+		<div class="gamePage">
+			<div class="gamePageTop">
+				<img src="images/act_16roundRabbit_gameTitle.png" alt="">
+			</div>
+			<!--游戏页-->
+			<div class="gameMainCon">
+				<ul class="box clearfix">
+				</ul>
+			</div>
+			<!--挑战失败页-->
+			<div class="gameFailWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameFailTitle">
+						<img src="images/act_16roundRabbit_gameFail_title.png" alt="">
+						<img src="images/act_16roundRabbit_gameFail_desc.png" alt="">
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="butWrap">
+							<a id="goToGetHb">
+								<button class="gameFailBtn toGetReward">领取中秋红包</button>
+							</a>
+							<button class="gameFailBtn shareFri">邀请好友</button>
+							<button class="gameFailBtn " id="playAgain">重新再来</button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn shareAppPage_friRound">分享到朋友圈</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gameSuccWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameFailTitle gameSuccTitle">
+						<img src="images/act_16roundRabbit_gameSuccess_title.png" alt="">
+						<p class="pText"></p>
+						<p>成功守！护！月！兔！</p>
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="butWrap">
+							<a id="goToGetHb">
+								<button class="gameFailBtn toGetReward">领取中秋红包</button>
+							</a>
+							<button class="gameFailBtn shareFri">邀请好友</button>
+							<button class="downloadP goForUse gameFailBtn">下载药快到</button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn shareAppPage_friRound">分享到朋友圈</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="shareFriSha">
+		<img src="images/act_16roundRabbit_shareIcon.png" alt="">
+	</div>
+	
+
+	<!--音频-->
+	<!--<div style="display: none;" class="gameM	usic_wrap2">
+		<div id="audio_span"></div>
+		<script>
+			function end(){
+				document.getElementById('audioBackMusic').play() ;
+			}
+		</script>
+		
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16womenday_backmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+	</div>-->
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/artTemplate/template.js"></script>
+<script src="js/act_16roundRabbit_index.js?v=4.0"></script>
+
+<script type="text/template" id="game-tpl">
+	{{each rows as row i }}
+	<li data-pos="{{row.coordinate}}" data-index="{{row.index }}" class="{{row.left}}">
+		<a href='javascript:void(0);' class="{{row.css }}">
+			{{if row.css == 'styleCat'}}
+			<img id="imgSty" data-s="1" src='images/act_16roundRabbit_index_rabbit_le.png'>
+			{{/if}}
+		</a>
+	</li>
+	{{/each}}
+</script>
+
+<script>
+	/* var wh=$(window).height();
+	alert(wh); */
+	var isEnd = 0;
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
+	/**是否要播放音乐*/
+	var playMusic = getAppStatus() ;
+	
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	
+	/**初始化预加载部分*/
+	setupManifest({
+		image:true,
+//		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:"#loadingPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			$(".indexPage").fadeIn() ;
+			initFunction();
+		}
+	});
+	
+	function timer(){
+		setTimeout(function(){
+			var dataNum = $(".rabbit_move").attr('data-p');
+			var dataNumT = $(".rabbit_Tmove").attr('data-pt');
+			if(dataNum == 1){
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit_le.png');
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit_ri.png');
+			}else{
+				$(".rabbit_move").attr('src','images/act_16roundRabbit_index_rabbit_ri.png');
+				$(".move_rabbit .rabbit_Tmove").attr('src','images/act_16roundRabbit_index_rabbit_le.png');
+			}
+			dataNum = dataNum * (-1);
+			dataNumT = dataNumT * (-1);
+			
+			$(".rabbit_move").attr('data-p',dataNum);
+			$(".rabbit_Tmove").attr('data-pt',dataNumT);
+			//如果开始调用定时器
+			 if(isEnd == 0){
+			 	timer();
+			 }
+		},500)
+	}
+	/**声明一些事件*/
+	function initFunction() {
+		isEnd = 0;
+		timer();
+		/*活动规则的显示与隐藏*/
+		$("#getActRule").on("tap", function() {
+			$(".actRuleShow_wrap").show();
+		});
+		$(".actRuleShow_wrap").on("tap", function() {
+			$(".actRuleShow_wrap").hide();
+		});
+		$("#goToGamePage").on("tap", function(e) {
+			console.debug("go");
+			$(".gamePage").fadeIn(100);
+			$(".indexPage").hide(100);
+			isEnd = 1;
+		});
+		
+		/*点击领取*/
+		$("#goToGetHb ").on("click ", function() {
+			var url = "http://127.0.0.1:8020/A_wechat-games/act_roundRabbit_game/act_16roundRabbit_getHb.html";
+			//var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16roundRabbit_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=350";
+			//var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16roundRabbit_getHb&user_token=" + token + "&version_code="+version+"&codeActId=350";
+			location.href = url;
+		});
+	}
+	
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var wechatObj={
+			appid: appid,
+			title: '中秋月满人团圆',
+			desc: '中秋佳节领药快到现金券',
+			link: 'http://' + location.host + '/medhtml/common/act_16roundRabbit_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16roundRabbit_shareImg.jpg' ,
+			shareSucc: function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
+			}
+		}
+	if (is_weixin()){
+		shareWeiXin(wechatObj) ;
+	}
+</script>
+
+</html>

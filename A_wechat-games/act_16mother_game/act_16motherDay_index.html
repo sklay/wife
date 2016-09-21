@@ -1,0 +1,549 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>【药快到】祝天下母亲节日快乐</title>
+		<meta name="description" content="【药快到】母亲节，给母亲爱与健康。 ">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--引入外部js资源-->
+		<!--==============依赖的jquery库=============================-->
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<!--==============自定义的公用的js文件=============================-->
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script type="text/javascript" src="js/act_16motherDay_index.js"></script>
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<!--==============自定义css文件=============================-->
+		<link rel="stylesheet" href="style/act_16motherDay_index.css" />
+		<link rel="stylesheet" href="style/act_motherDay_animation.css" />
+		<style>
+			/*初始化css样式==========全局样式*/
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			html {
+				font-size: 62.5%;
+			}
+			html,body,.con_wrap,.content,.common_wrap{
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			body {
+				font-size: 10px;
+				font-size: .1rem;
+				font-family: Microsoft Yahei, Arial;
+				width: 100%;
+			}
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear:both;
+			} 
+			/*适配小屏手机*/
+			@media screen and (max-height: 580px) {
+				.con_wrap_index_desc {margin: .4rem auto;}
+				.moduel_five_people {width: 4rem;}
+				.moduel_one_people {
+					width: 4rem;
+					margin: 1.3rem auto 0;
+				}
+			}
+			@media screen and (max-height: 480px) {
+				.wrap_index_title_wrap {width: 5rem;}
+				.wrap_index_title_wrap img:nth-child(2) {
+					width: .5rem;
+					top: 3rem;
+				}
+				.con_wrap_index_desc {width: 5rem;}
+				.con_wrap_index_desc {margin: 0rem auto .2rem;}
+				.con_wrap_index_people {width: 3.6rem;}
+				.moduel_one_people {
+					width: 4rem;
+					padding: 0rem 1rem;
+				}
+				.moduel_one_people img:nth-child(2) {width: 1.7rem;}
+				.moduel_two_desc {width: 3.6rem;}
+				.moduel_two_people {width: 3rem;  margin-top: -3rem;}
+				.moduel_three_desc {margin: .7rem auto;}
+				.moduel_two_desc img:nth-child(2) {margin-left: -.9rem;}
+				.moduel_fore_people {width: 3.5rem;}
+				.moduel_five_people {
+					width: 3.2rem;
+					margin: 0.3rem auto 0;
+				}
+				.moduel_five_people img:nth-child(1) {
+					width: 2.6rem;
+					margin-left: -.8rem;
+				}
+				.moduel_fore_desc {padding: 0 1rem;}
+				.moduel_seven_content {
+					padding-top: .2rem;
+					position: relative;
+				}
+				.moduel_seven_title_wrap img:nth-child(2) {top: 0.7rem;}
+				.moduel_seven_desc {margin: 0rem auto;}
+				.moduel_seven_title_wrap {	margin: 0 auto 0.1rem;}
+				.moduel_seven_desc img:nth-child(2) {width: 3.8rem;}
+				.moduel_seven_desc img:nth-child(3) {
+					width: 3.4rem;
+					top: 1.15rem;
+				}
+				.moduel_six_content {padding: .4rem 0;}
+				.moduel_six_bottom {width: 2.4rem;}
+				.moduel_six_desc {margin-top: .6rem;}
+			}
+			/*适配小屏手机    end*/
+			.hide {display: none;}
+			.show {display: block;}
+			.page-current {display: block;}
+		</style>
+		<!--百度统计-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+
+	<body>
+		<div class="con_wrap">
+			<!--加载页start-->
+			<div id="loadingPage">
+				<div class="loadingImg">
+					<img src="images/loading01.png" />
+					<img src="images/loading02.png" />
+					<img src="images/loading03.png" />
+				</div>
+				<p class="loadText">已加载<span id="loadPer"></span></p>
+				<div class="loadShape"><span id="loadShapePro"></span></div>
+				<script>
+					(function() {
+						var wh = $(window).height();
+						$("#loadingPage").css({
+							"minHeight": wh
+						});
+					})();
+				</script>
+			</div>
+
+			<!--加载页 end-->
+			<!--内容展示页 start-->
+			<div class="content">
+				<!-- 音乐 图标 start -->
+				<div class="music_wrap">
+					<img class="music_play" src="images/act_16motherDay_musciOpen.png" alt="">
+					<img class="music_close" src="images/act_16motherDay_musciClose.png" alt="">
+				</div>
+				<!-- 音乐 图标 end-->
+				<!--首页 start  -->
+				<div class="index_content common_wrap">
+					<div class="wrap_index_title_wrap">
+						<img class="flowerTit" src="images/act_16motherDay_title.png" />
+						<img src="images/act_16motherDay_heard.png" />
+					</div>
+					<div class="con_wrap_index_desc">
+						<img src="images/act_16motherDay_desc.png" />
+					</div>
+					<div class="con_wrap_index_people">
+						<img src="images/act_16motherDay_parenting.png" />
+					</div>
+					<div class="con_wrap_index_botom">
+						<img src="images/act_16motherDay_flower.png" />
+					</div>
+					<div class="index_slide_up">
+						<img src="images/act_16motherDay_pointerUp.png" />
+					</div>
+				</div>
+				<!--首页 end-->
+				<!--第一个模块 start-->
+				<div class="game_show_moduel_one common_wrap">
+					<div class="moduel_one_content">
+						<div class="moduel_one_title_wrap">
+							<img src="images/act_16motherDay_view_title1.png" />
+							<img src="images/act_16motherDay_view_title2.png" />
+						</div>
+						<div class="moduel_one_people clearfix">
+							<img src="images/act_16motherDay_view1_desc.png" />
+							<img src="images/act_16motherDay_view_moher.png" />
+						</div>
+
+					</div>
+				</div>
+				<!--第一个模块 end-->
+				<!--第二个模块 start-->
+				<div class="game_show_moduel_two common_wrap">
+					<div class="moduel_two_content">
+						<div class="moduel_two_title_wrap">
+							<img src="images/act_16motherDay_view2_title1.png" />
+							<img src="images/act_16motherDay_view2_title2.png" />
+						</div>
+						<div class="moduel_two_desc">
+							<img src="images/act_16motherDay_view2_desc.png" />
+							<img src="images/act_16motherDay_view2_daut.png" />
+						</div>
+						<div class="moduel_two_people">
+							<img src="images/act_16motherDay_view2_mother.png" />
+						</div>
+					</div>
+				</div>
+				<!--第二个模块 end-->
+				<!--第三个模块 start-->
+				<div class="game_show_moduel_three common_wrap">
+					<div class="moduel_three_content">
+						<div class="moduel_three_title_wrap">
+							<img src="images/act_16motherDay_view3_title1.png" />
+							<img src="images/act_16motherDay_view3_title2.png" />
+						</div>
+						<div class="moduel_three_desc">
+							<img src="images/act_16motherDay_view3_desc.png" />
+							<img src="images/act_16motherDay_view3_ma.png" />
+						</div>
+					</div>
+				</div>
+				<!--第三个模块 end-->
+				<!--第四个模块 start-->
+				<div class="game_show_moduel_fore common_wrap">
+					<div class="moduel_fore_content">
+						<div class="moduel_fore_title_wrap">
+							<img src="images/act_16motherDay_view4_title.png" />
+						</div>
+						<div class="moduel_fore_desc">
+							<img src="images/act_16motherDay_view4_desc1.png" />
+							<img src="images/act_16motherDay_view4_desc2.png" />
+						</div>
+						<div class="moduel_fore_people">
+							<img src="images/act_16motherDay_view4_eat.png" />
+						</div>
+					</div>
+				</div>
+				<!--第四个模块 end-->
+				<!--第五个模块 start-->
+				<div class="game_show_moduel_five common_wrap">
+					<div class="moduel_five_content">
+						<div class="moduel_five_title_wrap">
+							<img src="images/act_16motherDay_view5_title.png" />
+						</div>
+						<div class="moduel_five_people">
+							<img src="images/act_16motherDay_view5_desc.png" />
+							<img src="images/act_16motherDay_view5_old.png" />
+						</div>
+					</div>
+				</div>
+				<!--第五个模块 end-->
+				<!--第六个模块 start-->
+				<div class="game_show_moduel_six common_wrap">
+					<div class="moduel_six_content">
+						<div class="moduel_six_title_wrap">
+							<img src="images/act_16motherDay_view6_desc1.png" />
+							<img src="images/act_16motherDay_view6_desc2.png" />
+						</div>
+						<div class="moduel_six_dot">
+							<p>••••••••</p>
+						</div>
+						<div class="moduel_six_desc">
+							<img src="images/act_16motherDay_view6_desc3.png" />
+							<img src="images/act_16motherDay_view6_desc4.png" />
+						</div>
+					</div>
+					<div class="con_wrap_index_botom moduel_six_bottom">
+						<img src="images/act_16motherDay_flower.png" />
+					</div>
+				</div>
+				<!--第六个模块 end-->
+				<!--第七个模块 start-->
+				<div class="game_show_moduel_seven common_wrap">
+					<div class="moduel_seven_content">
+						<div class="moduel_seven_title_wrap">
+							<img src="images/act_16motherDay_view7_title.png" />
+							<img src="images/loading.gif" />
+						</div>
+						<div class="moduel_seven_word">
+							<p>正品保证</p>
+						</div>
+						<div class="moduel_seven_desc clearfix">
+							<img class="sendP" src="images/act_16motherDay_view7_sendp.png" />
+							<div class="moduel_seven_desc_left">
+								<img src="images/act_16motherDay_view7_descnew.png" />
+								<img src="images/act_16motherDay_view7_cust.png" />
+							</div>
+						</div>
+						<div class="moduel_seven__botom">
+							<img src="images/act_16motherDay_view7_bloud.png" />
+						</div>
+					</div>
+					<div class="clickBtn_wrap">
+						<span id="backChange" class="goForUse">下载药快到APP</span>
+						<span id="saveAndShare">领取现金券</span>
+					</div>
+
+				</div>
+				<!--第七个模块 end-->
+			</div>
+			<!--内容展示页 end-->
+			<div class="slide_up">
+				<img src="images/act_16motherDay_up.png" />
+			</div>
+		</div>
+
+		<!--控制音乐循环播放的 问题-->
+		<script type="text/javascript">
+			var onEnded = function() {
+				document.getElementById("audioCon").play();
+			};
+		</script>
+		<!-- 音乐 播放 -->
+		<audio src="images/act_16motherDay_love.mp3" id="audioCon"  style="display: none;" onended="onEnded()"></audio>
+	</body>
+	<script>
+		function getUrlEle() {
+			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+				return "";
+			}
+			var urldec = location.href.split("?")[1].split("&");
+			var urlQuery = {};
+			var a, b;
+			for (var i = 0, j = urldec.length; i < j; i++) {
+				a = urldec[i].split("=")[0];
+				b = urldec[i].split("=")[1];
+				console.log(a.split("%EF%BC%9D"))
+				if (b == undefined) {
+					a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+					b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+				};
+				urlQuery[a] = b;
+			};
+			return urlQuery;
+		};
+		var version = getUrlEle().version_code || '';
+		var token = getUrlEle().user_token || '';
+		
+		var manifest = [];
+		var preload;
+		/* window加载 */
+		var canvas = document.getElementById("myCanvas");
+		var stage = new createjs.Stage(canvas);
+		var manifest = [];
+		var preload;
+		//定义相关JSON格式文件列表
+		function setupManifest() {
+			var imgL = $("img").length;
+			for (var i = 1; i < imgL; i++)
+				manifest.push({
+					src: $("img").eq(i).attr("src")
+				});
+			var audioL = $("audio").length;
+			for (var i = 1; i < audioL; i++)
+				manifest.push({
+					src: $("audio").eq(i).attr("src")
+				});
+		};
+		//开始预加载
+		function startPreload() {
+			preload = new createjs.LoadQueue(true);
+			//注意加载音频文件需要调用如下代码行
+			preload.installPlugin(createjs.Sound);
+			//preload.on("fileload", handleFileLoad);
+			preload.on("progress", handleFileProgress);
+			preload.on("complete", loadComplete);
+			preload.loadManifest(manifest);
+		}
+		//加载中动画
+		var load = {};
+		load.loadAniBoo = true;
+		load.loadNum = 0;
+		load.loadMax = $("img").length + $("audio").length;
+		load.loadAniTime = null;
+		//	var loadPer = $("#loadPer"); //加载进度条
+		function handleFileProgress(event) {
+			if (load.loadAniBoo) {
+				load.loadAniTime = setInterval(function() {
+					/**逻辑上的加载完成 -1是为了避免两次100% 最后的100%应该由物理的加载完成来实现*/
+					if (load.loadNum >= (load.loadMax - 1)) {
+						if (load && load.loadAniTime) {
+							clearInterval(load.loadAniTime);
+						}
+						return true;
+					}
+					load.loadNum++;
+					loadState(load);
+				}, 500)
+				load.loadAniBoo = false;
+			} else {
+				return false;
+			}
+		}
+
+		function loadState(load) {
+			var loadPer = $("#loadPer"); //加载进度条
+			var percLoad = Math.ceil(load.loadNum / load.loadMax * 100) + "%"; //100%的样式
+			console.log(load.loadNum, '/', load.loadMax, '  =  ', percLoad); //14
+			loadPer.html(percLoad);
+			$("#loadShapePro").css({
+				"width": percLoad
+			})
+			$("#loadShapePro").animate({
+				width: percLoad
+			});
+		}
+		//全部资源加载完毕
+		/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
+		function loadComplete(event) {
+			if (load && load.loadAniTime)
+				clearInterval(load.loadAniTime);
+			load.loadNum = load.loadMax;
+			loadState(load);
+			setTimeout(function() {
+				$('#loadingPage').fadeOut(400, function() {
+					$('#loadingPage').hide();
+				});
+				/**初始都隐藏**/
+				$('.content .common_wrap').find("div").addClass("hide");
+				$('.content .common_wrap').find("img").addClass("hide");
+				$(".index_content").find("div").removeClass('hide').addClass("show");
+				$(".index_content").find("img").removeClass('hide').addClass("show");
+				$('.index_content').addClass('page-current');
+				winOnLoad();
+				
+				/** 时间声明*/
+				activity.init() ;
+				
+				
+			}, 500);
+		};
+		
+		setupManifest();
+		startPreload();
+		
+		
+		function winOnLoad() {
+			//去使用跳转页面
+			$(".goForUse").on("click", function() {
+				goPage();
+			});
+			/**判断app点击去使用按钮跳转的地址**/
+			function goPage(type) {
+				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+				/**判断是否是微信**/
+				if (is_weixin()) {
+					window.location.href = target_href;
+				} else {
+						if (token == "" || token == null || token == undefined || token == 'undefined') {
+							showResultApp("remind", "请先登录");
+						} else {
+							if (version && 200 <= version) {
+								gotoPage('{"type":"1"}');
+							} else {
+								window.location.href = target_href;
+							}
+						}
+					}
+				}
+			
+			console.debug(" token is  " , token , " version is  " , version) ;
+			$("#saveAndShare").on("click", function() {
+				console.debug(" saveAndShare token is  " , token , " version is  " , version) ;
+				var url = "http://127.0.0.1:8020/A_wechat-games/act_16mother_game/act_16motherDay_gethb.html";
+			//	 var url = "http://" + location.host + "/medstore-html/common/act_comSkip_page?method=act_16motherDay_gethb&user_token="+token+"&version_code="+version+"&codeActId=162";
+			//	 var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16motherDay_gethb&user_token=" + token + "&version_code="+version+"&codeActId=162";
+				console.debug('target url is  ',url) ;
+				location.href= url ;
+			});
+		}
+		
+	</script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var wechatObj={};
+wechatObj.title = '【药快到】祝天下母亲节日快乐';
+wechatObj.desc ='【药快到】母亲节，给母亲爱与健康。';
+wechatObj.link = 'http://' +location.host+ '/medhtml/common/act_16motherDay_index';
+wechatObj.imgUrl ='http://imgstore.camore.cn/icon/logo/act_16mqj_shareImg.jpg';
+/** 默认是生产APPID*/
+var appid = 'wxade8c5e473c645e9' ;
+if(location.host.indexOf('deve') >= 0){
+	/** 准生产APPID*/
+	appid = 'wx697be0ec43c8cafa' ;
+}
+if(is_weixin()){
+	 $.ajax({url:"/medhtml/common/getwxjssign?",data:{url: location.href.split('#')[0]},
+			success:function(wechatReturn){
+				if (wechatReturn) {
+					wx.config({
+					    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+					    appId: appid, // 必填，公众号的唯一标识  
+					    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+					    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+					    signature: wechatReturn.signature,// 必填，签名，见附录1
+					    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					 });
+				};
+				wx.ready(function(){
+					getWechatObj()
+				})
+			}
+		});
+};	
+
+/* function shareSucc(){
+	$("#shareFriSha").hide();	
+	$(".butWrap").show();
+	$(".shareAppPage").hide();
+} */
+
+function getWechatObj(){
+	wx.onMenuShareTimeline({
+		title: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	/* shareSucc() */
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareAppMessage({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	/* shareSucc() */
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareQQ({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	/* shareSucc() */
+        },
+        cancel: function () {}
+    });
+    wx.onMenuShareWeibo({
+        title: wechatObj.title, // 分享标题
+        desc: wechatObj.desc, // 分享描述
+        link: wechatObj.link, // 分享链接
+        imgUrl: wechatObj.imgUrl, // 分享图标
+        success: function () {
+        	/* shareSucc() */
+        },
+        cancel: function () {}
+    });
+}
+</script>
+</html>

@@ -1,5 +1,5 @@
 $(function() {
-
+	var target = 0 ;
 	var audio_music = document.getElementById('audioBackMusic');
 
 	/**音乐图标*/
@@ -25,11 +25,12 @@ $(function() {
 	/* 游戏主函数 */
 	function gameStart() {
 		//	timeCountDownFun();
-			games(1);
-		if(playMusic) {
-			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
-			audio_music.play();
-		}
+			games();
+			//TODO 先注释音乐 调试的时候太吵了
+//		if(playMusic) {
+//			$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
+//			audio_music.play();
+//		}
 
 	};
 //	var people_x = 5;
@@ -77,7 +78,7 @@ $(function() {
 //				this.creatBJ();
 				this.createGrid();
 				//倒计时
-				this.clearShu();
+			//	this.clearShu();
 			},
 			
 			clearShu:function(){
@@ -109,14 +110,17 @@ $(function() {
 			
 			// 调用模版  构建 初始化数据 
 			createGrid: function() {
+				
+				var _speller = this ;
+				
 				for(var i = 0; i < 6; i++) {
 					for(var j = 0; j < 6; j++) {
-						console.log(i + "    " + j);
+//						console.log(i + "    " + j);
 						var m = this.tArray[i][j];
 						//console.log(m);
 						var posData = {};
 						posData.pos = i;
-						
+						posData.flag = m ;
 						//9：黑图，0：占位透明图，1：白墙，2：可移动的箱子，3：可移动的小人
 						if(m == 1) {
 							//白色墙面区域
@@ -150,17 +154,58 @@ $(function() {
 
 					//从0到63 的任何一个数 在2维数组中的 位置 表示pos/8  i的位置  ,pos%8  j的位置
 					var pos = $(this).attr('data-pos') * 1;
-					console.log(this.people_x+"，"+this.people_y);
+					target = pos ;
+					var $this = $(this);
+//					console.log(this.people_x+"，"+this.people_y);
 					//		alert(pos);
-					speller.onClickByIndex(parseInt(pos / 6), pos % 6);
+					
+					var person_index = $('a[data-flag=3]').parent().attr('data-pos') *1;
+					
+					
+					console.debug("canGo -> " + canGo) ;
+					var differ = person_index - pos ;
+					if(Math.abs(differ) == 6 || Math.abs(differ) == 1){
+						
+						/**道路 或者 旗子*/
+						if($this.find('a[data-flag=0]').length > 0){
+							console.debug("道路 或 旗帜") ;
+							speller.onClickByIndex(parseInt(pos / 6), pos % 6);
+						}
+						/**木箱子 就要判断该线路下一个 */
+						else if($this.find('a[data-flag=2]').length > 0){
+							console.debug("木箱") ;
+							var f = differ > 0 ? -1 : 1 ;
+							var nNextPos = f*Math.abs(differ)*2 + person_index ;
+							console.debug(" person_index is  "+ person_index + ' cur pos is  ' + pos + ' , nNextPos --> ' + nNextPos) ;
+							/**判断箱子的下一个是不是道路或旗子*/
+							if($('li[data-pos='+nNextPos+'] a[data-flag=0]').length > 0){
+								speller.onClickByIndex(parseInt(pos / 6), pos % 6);
+							}
+						}
+						
+					}else {
+						var canGo = _speller.canGo(person_index) ;
+						if(canGo){
+							speller.onClickByIndex(parseInt(pos / 6), pos % 6);
+						} 
+					}
+					
 				});
 
 			},
 
-			
+			exChange:function(source ,target){
+				var $blank = $(this.content).find(this.tag).eq(source);
+				var $nBlank = $(this.content).find(this.tag).eq(target);
+				var $blankA = $blank.children().clone(false);
+				var $nBlankA = $nBlank.children().clone(false);
+
+				$nBlank.html($blankA);
+				$blank.html($nBlankA);
+			},
 			//点击游戏小图片时，传入相应位置。例，4，5
 			onClickByIndex: function(i, j) {
-                console.log("onClickByIndex-->"+i+","+j+",this.tArray[i][j]-->"+this.tArray[i][j]);
+//              console.log("onClickByIndex-->"+i+","+j+",this.tArray[i][j]-->"+this.tArray[i][j]);
 				//				alert(i+","+j);
 				if(this.tArray[i][j] == 1 || this.tArray[i][j] == 3) {
 					//点的是墙或自己人物，或黑色区域
@@ -192,68 +237,18 @@ $(function() {
 					this.people_y = j;
 					this.isGameOver(); //游戏是否结束
 				} else if(this.tArray[i][j] == 0) { //点击的是空白处
-					//判断点击 空位置的时  人物 是否可以和空位子交换
-//					var Pindex = this.getMovePeople(i, j); //0表示不能移动，1左，2上，3下，4右。
-					//剩下的任意位置都能交换  所以不用判断和哪个方位交换
-//					if(this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2 ){
-//						//TOBO 这边出现问题   原因是没有判断边界的位置
-//						//上下边是墙  左边是箱子
-//						console.log("我点击的 是空白位置2")
-//						return; 
-//					}
-//					if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2 ){
-//						//TOBO 这边出现问题   原因是没有判断边界的位置
-//						//上下边是墙  左边是箱子
-//						console.log("我点击的 是空白位置2")
-//						return; 
-//					}
-//					else if(this.tArray[i-1][j] == 2 && this.tArray[i][j-1] == 2 && this.tArray[i][j+1] == 1){
-//						//上面是 箱子  左边是 箱子  右面是 墙
-//						return; 
-//					}
-//					else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i][j-1] == 1){
-//						//上面是箱子  右边是箱子  左边是墙
-//						return; 
-//					}else if(this.tArray[i-1][j] == 2 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 1){
-//						//上面是箱子  右边是箱子  下边是墙
-//						return; 
-//					}
-//					else if(this.tArray[i-1][j] == 1 && this.tArray[i][j+1] == 2 && this.tArray[i+1][j] == 2){
-//						//上面是墙    右边是箱子  下边是箱子
-//						return; 
-//					}else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 2 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
-//						//上面是 墙  其他三面是  箱子
-//						return; 
-//					}
-//					else if(this.tArray[i-1][j] == 1 && this.tArray[i+1][j] == 1 && this.tArray[i][j-1] == 2&& this.tArray[i][j+1] == 2){
-//						//上下面是   左右是箱子
-//						return; 
-//					}
-//					else{
 						/*（注意，顺序不能错，先交换物，再交换箱子）*/
 						/*人物位置数据与当前点击的位置数据进行交换。*/
-						console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
+//						console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
 						this.changeImgAndData(i, j, this.people_x, this.people_y);
 						/*设置人的当前位置*/
 						this.people_x = i;
 						this.people_y = j;
-						console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
-//					}
-					//循环寻找邻居，看点击的位置及他的邻居 及邻居的邻居是否有通路，如果有 通路人物就能跟点击的位置进行交换
-					//调一个  cango  的方法
-					//TODO  未完善
-					var index = cango();
-					if(index == -1){
-						rerurn;
-					}else{
-						console.log("人物位置数据与当前点击的位置数据进行交换。this.people-->"+(this.people_x)+","+this.people_y);
-						this.changeImgAndData(i, j, this.people_x, this.people_y);
-						/*设置人的当前位置*/
-						this.people_x = i;
-						this.people_y = j;
-						console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
-					}
-					
+//						console.log("设置人的当前位置。this.people-->"+this.people_x+","+this.people_y);
+//						this.changeImgAndData(i, j, this.people_x, this.people_y);
+//						/*设置人的当前位置*/
+//						this.people_x = i;
+//						this.people_y = j;
 				}
 			},
 
@@ -284,31 +279,6 @@ $(function() {
 				}
 
 			},
-//			getMovePeople: function(i, j) {
-//				//9：黑图，0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人 
-//				
-//				//如果左边是透明的 图  右边是小人  表示箱子 可以往左移动  返回1
-//				if(this.tArray[i][j - 1] == 3 ) {
-//					// i  不变；j-1     根据这个 坐标 取到的数= 0 表示  左边是 透明的 墙  
-//					return 1;
-//				} 
-//				//如果上面是 透明的 图   下面是小人 表示箱子可以往上移动  返回2
-//				else if(this.tArray[i - 1][j] == 3 ) {
-//					//向上移动    i-1  j不变
-//					return 2;
-//
-//				} else if(this.tArray[i][j + 1] == 3 ) {
-//					//向右移动    i不变  不变；j+1
-//					return 4;
-//
-//				} else if(this.tArray[i + 1][j] == 3 ) {
-//					//向下移动    i+1  不变；j
-//					return 3;
-//				} else {
-//					return 0;
-//				}
-//
-//			},
 			//根据下标交换图片与数据
 			changeImgAndData: function(i1, j1, i2, j2) {
 				/*1、交换图片，其中数据为0的图片是秀明的*/
@@ -318,13 +288,13 @@ $(function() {
 				var imgori;
 
 				//图片的位置
-				console.log("==changeImgAndData,imgId1-->"+imgId1+",this.tag)-->"+this.tag);
+//				console.log("==changeImgAndData,imgId1-->"+imgId1+",this.tag)-->"+this.tag);
 				var $blank = $(this.content).find(this.tag).eq(imgId1);
-				console.log("==changeImgAndData,$blank-->"+$blank);
+//				console.log("==changeImgAndData,$blank-->"+$blank);
 				//图片2位置
-				console.log("==changeImgAndData,imgId1-->"+imgId2+",this.tag)-->"+this.tag);
+//				console.log("==changeImgAndData,imgId1-->"+imgId2+",this.tag)-->"+this.tag);
 				var $nBlank = $(this.content).find(this.tag).eq(imgId2);
-				console.log("==changeImgAndData,$blank-->"+$nBlank);
+//				console.log("==changeImgAndData,$blank-->"+$nBlank);
 				//  获取 黑块中的 内容  clone(false)  此方法表示只复制 内容  不复制 方法
 				var $blankA = $blank.children().clone(false);
 				var $nBlankA = $nBlank.children().clone(false);
@@ -351,7 +321,134 @@ $(function() {
 				}
 //				alert("成功了");
 				$(".gameSuccWrap").fadeIn(500);
-			}
+			},
+			canGo : function(cat) {
+				var rst = [] ;
+				var freakPos = [];
+				var allPos = [] ;
+				$('li a[data-flag=2]').each(function(i, n) {
+					var pos = $(n).parent().attr('data-pos') * 1;
+					freakPos.push(pos);
+				});
+				$('li a[data-flag=1]').each(function(i, n) {
+					var pos = $(n).parent().attr('data-pos') * 1;
+					freakPos.push(pos);
+				});
+				console.debug("障碍物位置 ++++++++ ", freakPos.join(','));
+				
+				var ignoreArr=[]; 
+    			var toDealWithArr=[cat]; 
+				while(true){
+			        if(toDealWithArr.length<1){
+			            return false;
+			        }else{
+			            var _first = toDealWithArr.shift() *1;
+			            ignoreArr.push(_first);
+			            if($.inArray(_first ,freakPos) == -1 && this.isCircleAtEdge(_first)*1){
+			            	console.debug("allPos s->" + allPos) ;
+			            	return true;
+			            }else{
+			            	var temp = [] ;
+			                for(var i=0;i<=3;i++){
+			                    var nbr= this.getCircleNeighbor(_first,i);
+			                    if(nbr < 0 ){
+			                    	continue ;
+			                    }
+			                    if( nbr > 35){
+			                    	continue ;
+			                    }
+			                    if(!( $.inArray(nbr,ignoreArr) > -1 || $.inArray(nbr,toDealWithArr) > -1 )){
+				                    if($.inArray(nbr ,freakPos) != -1){
+				                        ignoreArr.push(nbr);
+				                    }else{
+				                        toDealWithArr.push(nbr);
+				                         /**没有障碍物*/
+				                    	temp.push(nbr+"") ;
+				                    }
+			                    }
+			                }
+		                    allPos.push(_first +"|"+temp.join(',')) ;
+			            }
+			        }
+			    }
+			},
+			/*
+			判断传入的circle是否在边界上
+			 */
+			isCircleAtEdge :function(cat){
+				
+				if(target*1 == cat*1){
+					return true ;
+				}
+				
+				return false ;
+				var rows = (cat % 6 == 0) ? Math.ceil(cat / 6) + 1 : Math.ceil(cat / 6);
+				console.debug('row is  ' , rows) ;
+				/**第一行 或 最后一行*/
+				if(1 == rows || 7 == rows){
+					return true ;
+				}
+				/**中间行*/
+				var min = (rows-1)*6 ;
+				var max = rows*6 - 1 ;
+				if(min == cat || max == cat){
+					return true ;
+				}
+				/**不在边缘*/
+				return false ;
+			},
+			
+			getCircleNeighbor :function(cat ,direction ){
+				cat = cat*1 ;
+				var rows = (cat % 6 == 0) ? Math.ceil(cat / 6) + 1 : Math.ceil(cat / 6);
+			
+				console.debug("math  row -->  " +Math.ceil(cat / 6)) ;
+				/**中间行*/
+				var min = (rows-1)*6 ;
+				var max = rows*6 - 1 ;
+				
+		        switch (direction){
+		        	case 0: //左
+		             	return   pos = cat - 1 < min ? -1 :cat - 1 ;
+		            case 1: //右
+		             	return   pos = cat + 1 > max ? -1 :cat + 1 ;
+		            case 2: //上
+		             	 return  pos = cat - 6 < 0 ? -1 :cat - 6;
+		            case 3: //下
+		              	return  pos = cat + 6 > 35 ? -1 :cat + 6;
+		              	//左上
+		            case 4: {
+		            	if(rows == 1 || rows == 7 || min == cat || max == cat){
+		            		return -1 ;
+		            	}
+		            	return  cat - 7; 
+		            }
+		              	 //左下
+		            case 5:{
+		            	if(rows == 1 || rows == 7 || min == cat || max == cat){
+		            		return -1 ;
+		            	}
+		            	return  cat + 5; 
+		            }
+		            	//右上
+		            case 6: {
+		            	if(rows == 1 || rows == 7 || min == cat || max == cat){
+		            		return -1 ;
+		            	}
+		            	return  cat - 5; 
+		            }
+		              //右下
+		            case 7: {
+		            	if(rows == 1 || rows == 7 || min == cat || max == cat){
+		            		return -1 ;
+		            	}
+		            	return  cat + 7; 
+		            } 
+		              	
+		            default:
+		            return -1 ;
+		        }
+		    }
 
 		}
 

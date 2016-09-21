@@ -1,0 +1,570 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+i {
+	font-style: normal;
+	text-align: center;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body, .content, .indexPage, .gamePage {
+	width: 100%;
+	/*height:100%;*/
+}
+
+body {
+	width: 100%;
+	font-size: 10px;
+	font-size: .1rem;
+	font-family: Microsoft Yahei, Arial;
+	width: 6.4rem;
+}
+
+.indexPage{
+	width: 100%;
+	height: 9.4rem;
+	background: url(../images/act_16coolIceBucket_indexBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
+}
+.indexComImg {
+	width: 5rem;
+	display: block;
+	margin: 0 auto;
+	padding-top: .4rem;
+}
+
+.childSty {
+	width: 3rem;
+	padding-top: 0;
+	margin: -.6rem auto .2rem;
+}
+
+/*首页*/
+.commShow_title img {
+	width: 100%;
+}
+
+#getHbBtn {
+	margin: .18rem auto .2rem;
+	border: none;
+	width: 100%;
+	border-radius: .4rem;
+	box-sizing: border-box;
+	height: 44px;
+	display: block;
+	background: #a7d421;
+	box-shadow: inset 0 -6px 9px #88bb10;
+	border: 3px solid #fff;
+	outline: none;
+}
+
+#getHbBtn span {
+	display: block;
+	width: 190px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 119% auto;
+	background-position: 16px -122px;
+}
+
+#getActRule {
+	color: #761f2c;
+	font-weight: 900;
+	font-family: SimHei;
+	text-align: center;
+	font-size: 14px;
+	position: absolute;
+	bottom: .2rem;
+	left: 0;
+	width: 100%;
+	line-height: 35px;
+}
+
+.actRuleShow_wrap {
+	display: none;
+}
+
+.comWrap1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .6);
+	box-sizing: border-box;
+	padding-top: 1.5rem;
+}
+
+.comShowWrap1 {
+	width: 5.6rem;
+	background: #f7ac47;
+	border-radius: 5px;
+	box-shadow: 0 -2px #fcd8a0;
+	margin: 0 auto;
+	padding-top: 14px;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.actRuleShow h1 {
+	background: url(images/act_16womenday_comText.png) 0 -180px no-repeat;
+	background-size: 145% 462%;
+	height: 50px;
+	width: 2.5rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.actRuleClose {
+	position: absolute;
+	right: -10px;
+	top: -15px;
+	width: 44px;
+}
+
+.comTextWrap1 {
+	width: 5.3rem;
+	margin: 0 auto;
+	background: #ffe38d;
+	border-radius: 8px;
+	box-shadow: inset 1px 2px 2px #ab7121, inset -1px -2px 2px #ab7121;
+	box-sizing: border-box;
+	padding: .4rem;
+	color: #761f2c;
+	font-weight: bold;
+}
+
+.actRuleText p {
+	font-size: 12px;
+}
+
+.actRuleScore_wrap {
+	overflow: hidden;
+	margin: .2rem auto;
+}
+
+.actRuleScore {
+	float: left;
+	margin-left: .34rem;
+}
+
+.actRuleScore i {
+	display: block;
+	width: 1.2rem;
+	border-radius: 15px;
+	height: .3rem;
+	color: #f06476;
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: .1rem;
+	;
+}
+
+.actRuleShow_wrap .actRuleScore:nth-child(1) {
+	margin-left: .1rem;
+}
+
+.actRuleAvatar {
+	display: block;
+	border-radius: 50%;
+	background: #fff;
+	width: 1.2rem;
+	height: 1.2rem;
+	overflow: hidden;
+}
+
+.shadAndTick {
+	position: relative;
+}
+
+#getHbText {
+	line-height: .8rem;
+	position: absolute;
+	top: -1.5rem;
+	color: #ec1b00;
+	text-align: center;
+	font-weight: 600;
+	font-size: 12px;
+	width: 6.4rem;
+}
+
+#getHbValWrap {
+	line-height: .6rem;
+	width: 6.4rem;
+	margin: 0 auto;
+	position: absolute;
+	top: -.8rem;
+	color: #ec1b00;
+	text-align: center;
+	font-weight: 600;
+	font-size: 12px;
+}
+
+#getHbVal {
+	font-size: .7rem;
+}
+
+.getHb {
+	width: 4.5rem;
+	margin: 0 auto;
+	position: relative;
+}
+
+#userPhone {
+	width: 100%;
+	outline: none;
+	border: 0;
+	height: 44px;
+	line-height: 44px;
+	box-sizing: border-box;
+	color: #7da277;
+	text-align: center;
+	border-radius: .4rem;
+	background: #e7e7e7;
+	font-size: 18px;
+	border: 3px solid #fff;
+}
+
+::-moz-placeholder {
+	color: #7da277;
+	text-align: center;
+	font-family: ""
+}
+
+:-ms-input-placeholder {
+	color: #7da277;
+	text-align: center;
+}
+
+::-webkit-input-placeholder {
+	color: #7da277;
+	text-align: center;
+}
+
+#downText {
+	font-size: 18px;
+	font-family: 黑体;
+	font-weight: 900;
+	text-align: center;
+	color: #0d4b6e;
+}
+
+.has_received, .receive_success {
+	width: 4.5rem;
+	margin: 0.3rem auto .5rem;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background: #48ddf4;
+	border: .06rem solid #761f2c;
+	margin-left: 0.2rem;
+}
+
+.getHbnNum img:nth-child(1) {
+	width: 3.3rem;
+	margin: .3rem auto;
+	display: block;
+}
+
+.getHbnNum img:nth-child(2) {
+	width: 3.5rem;
+	margin: 0 auto .3rem;
+	display: block;
+}
+
+.commUsebtn {
+	width: 4rem;
+	margin: 0 auto;
+}
+
+/* 看看好友的手气*/
+.comshowTitleText {
+	text-align: center;
+	line-height: 40px;
+	font-weight: 600;
+	font-size: 16px;
+	color: #761f2c;
+	height: 40px;
+	width: 5rem;
+	margin: .2rem auto;
+	overflow: hidden;
+	padding-top:.5rem;
+}
+
+.comShowTitle {
+	color: #761f2c;
+	height: 40px;
+	width: 4.8rem;
+	padding: 0 .2rem;
+	margin: .2rem auto;
+	overflow: hidden;
+	position: relative;
+}
+
+.friHbShow {
+	margin: .2rem auto;
+	width: 6.2rem;
+	overflow: hidden;
+	font-size: 12px;
+	border-bottom: 1px solid #4ebaf8;
+}
+
+.userFriAvatat {
+	width: 81%;
+	overflow: hidden;
+	float: left;
+}
+
+.userFriAvatat img {
+	width: 40px;
+	height: 40px;
+	float: left;
+	border-radius: 10%;
+}
+
+.userFriInf_wrap {
+	width: 18%;
+	float: right;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.userFriInf {
+	float: left;
+	margin-left: .2rem;
+	width: 80%;
+	margin-bottom: .3rem;
+}
+
+.userFriInf strong {
+	font-size: 14px;
+	color: #4ebaf8;
+	line-height: 20px;
+}
+
+.userFriHbValue_wrap {
+	width: 100%;
+	height: 40px;
+	float: right;
+	text-align: center;
+	background: url(../images/act_16coolIceBucket_receive_couponIcon.png) 0px 0 no-repeat;
+	background-size: 100% 90%;
+	overflow: hidden;
+	line-height: 36px;
+	color: #fff;
+	font-size: 20px;
+}
+
+
+.userFriInf p {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+	color: #4ebaf8;
+	line-height: 20px;
+}
+
+.activeRuleShow {
+	width: 6.2rem;
+	margin: 0 auto;
+	padding-bottom: .5rem;
+	color: #4ebaf8;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+/* 新加样式 */
+.receive_success_desc p {
+	line-height: 40px;
+	color: #000;
+	font-size: 16px;
+	text-align: center;
+	font-weight: 600;
+}
+
+.receive_success_desc .hasReceived {
+	text-align: center;
+	line-height: 60px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.common_useStyle {
+	margin: 0 auto;
+	overflow: hidden;
+	padding-bottom: .3rem;
+	width: 5rem;
+}
+
+.gethb_people {
+	position: absolute;
+	width: 1.4rem;
+	left: -.6rem;
+	top: 0rem;
+}
+
+.gethb_bucket {
+	position: absolute;
+	width: 1rem;
+	right: -.6rem;
+	top: -.3rem;
+}
+
+.use_btn {
+	margin: .25rem auto;
+	border: none;
+	width: 100%;
+	border-radius: .4rem;
+	box-sizing: border-box;
+	height: 44px;
+	display: block;
+	border: 3px solid #fff;
+	background: #ff6613;
+    box-shadow: 0 -2px 2px rgba(64, 144, 244, 0.57), inset 0 3px 2px #ff945a, inset 0 -7px 4px #ff300a;
+	outline: none;
+}
+
+.use_btn span {
+	display: block;
+	width: 200px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 120% auto;
+	background-position: 10px -160px;
+}
+
+.shareFri {
+	margin: .25rem auto;
+	border: none;
+	width: 100%;
+	border-radius: .4rem;
+	box-sizing: border-box;
+	height: 44px;
+	display: block;
+	/* background: -webkit-linear-gradient(to bottom, rgba(194, 255, 100, 1) 1%, rgba(168, 213, 36, 1) 41%, rgba(167, 212, 33, 1) 66%, rgba(155, 203, 26, 1) 80%, #88bb10 90%, rgba(143, 191, 20, 1) 95%, #abcf29 100%);
+	background: linear-gradient(to bottom, rgba(194, 255, 100, 1) 1%, rgba(168, 213, 36, 1) 41%, rgba(167, 212, 33, 1) 66%, rgba(155, 203, 26, 1) 80%, #88bb10 90%, rgba(143, 191, 20, 1) 95%, #abcf29 100%); */
+	border: 3px solid #fff;
+	background: #a7d421;
+    box-shadow: 0 -2px 2px rgba(64, 144, 244, 0.57), inset 0 3px 2px #c2e164, inset 0 -7px 4px #8bbd12;
+	outline: none;
+}
+
+.shareFri span {
+	display: block;
+	width: 200px;
+	height: 25px;
+	margin: 0 auto;
+	background: url(../images/act_16coolIceBucket_textIcon.png) no-repeat;
+	background-size: 126% auto;
+	background-position: 26px -195px;
+}
+
+.ActRule_content {
+	color: #fffd89;
+	padding: 0rem .1rem;
+	line-height: 25px;
+}
+
+/*app固定样式  */
+.shareAppPage {
+	display: none;
+	width: 4.6rem;
+	margin: 2rem auto 1.5rem;
+}
+
+.shareAppPage button {
+	width: 100%;
+	border-radius: .4rem;
+	margin: .26rem auto 0;
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	height: 44px;
+	line-height: 40px;
+	display: block;
+	outline: none;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 900;
+}
+
+.shareAppPage button:nth-child(1) {
+	background: -webkit-linear-gradient(top, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	background: linear-gradient(to bottom, rgba(255, 221, 120, 1) 0%, rgba(247, 200, 65, 1) 51%, rgba(247, 195, 60, 1) 77%, rgba(247, 190, 55, 1) 90%, rgba(247, 185, 50, 1) 95%, #f7cc49 100%);
+	-webkit-box-shadow: inset 0 2px 2px 0 #ffefaf;
+	box-shadow: inset 0 3px 4px 0 #F3DA7B, inset 0 -4px 7px 0 #E5B82F, 0 -2px 2px rgba(255, 222, 122, 0.69);
+}
+
+.shareAppPage button:nth-child(2) {
+	margin-top: 1rem;
+	background: #a7d421;
+	box-shadow: inset 0 3px 4px 0 #c2e164, inset 0 -4px 7px 0 #96c31a, 0 -2px 2px #45a0f6;
+}
+
+#shareFriSha {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height:100%;
+	background: rgba(0, 0, 0, .8);
+	z-index: 100;
+	display: none;
+}
+
+#shareFriSha img {
+	width: 4rem;
+	margin: 0.5rem auto;
+	display: block;
+}
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}
