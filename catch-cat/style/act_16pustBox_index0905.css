@@ -227,10 +227,10 @@ body {
 	width: 100%;
 }*/
  .actRuleShow h1{
-    background: url(../images/act_16pushBox_btnIcon.png) 10px -218px no-repeat;
-    background-size: 293% 388%;
-    height: 87px;
-    width: 2.5rem;
+        background: url(../images/act_16pushBox_btnIcon.png) 16px -291px no-repeat;
+    background-size: 142% 800%;
+    height: 50px;
+    width: 210px;
     margin: 0 auto;
     overflow: hidden;
 }
