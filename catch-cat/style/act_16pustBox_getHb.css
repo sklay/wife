@@ -35,10 +35,17 @@ body {
 	background-size: 100% 100%;
 	/*padding-bottom: .4rem;*/
 }
+.receiveResult_page{
+	width: 100%;
+	position: relative;
+	height: 9.4rem;
+	background: url(../images/act_16pushBox_rescBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
+}
 .indexP_title{
 	width: 5.6rem;
 	margin: 0 auto .2rem;
-	padding-top: .8rem;
+	padding-top: .6rem;
 }
 .indexP_title img{
 	width: 100%;
@@ -299,7 +306,7 @@ body {
 
 .has_received, .receive_success {
 	width: 4.5rem;
-	margin: 1.8rem auto 0;
+	margin: 1rem auto 0;
 	border-radius: 5px;
 	box-sizing: border-box;
 	/*background: #61f0bf;
@@ -545,7 +552,7 @@ body {
 }
 
 .shareFri {
-	margin: .25rem auto;
+	margin: .5rem auto;
 	border: none;
 	width: 100%;
 	border-radius: .4rem;
@@ -589,7 +596,7 @@ body {
 .shareAppPage button {
 	width: 100%;
 	border-radius: .4rem;
-	margin: .26rem auto 0;
+	margin: .5rem auto 0;
 	border: 2px solid #fff;
 	box-sizing: border-box;
 	height: 44px;
