@@ -27,6 +27,7 @@ $(function() {
 	function gameStart() {
 		this.isOver = 0;
 		games();
+		// TODO 先注释音乐 调试的时候太吵了
 		// if(playMusic) {
 		// $('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
 		// audio_music.play();
@@ -38,12 +39,12 @@ $(function() {
 
 		speller = {
 			init : function() {
-				this.people_x = 4;
-				this.people_y = 4;
+				// this.people_x = 4;
+				// this.people_y = 4;
 				// 0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
 				this.tArray = [ 
 				                [ "1", "0", "0", "1", "1", "1" ], 
-				                [ "1", "0", "0", "0", "0", "0" ],
+				                [ "1", "0", "0", "0", "0", "0" ], 
 				                [ "0", "0", "0", "1", "2", "1" ], 
 				                [ "0", "2", "0", "0", "0", "1" ], 
 				                [ "0", "0", "2", "2", "3", "0" ], 
@@ -54,16 +55,19 @@ $(function() {
 				                [ 0, 2 ], 
 				                [ 1, 3 ], 
 				                [ 3, 4 ], 
-				               ];
+				              ];
 
 				// 九个格子的位置
 				this.positions = [];
+				this.positions2 = [];
 				// 全局变量 ，游戏是否开始， 0表示未开始
 				this.isOver = 0;
 				this.blank = 6;
 				this.useTime = 30;
 				this.tag = 'li';
 				this.content = 'ul.box';
+				// this.content2 = 'ul.box2';
+				// this.lastIndex = this.blank;
 				// 初始化 布局
 				this.createGrid();
 				// 倒计时
@@ -108,7 +112,7 @@ $(function() {
 						var posData = {};
 						posData.pos = i;
 						posData.flag = m;
-						// 0：占位透明图，1：墙，2：可移动的箱子，3：可移动的小人
+						// 0：占位透明图，1：白墙，2：可移动的箱子，3：可移动的小人
 						if (m == 1) {
 							// 白色墙面区域
 							posData.image = 'images/act_16pushBox_1.png';
@@ -141,7 +145,6 @@ $(function() {
 					var rowMax = rowLine * 6 - 1;
 					target = boxPos;
 					var $this = $(this);
-					// console.log(this.people_x+"，"+this.people_y);
 
 					var personPos = $('a[data-flag=3]').parent().attr('data-pos') * 1;
 
@@ -216,7 +219,6 @@ $(function() {
 								break;
 							}
 						}
-
 					}
 					/** 跳走 */
 					else {
@@ -227,7 +229,6 @@ $(function() {
 						}
 					}
 					_speller.isSucc(); // 游戏成功
-					
 				});
 
 			},
@@ -241,44 +242,136 @@ $(function() {
 				$nBlank.html($blankA);
 				$blank.html($nBlankA);
 
-				this.checkDown();
+				this.checkFinished();
 			},
 
-			checkDown : function() {
+			checkFinished : function() {
+				var _speller = this;
 				var temp = 0;
 				var boxs = $('li a[data-flag=2]');
 				var boxLength = boxs.length;
 				/***/
 				$.each(boxs, function(i, box) {
 					var pos = $(box).parent().attr('data-pos') * 1;
-					if ($.inArray(pos, blackStore) != -1) {
+					var rst = _speller.checkBoxCanMove(pos);
+					console.debug("temp rst -> " + rst);
+					if (!rst) {
 						temp++;
 					}
+					// if($.inArray(pos ,blackStore) != -1){
+					// temp ++ ;
+					// }
 				})
+				console.debug("temp -> " + temp);
 				// 如果没有箱子移动 表示失败
-				//if (speller.useTime > 1) {
 				if (temp == boxLength) {
 					console.debug("无路可走");
 					console.debug("clear");
 					if (speller.useTime > 1) {
 						clearInterval(speller.timer);
 					}
-					speller.isFail();
+					clearInterval(speller.timer);
+
+					$(".gameFailWrap").fadeIn(500);
+					speller.isOver = 1;
+					if (playMusic) {
+						$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
+						audio_music.pause();
+					}
 				}
-				//}
 			},
-			isFail:function(){
-				$(".gameFailWrap").fadeIn(500);
-				speller.isOver = 1;
-				if (playMusic) {
-					$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
-					audio_music.pause();
+			/**
+			 * 检查指定的箱子是否能移动
+			 * 
+			 * @param {Object}
+			 *            boxIndex 箱子坐标
+			 * 
+			 * @return {true :可移动 ,false :不能移动}
+			 */
+			checkBoxCanMove : function(boxIndex) {
+				boxIndex = boxIndex * 1;
+				/** 判断箱子是不是在四周边界 */
+				var rowLine = (boxIndex % 6 == 0) ? Math.ceil(boxIndex / 6) + 1 : Math.ceil(boxIndex / 6);
+
+				/** 第一行 或者 在最后一行 */
+				if (1 == rowLine || 6 == rowLine) {
+					var min = (rowLine - 1) * 6;
+					var max = rowLine * 6 - 1;
+					/** 计算左右能不能行走 */
+					var left = boxIndex - 1;
+					/** 边界溢出无路可走 */
+					if (left < min) {
+						return false;
+					}
+					var right = boxIndex + 1;
+					/** 边界溢出无路可走 */
+					if (right > max) {
+						return false;
+					}
+					var leftFlag = $('ul.box li a').eq(left).attr('data-flag');
+					var rightFlag = $('ul.box li a').eq(right).attr('data-flag');
+					if (leftFlag == '0' && rightFlag == '0') {
+						console.debug("index ->" + boxIndex + '  , 边界左右ango ->' + true);
+						return true;
+
+					}
+					return false;
 				}
+				/** 在第一列 或者 在最后一列 */
+				else if (min == boxIndex || max == boxIndex) {
+					var min = 0;
+					var max = 35;
+					/** 计算上下（前后）能不能行走 */
+					var up = boxIndex - 6;
+					/** 边界溢出无路可走 */
+					if (up < min) {
+						return false;
+					}
+					var down = boxIndex + 6;
+					/** 边界溢出无路可走 */
+					if (down > max) {
+						return false;
+					}
+					var upFlag = $('ul.box li a').eq(up).attr('data-flag');
+					var downFlag = $('ul.box li a').eq(down).attr('data-flag');
+					if (upFlag == '0' && downFlag == '0') {
+						console.debug("index ->" + boxIndex + '  , 边界上下cango ->' + true);
+						return true;
+					}
+					return false;
+				}
+				/** 在中间范围 */
+				else {
+					var left = boxIndex - 1;
+					var right = boxIndex + 1;
+					var up = boxIndex - 6;
+					var down = boxIndex + 6;
+					/** 检查左右是是否能走 */
+					var leftFlag = $('ul.box li a').eq(left).attr('data-flag');
+					var rightFlag = $('ul.box li a').eq(right).attr('data-flag');
+					/** 障碍物 左边跟右边这条线上都没有障碍物 可以行走 */
+					if (leftFlag == '0' && rightFlag == '0') {
+						console.debug("index ->" + boxIndex + '  , 中间左右cango ->' + true);
+						return true;
+					}
+
+					/** 检查上下（前后）是是否能走 */
+					var upFlag = $('ul.box li a').eq(up).attr('data-flag');
+					var downFlag = $('ul.box li a').eq(down).attr('data-flag');
+					/** 障碍物 上边跟下边这条线上都没有障碍物 可以行走 */
+					if (upFlag == '0' && downFlag == '0') {
+						console.debug("index ->" + boxIndex + '  , 中间上下cango ->' + true);
+						return true;
+					}
+
+					/** 否则就不能走 */
+					return false;
+				}
+
 			},
 			isSucc : function() {
 				var temp = 0;
 				var boxs = $('li a[data-flag=2]');
-				/***/
 				$.each(boxs, function(i, box) {
 					var pos = $(box).parent().attr('data-pos') * 1;
 					if ($.inArray(pos, succFlag) != -1) {
@@ -289,11 +382,9 @@ $(function() {
 				if (temp != succFlag.length) {
 					return;
 				}
-				
 				if (speller.useTime > 1) {
 					clearInterval(speller.timer);
 				}
-
 				$(".gameSuccWrap").fadeIn(500);
 				speller.isOver = 1;
 				if (playMusic) {
@@ -314,7 +405,7 @@ $(function() {
 					var pos = $(n).parent().attr('data-pos') * 1;
 					freakPos.push(pos);
 				});
-				console.debug("障碍物位置 ++++++++ ", freakPos.join(','));
+				// console.debug("障碍物位置 ++++++++ ", freakPos.join(','));
 
 				var ignoreArr = [];
 				var toDealWithArr = [ cat ];
@@ -325,7 +416,7 @@ $(function() {
 						var _first = toDealWithArr.shift() * 1;
 						ignoreArr.push(_first);
 						if ($.inArray(_first, freakPos) == -1 && this.isCircleAtEdge(_first) * 1) {
-							console.debug("allPos s->" + allPos);
+							// console.debug("allPos s->" + allPos) ;
 							return true;
 						} else {
 							var temp = [];
@@ -382,7 +473,7 @@ $(function() {
 				cat = cat * 1;
 				var rows = (cat % 6 == 0) ? Math.ceil(cat / 6) + 1 : Math.ceil(cat / 6);
 
-				console.debug("math  row -->  " + Math.ceil(cat / 6));
+				// console.debug("math row --> " +Math.ceil(cat / 6)) ;
 				/** 中间行 */
 				var min = (rows - 1) * 6;
 				var max = rows * 6 - 1;

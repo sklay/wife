@@ -1,0 +1,660 @@
+@charset "utf-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+i {
+	font-style: normal;
+	text-align: center;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+html, body, .contentBack, .comShineBack, .indexPage, .gamePage {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	font-size: 10px;
+	font-size: .1rem;
+	font-family: Microsoft Yahei, Arial;
+	 -webkit-tap-highlight-color:rgba(0,0,0,0); 
+}
+.contentBack {
+	/*background: -webkit-radial-gradient(50% 50%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);*/
+	width: 100%;
+	position: relative;
+}
+
+#loadingPage {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	background: -webkit-radial-gradient(60% 30%, #df707a 10%, #d65b65 35%, #cf4b55 55%, #c63641 75%, #c4323c 100%);
+}
+
+.loadingImg {
+	width: 1rem;
+	margin:2.5rem auto 0;
+	box-sizing: border-box;
+}
+
+.loadingImg img {
+	width: 100%;
+}
+
+.loadText {
+	font-size: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 50px;
+	font-weight: 600;
+}
+
+.loadShape {
+	width: 4.5rem;
+	margin: 0 auto;
+	/*background: #4e6f9f;*/
+	background: rgb(163,41,50);
+    background: -webkit-linear-gradient(top, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
+    background: linear-gradient(to bottom, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
+	border-radius: 10px;
+	height: 10px;
+	overflow: hidden;
+}
+
+#loadShapePro {
+	border-radius: 10px;
+	height: 10px;
+	float: left;
+	background: rgb(255, 244, 209);
+	/* Old browsers */
+	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */;
+	width: 0;
+}
+
+/*音乐*/
+@-webkit-keyframes musicMove { 100% {
+	-webkit-transform: rotate(360deg)
+}
+
+}
+@keyframes musicMove { 100% {
+	transform: rotate(360deg)
+}
+
+}
+.musicPlay {
+	-webkit-animation: musicMove 1s linear 0s infinite;
+	animation: musicMove 1s linear 0s infinite;
+}
+
+.musicPause {
+	animation-play-state: paused;
+	-webkit-animation-play-state: paused;
+}
+
+/*首页*/
+.indexPage {
+	width: 100%;
+	background: url(../images/act_16pushBox_indexBj.jpg) center center no-repeat;
+	background-size: 100% 100%;
+}
+
+.indexP_title{
+	width: 5.4rem;
+	margin: .8rem auto 0.4rem;
+}
+.indexP_title img{
+	width: 100%;
+}
+.indexP_title img:nth-child(2){
+	margin-left:.2rem;
+}
+#goToGamePage {
+	width: 3.5rem;
+	line-height: .78rem;
+	height: .78rem;
+	border-radius: 50px;
+	background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #fff3cf;
+    box-shadow: inset 0 3px 2px 0 #fff3cf;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
+	margin: 0 auto;
+	display: block;
+	outline: none;
+	border: none;
+	text-align: center;
+	.margin-bottom: .2rem;
+}
+
+#goToGamePage span {
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-position: 4px 0px;
+    background-size: 194% auto;
+    display: block;
+    width: 96px;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 20px;
+}
+
+#getActRule {
+    background: url(../images/act_16pushBox_btnIcon.png) 18px -485px no-repeat;
+    background-size: 167% 589px;
+    height: 40px;
+    width: 128px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top:.5rem;
+}
+
+.actRuleShow_wrap,.gameOverWrap  {
+	display: none;
+}
+
+.comWrap1 {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .6);
+	box-sizing: border-box;
+	padding-top: .5rem;
+}
+
+
+.comShowWrap1 {
+	width: 5.6rem;
+	/*background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);*/
+	background: #c4323c;
+	border-radius: 20px;
+	margin: 0 auto;
+	padding-top: 14px;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	position: relative;
+}
+.rulePeoloe{
+	width: 2.4rem;
+	position: absolute;
+	top:-1rem;
+	left: 50%;
+	margin-left: -1.2rem;
+}
+.actRuleShowTitle{
+    width:4rem;
+    margin: 0 auto .3rem;
+}
+.actRuleShowTitle img{
+	width:100%;
+}
+.actRuleClose {
+	position: absolute;
+	right: -10px;
+	top: -15px;
+	width: 40px;
+}
+
+.actRuleShow .actRuleText {
+	background: transparent;
+	font-weight: normal;
+}
+.comTextWrap1 {
+	width: 4.8rem;
+	margin: 0 auto;
+	border-radius: 8px;
+	padding:0 .3rem .2rem;
+	color: #fff;
+	font-weight: bold;
+	overflow: hidden;
+	font-size: 14px;
+	background: #c4323c;
+}
+
+.actRuleText p {
+	line-height: 28px;
+	margin-left: .5rem;
+}
+.actRuleText span {
+	float: left;
+	line-height: 28px;
+}
+.actRuleScore_wrap {
+	width: 1.2rem;
+	overflow: hidden;
+	margin: .2rem auto;
+}
+
+/*游戏页*/
+.gamePage {
+	/*display: none;*/
+	background: url(../images/act_16pushBox_gameBj.jpg)center center no-repeat;
+	background-size: 100% 100%;
+	position: relative;
+}
+
+.gamePageTop {
+	background: #c4323c;
+	width: 100%;
+	height: 10%;
+	padding: .1rem .2rem;
+	box-sizing: border-box;
+}
+
+.gameClockIcon {
+	height: 100%;
+	overflow: hidden;
+	width: 5rem;
+	float: left;
+}
+
+.gameClockIcon img {
+	max-height: 100%;
+	width: .8rem;
+	float: left;
+}
+
+.gameCountDown_wrap p {
+	font-size: 14px;
+	color: #fff;
+	line-height: .45rem;
+}
+
+.gameCountDownColor_wrap {
+	background: rgb(241, 185, 155);
+	background: -webkit-linear-gradient(top, rgba(127, 25, 32, 1) 0%, rgba(141, 28, 36, 1) 40%, rgba(154, 49, 56, 1) 58%, rgba(158, 56, 64, 1) 100%);
+	background: linear-gradient(top, rgba(127, 25, 32, 1) 0%, rgba(141, 28, 36, 1) 40%, rgba(1154, 49, 56, 1) 58%, rgba(158, 56, 64, 1) 100%);
+	border: 4px solid #761f2c;
+	border-radius: 10px;
+	height: 10px;
+	width: 4rem;
+	margin-left: .6rem;
+}
+
+.gameCountDownColor_wrap span {
+	display: block;
+	height: 100%;
+	border-radius: 0 10px 10px 0;
+	margin-left: .05rem;
+	width: 100%;
+	background: rgb(255, 244, 209);
+	/* Old browsers */
+	background: -webkit-linear-gradient(top, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, rgba(255, 244, 209, 1) 0%, rgba(255, 210, 47, 1) 40%, rgba(255, 187, 24, 1) 58%, rgba(255, 207, 46, 1) 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+.startGameBtnWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 10;
+    padding-top: 1.5rem;
+    box-sizing: border-box;
+}
+.startGameBtn {
+    width: 5.2rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: .15rem;
+}
+.startGameBtnInner {
+    background: #c4323c;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: .5rem 0;
+    border-radius: 5px;
+}
+.game_textIcon {
+    width: 3rem;
+    display: block;
+    margin: 0 auto;
+}
+.startGamePeo {
+    width: 2rem;
+    overflow: hidden;
+    margin: .2rem auto;
+}
+.startGamePeo img{
+	width: 100%;
+}
+#startGame {
+    width: 3rem;
+    line-height: .78rem;
+    height: .78rem;
+    border-radius: 50px;
+    background: #ffc40d;
+    box-shadow:inset 0 2px 2px 0 #ffd656,inset 0 -6px 9px #ffa208;
+    margin: .55rem auto;
+    display: block;
+    outline: none;
+    border: none;
+}
+#startGame span {
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-position: 20px -36px;
+    background-size: 234% 480px;
+    display: block;
+    width: 85px;
+    height: 26px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.gameMusic_wrap {
+	    width: .8rem;
+    float: right;
+    box-sizing: border-box;
+    padding-top: 2px;
+}
+
+.gameMusic_wrap img {
+	width: 100%;
+}
+/*背景的 布局*/
+.gameMainCon2{
+	width: 6.4rem;
+    height: 7.4rem;
+    position: absolute;
+    top: 1.8rem;
+    left: 50%;
+    margin-left: -3.2rem;
+    background: url(../images/act_16pushBox_gameTask.png)center center no-repeat;
+	background-size:100% ;
+}
+
+/*游戏的  布局*/
+.gameMainCon{
+    width: 5.4rem;
+    height: 5.4rem;
+    position: absolute;
+    z-index: 2;
+    top: 2.8rem;
+    left: 50%;
+    margin-left: -2.7rem;
+}
+
+.gameMainCon ul {
+    height: 5.4rem;
+    overflow: hidden;
+}
+		
+.gameMainCon ul li {
+	width: .9rem;
+	height: .9rem;
+	float: left;
+	list-style: none;
+	border-radius: 10px;
+}
+
+.gameMainCon ul li a {
+	width: .9rem;
+	height: .9rem;
+	display: block;
+	margin: 0 auto;
+	border-radius: 10px;
+	text-decoration: none;
+	
+}
+.gameMainCon ul li a img{
+	width: 100%;
+	border: 0;
+}
+.gameMainCon ul li.imgHide img{
+	visibility: hidden;
+}
+.freak {
+	z-index: 1;
+	background:url(../images/box-8.png)no-repeat;
+}
+
+.normal {
+	background:url(../images/box-5.png)no-repeat;
+}
+
+/*游戏结果*/
+
+.gameSuccWrap,.gameFailWrap {
+    background: rgba(32, 4, 8, 0.8);
+	z-index: 10;
+	font-size: 16px;
+	display: none;
+	padding-top: .2rem;
+}
+
+.gameSuccWrap .gameFail,.gameFailWrap .gameFail {
+	width: 5.4rem;
+	background:transparent;
+	padding-top:0 ;
+}
+
+.gameFailTitle{
+	width: 5.4rem;
+    margin: 0rem auto;
+}
+.gameSuccTitle{
+	width: 4.8rem;
+    margin: 0rem auto;
+}
+.gameSuccTitle img, .gameFailTitle  img {
+	width: 100%;
+}
+.gameFailText .success_title h1{
+	font-size:20px ;
+	text-align: center;
+}
+.success_title{
+    margin: .7rem 0 .5rem 0;
+}
+.gameSuccWrap .success_title h1{
+	text-align: center;
+    font-size: 24px;
+}
+.gameSuccWrap .gameFailText,.gameFailWrap .gameFailText {
+    width: 4.8rem;
+    margin: -.8rem auto 0;
+	padding-bottom: .8rem;
+    background: #c4323c;
+}
+.butWrap{
+    width: 4rem;
+    margin: 0 auto;
+}
+#goToGetHb span{
+    display: block;
+    width: 130px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 10px -64px no-repeat;
+    background-size: 174% 470px;
+    height: 31px;
+}
+.shareFri span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 9px -109px no-repeat;
+    background-size: 130% 500px;
+    width: 168px;
+    height: 32px;
+}
+/* .shareFri span,#playAgain span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 27px -102px no-repeat;
+    background-size: 85% auto;
+    width: 245px;
+    height: 32px;
+} */
+.downloadP span{
+    display: block;
+    width: 160px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 24px -145px no-repeat;
+    background-size: 146% 500px;
+    height: 30px;
+}
+.gameFailWrap #playAgain span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 18px -202px no-repeat;
+    background-size: 184% 565px;
+    width: 110px;
+    height: 28px;
+}
+.gameFailWrap #goToGetHb{
+	background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+}
+.gameFailWrap #goToGetHb span{
+    display: block;
+    width: 160px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 2px -211px no-repeat;
+    background-size: 124% 525px;
+    height: 30px;
+}
+.gameFailWrap .shareFri span{
+    display: block;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) 6px -245px no-repeat;
+    background-size: 134% 520px;
+    width: 160px;
+    height: 32px;
+}
+.gameFailBtn {
+	width: 100%;
+	border-radius: .4rem;
+	margin: .5rem auto 0;
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	outline: none;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 900;
+	border: 0;
+	text-align: center;
+}
+
+.shareAppPage button:nth-child(1) {
+	margin: 1rem 0;
+    background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
+    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+}
+
+.shareAppPage button:nth-child(2) {
+	margin-bottom: .5rem;
+    background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+}
+
+#goToGetHb, #playAgain{
+    background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
+    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+}
+
+.shareFri{
+ 	background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+}
+.downloadP ,.failShareBtn{
+    background: #adcc4e;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #c6db83;
+    box-shadow: inset 1px 2px 2px 0 #c6db83;
+    background: -webkit-linear-gradient(top,#c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80% ,#93b023 90%,#b0c53b 100%);
+    background: linear-gradient(to bottom, #c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80%,#93b023 90%,#b0c53b 100%);
+}
+
+#shareFriSha {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .8);
+	z-index: 100;
+	display: none;
+}
+
+#shareFriSha img {
+	width: 4rem;
+	display: block;
+	margin: 0.5rem auto;
+}
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}

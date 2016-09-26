@@ -1,0 +1,368 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>欢度国庆，这“箱”有礼</title>
+<meta name="description" content="玩游戏领药快到现金券">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<link rel="stylesheet" href="style/act_16pustBox_index.css?v=000001" />
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/preloadjs-0.6.0.min.js"></script>
+<script src="js/createjs-2014.12.12.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/fx_methods.js"></script>
+<script type="text/javascript" src="js/utils.js" ></script>
+<style>
+@media screen and (max-height: 480px) {
+	.indexP_title{
+		width:4.6rem;
+	}
+	.actRuleText p {
+	    line-height: 20px;
+	}
+	.actRuleText span {
+	    line-height: 20px;
+	}
+	.actRuleShow_wrap {
+		padding-top: 1rem;
+	}
+	
+	.less_1 .gameMainCon{
+		top:2.2rem;
+	}
+	.less_1 .gameMainCon2{
+		top:1.2rem;
+	}
+	.gamePageTop{
+		height: 12%;
+	}
+	.gameFailBtn{
+		margin: .2rem auto 0
+	}
+	.gameSuccWrap, .gameFailWrap{
+    	padding-top: .2rem;
+	}
+	.gameFail .gameFailText{
+		padding-bottom: .4rem;
+	}
+	.shareAppPage button:nth-child(1){
+		margin: .3rem 0;
+	}
+	.indexPage #getActRule{
+		margin-top:0rem;
+	}
+}
+	
+@media screen and (max-height: 540px) {
+	.gameMainCon{
+		top:2.6rem;
+	}
+	.gameMainCon2{
+		top:1.6rem;
+	}
+}
+
+@media screen and (max-height: 580px) {
+	.gamePageTop{
+		height: 12%;
+	}
+	.gameSuccWrap, .gameFailWrap{
+	}
+	.actRuleText p {
+	    line-height: 20px;
+	}
+	.actRuleText span {
+	    line-height: 20px;
+	}
+	#getActRule{
+		margin-top:0.15rem;
+	}
+}
+
+
+	
+			
+		
+</style>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+
+<body>
+	<div class="contentBack">
+		<!--加载页-->
+		<div id="loadingPage">
+			<div class="loadingImg">
+				<img src="images/act_16pushBox_loadingP.png" alt="">
+			</div>
+			<p class="loadText">
+				Loading……<span id="loadPer"></span>
+			</p>
+			<div class="loadShape">
+				<span id="loadShapePro"></span>
+			</div>
+		</div>
+		<!--首页-->
+		<div class="indexPage">
+			<div class="indexP_title indexP_titlespe">
+				<img  src="images/act_16pushBox_indexTitle.png" />
+				<img  src="images/act_16pushBox_indexPeople.png" />
+			</div>
+			<button id="goToGamePage"><span></span></button>
+			<h1 id="getActRule"></h1>
+			<div class="actRuleShow_wrap comWrap1">
+				<div class="actRuleShow comShowWrap1">
+					<img class="closeBtn actRuleClose" src="images/act_16pushBox_startCloseBtn.png" alt="">
+					<div class="actRuleShowTitle">
+						<img  src="images/act_16pushBox_ruleTitle.png" />
+					</div>
+					<div class="actRuleText comTextWrap1">
+						<span>1、</span><p>游戏说明</p>
+						<p>点击控制卡通人物移动，并推动箱子到插红旗的指定位置。</p>
+						<span>2、</span><p>活动时间</p>
+						<p>2016年9月30日——2016年10月7日</p>
+						<span>3、</span><p>活动奖励</p>
+						<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
+						<span>4、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--游戏页-->
+		<div class="gamePage">
+			<!--游戏开始页面-->
+			<div class="startGameBtnWrap">
+				<div class="startGameBtn">
+					<div class="startGameBtnInner">
+						<img class="game_textIcon" src="images/act_16pushBox_startTitle.png" />
+						<div class="startGamePeo">
+							<img src="images/act_16pushBox_startPeo.png" />
+						</div>
+						<button id="startGame" class="yellowBtn">
+							<span></span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="gamePageTop">
+				<div class="gameClockIcon">
+					<img src="images/act_16coolIceBucket_game_clock.png" alt="">
+					<div class="gameCountDown_wrap">
+						<p>
+							剩余时间：<span id="gameCountDownTime">30</span>秒
+						</p>
+						<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
+							<span id="gameCountDownColor"></span>
+						</div>
+					</div>
+				</div>
+				<div class="gameMusic_wrap" style="display: none;">
+					<img src="images/act_16pushBox_musicIcon.png" alt="" id="gameMusic" class="musicPlay">
+				</div>
+			</div>
+			<!--游戏页-->
+			<div class="less_1">
+				<div class="gameMainCon">
+					<ul class="box">
+					</ul>
+				</div>
+				<!--最底下的背景色-->
+				<div class="gameMainCon2">
+					<ul class="box2">
+					</ul>
+				</div>
+			</div>
+			
+			<!--挑战失败页-->
+			<div class="gameFailWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameFailTitle">
+						<img src="images/act_16pushBox_gameFailTitle.png" alt="">
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="butWrap">
+							<div class="success_title" style="">
+		  						<h1>别灰心，送你个红包  </h1>
+								<h1>不！服！再！战！</h1>
+		  					</div>
+							<button class="gameFailBtn " id="playAgain"><span></span></button>
+							<a id="goToGetHb" class="gameFailBtn toGetReward">
+								<!--<button >去抽奖</button>-->
+								<span></span>
+							</a>
+							<button class="gameFailBtn shareFri failShareBtn" ><span></span></button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn shareAppPage_friRound">分享到朋友圈</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="gameSuccWrap comWrap1">
+				<div class="gameFail comShowWrap1">
+					<div class="gameSuccTitle">
+						<img src="images/act_16pushBox_gameSuccTitle.png" alt="">
+					</div>
+					<div class="gameFailText comTextWrap1">
+						<div class="success_title" style="">
+	  						<h1>开箱有礼</h1>
+							<h1>欢乐过十一</h1>
+	  					</div>
+						<div class="butWrap">
+							<!--<a id="goToGetHb">
+								<button class="gameFailBtn toGetReward">去抽奖</button>
+							</a>-->
+							<a id="goToGetHb" class="gameFailBtn toGetReward">
+								<span></span>
+							</a>
+							<button class="gameFailBtn shareFri" ><span></span></button>
+							<button class="downloadP goForUse gameFailBtn"><span></span></button>
+						</div>
+						<div class="shareAppPage" style="display: none">
+							<button class="gameFailBtn appShareBtn shareAppPage_shareFir">分享给好友</button>
+							<button class="gameFailBtn appShareBtn shareAppPage_friRound">分享到朋友圈</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="shareFriSha">
+		<img src="images/act_16pushBox_share.png" alt="">
+	</div>
+	
+	<div style="display: none">
+		<img  src="images/act_16pushBox_0.png">
+		<img  src="images/act_16pushBox_1.png">
+		<img  src="images/act_16pushBox_2.png">
+		<img  src="images/act_16pushBox_3.png">
+	</div>
+	<div style="display: none;" class="gameM	usic_wrap2">
+		<div id="audio_span"></div>
+		
+		<script>
+			
+			function end(){
+				document.getElementById('audioBackMusic').play() ;
+			}
+		</script>
+		
+		<!--<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16pushBox_bjMusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>-->
+		<audio id="audioBackMusic" src="images/act_16pushBox_bjMusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+	</div>
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="js/artTemplate/template.js"></script>
+<script src="js/act_16pushBox_index.js?v=4.0"></script>
+<script type="text/template" id="game-tpl">
+	{{each rows as row i }}
+	<li data-pos="{{i }}" id="{{row.pos }}" class="{{row.css }}">
+		<a href="javascript:void(0);" data-flag="{{row.flag}}">
+			<img  src="{{row.image }}">
+		</a>
+	</li>
+	{{/each}}
+</script>
+<script>
+	/* var wh=$(window).height();
+	alert(wh); */
+	
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
+	/**是否要播放音乐*/
+	var playMusic = getAppStatus() ;
+	
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+	}
+	/**初始化预加载部分*/
+	setupManifest({
+		image:true,
+		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:"#loadingPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			$(".indexPage").fadeIn() ;
+			initFunction();
+		}
+	});
+
+	/**声明一些事件*/
+	function initFunction() {
+		
+		/*活动规则的显示与隐藏*/
+		$("#getActRule").on("tap", function() {
+			$(".actRuleShow_wrap").show();
+		});
+		$(".actRuleShow_wrap").on("tap", function() {
+			$(".actRuleShow_wrap").hide();
+		});
+		$("#goToGamePage").on("tap", function(e) {
+			console.debug("go");
+			$(".gamePage").fadeIn(100);
+			$(".indexPage").hide(100);
+			
+		});
+		
+		/*点击领取*/
+		$("#goToGetHb ").on("click ", function() {
+			 var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16QMing_gethb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
+//			var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16QMing_gethb&user_token=" + token + "&version_code="+version+"&codeActId=270";
+			location.href = url;
+		});
+	}
+	
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var wechatObj={
+			appid: appid,
+			title: '欢度国庆，这“箱”有礼',
+			desc: '玩游戏领药快到现金券',
+			link: 'http://' + location.host + '/medhtml/common/act_16pushBox_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16pushBox_shareImg.jpg' ,
+			shareSucc: function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
+			}
+		}
+	if (is_weixin()){
+		shareWeiXin(wechatObj) ;
+	}
+</script>
+
+</html>
