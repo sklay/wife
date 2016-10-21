@@ -2,44 +2,6 @@
  * 
  */
 $(function(){
-	  
-   /* function getMyDesc(){
-		 var desDesc =  ""
-		  if(haveScore){
-			if (scoreNum<=5){
-				desDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【盲人摸象】称号,拯救我的任务就交给你了！";
-			}else if(scoreNum>5 && scoreNum<=10){
-				//desDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【挑刺达人】称号,快来看看你能找到多少？";
-			}else if(scoreNum>10 && scoreNum<=15){
-				desDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【安全卫士】称号,以后吃饭带着我可验毒哦~";
-			}else if(scoreNum>15 && scoreNum<20){
-				desDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【火眼金睛】称号,我就不信你能找到的比我多！";
-			}else if(scoreNum>=20){
-				desDesc="我在【药快到】食品卫生找茬大赛中找到了"+scoreNum+"种有问题的食品，获得【火眼金睛】称号,据说全世界只有0.1%的人能做到，不服来战！";
-			}
-		}else{
-			desDesc=  "食品卫生，你注意过吗？快来看看自己能到哪关！" ;
-		};
-		$("meta[name=description]").eq(0).attr({content:desDesc}); 
-	 }; */
-	/* function shareSucc(){
-			clearInterval(countDownTime);
-			//状态值回复初始
-			scoreNum=0;
-			countDownNum=60;
-			boxNum=2;
-			indexSub=0;
-			haveScore=false;
-			$(".controlAlertPage").hide();
-			$("#food_img").show();
-			$("#start_game").hide();
-		  	$("#index").show();
-		  	$("#shareshade").hide();
-		  	getMyDesc();
-		};
-		*/
-		
-		
 	/*活动规则*/
 	$(".index").on("click","#activeRule_key",function(){
 		$(".index_activeRule").show();
@@ -139,18 +101,20 @@ $(function(){
 	/*随机特殊图片*/
 	function specialImg(){
 		var num1=Math.floor(Math.random()*(boxNum*boxNum));
+		//给随机出来的 图片加上特殊的样式specialStyle
 		$(".normalStyle").eq(num1).addClass("specialStyle");
 		$(".specialStyle").css({backgroundColor:color});
-		$(".specialStyle .image").attr('src' ,imgBadName);;
+		$(".specialStyle .image").attr('src' ,imgBadName);
 	}
 	
 	var cavwrap=document.querySelectorAll(".cavwrap")[0];
+	//设置画布的 宽高
 	cavwrap.style.width=document.documentElement.clientWidth+"px";
 	cavwrap.style.height=document.documentElement.clientHeight/1.8+"px";
 	//cavwrap.style.backgroundColor="#eee"
-	var btn=document.querySelectorAll("button")[0];
+	//var btn=document.querySelectorAll("button")[0];
 	var boxNum=2;
-	var norStyle=document.querySelector(".normalStyle");
+	//var norStyle=document.querySelector(".normalStyle");
 	/*游戏页面出现*/
 	$("#start").on("click",function(){
 		$("#gameTimeShow").html("60");

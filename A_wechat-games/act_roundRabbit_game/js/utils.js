@@ -36,7 +36,7 @@
 	function setupManifest(loadConfig) {
 		config.progressText = loadConfig.progressText || "#loadPer";
 		config.progressBar = loadConfig.progressBar || "#loadShapePro";
-		config.progressContent = loadConfig.progressContent || ".loadPage";
+		config.progressContent = loadConfig.progressContent || "#loadingPage";
 		config.finished = loadConfig.finished || function(){};
 		
 		if(loadConfig && loadConfig.image){
@@ -85,7 +85,7 @@
 					return true;
 				}
 				config.loadNum++;
-				loadStateSpe(config);
+				loadState(config);
 			}, 500)
 			config.loadAniBoo = false;
 		} else {
@@ -104,15 +104,6 @@
 			width : percLoad
 		});
 	}
-	function loadStateSpe(config) {
-		var loadPer = $("#loadPer"); //加载进度条
-		var percLoad = Math.ceil(config.loadNum / config.loadMax * 100) + "%"; //100%的样式
-		console.log(config.loadNum, '/', config.loadMax, '  =  ', percLoad);
-		loadPer.html(percLoad);
-		var leftValue = (-100 + Math.ceil(config.loadNum / config.loadMax * 100)) + "%";
-		console.log("leftValue:"+leftValue);
-		$("#loadShapePro").css("left",leftValue);
-	}
 
 	//全部资源加载完毕
 	/**物理的加载完成 最后的100%应该由本方法实现 （防止由于网络过慢导致上面的逻辑加载先完成，所以最后一个100%由这边控制）*/
@@ -120,7 +111,7 @@
 		if (config && config.loadAniTime)
 			clearInterval(config.loadAniTime);
 		config.loadNum = config.loadMax;
-		loadStateSpe(config);
+		loadState(config);
 		
 		config.complete = true;
 		setTimeout(function() {

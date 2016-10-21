@@ -1,0 +1,178 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: "微软雅黑", "arial";
+	font-size: 12px;
+}
+
+.wrap {
+	position: absolute;
+	background: #e8380d;
+	width: 100%;
+	background-size: 100% 100%;
+}
+/*加载页*/
+.loading_wrap {
+	background: #e8380d;
+	box-sizing: border-box;
+	position: absolute;
+	z-index: 1000;
+}
+
+.loadingCon_wrap {
+	width: 100%;
+	position: absolute;
+	top: 30%;
+	left: 0;
+	box-sizing: border-box;
+}
+
+.loadingPage_wrap {
+	width: 100%;
+	box-sizing: border-box;
+	height: 1.5rem;
+}
+
+.loadingPage_wrap img {
+	width: .8rem;
+	margin-left: .2rem;
+	float: left;
+}
+
+@-webkit-keyframes loadingImgMove {
+	25% {
+		-webkit-transform: translateY(-.15rem)
+	}
+	50% {
+		-webkit-transform: translateY(0rem)
+	}
+	75% {
+		-webkit-transform: translateY(.15rem)
+	}
+	100% {
+		-webkit-transform: translateY(0rem)
+	}
+}
+
+@keyframes loadingImgMove {
+	25% {
+		transform: translateY(-.15rem)
+	}
+	50% {
+		transform: translateY(0rem)
+	}
+	75% {
+		transform: translateY(.15rem)
+	}
+	100% {
+		transform: translateY(0rem)
+	}
+}
+
+.loadingPage_wrap .moveImg {
+	-webkit-animation: loadingImgMove .5s linear infinite;
+	animation: loadingImgMove .5s linear infinite;
+}
+
+.loadingPage_wrap img:nth-child(1) {
+	width: .4rem;
+	margin-left: 1.5rem;
+	margin-top: .1rem;
+}
+
+.loadingPage_wrap img:nth-child(2) {
+	width: .8rem;
+	margin-top: .5rem;
+	margin-left: .3rem;
+}
+
+.loadingPage_wrap img:nth-child(3) {}
+
+.loadingPage_wrap img:nth-child(4) {
+	width: .5rem;
+	margin-top: .2rem;
+	margin-left: .1rem;
+}
+
+.loading_text {
+	display: block;
+	margin: .8rem auto .5rem;
+	width: 2.5rem;
+}
+
+.loading_line_wrap {
+	height: 3px;
+	position: relative;
+	width: 2.5rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.loading_lineback {
+	width: 100%;
+	background: #F0917A;
+	margin: 1px auto 0;
+	display: block;
+	height: 1px;
+	border-radius: .001rem;
+}
+
+@-webkit-keyframes loadingLineMove {
+	0% {
+		-webkit-transform: translateX(-3.5rem)
+	}
+	100% {
+		-webkit-transform: translateX(15rem)
+	}
+}
+
+@keyframes loadingLineMove {
+	0% {
+		transform: translateX(-3.5rem)
+	}
+	100% {
+		transform: translateX(15rem)
+	}
+}
+
+.loading_line {
+	position: absolute;
+	height: 3px;
+	left: -3.5rem;
+	top: 0;
+	width: 2.5rem;
+}
+
+.loadingLineAni {
+	-webkit-animation: loadingLineMove 2.5s linear infinite;
+	animation: loadingLineMove 2.5s linear infinite;
+}
+
+#shareAppPage {
+	width: 100%;
+	height: 100%;
+	border: none;
+	border-radius: 0;
+	position: fixed;
+	display: none;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	background: rgba(50, 50, 50, .6);
+	margin: 0;
+	box-sizing: border-box;
+	padding-top: 48%;
+}
+
+#shareAppPage button {
+	width: 2.5rem;
+	padding: 10px 20px;
+	font-family: "黑体";
+	float: left;
+	background: #f8d304;
+	border: none;
+	margin-left: .5rem;
+}

@@ -1,0 +1,482 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>-->
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>【药快到】提高颜值大作战</title>
+		<meta name="description" content="【药快到】脸蛋美不美，颜值高不高，测测就知道！">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="style/act_16womenFes_getHb.css" />
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<script src="js/html_common.js"></script>
+		<script>
+				/** 默认是生产APPID*/
+			var appid = 'wxade8c5e473c645e9';
+			if (location.host.indexOf('deve') >= 0) {
+				/** 准生产APPID*/
+				appid = 'wx697be0ec43c8cafa';
+			}
+			var codeActId = '${codeActId}' || '';
+			var act_url = '${act_url}' || '';
+			// 新追加一个参数
+			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%2f' + codeActId + '%3fact_url=' + act_url;
+			console.debug(' cur href is ', redirect_uri);
+		
+			if (is_weixin()) {
+				var grantBoo = "${grantFail}";
+				if (grantBoo == "true" || grantBoo == true) {
+					var grantFailUserId = "${fromUserId}";
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+				}
+			}
+		</script>
+		<!--<script>
+			//这个方法放在页面底部，ios会记载不全  
+			function gotoPage(jsonStr) { //ios会覆盖此方法
+				camore.gotoPage(jsonStr); //android会调用里面的方法
+			};
+		</script>-->
+
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<script>
+		(function(doc, win) {
+			var docEl = doc.documentElement,
+				resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+				recalc = function() {
+					var clientWidth = docEl.clientWidth;
+					if(clientWidth >= 640) {
+						clientWidth = 640;
+					};
+					if(!clientWidth) return;
+					docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+				};
+			if(!doc.addEventListener) return;
+			win.addEventListener(resizeEvt, recalc, false);
+			doc.addEventListener('DOMContentLoaded', recalc, false);
+		})(document, window);
+	</script>
+
+	<body>
+		<div class="content">
+			<div class="contentBack">
+				<div class="comShineBack">
+					<img src="images/act_16womenday_index_backshine.png" alt="">
+				</div>
+
+				<div class="indexPage">
+					<img class="indexComImg indexPageTitle" src="images/act_16womenday_index_title.png" alt="">
+					<img class="indexComImg childSty" style="width:3.9rem;" src="images/act_16womenday_index_child.png" alt="">
+
+					<div class="getHbWrap">
+						<div class="getHb">
+							<div class="commomLogin">
+								<input type="tel" placeholder="请输入手机号码" id="userPhone">
+								<button id="getHbBtn"><span></span></button>
+								<p id="downText" class="downloadP goForUse">下载药快到App立即参与</p>
+							</div>
+							<div class="received_result" style="display: none;">
+								<img class="gethb_girl" src="images/act_16womenday_gethb_girl.png" />
+								<img class="gethb_boy" src="images/act_16womenday_gethb_boy.png" />
+								<div class="receive_success">
+									<div class="getHb7 getHbnNum" style="display:none">
+										<img style="margin: .3rem auto;" src="images/act_16womenday_gethbsuccess_text7.png" />
+										<img style="margin: 0 auto .3rem;" src="images/act_16womenday_gethb_val7.png" />
+									</div>
+									<div class="getHb8 getHbnNum" style="display:none">
+										<img style="  margin: .3rem auto .2rem;" src="images/act_16womenday_gethbsuccess_text8.png" />
+										<img style="margin: 0 auto .3rem;" src="images/act_16womenday_gethb_val8.png" />
+									</div>
+								</div>
+								<div class="has_received">
+									<div class="has_getHb7 getHbnNum" style="display:none">
+										<img src="images/act_16womenday_gethb_text7.png" />
+										<img class=" " src="images/act_16womenday_gethb_val7.png" />
+									</div>
+									<div class="has_getHb8 getHbnNum" style="display:none">
+										<img src="images/act_16womenday_gethb_text8.png" />
+										<img class=" " src="images/act_16womenday_gethb_val8.png" />
+									</div>
+								</div>
+								<div class="commUsebtn">
+									<button class="use_btn goForUse" id="goForUse"><span></span></button>
+									<button class="shareFri shareForFri" id="small_ShareFri"><span></span></button>
+								</div>
+							</div>
+
+						</div>
+						<div class="shareAppPage">
+							<img class="shareAppBtn" id="shareAppPage_shareFir" onclick="s(0)" src="images/act_16womenday_forfriend.png"></img>
+							<img class="shareAppBtn" id="shareAppPage_friRound" onclick="s(1)" src="images/act_16womenday_forfriendtound.png"></img>
+						</div>
+						<div class="noLogin  common_boxSty" style="display:none;">
+							<div class="noLoginBox">
+								<div class="closeShade closeAndBackClick">
+									<span>×</span>
+								</div>
+								<p style="font-size: 16px;line-height:60px;color: #000;">请先登录!</p>
+								<button class="sureButn">确定</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<img style="width: 100%;float: left;" src="images/act_16womenday_gethb_botback.png" />
+			
+			
+			<!--<c:if test="${ not empty coupList }">
+				<div class="friHbShowWrap">
+					<div class="comshowTitleText">
+						<span style="padding-right: .1rem;">~~~~~~~~~</span>看看朋友的手气<span style="padding-left: .1rem;">~~~~~~~~~</span>
+					</div>
+					<c:forEach var="rc" items="${coupList}" varStatus="status">
+						<div class="friHbShow">
+							<div class="userFriAvatat">
+								<c:if test="${ not empty rc.headimgurl }">
+									<img src="${rc.headimgurl }" alt="头像" />
+								</c:if>
+								<c:if test="${ empty rc.headimgurl }">
+									<img src="images/act_commonHead_img.jpg" alt="头像" />
+								</c:if>
+								<div class="userFriInf">
+									<strong>${rc.nickname } </strong>
+									<c:if test="${700 == rc.couponValue}">
+										<p>人品爆发，这波福利我收啦!</p>
+									</c:if>
+									<c:if test="${800 == rc.couponValue}">
+										<p>又给这么大红包，药快到太给力啦!</p>
+									</c:if>
+								</div>
+							</div>
+							<div class="userFriInf_wrap">
+								<c:if test="${700 == rc.couponValue}">
+									<div class="userFriHbValue_wrap">
+										<span class="userFriHbValue">7元</span>
+									</div>
+								</c:if>
+								<c:if test="${800 == rc.couponValue}">
+									<div class="userFriHbValue_wrap">
+										<span class="userFriHbValue">8元</span>
+									</div>
+								</c:if>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</c:if>-->
+			
+			<div class="friHbShowWrap ">
+				<div class="comshowTitleText commShow_title">
+					<img src="images/act_16coolIceBucket_receive_ruleTitle.png" />
+				</div>
+				<div class="friHbShow">
+					<div class="userFriAvatat">
+						<img src="images/act_commonHead_img.jpg" alt="头像" />
+						<div class="userFriInf">
+							<strong>小明 </strong>
+							<p>人品爆发，这波福利我收啦!</p>
+						</div>
+					</div>
+					<div class="userFriInf_wrap">
+						<div class="userFriHbValue_wrap">
+							<span class="userFriHbValue">7<span>元</span></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="friHbShow">
+					<div class="userFriAvatat">
+						<img src="images/act_commonHead_img.jpg" alt="头像" />
+						<div class="userFriInf">
+							<strong>小明 </strong>
+							<p>人品爆发，这波福利我收啦!</p>
+						</div>
+					</div>
+					<div class="userFriInf_wrap">
+						<div class="userFriHbValue_wrap">
+							<span class="userFriHbValue">8<span>元</span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="activeRuleShowWrap">
+				<div class="comshowTitleText commShow_title">
+					<img src="images/act_16coolIceBucket_receive_ruleTitle.png" />
+				</div>
+				<div class="activeRuleShow">
+					<p>
+						1.活动有效期：2016年3月7日——2016年3月13日。
+					</p>
+					<p>
+						2.需下载药快到App，使用手机号登录方可使用。
+					</p>
+					<p>
+						3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。
+					</p>
+					<p>
+						4.每个订单只能使用一张券，不与其他现金券叠加使用,且不找零。
+					</p>
+					<p>
+						5.本活动最终解释权归北京康顾多健康科技有限公司所有。
+					</p>
+				</div>
+
+			</div>
+		</div>
+		<div id="shareFriSha">
+			<img src="images/act_16womenday_share.png" alt="">
+		</div>
+	</body>
+
+	<script>
+		var phoneNum = '${phoneNum}';
+		var fromUserId = '${userId}';
+		var wechatObj = new Object();
+		//alert(location.href);
+		/*从新的url里获取token 和version 的值  */
+		function getUrlEle() {
+			if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+				return "";
+			}
+			var urldec = location.href.split("?")[1].split("&");
+			var urlQuery = {};
+			var a, b;
+			for (var i = 0, j = urldec.length; i < j; i++) {
+				a = urldec[i].split("=")[0];
+				b = urldec[i].split("=")[1];
+				console.log(a.split("%EF%BC%9D"))
+				if (b == undefined) {
+					a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+					b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+				}
+				;
+				urlQuery[a] = b;
+			}
+			;
+			return urlQuery;
+		};
+		var token = getUrlEle().token;
+		var version = getUrlEle().version;
+		(function() {
+			if (!is_weixin()) {
+				$(".downloadP").html("查看优惠券");
+			}
+			//			$(".friHbShowWrap .friHbShow:last-child").css({
+			//				"borderBottom" : "none"
+			//			});
+		})();
+		window.onload = function() {
+			$(".getHbWrap").on("click", "#getHbBtn", function() {
+				waitShow();
+				$_phoneno = $("#userPhone").val();
+				var regno = /1[3-8]+\d{9}/;
+				if($_phoneno == "" || $_phoneno == "请输入手机号码" || !regno.test($_phoneno)) {
+					waitClose();
+					alert("请输入正确的手机号码")
+					return false
+				};
+
+				var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
+				if(getCodeNum) {
+					var _inviteCode = '16sbfnj01';
+
+					var getHbNuM = 7;
+				} else {
+					var _inviteCode = '16sbfnj02';
+					var getHbNuM = 8;
+				}
+				var _fromChannel = 'hongbao';
+				var phone_num = $('#userPhone').val();
+				$.ajax({
+					type: "post",
+					url: "newGetCoupAjax",
+					data: "phone=" + $_phoneno + "&inviteCode=" + _inviteCode + "&fromChannel=" + _fromChannel,
+					success: function(result) {
+						waitClose();
+						$("#userPhone").val("");
+						if(result.result == "succ") {
+							console.log("succ");
+							$(".childSty").hide();
+							$(".commomLogin").hide();
+							$(".received_result").show();
+							$(".receive_success").show();
+							fromUserId = result.data.userId;
+							if(getHbNuM == 7) {
+								$(".getHb7").show();
+
+							} else {
+								$(".getHb8").show();
+							}
+
+						} else if(result.result == "fail") {
+							if(result.data.msg == "received") {
+								console.log("received");
+								var couponInfo = result.data.couponInfo || '';
+								var couponValue = '';
+								if(couponInfo) {
+									couponValue = JSON.parse(couponInfo).couponValue || ''
+										// couponValue = couponValue %100  || '?' ;
+								}
+
+								//alert(couponValue);
+								$(".childSty").hide();
+								$(".commomLogin").hide();
+								$(".received_result").show();
+								$(".has_received").show();
+								if(7 == couponValue / 100) {
+									$(".has_getHb7").show();
+								} else {
+									$(".has_getHb8").show();
+								}
+							} else {
+								alert(result.data.msg);
+								waitClose();
+							}
+						}
+					},
+					error: function() {
+						alert("发送请求失败");
+						waitClose();
+					}
+				});
+			});
+
+			$('.closeAndBackClick').on("click", function() {
+				$(".noLogin").hide();
+
+			});
+			$('.sureButn').on("click", function() {
+				$(".noLogin").hide();
+			});
+
+			//去使用跳转页面
+			$(".goForUse").on("click", function() {
+				goPage(1);
+			});
+			/**判断跳转的地址**/
+			function goPage(type) {
+				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+				/**判断是否是微信**/
+				if(is_weixin()) {
+					window.location.href = target_href;
+				} else {
+					var version = parseInt('${version}');
+
+					if(version && 200 <= version) {
+						gotoPage('{"type":"1"}');
+					} else {
+						window.location.href = target_href;
+					};
+				}
+			}
+
+			/* 点击分享 */
+
+			$(".getHbWrap").on("click", ".shareForFri", function() {
+				if(is_weixin()) {
+					$("#shareFriSha").css("height", $(".content").height());
+					$("#shareFriSha").show();
+				} else {
+					$(".commUsebtn").hide();
+					$(".shareAppPage").show();
+				}
+			});
+
+			$("#shareFriSha").on("click", function() {
+				$("#shareFriSha").hide();
+			});
+			$("#shareAppPage").on("click", function(e) {
+				var ev = e.target;
+				if(ev.nodeName != "BUTTON") {
+					$("#shareAppPage").hide();
+					$(".commUsebtn").show();
+				}
+			});
+		}
+	</script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		wechatObj.title = '【药快到】测一测你的颜值';
+		wechatObj.desc = '【药快到】送你美丽券，更耀你好看！开春就要美美哒~';
+		wechatObj.link = 'http://' + location.host + '/medhtml/common/act_16womenfes_index';
+		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_16womenday_shareIcon.jpg';
+
+		if(is_weixin()) {
+			$.ajax({
+				url: "/medhtml/common/getwxjssign?",
+				data: {
+					url: location.href.split('#')[0]
+				},
+				success: function(wechatReturn) {
+					if(wechatReturn) {
+						wx.config({
+							debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+							/*  appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识 */
+							appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+							timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+							nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+							signature: wechatReturn.signature, // 必填，签名，见附录1
+							jsApiList: ["onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo"] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+						});
+					};
+					wx.ready(function() {
+						getMenuShare();
+					});
+				}
+			});
+		};
+
+		wx.ready(function() {
+			getWechatObj()
+		})
+
+		function getWechatObj() {
+			wx.onMenuShareTimeline({
+				title: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareAppMessage({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareQQ({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+			wx.onMenuShareWeibo({
+				title: wechatObj.title, // 分享标题
+				desc: wechatObj.desc, // 分享描述
+				link: wechatObj.link, // 分享链接
+				imgUrl: wechatObj.imgUrl, // 分享图标
+				success: function() {},
+				cancel: function() {}
+			});
+		}
+	</script>
+
+</html>

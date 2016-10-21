@@ -27,7 +27,6 @@ body {
 	 -webkit-tap-highlight-color:rgba(0,0,0,0); 
 }
 .contentBack {
-	/*background: -webkit-radial-gradient(50% 50%, #83d5fb 0%, #89d8fb 10%, #85d6fb 30%, #7ad0fa 70%, #71ccfa 100%);*/
 	width: 100%;
 	position: relative;
 }
@@ -65,7 +64,6 @@ body {
 .loadShape {
 	width: 4.5rem;
 	margin: 0 auto;
-	/*background: #4e6f9f;*/
 	background: rgb(163,41,50);
     background: -webkit-linear-gradient(top, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
     background: linear-gradient(to bottom, rgba(163,41,50,1) 0%,rgba(196,50,60,1) 40%,rgba(201,64,74,1) 58%,rgba(205,76,86,1) 100%);
@@ -131,8 +129,8 @@ body {
 	height: .78rem;
 	border-radius: 50px;
 	background: #ffc40d;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #fff3cf;
-    box-shadow: inset 0 3px 2px 0 #fff3cf;
+    -webkit-box-shadow: inset 0 2px 2px 1px #ffd656,0px 3px 4px 1px #9f2830;
+    box-shadow: inset 0 2px 2px 1px #ffd656,0px 3px 4px 1px #9f2830;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
 	margin: 0 auto;
@@ -140,7 +138,7 @@ body {
 	outline: none;
 	border: none;
 	text-align: center;
-	.margin-bottom: .2rem;
+	margin-bottom: .2rem;
 }
 
 #goToGamePage span {
@@ -167,7 +165,9 @@ body {
 .actRuleShow_wrap,.gameOverWrap  {
 	display: none;
 }
-
+.actRuleShow_wrap {
+	padding-top: 1.8rem;
+}
 .comWrap1 {
 	width: 100%;
 	height: 100%;
@@ -176,15 +176,14 @@ body {
 	left: 0;
 	background: rgba(0, 0, 0, .6);
 	box-sizing: border-box;
-	padding-top: .5rem;
+	/* padding-top: .5rem; */
 }
 
 
 .comShowWrap1 {
 	width: 5.6rem;
-	/*background: linear-gradient(to bottom, #75f6ca 0%, #65edbf 30%, #50e1b0 50%, #42d8a6 70%, #35d19d 100%);*/
 	background: #c4323c;
-	border-radius: 20px;
+	border-radius: 8px;
 	margin: 0 auto;
 	padding-top: 14px;
 	padding-bottom: 10px;
@@ -199,7 +198,7 @@ body {
 	margin-left: -1.2rem;
 }
 .actRuleShowTitle{
-    width:4rem;
+    width:2.6rem;
     margin: 0 auto .3rem;
 }
 .actRuleShowTitle img{
@@ -363,7 +362,7 @@ body {
     overflow: hidden;
 }
 .gameMusic_wrap {
-	    width: .8rem;
+	width: .8rem;
     float: right;
     box-sizing: border-box;
     padding-top: 2px;
@@ -465,7 +464,7 @@ body {
 	text-align: center;
 }
 .success_title{
-    margin: .7rem 0 .5rem 0;
+    margin-top: .7rem;
 }
 .gameSuccWrap .success_title h1{
 	text-align: center;
@@ -516,15 +515,15 @@ body {
 .gameFailWrap #playAgain span{
     display: block;
     margin: 0 auto;
-    background: url(../images/act_16pushBox_btnIcon.png) 18px -202px no-repeat;
-    background-size: 184% 565px;
-    width: 110px;
+    background: url(../images/act_16pushBox_btnIcon.png) 20px -177px no-repeat;
+    background-size: 200% 500px;
+    width: 100px;
     height: 28px;
 }
 .gameFailWrap #goToGetHb{
 	background: #7dcdff;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
-    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
     background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
@@ -547,7 +546,7 @@ body {
 .gameFailBtn {
 	width: 100%;
 	border-radius: .4rem;
-	margin: .5rem auto 0;
+	margin: .4rem auto 0;
 	height: 40px;
 	line-height: 40px;
 	display: block;
@@ -562,8 +561,8 @@ body {
 .shareAppPage button:nth-child(1) {
 	margin: 1rem 0;
     background: #ffc40d;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
-    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 }
@@ -571,31 +570,31 @@ body {
 .shareAppPage button:nth-child(2) {
 	margin-bottom: .5rem;
     background: #7dcdff;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
-    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
     background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
 
 #goToGetHb, #playAgain{
     background: #ffc40d;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
-    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 }
 
 .shareFri{
  	background: #7dcdff;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
-    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
     background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
 .downloadP ,.failShareBtn{
     background: #adcc4e;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #c6db83;
-    box-shadow: inset 1px 2px 2px 0 #c6db83;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #c6db83,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #c6db83,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80% ,#93b023 90%,#b0c53b 100%);
     background: linear-gradient(to bottom, #c6db83 1%,#aecd50 41%,#adcc4e 65%,#9ab832 80%,#93b023 90%,#b0c53b 100%);
 }

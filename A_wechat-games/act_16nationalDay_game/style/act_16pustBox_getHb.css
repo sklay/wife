@@ -5,11 +5,6 @@
 	padding: 0;
 }
 
-/*i {
-	font-style: normal;
-	text-align: center;
-}*/
-
 html {
 	font-size: 62.5%;
 }
@@ -24,7 +19,6 @@ body {
 	font-size: .1rem;
 	font-family: Microsoft Yahei, Arial;
 	width: 6.4rem;
-	/*background: #fdf9fa;*/
 }
 
 .indexPage {
@@ -33,7 +27,6 @@ body {
 	height: 9.4rem;
 	background: url(../images/act_16pushBox_indexBj.jpg) center center no-repeat;
 	background-size: 100% 100%;
-	/*padding-bottom: .4rem;*/
 }
 .receiveResult_page{
 	width: 100%;
@@ -53,24 +46,15 @@ body {
 .commomLogin img{
     width: 4rem;
     display: block;
-    margin: 0 0 0.5rem .8rem;
+    margin: -.2rem 0 .3rem .8rem;
 }
-/*.getHbWrap{
-	position: absolute;
-    bottom: .3rem;
-    left: 50%;
-    margin-left: -2.5rem;
-}*/
 .getHb {
 	width: 100%;
 	margin: 0 auto;
-	/*position: relative;*/
-	/*background: #c4323c;*/
 }
 .commomLogin{
 	width: 5rem;
 	margin: 0 auto;
-	/*position: relative;*/
 }
 .indexComImg {
 	width: 5rem;
@@ -91,12 +75,12 @@ body {
 }
 
 #getHbBtn {
-	margin: .18rem auto .2rem;
+	margin: .3rem auto .2rem;
 	border: none;
 	width: 100%;
 	background: #ffc40d;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #fff3cf;
-    box-shadow: inset 0 3px 2px 0 #fff3cf;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 75%,#ffa70e 95%,#ffbd23 100%);
 	border-radius: .4rem;
@@ -106,20 +90,16 @@ body {
 	display: block;
 	outline: none;
     overflow: hidden;
-	/*color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    box-shadow: 0px 3px 4px rgba(211, 63, 81, 0.65);*/
 }
 
 #getHbBtn span {
     display: block;
-    width: 357px;
+    width: 220px;
     height: 37px;
     margin: 0 auto;
     background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
-    background-size: 55% auto;
-    background-position: 28px -232px;
+    background-size: 87% 412px;
+    background-position: 17px -215px;
 }
 
 #getActRule {
@@ -265,15 +245,17 @@ body {
 #userPhone {
 	width: 100%;
 	outline: none;
-	border: 0;
+	/* border: 0;
 	height: 38px;
-	line-height: 38px;
+	line-height: 38px; */
+	padding: 8px 5px;
+	vertical-align: middle;
 	box-sizing: border-box;
 	color: #ac9a81;
 	text-align: center;
 	border-radius: .4rem;
 	background: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	border: 2px solid #ffc40d;
 }
 
@@ -299,18 +281,15 @@ body {
 	font-weight: 900;
 	text-align: center;
 	color: #fff;
-	/*text-decoration: underline;*/
 	width: 2.5rem;
-    margin: 0 auto;
+    margin: .3rem auto 0;
 }
 
 .has_received, .receive_success {
-	width: 4.5rem;
+	width: 4.8rem;
 	margin: 1rem auto 0;
 	border-radius: 5px;
 	box-sizing: border-box;
-	/*background: #61f0bf;
-	border: .06rem solid #761f2c;*/
 }
 
 .getHbnNum img{
@@ -318,29 +297,11 @@ body {
 }
 
 .getHbnNum p{
-	font-size: 16px;
+	font-size: 14px;
 	color: #fff;
 	line-height: 35px;
 	text-align: center;
 }
-/* .receive_success .getHbnNum p{
-	margin: 0.3rem auto;
-	text-align: center;
-} */
-/* .has_received .getHbnNum p{
-	padding: .13rem 0;
-    box-sizing: border-box;
-}
-.getHbnNum p{
-    width: 3.6rem;
-    margin: 0 auto;
-    font-size: 14px;
-    font-weight: 600;
-    color: #761f2c;
-    text-shadow: #fff 2px 0 0,#fff 0 2px 0,#fff -2px 0 0,#fff 0 -2px 0;
-    -webkit-text-shadow: #000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
-    -moz-text-shadow: #000 1px 0 0,#000 0 1px 0,#000 -1px 0 0,#000 0 -1px 0;
-} */
 .commUsebtn {
 	width: 5rem;
 	margin: 0 auto;
@@ -526,29 +487,25 @@ body {
 	border: none;
 	width: 100%;
     background: #7dcdff;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff;
-    box-shadow: inset 1px 2px 2px 0 #a4dcff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
     background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 	border-radius: .4rem;
 	box-sizing: border-box;
 	height: 38px;
-	/*line-height: 38px;*/
 	display: block;
 	outline: none;
-	/*color: #fff;
-    font-size: 20px;
-    font-weight: 600;*/
 }
 
 .use_btn span {
 	display: block;
-	width: 233px;
-	height: 34px;
-	margin: 0 auto;
-	background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
-    background-size: 80% auto;
-    background-position: 40px -251px;
+    width: 193px;
+    height: 34px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-size: 95% 400px;
+    background-position: 22px -238px;
 }
 
 .shareFri {
@@ -560,24 +517,21 @@ body {
 	height: 38px;
 	display: block;
     background: #ffc40d;
-    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656;
-    box-shadow: inset 1px 2px 2px 0 #ffd656;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
     background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
     background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 	outline: none;
-	/*color: #fff;
-    font-size: 20px;
-    font-weight: 600;*/
 }
 
 .shareFri span {
 	display: block;
-	width: 200px;
-	height: 25px;
-	margin: 0 auto;
-	background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
-    background-size: 100% auto;
-    background-position: 36px -409px;
+    width: 190px;
+    height: 25px;
+    margin: 0 auto;
+    background: url(../images/act_16pushBox_btnIcon.png) no-repeat;
+    background-size: 102% 400px;
+    background-position: 34px -360px;
 }
 
 .ActRule_content {
@@ -596,8 +550,8 @@ body {
 .shareAppPage button {
 	width: 100%;
 	border-radius: .4rem;
-	margin: .5rem auto 0;
-	border: 2px solid #fff;
+	margin: .4rem auto 0;
+	border: 0;
 	box-sizing: border-box;
 	height: 44px;
 	line-height: 40px;
@@ -609,11 +563,19 @@ body {
 }
 
 .shareAppPage button:nth-child(1) {
-	background: linear-gradient(to bottom, #af6fff 0%, #8951ed 40%, #703ee2 100%);
+	background: #ffc40d;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #ffd656,2.5px 4.33px 5px 0px #9f2830;
+    background: -webkit-linear-gradient(top,#ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
+    background: linear-gradient(to bottom, #ffd656 1%,#ffc40e 41%,#ffc40d 65%,#ffa70e 85%,#ffbd23 100%);
 }
 
 .shareAppPage button:nth-child(2) {
-	background: linear-gradient(to bottom, #73e76a 0%, #6fdb63 40%, #62b64f 100%);
+	background: #7dcdff;
+    -webkit-box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    box-shadow: inset 1px 2px 2px 0 #a4dcff,2.5px 4.33px 5px 0px #9f2830;
+    background: -webkit-linear-gradient(top,#a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
+    background: linear-gradient(to bottom, #a4dcff 1%,#80ceff 41%,#7dcdff 65%,#60baff 85%,#76c1ff 100%);
 }
 
 #shareFriSha {

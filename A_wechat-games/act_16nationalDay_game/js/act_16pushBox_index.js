@@ -1,7 +1,7 @@
 $(function() {
 	var target = 0;
 	var audio_music = document.getElementById('audioBackMusic');
-	var blackStore = [ 1, 2, 11, 12, 24, 29, 31, 34 ];
+	/*var blackStore = [ 1, 2, 11, 12, 24, 29, 31, 34 ];*/
 	var succFlag = [ 1, 2, 9, 22 ];
 	/** 音乐图标 */
 	$('.gameMusic_wrap').on('tap', function() {
@@ -27,16 +27,13 @@ $(function() {
 	function gameStart() {
 		this.isOver = 0;
 		games();
-		// TODO 先注释音乐 调试的时候太吵了
-		// if(playMusic) {
-		// $('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
-		// audio_music.play();
-		// }
+		if(playMusic) {
+		$('.gameMusic_wrap').show().find('img').removeClass('musicPause').addClass('musicPlay');
+		audio_music.play();
+		}
 
-	}
-	;
+	};
 	function games() {
-
 		speller = {
 			init : function() {
 				// this.people_x = 4;
@@ -50,16 +47,16 @@ $(function() {
 				                [ "0", "0", "2", "2", "3", "0" ], 
 				                [ "1", "0", "0", "0", "0", "1" ], 
 				              ];
-				this.mArray = [ 
+				/*this.mArray = [ 
 				                [ 0, 1 ], 
 				                [ 0, 2 ], 
 				                [ 1, 3 ], 
 				                [ 3, 4 ], 
-				              ];
+				              ];*/
 
-				// 九个格子的位置
+				// 6*6方格的位置
 				this.positions = [];
-				this.positions2 = [];
+				//this.positions2 = [];
 				// 全局变量 ，游戏是否开始， 0表示未开始
 				this.isOver = 0;
 				this.blank = 6;
@@ -84,14 +81,14 @@ $(function() {
 						console.debug("clear")
 						clearInterval(speller.timer);
 
-						$(".gameFailWrap").fadeIn(500);
+						//$(".gameFailWrap").fadeIn(500);
+						gameFail();
 						speller.isOver = 1;
 						if (playMusic) {
 							$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
 							audio_music.pause();
 						}
-					}
-					;
+					};
 					var countDownShowW = Math.ceil(speller.useTime / 30 * 100);
 					$("#gameCountDownTime").html(speller.useTime);
 					$("#gameCountDownColor").css({
@@ -103,9 +100,7 @@ $(function() {
 
 			// 调用模版 构建 初始化数据
 			createGrid : function() {
-
 				var _speller = this;
-
 				for (var i = 0; i < 6; i++) {
 					for (var j = 0; j < 6; j++) {
 						var m = this.tArray[i][j];
@@ -122,7 +117,7 @@ $(function() {
 							posData.image = 'images/act_16pushBox_2.png';
 						} else if (m == 3) {
 							// 小人的位置
-							posData.image = 'images/act_16pushBox_3.png';
+							posData.image = 'images/act_16pushBox_p3.png';
 						} else {
 							// 占位透明图
 							posData.image = 'images/act_16pushBox_0.png';
@@ -139,20 +134,21 @@ $(function() {
 
 				// 点击开始
 				$(this.content + ' li').on('tap', function() {
+					//当前点击的li 的位置
 					var boxPos = $(this).attr('data-pos') * 1;
 					var rowLine = (boxPos % 6 == 0) ? Math.ceil(boxPos / 6) + 1 : Math.ceil(boxPos / 6);
 					var rowMin = (rowLine - 1) * 6;
 					var rowMax = rowLine * 6 - 1;
 					target = boxPos;
 					var $this = $(this);
-
+					//小人所处的li的位置
 					var personPos = $('a[data-flag=3]').parent().attr('data-pos') * 1;
-
+					
 					var differ = personPos - boxPos;
 
-					/** 点击的是四周邻居 */
+					/** 点击的是箱子四周邻居 6表示人物在箱子的上或者下 1表示人在箱子的左或者右*/
 					if (Math.abs(differ) == 6 || Math.abs(differ) == 1) {
-						/** 点击的是 道路 或者 旗子 */
+						/** 点击的是 道路 或者 旗子 0是透明区 可以交换*/
 						if ($this.find('a[data-flag=0]').length > 0) {
 							console.debug("道路 或 旗帜");
 							_speller.exChange(boxPos, personPos);
@@ -220,7 +216,7 @@ $(function() {
 							}
 						}
 					}
-					/** 跳走 */
+					/** 如果点击的不是箱子四周的 要判断人物是不是可以到达该点击的区域 */
 					else {
 						var canGo = _speller.canGo(personPos);
 						console.debug(" canGo is " + canGo);
@@ -232,7 +228,7 @@ $(function() {
 				});
 
 			},
-
+			//交换
 			exChange : function(source, target) {
 				var $blank = $(this.content).find(this.tag).eq(source);
 				var $nBlank = $(this.content).find(this.tag).eq(target);
@@ -244,7 +240,7 @@ $(function() {
 
 				this.checkFinished();
 			},
-
+			//游戏的结束条件
 			checkFinished : function() {
 				var _speller = this;
 				var temp = 0;
@@ -270,9 +266,8 @@ $(function() {
 					if (speller.useTime > 1) {
 						clearInterval(speller.timer);
 					}
-					clearInterval(speller.timer);
-
-					$(".gameFailWrap").fadeIn(500);
+//					$(".gameFailWrap").fadeIn(500);
+					gameFail();
 					speller.isOver = 1;
 					if (playMusic) {
 						$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
@@ -282,92 +277,91 @@ $(function() {
 			},
 			/**
 			 * 检查指定的箱子是否能移动
+			 * @param {Object} boxIndex 箱子坐标
 			 * 
-			 * @param {Object}
-			 *            boxIndex 箱子坐标
-			 * 
-			 * @return {true :可移动 ,false :不能移动}
+			 * @return {true :可移动  ,false :不能移动}
 			 */
-			checkBoxCanMove : function(boxIndex) {
-				boxIndex = boxIndex * 1;
-				/** 判断箱子是不是在四周边界 */
+			checkBoxCanMove :function(boxIndex){
+				
+				boxIndex = boxIndex*1 ;
+				/**判断箱子是不是在四周边界*/
 				var rowLine = (boxIndex % 6 == 0) ? Math.ceil(boxIndex / 6) + 1 : Math.ceil(boxIndex / 6);
-
-				/** 第一行 或者 在最后一行 */
-				if (1 == rowLine || 6 == rowLine) {
-					var min = (rowLine - 1) * 6;
-					var max = rowLine * 6 - 1;
-					/** 计算左右能不能行走 */
-					var left = boxIndex - 1;
-					/** 边界溢出无路可走 */
-					if (left < min) {
-						return false;
+				
+				/**第一行 或者 在最后一行*/
+				if(1 == rowLine || 6 == rowLine){
+					var min = (rowLine-1) * 6 ;
+					var max = rowLine*6 - 1;
+					/**计算左右能不能行走*/
+					var left = boxIndex -1 ;
+					/**边界溢出无路可走*/
+					if(left < min){
+						return false ;
 					}
-					var right = boxIndex + 1;
-					/** 边界溢出无路可走 */
-					if (right > max) {
-						return false;
+					var right = boxIndex + 1 ;
+					/**边界溢出无路可走*/
+					if(right > max){
+						return false ;
 					}
-					var leftFlag = $('ul.box li a').eq(left).attr('data-flag');
-					var rightFlag = $('ul.box li a').eq(right).attr('data-flag');
-					if (leftFlag == '0' && rightFlag == '0') {
-						console.debug("index ->" + boxIndex + '  , 边界左右ango ->' + true);
-						return true;
-
+					var leftFlag = $('ul.box li a').eq(left).attr('data-flag') ;
+					var rightFlag = $('ul.box li a').eq(right).attr('data-flag') ;
+					if((leftFlag == '0' && rightFlag == '0') || (leftFlag == '0' && rightFlag == '3') ||(leftFlag == '3' && rightFlag == '0')){
+						console.debug("index ->" + boxIndex + '  , 边界左右ango ->' + true) ;
+						return true ;
+						
 					}
-					return false;
+					return false ;
 				}
-				/** 在第一列 或者 在最后一列 */
-				else if (min == boxIndex || max == boxIndex) {
-					var min = 0;
+				/**在第一列 或者 在最后一列*/
+				else if(((rowLine-1) * 6) == boxIndex || (rowLine*6 - 1) == boxIndex){
+					var min = 0 ;
 					var max = 35;
-					/** 计算上下（前后）能不能行走 */
-					var up = boxIndex - 6;
-					/** 边界溢出无路可走 */
-					if (up < min) {
-						return false;
+					/**计算上下（前后）能不能行走*/
+					var up = boxIndex - 6 ;
+					/**边界溢出无路可走*/
+					if(up < min){
+						return false ;
 					}
-					var down = boxIndex + 6;
-					/** 边界溢出无路可走 */
-					if (down > max) {
-						return false;
+					var down = boxIndex + 6 ;
+					/**边界溢出无路可走*/
+					if(down > max){
+						return false ;
 					}
-					var upFlag = $('ul.box li a').eq(up).attr('data-flag');
-					var downFlag = $('ul.box li a').eq(down).attr('data-flag');
-					if (upFlag == '0' && downFlag == '0') {
-						console.debug("index ->" + boxIndex + '  , 边界上下cango ->' + true);
-						return true;
+					var upFlag = $('ul.box li a').eq(up).attr('data-flag') ;
+					var downFlag = $('ul.box li a').eq(down).attr('data-flag') ;
+					if((upFlag == '0' && downFlag == '0') || (upFlag == '0' && downFlag == '3') ||(upFlag == '3' && downFlag == '0')){
+						console.debug("index ->" + boxIndex + '  , 边界上下cango ->' + true) ;
+						return true ;
 					}
-					return false;
+					return false ;
 				}
-				/** 在中间范围 */
-				else {
-					var left = boxIndex - 1;
-					var right = boxIndex + 1;
-					var up = boxIndex - 6;
-					var down = boxIndex + 6;
-					/** 检查左右是是否能走 */
-					var leftFlag = $('ul.box li a').eq(left).attr('data-flag');
-					var rightFlag = $('ul.box li a').eq(right).attr('data-flag');
-					/** 障碍物 左边跟右边这条线上都没有障碍物 可以行走 */
-					if (leftFlag == '0' && rightFlag == '0') {
-						console.debug("index ->" + boxIndex + '  , 中间左右cango ->' + true);
-						return true;
+				/**在中间范围*/
+				else{
+					var left = boxIndex - 1 ;
+					var right = boxIndex + 1 ;
+					var up = boxIndex - 6 ;
+					var down = boxIndex + 6 ;
+					/**检查左右是是否能走*/
+					var leftFlag = $('ul.box li a').eq(left).attr('data-flag') ;
+					var rightFlag = $('ul.box li a').eq(right).attr('data-flag') ;
+					/**障碍物 左边跟右边这条线上都没有障碍物 可以行走*/
+					if((leftFlag == '0' && rightFlag == '0')||(leftFlag == '0' && rightFlag == '3')||(leftFlag == '3' && rightFlag == '0' ) ){
+						console.debug("index ->" + boxIndex + '  , 中间左右cango ->' + true) ;
+						return true ;
 					}
-
-					/** 检查上下（前后）是是否能走 */
-					var upFlag = $('ul.box li a').eq(up).attr('data-flag');
-					var downFlag = $('ul.box li a').eq(down).attr('data-flag');
-					/** 障碍物 上边跟下边这条线上都没有障碍物 可以行走 */
-					if (upFlag == '0' && downFlag == '0') {
-						console.debug("index ->" + boxIndex + '  , 中间上下cango ->' + true);
-						return true;
+					
+					/**检查上下（前后）是是否能走*/
+					var upFlag = $('ul.box li a').eq(up).attr('data-flag') ;
+					var downFlag = $('ul.box li a').eq(down).attr('data-flag') ;
+					/**障碍物 上边跟下边这条线上都没有障碍物 可以行走*/
+					if((upFlag == '0' && downFlag == '0') || (upFlag == '0' && downFlag == '3')||(upFlag == '3' && downFlag == '0') ){
+						console.debug("index ->" + boxIndex + '  , 中间上下cango ->' + true) ;
+						return true ;
 					}
-
-					/** 否则就不能走 */
-					return false;
+					
+					/**否则就不能走*/
+					return false ;
 				}
-
+				
 			},
 			isSucc : function() {
 				var temp = 0;
@@ -385,7 +379,8 @@ $(function() {
 				if (speller.useTime > 1) {
 					clearInterval(speller.timer);
 				}
-				$(".gameSuccWrap").fadeIn(500);
+//				$(".gameSuccWrap").fadeIn(500);
+				gameSuccess() ;
 				speller.isOver = 1;
 				if (playMusic) {
 					$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
@@ -395,6 +390,7 @@ $(function() {
 
 			canGo : function(cat) {
 				var rst = [];
+				//障碍物
 				var freakPos = [];
 				var allPos = [];
 				$('li a[data-flag=2]').each(function(i, n) {
@@ -525,53 +521,169 @@ $(function() {
 
 		speller.init();
 	}
+	
+	/**失败*/
+	gameFail = function(){
+		$(".gameFailWrap").fadeIn(500,function(){
+			var tap = setTimeout(function(){
+				clearTimeout(tap) ;
+				/* 再次游戏 */
+				$("#playAgain").off('tap').on("tap", function(e) {
+					if (speller.isOver == 1) {
+						$(".gameFailWrap").fadeOut();
+						gameStart();
+					}
+				});
+			
+				// 分享按钮
+				$(".shareFri").off('tap').on("tap", function(e) {
+					var event = e || window.event;
+					event.stopPropagation();
+					if(is_weixin()) {
+						$("#shareFriSha").show();
+					} else {
+						if(isLogin()) {
+							$(".butWrap").hide();
+							$(".shareAppPage").show();
+						}
+					}
+				});
+				
+				
+				$("#shareFriSha").off('tap').on("tap", function(e) {
+					event.stopPropagation();
+					e.preventDefault();
+					$("#shareFriSha").hide();
+				});
+			
+				// app分享点击
+				$(".shareAppPage_shareFir").off('tap').on("tap", function() {
+					if(isLogin()) {
+						s(0);
+					}
+					$(".butWrap").show();
+					$(".shareAppPage").hide();
+					
+					toReward ();
+				});
+				$(".shareAppPage_friRound").off('tap').on("tap", function() {
+					if(isLogin()) {
+						s(1)
+					}
+					$(".butWrap").show();
+					$(".shareAppPage").hide();
+					
+					toReward ();
+				});
+			},500);
+		});
+		
+	}
+	
+	
+	/**成功*/
+	gameSuccess = function(){
+		$(".gameSuccWrap").fadeIn(500,function(){
+			
+			var tap = setTimeout(function(){
+				clearTimeout(tap) ;
+				//去使用跳转页面
+				$(".goForUse").off('tap').on("tap", function() {
+					var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+					window.location.href = target_href;
+				});
+				// 分享按钮
+				$(".shareFri").off('tap').on("tap", function(e) {
+					var event = e || window.event;
+					event.stopPropagation();
+					if(is_weixin()) {
+						$("#shareFriSha").show();
+					} else {
+						if(isLogin()) {
+							$(".butWrap").hide();
+							$(".shareAppPage").show();
+						}
+					}
+				});
+				
+				
+				$("#shareFriSha").off('tap').on("tap", function(e) {
+					event.stopPropagation();
+					e.preventDefault();
+					$("#shareFriSha").hide();
+				});
+			
+				// app分享点击
+				$(".shareAppPage_shareFir").off('tap').on("tap", function() {
+					if(isLogin()) {
+						s(0);
+					}
+					$(".butWrap").show();
+					$(".shareAppPage").hide();
+					
+					toReward ();
+				});
+				$(".shareAppPage_friRound").off('tap').on("tap", function() {
+					if(isLogin()) {
+						s(1)
+					}
+					$(".butWrap").show();
+					$(".shareAppPage").hide();
+					
+					toReward ();
+				});
+			},500)
+			
+		});
+		
+	}
 
-	/* 再次游戏 */
-	$("#playAgain").on("click", function(e) {
-		if (speller.isOver == 1) {
-			$(".gameFailWrap").fadeOut();
-			gameStart();
-		}
-	});
-	// 去使用跳转页面
-	$(".goForUse").on("click", function() {
-		var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
-		window.location.href = target_href;
-	});
-	// 分享按钮
-	$(".shareFri").on("tap", function(e) {
-		var event = e || window.event;
-		event.stopPropagation();
-		if (is_weixin()) {
-			$("#shareFriSha").show();
-		} else {
-			if (isLogin()) {
-				$(".butWrap").hide();
-				$(".shareAppPage").show();
-			}
-		}
-	});
-
-	$("#shareFriSha").on("tap", function(e) {
-		event.stopPropagation();
-		e.preventDefault();
-		$("#shareFriSha").hide();
-	});
-
-	// app分享点击
-	$(".shareAppPage_shareFir").on("tap", function() {
-		if (isLogin()) {
-			s(0);
-		}
-		$(".butWrap").show();
-		$(".shareAppPage").hide();
-	});
-	$(".shareAppPage_friRound").on("tap", function() {
-		if (isLogin()) {
-			s(1)
-		}
-		$(".butWrap").show();
-		$(".shareAppPage").hide();
-	});
+//	/* 再次游戏 */
+//	$("#playAgain").on("click", function(e) {
+//		if (speller.isOver == 1) {
+//			$(".gameFailWrap").fadeOut();
+//			gameStart();
+//		}
+//	});
+//	// 去使用跳转页面
+//	$(".goForUse").on("click", function() {
+//		var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653';
+//		window.location.href = target_href;
+//	});
+//	// 分享按钮
+//	$(".shareFri").on("tap", function(e) {
+//		var event = e || window.event;
+//		event.stopPropagation();
+//		if (is_weixin()) {
+//			$("#shareFriSha").show();
+//		} else {
+//			if (isLogin()) {
+//				$(".butWrap").hide();
+//				$(".shareAppPage").show();
+//			}
+//		}
+//	});
+//
+//	$("#shareFriSha").on("tap", function(e) {
+//		event.stopPropagation();
+//		e.preventDefault();
+//		$("#shareFriSha").hide();
+//	});
+//
+//	// app分享点击
+//	$(".shareAppPage_shareFir").on("tap", function() {
+//		if (isLogin()) {
+//			s(0);
+//		}
+//		$(".butWrap").show();
+//		$(".shareAppPage").hide();
+//	});
+//	$(".shareAppPage_friRound").on("tap", function() {
+//		if (isLogin()) {
+//			s(1)
+//		}
+//		$(".butWrap").show();
+//		$(".shareAppPage").hide();
+//	});
 
 })

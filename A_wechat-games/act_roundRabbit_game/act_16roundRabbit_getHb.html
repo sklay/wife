@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!DOCTYPE html>
 <html lang="en">
+
 	<head>
 		<meta charset="UTF-8">
 		<title>中秋月满人团圆</title>
@@ -65,7 +66,7 @@
 				</div>
 			</div>
 			<!--结果页-->
-			<div class="result_page"  style="display: none;">
+			<div class="result_page" style="display: none;">
 				<div class="gamePageTop">
 					<img src="images/act_16roundRabbit_gameTitle.png" alt="">
 				</div>
@@ -166,45 +167,45 @@
 						</div>
 					</c:if>-->
 					<div class="friHbShowWrap ">
-				<div class="comShowTitle">
-					<div class="leftLineDot">
-						<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
-					</div>
-					<div class="comshowTitleText">查看好友手气</div>
-					<div class="rightLineDot">
-						<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
-					</div>
-				</div>
-				<div class="friHbShow">
-					<div class="userFriAvatat">
-						<img src="images/act_commonHead_img.jpg" alt="头像" />
-						<div class="userFriInf">
-							<strong>小明 </strong>
-							<p>人品爆发，这波福利我收啦!</p>
+						<div class="comShowTitle">
+							<div class="leftLineDot">
+								<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+							</div>
+							<div class="comshowTitleText">查看好友手气</div>
+							<div class="rightLineDot">
+								<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+							</div>
 						</div>
-					</div>
-					<div class="userFriInf_wrap">
-						<div class="userFriHbValue_wrap">
-							<span class="userFriHbValue">7<span>元</span></span>
+						<div class="friHbShow">
+							<div class="userFriAvatat">
+								<img src="images/act_commonHead_img.jpg" alt="头像" />
+								<div class="userFriInf">
+									<strong>小明 </strong>
+									<p>人品爆发，这波福利我收啦!</p>
+								</div>
+							</div>
+							<div class="userFriInf_wrap">
+								<div class="userFriHbValue_wrap">
+									<span class="userFriHbValue">7<span>元</span></span>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="friHbShow">
-					<div class="userFriAvatat">
-						<img src="images/act_commonHead_img.jpg" alt="头像" />
-						<div class="userFriInf">
-							<strong>小明 </strong>
-							<p>人品爆发，这波福利我收啦!</p>
+						<div class="friHbShow">
+							<div class="userFriAvatat">
+								<img src="images/act_commonHead_img.jpg" alt="头像" />
+								<div class="userFriInf">
+									<strong>小明 </strong>
+									<p>人品爆发，这波福利我收啦!</p>
+								</div>
+							</div>
+							<div class="userFriInf_wrap">
+								<div class="userFriHbValue_wrap">
+									<span class="userFriHbValue">8<span>元</span></span>
+								</div>
+							</div>
 						</div>
 					</div>
-					<div class="userFriInf_wrap">
-						<div class="userFriHbValue_wrap">
-							<span class="userFriHbValue">8<span>元</span></span>
-						</div>
-					</div>
-				</div>
-			</div>
 
 					<div class="activeRuleShowWrap">
 						<div class="comShowTitle">
@@ -364,7 +365,7 @@
 			}
 
 			/*点击分享*/
-			$(".shareForFri").on("click",function() {
+			$(".shareForFri").on("click", function() {
 				if(is_weixin()) {
 					$("#shareFriSha").css("height", $(".content").height());
 					$("#shareFriSha").show();

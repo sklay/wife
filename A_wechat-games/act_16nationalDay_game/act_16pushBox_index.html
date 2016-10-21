@@ -68,19 +68,23 @@
 	.gameMainCon2{
 		top:1.6rem;
 	}
+	.gameFailBtn{
+	    margin: .3rem auto 0;
+	}
+	/* .indexPage .actRuleShow_wrap {
+		padding-top: 1.2rem;
+	} */
+	.actRuleText p {
+	    line-height: 20px;
+	}
+	.actRuleText span {
+	    line-height: 20x;
+	}
 }
 
 @media screen and (max-height: 580px) {
 	.gamePageTop{
 		height: 12%;
-	}
-	.gameSuccWrap, .gameFailWrap{
-	}
-	.actRuleText p {
-	    line-height: 20px;
-	}
-	.actRuleText span {
-	    line-height: 20px;
 	}
 	#getActRule{
 		margin-top:0.15rem;
@@ -125,7 +129,7 @@
 			</div>
 			<button id="goToGamePage"><span></span></button>
 			<h1 id="getActRule"></h1>
-			<div class="actRuleShow_wrap comWrap1">
+			<div class="actRuleShow_wrap comWrap1" >
 				<div class="actRuleShow comShowWrap1">
 					<img class="closeBtn actRuleClose" src="images/act_16pushBox_startCloseBtn.png" alt="">
 					<div class="actRuleShowTitle">
@@ -139,7 +143,6 @@
 						<span>3、</span><p>活动奖励</p>
 						<p>凡参与活动的用户均可获得【药快到】现金券红包，红包内金额随机。</p>
 						<span>4、</span><p>本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
-
 					</div>
 				</div>
 			</div>
@@ -172,7 +175,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="gameMusic_wrap" style="display: none;">
+				<div class="gameMusic_wrap" >
 					<img src="images/act_16pushBox_musicIcon.png" alt="" id="gameMusic" class="musicPlay">
 				</div>
 			</div>
@@ -196,14 +199,13 @@
 						<img src="images/act_16pushBox_gameFailTitle.png" alt="">
 					</div>
 					<div class="gameFailText comTextWrap1">
+						<div class="success_title" style="">
+	  						<h1>别灰心，送你个红包  </h1>
+							<h1>不！服！再！战！</h1>
+	  					</div>
 						<div class="butWrap">
-							<div class="success_title" style="">
-		  						<h1>别灰心，送你个红包  </h1>
-								<h1>不！服！再！战！</h1>
-		  					</div>
 							<button class="gameFailBtn " id="playAgain"><span></span></button>
 							<a id="goToGetHb" class="gameFailBtn toGetReward">
-								<!--<button >去抽奖</button>-->
 								<span></span>
 							</a>
 							<button class="gameFailBtn shareFri failShareBtn" ><span></span></button>
@@ -226,10 +228,7 @@
 							<h1>欢乐过十一</h1>
 	  					</div>
 						<div class="butWrap">
-							<!--<a id="goToGetHb">
-								<button class="gameFailBtn toGetReward">去抽奖</button>
-							</a>-->
-							<a id="goToGetHb" class="gameFailBtn toGetReward">
+							<a id='goToGetHb' class="gameFailBtn toGetReward">
 								<span></span>
 							</a>
 							<button class="gameFailBtn shareFri" ><span></span></button>
@@ -254,7 +253,7 @@
 		<img  src="images/act_16pushBox_2.png">
 		<img  src="images/act_16pushBox_3.png">
 	</div>
-	<div style="display: none;" class="gameM	usic_wrap2">
+	<div style="display: none;" class="gameM usic_wrap2">
 		<div id="audio_span"></div>
 		
 		<script>
@@ -264,13 +263,12 @@
 			}
 		</script>
 		
-		<!--<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16pushBox_bjMusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>-->
-		<audio id="audioBackMusic" src="images/act_16pushBox_bjMusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16pushBox_bjMusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
 	</div>
 </body>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script type="text/javascript" src="js/artTemplate/template.js"></script>
-<script src="js/act_16pushBox_index.js?v=4.0"></script>
+<script src="js/act_16pushBox_index.js?v=4.5.0.0.0.0.1"></script>
 <script type="text/template" id="game-tpl">
 	{{each rows as row i }}
 	<li data-pos="{{i }}" id="{{row.pos }}" class="{{row.css }}">
@@ -335,11 +333,15 @@
 		});
 		
 		/*点击领取*/
-		$("#goToGetHb ").on("click ", function() {
-			 var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16QMing_gethb&user_token=" + token + "&version_code=" + version + "&codeActId=270";
-//			var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16QMing_gethb&user_token=" + token + "&version_code="+version+"&codeActId=270";
-			location.href = url;
+		$(".toGetReward").on("tap", function() {
+			toReward() ;
 		});
+	}
+	
+	function toReward (){
+		// var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_16pushBox_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=500";
+		var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_16pushBox_getHb&user_token=" + token + "&version_code="+version+"&codeActId=500";
+		location.href = url;
 	}
 	
 	/** 默认是生产APPID*/

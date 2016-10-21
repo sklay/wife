@@ -9,191 +9,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
 		<meta name="format-detection" content="telephone=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<!--<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css"/>-->
-
-		<style>
-			* {
-				margin: 0;
-				padding: 0;
-			}
-			
-			body {
-				font-family: "微软雅黑", "arial";
-				font-size: 12px;
-			}
-			
-			.wrap {
-				position: absolute;
-				background: #e8380d;
-				width: 100%;
-				background-size: 100% 100%;
-			}
-			/*加载页*/
-			
-			.loading_wrap {
-				background: #e8380d;
-				box-sizing: border-box;
-				position: absolute;
-				z-index: 1000;
-			}
-			
-			.loadingCon_wrap {
-				width: 100%;
-				position: absolute;
-				top: 30%;
-				left: 0;
-				box-sizing: border-box;
-			}
-			
-			.loadingPage_wrap {
-				width: 100%;
-				box-sizing: border-box;
-				height: 1.5rem;
-			}
-			
-			.loadingPage_wrap img {
-				width: .8rem;
-				margin-left: .2rem;
-				float: left;
-			}
-			
-			@-webkit-keyframes loadingImgMove {
-				25% {
-					-webkit-transform: translateY(-.15rem)
-				}
-				50% {
-					-webkit-transform: translateY(0rem)
-				}
-				75% {
-					-webkit-transform: translateY(.15rem)
-				}
-				100% {
-					-webkit-transform: translateY(0rem)
-				}
-			}
-			
-			@keyframes loadingImgMove {
-				25% {
-					transform: translateY(-.15rem)
-				}
-				50% {
-					transform: translateY(0rem)
-				}
-				75% {
-					transform: translateY(.15rem)
-				}
-				100% {
-					transform: translateY(0rem)
-				}
-			}
-			
-			.loadingPage_wrap .moveImg {
-				-webkit-animation: loadingImgMove .5s linear infinite;
-				animation: loadingImgMove .5s linear infinite;
-			}
-			
-			.loadingPage_wrap img:nth-child(1) {
-				width: .4rem;
-				margin-left: 1.5rem;
-				margin-top: .1rem;
-			}
-			
-			.loadingPage_wrap img:nth-child(2) {
-				width: .8rem;
-				margin-top: .5rem;
-				margin-left: .3rem;
-			}
-			
-			.loadingPage_wrap img:nth-child(3) {}
-			
-			.loadingPage_wrap img:nth-child(4) {
-				width: .5rem;
-				margin-top: .2rem;
-				margin-left: .1rem;
-			}
-			
-			.loading_text {
-				display: block;
-				margin: .8rem auto .5rem;
-				width: 2.5rem;
-			}
-			
-			.loading_line_wrap {
-				height: 3px;
-				position: relative;
-				width: 2.5rem;
-				margin: 0 auto;
-				overflow: hidden;
-			}
-			
-			.loading_lineback {
-				width: 100%;
-				background: #F0917A;
-				margin: 1px auto 0;
-				display: block;
-				height: 1px;
-				border-radius: .001rem;
-			}
-			
-			@-webkit-keyframes loadingLineMove {
-				0% {
-					-webkit-transform: translateX(-3.5rem)
-				}
-				100% {
-					-webkit-transform: translateX(15rem)
-				}
-			}
-			
-			@keyframes loadingLineMove {
-				0% {
-					transform: translateX(-3.5rem)
-				}
-				100% {
-					transform: translateX(15rem)
-				}
-			}
-			
-			.loading_line {
-				position: absolute;
-				height: 3px;
-				left: -3.5rem;
-				top: 0;
-				width: 2.5rem;
-			}
-			
-			.loadingLineAni {
-				-webkit-animation: loadingLineMove 2.5s linear infinite;
-				animation: loadingLineMove 2.5s linear infinite;
-			}
-			
-			#shareAppPage {
-				width: 100%;
-				height: 100%;
-				/* background:#f8d304; */
-				border: none;
-				border-radius: 0;
-				position: fixed;
-				display: none;
-				z-index: 1000;
-				top: 0;
-				left: 0;
-				background: rgba(50, 50, 50, .6);
-				margin: 0;
-				box-sizing: border-box;
-				padding-top: 48%;
-			}
-			
-			#shareAppPage button {
-				width: 2.5rem;
-				padding: 10px 20px;
-				font-family: "黑体";
-				float: left;
-				background: #f8d304;
-				border: none;
-				margin-left: .5rem;
-			}
-		</style>
 		<link rel="stylesheet" type="text/css" href="style/act_foodSafety_style.css" />
+		<link rel="stylesheet" type="text/css" href="style/act_15foodSafety_index.css" />
+		<link rel="stylesheet" type="text/css" href="style/act_common_loginStyle.css" />
 		<script src="js/jquery-2.2.0.min.js" type="text/javascript"></script>
 		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
 		<script>
@@ -257,7 +75,6 @@
 					</div>
 					<div style="width:100%;">
 						<div class="loading_line_wrap">
-							<!--<span class="loading_lineback"></span>-->
 							<img class="loading_lineback" src="images/act_game_loadingline_back.png" alt="" />
 							<img class="loading_line loadingLineAni" src="images/act_game_loadingline.png" alt="" />
 						</div>
@@ -287,9 +104,6 @@
 					<img src="images/act_game_load_title.png" alt="" />
 					<img src="images/act_game_load_title_1.png" alt="" />
 				</div>
-				<!-- <div class="index_backImg">
-        	 <img  src="images/act_game_index_shine.png" alt="" />
-        </div> -->
 				<div class="index_body">
 					<img src="images/act_game_index_eye.png" alt="">
 					<div class="leftEye">
@@ -409,14 +223,13 @@
 			<div class="receive_page common_wrapSty controlAlertPage" id="receive_page">
 				<div class="receive_page_title" id="receive_page_title">
 					<p>领取【药快到】现金券<br/>为健康助力!</p>
-					<!-- <img src="images/act_game_coupon_shine.png" alt=""/>-->
 					<img style="top:17%;" src="images/act_game_coupon.png" alt="" />
 				</div>
 				<div class="loginnow" id="loginnow">
 					<!--<%@ include  file="act_common_loginPage.jsp"%>-->
 					<div class="commomLogin">
 						<input type="text" placeholder="输入手机号" id="commomLogin_phoneNum" />
-						<p id="commomLogin_loginwarn" style="font-size:12px;padding-left:5px;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
+						<p id="commomLogin_loginwarn" style="text-align:center;font-size:12px;padding-left:5px;line-height:20px;">为保证您能成功领取奖品，请如实填写</p>
 						<div style="width:100%;overflow:hidden;margin-top:.1rem;">
 							<input type="text" placeholder="输入验证码" id="commomLogin_codeNum" />
 							<div id="commomLogin_getcode">
@@ -473,14 +286,12 @@
 				}
 			})();
 		</script>
-		<!--  <input id="wxShareCon" type="hidden" value="食品卫生，你注意过吗？快来看看自己能到哪关！"/> -->
 	</body>
 
 	<script type="text/javascript">
 		var scoreNum = 0; //得分记录；
 		var haveScore = false;
 		//	预加载图片
-		/*  <!--//--><![CDATA[//><!-- */
 		var images = new Array();
 		var path = "images/";
 		var normalImgPrefix = "act_game_";
@@ -522,7 +333,6 @@
 				perLoadBoo = true;
 			};
 		})();
-		/* //--><!]]> */
 		//	活动过期后，领取奖励按钮取消；
 		var state = "${state }";
 		(function() {
@@ -538,7 +348,6 @@
 		wechatObj.title = '【药快到】食品卫生找茬大赛';
 		wechatObj.desc = "食品卫生，你注意过吗？快来看看自己能到哪关！";
 		wechatObj.link = 'http://store.ykd365.com/medhtml/common/startFSGame';
-		//wechatObj.link = 'http://test.ykd365.com:10080/medhtml/common/startFSGame';
 		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg';
 
 		function getMenuShare() {
@@ -546,7 +355,6 @@
 				title: '【药快到】食品卫生找茬大赛', // 分享标题
 				desc: wechatObj.desc, // 分享描述
 				link: 'http://store.ykd365.com/medhtml/common/startFSGame',
-				//link:'http://test.ykd365.com:10080/medhtml/common/startFSGame', // 分享链接
 				imgUrl: 'http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg', // 分享图标
 				success: function() {},
 				cancel: function() {}
@@ -554,7 +362,6 @@
 			var wechatShareMenu2 = { //朋友圈分享用
 				title: wechatObj.desc, // 分享标题
 				link: 'http://store.ykd365.com/medhtml/common/startFSGame',
-				//link:'http://test.ykd365.com:10080/medhtml/common/startFSGame', // 分享链接
 				imgUrl: 'http://imgstore.camore.cn/icon/logo/act_foodSagety_weixinShare.jpg', // 分享图标
 				success: function() {},
 				cancel: function() {}
@@ -573,9 +380,6 @@
 				jsonObject.shared_title = wechatObj.title;
 				jsonObject.shared_content = wechatObj.desc;
 				jsonObject.shared_img_url = wechatObj.imgUrl;
-				/* var jsonCon={"shared_type":"0", "shared_url":"http://test.ykd365.com:10080/weixin/wechat/redenvshare?pharmacyId=200&userId=%s&type=1&actId=4&inviteType=hongbao", 
-						"shared_title":"【药快到】微信新用户送100元红包", "shared_content":"微信买药神器,药快到感觉超赞,你也来试试,首次体验送您100元红包，快来抢啊！！！", 
-						"shared_img_url":"http://imgstore.camore.cn/icon/home/ic_splash_yao_0526.png"}; */
 			} else
 			if(type == 1) {
 				jsonObject.shared_type = "1";
@@ -584,7 +388,7 @@
 				jsonObject.shared_content = wechatObj.desc;
 				jsonObject.shared_img_url = wechatObj.imgUrl;
 				/* var jsonObject={"shared_type":"1", "shared_url":"http://test.ykd365.com:10080/weixin/wechat/redenvshare?pharmacyId=200&userId=%s&type=1&actId=4&inviteType=hongbao", 
-						"shared_title":"【药快到】朋友圈新用户送100元红包", "shared_content":"朋友圈买药神器,药快到感觉超赞,你也来试试,首次体验送您100元红包，快来抢啊！！！", 
+					"shared_title":"【药快到】朋友圈新用户送100元红包", "shared_content":"朋友圈买药神器,药快到感觉超赞,你也来试试,首次体验送您100元红包，快来抢啊！！！", 
 						"shared_img_url":"http://imgstore.camore.cn/icon/home/ic_splash_yao_0526.png"}; */
 
 			}

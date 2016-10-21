@@ -84,6 +84,7 @@ ul li{
 	width: 100%;
 	height: 120px;
 	background: #fff;
+	min-width: 1200px;
 }
 .nav_content{
 	width: 1000px;
@@ -116,7 +117,7 @@ ul li{
 /*lunbotu*/
 .container{
 	width: 100%;
-	min-width: 1000px;
+	min-width: 1200px;
 }
 .img_carousel{
 	width: 100%;
@@ -556,6 +557,7 @@ ul li{
 	height: 247px;
 	margin-top: 5px;
 	box-shadow: inset 0 -10px 10px #1d0e4d;
+	min-width: 1200px;
 }
 
 .boot_list{
