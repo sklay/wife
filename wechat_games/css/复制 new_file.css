@@ -1,0 +1,293 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+body {
+  width: 100%;
+  font-family: Microsoft Yahei, Arial;
+  background: #fffeee;
+}
+.clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+input {
+  -webkit-appearance: none;
+}
+li {
+  list-style-type: none;
+}
+header {
+  width: 100%;
+  height: 15.875rem;
+  box-sizing: border-box;
+  background: #b8e36e;
+  /*app分享按钮固定样式  */
+}
+header .content_top {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+header .content_top img {
+  width: 100%;
+  float: left;
+}
+header .commomLogin {
+  width: 7.34375rem;
+  margin: 1.078125rem auto 0;
+}
+header .commomLogin #userPhone {
+  width: 100%;
+  outline: none;
+  border: 0.046875rem solid #70b677;
+  height: 1.09375rem;
+  line-height: 1.09375rem;
+  box-sizing: border-box;
+  color: #a3a3a5;
+  text-align: center;
+  background: #fff;
+  font-size: 0.5rem;
+  font-weight: 600;
+  border-radius: 0.78125rem;
+}
+header .commomLogin button {
+  font-size: 0.5rem;
+  width: 7.34375rem;
+  line-height: 1.09375rem;
+  height: 1.09375rem;
+  outline: none;
+  border: 0;
+  display: block;
+  font-weight: 600;
+  border-radius: 0.78125rem;
+  color: #fff;
+}
+header .commomLogin #getHbBtn {
+  margin: 0.59375rem auto 0;
+  background: #23c032;
+  box-shadow: 0rem 0.09375rem 0rem #2d7134;
+}
+header .commomLogin .downText {
+  margin: 0.59375rem auto 0;
+  background: #2294ff;
+  box-shadow: 0rem 0.09375rem 0rem #2d7134;
+}
+header .shareAppPage {
+  display: none;
+  width: 8.09375rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+header .shareAppPage button {
+  font-weight: 600;
+  font-size: 0.5rem;
+  width: 3.796875rem;
+  line-height: 1.171875rem;
+  height: 1.171875rem;
+  margin: 0.625rem auto;
+  display: block;
+  outline: none;
+  border: 0;
+  border-radius: 0.15625rem;
+  color: #fff;
+}
+header .shareAppPage button:nth-child(1) {
+  float: left;
+  background: #2294ff;
+  box-shadow: 0rem 0.09375rem 0rem #2d7134;
+}
+header .shareAppPage button:nth-child(2) {
+  float: right;
+  background: #23c032;
+  box-shadow: 0rem 0.09375rem 0rem #2d7134;
+}
+.comShowTitle {
+  width: 9.8125rem;
+  height: 0.78125rem;
+  margin: 0.46875rem auto;
+  position: relative;
+}
+.comShowTitle p {
+  text-align: center;
+  line-height: 0.78125rem;
+  width: 3.5rem;
+  margin: 0.46875rem auto;
+  font-size: 0.4375rem;
+}
+.comShowTitle .t_left {
+  width: 2.1875rem;
+  height: 0.78125rem;
+  line-height: 0.78125rem;
+  position: absolute;
+  top: -0.0625rem;
+  left: 0;
+  padding-right: 0.0625rem;
+  padding-top: 0.46875rem;
+  box-sizing: border-box;
+}
+.comShowTitle .t_left .LineDot {
+  display: block;
+  width: 1.90625rem;
+  height: 0.015625rem;
+  float: left;
+  background: #522504;
+}
+.comShowTitle .t_left .leftLineDot {
+  position: absolute;
+  top: 0.40625rem;
+  right: 0;
+  display: block;
+  background: #522504;
+}
+.comShowTitle .t_right {
+  padding: 0.46875rem 0 0 0.0625rem;
+  box-sizing: border-box;
+  width: 2.1875rem;
+  height: 0.78125rem;
+  line-height: 0.78125rem;
+  float: right;
+  position: absolute;
+  right: 0;
+  top: -0.0625rem;
+}
+.comShowTitle .t_right .LineDot {
+  display: block;
+  width: 1.90625rem;
+  height: 0.015625rem;
+  float: right;
+  background: #522504;
+}
+.comShowTitle .t_right .rightLineDot {
+  background: #522504;
+  position: absolute;
+  left: 0;
+  top: 0.40625rem;
+  display: block;
+}
+.friHbShow {
+  width: 9.8125rem;
+  overflow: hidden;
+  font-size: 0.4375rem;
+  border-bottom: 0.015625rem dashed #522504;
+  margin: 0 auto;
+}
+.friHbShow .userFriAvatat {
+  width: 81%;
+  overflow: hidden;
+  float: left;
+  padding: 0.171875rem 0;
+}
+.friHbShow .userFriAvatat img {
+  width: 1.078125rem;
+  height: 1.078125rem;
+  float: left;
+  border-radius: 0.78125rem;
+}
+.friHbShow .userFriAvatat .userFriInf {
+  float: left;
+  margin-left: 0.125rem;
+  width: 80%;
+}
+.friHbShow .userFriAvatat .userFriInf strong {
+  font-size: 0.3125rem;
+  color: #522504;
+  line-height: 0.21875rem;
+}
+.friHbShow .userFriAvatat .userFriInf p {
+  white-space: nowrap;
+  font-size: 0.3125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  color: #522504;
+  line-height: 0.546875rem;
+}
+.friHbShow .userFriInf_wrap {
+  width: 18%;
+  float: right;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0.28125rem 0;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap {
+  width: 100%;
+  height: 0.96875rem;
+  float: right;
+  background: url(../images/act_16phubber_couponIcon.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  line-height: 0.96875rem;
+  color: #fff;
+  text-align: center;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue {
+  font-size: 0.546875rem;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue span {
+  font-size: 0.546875rem;
+}
+.activeRuleShowWrap .activeRuleShow {
+  width: 9.8125rem;
+  margin: 0 auto;
+  padding-bottom: 1.5625rem;
+  color: #522504;
+  line-height: 0.9375rem;
+  font-size: 0.40625rem;
+}
+/*分享遮罩样式*/
+#shareshade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(50, 50, 50, 0.8);
+  z-index: 9999;
+  display: none;
+}
+.promptDiv {
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  width: 2.8125rem;
+  height: 1.40625rem;
+  z-index: 99;
+  display: none;
+}
+.promptDiv .opDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: none repeat scroll 0 0 #333;
+  opacity: 0.5;
+  border-radius: 0.15625rem;
+}
+.promptDiv .promptContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.promptDiv img {
+  display: block;
+  margin: 0.1875rem auto 0.15625rem;
+  width: 0.703125rem;
+  height: 0.703125rem;
+}
+.promptDiv .title {
+  text-align: center;
+  color: #fff;
+  font-size: 0.375rem;
+}

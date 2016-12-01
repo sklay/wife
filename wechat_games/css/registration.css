@@ -1,0 +1,48 @@
+nav {
+  margin-bottom: 0.32rem;
+}
+section div {
+  border-top: 0.01333333rem solid #f0f0f0;
+  margin-bottom: 0.32rem;
+  width: 100%;
+  background: #FFFFFF;
+}
+section div .title {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.32rem;
+  border-bottom: 0.01333333rem solid #f0f0f0;
+  font-size: 0.32rem;
+  line-height: 0.34666667rem;
+  color: #3399ea;
+}
+section div .detail {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.32rem;
+}
+section div .detail p {
+  line-height: 0.53333333rem;
+  font-size: 0.18666667rem;
+  color: #666666;
+  margin-bottom: 0.06666667rem;
+}
+section div .detail p span {
+  color: #ff6d78;
+}
+section div .detail .dashed {
+  padding-top: 0.32rem;
+  border-top: 0.01333333rem dashed #f0f0f0;
+}
+section div div.float ul {
+  height: 1.6rem;
+}
+section div div.float ul li {
+  width: 50%;
+  padding: 0.12rem 0;
+  height: 0.29333333rem;
+  color: #666666;
+  font-size: 0.29333333rem;
+  line-height: 0.29333333rem;
+  float: left;
+}

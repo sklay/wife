@@ -1,0 +1,451 @@
+@rem: 64rem;
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    font-family: Microsoft Yahei, Arial;
+    background: #fff;
+}
+.clearFix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearFix {
+    *zoom: 1;
+}
+input {
+    -webkit-appearance: none;
+}
+li {
+    list-style-type: none;
+}
+header {
+    width: 100%;
+    height: 1016/@rem;
+    box-sizing: border-box;
+    background: #b8e36e;
+    .content_top {
+        width: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        img {
+            width: 100%;
+            float: left;
+        }
+    }
+    .commomLogin {
+        width: 470/@rem;
+        margin: 69/@rem auto 0;
+        #userPhone {
+            width: 100%;
+            outline: none;
+            border: 3/@rem solid #70b677;
+            height: 70/@rem;
+            line-height: 70/@rem;
+            box-sizing: border-box;
+            color: #a3a3a5;
+            text-align: center;
+            background: #fff;
+            font-size: 32/@rem;
+            font-weight: 600;
+            border-radius: 50/@rem;
+        }
+        button {
+            font-size: 32/@rem;
+            width: 470/@rem;
+            line-height: 70/@rem;
+            height: 70/@rem;
+            outline: none;
+            border: 0;
+            display: block;
+            font-weight: 600;
+            border-radius: 50/@rem;
+            color: #fff;
+        }
+        #getHbBtn {
+            margin: 38/@rem auto 0;
+            background: #23c032;
+            box-shadow: 0/@rem 6/@rem 0/@rem #2d7134;
+        }
+        
+    }
+    .downText {
+            width: 470/@rem;
+            height: 69/@rem;
+            line-height: 69/@rem;
+            display: block;
+            margin: 0 auto;
+            background: #2294ff;
+            box-shadow: 0/@rem 6/@rem 0/@rem #2d7134;
+            border: 0;
+            outline: none;
+            color: #fff;
+            border-radius:50/@rem ;
+            font-size: 26/@rem;
+        }
+        
+    .pText {
+        font-size: 28/@rem;
+        font-family: 黑体;
+        text-align: center;
+        color: #3d3d3d;
+        margin: 33/@rem auto 0;
+    }
+    /*app分享按钮固定样式  */
+    .shareAppPage {
+        display: none;
+        width: 518/@rem;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .shareAppPage button {
+        font-weight: 600;
+        font-size: 32/@rem;
+        width: 243/@rem;
+        line-height: 75/@rem;
+        height: 75/@rem;
+        margin: 40/@rem auto;
+        display: block;
+        outline: none;
+        border: 0;
+        border-radius: 10/@rem;
+        color: #fff;
+    }
+    .shareAppPage button:nth-child(1) {
+        float: left;
+        background: #2294ff;
+        box-shadow: 0/@rem 6/@rem 0/@rem #2d7134;
+    }
+    .shareAppPage button:nth-child(2) {
+        float: right;
+        background: #23c032;
+        box-shadow: 0/@rem 6/@rem 0/@rem #2d7134;
+    }
+}
+//查看好友手气，活动细则标题
+.content{
+    .comShowTitle {
+    width: 628/@rem;
+    height: 27/@rem;
+    margin: 0 auto;
+    position: relative;
+    background: #007AFF;
+    margin-top: 43/@rem;
+    margin-bottom: 30/@rem;
+    .comShowDesc{
+        text-align: center;
+        line-height: 27/@rem;
+        width: 224/@rem;
+        margin: 0 auto;
+        font-size: 28/@rem;
+    }
+    .t_left{
+        width: 140/@rem;
+        height: 27/@rem;
+        line-height: 27/@rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 4/@rem;
+        padding-top: 13/@rem;
+        box-sizing: border-box;
+        background: #23C032;
+        .LineDot{
+            display: block;
+            width: 122/@rem;
+            height: 1/@rem;
+            float: left;
+            background: #522504;
+        }
+        .leftLineDot{
+            position: absolute;
+            top: 8/@rem;
+            right: 0;
+            display: block;
+            background: #522504;
+        }
+    }
+    .t_right{
+        padding-left: 4/@rem;
+        padding-top: 13/@rem;
+        box-sizing: border-box;
+        width: 140/@rem;
+        height: 27/@rem;
+        line-height: 27/@rem;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #23C032;
+        .LineDot{
+            display: block;
+            width: 122/@rem;
+            height: 1/@rem;
+            float: right;
+            background: #522504;
+        }
+        .rightLineDot{
+            background: #522504;
+            position: absolute;
+            left: 0;
+            top: 8/@rem;
+            display: block;
+        }
+    }
+}
+}
+//查看好友手气列表
+.friHbShow {
+    width: 628/@rem;
+    overflow: hidden;
+    font-size: 28/@rem;
+    border-bottom: 1/@rem dashed #522504;
+    margin: 0 auto;
+    .userFriAvatat {
+        width: 81%;
+        overflow: hidden;
+        float: left;
+//      background: #31ADE4;
+        padding: 11/@rem 0;
+        img{
+            width: 69/@rem;
+            height: 69/@rem;
+            float: left;
+            border-radius: 50/@rem;  
+        }
+        .userFriInf {
+            float: left;
+            margin-left: 8/@rem;
+            width: 80%;
+//          margin-bottom: 27/@rem;
+            strong{
+                font-size: 20/@rem;
+                color: #522504;
+                line-height: 14/@rem;
+            }
+            p{
+                white-space: nowrap;
+                font-size: 20/@rem;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                width: 100%;
+                color: #522504;
+                line-height: 35/@rem;
+//              margin-top: 14/@rem;
+            }
+        }
+    }
+    .userFriInf_wrap {
+        width: 18%;
+        float: right;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin: 18/@rem 0;
+        .userFriHbValue_wrap {
+            width: 100%;
+            height: 62/@rem;
+            float: right;
+            background: url(../images/act_16phubber_couponIcon.png) 0 0 no-repeat;
+            background-size: 100% 100%;
+//          overflow: hidden;
+            .userFriHbValue {
+                font-size: 40/@rem;
+                line-height: 62/@rem;
+                color: #fff;
+                text-align: center;
+                display: block;
+//              margin: 0 auto;
+                position: relative;
+                margin-left: -36/@rem;
+//              margin-left: -20.5px;
+                span{
+                  font-size: 35/@rem;  
+                  position: absolute;
+                }
+            }
+        }
+    }
+}
+
+//活动规则
+.activeRuleShowWrap {
+    padding-top: 0.484375rem;
+    padding-bottom: 100/@rem;
+    .comShowTitle {
+    width: 628/@rem;
+    height: 27/@rem;
+    margin: 0 auto;
+    position: relative;
+    background: #007AFF;
+    margin-top: 43/@rem;
+    margin-bottom: 30/@rem;
+    .comShowDesc{
+        text-align: center;
+        line-height: 27/@rem;
+        width: 224/@rem;
+        margin: 0 auto;
+        font-size: 28/@rem;
+    }
+    .t_left{
+        width: 160/@rem;
+        height: 27/@rem;
+        line-height: 27/@rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-right: 4/@rem;
+        padding-top: 12/@rem;
+        box-sizing: border-box;
+        background: #23C032;
+        .LineDot{
+            display: block;
+            width: 122/@rem;
+            height: 1/@rem;
+            float: left;
+            background: #522504;
+        }
+        .leftLineDot{
+            position: absolute;
+            top: 8/@rem;
+            right: 0;
+            display: block;
+            background: #522504;
+        }
+    }
+    .t_right{
+        padding-left: 4/@rem;
+        padding-top: 13/@rem;
+        box-sizing: border-box;
+        width: 140/@rem;
+        height: 27/@rem;
+        line-height: 27/@rem;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: #23C032;
+        .LineDot{
+            display: block;
+            width: 122/@rem;
+            height: 1/@rem;
+            float: right;
+            background: #522504;
+        }
+        .rightLineDot{
+            background: #522504;
+            position: absolute;
+            left: 0;
+            top: 8/@rem;
+            display: block;
+        }
+    }
+}
+    .activeRuleShow {
+        width: 628/@rem;
+        margin: 0 auto;
+        color: #522504;
+        line-height: 60/@rem;
+        font-size: 26/@rem;
+    }
+}
+.receiveResult {
+    font-size: 28/@rem;
+    color: #000;
+    text-align: center;
+}
+.getHbnNum, .has_over{
+    width: 500/@rem;
+    margin: 47/@rem auto 18/@rem;
+    overflow: hidden;
+    img{
+      width: 100%;  
+    }
+}
+.commUsebtn {
+    width: 520/@rem;
+    margin: 0 auto;
+//  overflow: hidden;
+    button{
+        font-weight: 600;
+        font-size: 34/@rem;
+        width: 244/@rem;
+        line-height: 69/@rem;
+        height: 75/@rem;
+        margin: 0 auto;
+        display: block;
+        outline: none;
+        border: 0;
+        border-radius:50/@rem;
+//      padding: 8/@rem 0;
+    }
+    .use_btn {
+        color: #fff;
+        float: left;
+        background: #2294ff;
+        box-shadow: 0px 6/@rem 0px #4266a3;
+       
+    }
+
+    .shareFri {
+        color: #fff;
+        float: right;
+        
+         background: #23c032;
+        box-shadow: 0px 6/@rem 0px #2d7134;
+    }
+}
+/*分享遮罩样式*/
+#shareshade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(50, 50, 50, .8);
+    z-index: 9999;
+    display: none;
+}
+.promptDiv {
+    position: absolute;
+    left: 0/@rem;
+    top: 0/@rem;
+    width: 180/@rem;
+    height: 90/@rem;
+    z-index: 99;
+    display: none;
+}
+.promptDiv .opDiv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none repeat scroll 0 0 #333;
+    opacity: 0.5;
+    border-radius: 10/@rem;
+}
+.promptDiv .promptContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.promptDiv img {
+    display: block;
+    margin: 12/@rem auto 10/@rem;
+    width: 45/@rem;
+    height: 45/@rem;
+}
+.promptDiv .title {
+    text-align: center;
+    color: #fff;
+    font-size: 24/@rem;
+}

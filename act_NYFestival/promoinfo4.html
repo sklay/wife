@@ -1,0 +1,144 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>促销页面</title>
+<link rel="stylesheet" href="style/main_wechat.css" />
+<script src="js/jquery-1.9.0.min.js"></script>
+<script src="js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+  <script type="text/javascript" charset="utf-8">
+        /*为REM单位支持适应的js*/
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc    = function () {
+                        var clientWidth = docEl.clientWidth;
+                        /*if (clientWidth>=640) {
+                         clientWidth = 640;
+                         };*/
+                        if (!clientWidth) return;
+                        docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                    };
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+</head>
+<style>
+html{font-size:62.5%}
+body{font-size:10px;font-size:.1rem;}
+.content{overflow:hidden;padding-bottom:25px;}
+.content .topArea{width:100%;padding:0;}
+.content .topArea img{width:100%;display:block;}
+.content .promoContent{width:100%;height:100%;font-size:12px;}
+.content .promoContent .promoList{width:100%;height:100%;}
+.content .promoContent .promoList .promoTitle{width:100%; margin-bottom: -2px;}
+.content .promoContent .promoList .promoTitle img{width:100%;float: left;}
+.content .promoContent .promoList .promoItemList{/* width:100%; */font-size:0; padding: 0px 3px;}
+.content .promoContent .promoList .promoItemList .pItem{width:50%;/* height:4.3rem; */overflow:hidden;margin-bottom:6px;display:inline-block;font-size:0;float:left;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv{/* width:90%; */margin:0 3px;background:#fff;padding:10px 0px 2px;/* border-radius:5px; */}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemIcon{display:block;width:80%;height:2.3rem;margin:0 auto;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemName{display:block;line-height:18px;height:18px;width:85%;margin:10px auto 0px auto;font-size:13px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .standard{display:block;width:85%;margin:0px auto 0px auto;height:18px;line-height:18px;font-size:12px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice{display:block;width:85%;height:46px;margin:0 auto;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .tj_price{font-size:14px;line-height:20px;height:20px;font-weight:bold; color:red;margin-right:15px;}
+.content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price{font-size:12px;line-height:16px;height:16px;color:#ddd;text-decoration: line-through;}
+.content .promoContent .promoList .promoItemList .pItem .gwc{position: absolute;width: 49%;}
+.content .promoContent .promoList .promoItemList .pItem .gwc img{width: 38px;float: right;margin-right: 10px;}
+
+    
+</style>
+
+<body>
+	<div class="content">
+		<div class="promoContent">
+			<c:forEach items="${subList }" var="actiObj">
+				<div class="promoList">
+					<div class="promoTitle">
+						<c:if test="${not empty actiObj.imgUrl}">
+							<img src="${actiObj.imgUrl}">
+						</c:if>
+					</div>
+					<div class="promoItemList">
+						<c:forEach items="${actiObj.arr }" var="actiItem" varStatus="st">
+						<c:choose><c:when test="${st.last && st.index % 2 == 0  }"></c:when>
+						<c:otherwise>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)" onclick="showDrugDetails(${actiItem.skuId })">
+									<img class="itemIcon" alt="" src="${actiItem.picPath}@!ys300">
+									</a>
+									<div class="itemName">${actiItem.prodName }</div>
+									<div class="standard">${actiItem.standard }</div>
+									<div class="gwc" onclick="addShopping(${actiItem.skuId })">
+									  	<img src="http://imgstore.camore.cn/icon/act_dir/gouwuche.png" style="width:38px;">
+									</div>
+									<div class="itemPrice">
+										<span class="tj_price">特价：${actiItem.price/100}</span><br>
+										<c:if test="${actiItem.price != actiItem.costPrice}">
+											<span class="yj_price" >原价：${actiItem.costPrice/100 }</span>
+										</c:if>
+									</div>
+								</div>
+							</div>
+						</c:otherwise>
+						</c:choose>
+						</c:forEach> 
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+</body>
+<script>
+$(function(){
+	$(".content").css("background","${current.remark}");
+	document.title = '${current.dirName }';
+});
+
+function is_weixin(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/*跳转到商品列表页*/
+function showDrugList(category_id, category_name){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/products?categoryId=" + category_id;
+	} else {
+		camore.showDrugList(category_id, category_name);
+	}
+}
+
+/*跳转到商品详情页*/
+function showDrugDetails(drug_id){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/details?skuId=" + drug_id;
+	} else {
+		camore.showDrugDetails(drug_id);
+	}
+}
+
+/*加入购物车*/
+function addShopping(drug_id){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/details?skuId=" + drug_id;
+	} else {
+		camore.addShopping(drug_id);
+	}
+}
+
+</script>
+</html>

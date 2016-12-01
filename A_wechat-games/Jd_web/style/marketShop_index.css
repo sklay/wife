@@ -1,0 +1,253 @@
+/*商家列表*/
+.y {
+    margin-top: 10px;
+}
+
+.a6 {
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    font-size: 0;
+}
+.index-act-wrap .cake{
+	background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 6px;
+    font-size: 0;
+}
+.index-act-wrap .cake li{
+	width: 33%;
+    text-align: center;
+    height: 134px;
+    font-size: 15px;
+    color: #333;
+    font-weight: 700;
+    background-color: #fff;
+    margin-left: 0;
+    vertical-align: top;
+    position: relative;
+    display: inline-block;
+}
+.index-act-wrap .cake li::before {
+    height: 100%;
+    content: '';
+    width: 0;
+    border-right: 0;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+}
+.index-act-wrap .cake li a{
+	padding-right: 0;
+    text-align: center;
+    display: block;
+    height: 100%;
+    position: relative;
+    line-height: 24px;
+}
+.index-act-wrap .cake li a em{
+	color: #333;
+	    display: block;
+    font-size: 15px;
+    padding-top: 21px;
+    line-height: 15px;
+    height: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-left: 0;
+}
+.index-act-wrap .cake li a span{
+	color: #686868;
+	display: block;
+    font-size: 12px;
+    height: 22px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 0;
+}
+.index-act-wrap .cake li img{
+	position: static;
+	width: 60px;
+    height: 60px;
+    margin-top: 5px;
+    border-radius: 60px;
+    right: 10px;
+    top: 7px;
+}
+/*.a6.actcount6 li {
+    background-color: #fff;
+    width: 49.5%;
+    margin-left: 0;
+    font-size: 0;
+}*/
+
+.a6 li {
+    display: inline-block;
+    width: 49.5%;
+    height: 68px;
+    vertical-align: top;
+    position: relative;
+}
+
+.da:nth-child(2n+1)::before {
+    height: 100%;
+    content: '';
+    width: 1px;
+    border-right: 1px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: -1px;
+    transform: scaleX(0.5);
+    -webkit-transform: scaleX(0.5);
+}
+
+.a6.actcount6 li.sequence0 a, .a6.actcount6 li.sequence2 a, .a6.actcount6 li.sequence4 a {
+    border-right: 2px solid #F3F6F4;
+}
+
+.a6.actcount6 li a {
+    border-bottom: 2px solid #F3F6F4;
+}
+
+.a6 li a {
+    display: block;
+    height: 100%;
+    position: relative;
+    padding-right: 70px;
+    line-height: 24px;
+    text-align: left;
+    z-index: 6;
+}
+
+.a6 li a em {
+    display: block;
+    color: #39ac69;
+    font-size: 15px;
+    padding-top: 21px;
+    padding-left: 10px;
+    line-height: 15px;
+    height: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.a6 li a span {
+    display: block;
+    font-size: 12px;
+    height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+.a6 li span {
+    color: #999;
+}
+
+.a6.actcount6 li a img {
+    top: 12px;
+    width: 50px;
+    height: 50px;
+}
+
+.a6 li a img {
+    position: absolute;
+    right: 10px;
+    top: 7px;
+    width: 55px;
+    height: 55px;
+}
+
+.u::after {
+    height: 1px;
+    content: '';
+    width: 100%;
+    border-top: 2px solid #e8e8e8;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scaleY(0.5);
+    -webkit-transform: scaleY(0.5);
+    z-index: 10;
+}
+
+
+/*左边导航*/
+.zp {
+    position: fixed;
+    z-index: 1000;
+    right: 0;
+    bottom: 60px;
+    width: 36px;
+    height: 36px;
+    background: rgba(0,0,0,0.8) url(//static-o2o.360buyimg.com/daojia/new/images/icon/pdj_2_sprites.png) -223px -357px no-repeat;
+    background-size: 320px auto;
+    border: 1px solid #757575;
+    border-radius: 4px 0 0 4px;
+}
+
+.zq {
+    display: none;
+    position: absolute;
+    right: -1px;
+    bottom: 42px;
+    width: 95px;
+    border: 1px solid #757575;
+    background: rgba(0,0,0,0.8);
+}
+
+.zq a {
+    display: block;
+    padding-left: 38px;
+    border-bottom: 1px solid #4b4b4b;
+    line-height: 35px;
+    height: 35px;
+    color: #fff;
+    background-image: url(//static-o2o.360buyimg.com/daojia/new/images/icon/bmenu.png);
+    background-repeat: no-repeat;
+    background-size: 16px 300px;
+}
+.zr {
+    background-position: 10px 0;
+}
+
+.zs {
+    background-position: 10px -50px;
+}
+
+.zt {
+    background-position: 10px -100px;
+}
+
+.zu {
+    background-position: 10px -150px;
+}
+
+.zv {
+    background-position: 10px -200px;
+}
+
+.zw {
+    background-position: 10px -250px;
+    border: none;
+}
+
+.zx {
+    position: absolute;
+    bottom: -12px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    z-index: 15;
+    border-width: 6px;
+    border-color: rgba(0,0,0,0.8) transparent transparent transparent;
+    border-style: solid;
+}

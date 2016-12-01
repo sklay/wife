@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<iframe name="demoIframe" style="display:none" id="resultContent"></iframe>
+<form action="/spoa/updatePersonal.do" class="form-horizontal" enctype="multipart/form-data" method="post" target="demoIframe">
+    <input class="filename" type="file" name="file">
+    <input type="hidden" id="employID" value="103" name="id" />
+    <input type="submit" value="提交">
+</form>
+<script src="js/jquery-1.10.2.min.js"></script>
+ 
+<script>
+$("iframe").on("load", function() {
+    var responseText = $("iframe")[0].contentDocument.body.textContent;
+    var responseData = JSON.parse(responseText) || {};
+    console.debug(responseData);
+    if (responseData.result=="修改成功") {
+    	window.location.reload();
+    } else {
+        alert("修改失败");
+    }
+});
+</script> 
+
+
+
+
+
+
+
+</body>
+</html>

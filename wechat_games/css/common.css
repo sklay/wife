@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+}
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+input {
+  -webkit-appearance: none;
+}
+li {
+  list-style-type: none;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: #f5f8f9;
+}
+.header {
+  position: absolute;
+  width: 100%;
+  height: 1.17333333rem;
+  background-color: #3399ea;
+  padding: 0.32rem 0.26666667rem 0.32rem 0.21333333rem;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+.header .house {
+  display: block;
+  width: 0.53333333rem;
+  height: 0.53333333rem;
+  background: url("../img/house.png") no-repeat center center;
+  background-size: 0.53333333rem 0.53333333rem;
+  float: left;
+}
+.header .logo {
+  float: left;
+  display: block;
+  width: 2.4rem;
+  height: 0.53333333rem;
+  margin-left: 3rem;
+  margin-right: 1.6rem;
+  background: url("../img/logo.png") no-repeat;
+  background-size: 2.4rem 0.53333333rem;
+}
+.header .tel {
+  float: right;
+  width: 1.86666667rem;
+  height: 0.53333333rem;
+  font-size: 0.26666667rem;
+  color: #ffffff;
+}
+nav {
+  box-sizing: border-box;
+  margin-top: 1.17333333rem;
+  width: 100%;
+  height: 1.06666667rem;
+  background-color: #ffffff;
+}
+nav > ul {
+  width: 100%;
+  height: 1.06666667rem;
+}
+nav > ul li {
+  width: 20%;
+  height: 1.06666667rem;
+  float: left;
+}
+nav > ul li a {
+  display: block;
+  width: 100%;
+  height: 1.06666667rem;
+  font-size: 0.32rem;
+  color: #2d2d2d;
+  line-height: 1.06666667rem;
+  text-align: center;
+}
+.contact {
+  height: 3.89333333rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  padding: 0 0.21333333rem 0.13333333rem;
+  margin-bottom: 1.28rem;
+}
+.contact .title {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0.85333333rem;
+  font-size: 0.34666667rem;
+  color: #3399ea;
+  line-height: 0.85333333rem;
+}
+.contact div {
+  width: 100%;
+  height: 2.88rem;
+  border-bottom: 1px solid #F0F0F0;
+}
+.contact div .img {
+  float: left;
+  box-sizing: border-box;
+  width: 2.45333333rem;
+  height: 2.88rem;
+  text-align: center;
+  padding: 0.32rem 0;
+}
+.contact div .img img {
+  height: 2.24rem;
+}
+.contact div .detail {
+  float: right;
+  width: 6.66666667rem;
+  height: 2.26666667rem;
+  padding: 0.32rem 0 0.32rem 0.26666667rem;
+}
+.contact div .detail p {
+  width: 100%;
+  font-size: 0.29333333rem;
+  height: 0.56rem;
+  line-height: 0.56rem;
+  color: #2d2d2d;
+}
+.footer {
+  position: absolute;
+  height: 1.25333333rem;
+  width: 100%;
+  background: #FFFFFF;
+  border-top: 0.02666667rem solid #f0f0f0;
+  bottom: 0;
+  left: 0;
+}
+.footer ul {
+  width: 100%;
+}
+.footer ul li a {
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  width: 25%;
+  height: 1.25333333rem;
+  border-right: 0.02666667rem solid #f0f0f0;
+  padding: 0.10666667rem 0;
+}
+.footer ul li a .img {
+  width: 100%;
+  height: 0.61333333rem;
+  text-align: center;
+}
+.footer ul li a .img img {
+  display: block;
+  height: 0.61333333rem;
+  margin: 0 auto;
+  width: 0.53333333rem;
+}
+.footer ul li a p {
+  font-size: 0.29333333rem;
+  color: #a8a8a8;
+  text-align: center;
+}
+.footer ul li:nth-child(4) a {
+  border-right: none;
+}

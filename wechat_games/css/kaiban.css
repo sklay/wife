@@ -1,0 +1,43 @@
+nav {
+  margin-bottom: 0.32rem;
+}
+section div {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 0.32rem;
+  margin-bottom: 0.32rem;
+  border-top: 0.01333333rem solid #f0f0f0;
+  border-bottom: 0.01333333rem solid #f0f0f0;
+  background: #FFFFFF;
+}
+section div .title {
+  height: 0.96rem;
+  border-bottom: 0.01333333rem solid #f0f0f0;
+  font-size: 0.32rem;
+  color: #3399ea;
+  line-height: 0.96rem;
+}
+section div table {
+  width: 100%;
+}
+section div table tr {
+  height: 1.06666667rem;
+}
+section div table tr td {
+  font-size: 0.29333333rem;
+  color: #999999;
+  line-height: 1.06666667rem;
+  text-align: center;
+}
+section div table tr td:nth-child(3) {
+  color: #ff99a0;
+}
+section div table tr td:nth-child(4) a {
+  color: #3399ea;
+  display: inline-block;
+  width: 1.33333333rem;
+  height: 0.45333333rem;
+  line-height: 0.45333333rem;
+  border: 0.01333333rem solid #f0f0f0;
+  margin: 0.30666667rem auto;
+}

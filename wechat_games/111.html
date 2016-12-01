@@ -1,0 +1,1659 @@
+
+
+
+<!doctype html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/promoinfo4.css" media="screen and (min-width:320px)">
+<title>Insert title here</title>
+<script src="js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="js/jquery.nicescroll.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+jQuery(function(){
+	/* jQuery('body').niceScroll({cursorborder: '',cursorcolor: '#999'}); */
+	
+	/* jQuery(window).bind('resize scroll',function(){
+		jQuery('.navigation').trigger('adapter');
+		jQuery('.promotions .promotion_img').trigger('adapter');
+		jQuery('.promotions .scroll_wrapper .wrapper').trigger('adapter');
+	}).trigger('resize'); */
+	
+	jQuery('.category .arrow').bind('click',function(){
+		var close=jQuery(this).is('.close');
+		var mask=jQuery('.mask');
+		var innerLayer=jQuery('.innerLayer');
+		if(!close){
+			mask.css({
+				left:0,
+				top:jQuery(this).offset().top+jQuery(this).height()
+			}).slideDown();
+			innerLayer.css({
+				height:jQuery('.promotion').outerHeight(),
+				top:jQuery('.promotion').offset().top
+			}).show();
+		}else{
+			mask.slideUp();
+			innerLayer.hide();
+		}
+		
+		jQuery(this).toggleClass('close');
+	})
+	
+	jQuery('.category li').bind('click',function(){
+		jQuery(this).addClass('selected').siblings().removeClass('selected');
+		var left=jQuery(this).position().left;
+		if(left>jQuery(window).width()/2){
+			left=jQuery(this).prev().position().left;
+			jQuery('.category ul').animate({left:-left+'px'});
+		}else{
+		    jQuery('.category ul').animate({left:'0px'});
+		}
+		var index=jQuery(this).index();
+		jQuery('.mask li').eq(index).addClass('selected').siblings().removeClass('selected');
+		
+		/* 数据 */
+		var dirId = jQuery(this).attr("data");
+		showItem(dirId);
+		
+	})
+	
+	jQuery('.mask li').bind('click',function(){
+		jQuery(this).addClass('selected').siblings().removeClass('selected');
+		var index=jQuery(this).index();
+		jQuery('.category li').eq(index).addClass('selected').siblings().removeClass('selected');
+		var width=jQuery('.category .left').width();
+		var li=jQuery('.category li').eq(index);
+		var left=li.position().left;
+		if(left>jQuery(window).width()/2){
+			left=jQuery('.category ul li').eq(index-1).position().left;
+			jQuery('.category ul').animate({left:-left+'px'});
+		}else{
+		   jQuery('.category ul').animate({left:'0px'});
+		}
+		jQuery('.mask').slideUp();
+		jQuery('.category .arrow').toggleClass('close');
+		var innerLayer=jQuery('.innerLayer');
+		innerLayer.hide();
+		/* 数据 */
+		var dirId = jQuery(this).attr("data");
+		showItem(dirId);
+	})
+	
+	jQuery('.input :text').bind('focus',function(){
+		jQuery(this).val('').removeClass('empty');
+	}).bind('blur',function(){
+		var val=jQuery.trim(jQuery(this).val());
+		if(!val || val==jQuery(this).attr('empty')){
+			jQuery(this).val(jQuery(this).attr('empty')).addClass('empty');
+		}
+		
+	})
+	
+	$(".contentBody").css("background","#ff2b2d");
+	document.title = '南小街店1元目录';
+	
+	if (is_weixin()) {
+		$(".container .navigation").hide();
+	} 
+	
+});
+
+
+function showItem(dirId) {
+	if (!dirId || dirId < 1) {
+		$(".promotion .promoList").show();
+	} else {
+		$(".promotion .promoList").hide();
+		$("#dirItem_"+dirId).show();
+	}
+}
+
+
+
+function is_weixin(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/*跳转到商品列表页*/
+function showDrugList(category_id, category_name){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/products?categoryId=" + category_id;
+	} else {
+		camore.showDrugList(category_id, category_name);
+	}
+}
+
+/*跳转到商品详情页*/
+function showDrugDetails(drug_id){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/details?skuId=" + drug_id;
+	} else {
+		camore.showDrugDetails(drug_id);
+	}
+}
+
+/*加入购物车*/
+function addShopping(drug_id){
+	if (is_weixin()) {
+		location.href="/weixin/wechat/details?skuId=" + drug_id;
+	} else {
+		camore.addShopping(drug_id);
+	}
+}
+
+
+function tosearch() {
+	gotoPage({"message":"搜索", "type": "5"});
+}
+
+/*跳转到搜索页*/
+function gotoPage(json){
+	if (is_weixin()) {
+		
+	} else {
+		try {
+			var s = JSON.stringify(json);
+			camore.gotoPage(s);
+		} catch (e) {
+			console.log(e);
+		}
+		
+	}
+}
+
+
+
+</script>
+<style>
+.contentBody{overflow:hidden;padding-bottom:25px;  background-color: #ff2b2d;}
+.contentBody .topArea{width:100%;padding:0;}
+.contentBody .topArea img{width:100%;display:block;}
+.contentBody .promotion{width:100%;height:100%;font-size:12px;}
+.contentBody .promotion .promoList{width:100%;height:100%;}
+.contentBody .promotion .promoList .promoTitle{width:100%; margin-bottom: -2px;}
+.contentBody .promotion .promoList .promoTitle img{width:100%;float: left;}
+.contentBody .promotion .promoList .promoItemList{/* width:100%; */font-size:0; padding: 0px 3px;}
+.contentBody .promotion .promoList .promoItemList .pItem{width:50%;/* height:4.3rem; */overflow:hidden;margin-bottom:6px;display:inline-block;font-size:0;float:left;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv{/* width:90%; */margin:0 3px;background:#fff;padding:0px 0px 2px;/* border-radius:5px; */}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .itemIcon{display:block;width:100%;/* height:2.3rem; */margin:0 auto;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .itemName{display:block;line-height:18px;height:18px;width:85%;margin:10px auto 0px auto;font-size:14px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .standard{display:block;width:85%;margin:0px auto 0px auto;height:18px;line-height:18px;font-size:12px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .itemPrice{display:block;width:85%;height:46px;margin:0 auto;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .itemPrice .tj_price{font-size:14px;line-height:20px;height:20px;font-weight:bold; color:red;margin-right:15px;}
+.contentBody .promotion .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price{font-size:12px;line-height:16px;height:16px;color:#ddd;text-decoration: line-through;}
+.contentBody .promotion .promoList .promoItemList .pItem .gwc{position: absolute;width: 49%; margin-top: 20px;}
+.contentBody .promotion .promoList .promoItemList .pItem .gwc img{width: 38px;float: right;margin-right: 10px;}
+
+    
+</style>
+</head>
+<body>
+   <div class="container">
+      <!-- <div class="title">
+        <div class="left"></div>
+        <div class="center">促销活动</div>
+        <div class="car"></div>
+      </div> -->
+      
+      <div class="navigation">
+        <div class="home">
+        	<img alt="首页" src="images/home.png" style="width:24px;">
+           <div class="text">首页</div>
+        </div>
+        <div class="input" onclick="tosearch()">
+           <!-- <div class="search"></div> -->
+           <img alt="搜商品" src="images/search.png" style="position: absolute;top: 6px;left: 6px;width: 20px">
+           <input type="text" value="搜索商品" class="empty" empty="搜索商品" disabled="disabled"/>
+        </div>
+        <div class="city">
+           <div class="city_address">北京</div> <div class="city_open"></div>
+        </div>
+      </div>
+      
+      <div class="category">
+         <div class="left" style="position: relative;">
+           <ul style="position: absolute;">
+             <!-- <li class="selected"><div class="mark"></div><div class="text">视力保护</div></li>
+             <li><div class="mark"></div><div class="text">视力保护</div></li>
+             <li><div class="mark"></div><div class="text">脑力智力</div></li>
+             <li><div class="mark"></div><div class="text">脑力智力</div></li>
+             <li><div class="mark"></div><div class="text">健康好活力</div></li>
+             <li><div class="mark"></div><div class="text">健康好活力</div></li> -->
+             
+             <li class="selected"><div class="mark"></div><div class="text">全部</div></li>
+             
+				<li data="1938072">
+					<div class="mark"></div><div class="text">家中常备药</div>
+				</li>
+			  
+				<li data="1938073">
+					<div class="mark"></div><div class="text">个人护理</div>
+				</li>
+			  
+				<li data="1938074">
+					<div class="mark"></div><div class="text">健康防护</div>
+				</li>
+			  
+				<li data="1938075">
+					<div class="mark"></div><div class="text">服药助理</div>
+				</li>
+			  
+				<li data="1938076">
+					<div class="mark"></div><div class="text">休闲零食</div>
+				</li>
+			  
+             
+           </ul>
+         </div>
+         <div class="arrow"></div>
+      </div>
+
+	  <div class="mask">
+	      <ul>
+	         <li class="selected"><div class="mark"></div><div class="text" id="dir_all">全部</div></li>
+	         
+				<li data="1938072">
+					<div class="mark"></div><div class="text">家中常备药</div>
+				</li>
+			 
+				<li data="1938073">
+					<div class="mark"></div><div class="text">个人护理</div>
+				</li>
+			 
+				<li data="1938074">
+					<div class="mark"></div><div class="text">健康防护</div>
+				</li>
+			 
+				<li data="1938075">
+					<div class="mark"></div><div class="text">服药助理</div>
+				</li>
+			 
+				<li data="1938076">
+					<div class="mark"></div><div class="text">休闲零食</div>
+				</li>
+			 
+	      </ul>
+	   </div>
+      
+      <div class="contentBody">
+	      	<div class="topArea">
+				<a href="javascript:void(0)" onclick="showDrugList('1938071', '南小街店1元目录')">
+				<img alt="" src="http://imgstore.camore.cn/icon/dir/ykd21021003act160300.jpg" onclick="showDrugList('1938071', '南小街店1元目录')">
+				</a>
+			</div>
+         	<div class="promotion">
+			
+				<div class="promoList" id="dirItem_1938072">
+					<div class="promoTitle">
+						
+							<img src="http://imgstore.camore.cn/icon/dir/ykd21021003act160301.jpg">
+						
+						
+						
+						
+						
+					</div>
+					<div class="promoItemList">
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003232')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/101926_410189.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003232')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">999 感冒灵颗粒</div>
+										<div class="standard">10g*9袋</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：15.82</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003233')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/150372_410191.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003233')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">白云山 复方板蓝根颗粒</div>
+										<div class="standard">15g*20袋</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：17.9</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003234')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/101177_410435.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003234')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">广西 金嗓子喉片</div>
+										<div class="standard">2g*12片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：6.2</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003235')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310062_410193.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003235')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">同仁堂 大山楂丸 2盒装</div>
+										<div class="standard">9g*10丸*2盒</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：14.6</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003236')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310063_410194.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003236')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">江中  健胃消食片（成人） 2盒装</div>
+										<div class="standard">0.8g*32片*2盒</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：15.6</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003237')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/101310_410195.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003237')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">葵花 小儿氨酚烷胺颗粒</div>
+										<div class="standard">6g*12袋</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：13.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003238')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310064_410196.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003238')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">江中  健胃消食片（儿童） 2盒装</div>
+										<div class="standard">0.5g*36粒*2盒</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：15.6</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003239')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102217_410197.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003239')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">钙尔奇D 碳酸钙D3咀嚼片II</div>
+										<div class="standard">300mg*30片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：32.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003240')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/186028_410198.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003240')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">京都念慈菴 蜜炼川贝枇杷膏</div>
+										<div class="standard">150ml/瓶</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：23.2</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003242')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/120250_410200.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003242')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">美林 布洛芬混悬液</div>
+										<div class="standard">100毫升</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：19.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003243')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/305382_410201.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003243')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">京都 京都念慈庵枇杷糖</div>
+										<div class="standard">2.5g*18粒</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：14.8</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003244')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/100417_410202.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003244')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">复方牛黄酸滴眼液</div>
+										<div class="standard">13m1</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：13.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003245')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/101818_410203.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003245')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">新乐敦 复方门冬维甘滴眼液</div>
+										<div class="standard">13ml</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：16.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003246')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/133245_410204.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003246')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">云南白药 云南白药创可贴</div>
+										<div class="standard">（轻巧透气型）1.5cm*2.3cm*100片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：17.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003247')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/120263_410206.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003247')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">同仁堂 牛黄解毒片</div>
+										<div class="standard">10片*12板</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：15.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003248')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102411_410205.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003248')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">柏维康维生素C泡腾片(香橙味)</div>
+										<div class="standard">4g*20片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：28.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003249')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102413_410207.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003249')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">柏维康维生素C泡腾片(水蜜桃味)</div>
+										<div class="standard">4g*20片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：28.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003250')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ty/20/BBB_5020.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003250')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">江中 乳酸菌素片</div>
+										<div class="standard">0.4g*32片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：19.9</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+						
+						 
+					</div>
+				</div>
+			
+				<div class="promoList" id="dirItem_1938073">
+					<div class="promoTitle">
+						
+							<img src="http://imgstore.camore.cn/icon/dir/ykd21021003act160304.jpg">
+						
+						
+						
+							<a href="javascript:void(0)" onclick="showDrugDetails('20003151')" > 
+								
+								
+									<img alt="" src="images/20161102_5-1.jpg" style="margin-bottom: 5px;">
+								
+								
+								
+							</a>
+							<a href="javascript:void(0)" onclick="showDrugDetails('20003150')"> 
+								
+								
+									<img alt="" src="images/20161102_5-2.jpg" style="margin-bottom: 5px;">
+								
+								
+								
+							</a>
+							<a href="javascript:void(0)" onclick="showDrugDetails('20003148')" > 
+								
+								
+									<img alt="" src="images/20161102_5-3.jpg" style="margin-bottom: 5px;">
+								
+								
+								
+							</a>
+						
+						
+						
+					</div>
+					<div class="promoItemList">
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003252')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102581_410209.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003252')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">日本小林可贴暖宝宝</div>
+										<div class="standard">5片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：20.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003253')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102394_410210.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003253')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">冰宝贴小林退热贴(婴儿)</div>
+										<div class="standard">40mm*90mm*6片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：29.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003254')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/305346_410416.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003254')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">曼秀雷敦 什果冰润唇膏（青提+葡萄）</div>
+										<div class="standard">3.5g</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：34.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003255')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/120635_410212.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003255')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">曼秀雷敦 曼秀雷敦什果冰润唇膏（苹果)</div>
+										<div class="standard">3.5g</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：20.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+								
+									<div class="itemDiv">
+										<div style="width: 49%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310068_410223.jpg@!ys300">
+										</a>
+										<div class="gwc" style="margin-top: 10px;">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/yishouwan.png" style="width: 78px;">
+										</div>
+										<div class="itemName">曼秀雷敦 护甲润手霜</div>
+										<div class="standard">50g</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price">￥100</span><br>
+											<span class="yj_price" >原价：19.9</span>
+										</div>
+									</div>
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003257')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310069_410224.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003257')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">曼秀雷敦 双效美白润手霜</div>
+										<div class="standard">50g</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：19.9</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003258')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102578_410215.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003258')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">日本小林暖宝宝(暖手)</div>
+										<div class="standard">5片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：24.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003259')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/102389_410216.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003259')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">冰宝贴小林退热贴(成人用)</div>
+										<div class="standard">6片</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：30.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+								
+									<div class="itemDiv">
+										<div style="width: 49%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310065_410217.jpg@!ys300">
+										</a>
+										<div class="gwc" style="margin-top: 10px;">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/yishouwan.png" style="width: 78px;">
+										</div>
+										<div class="itemName">协和 维生素E乳（压泵式）2瓶装</div>
+										<div class="standard">100毫升*2瓶</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price">￥100</span><br>
+											<span class="yj_price" >原价：33.6</span>
+										</div>
+									</div>
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003261')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/235027_410220.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003261')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">康顾多 漱口水（劲爽薄荷）</div>
+										<div class="standard">250ml</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：22.0</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+						
+						 
+					</div>
+				</div>
+			
+				<div class="promoList" id="dirItem_1938074">
+					<div class="promoTitle">
+						
+							<img src="http://imgstore.camore.cn/icon/dir/ykd21021003act160303.jpg">
+						
+						
+							<a href="javascript:void(0)" onclick="showDrugDetails('20003152')" > 
+								
+									
+										<img alt="" src="images/20161102_4-1.jpg" style="margin-bottom: 5px;">
+									
+									
+								
+							</a>
+							<a href="javascript:void(0)" onclick="showDrugDetails('20003153')" > 
+								
+								
+									<img alt="" src="images/20161102_4-2.jpg" style="margin-bottom: 5px;">
+								
+								
+								
+							</a>
+						
+						
+						
+						
+					</div>
+					<div class="promoItemList">
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003263')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310066_410221.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003263')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">3M 9001V(耳带式)带阀口罩 防颗粒物PM2.5</div>
+										<div class="standard">3只装</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：25.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						
+						
+						
+							<div class="pItem">
+								
+								
+									<div class="itemDiv">
+										<div style="width: 46%;position: absolute;">
+											
+												
+													<img style="height: 24px;float: right;margin: 1px 2px 0;" 
+													src="http://imgstore.camore.cn/medstore/images/ic_activity_xian_new.png"/>
+												
+												
+												
+												
+												
+												
+											
+										</div>
+										<a href="javascript:void(0)" onclick="showDrugDetails('20003264')">
+										<img class="itemIcon" alt="" src="http://imgstore.camore.cn/prod_img_ykd/310060_410218.jpg@!ys300">
+										</a>
+										<div class="gwc" onclick="addShopping('20003264')">
+										  	<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png" style="width: 78px;">
+										</div>
+										<div class="itemName">3M 9501(耳带式)KN95防雾霾口罩</div>
+										<div class="standard">3只装</div>
+										
+										<div class="itemPrice">
+											<span class="tj_price"></span><br>
+											<span class="yj_price" >原价：25.5</span>
+										</div>
+									</div>
+								
+								
+								
+							</div>
+						
+						
+						 
+					</div>
+				</div>
+			
+				<div class="promoList" id="dirItem_1938075">
+					<div class="promoTitle">
+						
+							<img src="http://imgstore.camore.cn/icon/dir/ykd21021003act160302.jpg">
+						
+						
+						
+						
+								<a href="javascript:void(0)" onclick="showDrugDetails('20003154')" > 
+									
+									
+									<img alt="" src="images/20161102_3-1.jpg" style="margin-bottom: 5px;">
+									
+									
+									
+								</a>
+								<a href="javascript:void(0)" onclick="showDrugDetails('20003149')" > 
+									
+									
+									<img alt="" src="images/20161102_3-2.jpg" style="margin-bottom: 5px;">
+									
+									
+									
+								</a>
+						
+						
+					</div>
+					<div class="promoItemList">
+						 
+					</div>
+				</div>
+			
+				<div class="promoList" id="dirItem_1938076">
+					<div class="promoTitle">
+						
+							<img src="http://imgstore.camore.cn/icon/dir/ykd21021003act160305.jpg">
+						
+						
+						
+						
+						
+								<a href="javascript:void(0)" onclick="showDrugDetails('20003155')" > 
+									
+									
+									<img alt="" src="images/20161102_6-1.jpg" style="margin-bottom: 5px;">
+									
+									
+									
+								</a>
+						
+					</div>
+					<div class="promoItemList">
+						
+						
+						
+						
+						 
+					</div>
+				</div>
+			
+		</div>
+         
+      </div>
+      
+      
+   
+      <div class="innerLayer"></div>
+   </div>
+   
+   
+</body>
+</html>

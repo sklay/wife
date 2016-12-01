@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Fall Down Ball</title>
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
+</head>
+<body>
+    <canvas id="canvas" width='800' height='800'></canvas>
+    <button id="stop"></button>
+</body>
+<script>
+	var canvas = document.getElementById('canvas');
+	var  ctx = canvas.getContext("2d");
+	var img = new Image(),i = 1;
+    img.crossOrigin = "anonymous";
+    img.src = 'http://s18.mogucdn.com/p2/160804/upload_632bjgig656cech975lk32kebbe53_230x440.png';
+    img.onload = function(){
+           var imgW = img.width, imgH = img.height, posx = 100;
+        setInterval(function(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.translate(posx + imgW/2,imgH/2+i);
+            ctx.rotate(i* Math.PI / 180);
+            ctx.translate(-posx -imgW/2,-imgH/2-i);
+            ctx.drawImage(img, posx, i);
+            ctx.restore();
+            i++;
+
+        },3);
+    }
+    var stop = document.getElementById('stop');
+    stop.onclick= function(){
+    	interval = setInterval(function() {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		ctx.drawImage(img, 0, 0);
+//		ctx.drawImage(sprite.image, sprite.x, sprite.y, playerWidth, playerHeight);
+//		draw();
+		
+	}, 100);
+    }
+</script>
+</html>

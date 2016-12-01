@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>一元促销页面</title>
+		<meta name="description" content="">
+		<meta id="device" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="css/promotions.css" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<!--<script type="text/javascript" src="js/jquery.nicescroll.min.js" ></script>-->
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+		
+		.content .head {
+		   	border-bottom: 1px solid #cdcdcd;
+		}
+		.content .promo_conWrap .pDown {
+			/*border-left: 1px solid #cdcdcd;*/
+		}
+		.content .promo_conWrap .nav{
+			border-right: 1px solid #cdcdcd;
+		}
+		.ac_code_spe{
+			width: 100%;
+			margin: 0 auto;
+			text-align: center;
+			position: fixed;
+			bottom: 0.22463768rem;
+		}
+		
+		
+		.share_wrap button:nth-child(1){
+			float: left;
+		}
+		.share_wrap button:nth-child(2){
+			float: right;
+		}
+	</style>
+	</head>
+	
+	<body>
+		<div class="content clearfix">
+			<!-- 搜索区域 -->
+			<div class="head">
+				<div class="head-l clearfix">
+					<div class="homePage ">
+						<a href="" class="house"></a>
+						<span>首页</span>
+					</div>
+					<div class="search" onclick="tosearch()">
+						<a href="#"> </a> 
+						搜全类商品
+					</div>
+				</div>
+				<div class="address clearfix">
+					<span>北京</span> 
+					<img alt="" src="images/20161102_sortImg.png">
+				</div>
+			</div>
+			<!--内容-->
+			<div class="promo_conWrap">
+				<!--导航区域-->
+				<div class="navContent">
+					<div class="swiper-container nav clearfix" id="swiper-container1">
+						<ul class="swiper-wrapper ul1">
+							<li class="swiper-slide"><i></i>全部</li>
+							<li data="1938072" class="swiper-slide"><i></i>家中常备药</li>
+							<li data="1938073" class="swiper-slide"><i></i>健康防护</li>
+							<li data="1938074" class="swiper-slide"><i></i>个人护理</li>
+							<li data="1938075" class="swiper-slide"><i></i>服药助理</li>
+							<li data="1938076" class="swiper-slide"><i></i>休闲零食</li>
+						</ul>
+						<ul class="ul2" style="display: none;">
+							<li class="">切换楼层</li>
+						</ul>
+						<!-- 如果需要分页器 -->
+						<!--<div class="swiper-pagination"></div>-->
+					</div>
+					<p  class="showDir pDown"><i></i></p>
+				</div>
+				<div class="hideText" style="display: none;">
+					<ul>
+						<li class=""><i></i>全部</li>
+						<li data="1938072" class=""><i></i>家中常备药</li>
+						<li data="1938073" class=""><i></i>健康防护</li>
+						<li data="1938074" class=""><i></i>个人护理</li>
+						<li data="1938075" class=""><i></i>服药助理</li>
+						<li data="1938076" class=""><i></i>休闲零食</li>
+					</ul>
+				</div>
+				<!--标题-->
+				<div class="topArea ">
+					<a href="javascript:void(0)" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+						<img alt="" src="images/20161102_1.jpg" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+					</a>
+				</div>
+				<!--商品详情-->
+				<div class="promoContent">
+					<div id="dirItem_1938072" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161102_2.jpg"/>
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938073" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161102_4.jpg"/>
+							<div class="showProdImg clearfix">
+								<img src="images/20161102_4-1.jpg"/>
+								<img src="images/20161102_4-2.jpg"/>
+							</div>
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938074" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161102_5.jpg"/>
+							<div class="showProdImg clearfix">
+								<img src="images/20161102_5-1.jpg"/>
+								<img src="images/20161102_5-2.jpg"/>
+								<img src="images/20161102_5-3.jpg"/>
+							</div>
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938075" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161102_3.jpg"/>
+							<div class="showProdImg clearfix">
+								<img src="images/20161102_3-1.jpg"/>
+								<img src="images/20161102_3-2.jpg"/>
+							</div>
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161102_6.jpg"/>
+							<div class="showProdImg clearfix">
+								<img src="images/20161102_6-1.jpg"/>
+							</div>
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			 <div class="innerLayer"></div>
+			<div class="brandImg ac_code_spe">
+			<div class="download_wrap " style="display: none">
+				<a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653"> 
+					<button>下载药快到APP</button>
+				</a>
+			</div>
+			<div class="share_wrap clearfix">
+				<button class="shareForFri" style="display:none;">分享给好友</button>
+				<button class="shareForFri_round">分享至朋友圈</button>
+			</div>
+		</div>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			var mySwiper1 = new Swiper('#swiper-container1', {
+//				width:180,
+				slidesPerView : 4,
+//				slidesPerGroup : 4,
+//				history: 'love',
+//				centeredSlides : true,
+//				watchSlidesProgress : true,
+				//设置分页器显示	，pagination默认值为null
+				pagination: '.swiper-pagination',
+				//一定时间自动轮播
+//				autoplay: 2000,
+				//调整轮播速度。默认为300
+				speed: 1000,
+				//设置用户操作swiper之后，是否禁止autoplay。默认值ture:停止。如果设为false,用户操作之后自动切换不会停止
+				autoplayDisableOnInteraction: true,
+				//loop值为ture，设置循环轮播
+//				loop: true,
+
+			});
+//			alert(mySwiper1.slidesPerView);
+//			mySwiper1.slides[2].progress;
+			$('.navContent .pDown').on('click',function(){
+				var close=$(this).is('.close');
+				var hideText=$('.hideText');
+				var innerLayer=$('.innerLayer');
+				if(!close){
+					hideText.css({
+//						left:0,
+//						top:$(this).offset().top+$(this).height()
+					}).slideDown();
+					innerLayer.css({
+						top:$('.promoContent').offset().top
+					}).show();
+					$(".navContent .ul1").hide();
+					$(".navContent .ul2").show();
+				}else{
+					hideText.slideUp();
+					innerLayer.hide();
+					$(".navContent .ul1").show();
+					$(".navContent .ul2").hide();
+				}
+				
+				$(this).toggleClass('close');
+			});
+			
+			$('.navContent li').on('click',function(){
+				$(this).addClass('selected').siblings().removeClass('selected');
+//				var left=($(this).position().left);
+//				for(var i =0;i<=(li.length-1);i++){
+	
+//					$('.navContent ul').animate({left:-left+'px'});
+					var index = $(this).index();
+					mySwiper1.slideTo(Math.floor(index/2), 1000, false);
+					console.debug("navContent " + Math.floor((index+1)/2)) ;
+					/*
+					if(index == 3){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = -(t+t);
+						console.log($(this).index());
+						$(this).parent().transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}else if(index == 2){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = 0;
+						console.log($(this).index());
+						$(this).parent().transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}
+					
+					*/
+//					else if(index == 2){
+//						var r = 0;
+//						var s = 0;
+//						var t = parseInt($(this).css("width")),
+//						s = 0;
+//						console.log($(this).index());
+//						$(this).parent().transform("translate3d(" + s + "px, " + r + "px, 0px)");
+//					}
+					
+//				}
+					
+				
+//				$('.navContent ul').css("transform","translate(0px,"+Height+")");
+//				if(left>$(this).width()/2){
+//					left = ($(this).prev().position().left);
+//					console.log("left的值》》》",$(this).prev().position().left);
+//					$('.navContent ul').animate({left:-left+'px'});
+//				}else{
+//				    $('.navContent ul').animate({left:'0px'});
+//				}
+				var index=$(this).index();
+				$('.hideText li').eq(index).addClass('selected').siblings().removeClass('selected');
+				/* 数据 */
+				var dirId = $(this).attr("data");
+				showItem(dirId);
+		});
+		
+			$('.hideText li').on('click',function(){
+				$(".navContent .ul1").show();
+				$(this).addClass('selected').siblings().removeClass('selected');
+//				$('.navContent li').removeClass('selected');
+				var index=jQuery(this).index();
+				$('.navContent li').eq(index).addClass('selected').siblings().removeClass('selected');
+				var width=$('.navContent .nav ').width();
+				var li=$('.navContent li').eq(index);
+				
+				
+//				var left=li.position().left;
+//				if(left>$(window).width()/2){
+//					left=$('.navContent ul li').eq(index-1).position().left;
+//					
+//					$('.navContent ul').animate({left:-left+'px'});
+//				}else{
+//				   $('.navContent ul').animate({left:'0px'});
+//				}
+//				var r = 0;
+//				t = parseInt($(this).css("width")),
+//				s = -t;
+//				$(this).parent().find(".ul1").transform("translate3d(" + s + "px, " + r + "px, 0px)");
+				var index = $(this).index();
+				
+				mySwiper1.slideTo(Math.floor((index+1)/2), 1000, false);
+				console.debug("hideText " + Math.floor((index+1)/2)) ;
+				/*
+					if(index == 5){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = -(t+t/2);
+						console.log($(this).index());
+						$('.navContent li').parents().find(".ul1").transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}else if(index == 0){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = 0;
+						console.log($(this).index());
+						$('.navContent li').parents().find(".ul1").transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}else if(index == 4){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = -t;
+						console.log($(this).index());
+						$('.navContent li').parents().find(".ul1").transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}else if(index == 1){
+						var r = 0;
+						var s = 0;
+						var t = parseInt($(this).css("width")),
+						s = 0;
+						console.log($(this).index());
+						$('.navContent li').parents().find(".ul1").transform("translate3d(" + s + "px, " + r + "px, 0px)");
+					}
+					
+				*/
+				
+				
+				
+				
+				
+				$('.hideText').slideUp();
+				$('.navContent .pDown').toggleClass('close');
+				var innerLayer=$('.innerLayer');
+				innerLayer.hide();
+				/* 数据 */
+				var dirId = $(this).attr("data");
+				showItem(dirId);
+			});
+			
+			
+			if (subDirId && subDirId.length > 0) {
+				$("#tab_"+subDirId).click();
+			} else {
+				showItem(dirId);
+			}
+		})
+		
+		function showItem(dirId) {
+			if (!dirId || dirId < 1) {
+				$(".promoContent .promoList").show();
+			} else {
+				$(".promoContent .promoList").hide();
+				$("#dirItem_"+dirId).show();
+			}
+		}
+	</script>
+</html>

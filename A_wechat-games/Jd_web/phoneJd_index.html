@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>京东商城</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--公共css-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--<link href="images/pdj.png" rel="shortcut icon bookmark">-->
+		<link href="images/icon.png" rel="shortcut icon bookmark">
+		<link rel="stylesheet" href="style/common.css" />
+		<link rel="stylesheet" href="style/phoneJd_index.css" />
+		<link rel="stylesheet" href="style/footer.css" />
+		<!--轮播图css-->
+		<link rel="stylesheet" href="owl-carousel/owl.carousel.css" />
+		<link rel="stylesheet" href="owl-carousel/owl.theme.css" />
+		<link rel="stylesheet" href="owl-carousel/owl.transitions.css" />
+		<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+		<!--轮播图js-->
+		<script src="owl-carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/mallShop.js" ></script>
+		<script type="text/javascript" src="js/mallShop2.js" ></script>
+		<script type="text/javascript" src="js/util.js" ></script>
+		<style>
+			/*覆盖了owl-carousel 分页器*/
+			
+			.owl-theme .owl-controls {
+				margin-top: -20px;
+				text-align: inherit;
+				float: right;
+			}
+			
+			.owl-theme .owl-controls .owl-page span {
+				display: block;
+				width: 5px;
+				height: 5px;
+				margin: 0 3px;
+				filter: Alpha(Opacity=50);
+				opacity: 0.5;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				border-radius: 20px;
+				background: transparent;
+				border: 2px solid #fff;
+			}
+			
+			.owl-theme .owl-controls .owl-page.active span,
+			.owl-theme .owl-controls.clickable .owl-page:hover span {
+				filter: Alpha(Opacity=50);
+				opacity: 0.5;
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<section>
+				<!--搜索区域-->
+				<div class="search">
+					<a href="#">
+					</a>
+				</div>
+				<!--轮播图-->
+				<div class="img_carousel">
+					<div id="show_works_content" class="owl-carousel owl-theme">
+						<div class="item">
+							<!--<img src="images/1.jpg" alt="">-->
+						</div>
+						<div class="item">
+							<!--<img src="images/2.jpg" alt="">-->
+						</div>
+						<div class="item">
+							<!--<img src="images/3.jpg" alt="">-->
+						</div>
+						<div class="item">
+							<!--<img src="images/4.jpg" alt="">-->
+						</div>
+					</div>
+				</div>
+				<!--定位区域-->
+				<div class="l1">
+					<div class="li">
+						<i class="licon"></i>
+					</div>
+					<div class="lt">
+						<div class="d0 location">
+							<p>朝阳SOHO</p>
+							<i class="cg"></i>
+						</div>
+					</div>
+				</div>
+				<!--商品列表-->
+				<div class="ballNum4">
+					<a href="marketShop_index.html?ball=market">
+					</a>
+					<a href="marketShop_index.html?ball=takeout">
+					</a>
+					<a href="marketShop_index.html?ball=cake">
+					</a>
+					<a href="marketShop_index.html?ball=service">
+					</a>
+					<a href="marketShop_index.html?ball=safty">
+					</a>
+				</div>
+
+				<!--第二个轮播图-->
+				<div class="img_carousel">
+					<div id="show_works_content2" class="owl-carousel owl-theme">
+						<div class="item">
+							<!--<img src="images/l21.jpg" />-->
+						</div>
+						<div class="item">
+							<!--<img src="images/l21.jpg" />-->
+						</div>
+					</div>
+				</div>
+				<!--限时秒杀-->
+				<div class="shopkill clearfloat">
+					<ul class="clearfloat">
+						<li class="sk">
+							<!--<a href="">-->
+								<span class="sk1s">
+									<i></i>
+									限时秒杀
+								</span>
+								<b class="sktime">
+								<i>00</i>
+								:
+								<i>00</i>
+								:
+								<i>00</i>
+								:
+							</b>
+							<span class="sks">			
+				        	</span>
+							<!--</a>-->
+
+						</li>
+						<li class="sk">
+							<a href="oneArea_index.html?tbactId=19156&cityId=1&city=北京&lng=116.40754&lat=39.903423">
+								<span class="sk1s">
+									<i class="xs"></i>
+									新鲜肉汁
+								</span>
+								<span class="tt">天天特价购</span>
+								<img class="skimg" src="images/shop4.png" />
+							</a>
+
+						</li>
+						<li class="sk">
+							<a href="oneArea_index.html?tbactId=18401&cityId=1&city=北京&lng=116.40754&lat=39.903423">
+								<span class="sk1s">
+									<i class="num3"></i>
+									一元专区
+								</span>
+								<span class="tt">欢乐一元购</span>
+								<img class="skimg" src="images/shop5.gif" />
+							</a>
+						</li>
+					</ul>
+					<div class="ba">
+						<div class="bb entrance-total2">
+							<a class="bc entrance-num0" href="#storeHome/storeId:11649777/orgCode:81372">
+								<span>永辉超市</span>
+								<span class="subtitle">新鲜，健康，绿色</span>
+								<img src="images/yh.png" />
+							</a>
+							<a class="bc entrance-num1" href="#storeHome/storeId:10043697/orgCode:72889">
+								<span>大闸蟹</span>
+								<span class="subtitle">4.99起</span>
+								<img src="images/dzx.gif" />
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!--附近的商家-->
+				<div class="nearshop">
+					<span>
+						<i class="nsi"></i>
+						附近的商家
+					</span>
+				</div>
+				<ul class="shoplist0"></ul>
+				<!--商家列表-->
+				<ul class="shoplist"></ul>
+				<!--回到顶部-->
+				<a class="zy" href="javascript:void 0;" style="bottom: 140px;"></a>
+				
+				<!--底部列表-->
+				<footer class="k index">
+					<a class="index" href="index.html">首页</a>
+					<a class="homeCategorySearch" href="homeCategorySearch.html">分类</a>
+					<a class="cartList" href="cartList.html">购物车</a>
+					<a class="orderList" href="orderList.html">订单</a>
+					<a class="mine" href="mine.html">我的</a>
+				</footer>
+			</section>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$(".search").click(function(){
+				window.location = "aboutAddr.html";
+			});
+			$(".location").click(function(){
+				window.location = "indexaddress.html";
+			})
+			
+			//轮播图
+			$(document).ready(function() {
+				$("#show_works_content").owlCarousel({
+					navigation: false, // Show next and prev buttons
+					slideSpeed: 300,
+					paginationSpeed: 400,
+					singleItem: true,
+					autoPlay: 1500,
+					transitionStyle: 'fade',
+					itemsDesktop: true,
+					itemsDesktopSmall: true,
+					itemsTablet: true,
+					itemsMobile: true
+				});
+				$("#show_works_content2").owlCarousel({
+//					navigation: false, // Show next and prev buttons
+//					slideSpeed: 300,
+//					paginationSpeed: 400,
+//					singleItem: true,
+//					autoPlay: 1500,
+//					transitionStyle: 'backSlide'
+				});
+			});
+			//数据
+			$.ajax({
+				type: "post",
+				url: "http://localhost/A_wechat-games/Jd_web/php/banner.php",
+				dataType: "json",
+				success: function(data) {
+					//轮播图
+					var res = data.bannerimg;
+					for(var i = 0; i < res.length; i++) {
+						var img = $("<img/>");
+						img.attr("src", res[i]);
+						img.appendTo($("#show_works_content .item").eq(i));
+					};
+					var res = data.bannerimg2;
+					for(var i = 0; i < res.length; i++) {
+						var a = $("<a href='https://daojia.jd.com/activity/reportActivity/index.html?tbactId=16516&cityId=1&city=%E5%8C%97%E4%BA%AC%E5%B8%82&lng=116.51698&lat=39.91771'></a>");
+						a.appendTo($("#show_works_content2 .item").eq(i));
+						
+						var img = $("<img/>");
+						img.attr("src", res[i]);
+						//具体的 
+//						img.appendTo($("#show_works_content .item").eq(i));
+						img.appendTo($("#show_works_content2 .item a").eq(i));
+					};
+					//商品列表
+					var ball = data.ballNum4;
+					for(var j = 0; j < ball.length; j++) {
+						var img = $("<img/>");
+						//方法一：
+						//				img.attr("src", ball[j]);
+						//				var text = $(".ballNum4 a").eq(j).html() ;
+						//				$(".ballNum4 a").eq(j).html(img).append(text);
+						//				方法二：改变php数据结构
+						img.attr("src", ball[j].link);
+						var text = ball[j].text;
+						$(".ballNum4 a").eq(j).html(img).append(text);
+					}
+
+					var sks = data.sksImg;
+					for(var m = 0; m < sks.length; m++) {
+						var img = $("<img/>");
+						img.attr("src", sks[m]);
+						img.appendTo($(".sks"));
+						$(".sks img").eq(m).addClass("bf");
+					}
+					
+//					$(data.sksImg).each(function (index) {
+//						var img = $("<img/>");
+//						img.attr("src", sks[index]);
+//						img.appendTo($(".sks"));
+////						$(".sks img").eq(index).addClass("bf");
+//			        });
+					
+					$(".bf").click(function(){
+						window.location = "panicBuying_index.html";
+					});
+
+				}
+
+			});
+
+			//改变输入框长度
+			$(function() {
+				//  var winHeight = $(".search").height();
+				$(window).scroll(function() {
+					var myTop = $(window).scrollTop();
+					var myw = myTop;
+					if(myw > 0) {
+						console.log("myw:" + myw);
+						var searchW = $(".search").width();
+						console.log("searchW:" + searchW);
+
+						var leftValue = searchW - myw;
+						console.log("leftValue:" + leftValue);
+
+						if(leftValue > 50) {
+							$(".search").css("width", leftValue);
+						}
+					} else {
+						$(".search").css("width", '72%');
+					}
+
+				});
+			});
+
+
+			//倒计时下的商品
+			//var log = console.log.bind(console);
+			
+			/*
+			 * 倒计时6月16日讲课内容
+			 * */
+			(function() {
+				function refresh() {
+					var endTime = new Date("june 18,2017 00:00:00");
+					var nowTime = new Date();
+					var leftsecond = parseInt((endTime.getTime() - nowTime.getTime()) / 1000);
+					if(leftsecond < 0) {
+						leftsecond = 0;
+					}
+					day = parseInt(leftsecond / 3600 / 24);
+					hour = parseInt((leftsecond / 3600) % 24);
+					minute = parseInt((leftsecond / 60) % 60);
+					second = parseInt(leftsecond % 60);
+
+					$(".sktime>i:nth-child(1)").html(hour);
+					$(".sktime>i:nth-child(2)").html(minute);
+					if(second < 10) {
+						$(".sktime>i:nth-child(3)").html("0" + second);
+					} else {
+						$(".sktime>i:nth-child(3)").html(second);
+					}
+				}
+
+				refresh();
+				setInterval(refresh, 1000);
+			})();
+
+			/*
+			 * 倒计时下的商品
+			 * */
+
+			(function() {
+				var i = 0;
+				setInterval(function() {
+					if(i == 3) {
+						i = 0;
+					}
+					$(".sks>img").eq(i).css({
+						"opacity": 1
+					}).siblings().css({
+						"opacity": 0
+					});
+					i++;
+				}, 3000);
+			})();
+			
+		})
+	</script>
+
+</html>

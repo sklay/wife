@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>从疲惫到猝死只差5步</title>
+		<meta name="description" content="别拿“累”不当病">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--<base href="../">-->
+		<!--<link rel="stylesheet" href="style/act_16suddenDeath_index.css" />-->
+		<link rel="stylesheet" href="css/new_file.css" />
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<script src="js/html_common.js"></script>
+		<!--微信授权-->
+		<script>
+			/** 默认是生产APPID*/
+			var appid = 'wxade8c5e473c645e9';
+			if(location.host.indexOf('deve') >= 0) {
+				/** 准生产APPID*/
+				appid = 'wx697be0ec43c8cafa';
+			}
+			var codeActId = '${codeActId}' || '';
+			var act_url = '${act_url}' || '';
+			// 新追加一个参数
+			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%2f' + codeActId + '%3fact_url=' + act_url;
+			console.debug(' cur href is ', redirect_uri);
+
+			if(is_weixin()) {
+				var grantBoo = "${grantFail}";
+				if(grantBoo == "true" || grantBoo == true) {
+					var grantFailUserId = "${fromUserId}";
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+				}
+			}
+		</script>
+	</head>
+	<!--百度统计-->
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+			var hm = document.createElement("script");
+			hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<body>
+		<header class="indexPage">
+			<div class="content_top">
+				<img src="images/act_16suddenDeath_title1.jpg" />
+				<img src="images/act_16suddenDeath_title2.jpg" />
+				<img src="images/act_16suddenDeath_title3.jpg" />
+			</div>
+			<div class="getHbWrap">
+				<div class="getHb">
+					<div class="commomLogin">
+						<input type="tel" placeholder="请输入手机号码" id="userPhone">
+						<button id="getHbBtn">马上抢现金券</button>
+						<button class="downText downloadP goForUse">下载“药快到”APP立即参与</button>
+					</div>
+					<div class="received_result" style="display: none;">
+						<div class="has_coupon" style="display: none;">
+							<div class="receive_success" style="display: none;">
+								<div class="getHb7 getHbnNum" style="display: none;">
+									<img class="getHb7_img" src="images/act_16suddenDeath_coupon10.jpg" />
+									<p class="receive_text receiveResult ">恭喜您，领到10元现金券!</p>
+								</div>
+							</div>
+							<div class="has_received" style="display: none;">
+								<div class="has_getHb7 getHbnNum" style="display: none">
+									<img class="has_getHb7_img" src="images/act_16suddenDeath_coupon10.jpg" />
+									<p class="has_receive_text receiveResult ">10元现金券已经放入您的账户啦！</p>
+								</div>
+							</div>
+
+							<div class="commUsebtn clearfix">
+								<button class="use_btn goForUse" id="goForUse">去使用</button>
+								<button class="shareFri shareForFri" id="small_ShareFri">邀请好友</button>
+							</div>
+						</div>
+						<div class="over_received" style="display: none;">
+							<div class="has_over">
+								<img class="has_getHb7_img" src="images/act_16suddenDeath_getCouponOver.jpg" />
+							</div>
+							<button class="downText downloadP goForUse">下载“药快到”APP</button>
+							<p class="pText">新人送200元现金券</p>
+						</div>
+					</div>
+				</div>
+				<div class="shareAppPage clearfix">
+					<button class="shareAppBtn" id="shareAppPage_shareFir">分享给好友</button>
+					<button class="shareAppBtn" id="shareAppPage_friRound">分享到朋友圈</button>
+				</div>
+			</div>
+		</header>
+
+		<section class="content">
+			<div class="comShowTitle">
+				<div class="leftLineDot">
+					<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+				</div>
+				<div class="comshowTitleText">看看朋友的手气</div>
+				<div class="rightLineDot">
+					<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+				</div>
+			</div>
+			<div class="friHbShow">
+				<div class="userFriAvatat">
+					<img src="images/act_commonHead_img.jpg" alt="头像" />
+					<div class="userFriInf">
+						<strong>小明 </strong>
+						<p>人品爆发，这波福利我收啦!</p>
+					</div>
+				</div>
+				<div class="userFriInf_wrap">
+					<div class="userFriHbValue_wrap">
+						<span class="userFriHbValue">10<span>元</span></span>
+					</div>
+				</div>
+			</div>
+			<div class="friHbShow">
+				<div class="userFriAvatat">
+					<img src="images/act_commonHead_img.jpg" alt="头像" />
+					<div class="userFriInf">
+						<strong>小明 </strong>
+						<p>人品爆发，这波福利我收啦!</p>
+					</div>
+				</div>
+				<div class="userFriInf_wrap">
+					<div class="userFriHbValue_wrap">
+						<span class="userFriHbValue">10<span>元</span></span>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="activeRuleShowWrap ">
+			<div class="comShowTitle">
+				<div class="leftLineDot">
+					<span style="height: 1px; width: 1.4rem;"></span> <span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+				</div>
+				<div class="comshowTitleText">看看朋友的手气</div>
+				<div class="rightLineDot">
+					<span style="width: 6px; height: 6px; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span> <span style="height: 1px; width: 1.4rem;"></span>
+				</div>
+				</div>
+			<div class="activeRuleShow">
+				<p>1.活动有效期：${startTime} — ${endTime}。</p>
+				<p>2.需下载药快到App，使用手机号登录方可使用。</p>
+				<p>3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。</p>
+				<p>4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。</p>
+				<p>5.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+			</div>
+		</footer>
+	</body>
+	<div class="promptDiv" id="prompt">
+		<div class="opDiv"></div>
+		<div class="promptContent">
+			<img alt="" src="images/w_prompt_remind.png">
+			<p class="title">您还未登录，请先登录</p>
+		</div>
+	</div>
+</html>

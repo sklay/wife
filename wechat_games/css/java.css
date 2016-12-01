@@ -1,0 +1,292 @@
+.banner {
+  margin-bottom: 0.34666667rem;
+}
+.banner img {
+  display: block;
+  width: 100%;
+}
+section {
+  background: #FFFFFF;
+  margin-bottom: 0.37333333rem;
+  padding: 0 0.32rem;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.jy {
+  padding-top: 0.42666667rem;
+  padding-bottom: 0.42666667rem;
+}
+.jy .title {
+  text-align: center;
+  font-size: 0.32rem;
+  line-height: 0.32rem;
+  color: #3399ea;
+}
+.jy .content {
+  padding-top: 0.29333333rem;
+}
+.jy .content .left {
+  padding: 0 0.34666667rem;
+  float: left;
+  margin-right: 0.4rem;
+}
+.jy .content .left img {
+  width: 3.54666667rem;
+  margin-bottom: 0.26666667rem;
+}
+.jy .content .left p {
+  font-size: 0.29333333rem;
+  color: #3399ea;
+  line-height: 0.30666667rem;
+  text-align: center;
+}
+.jy .content .left p span {
+  font-size: 0.32rem;
+  color: #ff6d78;
+  line-height: 0.30666667rem;
+}
+.jy .content .right {
+  padding: 0 0.69333333rem;
+  height: 267px;
+  float: right;
+  width: 3.33333333rem;
+}
+.jy .content .right table {
+  width: 100%;
+}
+.jy .content .right table tr {
+  width: 100%;
+  height: 0.77333333rem;
+}
+.jy .content .right table tr td {
+  font-size: 0.29333333rem;
+  color: #666666;
+}
+.jy .content .right table tr td:nth-of-type(1) em {
+  display: block;
+  width: 0.53333333rem;
+  height: 0.50666667rem;
+  background: #0099cc;
+  margin: 0 auto;
+  border-radius: 0.26666667rem;
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 0.32rem;
+  line-height: 0.50666667rem;
+}
+.studentList .title {
+  padding: 0.26666667rem 0 0.29333333rem;
+}
+.studentList .title p {
+  color: #add0f5;
+  padding: 0.16rem 0;
+  text-align: center;
+}
+.studentList .title p:nth-of-type(1) {
+  font-size: 0.32rem;
+}
+.studentList .title p:nth-of-type(2) {
+  font-size: 0.29333333rem;
+}
+.studentList table {
+  border-top: 0.01333333rem solid #f0f0f0;
+  border-bottom: 0.01333333rem solid #f0f0f0;
+  width: 100%;
+}
+.studentList table tr {
+  height: 0.93333333rem;
+}
+.studentList table tr td:nth-of-type(1),
+.studentList table tr td:nth-of-type(4) {
+  color: #a3a3a3;
+}
+.studentList table tr td:nth-of-type(3) {
+  color: #3399ea;
+}
+.studentList table tr td {
+  font-size: 0.29333333rem;
+  color: #666666;
+  line-height: 0.93333333rem;
+  border-bottom: 0.01333333rem dashed #e8e8e8;
+  text-align: center;
+}
+.studentList table tr:nth-of-type(1) td {
+  color: #666666;
+}
+.studentList table tr:nth-last-of-type(1) td {
+  border-bottom: none;
+}
+.studentList .page {
+  padding: 0.42666667rem 0.66666667rem 0.42666667rem 1.06666667rem;
+}
+.studentList .page ul {
+  width: 100%;
+}
+.studentList .page ul li {
+  font-size: 0.29333333rem;
+  float: left;
+  margin-right: 0.29333333rem;
+}
+.studentList .page ul li a {
+  color: #666666;
+  line-height: 0.29333333rem;
+  text-align: center;
+}
+.studentList .page ul li.big {
+  margin-right: 0.4rem;
+}
+.course > .title {
+  padding: 0.42666667rem 0;
+}
+.course > .title > p {
+  font-size: 0.32rem;
+  color: #3399ea;
+  text-align: center;
+}
+.course > .title > p.des {
+  font-size: 0.29333333rem;
+  margin-top: 0.34666667rem;
+}
+.course .content {
+  width: 100%;
+  padding-bottom: 0.18666667rem;
+}
+.course .content > ul > li {
+  box-sizing: border-box;
+  padding-left: 0.32rem;
+  padding-top: 0.32rem;
+}
+.course .content > ul > li > p {
+  color: #FFFFFF;
+  font-size: 0.29333333rem;
+  line-height: 0.42666667rem;
+}
+.course .content > ul > li > p.title {
+  font-size: 0.32rem;
+  margin-bottom: 0.26666667rem;
+}
+.course .content > ul:nth-of-type(1) > li {
+  width: 2.96rem;
+  height: 3.33333333rem;
+  margin-right: 0.24rem;
+  float: left;
+}
+.course .content > ul:nth-of-type(1) > li:nth-of-type(3) {
+  margin-right: 0;
+}
+.course .content > ul:nth-of-type(2) {
+  margin-top: 0.24rem;
+}
+.course .content > ul:nth-of-type(2) > li {
+  float: left;
+  width: 4.56rem;
+  height: 4rem;
+}
+.course .content > ul:nth-of-type(2) > li:nth-of-type(2) {
+  margin-left: 0.24rem;
+}
+.teacherList > .title {
+  font-size: 0.32rem;
+  color: #7ab6ef;
+  line-height: 0.93333333rem;
+}
+.teacherList .detail ul {
+  width: 100%;
+}
+.teacherList .detail ul li {
+  border-top: 0.01333333rem solid #e5e5e5;
+  padding: 0.32rem 0;
+}
+.teacherList .detail ul li .left {
+  float: left;
+  padding-right: 0.32rem;
+  border-right: 0.01333333rem dashed #e8e8e8;
+}
+.teacherList .detail ul li .left img {
+  display: block;
+  width: 2.18666667rem;
+}
+.teacherList .detail ul li .right {
+  float: left;
+  padding-left: 0.32rem;
+  width: 6.8rem;
+  box-sizing: border-box;
+}
+.teacherList .detail ul li .right .name {
+  font-size: 0.29333333rem;
+  color: #31ade4;
+  line-height: 0.48rem;
+  padding-bottom: 0.10666667rem;
+  border-bottom: 0.01333333rem dashed #e8e8e8;
+}
+.teacherList .detail ul li .right .introduction {
+  padding-top: 0.13333333rem;
+  font-size: 0.26666667rem;
+  color: #666666;
+  line-height: 0.45333333rem;
+}
+.project .title {
+  font-size: 0.32rem;
+  line-height: 0.93333333rem;
+  color: #3399ea;
+  border-bottom: 0.01333333rem solid #e5e5e5;
+}
+.project .content {
+  padding: 0.32rem 0;
+}
+.project .content ul {
+  width: 100%;
+}
+.project .content ul li {
+  float: left;
+  border: 0.01333333rem solid #e5e5e5;
+}
+.project .content ul li img {
+  display: block;
+  width: 4.56rem;
+}
+.project .content ul li p {
+  font-size: 0.26666667rem;
+  color: #3399ea;
+  text-align: center;
+  padding: 0.21333333rem 0;
+}
+.project .content ul li:nth-of-type(1) {
+  margin-right: 0.18666667rem;
+}
+.advantage > p.title {
+  font-size: 0.32rem;
+  line-height: 0.93333333rem;
+  color: #3399ea;
+  border-bottom: 0.01333333rem solid #e5e5e5;
+  margin-bottom: 0.18666667rem;
+}
+.advantage > .list {
+  width: 100%;
+}
+.advantage > .list > p {
+  height: 0.53333333rem;
+  width: 100%;
+  margin-bottom: 0.32rem;
+}
+.advantage > .list > p > em {
+  float: left;
+  display: block;
+  width: 0.56rem;
+  padding-left: 0.18666667rem;
+  height: 0.53333333rem;
+  font-size: 0.32rem;
+  color: #FFFFFF;
+  line-height: 0.53333333rem;
+  background: #3399ea;
+  -webkit-border-bottom-right-radius: 0.30666667rem;
+  -webkit-border-top-right-radius: 0.30666667rem;
+  margin-right: 0.21333333rem;
+}
+.advantage > .list > p > span {
+  display: block;
+  float: left;
+  font-size: 0.32rem;
+  color: #3399ea;
+  line-height: 0.53333333rem;
+}

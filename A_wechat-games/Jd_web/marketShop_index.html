@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>京东商城</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--公共css-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--<link href="images/pdj.png" rel="shortcut icon bookmark">-->
+		<link href="images/icon.png" rel="shortcut icon bookmark">
+		<link rel="stylesheet" href="style/common.css" />
+		<link rel="stylesheet" href="style/phoneJd_index.css" />
+		<link rel="stylesheet" href="style/marketShop_index.css" />
+		<!--轮播图css-->
+		<link rel="stylesheet" href="owl-carousel/owl.carousel.css" />
+		<link rel="stylesheet" href="owl-carousel/owl.theme.css" />
+		<link rel="stylesheet" href="owl-carousel/owl.transitions.css" />
+		<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+		<!--轮播图js-->
+		<script src="owl-carousel/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="js/mallShop.js"></script>
+		<script type="text/javascript" src="js/util.js"></script>
+		<script type="text/javascript" src="js/marketShop_index.js"></script>
+		<style>
+			/*覆盖了owl-carousel 分页器*/
+			
+			.owl-theme .owl-controls {
+				margin-top: -20px;
+				text-align: inherit;
+				float: right;
+			}
+			
+			.owl-theme .owl-controls .owl-page span {
+				display: block;
+				width: 5px;
+				height: 5px;
+				margin: 0 3px;
+				filter: Alpha(Opacity=50);
+				opacity: 0.5;
+				-webkit-border-radius: 20px;
+				-moz-border-radius: 20px;
+				border-radius: 20px;
+				background: transparent;
+				border: 2px solid #fff;
+			}
+			
+			.owl-theme .owl-controls .owl-page.active span,
+			.owl-theme .owl-controls.clickable .owl-page:hover span {
+				filter: Alpha(Opacity=50);
+				opacity: 0.5;
+				background: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<section>
+				<!--搜索区域-->
+				<div class="search">
+					<a href="#">
+					</a>
+				</div>
+				<!--轮播图-->
+				<div class="img_carousel">
+					<div id="show_works_content" class="owl-carousel owl-theme">
+						<div class="item"></div>
+						<div class="item"></div>
+						<div class="item"></div>
+						<div class="item"></div>
+					</div>
+				</div>
+				<!--商品列表-->
+				<!--<div class="ballNum4">
+					<a href="market.html?ball=market">
+					</a>
+					<a href="market.html?ball=takeout">
+					</a>
+					<a href="market.html?ball=cake">
+					</a>
+					<a href="market.html?ball=service">
+					</a>
+					<a href="market.html?ball=safty">
+					</a>
+				</div>
+				-->
+				<div class="index-act-wrap y">
+					<ul class="a6">
+						<!--<li class="sequence0  da">
+							<a href="#">
+								<em style="color:#ff4e66"></em>
+								<span></span>
+								<img src="">
+							</a>
+						</li>
+						-->
+					</ul>
+				</div>
+
+				<!--第二个轮播图-->
+				<div class="img_carousel">
+					<div id="show_works_content2" class="owl-carousel owl-theme">
+						<div class="item">
+							<a href="">
+								<img src="images/l21.jpg" />
+							</a>
+						</div>
+						<div class="item">
+							<a href="">
+								<img src="images/l21.jpg" />
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!--附近的商家-->
+				<div class="nearshop">
+					<span>
+						<i class="nsi"></i>
+						附近的商家
+					</span>
+
+				</div>
+				<!--商家列表-->
+				<ul class="shoplist"></ul>
+			</section>
+			
+			<div class="zp" style="bottom: 60px;">
+		        <div class="zq">
+		            <a class="zr" href="homecategorysearch.html?rightnav=search">搜索</a>
+		            <a class="zs" href="index.html">首页</a>
+		            <a class="zt" href="homecategorysearch.html">分类</a>
+		            <a class="zu" href="cartList.html">购物车</a>
+		            <a class="zv" href="orderList.html">订单</a>
+		            <a class="zw" href="mine.html">我的</a>
+		            <i class="zx"></i>
+		        </div>
+		    </div>
+		    <div class="zz" node-type="bottomMenuBigBg" style="display: none;"></div>
+		    <a class="zy" href="javascript:void 0;" style="bottom: 24px;"></a>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			$(".search").click(function() {
+					window.location = "aboutAddr.html";
+				})
+				//轮播图
+			$(document).ready(function() {
+				$("#show_works_content").owlCarousel({
+					navigation: false, // Show next and prev buttons
+					slideSpeed: 300,
+					paginationSpeed: 400,
+					singleItem: true,
+					autoPlay: 1500,
+					transitionStyle: 'fade',
+					itemsDesktop: true,
+					itemsDesktopSmall: true,
+					itemsTablet: true,
+					itemsMobile: true
+				});
+				$("#show_works_content2").owlCarousel({
+					//					navigation: false, // Show next and prev buttons
+					//					slideSpeed: 300,
+					//					paginationSpeed: 400,
+					//					singleItem: true,
+					//					autoPlay: 1500,
+					//					transitionStyle: 'backSlide'
+				});
+			});
+			
+			//改变输入框长度
+			$(function() {
+				//  var winHeight = $(".search").height();
+				$(window).scroll(function() {
+					var myTop = $(window).scrollTop();
+					var myw = myTop;
+					if(myw > 0) {
+						console.log("myw:" + myw);
+						var searchW = $(".search").width();
+						console.log("searchW:" + searchW);
+
+						var leftValue = searchW - myw;
+						console.log("leftValue:" + leftValue);
+
+						if(leftValue > 50) {
+							$(".search").css("width", leftValue);
+						}
+					} else {
+						$(".search").css("width", '72%');
+					}
+
+				});
+			});
+
+
+			
+		})
+	</script>
+
+</html>

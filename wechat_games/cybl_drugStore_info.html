@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>药店详情</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--<link rel="stylesheet" type="text/css" href="css/act_appRemind_index.css" />-->
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<!--<link rel="stylesheet" href="css/bootstrap-grid.min.css">-->
+		<link rel="stylesheet" href="http://www.alikill.com/zoomify/dist/zoomify.min.css">
+		<!--<link rel="stylesheet" href="css/style.css">-->
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html {
+			width: 100%;
+			height: 100%;
+		}
+		
+		body {
+			width: 100%;
+			font-family: Microsoft Yahei, Arial;
+			background: #fff;
+		}
+		
+		.clearFix:after {
+			content: "";
+			display: block;
+			clear: both;
+		}
+		
+		.clearFix {
+			*zoom: 1;
+		}
+		
+		.content {
+			width: 100%;
+			background: #eee;
+		}
+		
+		.content .head {
+			width: 100%;
+			height: 2.76972625rem;
+			line-height: 2.76972625rem;
+			background: #fff;
+			padding: 0 0 0 0.33816425rem;
+			box-sizing: border-box;
+		}
+		
+		.content .head .log {
+			width: 1.83574879rem;
+			height: 1.83574879rem;
+			float: left;
+		}
+		
+		.content .head .log img {
+			width: 100%;
+			vertical-align: middle;
+		}
+		
+		.content .head .drugN {
+			height: 2.76972625rem;
+			width: 7.40740741rem;
+			color: #000;
+			float: right;
+		}
+		
+		.content .head .drugN h2 {
+			font-size: 0.56360709rem;
+			margin: 0;
+			font-weight: 500;
+			line-height: 1;
+			color: #3b3b3b;
+			margin-top: 0.80515298rem;
+		}
+		
+		.content .head .drugN p {
+			margin: 0;
+			font-size: 0.28180354rem;
+			line-height: 0.64412238rem;
+			color: #999;
+		}
+		
+		.content .drugImg {
+			width: 100%;
+			height: 1.04669887rem;
+			line-height: 1.04669887rem;
+			background: #fff;
+			margin: 0.24154589rem auto 0;
+			padding: 0 0.33816425rem;
+			box-sizing: border-box;
+		}
+		
+		.content .drugImg h2 {
+			font-size: 0.46698873rem;
+			margin: 0;
+			line-height: 1.04669887rem;
+			font-weight: 500;
+			color: #3b3b3b;
+		}
+		
+		.content .row {
+			width: 9.3236715rem;
+			padding: 0.24154589rem 0 0 0;
+			box-sizing: border-box;
+			margin: 0 auto;
+		}
+		
+		.content .row .col-xs-3 {
+			float: left;
+			width: 2.9468599rem;
+			height: 2.62479871rem;
+			padding: 0;
+			margin: 0 0.24154589rem 0.24154589rem 0;
+		}
+		
+		.content .row .col-xs-3 p {
+			margin: 0;
+		}
+		
+		.content .row .col-xs-3 p img {
+			width: 100%;
+		}
+		
+		.content .row .col-xs-3:nth-child(3n) {
+			margin: 0 0 0.24154589rem 0;
+		}
+		
+		.content .drugDesc {
+			width: 100%;
+			padding: 0.68438003rem 0.28180354rem;
+			box-sizing: border-box;
+			background: #fff;
+		}
+		
+		.content .drugDesc p {
+			font-size: 0.36231884rem;
+			color: #666666;
+			text-align: justify;
+		}
+		
+		.content .drugImgContent {
+			width: 100%;
+			margin: 0.24154589rem auto 0;
+			padding: 0 0.33816425rem;
+			box-sizing: border-box;
+		}
+		
+		.content .drugImgContent .drugImgLIst {
+			width: 9.30756844rem;
+			margin: 0 auto;
+		}
+		
+		.content .drugImgContent .drugImgLIst img {
+			width: 100%;
+			margin-bottom: 0.24154589rem;
+		}
+	</style>
+
+	<body>
+		<div class="content">
+			<div class="head clearFix">
+				<div class="log">
+					<img src="http://imgstore.camore.cn/license/kzf_log.jpg@!ys300" />
+				</div>
+				<div class="drugN">
+					<h2>康中福大药房</h2>
+					<p>北京市朝阳区延静里12号楼一层</9>
+				</div>
+			</div>
+			<div class="drugImg">
+				<h2>药店照片</h2>
+			</div>
+			<div class="row clearFix">
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/cybl_drug-1.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/cybl_drug-2.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/cybl_drug-3.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-4.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-5.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-6.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-7.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-8.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+				<div class="example col-xs-3 col-md-3">
+					<p><img src="http://imgstore.camore.cn/license/hgzj_drug-9.jpg@!ys300" class="img-rounded" alt=""></p>
+				</div>
+			</div>
+			<div class="drugDesc">
+				<p>
+					北京康中福大药房：100% 专业药房，更多照顾更多关心
+				</p>
+				<p>
+					北京康中福大药房引进国际技术与专业服务模式，秉持100%顾客满意保证，提供您更专业的医药， 健康与护理解决方案，以及更细心的节省费用建议，让你在照顾家人健康时，充满信心与智慧，到北京 康中福大药房来，您将获得更多的照顾与关心!
+				</p>
+			</div>
+			<div class="drugImg">
+				<h2>药店营业执照</h2>
+			</div>
+			<div class="drugImgContent">
+				<div class="drugImgLIst">
+					<img alt="" src="http://imgstore.camore.cn/license/hgzj_drug-10.jpg@!ys600">
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="http://www.alikill.com/zoomify/dist/zoomify.min.js"></script>
+	<script type="text/javascript">
+		$('.example img').zoomify();
+	</script>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>京东商城</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--公共css-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link href="images/icon.png" rel="shortcut icon bookmark">
+		<link rel="stylesheet" href="style/common.css" />
+		<link rel="stylesheet" href="style/indexaddress.css" />
+		<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+	</head>
+	<body>
+		<section class="current">
+			<article class="scrolling">
+				<div class="content scroller">
+					<div class="wa">
+						<div class="wb w">
+							<h2 class="wc none">北京市</h2>
+							<input class="wd defaultWidth" maxlength="50" type="text" placeholder="选择城市、小区、写字楼、学校">
+						</div>
+						<div class="we">
+							<div class="wf">
+								<i></i>
+								<p>点击定位当前地点</p>
+							</div>
+							<div class="an">无法获取您的位置信息<br>请手动输入地址</div>
+						</div>
+						<!--输入文字后查询的数据展示-->
+						<div class="wm none">
+							<ul></ul>
+						</div>
+					</div>
+					<!--开通城市列表-->
+					<div class="wu none">
+						<h2 class="wv">
+							<span>已开通城市</span>
+						</h2>
+						<ul class="ww scroller">
+							
+						</ul>
+					</div>
+					<div class="wo">
+						<div class="txmap_wrapper">
+							
+						</div>
+					</div>
+				</div>
+			</article>
+		</section>
+	</body>
+	<script>
+		$(function(){
+			$("input").click(function(){
+				$("h2").removeClass("none");
+				$("input").removeClass("defaultWidth");
+				$(".we").addClass("none");
+			});
+			//点击定位当前地点
+			$(".wf").click(function(){
+				
+			})
+			//
+			$(".wc").click(function(){
+				$(".wa").addClass("none");
+				$(".wu").removeClass("none");
+			})
+			getShopData();
+			//开通城市数据
+			function getShopData() {
+				$.ajax({
+					type: "post",
+					url: "http://localhost/A_wechat-games/Jd_web/php/indexaddress.php",
+					dataType: "json",
+					success: function(data) {
+						for(var i = 0; i < data.length; i++) {
+							var li = $("<li class=''></li>");
+							li.attr("data-shopid", data[i].cityid);
+							li.attr("areaname", data[i].city);
+							li.html(data[i].city);
+							li.appendTo($(".ww"));
+							$(".ww li").eq(0).addClass("cur");
+							$('.ww li').each(function(i ,n){
+								$(n).on('click',function(){
+									clickCon(this) ;
+								});
+							});
+						}
+					},
+					error: function(errordata) {
+						console.log(errordata);
+					}
+				})
+			}
+			
+			function clickCon (obj){
+				$obj = $(obj) ;
+				/**控制当前点击选中的样式*/
+				$obj.siblings().removeClass("cur") ;
+				$obj.addClass("cur") ;
+				$(".wu").addClass("none") ;
+				$(".wa").removeClass("none") ;
+				$(".wc").html($obj.html()) ;
+			}
+			
+		})
+	</script>
+</html>

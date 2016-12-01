@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>京东商城</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<meta name="format-detection" content="telephone=no" />
+		<!--公共css-->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!--<link href="images/pdj.png" rel="shortcut icon bookmark">-->
+		<link href="images/icon.png" rel="shortcut icon bookmark">
+		<link rel="stylesheet" href="style/common.css" />
+		<link rel="stylesheet" href="style/aboutAddr.css" />
+		<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+	</head>
+	<body>
+		<div class="content">
+			<section>
+				<div class="uf w">
+					<div class="search">
+						<div class="uk hasCancel">
+							<i id="iconToSearch" class="ul un"></i>
+							<input type="search" style="max-width:90%" class="uj" id="search-keyword" placeholder="搜索附近商品和门店" required="required">
+							<!--输入框的文字删除-->
+							<!--<i id="iconToClear" class="a1b un"></i>-->
+						</div>
+						<a class="ug block" href="phoneJd_index.html">
+							<i class="cancelBtn"></i>
+						</a>
+						<span class="uo">搜索</span>
+					</div>
+					<!--商品分类-->
+					<div class="search_content" style="min-height:524px;">
+						<div class="search-show-wrap">
+							<div class="search-hot-wrap">
+								<div class="u6 un">热门搜索</div>
+								<div class="u7"> 
+								</div>
+							</div>
+							<div class="u8">
+								<div class="u9 un w">搜索历史</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+	</body>
+	<script>
+		$(function(){
+			var log = console.log.bind(console);
+			//数据
+			$.ajax({
+				type: "post",
+				url: "http://localhost/A_wechat-games/Jd_web/php/drugbrand.php",
+				dataType: "json",
+				success: function(data) {
+					//轮播图
+//					var res = data.drugBrand;
+					for(var i = 0; i < data.length; i++) {
+						var a = $("<a></a>");
+						a.appendTo($(".u7"));
+						
+						a.attr("href", data[i].shopname);
+						$(".u7 a").eq(i).html(data[i].drugName);
+					};
+
+//					var sks = data.sksImg;
+//					for(var m = 0; m < sks.length; m++) {
+//						var img = $("<img/>");
+//						img.attr("src", sks[m]);
+//						img.appendTo($(".sks"));
+//					}
+
+				}
+
+			});
+		})
+	</script>
+</html>

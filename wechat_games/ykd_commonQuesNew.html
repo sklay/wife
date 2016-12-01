@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>常见问题</title>
+		<meta name="description" content="">
+		<meta  name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				width: 100%;
+				height: 100%;
+				font-size: 62.5%;
+			}
+			
+			body {
+				width: 100%;
+				font-family: Microsoft Yahei, Arial;
+				height: 100%;
+				background: #eee;
+			}
+			
+			.clearfix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.clearfix {
+				*zoom: 1;
+			}
+			
+			ul li {
+				list-style: none;
+			}
+			
+			.content {
+				width: 100%;
+				margin: 0 auto;
+			}
+			
+			.content .menu-one li {
+				width: 100%;
+				height: auto;
+				overflow: hidden;
+				/*border-top: 1px solid #888;*/
+			}
+			.content .menu-one li.firstChild{
+				border: 0;
+			}
+			.content .menu-one .header {
+				height: 1.11111111rem;
+				background: #fff;
+				line-height: 1.11111111rem;
+				padding: 0 0.24154589rem 0 0.56360709rem;
+				box-sizing: border-box;
+				margin-bottom: 1px;
+			}
+			
+			.content .menu-one .header span {
+				display: block;
+			}
+			
+			.content .menu-one .header .txt {
+				float: left;
+				color: #404040;
+				font-size: 0.40257649rem;
+			}
+			
+			.content .menu-one .header .arrow {
+				float: right;
+  				width: 0.48309179rem;
+  				height: 0.48309179rem;
+				margin: 0.3rem 0;
+				background: url(http://imgstore.camore.cn/icon/dir/20161102_downIcon.png) no-repeat center center;
+				background-size:100% 100%;
+				transition: all .2s;
+			}
+			
+			.content .menu-two {
+				display: none;
+				width: 100%;
+				height: auto;
+			}
+			
+			.content .menu-two li {
+				width: 100%;
+				height: auto;
+				background: #EEEEEE;
+				border-top: 1px solid #eee;
+				padding: 0 0.32206119rem;
+				box-sizing: border-box;
+				border: 0;
+				font-size: 0.32206119rem;
+			}
+			
+			.content .menu-two li p {
+				color: #888;
+				
+				padding: 0.1610306rem 0 0.1610306rem 0.64412238rem;
+				box-sizing: border-box;
+			}
+			
+			.content .menu-two li p:nth-child(1) {
+				padding: 0.1610306rem 0 0.1610306rem 0;
+			}
+			.content .menu-show .header .arrow {
+				width: 0.48309179rem;
+  				height: 0.48309179rem;
+  				/*margin: 0.38710709rem 0;*/
+				background: url(http://imgstore.camore.cn/icon/dir/20161102_rightIcon.png)no-repeat center center;
+				background-size:100% 100%;
+				transition: all .2s;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<ul class="menu-one">
+				<li class="firstChild">
+					<div class="header">
+						<span class="txt">购买建议</span>
+						<span class="arrow"></span>
+					</div>
+					<ul class="menu-two">
+						<li class="firstChild">
+							<p>Q：如何获得发票？</p>
+							<p>A：您可以携带药店票据到所属配送的实体药店开具发票。</p>
+						</li>
+						<li class="">
+							<p>Q：发票可以开增值税发票吗？</p>
+							<p>A：您好！抱歉，目前支持开具增值税普通发票。</p>
+						</li>
+						<li>
+							<p>Q：订单已经提交成功，能否取消？</p>
+							<p>A：订单发货前，您可以登录药快到App，取消订单并重新订购。</p>
+						</li>
+						<li>
+							<p>Q：我怎么知道我的订单实际的状态？</p>
+							<p>A：您可以进入药快到App，从首页进入“个人中心”查询订单实际的状态，或者拨打客服热线400-010-0365 进行查询。</p>
+						</li>
+						<li>
+							<p>Q：订单取消成功后优惠劵是否返回？</p>
+							<p>A：订单取消成功后优惠劵会自动返还到您的账户中，您可以随时查询您的优惠劵。</p>
+						</li>
+						<li>
+							<p>Q：购买商品时赠送的优惠劵什么时候能收到？</p>
+							<p>A：订单完成后24小时内，系统会自动派发优惠劵到您的账户中，请您注意查收。</p>
+						</li>
+					</ul>
+				</li>
+
+				<li class="">
+					<div class="header">
+						<span class="txt">配送方式</span>
+						<span class="arrow"></span>
+					</div>
+					<ul class="menu-two">
+						<li class="firstChild">
+							<p>Q：配送费如何收取？</p>
+							<p>A：推广期内为您提供的是免费送货上门服务。</p>
+						</li>
+						<li class="">
+							<p>Q：送货时间要多长？</p>
+							<p>A：自下单成功后，服务区域内60分钟内为您送货上门。</p>
+						</li>
+					</ul>
+				</li>
+
+				<li class="">
+					<div class="header">
+						<span class="txt">售后问题 </span>
+						<span class="arrow"></span>
+					</div>
+					<ul class="menu-two">
+						<li class="firstChild">
+							<p>Q：我的商品是否可以退换货？</p>
+							<p>A：快递员送货上门时，请您当面检查商品，无论任何问题，都可以无理由拒收；因药品为特殊商品，您收货后将不能进行退换。</p>
+						</li>
+					</ul>
+				</li>
+
+				<li class="">
+					<div class="header">
+						<span class="txt">订单问题</span>
+						<span class="arrow"></span>
+					</div>
+					<ul class="menu-two">
+						<li class="firstChild">
+							<p>Q：订单已经发出了，收货地址写错了需要修改地址如何办理？</p>
+							<p>A：您可以在药快到App中，取消这个订单，并重新下单。如果取消时遇到问题，您可以致电400-010-0365解决。</p>
+						</li>
+					</ul>
+				</li>
+
+				<li class="">
+					<div class="header">
+						<span class="txt">代购问题</span>
+						<span class="arrow"></span>
+					</div>
+					<ul class="menu-two">
+						<li class="firstChild">
+							<p>Q：什么是代购？</p>
+							<p>A：为了满足顾客不同的用药需求，我们推出了代购服务，即我们代顾客下单，购买本药店没有存货的药品，代购的所有药品来自正规渠道，质量确有保证。我们负责为您将代购药品送货上门。</p>
+						</li>
+						<li>
+							<p>Q：哪些药品可以代购？</p>
+							<p>A：在药快到App的首页上，可以看到代购商品的入口，进入后所展示的商品都为代购商品。我们会根据顾客需要，逐渐的不断丰富和完善代购商品的品种，让更多顾客买到放心药。</p>
+						</li>
+						<li>
+							<p>Q：购买代购药品，多长时间收到？</p>
+							<p>A：因为代购商品在店内没有现货，需要专门采购，故自下单之日起，需要4天时间代购药品为您送药上门。</p>
+						</li>
+					</ul>
+				</li>
+
+			</ul>
+		</div>
+	</body>
+	<script>
+		$(function() {
+			var menuOneLi = $(".menu-one > li");
+			var menuTwoLi = $(".menu-two");
+			$(".menu-one > li .header").each(function(i) {
+				var close=$(this).is('.close');
+				$(this).click(function() {
+					if($(menuTwoLi[i]).css("display") == "block") {
+						$(menuTwoLi[i]).slideUp(300);
+						$(menuOneLi[i]).removeClass("menu-show");
+						//$("this").find(".arrow").removeClass('close');
+					} else {
+						for(var j = 0; j < menuTwoLi.length; j++) {
+							$(menuTwoLi[j]).slideUp(300);
+							$(menuOneLi[j]).removeClass("menu-show");
+						}
+						$(menuTwoLi[i]).slideUp(300);
+						$(menuOneLi[i]).addClass("menu-show");
+						$(".menu-show .menu-two").css("display", "block");
+						//$(this).parents().find(".arrow").addClass('close');
+					}
+				});
+			});
+		});
+	</script>
+
+</html>
