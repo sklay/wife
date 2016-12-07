@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>一元促销页面</title>
+		<meta name="description" content="">
+		<meta id="device" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="css/promotions2.css" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<!--<script type="text/javascript" src="js/jquery.nicescroll.min.js" ></script>-->
+		<script src="js/swiper-3.3.1.jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css" />
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			.content .head {
+				border-bottom: 1px solid #cdcdcd;
+			}
+			
+			.content .navWrap .nav {
+				/*border-left: 1px solid #cdcdcd;*/
+			}
+			
+			.content .topWrap .nav {
+				border-right: 1px solid #cdcdcd;
+			}
+			
+			.content .contentBody .promoList .promoTitle img {
+				margin-top: 0;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #cd3636;
+			}
+			
+			.content .contentBody .promoItemList .pItem:nth-last-child(1) {
+				margin-bottom: 0;
+			}
+			
+			.content .contentBody .promoItemList .pItem:nth-last-child(2) {
+				margin-bottom: 0;
+			}
+			
+			.ac_code_spe {
+				width: 100%;
+				/* left: 50%; */
+				/* margin-left: -4.28341385rem; */
+				position: fixed;
+				bottom: 0;
+				margin: 0 auto;
+				background: rgba(238, 238, 238, 0.55);
+				padding: 0.22463768rem 0;
+			}
+			
+			.download_wrap {
+				width: 3.62318841rem;
+				float: left;
+				margin-left: .7rem;
+			}
+			
+			.share_wrap button:nth-child(1) {
+				float: left;
+			}
+			
+			.share_wrap button:nth-child(2) {
+				float: right;
+			}
+			
+			.share_wrap {
+				width: 8.5668277rem;
+				margin: 0 auto;
+			}
+			
+			.ac_code_spe button {
+				width: 3.62318841rem;
+				height: 1.00644122rem;
+				line-height: 1.00644122rem;
+				background: #d52005;
+				color: #fff;
+				font-size: 0.40257649rem;
+				border: 0;
+				font-weight: 800;
+				outline: 0;
+				border-radius: 16px;
+				display: block;
+				margin: 0 auto;
+				bottom: 0.72463768rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content clearfix">
+			<!--标题-->
+			<div class="topArea">
+					<!--<a href="javascript:void(0)" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+						<img alt="" src="images/20161102_1.jpg" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+					</a>-->
+					<div class="topArea_title clearfix">
+						<a href="javascript:void(0)" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+							<img alt="" src="images/20161207_1.jpg" >
+							<img alt="" src="images/20161207_2.jpg" >
+							<img alt="" src="images/20161207_3.jpg" >
+						</a>
+					</div>
+					<!--活动规则-->
+					<div class="rule_wrap" style="position: relative;">
+						<div class="rule_click clearfix" style="width:100%;position: absolute;top:0;">
+							<img alt="" src="images/prom_down1.jpg" style="">
+						</div>
+						<div class="rule_cont clearfix" style="display: none;">
+							<img alt="" src="images/20161207_4.jpg" >
+							<img alt="" src="images/20161207_5.jpg" >
+							<div class="clearfix" style="position: relative;">
+								<img alt="" src="images/20161207_6.jpg" >
+								<img alt="" src="images/prom_up.png" style="position: absolute;bottom:.1rem;width: 6%;left: 50%;margin-left: -3%;">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			<div class="contentBody">
+				<!--商品详情-->
+				<div class="promoContent">
+					<div id="dirItem_1938072" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t1.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="dirItem_1938073" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t2.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="dirItem_1938074" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t3.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="dirItem_1938075" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t4.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t5.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t6.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t7.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t8.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t9.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t10.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t11.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t12.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t13.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t14.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t15.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t16.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t17.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t18.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t19.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t20.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t21.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t22.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div id="dirItem_1938076" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t23.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="innerLayer"></div>
+			<div class="brandImg ac_code_spe">
+				<div class="download_wrap " style="display: none">
+					<a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+						<button>下载药快到APP</button>
+					</a>
+				</div>
+				<div class="share_wrap clearfix">
+					<button class="shareForFri" style="display:none;">分享给好友</button>
+					<button class="shareForFri_round">分享至朋友圈</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+//		var wechatObj = new Object();
+//		var subDirId = "${subDirId}";
+		$(function(){
+			/*var mySwiper1 = new Swiper('#swiper-container1', {
+				slidesPerView: 4,
+				pagination: '.swiper-pagination',
+				speed: 1000,
+				autoplayDisableOnInteraction: true,
+
+			});*/
+			
+			
+			$('.navContent .pDown').on('click', function() {
+				var close = $(this).is('.close');
+				var hideText = $('.hideText');
+				var innerLayer = $('.innerLayer');
+				if(!close) {
+					hideText.css({}).slideDown();
+					innerLayer.css({
+						top: $('.promoContent').offset().top
+					}).show();
+				} else {
+					hideText.slideUp();
+					innerLayer.hide();
+				}
+
+				$(this).toggleClass('close');
+			});
+
+//			$('.navContent li').on('click', function() {
+//				$(this).addClass('selected').siblings().removeClass('selected');
+//				var index = $(this).index();
+//				mySwiper1.slideTo(Math.floor(index / 2), 1000, false);
+//				console.debug("navContent " + Math.floor((index + 1) / 2));
+//				var index = $(this).index();
+//				$('.hideText li').eq(index).addClass('selected').siblings().removeClass('selected');
+//			});
+
+//			$('.hideText li').on('click', function() {
+//				$(".navContent .ul1").show();
+//				$(this).addClass('selected').siblings().removeClass('selected');
+//				var index = jQuery(this).index();
+//				$('.navContent li').eq(index).addClass('selected').siblings().removeClass('selected');
+//				var width = $('.navContent .nav ').width();
+//				var li = $('.navContent li').eq(index);
+//
+//				var index = $(this).index();
+//
+//				mySwiper1.slideTo(Math.floor((index + 1) / 2), 1000, false);
+//				console.debug("hideText " + Math.floor((index + 1) / 2));
+//
+//				$('.hideText').slideUp();
+//				$('.navContent .pDown').toggleClass('close');
+//				var innerLayer = $('.innerLayer');
+//				innerLayer.hide();
+//			});
+
+//			if(subDirId && subDirId.length > 0) {
+//				$("#tab_" + subDirId).click();
+//			}
+//			
+			
+			$(".topArea ").css("marginTop",$('.topWrap').height());
+			$(".hideText ").css("top",$('.topWrap').height());
+			
+//			$(".contentBody").css("background","${current.remark}");
+//			document.title = '${current.dirName }';
+
+			$(".contentBody").css("background","#ff4981");
+		})
+		
+		
+		
+		function is_weixin(){
+		    var ua = navigator.userAgent.toLowerCase();
+		    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+		
+		(function() {
+			 if (is_weixin()) {
+			 	$(".headCon").hide();
+			 }else{ 
+			 	$(".headCon").show();
+			 } 
+			 })(); 
+		/*下载   */
+		$(function() {
+			/* 当微信进入时，下载页进入“应用宝”页面 */
+			if (is_weixin()) {
+				$("#downloadA").attr("href", "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653");
+			};
+		});
+		/*跳转到商品列表页*/
+		function showDrugList(category_id, category_name){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/products?categoryId=" + category_id;
+			} else {
+				camore.showDrugList(category_id, category_name);
+			}
+		}
+
+		/*跳转到商品详情页*/
+		function showDrugDetails(drug_id){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/details_show?skuId=" + drug_id;
+			} else {
+				camore.showDrugDetails(drug_id);
+			}
+		}
+
+		/*加入购物车*/
+		function addShopping(drug_id){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/details_show?skuId=" + drug_id;
+			} else {
+				camore.addShopping(drug_id);
+			}
+		}
+
+
+		function tosearch() {
+			gotoPage({"message":"搜索", "type": "5"});
+		}
+
+		/*跳转到搜索页*/
+		function gotoPage(json){
+			if (is_weixin()) {
+				
+			} else {
+				try {
+					var s = JSON.stringify(json);
+					camore.gotoPage(s);
+				} catch (e) {
+					console.log(e);
+				}
+				
+			}
+		}
+
+		$('li a').on('click',function(e){
+			
+			var href = $(this).attr("href");
+    		var pos = $(href).offset().top - $('.topWrap').height();
+    		$("html,body").animate({scrollTop: pos}, 500);	
+		});
+		
+		
+		 
+		(function() {
+			 if (is_weixin()) {
+			 	$(".download_wrap").show();
+			 }else{ 
+			 		$(".shareForFri").show();
+				 } 
+		 })(); 
+
+		$(".share_wrap").on("click", ".shareForFri_round", function() {
+			if (is_weixin()) {
+				$("#shareshade").css("height", $(".content").height());
+				$("#shareshade").show();
+			}
+		});
+		$(".share_wrap").on("click", ".shareForFri", function() {
+			if (is_weixin()) {
+				$("#shareshade").css("height", $(".content").height());
+				$("#shareshade").show();
+			}
+		});
+		/*app调用的共用js*/
+		function s(type) {
+			var jsonObject = {};
+			if (type == 0) {
+				jsonObject.shared_type = "0";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.title;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			} else if (type == 1) {
+				jsonObject.shared_type = "1";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.desc;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			}
+			var jsonStr = JSON.stringify(jsonObject);
+			sharedTypeByJson(jsonStr);
+		}
+		/*分享的方法*/
+		function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
+			camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
+		};
+		//app分享点击
+		$(".shareForFri").on("click", function() {
+			s(0);
+		});
+		$(".shareForFri_round").on("click", function() {
+			s(1);
+		});
+
+		
+	</script>
+
+
+
+</html>
