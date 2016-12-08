@@ -103,6 +103,7 @@
 				margin: 0 auto;
 				bottom: 0.72463768rem;
 			}
+			
 		</style>
 	</head>
 
@@ -121,16 +122,18 @@
 						</a>
 					</div>
 					<!--活动规则-->
-					<div class="rule_wrap" style="position: relative;">
-						<div class="rule_click clearfix" style="width:100%;position: absolute;top:0;">
-							<img alt="" src="images/prom_down1.jpg" style="">
+					<div class="rule_wrap" style="">
+						<div class="rule_click clearfix" style="position: relative;">
+							<img  alt="" src="images/prom_down3.jpg" >
+							<img class="pDown" alt="" src="images/prom_down.png" style="width: 6%;position: absolute;top:1.3rem;left: 50%;margin-left: -3%;">
 						</div>
 						<div class="rule_cont clearfix" style="display: none;">
-							<img alt="" src="images/20161207_4.jpg" >
+							<img alt="" src="images/20161207_4-1.jpg" >
 							<img alt="" src="images/20161207_5.jpg" >
+							<!--<img alt="" src="images/20161207_6.jpg" >-->
 							<div class="clearfix" style="position: relative;">
 								<img alt="" src="images/20161207_6.jpg" >
-								<img alt="" src="images/prom_up.png" style="position: absolute;bottom:.1rem;width: 6%;left: 50%;margin-left: -3%;">
+								<img class="pUp" alt="" src="images/prom_up.png" style="position: absolute;bottom:.1rem;width: 6%;left: 50%;margin-left: -3%;">
 							</div>
 						</div>
 					</div>
@@ -2015,21 +2018,43 @@
 			});*/
 			
 			
-			$('.navContent .pDown').on('click', function() {
-				var close = $(this).is('.close');
-				var hideText = $('.hideText');
-				var innerLayer = $('.innerLayer');
-				if(!close) {
-					hideText.css({}).slideDown();
-					innerLayer.css({
-						top: $('.promoContent').offset().top
-					}).show();
-				} else {
-					hideText.slideUp();
-					innerLayer.hide();
-				}
+			$('.rule_click .pDown').on('click', function() {
+//				var close = $(this).is('.close');
+				var rule_cont = $('.rule_cont');
+//				var innerLayer = $('.innerLayer');
+//				if(!close) {
+					rule_cont.css({}).slideDown();
+//					innerLayer.css({
+//						top: $('.promoContent').offset().top
+//					}).show();
+//				} else {
+//					rule_cont.slideUp();
+////					innerLayer.hide();
+//				}
 
-				$(this).toggleClass('close');
+//				$(this).toggleClass('close');
+				$('.pDown').css("display","none");
+				$('.pUp').css("display","block");
+			});
+			
+			$('.rule_cont .pUp').on('click', function() {
+//				var close = $(this).is('.close');
+				var rule_cont = $('.rule_cont');
+//				var innerLayer = $('.innerLayer');
+//				if(!close) {
+//					rule_cont.css({}).slideDown();
+////					innerLayer.css({
+////						top: $('.promoContent').offset().top
+////					}).show();
+//				} else {
+					rule_cont.slideUp();
+					$('.pDown').css("display","block");
+					$('.pUp').css("display","none");
+//					innerLayer.hide();
+//				}
+
+//				$(this).toggleClass('close');
+//				$(this).attr("src","images/prom_up.png");
 			});
 
 //			$('.navContent li').on('click', function() {
