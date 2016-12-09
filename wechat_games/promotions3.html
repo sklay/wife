@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>一元促销页面</title>
+		<meta name="description" content="">
+		<meta id="device" name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<link rel="stylesheet" href="css/promotions2.css" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<script type="text/javascript" src="js/dropload.min.js" ></script>
+		<script type="text/javascript" src="js/template.js" ></script>
+		<link rel="stylesheet" href="css/dropload.css">
+		<script>      
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			.content .head {
+				border-bottom: 1px solid #cdcdcd;
+			}
+			
+			.content .navWrap .nav {
+				/*border-left: 1px solid #cdcdcd;*/
+			}
+			
+			.content .topWrap .nav {
+				border-right: 1px solid #cdcdcd;
+			}
+			
+			.content .contentBody .promoList .promoTitle img {
+				margin-top: 0;
+			}
+			
+			a {
+				text-decoration: none;
+				color: #cd3636;
+			}
+			
+			.content .contentBody .promoItemList .pItem:nth-last-child(1) {
+				margin-bottom: 0;
+			}
+			
+			.content .contentBody .promoItemList .pItem:nth-last-child(2) {
+				margin-bottom: 0;
+			}
+			
+			.ac_code_spe {
+				width: 100%;
+				/* left: 50%; */
+				/* margin-left: -4.28341385rem; */
+				position: fixed;
+				bottom: 0;
+				margin: 0 auto;
+				background: rgba(238, 238, 238, 0.55);
+				padding: 0.22463768rem 0;
+			}
+			
+			.download_wrap {
+				width: 3.62318841rem;
+				float: left;
+				margin-left: .7rem;
+			}
+			
+			.share_wrap button:nth-child(1) {
+				float: left;
+			}
+			
+			.share_wrap button:nth-child(2) {
+				float: right;
+			}
+			
+			.share_wrap {
+				width: 8.5668277rem;
+				margin: 0 auto;
+			}
+			
+			.ac_code_spe button {
+				width: 3.62318841rem;
+				height: 1.00644122rem;
+				line-height: 1.00644122rem;
+				background: #d52005;
+				color: #fff;
+				font-size: 0.40257649rem;
+				border: 0;
+				font-weight: 800;
+				outline: 0;
+				border-radius: 16px;
+				display: block;
+				margin: 0 auto;
+				bottom: 0.72463768rem;
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<div class="content clearfix">
+			<!--标题-->
+			<div class="topArea">
+					<div class="topArea_title clearfix">
+						<a href="javascript:void(0)" onclick="showDrugList('${current.dirId}', '${current.dirName}')">
+							<img alt="" src="images/prom_tianyi_n.jpg" >
+							<!--<img alt="" src="images/20161207_2.jpg" >
+							<img alt="" src="images/prom_tian_2.jpg" >-->
+						</a>
+					</div>
+					<!--活动规则-->
+					<div class="rule_wrap" style="">
+						<div class="rule_click clearfix" style="position: relative;">
+							<img  alt="" src="images/prom_tyactRule.jpg" >
+							<img class="pDown" alt="" src="images/prom_down.png" style="width: 6%;position: absolute;top:1.3rem;left: 50%;margin-left: -3%;">
+						</div>
+						<div class="rule_cont clearfix" style="display: none;position: relative;">
+							<img alt="" src="images/prom_tyactRule1.jpg" >
+							<img alt="" src="images/prom_tyactRule2.jpg" >
+							<!--<img alt="" src="images/20161207_6.jpg" >-->
+							<!--<div class="clearfix" style="position: relative;">-->
+								<img alt="" src="images/prom_tyactRule3.jpg" >
+								<img class="pUp" alt="" src="images/prom_up.png" style="position: absolute;bottom:.4rem;width: 6%;left: 50%;margin-left: -3%;">
+							<!--</div>-->
+						</div>
+					</div>
+					
+				</div>
+			<div class="contentBody">
+				<!--商品详情-->
+				<div class="promoContent">
+					<div id="dirItem_1938072" class="promoList clearfix">
+						<div class="promoTitle clearfix">
+							<img src="images/20161207_t1.jpg" />
+						</div>
+						<div class="promoItemList clearfix">
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="pItem">
+								<div class="itemDiv">
+									<a href="javascript:void(0)">
+										<img src="images/prodImg.jpg" />
+									</a>
+									<div class="drugInfo clearfix">
+										<div class="itemPrice">
+											<p class="itemName">999 感冒灵颗粒</p>
+											<p class="standard">10g*9袋</p>
+											<!--<span class="tj_price"></span><br>-->
+											<span class="yj_price">原价：15.82</span>
+										</div>
+										<div class="remindImg">
+											<img src="images/20161102_oneYuan0.png" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!--<div class="innerLayer"></div>-->
+			<div class="brandImg ac_code_spe" style="display: none">
+				<div class="download_wrap " style="display: none">
+					<a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+						<button>下载药快到APP</button>
+					</a>
+				</div>
+				<div class="share_wrap clearfix">
+					<button class="shareForFri" style="display:none;">分享给好友</button>
+					<button class="shareForFri_round">分享至朋友圈</button>
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script type="text/template" id="promotion-tpl">
+		
+		{{ if row}}
+		
+		<div id="dirItem_1938073" class="promoList clearfix">
+			{{if row.imgUrl}}
+			<div class="promoTitle clearfix">
+				<img src="{{row.imgUrl}}">
+			</div>
+			{{/if}}
+			<div class="promoItemList clearfix">
+				{{if row.arr}}
+				{{each row.arr as item}}
+				<div class="pItem">
+					<div class="itemDiv">
+						<a href="javascript:void(0)" onclick="showDrugDetails('{{item.skuId }}')">
+							<img src="{{item.picPath}}@!ys300">
+						</a>
+						<div class="drugInfo clearfix">
+							<div class="itemPrice">
+								<p class="itemName">{{item.prodName}}</p>
+								<p class="standard">{{item.standard}}</p>
+								<!--<span class="tj_price"></span><br>-->
+								<span class="yj_price">原价：{{item.costPrice/100}}</span>
+							</div>
+							<div class="remindImg" onclick="addShopping({{item.skuId }})">
+								<img src="http://imgstore.camore.cn/icon/act_dir/20161102_oneYuan0.png">
+							</div>
+						</div>
+					</div>
+				</div>	
+				{{/each}}
+				{{/if}}
+			</div>
+		</div>
+		{{/if}}
+	</script>
+	<script>
+	$(function(){
+    var counter = 0;
+    // 每页展示4个
+    var pageStart = 1;
+    var totalCount = 3 ;
+	var totalData = [
+	{
+		"arr": [],
+		"dirId": 201263,
+		"dirName": "肿瘤科其它",
+		"dirType": "dir",
+		"num": 1,
+		"parentId": 0
+	},{
+		"arr": [
+			{
+				"actList": [],
+				"comments": 0,
+				"costPrice": 18000,
+				"indication": "恩替卡韦分散片",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_04.jpg"
+				],
+				"price": 13600,
+				"prodId": 111051,
+				"prodName": "恩替卡韦分散片",
+				"production": "正大天晴药业集团股份有限公司",
+				"salesVolume": 0,
+				"skuId": 3575652,
+				"standard": "0.5mg*7盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 27600,
+				"indication": "恩替卡韦片",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_03.jpg"
+				],
+				"price": 21000,
+				"prodId": 111046,
+				"prodName": "博路定-恩替卡韦片",
+				"production": "中美上海施贵宝制药有限公司",
+				"salesVolume": 0,
+				"skuId": 3575647,
+				"standard": "0.5mg*7盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 26800,
+				"indication": "康莱特软胶囊",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_03.jpg"
+				],
+				"price": 20300,
+				"prodId": 111024,
+				"prodName": "康莱特软胶囊",
+				"production": "浙江康莱特药业有限公司",
+				"salesVolume": 0,
+				"skuId": 3575625,
+				"standard": "0.45g*72盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 22000,
+				"indication": "紫龙金片 ",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_04.jpg"
+				],
+				"price": 15500,
+				"prodId": 111017,
+				"prodName": "紫龙金片 ",
+				"production": "天津中新药业集团股份有限公司隆顺榕制药厂",
+				"salesVolume": 0,
+				"skuId": 3575618,
+				"standard": "0.65g*48盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 13500,
+				"indication": "复方斑蝥胶囊",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_04.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_05.jpg"
+				],
+				"price": 3800,
+				"prodId": 111015,
+				"prodName": "常青素-复方斑蝥胶囊",
+				"production": "山西省吕梁中药厂",
+				"salesVolume": 0,
+				"skuId": 3575616,
+				"standard": "0.25g*90瓶",
+				"status": "1",
+				"stockRemain": 999999
+			}
+		],
+		"dirId": 201246,
+		"dirName": "乳腺癌",
+		"dirType": "dir",
+		"num": 17,
+		"imgUrl": "http://imgstore.camore.cn/icon/dir/ykd21021003act160301.jpg",
+		"parentId": 0
+	},{
+		"arr": [
+			{
+				"actList": [],
+				"comments": 0,
+				"costPrice": 18000,
+				"indication": "恩替卡韦分散片",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111051_04.jpg"
+				],
+				"price": 13600,
+				"prodId": 111051,
+				"prodName": "恩替卡韦分散片",
+				"production": "正大天晴药业集团股份有限公司",
+				"salesVolume": 0,
+				"skuId": 3575652,
+				"standard": "0.5mg*7盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 27600,
+				"indication": "恩替卡韦片",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111046_03.jpg"
+				],
+				"price": 21000,
+				"prodId": 111046,
+				"prodName": "博路定-恩替卡韦片",
+				"production": "中美上海施贵宝制药有限公司",
+				"salesVolume": 0,
+				"skuId": 3575647,
+				"standard": "0.5mg*7盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 26800,
+				"indication": "康莱特软胶囊",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111024_03.jpg"
+				],
+				"price": 20300,
+				"prodId": 111024,
+				"prodName": "康莱特软胶囊",
+				"production": "浙江康莱特药业有限公司",
+				"salesVolume": 0,
+				"skuId": 3575625,
+				"standard": "0.45g*72盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 22000,
+				"indication": "紫龙金片 ",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111017_04.jpg"
+				],
+				"price": 15500,
+				"prodId": 111017,
+				"prodName": "紫龙金片 ",
+				"production": "天津中新药业集团股份有限公司隆顺榕制药厂",
+				"salesVolume": 0,
+				"skuId": 3575618,
+				"standard": "0.65g*48盒",
+				"status": "1",
+				"stockRemain": 999999
+			}, {
+				"actList": [],
+				"comments": 0,
+				"costPrice": 13500,
+				"indication": "复方斑蝥胶囊",
+				"level": 0,
+				"picPath": "http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_01.jpg",
+				"picPathArr": [
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_01.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_02.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_03.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_04.jpg",
+					"http://imgstore.camore.cn/prod_img_ykd/yun/yun_111015_05.jpg"
+				],
+				"price": 3800,
+				"prodId": 111015,
+				"prodName": "常青素-复方斑蝥胶囊",
+				"production": "山西省吕梁中药厂",
+				"salesVolume": 0,
+				"skuId": 3575616,
+				"standard": "0.25g*90瓶",
+				"status": "1",
+				"stockRemain": 999999
+			}
+		],
+		"dirId": 201246,
+		"dirName": "乳腺癌",
+		"dirType": "dir",
+		"num": 17,
+		"imgUrl": "http://imgstore.camore.cn/icon/dir/ykd21021003act160304.jpg",
+		"parentId": 0
+	}]
+    // dropload
+    $('.content').dropload({
+        scrollArea : window,
+        domDown : {
+            domClass   : 'dropload-down',
+            domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+            domLoad    : '<div class="dropload-load"><span class="loading"></span>加载中...</div>',
+            domNoData  : '<div class="dropload-noData">暂无数据</div>'
+        },
+        loadDownFn : function(me){
+            if(pageStart >=  totalCount){
+            	// 锁定
+                me.lock();
+                // 无数据
+                me.noData();
+                me.resetload();
+                return ;
+            }
+                            
+            // 为了测试，延迟1秒加载
+            setTimeout(function(){
+            	
+            	var result = template('promotion-tpl',{'row': totalData[pageStart] || []}) 
+            	pageStart++ ;
+            	
+                $('.promoItemList').append(result);
+                // 每次数据加载完，必须重置
+                me.resetload();
+            },1000);
+                
+        },
+        threshold : 50
+    });
+});
+</script>
+	<script>
+	//  template('detail-waybill-task-view-tpl',{'row': row || []}) 
+//		var wechatObj = new Object();
+//		var subDirId = "${subDirId}";
+		$(function(){
+			
+			$('.rule_click .pDown').on('click', function() {
+				var rule_cont = $('.rule_cont');
+				rule_cont.css({}).slideDown();
+				$('.pDown').css("display","none");
+				$('.pUp').css("display","block");
+			});
+			
+			$('.rule_cont .pUp').on('click', function() {
+				var rule_cont = $('.rule_cont');
+				rule_cont.slideUp();
+				$('.pDown').css("display","block");
+				$('.pUp').css("display","none");
+			});
+
+			
+			$(".topArea ").css("marginTop",$('.topWrap').height());
+			$(".hideText ").css("top",$('.topWrap').height());
+			$(".contentBody").css("background","#ff4981");
+		})
+		
+		
+		
+		function is_weixin(){
+		    var ua = navigator.userAgent.toLowerCase();
+		    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+		        return true;
+		    } else {
+		        return false;
+		    }
+		}
+		
+		(function() {
+			 if (is_weixin()) {
+			 	$(".headCon").hide();
+			 }else{ 
+			 	$(".headCon").show();
+			 } 
+			 })(); 
+		/*下载   */
+		$(function() {
+			/* 当微信进入时，下载页进入“应用宝”页面 */
+			if (is_weixin()) {
+				$("#downloadA").attr("href", "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653");
+			};
+		});
+		/*跳转到商品列表页*/
+		function showDrugList(category_id, category_name){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/products?categoryId=" + category_id;
+			} else {
+				camore.showDrugList(category_id, category_name);
+			}
+		}
+
+		/*跳转到商品详情页*/
+		function showDrugDetails(drug_id){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/details_show?skuId=" + drug_id;
+			} else {
+				camore.showDrugDetails(drug_id);
+			}
+		}
+
+		/*加入购物车*/
+		function addShopping(drug_id){
+			if (is_weixin()) {
+				location.href="/weixin/wechat/details_show?skuId=" + drug_id;
+			} else {
+				camore.addShopping(drug_id);
+			}
+		}
+
+
+		function tosearch() {
+			gotoPage({"message":"搜索", "type": "5"});
+		}
+
+		/*跳转到搜索页*/
+		function gotoPage(json){
+			if (is_weixin()) {
+				
+			} else {
+				try {
+					var s = JSON.stringify(json);
+					camore.gotoPage(s);
+				} catch (e) {
+					console.log(e);
+				}
+				
+			}
+		}
+
+		$('li a').on('click',function(e){
+			
+			var href = $(this).attr("href");
+    		var pos = $(href).offset().top - $('.topWrap').height();
+    		$("html,body").animate({scrollTop: pos}, 500);	
+		});
+		
+		
+		 
+		(function() {
+			 if (is_weixin()) {
+			 	$(".download_wrap").show();
+			 }else{ 
+			 		$(".shareForFri").show();
+				 } 
+		 })(); 
+
+		$(".share_wrap").on("click", ".shareForFri_round", function() {
+			if (is_weixin()) {
+				$("#shareshade").css("height", $(".content").height());
+				$("#shareshade").show();
+			}
+		});
+		$(".share_wrap").on("click", ".shareForFri", function() {
+			if (is_weixin()) {
+				$("#shareshade").css("height", $(".content").height());
+				$("#shareshade").show();
+			}
+		});
+		/*app调用的共用js*/
+		function s(type) {
+			var jsonObject = {};
+			if (type == 0) {
+				jsonObject.shared_type = "0";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.title;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			} else if (type == 1) {
+				jsonObject.shared_type = "1";
+				jsonObject.shared_url = wechatObj.link;
+				jsonObject.shared_title = wechatObj.desc;
+				jsonObject.shared_content = wechatObj.desc;
+				jsonObject.shared_img_url = wechatObj.imgUrl;
+			}
+			var jsonStr = JSON.stringify(jsonObject);
+			sharedTypeByJson(jsonStr);
+		}
+		/*分享的方法*/
+		function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
+			camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
+		};
+		//app分享点击
+		$(".shareForFri").on("click", function() {
+			s(0);
+		});
+		$(".shareForFri_round").on("click", function() {
+			s(1);
+		});
+
+		
+	</script>
+
+
+
+</html>
