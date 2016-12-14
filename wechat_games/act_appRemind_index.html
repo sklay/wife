@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>温馨提示</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				width: 100%;
+				font-family: Microsoft Yahei, Arial;
+				background: #fff;
+			}
+			
+			.clearFix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.clearFix {
+				*zoom: 1;
+			}
+			
+			.con_wrap {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.con_wrap .buy_info {
+				width: 5.65378422rem;
+				margin: 0 auto;
+				padding-top: 0.29919485rem;
+			}
+			
+			.con_wrap .buy_info .itemDiv {
+				width: 100%;
+				margin: 0 auto;
+			}
+			
+			.con_wrap .buy_info .itemDiv .itemimg {
+				display: block;
+				margin: 0 auto;
+				width: 20%;
+			}
+			
+			.con_wrap .buy_info .itemDiv h2 {
+				color: #3b3b3b;
+				font-size: 0.41062802rem;
+				text-align: center;
+				margin: 0.12713366rem;
+			}
+			
+			.con_wrap .buy_info .itemDiv p {
+				color: #999999;
+				font-size: 0.32206119rem;
+				text-align: center;
+			}
+			
+			.con_wrap .buy_info .itemDiv img {
+				width: 4%;
+				display: block;
+				margin: 0.20985507rem auto;
+			}
+			
+			.content {
+				width: 8.0625rem;
+				margin: 0 auto;
+				padding-bottom: 0.625rem;
+			}
+			
+			.content p {
+				color: #3b3b3b;
+				font-size: 0.36875rem;
+				line-height: 0.625rem;
+				margin-top: 0.46875rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="con_wrap">
+			<div class="buy_info">
+				<div class="itemDiv">
+					<img class="itemimg" src="http://imgstore.camore.cn/images/act_appRemind_img-1.jpg" />
+					<h2>1、上传信息</h2>
+					<p>合作药店上传处方药品信息</p>
+					<img src="http://imgstore.camore.cn/images/act_appRemind_remark.jpg" />
+				</div>
+				<div class="itemDiv">
+					<img class="itemimg" src="http://imgstore.camore.cn/images/act_appRemind_img-2.jpg" />
+					<h2>2、审核信息</h2>
+					<p>药快到审核信息合格后发布信息</p>
+					<img src="http://imgstore.camore.cn/images/act_appRemind_remark.jpg" />
+				</div>
+				<div class="itemDiv">
+					<img class="itemimg" src="http://imgstore.camore.cn/images/act_appRemind_img-3.jpg" />
+					<h2>3、选择药品</h2>
+					<p>用户将处方药信息加入商品信息 清单并提交</p>
+					<img src="http://imgstore.camore.cn/images/act_appRemind_remark.jpg" />
+				</div>
+				<div class="itemDiv">
+					<img class="itemimg" src="http://imgstore.camore.cn/images/act_appRemind_img-4.jpg" />
+					<h2>4、发送需求</h2>
+					<p>药快到将需求信息发送给合作药店</p>
+					<img src="http://imgstore.camore.cn/images/act_appRemind_remark.jpg" />
+				</div>
+				<div class="itemDiv">
+					<img class="itemimg" src="http://imgstore.camore.cn/images/act_appRemind_img-5.jpg" />
+					<h2>5、验方送药</h2>
+					<p>合作药店药师上门验处方及送药 或用户凭处方到门店验房取药</p>
+				</div>
+			</div>
+			<div class="content">
+				<p>1、药快到受合作药店委托，只在网上发布处方药信息，并向合作药店提供顾客需求信息传达服务，不提供处方药订购服务。</p>
+				<p>2、提交了处方药需求信息，不代表已经形成交易，在未拿到药品前，您随时可以取消需求登记。</p>
+				<p>3、如发现药品存在质量问题，您可以直接与送货的门店联系解决，也可以与药快到的客服联系，药快到会将您的问题转达给为您送货的门店，为您解决问题。</p>
+				<p>4、推广期内免收送药服务费(即送货费)。</p>
+				<p>5、商品中包含有处方药时，药师将上门验方送药，如您无法当面提供有效处方，我们不能向您交付处方药品。</p>
+			</div>
+		</div>
+	</body>
+
+</html>

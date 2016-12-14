@@ -1,0 +1,282 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="description" content="药快到感觉超赞，人人有份，立享7折，买药就选药快到。" />
+<title>药快到感觉超赞</title>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script src="js/html_common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html, body, .content {
+	width: 100%;
+	height: 100%;
+}
+
+.content .brandImg {
+	width: 100%;
+	overflow: hidden;
+}
+
+.content .brandImg img {
+	width: 100%;
+	float: left;
+}
+
+.ac_code_spe {
+	position: fixed;
+	bottom: .6rem;
+}
+
+.content .ac_code_spe img {
+	width: 40%;
+}
+
+.content .ac_code_spe img:nth-child(1) {
+	float: left;
+	margin-left: 20px;
+}
+
+.content .ac_code_spe img:nth-child(2) {
+	float: right;
+	margin-right: 20px;
+}
+
+.btn_wrap {
+	display: none;
+}
+/*分享遮罩样式*/
+#shareshade {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(50, 50, 50, .8);
+	z-index: 9999;
+	display: none;
+}
+</style>
+<body>
+	<div class="content">
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven1.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven2.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven3.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven4.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven5.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven6.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven7.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven8.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven9.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/ty2016_discountSeven10.jpg" />
+		</div>
+		<div class="brandImg">
+			<img alt="" src="images/kzf2016_discountSeven11.jpg" />
+		</div>
+		<div class="brandImg ac_code_spe">
+			<div class="download_wrap " style="display: none">
+				<a id="downloadA" href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653"> 
+					<img alt="" src="images/kzf2016_discountSeven12.png" />
+				</a>
+			</div>
+			<div class="share_wrap ">
+				<img class="shareForFri" style="display: none" alt="" src="images/kzf2016_discountSeven13.png" /> 
+				<img class="shareForFri_round" src="images/kzf2016_discountSeven14.png" />
+			</div>
+		</div>
+
+	</div>
+	<div id="shareshade" style="position: fixed; top: 0; left: 0; width: 100%; background: rgba(50, 50, 50, .8); z-index: 9999; display: none;">
+		<script>
+			(function() {
+				var wh = $(document).height();
+				$("#shareshade").css({
+					height : wh
+				});
+
+				$("#shareshade").on('click', function() {
+					$("#shareshade").hide();
+				})
+			})();
+		</script>
+		<img src="http://imgstore.camore.cn/medstore/images/share.png" style="width: 100%" alt="" />
+	</div>
+</body>
+<script>
+	var wechatObj = new Object();
+	//判断是否从微信进入
+	 function is_weixin(){
+	 var ua = navigator.userAgent.toLowerCase();
+	 if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	 return true;
+	 } else {
+	 return false;
+	 }
+	 }; 
+	(function() {
+		if (is_weixin()) {
+			$(".download_wrap").show();
+		} else {
+			$(".shareForFri").show();
+		}
+	})();
+
+	$(".share_wrap").on("click", ".shareForFri_round", function() {
+		if (is_weixin()) {
+			$("#shareshade").css("height", $(".content").height());
+			$("#shareshade").show();
+		}
+	});
+	/*app调用的共用js*/
+	function s(type) {
+		var jsonObject = {};
+		if (type == 0) {
+			jsonObject.shared_type = "0";
+			jsonObject.shared_url = wechatObj.link;
+			jsonObject.shared_title = wechatObj.title;
+			jsonObject.shared_content = wechatObj.desc;
+			jsonObject.shared_img_url = wechatObj.imgUrl;
+		} else if (type == 1) {
+			jsonObject.shared_type = "1";
+			jsonObject.shared_url = wechatObj.link;
+			jsonObject.shared_title = wechatObj.desc;
+			jsonObject.shared_content = wechatObj.desc;
+			jsonObject.shared_img_url = wechatObj.imgUrl;
+		}
+		var jsonStr = JSON.stringify(jsonObject);
+		sharedTypeByJson(jsonStr);
+	}
+	/*分享的方法*/
+	function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
+		camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
+	};
+	//app分享点击
+	$(".shareForFri").on("click", function() {
+		s(0);
+	});
+	$(".shareForFri_round").on("click", function() {
+		s(1);
+	});
+
+	/*下载   */
+	$(function() {
+		/* 当微信进入时，下载页进入“应用宝”页面 */
+		if (is_weixin()) {
+			$("#downloadA").attr("href", "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653");
+		}
+		;
+	});
+</script>
+<script>
+	wechatObj.title = '药快到送200元现金券，用完再送！药便宜，要健康！';
+	wechatObj.desc = '药快到感觉超赞，你也来试试，持续拥有200元现金券，买药就选药快到。';
+	wechatObj.link = 'http://' + location.host + '/medhtml/common/2016_1201_send200';
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/20161216_send200_shareImg.jpg';
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	if (is_weixin()) {
+		$.ajax({
+			url : "/medhtml/common/getwxjssign?",
+			data : {
+				url : location.href.split('#')[0]
+			},
+			success : function(wechatReturn) {
+				if (wechatReturn) {
+					wx.config({
+						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId : appid, // 必填，公众号的唯一标识
+						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
+						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
+						signature : wechatReturn.signature,// 必填，签名，见附录1
+						jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
+					// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+					});
+				}
+				;
+				wx.ready(function() {
+					getMenuShare();
+				});
+			}
+		});
+
+		wx.ready(function() {
+			getWechatObj()
+		})
+		function getWechatObj() {
+			wx.onMenuShareTimeline({
+				title : wechatObj.desc, // 分享描述
+				link : wechatObj.link, // 分享链接
+				imgUrl : wechatObj.imgUrl, // 分享图标
+				success : function() {
+				},
+				cancel : function() {
+				}
+			});
+			wx.onMenuShareAppMessage({
+				title : wechatObj.title, // 分享标题
+				desc : wechatObj.desc, // 分享描述
+				link : wechatObj.link, // 分享链接
+				imgUrl : wechatObj.imgUrl, // 分享图标
+				success : function() {
+				},
+				cancel : function() {
+				}
+			});
+			wx.onMenuShareQQ({
+				title : wechatObj.title, // 分享标题
+				desc : wechatObj.desc, // 分享描述
+				link : wechatObj.link, // 分享链接
+				imgUrl : wechatObj.imgUrl, // 分享图标
+				success : function() {
+				},
+				cancel : function() {
+				}
+			});
+			wx.onMenuShareWeibo({
+				title : wechatObj.title, // 分享标题
+				desc : wechatObj.desc, // 分享描述
+				link : wechatObj.link, // 分享链接
+				imgUrl : wechatObj.imgUrl, // 分享图标
+				success : function() {
+				},
+				cancel : function() {
+				}
+			});
+		}
+
+	};
+</script>
+</html>
