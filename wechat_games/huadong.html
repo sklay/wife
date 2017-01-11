@@ -1,0 +1,77 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <meta charset="utf-8"></meta>  
+    <title>滑动导航栏</title>  
+    <script scr=""></script><script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>  
+    <link rel="stylesheet" href="style.css" type="text/css" />  
+    <style type="text/css">  
+        body,div,p{  
+            margin:0;   
+            padding:0;  
+        }  
+        .nav{  
+            background-color:black;  
+            position:fixed;  
+            left:0px;  
+            right:0px;  
+            width:80%;  
+            margin:10px auto;  
+            text-align:center;  
+            height:37px;  
+        }  
+        .nav a{  
+            padding:10px;  
+            color:white;  
+            line-height:30px;  
+            text-decoration:none;  
+            height:37px;  
+        }  
+        #navslip{  
+            height:2px;  
+            background-color:#8f919e;   
+            position:absolute;   
+            bottom:7px;   
+            width:0px;  
+            left:0px;  
+            display:none;  
+            overflow:hidden;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="nav">  
+        <a href="http://baidu.com" target="_black" >百度</a>  
+        <a href="http://sina.com" target="_black" >新浪</a>  
+        <a href="http://58.com" target="_black" >58同城</a>  
+        <a href="http://sentsin.com/message/" target="_black" title="留言">致时光</a>  
+        <a href="http://sentsin.com/daohang/" target="_black">前端圈</a>  
+        <i id="navslip"></i>  
+    </div>  
+    <script>  
+        $(function (){  
+            setSlip();  
+        });  
+        var setSlip = function(){  
+            var slip = $('#navslip');  
+            var a = $('.nav a:first');  
+            //初始化滑块  
+            slip.css({  
+                'width':a.width()+10,  
+                'left' :parseInt(a.position().left) + 5 +'px'  
+            });  
+            $('.nav a').mouseenter(function(){  
+                //显示滑块  
+                if(slip.css('display') == 'none'){  
+                    slip.show();  
+                };  
+                //移动滑块  
+                slip.stop().animate({  
+                    width: $(this).width()+10,  
+                    left:  parseInt($(this).position().left) + 5 +'px'  
+                },300);  
+            });  
+        };  
+    </script>  
+</body>  
+</html> 

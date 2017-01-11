@@ -1,0 +1,284 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>迎新年</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no, email=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" href="css/act_17lunarYear_index.css?v=000001" />
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+<script src="js/zepto.min.js"></script>
+<script src="js/touch.js"></script>
+<script src="js/preloadjs-0.6.0.min.js"></script>
+<script src="js/createjs-2014.12.12.min.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/fx_methods.js"></script>
+<script type="text/javascript" src="js/utils.js" ></script>
+<script type="text/javascript" src="js/act_17lunarYear_controlJs.js" ></script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ad944074f96dc318a2bb2265b8eb4c31";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+	<body>
+		<div class="contentBack">
+			<!--加载页-->
+			<div id="loadingPage" style="display: none;">
+				<p class="loadText">
+					Loading……<span id="loadPer"></span>
+				</p>
+				<div class="loadShape">
+					<span id="loadShapePro"></span>
+				</div>
+			</div>
+			<!--首页-->
+			<div class="indexPage" >
+				<div class="indexCon">
+					<div class="indexCon_title clearFix">
+						<img src="images/act_17lunarYear_indexTitle1.png" />
+						<img src="images/act_17lunarYear_indexTitle2.png" />
+					</div>
+					<div class="indexCon_click clearFix">
+						<img id="goToGamePage" src="images/act_17lunarYear_index_gameBtn.png"/>
+						<img id="getActRule" src="images/act_17lunarYear_index_ruleBtn.png"/>
+					</div>
+				<div class="actRuleShow_wrap comWrap1">
+					<div class="actRuleShow comShowWrap1">
+						<!--<img class="closeBtn actRuleClose" src="images/act_16seventhDay_indexRuleBTn.png" alt=""/>
+						<img class="rulePeoloe" src="images/act_16seventhDay_ruleIcon.png"/>-->
+						<div class="actRuleShow_title clearFix">
+							<img src="images/act_17lunarYear_index_ruleTitle.png" alt="">
+						</div>
+						<div class="actRuleText comTextWrap1">
+							<div>
+								<p>1.游戏说明</p>
+								<p>用来装饰新年的窗花和灯笼被混在一起啦，快找出大红灯笼辞旧迎新吧！</p>
+							</div>
+							<div>
+								<p>2.活动时间</p>
+								<p>2017年1月26日——2017年2月3日。</p>
+							</div>
+							<div>
+								<p>3.活动奖励</p>
+								<p>凡参与活动的用户均可获得【药快到】现金券红包。</p>
+							</div>
+							<div>
+								<p>4.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+							</div>
+						</div>
+						<div class="closeBtn actRuleClose clearFix">
+							<img class="" src="images/act_17lunarYear_index_ruleClose.png" alt=""/>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+			<!--游戏页-->
+			<div class="gamePage">
+				<!--游戏开始遮罩-->
+				<div class="startGameBtnWrap" >
+					<div class="startGameBtn">
+						<p>游戏时间60秒</p>
+						<img src="images/act_17lunarYear_gemeFu.png" />
+						<div id="startGame" >
+							<img src="images/act_17lunarYear_gemeGo.png" />
+						</div>
+					</div>
+				</div>
+				<div class="gamePage_wrap">
+						<!--游戏页面 顶部-->
+					<div class="gamePageTop clearFix">
+						<div class="gameScore_wrap">
+							<img src="images/act_17lunarYear_gemeScoreIcon.png" alt="">
+							<div class="gameScore_con">
+								<p>
+									分数：<span id="gameScore">30</span>
+								</p>
+							</div>
+						</div>
+						<div class="gameMusic_wrap" >
+							<img src="images/act_17lunarYear_gemeBjMusic.png" alt="" id="gameMusic" class="musicPlay">
+						</div>
+					</div>
+					<!--游戏主体-->
+					<div class="food_img controlAlertPage" id="food_img">
+						<!--<p id="question-info"></p>-->
+						<div class="cavwrap">
+							<!--<div class="clearFix">
+								<span class="normalStyle specialStyle">
+									<img  src="images/act_17lunarYear_spec_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+								<span class="normalStyle">
+									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
+								</span>
+							</div>-->
+						</div>
+					</div>
+					<!--游戏底部-->
+					<div class="gameCloc_wrap clearFix">
+						<div class="gameClockIcon clearFix">
+							<img src="images/act_17lunarYear_gemeClock.png" alt="">
+							<div class="gameCountDown_wrap">
+								<p>
+									剩余时间：<span id="gameCountDownTime">30</span>秒
+								</p>
+								<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
+									<span id="gameCountDownColor"></span>
+								</div>
+							</div>
+						</div>
+						<div id="stop_btn">
+							<img src="images/act_17lunarYear_gemePauseBtn.png" alt="" />
+						</div>
+					</div>
+				</div>
+				<!--游戏暂停遮罩-->
+				<div class="pauseGameBtnWrap" style="display: none;">
+					<div class="pauseGameBtn">
+						<p>游戏暂停</p>
+						<img src="images/act_17lunarYear_gemeFu.png" />
+						<div id="pauseGame">
+							<img src="images/act_17lunarYear_gemeGoOn.png" />
+						</div>
+					</div>
+				</div>
+				
+				
+				<div class="gameResultPage" style="display: none;">
+					<!--游戏成功遮罩-->
+					<div class="gameSuccWrap comWrap1 " style="display: none;">
+						<!--<div class="gameSucc comShowWrap1">-->
+						<div class="gameSucc">
+							<div class="gameSucc_box">
+								<div class="gameFailTitle">
+									<img src="images/act_17lunarYear_gemeResultTitle.png" alt="">
+									<p> 恭喜您，一共获得40积分！ 拿着红包喜迎新年吧!</p>
+								</div>
+								<!--<div class="gameOperateBtn comTextWrap1">-->
+								<div class="butWrap clearFix">
+										<a id="goToGetHb">
+											<img class="gameFailBtn toGetReward" src="images/act_17lunarYear_gemeGetRed.png" alt="">
+										</a>
+										<img class="gameFailBtn shareFri" src="images/act_17lunarYear_gemeShareBtn.png" alt="">
+										<img class="downloadP goForUse gameFailBtn" src="images/act_17lunarYear_gemeDownBtn.png" alt="">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--挑战失败页-->
+					<div class="gameFailWrap comWrap1" >
+						<!--<div class="gameFail comShowWrap1">-->
+							<div class="gameFail ">
+								<div class="gameFailTitle">
+									<img src="images/act_17lunarYear_gemeResultTitle.png" alt="">
+									<p> 您一共获得40积分！  没关系，带上鼓励金再战一局！</p>
+								</div>
+							<!--<div class="gameFailText comTextWrap1">-->
+								<div class="butWrap">
+									<a id="goToGetHb">
+										<img class="gameFailBtn toGetReward" src="images/act_17lunarYear_gemeGetRed.png" alt="">
+									</a>
+									<img class="gameFailBtn " id="playAgain" src="images/act_17lunarYear_gemeAgainBtn.png" alt="">
+									<img class="gameFailBtn shareFri" src="images/act_17lunarYear_gemeShareFailBtn.png" alt="">
+								</div>
+							<!--</div>-->
+						</div>
+					</div>
+					<div class="shareAppPage" style="display: none">
+						<img class="gameFailBtn appShareBtn" id="shareAppPage_shareFir"src="images/act_17lunarYear_ShareToFri.png" alt="">
+						<img class="gameFailBtn appShareBtn" id="shareAppPage_friRound" src="images/act_17lunarYear_ShareToRound.png" alt="">
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="shareFriSha">
+			<img src="images/act_17lunarYear_indexShare.png" alt="">
+		</div>
+	</body>
+	<script>
+	/* var wh=$(window).height();
+	alert(wh); */
+	/**全局变量*/
+	/**手机app版本号*/
+	var version = getUrlParam("version_code") || '';
+	/**手机用户token*/
+	var token = getUrlParam("user_token") || '';
+	/**是否要播放音乐*/
+//	var playMusic = getAppStatus() ;
+	
+//	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	
+	/**判断是否登陆*/
+	isLogin = function(){
+		if (token == "" || token == null || token == undefined) {
+			showResultApp("remind", "请先登录后再分享");
+			return false;
+		} else {
+			return true;
+		}
+	}
+			/**初始化预加载部分*/
+//	setupManifest({
+//		image:true,
+//		audio:true,
+//		progressText:"#loadPer",
+//		progressBar:"#loadShapePro",
+//		progressContent:"#loadingPage",
+//		finished:function(){
+//			console.debug("加载完成 进入index") ;
+//			$(".indexPage").fadeIn() ;
+//			initFunction();
+//		}
+//	});
+	initFunction();
+	/**声明一些事件*/
+	function initFunction() {
+		/*活动规则的显示与隐藏*/
+		$("#getActRule").on("tap", function() {
+			$(".actRuleShow_wrap").show();
+		});
+		$(".actRuleShow_wrap").on("tap", function() {
+			$(".actRuleShow_wrap").hide();
+		});
+		$("#goToGamePage").on("tap", function(e) {
+			console.debug("go");
+			$(".gamePage").fadeIn(100);
+			$(".indexPage").hide(100);
+		});
+		
+	}
+	</script>
+</html>

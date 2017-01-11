@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<style>
+			/*#div1 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000000;
+				display: none;
+			}
+			.active{
+				background: #ff0;
+			}*/
+			
+			
+			
+			
+			/*练习二：*/
+			
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#login{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #000000;
+				position: absolute;
+			}
+			#close{
+				position: absolute;
+				right: 0;
+				top: 0;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+		/*js写法   选项卡  - tab切换效果*/
+//			window.onload = function(){
+//				var oDiv = document.getElementById("div1");
+//				var aInput = oDiv.getElementsByTagName('input');
+//				var aCon = oDiv.getElementsByTagName("div");
+//				
+//				for(var i = 0;i<aInput.length;i++){
+//					aInput[i].index = i;
+//					aInput[i].onclick = function(){
+//						
+//						for(var i = 0;i<aInput.length;i++){
+//							aInput[i].className = '';
+//							aCon[i].style.display ='none';
+//						}
+//						this.className = 'active';
+//						aCon[this.index].style.display = 'block';
+//					}
+//				}
+//			}
+		/*jq写法    选项卡  - tab切换效果*/
+		  /*$(function(){
+		  	$("#div1").find('input').click(function(){
+		  		$("#div1").find('input').attr("class",'');
+		  		$("#div1").find('div').css('display','none');
+		  		
+		  		
+		  		$(this).attr('class','active');
+		  		$("#div1").find('div').eq($(this).index()).css('display','block')
+		  	});
+		  })*/
+
+		/*练习二*/
+		
+			$(function(){
+				$('#input1').click(function(){
+					var oLongin= $('<div id="login"><p>用户名：<input type="text" /></p><p>密码：<input type="text" /></p><div id="close">X</div></div>'); 
+					$('body').append(oLongin);
+					oLongin.css('left',($(window).width() - oLongin.outerWidth())/2);
+					oLongin.css('top',($(window).height() - oLongin.outerHeight())/2);
+					
+					
+					
+					/*如果改变窗口的高度之后，出现滚动条，如何让弹框位置随着发生改变，始终是居中的*/
+					
+					/*滚动条事件和改变窗口大小的事件*/
+					$(window).on('resize scroll',function(){
+						oLongin.css('left',($(window).width() - oLongin.outerWidth())/2);
+						oLongin.css('top',($(window).height() - oLongin.outerHeight())/2 + $(window).scrollTop());
+					});
+					
+					
+					$("#close").click(function(){
+						oLongin.remove();
+					});
+				});
+			})
+		</script>
+	</head>
+	<body style="height: 2000px;">
+		<!--
+			实例一
+			<div id="div1">
+			<input class="active" type="button" value="1"/>
+			<input type="button" value="2"/>
+			<input type="button" value="3"/>
+			<div style="display: block;">111</div>
+			<div>2222</div>
+			<div>3333</div>
+		</div>-->
+		
+		
+		<!--练习二-->
+		<input type="button" value="点击"  id="input1" />
+		<!--
+		<div id="login">
+			<p>用户名：<input type="text" /></p>
+			<p>密码：<input type="text" /></p>
+			<div id="close">X</div>
+		</div>
+		
+			以上内容 通过动态创建
+		-->
+		
+		
+	</body>
+</html>

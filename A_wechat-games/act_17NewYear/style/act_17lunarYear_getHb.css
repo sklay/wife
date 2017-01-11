@@ -1,0 +1,344 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-style: normal;
+  text-align: center;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  width: 100%;
+  background: #e41024;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+body {
+  font-family: Microsoft Yahei, Arial;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
+.content .indexPage {
+  width: 100%;
+  height: 16rem;
+  background: url(../images/act_17lunarYear_ReceiveIndexBj.jpg) center center no-repeat;
+  background-size: 100% 100%;
+}
+.getHbWrap {
+  width: 100%;
+  height: 16rem;
+  background: url(../images/act_17lunarYear_ReceiveIcon.png) center center no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.getHbWrap_title {
+  width: 7.1875rem;
+  padding-top: 1.34375rem;
+  margin: 0 auto;
+}
+.getHbWrap_title img {
+  width: 100%;
+  float: left;
+}
+.getHbWrap_title img:nth-child(2) {
+  margin-top: -0.15rem;
+}
+.commomLogin {
+  width: 7.34375rem;
+  margin: 4.84375rem auto 0;
+}
+.commomLogin #getHbBtn {
+  width: 100%;
+  margin-top: 0.1875rem;
+}
+.commomLogin #downText {
+  width: 80%;
+  display: block;
+  margin: 0.421875rem auto 0;
+}
+.commomLogin input {
+  width: 7.34375rem;
+  height: 1.5625rem;
+  background: url(../images/act_17lunarYear_receiveInputBj.png) center center no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  outline: none;
+  border: 0;
+  font-size: 0.546875rem;
+  font-family: "DFPWaWaW5";
+  color: rgba(135, 86, 23, 0.502);
+  line-height: 1.4375rem;
+  text-align: center;
+}
+::-moz-placeholder {
+  color: rgba(135, 86, 23, 0.502);
+  text-align: center;
+  font-family: "";
+  line-height: 1.4375rem;
+}
+:-ms-input-placeholder {
+  color: rgba(135, 86, 23, 0.502);
+  text-align: center;
+  line-height: 1.4375rem;
+}
+::-webkit-input-placeholder {
+  color: rgba(135, 86, 23, 0.502);
+  text-align: center;
+  line-height: 1.4375rem;
+}
+.received_result {
+  width: 100%;
+  height: 16rem;
+  background: url(../images/act_17lunarYear_ReceiveResultBj.jpg) center center no-repeat;
+  background-size: 100% 100%;
+}
+.receive_content {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+}
+.getHbnNum {
+  width: 100%;
+  height: 10.65625rem;
+}
+.getHb7,
+.has_getHb7 {
+  background: url(../images/act_17lunarYear_ReceiveCoupon6.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.getHb8,
+.has_getHb8 {
+  background: url(../images/act_17lunarYear_ReceiveCoupon8.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.commUsebtn {
+  width: 7.34375rem;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 1.34375rem;
+  left: 50%;
+  margin-left: -3.671875rem;
+}
+.commUsebtn img {
+  width: 100%;
+  margin-top: 0.5rem;
+  float: left;
+}
+.getHbnNum p {
+  padding-top: 4.84375rem;
+  text-align: center;
+  font-size: 0.46875rem;
+  font-family: "Microsoft YaHei";
+  color: #ffffff;
+  -moz-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -webkit-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -ms-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+}
+.friHbShow {
+  width: 9.8125rem;
+  overflow: hidden;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #ec5866;
+  margin: 0 auto;
+}
+.friHbShow .userFriAvatat {
+  width: 81%;
+  overflow: hidden;
+  float: left;
+  padding: 0.171875rem 0;
+}
+.friHbShow .userFriAvatat img {
+  width: 1.078125rem;
+  height: 1.078125rem;
+  float: left;
+  border-radius: 4px;
+}
+.friHbShow .userFriAvatat .userFriInf {
+  float: left;
+  margin-left: 0.125rem;
+  width: 80%;
+}
+.friHbShow .userFriAvatat .userFriInf strong {
+  font-size: 0.3125rem;
+  color: #fff;
+  line-height: 0.21875rem;
+}
+.friHbShow .userFriAvatat .userFriInf p {
+  white-space: nowrap;
+  font-size: 0.3125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+  line-height: 0.546875rem;
+}
+.friHbShow .userFriInf_wrap {
+  width: 18%;
+  float: right;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0.28125rem 0;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap {
+  width: 100%;
+  height: 0.96875rem;
+  float: right;
+  background: url(../images/act_17lunarYear_couponIcon.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue {
+  font-size: 0.625rem;
+  line-height: 0.96875rem;
+  color: #875617;
+  text-align: center;
+  display: block;
+  position: relative;
+  margin-left: -0.5625rem;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue span {
+  font-size: 0.546875rem;
+  position: absolute;
+}
+.activeRuleShowWrap .activeRuleShow {
+  width: 9.8125rem;
+  margin: 0 auto;
+  color: #fff;
+  line-height: 0.9375rem;
+  font-size: 0.40625rem;
+}
+/* .comShowTitle .comShowDesc {
+    text-align: center;
+    line-height: 40px;
+    width: 2.8rem;
+    margin: 0 auto;;
+    font-size: 16px;
+} */
+.comShowTitle {
+  color: #fff;
+  height: 40px;
+  width: 9.8125rem;
+  margin: 0.953125rem auto 0.5625rem auto;
+  overflow: hidden;
+  position: relative;
+}
+.leftLineDot {
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: .3rem;
+  padding-top: 19px;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.leftLineDot span {
+  float: left;
+  background: #fff;
+}
+.leftLineDot span:nth-child(2) {
+  position: absolute;
+  right: 3px;
+  top: 15px;
+}
+.rightLineDot {
+  padding: 19px 0 0 .3rem;
+  right: 0;
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.rightLineDot span {
+  float: right;
+  background: #fff;
+}
+.rightLineDot span:nth-child(1) {
+  position: absolute;
+  left: 3px;
+  top: 15px;
+}
+.comshowTitleText {
+  text-align: center;
+  line-height: 40px;
+  width: 3.5rem;
+  margin: 0 auto;
+  font-size: 16px;
+}
+.received_result .shareAppPage {
+  width: 7.34375rem;
+  position: absolute;
+  bottom: 2.34375rem;
+  left: 50%;
+  margin-left: -3.671875rem;
+}
+.received_result .shareAppPage img {
+  width: 100%;
+}
+/*分享遮罩样式*/
+#shareFriSha {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+#shareFriSha img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.promptDiv {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 180px;
+  height: 90px;
+  z-index: 99;
+  display: none;
+}
+.promptDiv .opDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: none repeat scroll 0% 0% #333;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.promptDiv .promptContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.promptDiv img {
+  display: block;
+  margin: 12px auto 10px auto;
+  width: 45px;
+  height: 45px;
+}
+.promptDiv .title {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
