@@ -35,7 +35,7 @@
 	<body>
 		<div class="contentBack">
 			<!--加载页-->
-			<div id="loadingPage" style="display: none;">
+			<div id="loadingPage" >
 				<p class="loadText">
 					Loading……<span id="loadPer"></span>
 				</p>
@@ -104,7 +104,7 @@
 							<img src="images/act_17lunarYear_gemeScoreIcon.png" alt="">
 							<div class="gameScore_con">
 								<p>
-									分数：<span id="gameScore">30</span>
+									分数：<span id="gameScore"></span>
 								</p>
 							</div>
 						</div>
@@ -123,27 +123,6 @@
 								<span class="normalStyle">
 									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
 								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
-								<span class="normalStyle">
-									<img  src="images/act_17lunarYear_gemeCH.png" alt="">
-								</span>
 							</div>-->
 						</div>
 					</div>
@@ -153,7 +132,7 @@
 							<img src="images/act_17lunarYear_gemeClock.png" alt="">
 							<div class="gameCountDown_wrap">
 								<p>
-									剩余时间：<span id="gameCountDownTime">30</span>秒
+									剩余时间：<span id="gameCountDownTime"></span>秒
 								</p>
 								<div class="gameCountDownColor_wrap" id="gameCountDownColor_wrap">
 									<span id="gameCountDownColor"></span>
@@ -189,7 +168,7 @@
 								</div>
 								<!--<div class="gameOperateBtn comTextWrap1">-->
 								<div class="butWrap clearFix">
-										<a id="goToGetHb">
+										<a id="goToGetHb" data-result="0">
 											<img class="gameFailBtn toGetReward" src="images/act_17lunarYear_gemeGetRed.png" alt="">
 										</a>
 										<img class="gameFailBtn shareFri" src="images/act_17lunarYear_gemeShareBtn.png" alt="">
@@ -199,7 +178,7 @@
 						</div>
 					</div>
 					<!--挑战失败页-->
-					<div class="gameFailWrap comWrap1" >
+					<div class="gameFailWrap comWrap1" style="display: none;">
 						<!--<div class="gameFail comShowWrap1">-->
 							<div class="gameFail ">
 								<div class="gameFailTitle">
@@ -208,7 +187,7 @@
 								</div>
 							<!--<div class="gameFailText comTextWrap1">-->
 								<div class="butWrap">
-									<a id="goToGetHb">
+									<a id="goToGetHb" data-result="1">
 										<img class="gameFailBtn toGetReward" src="images/act_17lunarYear_gemeGetRed.png" alt="">
 									</a>
 									<img class="gameFailBtn " id="playAgain" src="images/act_17lunarYear_gemeAgainBtn.png" alt="">
@@ -251,18 +230,18 @@
 		}
 	}
 			/**初始化预加载部分*/
-//	setupManifest({
-//		image:true,
-//		audio:true,
-//		progressText:"#loadPer",
-//		progressBar:"#loadShapePro",
-//		progressContent:"#loadingPage",
-//		finished:function(){
-//			console.debug("加载完成 进入index") ;
-//			$(".indexPage").fadeIn() ;
-//			initFunction();
-//		}
-//	});
+	setupManifest({
+		image:true,
+		audio:true,
+		progressText:"#loadPer",
+		progressBar:"#loadShapePro",
+		progressContent:"#loadingPage",
+		finished:function(){
+			console.debug("加载完成 进入index") ;
+			$(".indexPage").fadeIn() ;
+			initFunction();
+		}
+	});
 	initFunction();
 	/**声明一些事件*/
 	function initFunction() {
@@ -278,7 +257,15 @@
 			$(".gamePage").fadeIn(100);
 			$(".indexPage").hide(100);
 		});
-		
+		/*点击领取*/
+		$("#goToGetHb ").on("click ", function() {
+			var resultValue = $(this).attr("data-result");
+			console.log(resultValue);
+			var url = "http://127.0.0.1:8020/A_wechat-games/act_17NewYear/act_17lunarYear_getHb.html?resultValue="+resultValue;
+//		    var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=300";
+		   //var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code="+version+"&codeActId=302";
+			location.href = url;
+		});
 	}
 	</script>
 </html>

@@ -68,35 +68,47 @@ body {
   display: block;
   margin: 0.421875rem auto 0;
 }
-.commomLogin input {
+.inputSty {
   width: 7.34375rem;
   height: 1.5625rem;
   background: url(../images/act_17lunarYear_receiveInputBj.png) center center no-repeat;
   background-size: 100% 100%;
   position: relative;
+  /*line-height: 1.5625rem;*/
+  text-align: center;
+}
+.inputSty input {
+  width: 6.328125rem;
+  height: 1.125rem;
+  line-height: 1.125rem;
+  /*padding: 0.296875rem 0;*/
+  /*padding: 0.296875rem 0;*/
+  /*box-sizing: border-box;*/
+  position: absolute;
+  left: 50%;
+  margin-left: -3.1640625rem;
+  top: 0.125rem;
+  background: transparent;
+ 	/*background: #f00;*/
   outline: none;
   border: 0;
-  font-size: 0.546875rem;
+  font-size:0.546875rem;
   font-family: "DFPWaWaW5";
   color: rgba(135, 86, 23, 0.502);
-  line-height: 1.4375rem;
   text-align: center;
 }
 ::-moz-placeholder {
   color: rgba(135, 86, 23, 0.502);
   text-align: center;
   font-family: "";
-  line-height: 1.4375rem;
 }
 :-ms-input-placeholder {
   color: rgba(135, 86, 23, 0.502);
   text-align: center;
-  line-height: 1.4375rem;
 }
 ::-webkit-input-placeholder {
   color: rgba(135, 86, 23, 0.502);
   text-align: center;
-  line-height: 1.4375rem;
 }
 .received_result {
   width: 100%;

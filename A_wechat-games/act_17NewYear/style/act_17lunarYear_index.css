@@ -75,6 +75,7 @@ body {
   height: 100%;
   background: url(../images/act_17lunarYear_indexBJ.jpg) center center no-repeat;
   background-size: 100% 100%;
+  display: none;
 }
 .indexCon {
   width: 100%;

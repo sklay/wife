@@ -12,7 +12,7 @@ $(function(){
 	var imgBadName		= "" ;
 //	var imgMaxLength	= 0 ;
 	//var scoreNum=0;//得分记录；
-	var countDownNum=3;//倒计时初始值；
+	var countDownNum=30;//倒计时初始值；
 	var countDownTime=null;//倒计时计时器;
 	
 	
@@ -35,16 +35,25 @@ $(function(){
 	 * @param colorList
 	 * @returns {*}
 	 */
-	
+	//记录从8*8时  游戏还可以继续玩直到游戏完满10关，
+	//这个值 有待调整
+	var stepNum = 0;
 	/*点击生成主函数*/
 	function creatFunction(){
 		$(".cavwrap").empty();
-		if(boxNum >= 8){
+		if(boxNum >= 8 ){
+			stepNum++;
+			console.log(stepNum);
 			boxNum=8;
 			imgName = path + normalImgPrefix + maxImgList ;
 			imgBadName = path + badImgPrefix + maxImgList ;
 			indexSub++ ;
-			
+			if(stepNum>=6){
+				clearInterval(countDownTime);
+				$(".gameFailTitle p").html("恭喜您，一共获得" + scoreNum + "积分！ 拿着红包喜迎新年吧!");
+				$(".gameResultPage ").show();
+				$(".gameSuccWrap ").show();
+			}
 		}else{
 			imgName = path + normalImgPrefix +maxImgList;
 			imgBadName =  path + badImgPrefix +maxImgList ;
@@ -55,7 +64,7 @@ $(function(){
 		specialClick();
 
 		boxNum++;
-
+		
 	}
 	/*生成内容*/
 	function creatbox(){
@@ -109,7 +118,7 @@ $(function(){
 	});
 	
 	function gameStart(){
-		$("#gameCountDownTime").html("60");
+		$("#gameCountDownTime").html("30");
 		$("#gameScore").html("0");
 //		$('.index').hide();
 //		$('.start_game').show();
@@ -166,8 +175,7 @@ $(function(){
 				$("#gameCountDownTime").html(0);
 				clearInterval(countDownTime);
 				countDownNum = 0;
-				
-				$(".gameFailTitle p").html("恭喜您成功帮助" + scoreNum + "人降温， 这个夏天我要凉爽凉爽哒");
+				$(".gameFailTitle p").html("恭喜您，一共获得" + scoreNum + "积分！ 拿着红包喜迎新年吧!");
 				clickBoo = false;
 				
 				$(".gameResultPage ").show();
@@ -177,7 +185,7 @@ $(function(){
 //					audio_music.pause() ;
 //				}
 			};
-			var countDownShowW = Math.ceil(countDownNum / 3 * 100);
+			var countDownShowW = Math.ceil(countDownNum / 30 * 100);
 			$("#gameCountDownTime").html(countDownNum);
 			$("#gameCountDownColor").css({
 				"width" : countDownShowW + "%"
@@ -189,8 +197,9 @@ $(function(){
 		clearInterval(countDownTime);
 		/*状态值回复初始*/
 		scoreNum=0;
-		countDownNum=3;
+		countDownNum=30;
 		boxNum=3;
+		stepNum=0;
 //		indexSub=0;
 		$(".gameResultPage").hide();
 		$(".startGameBtnWrap").show();

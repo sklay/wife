@@ -67,13 +67,13 @@
 				
 			</div>
 		</div>
-		<div class="received_result"style="display: none;" >
-			<div class="receive_content">
+		<div class="received_result" style="display: none;" >
+			<div class="receive_content" >
 				<div class="getHbWrap_title clearFix">
 					<img src="images/act_17lunarYear_indexTitle1.png" />
 				</div>
-				<div class="receive_success" >
-					<div class="getHb7 getHbnNum" >
+				<div class="receive_success" style="display: none;">
+					<div class="getHb7 getHbnNum" style="display: none;">
 						<p>恭喜您领到6元现金券</p>
 					</div>
 					<div class="getHb8 getHbnNum" style="display: none">
@@ -220,10 +220,33 @@
 	</div>
 </body>
 <script>
+	/*
+     * 解析url
+     * */
+    function getQueryStringArgs() {
+        var qs = location.search.length > 0 ? location.search.substring(1) : "";
+        var args = {};
+        var item = [];
+        var name = null;
+        var value = null;
+        var items = qs.length ? qs.split("&") : [];
+        for (var i = 0; i < items.length; i++) {
+            item = items[i].split("=");
+            name = item[0];
+            value = item[1];
+
+            if (name.length) {
+                args[name] = value;
+            }
+        }
+        return args;
+    }
+    var resultValue = getQueryStringArgs().resultValue;
+	console.log(resultValue);
 	var phoneNum = '${phoneNum}';
 	var fromUserId = '${userId}';
 	var wechatObj = new Object();
-	//alert(location.href);
+	
 	/*从新的url里获取token 和version 的值  */
 	function getUrlEle() {
 		if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
@@ -248,14 +271,14 @@
 	};
 	var token = getUrlEle().token;
 	var version = getUrlEle().version;
-	(function() {
-		if (!is_weixin()) {
-			$(".downloadP").html("查看优惠券");
-		}
+//	(function() {
+//		if (!is_weixin()) {
+//			$(".downloadP").html("查看优惠券");
+//		}
 //			$(".friHbShowWrap .friHbShow:last-child").css({
 //				"borderBottom" : "none"
 //			});
-	})();
+//	})();
 
 	window.onload = function() {
 		$(".getHbWrap").on("click", "#getHbBtn", function() {
@@ -269,11 +292,12 @@
 			}
 			;
 			/*前端随机产生的邀请码传给后台，后台接受到这个值返回给前端，前端根据这个邀请码判断领取到的优惠券的金额*/
-			var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
-			if (getCodeNum) {
+//			var getCodeNum = parseInt(Math.random() > 0.5 ? 0 : 1);
+			if (resultValue == 1) {
 				var _inviteCode = '16QxlQ01';
-				var getHbNuM = 7;
-			} else {
+				var getHbNuM = 6;
+			} 
+			else if(resultValue == 0) {
 				var _inviteCode = '16QxlQ02';
 				var getHbNuM = 8;
 			}
@@ -289,12 +313,12 @@
 					$("#userPhone").val("");
 					if (result.result == "succ") {
 						console.log("succ");
-						$(".childSty").hide();
-						$(".commomLogin").hide();
+						$(".indexPage").hide();
+//						$(".commomLogin").hide();
 						$(".received_result").show();
 						$(".receive_success").show();
 						fromUserId = result.data.userId;
-						if (getHbNuM == 7) {
+						if (getHbNuM == 6) {
 							$(".getHb7").show();
 
 						} else {
@@ -308,11 +332,11 @@
 							if (couponInfo) {
 								couponValue = JSON.parse(couponInfo).couponValue || ''
 							}
-							$(".childSty").hide();
-							$(".commomLogin").hide();
+							$(".indexPage").hide();
+//							$(".commomLogin").hide();
 							$(".received_result").show();
 							$(".has_received").show();
-							if (7 == couponValue / 100) {
+							if (6 == couponValue / 100) {
 								$(".has_getHb7").show();
 							} else {
 								$(".has_getHb8").show();
@@ -363,7 +387,7 @@
 				if (token == "" || token == null || token == undefined) {
 					showResultApp("remind", "请先登录");
 				} else {
-					$(".received_result").hide();
+					$(".commUsebtn").hide();
 					$(".shareAppPage").show();
 				}
 			}
