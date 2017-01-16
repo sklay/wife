@@ -163,7 +163,7 @@
 						<div class="gameSucc">
 							<div class="gameSucc_box">
 								<div class="gameFailTitle">
-									<img src="images/act_17lunarYear_gemeResultTitle.png" alt="">
+									<img src="images/act_17lunarYear_gemeResultTitle2.png" alt="">
 									<p> 恭喜您，一共获得40积分！ 拿着红包喜迎新年吧!</p>
 								</div>
 								<!--<div class="gameOperateBtn comTextWrap1">-->
@@ -206,6 +206,18 @@
 		<div id="shareFriSha">
 			<img src="images/act_17lunarYear_indexShare.png" alt="">
 		</div>
+		<div style="display: none;" class="gameM	usic_wrap2">
+		<div id="audio_span"></div>
+		
+		<script>
+			
+			function end(){
+				document.getElementById('audioBackMusic').play() ;
+			}
+		</script>
+		
+		<audio id="audioBackMusic" src="http://imgstore.camore.cn/medhtml/common/images/act_16seventhDay_bjmusic.mp3 " style="display: none;" onended="javascript:end();" preload></audio>
+	</div>
 	</body>
 	<script>
 	/* var wh=$(window).height();
@@ -216,9 +228,9 @@
 	/**手机用户token*/
 	var token = getUrlParam("user_token") || '';
 	/**是否要播放音乐*/
-//	var playMusic = getAppStatus() ;
+	var playMusic = getAppStatus() ;
 	
-//	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
+	console.debug('version_code is ' , version ," , playMusic is  ", playMusic) ;
 	
 	/**判断是否登陆*/
 	isLogin = function(){
@@ -266,6 +278,28 @@
 		   //var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code="+version+"&codeActId=302";
 			location.href = url;
 		});
+	}
+	
+	/** 默认是生产APPID*/
+	var appid = 'wxade8c5e473c645e9';
+	if (location.host.indexOf('deve') >= 0) {
+		/** 准生产APPID*/
+		appid = 'wx697be0ec43c8cafa';
+	}
+	var wechatObj={
+			appid: appid,
+			title: '「药快到」邀您来玩“大红灯笼迎新年',
+			desc: '装饰新年的窗花和灯笼被搞混了，帮忙找出大红灯笼吧！更有好礼相送哦！',
+			link: 'http://' + location.host + '/medhtml/common/act_16seventhDay_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16seventhDay_shareImg.jpg',
+			shareSucc: function() {
+				$("#shareFriSha").hide();
+				$(".butWrap").show();
+				$(".shareAppPage").hide();
+			}
+		}
+	if (is_weixin()){
+		shareWeiXin(wechatObj) ;
 	}
 	</script>
 </html>
