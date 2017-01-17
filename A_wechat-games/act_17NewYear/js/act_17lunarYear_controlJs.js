@@ -84,10 +84,10 @@ $(function(){
 	/*设置box宽高*/
 	function norStyleCount(){
 //		alert(cavwrap.offsetWidth);
-		$(".normalStyle").width((cavwrap.offsetWidth-10-4*boxNum)/boxNum);
-		$(".normalStyle").height((cavwrap.offsetHeight-10-4*boxNum)/boxNum);
-		$(".normalStyle .image").width((cavwrap.offsetWidth-10-4*boxNum)/boxNum);
-		$(".normalStyle .image").height((cavwrap.offsetHeight-10-4*boxNum)/boxNum);
+		$(".normalStyle").width((cavwrap.offsetWidth-10-3*boxNum)/boxNum);
+		$(".normalStyle").height((cavwrap.offsetHeight-10-3*boxNum)/boxNum);
+		$(".normalStyle .image").width((cavwrap.offsetWidth-10-3*boxNum)/boxNum);
+		$(".normalStyle .image").height((cavwrap.offsetHeight-10-3*boxNum)/boxNum);
 		specialImg() ;
 	}
 
@@ -125,6 +125,7 @@ $(function(){
 //		$('.index').hide();
 //		$('.start_game').show();
 //		haveScore=true;
+		$(".controlAlertPage").show();
 		creatFunction();
 		countDownFun();
 		
@@ -137,13 +138,13 @@ $(function(){
 	function specialClick(){
 		$(".specialStyle").on("click",function(){
 			scoreNum = (scoreNum+10);
-			$("#gameScore").html(scoreNum);
-			creatFunction();
+			
 			if(scoreNum>=100){
 				 clearInterval(countDownTime);
 				$(".controlAlertPage").hide();
 				$(".gameResultPage ").show();
 				$(".gameSuccWrap ").show();
+				$("#gameScore").html("100");
 				$(".gameFailTitle p").html("恭喜您，一共获得" + scoreNum + "积分！ 拿着红包喜迎新年吧!");
 				if(playMusic) {
 					$(".gameMusic_wrap").find('img').removeClass('musicPlay').addClass('musicPause');
@@ -151,6 +152,8 @@ $(function(){
 				}
 				return false;
 			}
+			$("#gameScore").html(scoreNum);
+			creatFunction();
 		});
 	}
 	/*暂停*/
@@ -210,13 +213,13 @@ $(function(){
 			scoreNum=0;
 			countDownNum=30;
 			boxNum=3;
-//			stepNum=0;
 	//		indexSub=0;
-			$(".controlAlertPage").show();
+			
 			$(".gameResultPage").hide();
 			$(".gameFailWrap ").hide();
 			$(".gameSuccWrap ").hide();
 			$(".startGameBtnWrap").show();
+//			$(".controlAlertPage").show();
 		}
 		
 	})
