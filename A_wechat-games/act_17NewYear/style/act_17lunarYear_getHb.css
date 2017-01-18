@@ -13,7 +13,7 @@ html {
 html,
 body {
   width: 100%;
-  background: #e41024;
+  background: #f73a24;
 }
 .clearFix:after {
   content: "";
@@ -115,6 +115,7 @@ body {
   height: 16rem;
   background: url(../images/act_17lunarYear_ReceiveResultBj.jpg) center center no-repeat;
   background-size: 100% 100%;
+  position: relative;
 }
 .receive_content {
   width: 100%;
@@ -123,7 +124,7 @@ body {
 }
 .getHbnNum {
   width: 100%;
-  height: 10.65625rem;
+  height: 10.75625rem;
 }
 .getHb7,
 .has_getHb7 {
@@ -294,7 +295,7 @@ body {
 .received_result .shareAppPage {
   width: 7.34375rem;
   position: absolute;
-  bottom: 2.34375rem;
+  bottom: 0.94375rem;
   left: 50%;
   margin-left: -3.671875rem;
 }

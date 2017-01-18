@@ -5,14 +5,14 @@
 
 <head>
 <meta charset="UTF-8">
-<title>迎新年</title>
-<meta name="description" content="">
+<title>药快到」邀您来玩“大红灯笼迎新年”</title>
+<meta name="description" content="装饰新年的窗花和灯笼被搞混了，帮忙找出大红灯笼吧！更有好礼相送哦！">
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <meta name="format-detection" content="telephone=no, email=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <link rel="stylesheet" href="style/act_17lunarYear_index.css?v=000001" />
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="js/html_common.js"></script>
+<script type="text/javascript" src="js/html_commonN.js"></script>
 <script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
 <script src="js/zepto.min.js"></script>
 <script src="js/touch.js"></script>
@@ -273,9 +273,8 @@
 		$("#goToGetHb ").on("click ", function() {
 			var resultValue = $(this).attr("data-result");
 			console.log(resultValue);
-			var url = "http://127.0.0.1:8020/A_wechat-games/act_17NewYear/act_17lunarYear_getHb.html?resultValue="+resultValue;
-//		    var url = "http://192.168.1.193:8080/medstore-html/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code=" + version + "&codeActId=300";
-		   //var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code="+version+"&codeActId=302";
+			//var url = "http://192.168.1.67:8080/medstore-html/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code=" + version +"&resultValue=" + resultValue + "&codeActId=650";
+		    var url = "http://" + location.host + "/medhtml/common/act_comSkip_page?method=act_17lunarYear_getHb&user_token=" + token + "&version_code=" + version + "&resultValue=" + resultValue + "&codeActId=650";
 			location.href = url;
 		});
 	}
@@ -288,10 +287,10 @@
 	}
 	var wechatObj={
 			appid: appid,
-			title: '「药快到」邀您来玩“大红灯笼迎新年',
+			title: '「药快到」邀您来玩“大红灯笼迎新年”',
 			desc: '装饰新年的窗花和灯笼被搞混了，帮忙找出大红灯笼吧！更有好礼相送哦！',
-			link: 'http://' + location.host + '/medhtml/common/act_16seventhDay_index',
-			imgUrl:'http://imgstore.camore.cn/icon/logo/act_16seventhDay_shareImg.jpg',
+			link: 'http://' + location.host + '/medhtml/common/act_17lunarYear_index',
+			imgUrl:'http://imgstore.camore.cn/icon/logo/act_17lunarYear_shareImg.jpg',
 			shareSucc: function() {
 				$("#shareFriSha").hide();
 				$(".butWrap").show();

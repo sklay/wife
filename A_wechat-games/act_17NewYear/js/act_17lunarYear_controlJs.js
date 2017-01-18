@@ -2,8 +2,6 @@
  * 
  */
 $(function(){
-	
-	/*答题函数*/
 //	var indexSub		= 0 ;
 	var img 			= '<img class="image" src="{imgName}" />' ;
 	var maxImgList		= "gemeCH.png" ;//act_17lunarYear_gemeCH,act_17lunarYear_spec_gemeCH
@@ -12,7 +10,7 @@ $(function(){
 	var countDownNum=30;//倒计时初始值；
 	var countDownTime=null;//倒计时计时器;
 	
-	
+	var doubleTemp = 0 ;
 	var scoreNum = 0; //得分记录；
 	var haveScore = false;
 	//	预加载图片
@@ -20,7 +18,7 @@ $(function(){
 	var path = "images/";
 	var normalImgPrefix = "act_17lunarYear_";
 	var badImgPrefix = "act_17lunarYear_spec_";
-	var boxNum=3;
+	var boxNum=2;
 
 	/**
 	 * 获取
@@ -42,31 +40,28 @@ $(function(){
 		}
 	});
 	
-	
-	//记录从8*8时  游戏还可以继续玩直到游戏完满10关，
-	//这个值 有待调整
-	var stepNum = 0;
+	var step = 1;
 	/*点击生成主函数*/
 	function creatFunction(){
 		$(".cavwrap").empty();
-		if(boxNum > 9 ){
-//			stepNum++;
-//			console.log(stepNum);
-			boxNum=8;
+		if(boxNum ==7 || boxNum == 8 || boxNum == 9 ){
 			imgName = path + normalImgPrefix + maxImgList ;
 			imgBadName = path + badImgPrefix + maxImgList ;
-//			indexSub++ ;
+			if(doubleTemp == 1){
+				doubleTemp = 0;
+				boxNum++
+			}else{
+				doubleTemp++ ;
+			}
+			
 		}else{
 			imgName = path + normalImgPrefix +maxImgList;
 			imgBadName =  path + badImgPrefix +maxImgList ;
+			boxNum++
 		}
 		creatbox();
-		
 		norStyleCount();
 		specialClick();
-
-		boxNum++;
-		
 	}
 	/*生成内容*/
 	function creatbox(){
@@ -125,7 +120,7 @@ $(function(){
 //		$('.index').hide();
 //		$('.start_game').show();
 //		haveScore=true;
-		$(".controlAlertPage").show();
+		//$(".controlAlertPage").show();
 		creatFunction();
 		countDownFun();
 		
@@ -141,7 +136,7 @@ $(function(){
 			
 			if(scoreNum>=100){
 				 clearInterval(countDownTime);
-				$(".controlAlertPage").hide();
+				//$(".controlAlertPage").hide();
 				$(".gameResultPage ").show();
 				$(".gameSuccWrap ").show();
 				$("#gameScore").html("100");
@@ -163,13 +158,13 @@ $(function(){
 		scoreNum=scoreNum;//保存得分记录；
 		countDownNum=pauseTime;//保存倒计时时间；
 		clearInterval(countDownTime);
-		$(".controlAlertPage").hide();
+		//$(".controlAlertPage").hide();
 		$(".pauseGameBtnWrap").show();
 	});
    /*暂停结束，继续游戏*/
 	  $("#pauseGame").on("click",function(){
 	  	$("#gameScore").html(scoreNum);
-	  	$(".controlAlertPage").show();
+	  	//$(".controlAlertPage").show();
 	  	$(".pauseGameBtnWrap").hide();
 	  	countDownFun()
 	  });
@@ -187,7 +182,7 @@ $(function(){
 				countDownNum = 0;
 				$(".gameFailTitle p").html("恭喜您，一共获得" + scoreNum + "积分！ 拿着红包喜迎新年吧!");
 				clickBoo = false;
-				$(".controlAlertPage").hide();
+				//$(".controlAlertPage").hide();
 				$(".gameResultPage ").show();
 				$(".gameFailWrap ").show();
 				if(playMusic) {
@@ -212,7 +207,7 @@ $(function(){
 			/*状态值回复初始*/
 			scoreNum=0;
 			countDownNum=30;
-			boxNum=3;
+			boxNum=2;
 	//		indexSub=0;
 			
 			$(".gameResultPage").hide();
@@ -228,7 +223,7 @@ $(function(){
 	function timeOutFun(){
 		clearInterval(countDownTime);
 		$("#finalScoreNum").html(scoreNum);
-		$(".controlAlertPage").hide();
+		//$(".controlAlertPage").hide();
 	  	$(".time_over").show();
 	  	$("#shareshade").hide();
 //	  	showResultFun();

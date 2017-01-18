@@ -76,7 +76,7 @@ function waitClose() {
 //未登录消息提示遮罩层
 var _prompt = '<div class="promptDiv" id="prompt"><div class="opDiv"></div><div class="promptContent"><img alt="" src=""><p class="title"></p></div></div>';
 $(function() {
-	var shadeDiv = '<div class="shadeDiv" id="shadeDiv"></div>';
+	var shadeDiv = '<div class="shadeDiv" id="shadeDiv" style="position: absolute;top:0px;left: 0px;background: rgba(0, 0, 0, 0.4);"></div>';
 	$("body").append(shadeDiv);
 });
 
@@ -110,10 +110,11 @@ function showResultApp(type, title) {
 		$("#prompt .promptContent").find("img").attr("src", "images/w_prompt_remind.png");
 	}
 	$("#prompt").find(".title").text(title);
-	var top = ($(window).height() - 90) / 2;
-	var left = ($(window).width() - 180) / 2;
+	var top = ($(window).height() - $("#prompt").height()) / 2;
+	var left = ($(window).width() - $("#prompt").width()) / 2;
+    var scrollTop = $(document).scrollTop();   
 	$("#prompt").css({
-		'top': top + "px",
+		'top':(top + scrollTop) + "px",
 		'left': left + "px"
 	});
 	$("#prompt").show();
@@ -152,6 +153,10 @@ function s(type) {
 /*分享的方法*/
 function sharedTypeByJson(jsonStr) { //ios会覆盖此方法
 	camore.sharedTypeByJson(jsonStr); //android会调用里面的方法
+};
+//安卓会调用这个方法，如果页面有输入框，调用这个方法
+function showSoftKeyboard(){  
+    camore.showSoftKeyboard();  
 };
 /*点击去使用跳转的方法*/
 function gotoPage(jsonStr) { //ios会覆盖此方法
