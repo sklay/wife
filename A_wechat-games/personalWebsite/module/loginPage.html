@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="../style/loginPage.css" />
+		<link rel="stylesheet" href="../style/common.css" />
+		<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+	</head>
+
+	<body>
+		<div class="login-index">
+			<div class="my_pic_box">
+				<img class="my_pic"  src="../images/head1.png" />
+				<img class="my_pic2" data-status="hover" src="../images/head2.png" />
+				<span class="pic_ding"></span>
+			</div>
+			<form id="login">
+				<p>
+					<label for="user_login">用户名<br>
+					<input type="text" name="log" id="user_login" class="input" value="" size="20">
+					<span class="msg"></span>
+					</label>
+					
+				</p>
+				<p>
+					<label for="user_pass">密码<br>
+					<input type="password" name="pwd" id="user_pass" class="input" value="" size="20"></label>
+					<span class="msg"></span>
+				</p>
+				<p class="forgetmenot"><label for="rememberme"><input name="rememberme" type="checkbox" id="rememberme" value="forever"> 记住我的登录信息</label></p>
+				<p class="submit">
+					<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="登录">
+					<input type="hidden" name="redirect_to" value="http://www.zhouhaixia.com/loginPage.html/">
+					<input type="hidden" name="testcookie" value="1">
+				</p>
+			</form>
+		</div>
+	</body>
+	<script>
+	$(function(){
+		$my_pic = $('.my_pic_box>.my_pic2'),
+		
+		$my_pic.mouseover (function() {
+			$my_pic.attr('data-status', 'hover');
+		}, function() {
+			$(".my_pic2").css({"transform":"rotate(60deg)"});
+		});
+
+		$my_pic.hover (function() {
+			$my_pic.attr('data-status', 'hover');
+		}, function() {
+			$(".my_pic2").css({"transform":"rotate(0deg)"});
+		});
+		
+		
+		
+		
+		// 登录验证  
+        $("#wp-submit").click(function(){  
+            // 做表单输入校验  
+            var userId = $("#user_login");  
+            var password = $("#user_pass");  
+            var msg = "";  
+            if ($.trim(userId.val()) == ""){  
+                msg = "用户名不能为空！";  
+                userId.focus();  
+            }else if (!/^\w{5,20}$/.test($.trim(userId.val()))){  
+                msg = "用户名格式不正确！";  
+                userId.focus();  
+            }else if ($.trim(password.val()) == ""){  
+                msg = "密码不能为空！";  
+                password.focus();  
+            }else if (!/^\w{6,20}$/.test($.trim(password.val()))){  
+                msg = "密码格式不正确！";  
+                password.focus();  
+            } 
+            if (msg != ""){  
+                //alert(msg);
+                $(".msg").html(msg);
+            }else{  
+                // 获取表单中的参数  
+                var params = $("#wp-submit").serialize();  
+                //alert(params);  
+                // 发送登录的异步请求  
+//              $.post("${ctx}/loginAjax.action", params, function(data, status){  
+//                  alert(data.tip);  
+//              }, "json");  
+            }  
+              
+        });  
+          
+        // 为document绑定onkeydown事件监听是否按了回车键  
+        $(document).keydown(function(event){  
+            if (event.keyCode === 13){ // 按了回车键  
+                $("#wp-submit").trigger("click");  
+            }  
+        });  
+	})
+		
+	</script>
+
+</html>

@@ -127,10 +127,10 @@ body {
   height: 2.625rem;
   margin: 0 auto;
   text-align: center;
-  position: absolute;
+  /*position: absolute;
   bottom: 0.796875rem;
   left: 50%;
-  margin-left: -3.015625rem;
+  margin-left: -3.015625rem;*/
 }
 .indexCon_click img {
   width: 100%;
