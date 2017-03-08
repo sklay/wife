@@ -7,17 +7,108 @@
 		<link rel="stylesheet" href="../style/index.css" />
 		<link rel="stylesheet" href="../style/common.css" />
 		<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
-		
+		<link rel="stylesheet" type="text/css" href="../style/font/iconfont.css">
 		<style>
-			p:before{
-			    content: "\f109";
-			}
 		</style>
 	</head>
 
 	<body>
 		<div class="indexWrap">
-			<p>nihao</p>
+			<div class="menumain">
+				<div id="adminmenuback"></div>
+				<div class="menuWrap">
+					<ul class="menu">
+						<li>
+							<a>
+								<div></div>
+								<div></div>
+								<div class="wp-menu-name">仪表盘</div>
+							</a>
+							<ul>
+								<li>仪表盘</li>
+								<li>
+									<a>首页</a>
+								</li>
+								<li>
+									<a>更新</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="indexContent">
+				<!--头部标题栏-->
+				<div class="adminbar">
+					<div class="quicklinks">
+						<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+							<li id="wp-admin-bar-site-name" class="menupop">
+								<div class="itemDiv">
+									<i class="icon iconfont icon-yingjizhandian"></i>
+									<a class="ab-item" href="http://127.0.0.1:8020/A_wechat-games/personalWebsite/module/index.html">周海霞个人网站</a>
+								</div>
+								<div class="ab-sub-wrapper">
+									<ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+										<li id="wp-admin-bar-view-site">
+											<a class="ab-item sp-item" href="http://127.0.0.1:8020/A_wechat-games/personalWebsite/module/index.html">查看站点</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+							<li id="wp-admin-bar-new-content" class="menupop">
+								<div class="itemDiv">
+									<i class="icon iconfont icon-2"></i>
+									<a class="ab-item" href="">
+										<span class="ab-label">新建</span>
+									</a>
+								</div>
+								<div class="ab-sub-wrapper">
+									<ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+										<li id="wp-admin-bar-new-post">
+											<a class="ab-item sp-item" href="">文章</a>
+										</li>
+										<li id="wp-admin-bar-new-media">
+											<a class="ab-item sp-item" href="">媒体</a>		
+										</li>
+										<li id="wp-admin-bar-new-page">
+											<a class="ab-item sp-item" href="">页面</a>		
+										</li>
+										<li id="wp-admin-bar-new-user">
+											<a class="ab-item sp-item" href="">用户</a>		
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+						<ul class="ab-top-secondary ab-top-menu">
+							<li>
+								<div class="itemDiv">
+									<a class="ab-item" href="">
+										<span class="ab-label">您好，周海霞</span>
+									</a>
+									<i class="icon iconfont icon-denglu1"></i>
+								</div>
+								<div class="ab-sub-wrapper">
+									<i class="icon iconfont icon-denglu1 sp_i"></i>
+									<ul id="wp-admin-bar-user-actions" class="ab-submenu">
+										<li id="wp-admin-bar-new-post">
+											<a class="wp-admin-bar-user-info" href="">周海霞</a>
+										</li>
+										<li id="wp-admin-bar-edit-profile">
+											<a class="ab-item sp-item" href="">编辑我的个人资料</a>		
+										</li>
+										<li id="wp-admin-bar-logout">
+											<a class="ab-item sp-item" href="">登录</a>		
+										</li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!--主体部分-->
+				<div class="adminBody"></div>
+			</div>
 		</div>
 	</body>
 	<script>
