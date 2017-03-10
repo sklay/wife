@@ -10,7 +10,7 @@
 	position: fixed;
     top: 0;
     bottom: -120px;
-    z-index: 1;
+    /*z-index: 1;*/
     width: 160px;
     background-color: #23282d
 }
@@ -72,6 +72,7 @@
     height: 32px;
     padding: 0 10px;
     margin: 0;
+    text-align: right;
 }
 .adminbar  .menupop .ab-sub-wrapper, .adminbar .shortlink-input{
     min-width: 100%;
@@ -80,7 +81,7 @@
     -webkit-box-shadow: 0 3px 5px rgba(0,0,0,.2);
     box-shadow: 0 3px 5px rgba(0,0,0,.2);
     background: #32373c;
-    /*display: none;*/
+    display: none;
     position: absolute;
     float: none;
 }
@@ -116,7 +117,109 @@
 .ab-top-secondary{
 	float: right;
 }
+.headIcon{
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    float: left;
+    margin-top: 16px;
+}
 .ab-top-secondary i.sp_i{ 
-    font-size: 90px;
-    line-height: 120px;
+    font-size: 64px;
+    line-height: 66px;
+}
+.ab-top-secondary .ab-sub-wrapper{
+    box-shadow: 0 3px 5px rgba(0,0,0,.2);
+    background: #32373c;
+    padding: 6px 12px;
+    height: 110px;
+    overflow: hidden;
+    display: none;
+}
+#wp-admin-bar-user-actions{
+	float: right;
+}
+#wp-admin-bar-user-actions li{
+	float: none;
+	margin-left: 38px;
+    color: rgba(240,245,250,.7);
+}
+#wp-admin-bar-user-actions li a{
+    color: rgba(240,245,250,.7);
+}
+.select{
+	color: #0073aa;
+}
+.select a{
+	color: #0073aa;
+}
+.adminbar .quicklinks .menupop ul li .ab-item:hover{
+	color: #0073aa;
+}
+#wp-admin-bar-user-actions li a:hover{
+	color: #0073aa;
+}
+
+/*左侧边栏样式*/
+.menu a.menu-top{
+	display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 32px;
+    padding: 0 10px;
+	color: #fff;
+	/*overflow: hidden;*/
+    background: #0073aa;
+    position: relative;
+}
+.menu a.menu-top:after{
+    right: 0;
+    border: 8px solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-right-color: #f1f1f1;
+    top: 50%;
+    margin-top: -8px;
+}
+.wp-menu-name{
+	padding: 8px;
+    
+}
+.wp-submenu{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: #32373c;
+    word-wrap: break-word;
+    padding: 7px 0 8px;
+}
+.wp-submenu-wrap{
+	/*display: none;*/
+}
+.wp-submenu-head{
+	display: none;
+}
+.wp-submenu li a{
+	display: block;
+    color: rgba(240,245,250,.7);
+	padding: 6px 12px;
+	
+}
+
+.menu_content{
+	    position: fixed;
+    left: 160px;
+    top: 32px;
+}
+.menu_content ul{
+	width: 160px;
+	background-color: #23282d;
+	padding: 8px 16px;
+	box-sizing: border-box;
+    
+}
+.menu_content ul a{
+	color: rgba(240,245,250,.7);
 }
