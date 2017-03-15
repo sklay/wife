@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>jQuery - 添加元素</title>
+
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="css/initialize.css" />
+		<link href="bootsrap/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/index.css" />
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<!--广告部分-->
+
+			<div class="advertisement clearfix row" style="margin: 0;">
+
+				<div class="col-md-4 col-lg-4" style="padding: 0;">
+					<!--<a href="/index.html" title="w3school 在线教程" style="float:left;"></a>-->
+				</div>
+
+				<div class="col-md-8 col-lg-8" style="padding: 0;">
+					<img src="img/nav3-4.jpg" />
+				</div>
+
+			</div>
+
+			<!--导航部分-->
+			<nav class="navbar ">
+
+				<ul class="nav navbar-nav " id="hover">
+					<!-- active为当前活动的元素-->
+					<li class="active">
+						<a href="index.html">入门教程</a>
+					</li>
+					<li>
+						<a href="#">提高教程</a>
+					</li>
+					<li>
+						<a href="#">实战教程</a>
+					</li>
+				</ul>
+
+			</nav>
+
+			<div class="row content">
+				<!--左边部分-->
+				<div class="col-md-3 col-lg-3 left">
+					<p class="title">课程表</p>
+					<ul>
+						<li>
+							<h2>jQuery 教程</h2>
+							<ul>
+
+								<li>
+									<a href="index.html" title="jQuery 教程">jQuery 教程</a>
+
+								</li>
+								<li>
+									<a href="jquery_intro.html" title="jQuery 简介">jQuery 简介</a>
+								</li>
+								<li>
+									<a href="jquery_install.html" title="jQuery 安装">jQuery 安装</a>
+								</li>
+								<li>
+									<a href="jquery_syntax.html" title="jQuery 语法">jQuery 语法</a>
+								</li>
+								<li>
+									<a href="jquery_selectors.html" title="jQuery 选择器">jQuery 选择器</a>
+								</li>
+								<li>
+									<a href="jquery_events.html" title="jQuery 事件">jQuery 事件</a>
+								</li>
+
+							</ul>
+						</li>
+
+						<li>
+							<h2>jQuery 效果</h2>
+							<ul>
+								<li>
+									<a href="jquery_hide_show.html" title="jQuery jQuery 效果 - 隐藏和显示">jQuery 隐藏/显示</a>
+								</li>
+								<li>
+									<a href="jquery_fade.html" title="jQuery jQuery 效果 - 淡入淡出">jQuery 淡入淡出</a>
+								</li>
+								<li>
+									<a href="jquery_slide.html" title="jQuery 效果 - 滑动">jQuery 滑动</a>
+								</li>
+								<li>
+									<a href="jquery_animate.html" title="jQuery 效果 - 动画">jQuery 动画</a>
+								</li>
+								<li>
+									<a href="jquery_stop.html" title="jQuery 停止动画">jQuery stop()</a>
+								</li>
+								<li>
+									<a href="jquery_callback.html" title="jQuery 回调函数">jQuery Callback</a>
+								</li>
+								<li>
+									<a href="jquery_chaining.html" title="jQuery - Chaining">jQuery Chaining</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2>jQuery HTML</h2>
+							<ul>
+								<li>
+									<a href="jquery_dom_get.html" title="jQuery - 获取内容和属性">jQuery 获取</a>
+								</li>
+								<li>
+									<a href="jquery_dom_set.html" title="jQuery - 设置内容和属性">jQuery 设置</a>
+								</li>
+								<li class="currentLink">
+									<a href="jquery_dom_add.html" title="jQuery - 添加元素">jQuery 添加</a>
+								</li>
+								<li>
+									<a href="jquery_dom_remove.html" title="jQuery - 删除元素">jQuery 删除</a>
+								</li>
+								<li>
+									<a href="jquery_css_classes.html" title="jQuery - 获取和设置 CSS 类">jQuery CSS 类</a>
+								</li>
+								<li>
+									<a href="jquery_css.html" title="jQuery - css() 方法">jQuery css()</a>
+								</li>
+								<li>
+									<a href="jquery_dimensions.html" title="jQuery - 尺寸">jQuery 尺寸</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2>jQuery 遍历</h2>
+							<ul>
+								<li>
+									<a href="jquery_traversing.html" title="jQuery 遍历">jQuery 遍历</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_ancestors.html" title="jQuery 遍历 - 祖先">jQuery 祖先</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_descendants.html" title="jQuery 遍历 - 后代">jQuery 后代</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_siblings.html" title="jQuery 遍历 - 同胞">jQuery 同胞</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_filtering.html" title="jQuery 遍历 - 过滤">jQuery 过滤</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+
+							<h2>jQuery AJAX</h2>
+							<ul>
+								<li>
+									<a href="jquery_ajax_intro.html" title="jQuery - AJAX 简介">jQuery AJAX 简介</a>
+								</li>
+								<li>
+									<a href="jquery_ajax_load.html" title="jQuery - AJAX load() 方法">jQuery 加载</a>
+								</li>
+								<li>
+									<a href="jquery_ajax_get_post.html" title="jQuery - AJAX get() 和 post() 方法">jQuery Get/Post</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<h2>jQuery 杂项</h2>
+							<ul>
+								<li>
+									<a href="jquery_noconflict.html" title="jQuery - noConflict() 方法">jQuery noConflict()</a>
+								</li>
+							</ul>
+						</li>
+
+					</ul>
+
+				</div>
+
+				<!--右边部分-->
+
+				<div class="col-md-9 col-lg-9 maincontent">
+					<div class="col-md-10 col-lg-10 page-header">
+
+						<!--一级标题-->
+						<h1 class="title">jQuery - 添加元素</h1>
+
+					</div>
+
+					<div class="col-md-10 col-lg-10 prenext">
+						<ul class=" clearfix">
+							<li class="pre">
+								<a href="jquery_dom_set.html" title="jQuery - Chaining">上一节</a>
+							</li>
+							<li class="next">
+								<a href="jquery_dom_remove.html" title="jQuery 设置">下一节</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="col-md-2 col-lg-2  skip">
+
+						<ul class="">
+							<li>
+								<a href="javascript:;" data-value="content1">添加新的 HTML 内容</a>
+
+							</li>
+							<li>
+								<a href="javascript:;" data-value="content2">jQuery append() 方法</a>
+							</li>
+
+							<li>
+								<a href="javascript:;" data-value="content3">jQuery prepend() 方法</a>
+							</li>
+
+							<li>
+								<a href="javascript:;" data-value="content4">通过 append() 和 prepend() 方法添加若干新元素</a>
+							</li>
+
+							<li>
+								<a href="javascript:;" data-value="content5">jQuery after() 和 before() 方法</a>
+							</li>
+
+							<li>
+								<a href="javascript:;" data-value="content6">通过 after() 和 before() 方法添加若干新元素</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+					<div class="col-md-10 col-lg-10">
+
+						<div id="content1">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>添加新的 HTML 内容</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								我们将学习用于添加新内容的四个 jQuery 方法：
+							</p>
+
+							<ol>
+								<li class="lead">append() - 在被选元素的结尾插入内容</li>
+								<li class="lead">prepend() - 在被选元素的开头插入内容</li>
+								<li class="lead">after() - 在被选元素之后插入内容</li>
+								<li class="lead">before() - 在被选元素之前插入内容</li>
+							</ol>
+
+						</div>
+
+						<div id="content2">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>jQuery append() 方法</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								jQuery append() 方法在被选元素的结尾插入内容
+							</p>
+
+							<p class="lead">
+								下面的例子演示带有回调函数的 text() 和 html()：
+							</p>
+
+							<!--一般内容，加粗用stronge-->
+
+							<!--放代码-->
+							<pre class="prettyprint linenums">
+$("p").append("Some appended text.");
+							</pre>
+							<p class="try noMaginbottom">
+								<a target="_blank" href="jquery_dom_add_try1.html">亲自试一试</a>
+							</p>
+
+						</div>
+
+						<div id="content3">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>jQuery prepend() 方法</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								jQuery prepend() 方法在被选元素的开头插入内容。
+
+							</p>
+
+							<!--一般内容，加粗用stronge-->
+
+							<p class="lead">
+								<strong>实例:</strong>
+							</p>
+
+							<!--放代码-->
+							<pre class="prettyprint linenums">
+								
+$("p").prepend("Some prepended text.");						
+							</pre>
+							<p class="try">
+								<a target="_blank" href="jquery_dom_add_try2.html">亲自试一试</a>
+							</p>
+
+						</div>
+
+						<div id="content4">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>通过 append() 和 prepend() 方法添加若干新元素</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								在上面的例子中，我们只在被选元素的开头/结尾插入文本/HTML。
+							</p>
+
+							<p class="lead">
+								不过，append() 和 prepend() 方法能够通过参数接收无限数量的新元素。可以通过 jQuery 来生成文本/HTML（就像上面的例子那样），或者通过 JavaScript 代码和 DOM 元素。
+							</p>
+
+							<p class="lead">
+
+								在下面的例子中，我们创建若干个新元素。这些元素可以通过 text/HTML、jQuery 或者 JavaScript/DOM 来创建。然后我们通过 append() 方法把这些新元素追加到文本中（对 prepend() 同样有效）：
+							</p>
+
+							<!--一般内容，加粗用stronge-->
+
+							<p class="lead">
+								<strong>实例:</strong>
+							</p>
+
+							<!--放代码-->
+							<pre class="prettyprint linenums">$("#btn1").click(function(){
+function appendText()
+{
+var txt1="&lt;p&gt;Text.&lt;/p&gt;";               // 以 HTML 创建新元素
+var txt2=$("&lt;p&gt;&lt;/p&gt;").text("Text.");   // 以 jQuery 创建新元素
+var txt3=document.createElement("p");  // 以 DOM 创建新元素
+txt3.innerHTML="Text.";
+$("p").append(txt1,txt2,txt3);         // 追加新元素
+}
+});
+							</pre>
+							<p class="try noMaginbottom">
+								<a target="_blank" href="jquery_dom_add_try3.html">亲自试一试</a>
+							</p>
+
+						</div>
+
+						<div id="content5">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>jQuery after() 和 before() 方法</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								jQuery after() 方法在被选元素之后插入内容。
+							</p>
+
+							<p class="lead">
+								jQuery before() 方法在被选元素之前插入内容。
+							</p>
+
+							<!--一般内容，加粗用stronge-->
+
+							<p class="lead">
+								<strong>实例:</strong>
+							</p>
+
+							<!--放代码-->
+							<pre class="prettyprint linenums">
+$("img").after("Some text after");
+
+$("img").before("Some text before");
+							</pre>
+							<p class="try noMaginbottom">
+								<a target="_blank" href="jquery_dom_add_try4.html">亲自试一试</a>
+							</p>
+
+						</div>
+
+						<div id="content6">
+
+							<!--二级标题-->
+							<div class="page-header">
+								<h3>通过 after() 和 before() 方法添加若干新元素</h3>
+							</div>
+
+							<!--概述内容-->
+
+							<p class="lead">
+								after() 和 before() 方法能够通过参数接收无限数量的新元素。可以通过 text/HTML、jQuery 或者 JavaScript/DOM 来创建新元素。
+							</p>
+
+							<p class="lead">
+								在下面的例子中，我们创建若干新元素。这些元素可以通过 text/HTML、jQuery 或者 JavaScript/DOM 来创建。然后我们通过 after() 方法把这些新元素插到文本中（对 before() 同样有效）：
+							</p>
+
+							<!--一般内容，加粗用stronge-->
+
+							<p class="lead">
+								<strong>实例:</strong>
+							</p>
+
+							<!--放代码-->
+							<pre class="prettyprint linenums">
+function afterText()
+{
+var txt1="&lt;b&gt;I &lt;/b&gt;";                    <span class="code_comment">// 以 HTML 创建新元素</span>
+var txt2=$("&lt;i&gt;&lt;/i&gt;").text("love ");     <span class="code_comment">// 通过 jQuery 创建新元素</span>
+var txt3=document.createElement("big");  <span class="code_comment">// 通过 DOM 创建新元素</span>
+txt3.innerHTML="jQuery!";
+$("img").after(txt1,txt2,txt3);          <span class="code_comment">// 在 img 之后插入新元素</span>
+}
+
+							</pre>
+							<p class="try noMaginbottom">
+								<a target="_blank" href="jquery_dom_add_try5.html">亲自试一试</a>
+							</p>
+
+						</div>
+
+						<div class="prenext">
+							<ul class=" clearfix">
+								<li class="pre">
+									<a href="jquery_dom_set.html" title="jQuery - Chaining">上一节</a>
+								</li>
+								<li class="next">
+									<a href="jquery_dom_remove.html" title="jQuery 设置">下一节</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-2.2.0.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootsrap/js/bootstrap.min.js"></script>
+		<script src="js/jquery_module_index.js"></script>
+
+	</body>
+
+</html>

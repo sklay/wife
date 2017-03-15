@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>首页</title>
+
+		<!-- Bootstrap -->
+		<link href="bootsrap/css/bootstrap.css" rel="stylesheet">
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <style>
+    	
+    	#plugins ul li{
+    		
+    		list-style: none;
+    		float: left;
+    		width: 190px;
+    		line-height: 30px;
+    	}
+    	
+    	
+    </style>
+	</head>
+
+	<body>
+
+		<!--导航栏部分-->
+
+		<nav class="navbar  navbar-fixed-top navbar-static-top bs-docs-nav" style="background: #FFFFFF;">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<!-- navbar-brand展示了一个Logo-->
+					<a href="#" class="navbar-brand">
+						Jquery EasyUI中文网
+						<!-- 图片注意尺寸，图片超出尺寸，需重新布局-->
+						<img src="" alt="" />
+					</a>
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">//目标是将.navbar显示出来
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </button>
+				</div>
+
+				<div class="collapse navbar-collapsecollapse navbar-collapse bs-navbar-collapse">
+
+					<!-- nav是专门为导航中的列表加样式，navbar是为整个导航添加样式，navbar-nav是让li左浮动--->
+					<ul class="nav navbar-nav">
+						<!-- active为当前活动的元素-->
+						<li class="active">
+							<a href="index.html">首页</a>
+						</li>
+						<li>
+							<a href="#">Easyui demo</a>
+						</li>
+						<li>
+							<a href="tutorial.html">EasyUI 教程</a>
+						</li>
+
+						<li>
+							<a href="tab.html">EasyUI 教程 tab方法</a>
+						</li>
+
+						<li>
+							<a href="#">EasyUI 扩展</a>
+						</li>
+						<li>
+							<a href="#">EasyUI下载</a>
+						</li>
+						<li>
+							<a href="#">ECS推荐</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</nav>
+		<!--轮播图部分-->
+
+		<div style="margin-top: 50px;">
+
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators">
+					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner" role="listbox">
+					<div class="item active">
+						<img src="img/banner1.jpg" alt="...">
+						<div class="carousel-caption">
+							...
+						</div>
+					</div>
+					<div class="item">
+						<img src="img/banner2.jpg" alt="...">
+						<div class="carousel-caption">
+							...
+						</div>
+					</div>
+
+					<div class="item">
+						<img src="img/banner3.jpg" alt="...">
+						<div class="carousel-caption">
+							...
+						</div>
+					</div>
+
+				</div>
+
+				<!-- Controls -->
+				<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+			</div>
+
+		</div>
+
+		<div class="container">
+			<div class="col-md-8">
+				<div class="page-header">
+					<div class="bdsharebuttonbox bdshare-button-style1-16" id="share" data-bd-bind="1488852716654">
+						<a href="#" class="bds_more" data-cmd="more"></a>
+						<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
+						<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
+						<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博">腾讯微博</a>
+						<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网">人人网</a>
+						<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">微信</a>
+					</div>
+					<script>
+						window._bd_share_config = {
+							"common": {
+								"bdSnsKey": {},
+								"bdText": "",
+								"bdMini": "2",
+								"bdMiniList": false,
+								"bdPic": "",
+								"bdStyle": "1",
+								"bdSize": "24"
+							},
+							"share": {
+								"bdSize": 16
+							},
+							"selectShare": {
+								"bdContainerClass": null,
+								"bdSelectMiniList": ["qzone", "tsina", "tqq", "renren", "weixin"]
+							}
+						};
+						with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+					</script>
+					<h1>EasyUI 简介</h1></div>
+				<p>easyui是一种基于jQuery的用户界面插件集合。</p>
+				<p>easyui为创建现代化，互动，JavaScript应用程序，提供必要的功能。</p>
+				<p>使用easyui你不需要写很多代码，你只需要通过编写一些简单HTML标记，就可以定义用户界面。</p>
+				<p>easyui是个完美支持HTML5网页的完整框架。</p>
+				<p>easyui节省您网页开发的时间和规模。</p>
+				<p>easyui很简单但功能强大的。</p>
+				<div id="PAGE_AD_4"></div>
+			</div>
+			<div class="col-md-4">
+				<div class="thumbnail page-header">
+					<img src="img/advertisement.png" alt="" style="height: 150px;" />
+					<div class="caption">
+						<h3><a href="http://www.bjsxt.com/2014/down_0425/34.html">获取JAVA培训课程免费试听</a></h3>
+						<p>口碑最好的Java培训机构</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row" style="margin-bottom:20px">
+				<div class="col-md-9">
+					<div class="page-header">
+						<h1>在jQuery 和 HTML5 上轻松使用EasyUI</h1></div>
+					<p>jQuery EasyUI 提供易于使用的组件，它使 Web 开发人员能快速地在流行的 jQuery 核心和 HTML5 上建立程序页面。 这些功能使您的应用适合今天的网络。 有两个方法声明的 UI 组件:</p>
+					<p>1. 直接在 HTML 声明组件。</p>
+
+					<pre>
+						
+        &lt;div class="container"&gt;
+        &lt;!--container容器可以作用：水平居中--&gt;
+        &lt;nav&gt;
+        &lt;!--pagination定义一个分页--&gt;
+        &lt;ul class="pagination"&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span aria-hidden="ture"&gt;&amp;laquo;&lt;/span&gt;
+                &lt;span class="sr-only"&gt;previous&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li class="active"&gt;&lt;a href="#"&gt;1&lt;/a&gt;&lt;/li&gt; //active为当前活动状态
+            &lt;li&gt;&lt;a href="#"&gt;2&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;3&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;4&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;5&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;&lt;span aria-hidden="ture"&gt;&amp;raquo;&lt;/span&gt;
+                &lt;span class="sr-only"&gt;next&lt;/span&gt;
+            &lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+
+    &lt;/nav&gt;
+
+&lt;/div&gt;
+						
+			        </pre>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container" style="margin-top:20px;">
+			<div class="page-header">
+				<h1>所有的 EasyUI 插件</h1></div>
+			<p>jQuery easyui提供了一个完整的组件的集合，包括强大的DataGrid，树网格，面板。用户可以使用他们一起，或者只是用一些组件，组合和构建他想要的跨浏览器的网页应用。</p>
+			<div id="plugins">
+				<ul>
+					<li>
+						<a href="/plugins/163.html"><i class="glyphicon glyphicon-cog"></i>Menu 菜单</a>
+					</li>
+					<li>
+						<a href="/plugins/164.html"><i class="glyphicon glyphicon-cog"></i>Menubutton 菜单按钮</a>
+					</li>
+					<li>
+						<a href="/plugins/165.html"><i class="glyphicon glyphicon-cog"></i>Splitbutton 分割按钮</a>
+					</li>
+					<li>
+						<a href="/plugins/162.html"><i class="glyphicon glyphicon-cog"></i>Layout 布局</a>
+					</li>
+					<li>
+						<a href="/plugins/161.html"><i class="glyphicon glyphicon-cog"></i>Accordion 折叠面板</a>
+					</li>
+					<li>
+						<a href="/plugins/159.html"><i class="glyphicon glyphicon-cog"></i>Panel 面板</a>
+					</li>
+					<li>
+						<a href="/plugins/160.html"><i class="glyphicon glyphicon-cog"></i>Tabs 标签页/选项卡</a>
+					</li>
+					<li>
+						<a href="/plugins/157.html"><i class="glyphicon glyphicon-cog"></i>Progressbar 进度条</a>
+					</li>
+					<li>
+						<a href="/plugins/158.html"><i class="glyphicon glyphicon-cog"></i>Tooltip 提示框</a>
+					</li>
+					<li>
+						<a href="/plugins/156.html"><i class="glyphicon glyphicon-cog"></i>Searchbox 搜索框</a>
+					</li>
+					<li>
+						<a href="/plugins/154.html"><i class="glyphicon glyphicon-cog"></i>Resizable 可调整尺寸</a>
+					</li>
+					<li>
+						<a href="/plugins/155.html"><i class="glyphicon glyphicon-cog"></i>Pagination 分页</a>
+					</li>
+					<li>
+						<a href="/plugins/153.html"><i class="glyphicon glyphicon-cog"></i>Droppable 可放置</a>
+					</li>
+					<li>
+						<a href="/plugins/151.html"><i class="glyphicon glyphicon-cog"></i>Easyloader 加载器</a>
+					</li>
+					<li>
+						<a href="/plugins/152.html"><i class="glyphicon glyphicon-cog"></i>Draggable 可拖动</a>
+					</li>
+					<li>
+						<a href="/plugins/185.html"><i class="glyphicon glyphicon-cog"></i>Tree 树</a>
+					</li>
+					<li>
+						<a href="/plugins/184.html"><i class="glyphicon glyphicon-cog"></i>Propertygrid 属性网格</a>
+					</li>
+					<li>
+						<a href="/plugins/183.html"><i class="glyphicon glyphicon-cog"></i>Datagrid 数据网格</a>
+					</li>
+					<li>
+						<a href="/plugins/182.html"><i class="glyphicon glyphicon-cog"></i>Messager 消息框</a>
+					</li>
+					<li>
+						<a href="/plugins/181.html"><i class="glyphicon glyphicon-cog"></i>Dialog 对话框</a>
+					</li>
+					<li>
+						<a href="/plugins/172.html"><i class="glyphicon glyphicon-cog"></i>Numberbox 数字框</a>
+					</li>
+					<li>
+						<a href="/plugins/173.html"><i class="glyphicon glyphicon-cog"></i>Datebox 日期框</a>
+					</li>
+					<li>
+						<a href="/plugins/174.html"><i class="glyphicon glyphicon-cog"></i>Datetimebox 日期时间框</a>
+					</li>
+					<li>
+						<a href="/plugins/175.html"><i class="glyphicon glyphicon-cog"></i>Calendar 日历</a>
+					</li>
+					<li>
+						<a href="/plugins/176.html"><i class="glyphicon glyphicon-cog"></i>Spinner 微调器</a>
+					</li>
+					<li>
+						<a href="/plugins/177.html"><i class="glyphicon glyphicon-cog"></i>Numberspinner 数值微调器</a>
+					</li>
+					<li>
+						<a href="/plugins/178.html"><i class="glyphicon glyphicon-cog"></i>Timespinner 时间微调器</a>
+					</li>
+					<li>
+						<a href="/plugins/179.html"><i class="glyphicon glyphicon-cog"></i>Slider 滑块</a>
+					</li>
+					<li>
+						<a href="/plugins/180.html"><i class="glyphicon glyphicon-cog"></i>Window 窗口</a>
+					</li>
+					<li>
+						<a href="/plugins/171.html"><i class="glyphicon glyphicon-cog"></i>Combogrid 组合网格</a>
+					</li>
+					<li>
+						<a href="/plugins/168.html"><i class="glyphicon glyphicon-cog"></i>Combo 组合</a>
+					</li>
+					<li>
+						<a href="/plugins/169.html"><i class="glyphicon glyphicon-cog"></i>Combobox 组合框</a>
+					</li>
+					<li>
+						<a href="/plugins/170.html"><i class="glyphicon glyphicon-cog"></i>Combotree 组合树</a>
+					</li>
+					<li>
+						<a href="/plugins/166.html"><i class="glyphicon glyphicon-cog"></i>Form 表单</a>
+					</li>
+					<li>
+						<a href="/plugins/167.html"><i class="glyphicon glyphicon-cog"></i>Validatebox 验证框</a>
+					</li>
+					<li>
+						<a href="/plugins/186.html"><i class="glyphicon glyphicon-cog"></i>Treegrid 树形网格</a>
+					</li>
+					<li>
+						<a href="/plugins/150.html"><i class="glyphicon glyphicon-cog"></i>Parser 解析器</a>
+					</li>
+					<li>
+						<a href="/plugins/187.html"><i class="glyphicon glyphicon-cog"></i>Linkbutton 链接按钮</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-2.2.3.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootsrap/js/bootstrap.min.js"></script>
+	</body>
+
+</html>

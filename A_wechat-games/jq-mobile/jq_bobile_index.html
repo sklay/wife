@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+		<!--<meta name="format-detection" content="telephone=no" />-->
+		<link rel="stylesheet" href="jqmobile/jquery.mobile-1.4.5.min.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<script type="text/javascript" src="jqmobile/jquery.mobile-1.4.5.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		 <!--
+		 	1、 认识 jqmobile的基本骨架
+		 	2、多页面的跳转  --1> 为了实现 页面的 跳转 ，所有 data-role为"page"的页面，都需要id，
+		 	然后在a标签中，通过锚点链接 href ="#page2"来进行页面跳转，可以 给a里面加data-transition
+		 	这个 属性来实现页面的专场效果，
+		 -->
+		<!--jquerymobile 基本骨架    data-开头的  都是jqmobile带来的 自定义属性-->
+		<div data-role = "page" id="page1">
+			<div data-role = "header">
+				<h1>我是页面1</h1>
+			</div>
+			<div data-role = "content">
+				<!--
+					data-transition="slide"  滑动
+					data-transition="pop"	 弹出
+					data-transition="turn"	翻转
+					data-transition="flip"	 大翻转
+				-->
+				<a data-role="button" href="#page2" data-transition="flip">去2</a>
+			</div>
+			<div data-role = "footer" data-position="fixed">
+				<!--必须是放着 h4-->
+				<h4>这是页脚</h4>
+			</div>
+		</div>
+		<!--页面 2  此时是两个页面，但是 jqmobile框架 只是显示第一个页面-->
+		<div data-role = "page" id="page2">
+			<div data-role = "header">
+				<h1>我是页面2</h1>
+			</div>
+			<div data-role = "content">
+				222
+			</div>
+			<div data-role = "footer" data-position="fixed">
+				<!--必须是放着 h4-->
+				<h4>这是页脚</h4>
+			</div>
+		</div>
+	</body>
+</html>
