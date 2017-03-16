@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li title="tt"></li>
+				<li class="box"></li>
+				<li></li>
+				<li class="box"></li>
+				<li title="tt"></li>
+			</ul>
+		</div>
+	</body>
+	<script>
+		//第一个li 变红色
+//		$("li:first").css('background',"red");
+		//最后一个li变红色
+//		$("li:last").css('background',"red");
+		//第三个li变红色
+//		$("li:eq(2)").css('background',"red");
+		//偶数行 变成红色
+//		$("li:odd").css('background',"red");
+		//基数行变成红色
+//		$("li:even").css('background',"red");
+		
+		//想选中 带有Box的 li
+//		$("li.box").css('background',"red");
+		//filter 筛选方法
+//		$("li").filter('.box').css('background',"red");
+
+		//想选中 title 为 tt 的li
+		$("li").filter('[title=tt]').css('background',"red");
+	</script>
+</html>

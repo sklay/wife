@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<style>
+			#div1 div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #e3e3e3;
+				display: none;
+			}
+			.active{
+				background: #F0AD4E;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<input class="active" type="button" value="1" />
+			<input type="button" value="2" />
+			<input type="button" value="3" />
+			<div style="display: block;">1111</div>
+			<div>2222</div>
+			<div>3333</div>
+		</div>
+	</body>
+	<script>
+	/*	//原生 js 写法
+		var oDiv = document.getElementById('div1');
+		var aInput = document.getElementsByTagName('input');
+		var aCon = oDiv.getElementsByTagName('div');
+		//第一个循环是 获取每一个按钮 ，处理对应的事件
+		for(var i = 0; i<aInput.length;i++){
+			//给每个按钮 加索引
+			aInput[i].index = i;
+			aInput[i].onclick = function(){
+				//此处 循环 是 把 除点击之外的 按钮 的 样式制空
+				//并把 所有的 内容都 影藏
+				for(var i = 0; i<aInput.length;i++){
+					aInput[i].className = '';
+					aCon[i].style.display = 'none';
+				}
+				//给当前点击的 按钮 加样式
+				this.className = 'active';
+				//给当前点击的 按钮 加样式
+				aCon[this.index].style.display = 'block';
+			}
+		}*/
+		//jquery 写法
+		$(function(){
+			$('#div1 input').click(function(){
+				//遍历input
+				 $(this).each(function(index,n){
+				 	//去掉 同级input的样式active
+				    $(n).siblings().removeClass('active');
+				    //给当前的 input加上active样式
+					$(n).addClass('active');
+					
+					//让#div1下的 所有 子元素 div 影藏
+					$('#div1 div').hide();
+					//让与当前 点击的 input 索引相同的  div 显示
+					$('#div1 div').eq($(n).index()).show();
+				  });
+				
+			});
+		})
+	</script>
+</html>

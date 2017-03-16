@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;/*实现拖拽,就要加定位*/
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+	<script>
+		//jquery 写法
+		$(function(){
+			//左边偏移量
+			var disX =  0;
+			//上边偏移量
+			var disY =  0;
+			$('div').mousedown(function(ev){
+				disX = ev.pageX -$(this).offset().left;
+				disY = ev.pageY -$(this).offset().top;
+				
+				$(document).mousemove(function(ev){
+					$('div').css('left',ev.pageX - disX);
+					$('div').css('top',ev.pageY - disY);
+				});
+				$(document).mouseup(function(){
+					$(document).off();
+				});
+				return false;
+			})
+		})
+	</script>
+</html>

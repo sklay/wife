@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+	</head>
+	<body>
+		<ul>
+			<li>a</li>
+			<li>d</li>
+			<li>f</li>
+			<li>v</li>
+		</ul>
+	</body>
+	<script>
+		$(function(){
+			//给一组li复值时，所有的 li都会被赋值
+			$("ul li").html(111);
+			//获取一组li值时，只能获取到第一个 li的值
+			$("ul li").html();
+		})
+	</script>
+</html>

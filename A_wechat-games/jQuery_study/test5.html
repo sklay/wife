@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="">div</div>
+	</body>
+	<script>
+	// $() 下的常用方法
+	// 1) addClass()   removeClass()
+	// 2) width()  innerWidth() outerWidth() 的区别
+	// width()  就是width
+	// innerWidth()  = width + padding
+	// outerWidth() = width + padding + border
+	// outerwidth(true)  = width + padding +margin + border
+	
+	// 3）insertBefore() before()
+		 //insertBefore() 把 一个节点 移到 另一个 节点的 前面（实现  节点剪切的 功能）
+		 //before()  insertBefore() 区别 在于 后续的 操作会变
+		 
+//		 $('span').insertBefore($('div')).css('background','red');  span标签 会变成 红色
+//		 $('div').before($('span')).css('background','red');        div标签 会变成 红色
+	//    insertAfter()  after()
+		 //insertAfter() 把 一个节点 移到 另一个 节点的 后面
+	//    appendTo       append()
+		 //appendTo 把 一个 节点移到另一个节点的 里面的 最后的位置
+	//    prependTo()  prepend()
+		 //prependTo()把 一个 节点移到另一个节点的 里面的 最开始的位置
+	// 4) remove()  
+		// 删除节点
+	// 5) on() -->可以加做个事件  off()  -->取消事件
+		$("div").on("click mouseover",function(){
+			alert(123);
+			$("div").off(); // 点击一次后 不会在有点击事件了 ， div 的点击事件被 取消了
+		})
+		$("div").on("click mouseover",function(){
+			alert(123);
+			$("div").off(mouseover); //值取消了 mouseover 的 事件，如果 方法 里什么都不加 ，两个事件都会被取消
+		})
+		$("div").on({
+			'click':function(){
+				alert(123);
+			},
+			'mouseover':function(){
+				alert(456);
+			}
+		})
+	// 6) scrollTop()  纵向 滚动 距离
+	
+		$(document).click(function(){
+			$(window).scrollTop();  //滚动距离  $(window)对象 去获取
+		})
+		
+		
+	// 7) event  pageX 
+	     $('div').click(function(){
+	     	// ev : event
+//	     	ev.pageX (相对于文档的) ：clientX(相当于可视区域的)
+//			ev.which() (代表键盘的键值) : keyCode
+			
+//			ev.preventDefault() ;  阻止默认事件
+//			ev.stopPropagation() ; 阻止冒泡的操作
+			
+//			return false ;  阻止 默认事件 + 冒泡的操作
+	     })
+	     
+	// 8) one()  --> 事件只执行一次
+	
+	// 9） offset()  position()
+//		$('div').offset().left() ; 获取元素到屏幕的 左距离
+//		$('div').position().left() ; 把某个 节点看做 有定位的 元素了，如果这个节点有margin值，
+//			此时的margin值 就不算在内了，那么这个节点的左偏离距离 就是到有定位的父级 left值，如果此节点的父级没有定位，就到屏幕的距离
+	
+	// 10 offsetParent()
+//		offsetParent() --> 获取有定位的 父级 （如果父级没有定位 就是屏幕）
+//		parent() --> 获取父级
+	</script>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#login{
+				width: 300px;
+				height: 300px;
+				border: 1px solid #e2e2e2;
+				position: absolute;
+			}
+			#closeBtn{
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body style="height: 2000px;">
+		<input type="button" value="点击" id="inputl" />
+		<!--<div id="login">
+			<p>用户名：<input type="text" />   </p>
+			<p>密码：<input type="text" />   </p>
+			<div id="closeBtn">X</div>
+		</div>-->
+	</body>
+	<script>
+		//jquery 写法
+		$(function(){
+			//c创建 div
+//			var oDiv = $('<div>');
+//			$('body').append(oDiv);
+			//编写弹窗
+			
+			//点击按钮的时候 显示登录的 弹窗
+			$('#inputl').click(function(){
+				var oLongin = $('<div id="login"><p>用户名：<input type="text" />   </p><p>密码：<input type="text" />   </p><div id="closeBtn">X</div></div>')
+				$('body').append(oLongin);
+				//让弹框居中  left -->窗口值 - 元素自身值
+				oLongin.css('left', ($(window).width() - oLongin.outerWidth())/2 );
+				oLongin.css('top', ($(window).height() - oLongin.outerHeight())/2 );
+				
+				//关闭
+				$('#closeBtn').click(function(){
+//					oLongin.remove();
+					oLongin.fadeOut();
+				})
+				
+				//在窗口 有滚动条的 情况  也让 弹框居中 resize scroll
+				$(window).on('resize scroll',function(){
+					oLongin.css('left', ($(window).width() - oLongin.outerWidth())/2 );
+					oLongin.css('top', ($(window).height() - oLongin.outerHeight())/2 + $(window).scrollTop());
+				})
+			});
+		})
+	</script>
+</html>

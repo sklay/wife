@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js" ></script>
+	</head>
+	<body>
+		<div>
+			<div class="box">div1 <span></span></div>
+			<p>99</p>
+			<h2>h2</h2>
+			<div class="">div2</div>
+		</div>
+	</body>
+	<script>
+	//jq 的常用方法
+	
+		$(function(){
+			// 1）filter : 过滤
+			//    not:	：filter 的反义
+			// 样式为 box 的盒子变红
+//			$("div").filter(".box").css('background','red');
+			// 样式不为 box 的盒子变红
+//			$("div").not(".box").css('background','red');
+			
+			// 2）has 包含
+			//div中 含 span 的标签才会变色
+//			$("div").has("span").css('background','red');
+			
+//			filter 和not  与 has 的区别
+			//filter 和not  针对 元素自身的  ，has  是针对 元素内部 所包含的  元素
+			
+			// 3） next  兄弟节点的 下一个
+			$("div").next().css('background','red');
+			
+			// 4） find  子节点中 有 h2的标签
+			$("div").find("h2").css('background','red');
+		})
+	</script>
+</html>
