@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        img{
+            display: block;
+            width: 300px;
+            margin-top: 900px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <img src="images/mtnav9.jpg" data-changeimg="http://img.pconline.com.cn/images/upload/upc/tx/itbbs/1606/11/c17/22657405_1465613085849_mthumb.jpg">
+
+    <script>
+
+        function offSet(ele) {
+            var l = ele.offsetLeft;
+            var t = ele.offsetTop;
+            var div = ele.offsetParent;//获取
+            l += div.offsetLeft;
+            t += div.offsetTop;
+            return {
+                left: l,
+                top: t
+            }
+        }
+
+
+
+        window.onload = function(){
+            var imgele = document.getElementsByTagName("img").item(0);
+            //imgele.offsetHeight获取自身高度
+            var imgHeight = offSet(imgele).top+imgele.offsetHeight;
+            //获取可视窗口高度
+            var docHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+            window.onscroll = function(){
+            	//获取滚动高度
+                var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+                //获取图片资源
+                if(!imgele.loaded){ //  !undefined = true
+                    if(imgHeight < docHeight+scrollHeight){
+                        var imgsrc = imgele.getAttribute("data-changeimg");
+                        imgele.src = "images/loading.jpg";
+                        //中间值：保存获取过来的图片地址
+                        var waitImg = new Image();//创建一个image对象
+                        waitImg.src = imgsrc;
+                        //onload看自己的需求把
+                        waitImg.onload = function(){
+                            //一旦触发了onload代表当前图片资源加载完成了
+                            imgele.src = waitImg.src;
+                            imgele.loaded = true;//loaded自定义属性
+                        }
+                    }
+                }
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

@@ -22,6 +22,9 @@
 				<li><i class="layui-icon">&#xe62e;</i> 表单</li>
 				<li><i class="layui-icon">&#xe62e;</i> 表单个例</li>
 				<li><i class="layui-icon">&#xe62e;</i> 导航</li>
+				<li><i class="layui-icon">&#xe62e;</i> 选项卡</li>
+				<li><i class="layui-icon">&#xe62e;</i> 表格</li>
+				<li><i class="layui-icon">&#xe62e;</i> 面板</li>
 			</ul>
 			<div class="layui-tab-content" style="padding: 10px;">
 				<div class="layui-tab-item layui-show">
@@ -31,6 +34,11 @@
 					在这里，你将以最直观的形式体验Layui！在编辑器中可以执行layui相关的一切代码。
 					<br>你也可以点击左侧导航针对性地试验我们提供的示例。
 					<!--<br><br><a target="_blank" href="https://jq.qq.com/?_wv=1027&k=41lnosl" class="layui-btn">加入Layui开发者交流群</a>（系网友提供）-->
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>引用区块</legend>
+					</fieldset>
+					<blockquote class="layui-elem-quote">引用区域的文字</blockquote>
+					<blockquote class="layui-elem-quote layui-quote-nm">引用区域的文字</blockquote>
 				</div>
 				<div class="layui-tab-item">
 					内容1<br />
@@ -321,6 +329,236 @@
 					  <a href="">综艺</a>
 					</span>
 				</div>
+				
+				<div class="layui-tab-item">
+					<!--<fieldset class="layui-elem-field layui-field-title">
+					  <legend>默认Tab选项卡</legend>
+					</fieldset>
+					<div class="layui-tab">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this">网站设置</li>
+					    <li>用户管理</li>
+					    <li>权限分配</li>
+					    <li>商品管理</li>
+					    <li>订单管理</li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show">内容1</div>
+					    <div class="layui-tab-item">内容2</div>
+					    <div class="layui-tab-item">内容3</div>
+					    <div class="layui-tab-item">内容4</div>
+					    <div class="layui-tab-item">内容5</div>
+					  </div>
+					</div>-->
+					<!--<fieldset class="layui-elem-field layui-field-title">
+					  <legend>Tab简洁风格</legend>
+					</fieldset>
+					
+					<div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+						  <ul class="layui-tab-title">
+						    <li class="layui-this">网站设置</li>
+						    <li>用户管理</li>
+						    <li>权限分配</li>
+						    <li>商品管理</li>
+						    <li>订单管理</li>
+						  </ul>
+						  <div class="layui-tab-content"></div>
+					</div>  -->
+					<!--<fieldset class="layui-elem-field layui-field-title">
+					  <legend>Tab卡片风格</legend>
+					</fieldset>
+					<div class="layui-tab layui-tab-card">
+						  <ul class="layui-tab-title">
+						    <li class="layui-this">网站设置</li>
+						    <li>用户管理</li>
+						    <li>权限分配</li>
+						    <li>商品管理</li>
+						    <li>订单管理</li>
+						  </ul>
+						  <div class="layui-tab-content" style="height: 100px;">
+						    <div class="layui-tab-item layui-show">1</div>
+						    <div class="layui-tab-item">2</div>
+						    <div class="layui-tab-item">3</div>
+						    <div class="layui-tab-item">4</div>
+						    <div class="layui-tab-item">5</div>
+						    <div class="layui-tab-item">6</div>
+						  </div>
+					</div>-->
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>Tab响应式</legend>
+					   <div class="layui-field-box">
+						    当容器的宽度不足以显示全部的选项时，即会自动出现展开图标，如下以卡片风格为例（注意：所有Tab风格都支持响应式）：
+						</div>
+					</fieldset>
+      				<fieldset class="layui-elem-field layui-field-title">
+					  <legend>带删除的Tab</legend>
+					   <div class="layui-field-box">
+						    你可以对父层容器设置属性 lay-allowClose="true" 来允许Tab选项卡被删除
+						</div>
+					</fieldset>
+					<div class="layui-tab" lay-allowClose="true">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this">网站设置</li>
+					    <li>用户基本管理</li>
+					    <li>权限分配</li>
+					    <li>全部历史商品管理文字长一点试试</li>
+					    <li>订单管理</li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show">1</div>
+					    <div class="layui-tab-item">2</div>
+					    <div class="layui-tab-item">3</div>
+					    <div class="layui-tab-item">4</div>
+					    <div class="layui-tab-item">5</div>
+					    <div class="layui-tab-item">6</div>
+					  </div>
+					</div>
+					<fieldset class="layui-elem-field layui-field-title">
+					   <div class="layui-field-box">
+						   与默认相比没有什么特别的结构，就是多了个属性 lay-allowClose="true"
+						</div>
+					</fieldset>
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>ID焦点定位</legend>
+					   <div class="layui-field-box">
+						    你可以通过对选项卡设置属性 lay-id="xxx" 来作为唯一的匹配索引，以用于外部的定位切换，如后台的左侧导航、以及页面地址 hash的匹配。
+						</div>
+					</fieldset>
+					<div class="layui-tab" lay-filter="test1">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this" lay-id="111" >文章列表</li>
+					    <li lay-id="222">发送信息</li>
+					    <li lay-id="333">权限分配</li>
+					    <li lay-id="444">审核</li>
+					    <li lay-id="555">订单管理</li>
+					  </ul>
+					  <div class="layui-tab-content">
+					    <div class="layui-tab-item layui-show">1</div>
+					    <div class="layui-tab-item">2</div>
+					    <div class="layui-tab-item">3</div>
+					    <div class="layui-tab-item">4</div>
+					    <div class="layui-tab-item">5</div>
+					  </div>
+					</div>
+					<fieldset class="layui-elem-field layui-field-title">
+					   <div class="layui-field-box">
+					   		属性 lay-id 是扮演这项功能的主要角色，它是动态操作的重要凭据，见Js部分：
+						</div>
+					</fieldset>
+					
+				</div>
+				<div class="layui-tab-item">
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>默认表格</legend>
+					</fieldset>
+					<table class="layui-table">
+					  <colgroup>
+					    <col width="150">
+					    <col width="200">
+					    <col>
+					  </colgroup>
+					  <thead>
+					    <tr>
+					      <th>昵称</th>
+					      <th>加入时间</th>
+					      <th>签名</th>
+					    </tr> 
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>贤心</td>
+					      <td>2016-11-29</td>
+					      <td>人生就像是一场修行</td>
+					    </tr>
+					    <tr>
+					      <td>贤心</td>
+					      <td>2016-11-29</td>
+					      <td>人生就像是一场修行</td>
+					    </tr>
+					  </tbody>
+					</table>
+					
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>表格基础属性--行边表格</legend>
+					</fieldset>
+					<table class="layui-table" lay-skin="line">
+					  <colgroup>
+					    <col width="150">
+					    <col width="200">
+					    <col>
+					  </colgroup>
+					  <thead>
+					    <tr>
+					      <th>属性名</th>
+					      <th>属性值</th>
+					      <th>备注</th>
+					    </tr> 
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <td>lay-even</td>
+					      <td>无</td>
+					      <td>用于开启 偶数行 背景，可与其它属性一起使用</td>
+					    </tr>
+					    <tr>
+					      <td>lay-skin="属性值"</td>
+					      <td>line/row/nob</td>
+					      <td>
+					      	line：定义行边框 风格表格 <br />
+							row：定义列边框 风格表格 <br />
+							nob：定义 无边框 风格表格
+					      </td>
+					    </tr>
+					  </tbody>
+					</table>
+      
+					
+				</div>
+				
+				<div class="layui-tab-item">
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>常规使用</legend>
+					   <div class="layui-field-box">
+					   	通过对内容元素设置class为 layui-show 来选择性初始展开某一个面板，element 模块会自动呈现状态图标。
+						</div>
+					</fieldset>
+					<div class="layui-collapse">
+						  <div class="layui-colla-item">
+						    <h2 class="layui-colla-title">杜甫</h2>
+						    <div class="layui-colla-content layui-show">内容区域</div>
+						  </div>
+						  <div class="layui-colla-item">
+						    <h2 class="layui-colla-title">李清照</h2>
+						    <div class="layui-colla-content layui-show">内容区域</div>
+						  </div>
+						  <div class="layui-colla-item">
+						    <h2 class="layui-colla-title">鲁迅</h2>
+						    <div class="layui-colla-content layui-show">内容区域</div>
+						  </div>
+					</div>
+					<fieldset class="layui-elem-field layui-field-title">
+					  <legend>开启手风琴</legend>
+					   <div class="layui-field-box">
+					   	在折叠面板的父容器设置属性 lay-accordion 来开启手风琴，那么在进行折叠操作时，始终只会展现当前的面板
+						</div>
+					</fieldset>
+					<div class="layui-collapse" lay-accordion>
+					  <div class="layui-colla-item">
+					    <h2 class="layui-colla-title">杜甫</h2>
+					    <div class="layui-colla-content layui-show">内容区域</div>
+					  </div>
+					  <div class="layui-colla-item">
+					    <h2 class="layui-colla-title">李清照</h2>
+					    <div class="layui-colla-content layui-show">内容区域</div>
+					  </div>
+					  <div class="layui-colla-item">
+					    <h2 class="layui-colla-title">鲁迅</h2>
+					    <div class="layui-colla-content layui-show">内容区域</div>
+					  </div>
+					</div>
+				</div>
+				
+			
 			</div>
 		</div>
 
@@ -341,6 +579,17 @@
 				    layer.msg(JSON.stringify(data.field));
 				    return false;
 				  });
+				  
+				  
+				  
+			  //获取hash来切换选项卡，假设当前地址的hash为lay-id对应的值
+			  var layid = location.hash.replace(/^#test1=/, '');
+			  element.tabChange('test1', layid); //假设当前地址为：http://a.com#test1=222，那么选项卡会自动切换到“发送消息”这一项
+			  
+			  //监听Tab切换，以改变地址hash值
+			  element.on('tab(test1)', function(){
+			    location.hash = 'test1='+ this.getAttribute('lay-id');
+			  });
 				//向世界问个好
 //				layer.msg('Hello World');
 

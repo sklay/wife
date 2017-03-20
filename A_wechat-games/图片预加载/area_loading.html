@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+
+        div {
+            width: 40%;
+            height: 200px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            background-color: aqua;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="d1"></div>
+<div class="d2"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+<div class="d3"></div>
+
+<script>
+
+
+    function offSet(ele) {
+        var l = ele.offsetLeft;
+        var t = ele.offsetTop;
+        var div = ele.offsetParent;//获取
+        l += div.offsetLeft;
+        t += div.offsetTop;
+        return {
+            left: l,
+            top: t
+        }
+    }
+
+
+    var divs = document.getElementsByTagName("div");
+    var docHeight = document.documentElement.clientHeight || document.body.clientHeight;
+    loadEle(divs[0]);
+    window.onscroll = function () {
+        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        for (var i = 0; i < divs.length; i++) {
+            loadDiv(divs[i],scrollHeight);
+        }
+
+    };
+
+    function loadDiv(div,scrollHeight) {
+        //元素不一样
+        var divHeight = offSet(div).top+div.offsetHeight;
+        if (divHeight < docHeight + scrollHeight) {
+            loadEle(div);
+        }
+    }
+
+    function loadEle(div){
+        div.style.backgroundColor = "cadetblue";
+    }
+
+</script>
+
+</body>
+</html>

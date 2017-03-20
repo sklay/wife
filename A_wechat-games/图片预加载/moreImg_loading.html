@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        p{
+            height: 1000px;
+        }
+
+        img{
+            display: block;
+            width: 400px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<p>撑开内容</p>
+
+<img src="images/mtnav1.jpg" data-changeimg="http://iwen.wiki/images/img42.png">
+<img src="images/mtnav1.jpg" data-changeimg="http://iwen.wiki/images/img49.png">
+<img src="images/mtnav1.jpg" data-changeimg="http://iwen.wiki/images/img50.png">
+<img src="images/mtnav1.jpg" data-changeimg="http://iwen.wiki/images/img51.png">
+<img src="images/mtnav1.jpg" data-changeimg="http://iwen.wiki/images/img52.png">
+
+<p>撑开内容</p>
+
+<script>
+
+    function offSet(ele) {
+        var l = ele.offsetLeft;
+        var t = ele.offsetTop;
+        var div = ele.offsetParent;//获取
+        l += div.offsetLeft;
+        t += div.offsetTop;
+        return {
+            left: l,
+            top: t
+        }
+    }
+
+    //获取到所有的图片
+
+    var imgeles = document.getElementsByTagName("img");
+    var docHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+    window.onscroll = function(){
+        var scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+        for(var i = 0;i<imgeles.length;i++){
+            loadImg(imgeles[i],scrollHeight);
+        }
+    };
+
+    function loadImg(ele,scrollHeight){
+        //获取图片的高度
+        var imgHeight = offSet(ele).top+ele.offsetHeight;
+        if(!ele.loaded){
+            if(imgHeight < scrollHeight+docHeight){
+                //获取要加载的图片资源
+                var imgsrc = ele.getAttribute("data-changeimg");
+                ele.src = "images/loading.jpg";
+                var wiatingImg = new Image();
+                wiatingImg.src = imgsrc;
+                wiatingImg.onload = function(){
+                    ele.src = wiatingImg.src;  //
+                    ele.loaded = true;
+                }
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
