@@ -1,0 +1,363 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>layui</title>
+		<meta name="renderer" content="webkit">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link rel="stylesheet" href="../layui/css/layui.css">
+		<link rel="stylesheet" href="../css/global.css">
+		<script type="text/javascript" src="../layui/layui.js"></script>
+	</head>
+
+	<body>
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header header">
+				<div class="layui-main">
+					<a class="logo" href="" target="_blank">
+						<img src="../images/head1.png" alt="Lz_CMS">
+					</a>
+					<ul class="layui-nav top-nav-container">
+						<li class="layui-nav-item layui-this">
+							<a href="javascript:void(0)">首页</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:void(0)">内容</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:void(0)">会员</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="javascript:void(0)">设置</a>
+						</li>
+					</ul>
+					<div class="top_admin_user">
+						<a href="javascript:void(0)" target="_blank">网站首页</a> |
+						<a class="update_cache" href="javascript:void(0)">更新缓存</a> |
+						<a class="logout_btn" href="javascript:void(0)">退出</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!--首页-->
+					<ul class="layui-nav layui-nav-tree left_menu_ul">
+						<li class="layui-nav-item layui-nav-title">
+							<a>个人信息</a>
+						</li>
+						<li class="layui-nav-item first-item layui-this">
+							<a href="FY_home.html" target="main">
+								<i class="layui-icon">&#xe638;</i>
+								<cite>首页面板</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item ">
+							<a href="FY_form.html" target="main">
+								<i class="layui-icon">&#xe642;</i>
+								<cite>表单</cite>
+							</a>
+						</li>
+					</ul>
+					<!--内容页 左侧菜单栏-->
+					<ul class="layui-nav layui-nav-tree left_menu_ul content_put_manage hide">
+						<li class="layui-nav-item layui-nav-title">
+							<a>内容发布管理</a>
+						</li>
+						<li class="layui-nav-item first-item">
+							<a href="category_list.html" target="main">
+								<i class="layui-icon">&#xe609;</i>
+								<cite>栏目管理</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item content_manage">
+							<a href="content_manage_search.html" target="main">
+								<i class="layui-icon">&#xe60a;</i>
+								<cite>内容管理</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="feedback_list.html" target="main">
+								<i class="layui-icon">&#xe63a;</i>
+								<cite>留言管理</cite>
+							</a>
+						</li>
+					</ul>
+					<!--会员  左侧菜单栏-->
+					<ul class="layui-nav layui-nav-tree left_menu_ul hide">
+						<li class="layui-nav-item layui-nav-title">
+							<a>会员管理</a>
+						</li>
+						<li class="layui-nav-item first-item">
+							<!--<a href="<?php echo url('member/index') ?>" target="main">-->
+								<a href="" target="main"></a>
+								<i class="layui-icon">&#xe613;</i>
+								<cite>会员列表</cite>
+							</a>
+						</li>
+					</ul>
+					<!--设置 左侧菜单栏-->
+					<ul class="layui-nav layui-nav-tree left_menu_ul setting_ul hide">
+						<li class="layui-nav-item layui-nav-title">
+							<a>相关设置</a>
+						</li>
+						<li class="layui-nav-item first-item ">
+							<a href="<?php echo url('setting/base','tab=1') ?>" target="main">
+								<i class="layui-icon">&#xe620;</i>
+								<cite>站点设置</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/base','tab=2') ?>" target="main">
+								<i class="layui-icon">&#xe612;</i>
+								<cite>站长信息</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/base','tab=3') ?>" target="main">
+								<i class="layui-icon"></i>
+								<cite>SEO设置</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/base','tab=4') ?>" target="main">
+								<i class="layui-icon">&#xe634;</i>
+								<cite>水印设置</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/base','tab=5') ?>" target="main">
+								<i class="layui-icon">&#xe63a;</i>
+								<cite>畅言评论设置</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/base','tab=6') ?>" target="main">
+								<i class="layui-icon">&#xe611;</i>
+								<cite>QQ登陆设置</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/links') ?>" target="main">
+								<i class="layui-icon">&#xe62c;</i>
+								<cite>友情连接</cite>
+							</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="<?php echo url('setting/sitemap') ?>" target="main">
+								<i class="layui-icon">&#xe60d;</i>
+								<cite>Sitemap</cite>
+							</a>
+						</li>
+					</ul>
+					<!--内容页 ->内容页 -> 树形管理  -->
+					<div class="content_manage_container left_menu_ul hide">
+						<div class="content_manage_title">内容管理</div>
+						<div id="content_manage_tree"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--点击头部 菜单  事，src 里的内容会改变  看下面的 js-->
+			<div class="layui-body iframe-container">
+				<div class="iframe-mask" id="iframe-mask"></div>
+				<iframe class="admin-iframe" id="admin-iframe" name="main" src="FY_home.html">
+					
+				</iframe>
+			</div>
+
+			<!--页脚-->
+			<div class="layui-footer footer">
+				<div class="layui-main">
+					<p>2016 ©
+						<a href="FY_login.html">周海霞</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		layui.use(['layer', 'element', 'jquery', 'tree'], function() {
+			var layer = layui.layer,
+				element = layui.element(), //导航的hover效果、二级菜单等功能，需要依赖element模块
+				$ = layui.jquery
+
+			//头部菜单切换
+			$('.top-nav-container .layui-nav-item').click(function() {
+				var menu_index = $(this).index('.top-nav-container .layui-nav-item');
+				$('.top-nav-container .layui-nav-item').removeClass('layui-this');
+				$(this).addClass('layui-this');
+				$('.left_menu_ul').addClass('hide');
+				$('.left_menu_ul:eq(' + menu_index + ')').removeClass('hide');
+				$('.left_menu_ul .layui-nav-item').removeClass('layui-this');
+				$('.left_menu_ul:eq(' + menu_index + ')').find('.first-item').addClass('layui-this');
+				var url = $('.left_menu_ul:eq(' + menu_index + ')').find('.first-item a').attr('href');
+				
+				//点击头部 的 菜单 面板 会显示 改变src值
+				$('.admin-iframe').attr('src', url);
+				//出现遮罩层
+				$("#iframe-mask").show();
+				//遮罩层消失
+				$("#admin-iframe").load(function() {
+					$("#iframe-mask").fadeOut(100);
+				});
+			});
+			//左边菜单点击
+			$('.left_menu_ul .layui-nav-item').click(function() {
+				$('.left_menu_ul .layui-nav-item').removeClass('layui-this');
+				$(this).addClass('layui-this');
+				//出现遮罩层
+				$("#iframe-mask").show();
+				//遮罩层消失
+				$("#admin-iframe").load(function() {
+					$("#iframe-mask").fadeOut(100);
+				});
+			});
+
+			//点击回到内容页面
+			//点击 内容页 左侧的 内容管理 出现树形菜单  再 点击 内容管理 回到 内容页
+			$('.content_manage_title').click(function() {
+				$('.left_menu_ul .layui-nav-item').removeClass('layui-this');
+				$(this).parent().addClass('hide');
+				$('.content_put_manage').find('.first-item').addClass('layui-this');
+				var url = $('.content_put_manage').find('.first-item a').attr('href');
+				$('.admin-iframe').attr('src', url);
+				$('.content_put_manage').removeClass('hide');
+
+			});
+			//内容管理树
+			$('.content_manage').click(function() {
+				loading = layer.load(2, {
+					shade: [0.2, '#000'] //0.2透明度的白色背景
+				});
+				$('#content_manage_tree').empty();
+				layui.tree({
+					elem: '#content_manage_tree', //传入元素选择器
+					skin: 'pink',
+					target: 'main',
+					nodes: [{
+						"id": 1,
+						"name": "学无止境",
+						"children": [{
+							"id": 8,
+							"name": "杂谈",
+							"children": [],
+							"href": "\/admin\/article\/index\/category_id\/8.html"
+						}, {
+							"id": 9,
+							"name": "PHP",
+							"children": [],
+							"href": "\/admin\/article\/index\/category_id\/9.html"
+						}, {
+							"id": 10,
+							"name": "建站",
+							"children": [],
+							"href": "\/admin\/article\/index\/category_id\/10.html"
+						}, {
+							"id": 11,
+							"name": "WEB前端",
+							"children": [],
+							"href": "\/admin\/article\/index\/category_id\/11.html"
+						}],
+						"spread": true
+					}, {
+						"id": 2,
+						"name": "分享无价",
+						"children": [{
+							"id": 13,
+							"name": "源码分享",
+							"children": [],
+							"href": "\/admin\/download\/index\/category_id\/13.html"
+						}, {
+							"id": 14,
+							"name": "jQuery特效",
+							"children": [],
+							"href": "\/admin\/download\/index\/category_id\/14.html"
+						}],
+						"spread": true
+					}, {
+						"id": 3,
+						"name": "日记",
+						"children": [],
+						"spread": true,
+						"href": "\/admin\/link\/index\/category_id\/3.html"
+					}, {
+						"id": 4,
+						"name": "关于",
+						"children": [{
+							"id": 5,
+							"name": "关于老张",
+							"children": [],
+							"href": "\/admin\/page\/edit\/category_id\/5.html"
+						}, {
+							"id": 6,
+							"name": "关于LzCMS",
+							"children": [],
+							"href": "\/admin\/page\/edit\/category_id\/6.html"
+						}],
+						"spread": true,
+						"href": "\/admin\/link\/index\/category_id\/3.html"
+					}]
+				});
+				$('.left_menu_ul').addClass('hide');
+				$('.content_manage_container').removeClass('hide');
+				layer.close(loading);
+			});
+
+			//更新缓存
+			$('.update_cache').click(function() {
+				loading = layer.load(2, {
+					shade: [0.2, '#000'] //0.2透明度的白色背景
+				});
+				$.getJSON('', function(data) {
+					if(data.code == 200) {
+						layer.close(loading);
+						layer.msg(data.msg, {
+							icon: 1,
+							time: 1000
+						}, function() {
+							location.reload(); //do something
+						});
+					} else {
+						layer.close(loading);
+						layer.msg(data.msg, {
+							icon: 2,
+							anim: 6,
+							time: 1000
+						});
+					}
+				});
+			});
+
+			//退出登陆
+			$('.logout_btn').click(function() {
+				loading = layer.load(2, {
+					shade: [0.2, '#000'] //0.2透明度的白色背景
+				});
+				$.getJSON('', function(data) {
+					if(data.code == 200) {
+						layer.close(loading);
+						layer.msg(data.msg, {
+							icon: 1,
+							time: 1000
+						}, function() {
+							location.reload(); //do something
+						});
+					} else {
+						layer.close(loading);
+						layer.msg(data.msg, {
+							icon: 2,
+							anim: 6,
+							time: 1000
+						});
+					}
+				});
+			});
+
+		});
+	</script>
+
+</html>
