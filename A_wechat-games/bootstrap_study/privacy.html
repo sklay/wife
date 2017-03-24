@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				width: 100%;
+				font-family: Microsoft Yahei, Arial;
+				background: #fff;
+			}
+			
+			.clearFix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.clearFix {
+				*zoom: 1;
+			}
+			
+			.content {
+				width: 9.0625rem;
+				height: 100%;
+				margin: 0 auto;
+				padding-top: 0.625rem;
+			}
+			h3{
+				margin-bottom: 0.16875rem;
+			}
+			.title {
+				color: #292929;
+				font-size: 0.36875rem;
+				line-height: 0.625rem;
+				/*margin-top: 0.46875rem;*/
+			}
+			.content .item_wrap{
+				color: #2c2c2c;
+				font-size: 0.36875rem;
+				line-height: 0.625rem;
+				margin-top: 0.46875rem;
+			}
+			.info{
+				width: 6.5625rem;
+				margin: 0.06875rem auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<p class="title">
+				下面将说明，在您以移动和Web方式使用大吉士过程时，信息是如何收集和使用的。
+			</p>
+			<div class="item_wrap">
+				<h3>
+					1、大吉士会收集哪些信息？
+				</h3>
+				<p>
+					当您使用大吉士的过程中，我们会在您自愿选择服务并自愿提供信息的情况下，收集您的私人信息，这样是为了向您提供更好的服务。
+				</p>
+				<p>
+					“私人信息”包括您提供给我们的个人属性，如姓名，电话号码或邮箱地址等。大吉士不会在未经您的允许的情况下收集这些信息。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					2、大吉士如何使用收集的信息？
+				</h3>
+				<p>
+					我们可能通过以下方式使用信息：
+				</p>
+				<ul class="info">
+					<li>
+						当您许可并通过交易获得大吉士的有关的产品和服务时；
+					</li>
+					<li>
+						为了提供客户服务，需要回应您的电子邮件、文件、问题、意见、要求和投诉时；
+					</li>
+					<li>
+						使用产品过程中，为了让产品为您提供更加个性化的服务，并带来更好的体验，我们可能需要您的使用情况时；
+					</li>
+					<li>
+						当需要改进对您的服务体验、管理和操作时，发送给您的许可证明，产品更新，安全警报，支持和管理信息等。
+					</li>
+				</ul>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					3、信息的披露
+				</h3>
+				<p>
+					我们将对信息严格保密，不会与他人分享这些信息，亦不会将其出售、出租或以其他方式分发给他人。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					4、信息的提供
+				</h3>
+				<p>
+					大吉士可能为用户提供线上的互动活动，为便于用户参予互动活动并获取互动奖品，大吉士通常要求申请者在联系方法(通讯地址和电话)之外，还要根据其个人兴趣填写表格。此类信息被大吉士用来累积用户数据。如果用户不想提供所要求的信息和参加此类活动，这完全由用户自行决定。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					5、未成年人信息及使用
+				</h3>
+				<p>
+					大吉士建议：任何未成年人参加网上活动应事先取得家长或其法定监护人（以下简称"监护人"）的书面同意。大吉士将根据国家相关法律法规的规定保护未成年人的相关信息。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					6、Cookies
+				</h3>
+				<p>
+					通过使用Cookies，大吉士可以向用户提供简单易行并富个性化的网络体验。大吉士使用Cookies是为了让用户受益，它用于储存用户偏好设置、改善用户体验以及跟踪用户趋势（例如用户使用大吉士的方式），从而帮助我们提高服务质量。Cookies 能帮助我们确定您连接的页面和内容，您在大吉士特定网页上花费的时间和您所选择的大吉士的服务。 Cookies 是放置在大吉士的计算机或服务器上的身份证。它只能被设置它们的服务器阅读，而且不能执行任何代码或病毒。Cookies 使得大吉士能更好、更快地为您服务，并且帮助您对大吉士进行一些个性化的设置。无论如何，您能够控制Cookies 是否以及怎样被您的浏览器接受。请查阅您的浏览器附带的文件以获得更多这方面的信息。您可以通过修改浏览器设置的方式拒绝Cookies，如果您选择拒绝Cookies，则您可能无法登录或使用依赖于Cookies 的大吉士服务或功能
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					7、数据安全
+				</h3>
+				<p>
+					我们深知，所有客户及其相关信息数据是大吉士的核心竞争力，也是用户对大吉士信赖的体现。我们承诺，在技术方面和管理方面我们将采取必要和合理的措施对这些数据进行保护，以防止任何以未经授权的方式对数据进行访问、复制或修改。但是，所有的互联网服务商都无法保证数据百分百安全，因此大吉士也无法做出绝对安全的保证。我们会在合理商业运作的基础上，采取尽可能完备的措施保护您存放在大吉士中的数据。您的个人信息和数据受到多重保护，包括人员的、电子的和程序上的。
+				</p>
+				<p>
+					如果大吉士得知安全系统漏洞，我们可能联络您提供给我们的电子邮件地址或在我们的网站上发布通知，以试图告知您并提供关于保护措施（如适用）的信息。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					8、账号相关提示
+				</h3>
+				<p>
+					您是唯一对您的账号和密码信息负有保密责任的人。任何情况下，请小心妥善保管。
+				</p>
+			</div>
+			<div class="item_wrap" style="margin-bottom: 0.26875rem;">
+				<h3>
+					9、修改与更新
+				</h3>
+				<p>
+					由于本隐私政策可能不时被更新，您应定期查看以了解我们保护所收集之个人信息的方案及程序。您继续使用大吉士服务即构成您对本隐私政策及其任何更新版本的同意。有关本声明或大吉士的隐私措施的问题请与我们联系。邮箱<a href=mailto:qingduo10@qq.com>qingduo10@qq.com</a> 。
+				</p>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

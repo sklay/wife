@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+		<script>
+			setSize();
+			$(function() {
+				$(window).resize(setSize);
+			})
+
+			function setSize() {
+				var pixelRatio = 1 / window.devicePixelRatio;
+				$("#device").attr("content", "width=device-width,initial-scale=" + pixelRatio + ",maximum-scale=" + pixelRatio + "");
+				var html = document.getElementsByTagName("html")[0];
+				var pageWidth = html.getBoundingClientRect().width;
+				console.debug(pageWidth);
+				html.style.fontSize = pageWidth / 10 + "px";
+			}
+		</script>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				width: 100%;
+				font-family: Microsoft Yahei, Arial;
+				background: #fff;
+			}
+			
+			.clearFix:after {
+				content: "";
+				display: block;
+				clear: both;
+			}
+			
+			.clearFix {
+				*zoom: 1;
+			}
+			
+			.content {
+				width: 9.0625rem;
+				height: 100%;
+				margin: 0 auto;
+				padding-top: 0.425rem;
+			}
+			h3{
+				margin-bottom: 0.16875rem;
+			}
+			.title {
+				color: #292929;
+				font-size: 0.36875rem;
+				line-height: 0.625rem;
+				/*margin-top: 0.46875rem;*/
+			}
+			.content .item_wrap{
+				color: #2c2c2c;
+				font-size: 0.36875rem;
+				line-height: 0.625rem;
+				margin-top: 0.46875rem;
+			}
+			.info{
+				width: 6.5625rem;
+				margin: 0.06875rem auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="content">
+			<h3 style="font-size:0.36875rem;margin-top: 0.46875rem;">
+				服务条款的确认和接纳
+			</h3>
+			<p class="title">
+				大吉士的运作权归网道极天（北京）科技有限公司所有，在本服务条款中简称为“大吉士公司”或“我们”。使用大吉士产品及服务将视为您同意以下使用条款。
+			</p>
+			<div class="item_wrap">
+				<h3>
+					1、仅供个人使用
+				</h3>
+				<p>
+					大吉士仅供用户个人用于非商业用途。如果要销售大吉士或者与大吉士有关或派生的任何资料、服务或软件，则必须得到我们的允许。如果用户对大吉士有任何意见，或改进的建议，可向我们提出。如果您这样做，即为授予大吉士和第三方在大吉士（或第三方软件）中无偿使用和加入用户的建议或意见的权利。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					2、知识产权
+				</h3>
+				<p>
+					用户承认大吉士公司对大吉士的权利，包括但不限于所有知识产权。“知识产权”指在专利法、版权法、商业机密法、商标法、反不正当竞争法等法中规定的所有权利以及其中的所有应用、更新、扩展和恢复，无论在现在还是以后在全球范围内实施和生效。用户同意：
+				</p>
+				<ul class="info">
+					<li>
+						不会修改、改编、翻译大吉士
+					</li>
+					<li>
+						不会创作大吉士的派生作品
+					</li>
+					<li>
+						不会通过反编译、反向工程、反汇编或其它方式从大吉士得到源代码
+					</li>
+					<li>
+						用户同意不会删除、掩盖或更改大吉士公司或任何第三方的版权声明、商标或其它所有权声明。
+					</li>
+				</ul>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					3、用户隐私制度
+				</h3>
+				<p>
+					尊重用户个人隐私是大吉士公司的一项核心政策。所以，大吉士公司不会公开、编辑或透露用户的注册资料或保存在大吉士公司服务中的非公开内容，除非出现以下几种例外情况：
+				</p>
+				<ul class="info">
+					<li>
+						遵守有关法律规定，包括在国家有关机关查询时，提供用户通过大吉士发布的信息内容及其发布时间、互联网地址或者域名。
+					</li>
+					<li>
+						在紧急情况下竭力维护用户个人和社会大众的隐私安全。
+					</li>
+					<li>
+						大吉士公司认为确有必要的其他情况下。
+					</li>
+				</ul>
+				<p>
+					以上情况发生时，我们会事先和您取得联系并说明相关细节。
+					要了解大吉士数据保护措施的具体信息，请阅读大吉士的隐私权政策。该政策解释了当您使用大吉士的相关的服务时，大吉士会如何处理您的个人信息，以及如何保护您的隐私权。您同意会在遵守大吉士隐私权政策的前提下应用自己的数据。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					4、服务变更
+				</h3>
+				<p>
+					大吉士公司保留随时变更、中断或终止服务而不需通知用户的权利。用户接受大吉士公司行使变更、中断或终止服务的权利，大吉士公司不需对用户或第三方负责。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					5、责任限制
+				</h3>
+				<p>
+					用户理解并同意自主选择下载和使用大吉士和所有与大吉士一同提供或通过大吉士提供的第三方软件，风险自负，并且对于因下载或使用大吉士和此类第三方软件而对计算机系统造成的损坏或数据的丢失，用户应承担全部责任。在适用法律允许的最大范围内，大吉士公司明确表示不提供任何其他类型的保证，不论使明示的或默示的，包括但不限于适销性、适用性、可靠性、准确性、完整性以及无错误的任何默示保证和责任。
+				</p>
+				<p>
+					在适用法律允许的最大范围内，大吉士公司及其许可人不会向您做出以下声明或担保：
+				</p>
+				<ul class="info">
+					<li>
+						您使用服务定会满足您的所有需求；
+					</li>
+					<li>
+						您所使用的服务会连续无中断、及时、安全或没有错误；
+					</li>
+					<li>
+						您使用相关服务而获得的任何信息一律准确可靠；
+					</li>
+					<li>
+						作为相关服务的一部分向您提供的任何软件所发生的操作或功能瑕疵将获得修正。
+					</li>
+				</ul>
+				<p>
+					在适用法律允许的最大范围内，大吉士公司不就因用户使用大吉士引起的，或在任何方面与大吉士公司的产品和服务有关的任何意外的、非直接的、特殊的、或间接的损害或请求（包括但不限于因人身伤害、因隐私泄漏、因未能履行包括诚信或合理谨慎在内的任何责任、因过失和因任何其他金钱上的损失或其他损失而造成的损害赔偿）承担任何责任。用户上载的行为，即意味着用户或用户代理的著作权人授权大吉士公司及其关联公司在大吉士的服务器上保存内容，但用户或原著作权人仍保有上载作品的著作权，且大吉士公司未经用户或原著作权人许可不得将上载作品在其他公开渠道发布。如用户在使用大吉士时涉及到其他大吉士公司或其关联公司提供的服务，还应遵守相应的服务条款。
+				</p>
+			</div>
+			<div class="item_wrap">
+				<h3>
+					6、保障
+				</h3>
+				<p>
+					用户同意保障和维护大吉士公司的利益，负责支付由用户违反本服务条款或大吉士公司其他服务条款而引起的律师费用、损害补偿费用、政府机关处罚费用和其它侵权赔偿费用等。
+				</p>
+			</div>
+			<div class="item_wrap" style="margin-bottom: 0.26875rem;">
+				<h3>
+					7、法律
+				</h3>
+				<p>
+					上述条款将受中华人民共和国法律的约束并依据其解释。如出现纠纷，用户和大吉士公司一致同意将纠纷交由当地人民法院管辖。如用户对本服务条款内容有任何疑问，可通过大吉士内意见反馈功能或邮箱，获取相关信息。邮箱<a href=mailto:qingduo10@qq.com>qingduo10@qq.com</a>。
+				</p>
+			</div>
+			
+		</div>
+	</body>
+
+</html>

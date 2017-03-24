@@ -8,40 +8,17 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link rel="stylesheet" href="../layui/css/layui.css">
-		<link rel="stylesheet" href="../css/global.css">
+		<!--<link rel="stylesheet" href="../css/global.css">-->
 		<script type="text/javascript" src="../layui/layui.js"></script>
 		<style>
-			.layui-layout-admin .header .layui-nav .layui-nav-item {
-			    line-height: 54px;
+			.admin-iframe {
+				position: absolute;
+				border: 0;
+				width: 100%;
+				height: 100%;
 			}
-			.layui-layout-admin .logo img {
-			    width: 65px;
-			    height: 54px;
-			}
-			.layui-layout-admin .header {
-			    height: 54px;
-			}
-			.layui-layout-admin .header .layui-nav {
-				float: right;
-			    right: 0;
-			    left: inherit;
-			}
-			.layui-layout-admin .layui-side {
-			    top: 54px;
-			}
-			.layui-layout-admin .header {
-			     border-bottom: 0 solid #009688; 
-			}
-			.layui-layout-admin .header .layui-nav .layui-nav-bar {
-			     background: #5FB878; 
-			}
-			.layui-nav .layui-nav-more {
-			    top: 24px;
-			}
-			.layui-nav-tree .layui-nav-bar {
-			    width: 5px;
-			    height: 0;
-			    background-color: #009688;
+			.layui-tab-title li a {
+			     display: inline; 
 			}
 		</style>
 	</head>
@@ -50,43 +27,26 @@
 		<div class="layui-layout layui-layout-admin">
 			<div class="layui-header header">
 				<div class="layui-main">
-					<a class="logo" href="" target="_blank">
-						<img src="../images/head1.png" alt="Lz_CMS">
+					<a class="" style="color: #c2c2c2; font-size: 18px;line-height: 60px;" href="javascript:;">
+						<i class="layui-icon">&#xe613;</i> 个人网站
 					</a>
-					<ul class="layui-nav" lay-filter="">
-						  <li class="layui-nav-item" ><a href="">进入前台</a></li>
-						  <li class="layui-nav-item">
-						    <a href="javascript:;">周海霞</a>
-						    <dl class="layui-nav-child"> <!-- 二级菜单 -->
-						      <dd><a href="">个人信息</a></dd>
-						      <dd><a href="">修改密码</a></dd>
-						      <dd><a href="">退出登录</a></dd>
-						    </dl>
-						  </li>
-					</ul>
-				</div>
-			</div>
-
-			<div class="layui-side layui-bg-black left_menu_ul">
-				<div class="layui-side-scroll">
-					<ul class="layui-nav layui-nav-tree " lay-filter="demo">
-						<li class="layui-nav-item layui-nav-itemed">
-							<a href="">主页</a>
+					<!--<ul class="layui-nav" lay-filter="">-->
+					<ul class="layui-nav" style="position: absolute; top: 0; right: 0; background: none;">
+						<li class="layui-nav-item">
+							<a href="">进入前台</a>
 						</li>
 						<li class="layui-nav-item">
-							<a href="">登录</a>
-						</li>
-						<li class="layui-nav-item">
-							<a href="javascript:;">搜索引擎</a>
+							<a href="javascript:;">周海霞</a>
 							<dl class="layui-nav-child">
+								<!-- 二级菜单 -->
 								<dd>
-									<a href="">百度</a>
+									<a href="">个人信息</a>
 								</dd>
 								<dd>
-									<a href="">360</a>
+									<a href="">修改密码</a>
 								</dd>
 								<dd>
-									<a href="">搜狗</a>
+									<a href="">退出登录</a>
 								</dd>
 							</dl>
 						</li>
@@ -94,12 +54,63 @@
 				</div>
 			</div>
 
+			<div class="layui-side layui-bg-black left_menu_ul">
+				<div class="layui-side-scroll">
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item">
+							<a href="FY_home.html" target="main">主页</a>
+						</li>
+						<li class="layui-nav-item">
+							<a href="FY_login.html" target="main">登录</a>
+						</li>
+						<!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
+						<li class="layui-nav-item ">
+							<a href="javascript:;">搜索引擎</a>
+							<dl class="layui-nav-child ">
+								<dd>
+									<a href="https://www.baidu.com/" target="main">百度</a>
+								</dd>
+								<dd>
+									<a href="https://www.taobao.com/" target="main">淘宝</a>
+								</dd>
+							</dl>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+
 			<!--点击头部 菜单  事，src 里的内容会改变  看下面的 js-->
-			<div class="layui-body iframe-container">
-				<div class="iframe-mask" id="iframe-mask"></div>
-				<iframe class="admin-iframe" id="admin-iframe" name="main" src="FY_home.html">
-					
-				</iframe>
+			<!--<div class="layui-body iframe-container">-->
+			<div class="layui-body">
+				<div class="layui-tab layui-tab-brief" lay-filter="top-tab" lay-allowClose="true" style="margin: 0;">
+					<ul class="layui-tab-title">
+						<li class="layui-this">
+							主页
+							<i class="layui-icon layui-unselect layui-tab-close" style="display: none;">ဆ</i>
+							<!--<a href="FY_home.html" target="main">主页</a>
+							<i class="layui-icon layui-unselect layui-tab-close" style="display: none;">ဆ</i>-->
+						</li>
+						<!--<li class="">
+							<a href="FY_login.html" target="main">登录</a>
+						</li>
+						<li class="">
+							<a href="https://www.baidu.com/" target="main">百度</a>
+						</li>
+						<li class="">
+							<a href="https://www.taobao.com/" target="main">淘宝</a>
+						</li>-->
+						<!--<li>网站设置</li>
+						<li>用户基本管理</li>
+						<li>权限分配</li>
+						<li>全部历史商品管理文字长一点试试</li>
+						<li>订单管理</li>-->
+					</ul>
+					<div class="iframe-mask" id="iframe-mask"></div>
+					<iframe class="admin-iframe" id="admin-iframe" name="main" src="FY_home.html">
+					</iframe>
+				</div>
+
 			</div>
 
 			<!--页脚-->
@@ -118,31 +129,15 @@
 			var layer = layui.layer,
 				element = layui.element(), //导航的hover效果、二级菜单等功能，需要依赖element模块
 				$ = layui.jquery
+				//监听导航点击
 
-			//头部菜单切换
-			$('.top-nav-container .layui-nav-item').click(function() {
-				var menu_index = $(this).index('.top-nav-container .layui-nav-item');
-				$('.top-nav-container .layui-nav-item').removeClass('layui-this');
-				$(this).addClass('layui-this');
-				$('.left_menu_ul').addClass('hide');
-				$('.left_menu_ul:eq(' + menu_index + ')').removeClass('hide');
-//				$('.left_menu_ul .layui-nav-item').removeClass('layui-this');
-//				$('.left_menu_ul:eq(' + menu_index + ')').find('.first-item').addClass('layui-this');
-//				var url = $('.left_menu_ul:eq(' + menu_index + ')').find('.first-item a').attr('href');
-				
-				//点击头部 的 菜单 面板 会显示 改变src值
-				$('.admin-iframe').attr('src', url);
-				//出现遮罩层
-				$("#iframe-mask").show();
-				//遮罩层消失
-				$("#admin-iframe").load(function() {
-					$("#iframe-mask").fadeOut(100);
-				});
-			});
 			//左边菜单点击
 			$('.left_menu_ul .layui-nav-item').click(function() {
-//				$('.left_menu_ul .layui-nav-item').removeClass('layui-this');
-//				$(this).addClass('layui-this');
+					element.on('nav(test)', function(elem) {
+						var text = elem.text();
+						layer.msg(elem.text());
+					});
+				
 				//出现遮罩层
 				$("#iframe-mask").show();
 				//遮罩层消失
@@ -150,7 +145,6 @@
 					$("#iframe-mask").fadeOut(100);
 				});
 			});
-
 
 		});
 	</script>
