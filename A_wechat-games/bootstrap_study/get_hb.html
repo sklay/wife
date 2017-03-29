@@ -4,7 +4,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+			<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 		<title>Bootstrap 101 Template</title>
 
@@ -138,6 +139,41 @@
 				left: 18px;
 				top: 15px;
 			}
+			p{
+				margin: 0;
+			}
+			/*.col-xs-8, .col-md-10 ,.col-xs-4 ,.col-sm-4 ,.col-md-4,.col-xs-8 ,.col-sm-8,.col-md-8 ,.col-md-2{
+				padding: 0;
+			}*/
+			.friHbShow{
+				width: 96%;
+				margin: 0 auto;
+				/*background: #0080C0;*/
+				padding-bottom: 10px;
+			}
+			.friHbShow>.row>div{
+				padding: 0;
+			}
+			.coupon{
+				width: 50px;
+				margin-top: 10px;
+			}
+			.strong{
+				font-size: 16px;
+				font-weight: 500;
+			}
+			.desc{
+				font-size: 12px;
+			}
+			.act_rule{
+				width: 94%;
+				margin: 0 auto;
+				padding-bottom: 20px;
+			}
+			.act_rule p{
+				margin-bottom: 6px;
+			}
+			
 		</style>
 	</head>
 
@@ -176,22 +212,76 @@
 					<span style="height: 1px;background: #000040; width: 70px; display: block;"></span>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-xs-6 col-md-8 ">
+			<!--<div class="row friHbShow">
+				<div class="col-xs-8 col-md-10 ">
 					<div class="row">
 						<div class="col-xs-4 col-sm-4 col-md-4">
 							<img class=" img-responsive" src="img/act_commonHead_img.jpg" />
 						</div>
 						<div class="col-xs-8 col-sm-8 col-md-8">
-							<p>郭靖</p>
-							<p>又给这么大红包，药快到太给力啦！</p>
+							<p class="strong">郭靖</p>
+							<p class="desc">又给这么大红包，药快到太给力啦！</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-xs-6 col-md-4">
-					<img class=" img-responsive" src="img/act_17QMing_getINdex_icon5.jpg" />
+				<div class="col-xs-4 col-md-2">
+					<img class="coupon img-responsive" src="img/act_17QMing_getINdex_icon5.jpg" />
 				</div>
-			</div>
+			</div>-->
+			<div class="row friHbShow">
+				<!--<div class="col-xs-8 col-md-10 ">-->
+					<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-2">
+							<img class="img-circle img-responsive" src="img/act_commonHead_img.jpg" />
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-8">
+							<p class="strong">郭靖</p>
+							<p class="desc">又给这么大红包，药快到太给力啦！</p>
+						</div>
+						<div class="col-xs-2 col-md-2">
+							<img class="coupon img-responsive" src="img/act_17QMing_getINdex_icon5.jpg" />
+						</div>
+					</div>
+				</div>
+				<div class="row friHbShow">
+				<!--<div class="col-xs-8 col-md-10 ">-->
+					<div class="row">
+						<div class="col-xs-2 col-sm-2 col-md-2">
+							<img class="img-circle img-responsive" src="img/act_commonHead_img.jpg" />
+						</div>
+						<div class="col-xs-8 col-sm-8 col-md-8">
+							<p class="strong">郭靖</p>
+							<p class="desc">又给这么大红包，药快到太给力啦！</p>
+						</div>
+						<div class="col-xs-2 col-md-2">
+							<img class="coupon img-responsive" src="img/act_17QMing_getINdex_icon5.jpg" />
+						</div>
+					</div>
+				</div>
+				
+				<div class="row comShowTitle">
+					<div class="col-xs-4 col-md-4 leftLineDot">
+						<span style="height: 1px; width: 70px;background: #000040; display: block;"></span>
+						<span style="width: 6px; height: 6px;display: block;background: #000000; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+					</div>
+					<div class="col-xs-12 col-md-12" style="text-align:center ;line-height: 34px;">
+						看看朋友们的手气
+					</div>
+					<div class="col-xs-4 col-md-4 rightLineDot">
+						<span style="width: 6px; height: 6px;background:#000000;display: block; transform: rotate(40deg); -o-transform: rotate(40deg); -webkit-transform: rotate(40deg); -moz-transform: rotate(40deg);"></span>
+						<span style="height: 1px;background: #000040; width: 70px; display: block;"></span>
+					</div>
+				</div>
+				<div class="row act_rule">
+					<div class="col-xs-12 col-md-12 ">
+						<p>1.活动有效期：${startTime} — ${endTime}。</p>
+						<p>2.需下载药快到App，使用手机号登录方可使用。</p>
+						<p>3.使用时需与领取药快到现金券时的手机号一致，领取后7日内有效。</p>
+						<p>4.每个订单只能使用一张券，不与其他现金券叠加使用且不找零。</p>
+						<p>5.本活动最终解释权归北京康顾多健康科技有限公司所有。</p>
+					</div>
+				</div>
+			<!--</div>-->
 		</div>
 	</body>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
