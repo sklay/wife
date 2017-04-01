@@ -302,17 +302,18 @@
 					var myTop = $(window).scrollTop();
 					var myw = myTop;
 					if(myw > 0) {
-						console.log("myw:" + myw);
+//						console.log("myw:" + myw);
 						var searchW = $(".search").width();
-						console.log("searchW:" + searchW);
+//						console.log("searchW:" + searchW);
 
 						var leftValue = searchW - myw;
-						console.log("leftValue:" + leftValue);
+//						console.log("leftValue:" + leftValue);
 
 						if(leftValue > 50) {
 							$(".search").css("width", leftValue);
 						}
-					} else {
+					} 
+					else {
 						$(".search").css("width", '72%');
 					}
 

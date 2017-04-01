@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<style>
+			#div1 div {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #e3e3e3;
+				display: none;
+			}
+			
+			.active {
+				background: #F0AD4E;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table>
+			<tfoot>
+				<tr>
+					<td colspan="11">
+						<span class="water-table-listbtn"></span>
+						<span class="water-table-page">
+     <span id="pagemsg" class="water-table-pagemsg">当前0/0页</span>
+						<input type="button" id="fpbtn" value="首页" />
+						<input type="button" id="rpbtn" value="上页" />
+						<input type="button" id="npbtn" value="下页" />
+						<input type="button" id="lpbtn" value="尾页" />
+						<span id="pagemsg" class="water-table-pagemsg">跳转
+     <input type="text" id="gpinput" size="3" value="0"/>页
+     </span>
+						<input type="button" id="gpbtn" value="跳转" />
+						</span>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+	</body>
+	<script>
+		function dolistpage(pagerow, pagenum, rowcount, pagecount) {
+			$("#pagemsg").html("每页显示" + pagerow + "条，当前" + pagenum + "/" + pagecount + "页 共" + rowcount + "条");
+			if(pagenum == 1) {
+				$("#fpbtn").attr("disabled", true);
+				$("#rpbtn").attr("disabled", true);
+			} else {
+				$("#fpbtn").removeAttr("disabled");
+				$("#rpbtn").removeAttr("disabled");
+			}
+			if(pagenum == pagecount) {
+				$("#npbtn").attr("disabled", true);
+				$("#lpbtn").attr("disabled", true);
+			} else {
+				$("#npbtn").removeAttr("disabled");
+				$("#lpbtn").removeAttr("disabled");
+			}
+			$("#fpbtn").click(function() {
+				loadtpage(1);
+			});
+			$("#rpbtn").click(function() {
+				loadtpage(pagenum - 1);
+			});
+			$("#npbtn").click(function() {
+				if((pagenum + 1) >= pagecount)
+					loadtpage(pagecount);
+				else
+					loadtpage(pagenum + 1);
+			});
+			$("#lpbtn").click(function() {
+				loadtpage(pagecount);
+			});
+			$("#gpbtn").click(function() {
+				var tzys = $("#gpinput").val();
+				var re = /^[1-9]+[0-9]*$/;
+				if(tzys == null || tzys == undefined || tzys == '') {
+					alert("请输入跳转页数!");
+					$("#gpinput").focus();
+					return;
+				}
+				if(!re.test(tzys)) {
+					alert("请输入正确跳转页数!");
+					$("#gpinput").focus();
+					return;
+				}
+				if(tzys > pagecount)
+					tzys = pagecount;
+				if(tzys <= 0)
+					tzys = 1;
+				loadtpage(tzys);
+			});
+			$("#gpinput").val(pagenum);
+		}
+	</script>
+
+</html>

@@ -11,6 +11,7 @@ $(function(){
         var myTop = $(window).scrollTop();
         if(myTop > winHeight){
             $(".zy").fadeIn(500,function(){
+            	//clearQueue() 方法停止队列中所有仍未执行的函数。
                 $(this).clearQueue();
             });
         }else{
