@@ -64,7 +64,8 @@
             if(imgHeight < scrollHeight+docHeight){
                 //获取要加载的图片资源
                 var imgsrc = ele.getAttribute("data-changeimg");
-                ele.src = "images/loading.jpg";
+//              ele.src = "images/loading.jpg";
+                ele.src = "";
                 var wiatingImg = new Image();
                 wiatingImg.src = imgsrc;
                 wiatingImg.onload = function(){

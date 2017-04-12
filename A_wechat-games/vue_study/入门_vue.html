@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<div id="demo">
+			{{message}}
+		</div>
+	</body>
+	<script>
+	/*
+	 * Vue.js官网
+	 https://cn.vuejs.org/
+	 https://cn.vuejs.org/v2/guide/installation.html
+	 https://github.com/vuejs/vue
+	 * 
+	 * */
+	//不兼容 IE8  以为这个属性 object.definePrototype  
+//	参考 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+	/*
+	 
+	 * Vue 两个核心点：
+	 * 响应的数据绑定
+	 *   当数据改变时，自动更新视图
+	 *   利用object.definePrototype中的setter/getter代理数据，监控对数据的操作
+	 * 组合的视图组件
+	 *   ui页面映射为组件树
+	 *   划分组件可维护，可重用，可测试
+	 * */
+	/*
+	 组件介绍
+	 http://element.eleme.io/#/
+	 http://element.eleme.io/#/zh-CN/component/quickstart
+	 * */
+	//数据
+		let data = {
+			message:"hello Vue!"
+		}
+		//实例
+		var vm = new Vue({
+			el:"#demo",//挂载元素
+			data:data
+		});
+	</script>
+</html>

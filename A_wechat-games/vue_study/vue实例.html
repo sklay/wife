@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<!--模板-->
+		<div id="demo">
+			<!--v-on绑定事件-->
+			<span v-on:click="clickHandle">{{message}}</span>
+		</div>
+	</body>
+	<script>
+	/*
+	 虚拟DOM
+        运行js的速度是很快的 ，大量的操DOM就会很慢。时常在更新数据后会重新渲染页面，这样造成在没有改变数据的
+        地方也重新渲染了DOM节点，这样 造成 很大资源上的浪费
+        利用在内存中生成与真实 DOM与之对应的数据结构，这个在内存中生成的结构 称之为虚拟DOM
+        当数据发生变化时，能只能的计算出重新渲染组件的最小代价 并应用到DOM操作上
+        
+	 * 
+	 * */
+	//数据
+		let obj = {
+			message:"hello Vue!"
+		}
+		//得到Vue的实例
+		//声明式渲染
+		var vm = new Vue({
+			el:"#demo",
+			data:obj,
+			methods:{
+				clickHandle:function(){
+					alert("click");
+				}
+			}
+		});
+		//vm.$data  能拿到 data里的数据
+	</script>
+</html>
