@@ -9,7 +9,7 @@
 		<!--模板-->
 		<div id="demo">
 			<!--v-on绑定事件-->
-			<span v-bind:cutomId="id">{{message}}</span>
+			<span v-on:click="clickHandle">{{message}}</span>
 		</div>
 	</body>
 	<script>
@@ -24,14 +24,18 @@
 	 * */
 	//数据
 		let obj = {
-			message:"hello Vue!",
-			id:"123"
+			message:"hello Vue!"
 		}
 		//得到Vue的实例
 		//声明式渲染
 		var vm = new Vue({
 			el:"#demo",
-			data:obj
+			data:obj,
+			methods:{
+				clickHandle:function(){
+					alert("click");
+				}
+			}
 		});
 		//vm.$data  能拿到 data里的数据
 	</script>

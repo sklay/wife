@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<!--模板-->
+		<!--  :表示 v-bind指令-->
+		<div id="demo" :custom="abc">
+			
+			<!--可以进行简单的表达式-->
+			<!--{{1+2}}-->
+			
+			{{true?"yes":"no"}}
+			<!--这样 解析成 文本-->
+			<!--<span >{{html}}</span>-->
+			
+			<!--要解析成 html-->
+			<div v-html="html"></div>
+		</div>
+	</body>
+	<script>
+	//数据
+		let obj = {
+			html:"<div>hello</div>",
+			abc:1
+		}
+		//得到Vue的实例
+		//声明式渲染
+		var vm = new Vue({
+			el:"#demo",
+			data:obj,
+			methods:{
+				clickHandle:function(){
+					alert("click");
+				}
+			}
+		});
+		//vm.$data  能拿到 data里的数据
+	</script>
+</html>

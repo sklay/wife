@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link href="css/bootsrap/css/bootstrap.min.css" rel="stylesheet">
+		<script type="text/javascript" src="react-15.3.1/build/react.js" ></script>
+		<script type="text/javascript" src="react-15.3.1/build/react-dom.js" ></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js" ></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/pubsubjs/1.4.2/pubsub.js" ></script>
+		<!--这边引入了 一个 browser.min.js    这个是解析jsx的语法的-->
+		<!--并非必需引入browser.js
+			引入它的作用是使浏览器支持babel，你可以使用ES2015（javascript下一代标准，
+			具体可以看阮一峰的ECMAScript 6 入门）进行编码。
+			如果你用ES5，可以不引入
+			browser.min.js文件大是因为
+			服务器没有开启gzip，类似cloudflare、七牛都会开启gzip，将浏览器对静态资源请求尽量降到最低
+			（但越低越吃CPU，所以要适量）
+			
+			-->
+		<style>
+			table th,table td{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" id="studentInfo">
+			<h1>学员成信息表</h1>
+			<div class="bs-example">
+				<div class="form-group">
+					<label>按性别筛选</label>
+					<select class="form-control">
+						<option value="all">all</option>
+						<option value="1">男</option>
+						<option value="0">女</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>按名字筛选</label>
+					<input type="text" class="form-control" placeholder="请输入名字" />
+				</div>
+			</div>
+			<!--<div class="table-responsive">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>姓名</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>身高</th>
+							<th>体重</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody id="tb">
+						<tr>
+							<td>小乐</td>
+							<td>女</td>
+							<td>18</td>
+							<td>165</td>
+							<td>45</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>leo</td>
+							<td>男</td>
+							<td>35</td>
+							<td>180</td>
+							<td>48</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>momo</td>
+							<td>女</td>
+							<td>38</td>
+							<td>166</td>
+							<td>50</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>leo</td>
+							<td>女</td>
+							<td>18</td>
+							<td>170</td>
+							<td>50</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>童童</td>
+							<td>女</td>
+							<td>22</td>
+							<td>171</td>
+							<td>60</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>momo</td>
+							<td>男</td>
+							<td>26</td>
+							<td>175</td>
+							<td>70</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+						<tr>
+							<td>童童</td>
+							<td>男</td>
+							<td>30</td>
+							<td>175</td>
+							<td>65</td>
+							<td><a href="javascript:;">删除</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>-->
+			
+		</div>
+	</body>
+	<script type="text/babel">
+		var data = [
+			{stName:"小乐",gender:"女",age:18,height:165,weigth:45,_id:2},
+			{stName:"leo",gender:"男",age:35,height:180,weigth:80,_id:0},
+			{stName:"童童",gender:"女",age:22,height:171,weigth:60,_id:6},
+			{stName:"momo",gender:"男",age:26,height:175,weigth:70,_id:1},
+			{stName:"leo",gender:"女",age:18,height:175,weigth:50,_id:3},
+			{stName:"momo",gender:"女",age:38,height:166,weigth:50,_id:4},
+			{stName:"童童",gender:"男",age:30,height:175,weigth:65,_id:5}
+		]
+		
+		var StudentApp = React.createClass({
+			getInitialState:function(){
+				return{
+					studentData:data,
+					genderValue:"all",
+					changeName:''
+				}
+			},
+			genderFilterHander:function(e){
+				this.setState({genderValue:e.target.value});
+			},
+			
+			nameFilterHander:function(e){
+				this.setState({changeName:e.target.value});
+			},
+			
+			componentDidMount:function(){
+				PubSub.subscribe("deleteItem",function(evName,_id){
+					var newArr = this.state.studentData.filter(function(item){
+						return item._id !== _id
+					});
+					this.setState({studentData:newArr});
+				}.bind(this))
+			},
+			
+			render:function(){
+				return(
+					<div>
+						<h1>学员信息表</h1>
+						<div className="bs-example">
+							<div className="form-group">
+								<label>按性别筛选</label>
+								<select className="form-control" onChange={this.genderFilterHander}>
+									<option value="all">all</option>
+									<option value="1">男</option>
+									<option value="0">女</option>
+								</select>
+							</div>
+							<div className="form-group">
+								<label>按名字筛选</label>
+								<input type="text" className="form-control" placeholder="请输入名字" onKeyUp={this.nameFilterHander} />
+							</div>
+						</div>
+						<StudentInfoComponent 
+							
+						studentData = {this.state.studentData}
+						genderValue = {this.state.genderValue}
+						changeName = {this.state.changeName}
+						/>
+						
+						
+					</div>
+				)
+			}
+		});
+		var StudentInfoComponent = React.createClass({
+			render:function(){
+				var list = [];
+				var genderVal = this.props.genderValue;
+				
+				var genderArr = ["女","男",""];
+				var changeName = this.props.changeName;
+				
+				this.props.studentData.forEach(function(item,index){
+					
+					if( genderVal !== "all" && changeName === ""){
+						if( genderArr[genderVal] === item.gender ){
+							list.push( <StudentItemComponent studentItem = {item} key={index} /> );
+						}
+							return;
+					}
+					
+					if( changeName !== ""){
+						if( genderVal !== "all" ){
+							if(changeName === item.stName && genderArr[genderVal] === item.gender ){
+								list.push( <StudentItemComponent studentItem = {item} key={index} /> )
+							}
+						}else{
+							if( changeName === item.stName ){
+								list.push( <StudentItemComponent studentItem = {item} key={index} /> )
+							}
+						}
+						return;
+					}
+					list.push( <StudentItemComponent studentItem = {item} key={index} /> )
+				});
+				
+				 
+				return(
+					<div className="table-responsive">
+						<table className="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>姓名</th>
+									<th>性别</th>
+									<th>年龄</th>
+									<th>身高</th>
+									<th>体重</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody id="tb">
+							 	{ list }
+							</tbody>
+						</table>
+					</div>
+						
+				)
+			}
+		});
+		
+		var StudentItemComponent = React.createClass({
+			deleteItem:function(){
+				PubSub.publish("deleteItem",this.props.studentItem._id);
+			},
+			
+			
+			render:function(){
+				var item = this.props.studentItem;
+				
+				return(
+					<tr>
+						<td>{item.stName}</td>
+						<td>{item.gender}</td>
+						<td>{item.age}</td>
+						<td>{item.height}</td>
+						<td>{item.weigth}</td>
+						<td><a href="javascript:;" onClick={this.deleteItem}>删除</a></td>
+					</tr>
+				)
+			}
+		});
+		
+		ReactDOM.render(<StudentApp />,document.getElementById('studentInfo'));
+	</script>
+</html>

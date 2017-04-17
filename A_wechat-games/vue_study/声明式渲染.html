@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<!--模板-->
+		<div id="demo">
+			<!--v-on绑定事件-->
+			<span v-on:click="clickHandle">{{message}}</span>
+		</div>
+	</body>
+	<script>
+		var arr = [1,2,3,4,5];
+		//求数组中的每一项的倍数，放在一个新数组中
+		/*
+		 * 命令式
+		 * var newArr = [];
+		for(var i = 0 ;i<arr.length;i++){
+			newArr.push(arr[i]*2)
+		}*/
+		
+		//声明式
+		var newArr = arr.map(function(item){
+			return item*2;
+		});
+		for(var i = 0 ;i<newArr.length;i++){
+			console.log(newArr[i]);
+		}
+	</script>
+</html>

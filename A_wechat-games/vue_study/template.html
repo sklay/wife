@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<title></title>
+	</head>
+	<body>
+		<!--模板-->
+		<!--  :表示 v-bind指令-->
+		<div id="demo" >
+			<span>456</span>
+		</div>
+		
+	</body>
+	<script>
+	//数据
+		let obj = {
+			html:"<div>hello</div>",
+			abc:1
+		};
+//		var str = "<div>hello 123,{{abc}}</div>"
+		//es6提供了换行的功能
+		var str = `<div>
+			hello 123,{{abc}}
+			<span>nihao </span>
+		</div>`
+		
+		//得到Vue的实例
+		//声明式渲染
+		var vm = new Vue({
+			el:"#demo",
+			data:obj,
+			template:str
+		});
+		//vm.$data  能拿到 data里的数据
+	</script>
+</html>
