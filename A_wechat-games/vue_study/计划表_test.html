@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<link rel="stylesheet" href="css/index.css" />
+		<title></title>
+	</head>
+	<body>
+		<div class="page-top">
+			<div class="page-content">
+				<h2>任务计划列表</h2>
+			</div>
+		</div>
+		<div class="main">
+			<h3 class="big-title">添加任务：</h3>
+			<!--v-on:keyup.enter="addTodo(123,$event)"  传递事件对象时  需要 手动的 加上 $event-->
+			<input 
+				v-on:keyup.enter="addTodo()" 
+				v-model="todo" 
+				placeholder="例如吃饭睡觉打豆豆：   提示：+回车即可添加任务" 
+				class="task-input" type="text" 
+				/>
+			<ul class="task-count clearfix"  v-show="list.length">
+				<li>1个任务未完成</li>
+				<li class="action">
+					<a class="active" href="#">所有任务</a>
+					<a  href="#">未完成的任务</a>
+					<a  href="#">完成的任务</a>
+				</li>
+			</ul>
+			<h3 class="big-title">任务列表：</h3>
+			<div class="tasks">
+				<span class="no-task-tip" v-show="!list.length">还没有添加任何任务</span>
+				<!--<span class="no-task-tip tip-toggle">
+					<input checked="" class="toggle" type="checkbox" />
+					<span>全标记为完成</span>
+				</span>-->
+				
+				<ul class="todo-list">
+					<!--<li class="todo completed" v-for="item in list">-->
+					<li class="todo" v-bind:class="{completed: item.isChecked }" v-for="item in list">
+						<div class="view clearfix">
+							<input class="toggle" type="checkbox" v-model="item.isChecked" />
+							<label>{{item.title }}</label>
+							<button class="destroy" @click="deleteTodo(item)">x</button>
+						</div>
+						<input class="edit" type="text" />
+					</li>
+					<!--<li class="todo">
+						<div class="view">
+							<input checked class="toggle" type="checkbox" />
+							<label>吃饭睡觉打豆豆</label>
+							<button class="destroy"></button>
+						</div>
+						<input class="edit" type="text" />
+					</li>-->
+				</ul>
+			</div>
+		</div>
+		
+	</body>
+		<script type="text/javascript" src="js/app.js" ></script>
+</html>

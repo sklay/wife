@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+	color: #999;
+}
+.clearfix:after {content: ""; display: block; clear:both;}
+.clearfix{zoom: 1;}
+
+body{
+	width: 100%;
+	background: #e3e3e3;
+}
+.page-top{
+	width: 100%;
+	background: #F85E1E;
+	
+}
+.page-content{
+	width: 80%;
+	margin: 0 auto;
+	font-size: 16px;
+	color: #fff;
+	line-height: 60px;
+}
+.main{
+	width: 80%;
+	margin: 0 auto;
+}
+.big-title{
+	font-size: 16px;
+	color: #000;
+	line-height: 40px;
+}
+.task-input{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	outline: none;
+}
+.task-count{
+	margin: 10px;
+	width: 100%;
+}
+.task-count li{
+	float: left;
+	width: 30%;
+	color: red;
+}
+li.action{
+	float: right;
+	width: 70%;
+	text-align: right;
+}
+li.action a{
+	width: 30%;
+	margin-right: 4%;
+	font-size: 14px;
+	padding: 5px 30px;
+	box-sizing: border-box;
+}
+li.action a.active{
+	border: 1px solid red;
+	width: 100%;
+	height: 40px;
+}
+.tasks{
+	width: 100%;
+	background: #fff;
+}
+.no-task-tip{
+	display: inline-block;
+	width: 100%;
+	padding: 10px 0 10px 10px;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #999;
+	border-bottom: 1px solid #e2e2e2;
+}
+.todo {
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+	font-size: 14px;
+	color: #999;
+	border-bottom: 1px solid #e2e2e2;
+}
+/*鼠标经过 子集元素出现*/
+.todo:hover button {
+	display:block;
+}
+.view {
+	line-height: 40px;
+	font-size: 16px;
+	position: relative;
+}
+.toggle{
+	width: 40px;
+    height: 20px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none;
+    /*-webkit-appearance: none;
+    appearance: none;*/
+    
+}
+.edit{
+	display: none;
+}
+li label{
+	margin-left: 50px;
+}
+li.completed label{
+	text-decoration: line-through;
+}
+.destroy{
+	border: 0;
+	background: transparent;
+	font-size: 26px;
+	color: #FF0000;
+	float: right;
+	margin-right: 30px;
+	display: none;
+}
