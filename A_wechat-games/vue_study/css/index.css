@@ -93,6 +93,9 @@ li.action a.active{
 	border-bottom: 1px solid #e2e2e2;
 }
 /*鼠标经过 子集元素出现*/
+.todo:hover{
+	background: rgba(241, 224, 224, 0.17);
+}
 .todo:hover button {
 	display:block;
 }
@@ -112,7 +115,7 @@ li.action a.active{
     appearance: none;*/
     
 }
-.edit{
+.todo-list li .edit{
 	display: none;
 }
 li label{
@@ -128,5 +131,13 @@ li.completed label{
 	color: #FF0000;
 	float: right;
 	margin-right: 30px;
+	display: none;
+}
+li.editing .edit{
+	display: block;
+	width: 506px;
+	padding: 13px 17px 12px 17px;
+}
+li.editing .view{
 	display: none;
 }

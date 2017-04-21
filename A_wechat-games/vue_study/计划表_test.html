@@ -22,7 +22,11 @@
 				class="task-input" type="text" 
 				/>
 			<ul class="task-count clearfix"  v-show="list.length">
-				<li>1个任务未完成</li>
+				<li>{{
+						noCheckeLength
+					}}
+					
+					个任务未完成</li>
 				<li class="action">
 					<a class="active" href="#">所有任务</a>
 					<a  href="#">未完成的任务</a>
@@ -39,13 +43,27 @@
 				
 				<ul class="todo-list">
 					<!--<li class="todo completed" v-for="item in list">-->
-					<li class="todo" v-bind:class="{completed: item.isChecked }" v-for="item in list">
+					<li class="todo " v-bind:class="{completed: item.isChecked ,editing:item === edtorTodos}" v-for="item in list">
 						<div class="view clearfix">
 							<input class="toggle" type="checkbox" v-model="item.isChecked" />
-							<label>{{item.title }}</label>
+							<label  @dblclick="edtorTodo(item)" >{{item.title }}</label>
 							<button class="destroy" @click="deleteTodo(item)">x</button>
 						</div>
-						<input class="edit" type="text" />
+						<input 
+							v-focus ="edtorTodos === item" 
+							class="edit" 
+							type="text" 
+							v-model = "item.title" 
+							@blur="edtorTodoed(item)"
+							@keyup.13="edtorTodoed(item)"
+							@keyup.esc="cancleTodo(item)"
+							/>
+							<!--@blur="edtorTodoed(item)"
+							@keyup.13="edtorTodoed(item)"
+							
+							上面两个都是 失去焦点的 时候保存 数据
+							@keyup.esc="cancleTodo(item)"取消编辑  ，返回之前的数据
+							-->
 					</li>
 					<!--<li class="todo">
 						<div class="view">
