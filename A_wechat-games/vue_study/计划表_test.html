@@ -22,11 +22,13 @@
 				class="task-input" type="text" 
 				/>
 			<ul class="task-count clearfix"  v-show="list.length">
-				<li>{{
+				<li>
+					{{
 						noCheckeLength
 					}}
 					
-					个任务未完成</li>
+					个任务未完成
+				</li>
 				<li class="action">
 					<a class="active" href="#">所有任务</a>
 					<a  href="#">未完成的任务</a>
@@ -80,3 +82,18 @@
 	</body>
 		<script type="text/javascript" src="js/app.js" ></script>
 </html>
+
+
+
+
+
+<!--var  $arr = result_json.new_pharmacy_info.sale_message_arr;
+
+$.each(result_json.new_pharmacy_info.sale_message_arr ,function(i ,item){
+	console.debug(' i == ' + i +"   item = " +item);
+	})
+	
+var  $arr = ww.s;
+for(var i - 0 ;i < $arr.length ;i++){
+	console.debug(' i == ' + i +"   item = " +$arr[i])
+}-->

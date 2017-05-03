@@ -1,0 +1,236 @@
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>夹娃娃测试</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/html_common.js"></script>
+		<script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
+		
+		<script src="js/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touch.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/preloadjs-0.6.0.min.js"></script>
+		<script src="js/createjs-2014.12.12.min.js"></script>
+		<script src="js/utils.js"></script>
+		<!--<link rel="stylesheet" href="style/act_17dumpling_index.css" />-->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				font-size: 14px;
+				font-family: "微軟正黑體","Microsoft Yahei";
+				background: #6fdfad;
+			}
+			html,body,.content_wrap{
+				width: 100%;
+				height: 100%;
+			}
+			.content_wrap{
+				position: relative;
+			}
+			#top{
+				width: 100%;
+				margin: 0 auto;
+				position: relative;
+				
+			}
+			.top-line{
+				display: block;
+				width: 100%;
+				height: 20px;
+				background: #008000;
+				position: absolute;
+				top: 20px;
+				left: 0;
+				overflow: hidden;
+			}
+			.top-line li{
+				width: 10%;
+				height: 20px;
+				display: block;
+				background: #000000;
+				float: left;
+				list-style: none;
+				text-align: center;
+			}
+			.top-line .li-1,.top-line .li-3,.top-line .li-5,.top-line .li-7,.top-line .li-9{
+				background: #DC8888;
+			}
+			.top-line .li-2,.top-line .li-4,.top-line .li-6,.top-line .li-8,.top-line .li-10{
+				background: #417363;
+			}
+			
+			
+			.top-jia{
+				width: 60px;
+				/*height: 40px;*/
+				position: absolute;
+				top: 20px;
+				left: 50%;
+				margin-left: -30px;
+				-webkit-animation-duration: 8s;
+				-webkit-animation-iteration-count:infinite;
+				-webkit-animation-play-state: running;
+				-webkit-animation-name: hand_move;
+				animation-name: hand_move;
+				z-index: 2;
+			}
+			
+
+
+			/*手势动画*/
+			
+			@-webkit-keyframes hand_move {
+				0% {
+					-webkit-transform: translate3d(0, 0, 0)
+				}
+				25% {
+					-webkit-transform: translate3d(-130px, 0px, 0)
+				}
+				50% {
+					-webkit-transform: translate3d(130px, 0px, 0)
+				}
+				75% {
+					-webkit-transform: translate3d(-130px, 0px, 0)
+				}
+				100% {
+					-webkit-transform: translate3d(130px, 0px, 0)
+				}
+			}
+			
+			
+			.game{
+				width: 100%;
+				position: absolute;
+				top: 260px;
+			}
+			.game ul{
+				overflow: hidden;
+				
+			}
+			.game ul li{
+				float: left;
+			}
+			.game ul li img{
+				width: 100%;
+			}
+			.game-1{
+				width: 4.8rem;
+				margin: 0 auto;
+			}
+			.game-1 li{
+				width: 1.2rem;
+				margin-right: .6rem;
+			}
+			.game-2 li{
+				width: 1.2rem;
+				margin-right: .4rem;
+			}
+			li.spec{
+				margin-right: 0;
+			}
+			.game-2{
+				width: 6rem;
+				margin: 0 auto;
+			}
+			.game-1 li{
+				width: 1.2rem;
+			}
+			ul li{
+				list-style: none;
+			}
+			.btn{
+				width: 1.4rem;
+				display: block;
+				position: absolute;
+				right: 1rem;
+				bottom: 2rem;
+			}
+		</style>
+		
+		
+	</head>
+
+	<body  >
+		
+		<div class="content_wrap">
+			<div id="top">
+				<!--<ul class="top-line">
+				</ul>-->
+				<img class="top-jia" src="img/jia.jpg" />
+			</div>
+			<div class="game">
+				<ul class="game-1">
+					<li><img  src="img/1.jpg" /></li>
+					<li><img  src="img/3.jpg" /></li>
+					<li class="spec"><img  src="img/2.jpg" /></li>
+				</ul>
+				<ul class="game-2">
+					<li><img  src="img/4.jpg" /></li>
+					<li><img  src="img/3.jpg" /></li>
+					<li><img  src="img/1.jpg" /></li>
+					<li class="spec"><img  src="img/2.jpg" /></li>
+				</ul>
+			</div>
+			<img class="btn" src="img/btn.jpg" />
+		</div>
+		
+		
+	</body>
+	<script type="text/javascript" src="js/artTemplate/template.js"></script>
+	<script type="text/template" id="test">
+		<ul class="top-line">
+		    {{each list as val}}
+		        <li class="li-{{val.pinId}}">{{val.pinId}}</li>
+		    {{/each}}
+		</ul>
+	</script>
+	<script>
+		$(function(){
+			var data = [
+			{"pinId":1,"userId":1},
+			{"pinId":2,"userId":2}, 
+			{"pinId":3,"userId":3},
+			{"pinId":4,"userId":4},
+			{"pinId":5,"userId":5},
+			{"pinId":6,"userId":6}, 
+			{"pinId":7,"userId":7},
+			{"pinId":8,"userId":8},
+			{"pinId":9,"userId":9},
+			{"pinId":10,"userId":10}
+			];
+			var dataList = {"list":data }
+			var html = template('test', dataList );
+			$("#top").append(html);
+			
+			//滑动动画事件
+//			$("img").animate({left: '-50px'}, "slow");
+			//游戏点击事件
+			$(".btn").on("click",function(){
+				var div1 = $(".top-jia").offset().top;
+				var wid1 = $(".top-jia").height();
+				var div2 = $(".game-1").offset().top;
+				var div3 = $(".game-1").offset().top;
+				var distances = div2 -(div1+wid1); //这种情况是两个div在的top相同，求距
+				var distances1 = div3 -(div1+wid1); //这种情况是两个div在的top相同，求距
+				
+				
+				var $height = $(".top-jia").height();
+				console.log("$height的值是  。。。。",$height+distances);
+				
+				//判断  如果此时 夹中的 是 第一行的  高度+distances 否则高度+distances1
+				$(".top-jia").css("height",$height+distances+40);
+			});
+		})
+	</script>
+</html>
