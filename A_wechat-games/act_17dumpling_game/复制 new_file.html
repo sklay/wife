@@ -55,7 +55,7 @@
 				overflow: hidden;
 			}
 			.top-line li{
-				width: .8rem;
+				width: .64rem;
 				height: 16px;
 				display: block;
 				background: #000000;
@@ -253,9 +253,9 @@
 			{"pinId":5,"userId":5},
 			{"pinId":6,"userId":6}, 
 			{"pinId":7,"userId":7},
-			{"pinId":8,"userId":8}
-//			{"pinId":9,"userId":9},
-//			{"pinId":10,"userId":10},
+			{"pinId":8,"userId":8},
+			{"pinId":9,"userId":9},
+			{"pinId":10,"userId":10}
 //			{"pinId":11,"userId":11},
 //			{"pinId":12,"userId":12},
 //			{"pinId":13,"userId":13}
@@ -290,8 +290,12 @@
 //				console.log("$height的值是  。。。。",$height+distances);
 				var moveleft = $(".top-jia").offset().left;
 				console.log("moveleft的值是"+moveleft);
+				var clientWidth = $(window).width();
+				console.log("clientWidth的值是"+clientWidth);
+				var _moveleft = (moveleft/clientWidth)*70;
+				console.log("_moveleft的值是"+_moveleft);
 				//判断夹中的 几种状态
-				if(moveleft == 40 || moveleft == 130 || moveleft == 220){
+				if(_moveleft >6&& _moveleft <9  || _moveleft >26 && _moveleft < 29 || _moveleft >46 && _moveleft < 49){
 					console.log("夹中了第一层");
 					$(".top-jia").animate({height: $height+distances+40}, 300,function(){
 					    $(".top-jia").animate({height: $height}, "300");
@@ -302,8 +306,8 @@
 					},100);//重新开始定时器
 					
 				}
-				else if(moveleft == 10 || moveleft == 90 ||moveleft == 170 ||moveleft == 250){
-					console.log("夹中了第一层");
+				else if(_moveleft >1 && _moveleft < 4 || _moveleft >17 && _moveleft < 21 || _moveleft >35 && _moveleft < 38 || moveleft >53 && moveleft < 56){
+					console.log("夹中了第二层");
 					$(".top-jia").animate({height: $height+distances1+80}, 300,function(){
 					    $(".top-jia").animate({height: $height}, "300");
 					});
@@ -324,7 +328,7 @@
 					clock = setInterval(function(){
 			  			move() ;
 					},100);//重新开始定时器
-					
+//					
 					
 				}
 				
