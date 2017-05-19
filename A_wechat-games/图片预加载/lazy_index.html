@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Lazy Load Enabled</title>
+	</head>
+
+	<body>
+		<img class="lazy" data-original="images/bmw_m1_hood.jpg" width="300" height="200" alt="BMW M1 Hood">
+			<br />
+		<img class="lazy" data-original="images/bmw_m1_side.jpg" width="300" height="200" alt="BMW M1 Side">
+			<br />
+		<img class="lazy" data-original="images/viper_1.jpg" width="300" height="200" alt="Viper 1">
+			<br />
+		<img class="lazy" data-original="images/viper_corner.jpg" width="300" height="200" alt="Viper Corner">
+			<br />
+		<img class="lazy" data-original="images/bmw_m3_gt.jpg" width="300" height="200" alt="BMW M3 GT">
+			<br />
+		<img class="lazy" data-original="images/corvette_pitstop.jpg" width="300" height="200" alt="Corvette Pitstop">
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/jquery.lazyload.js?v=1.9.1"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(function() {
+
+				$("img.lazy").lazyload({
+					placeholder : "images/loading.gif", 
+					effect: "fadeIn"
+				});
+
+			});
+		</script>
+
+		<!--可删除-->
+
+		<script src="http://www.jq22.com/js/jq.js"></script>
+
+		<!--ecd 可删除-->
+
+	</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#c1{
+				background: #ff4400;
+			}
+		</style>
+	</head>
+	<body>
+		<!--canvas默认的宽是300px 高是150px   宽高要在标签上写   ie8及以下 不支持 canvas   -->
+		<canvas id="c1" width="300" height="300"></canvas>
+	</body>
+	<script>
+	//目前只支持 2D的场景
+		window.onload =function(){
+			var oc = document.getElementById('c1');   //webgl:3D绘图
+			var ogc = oc.getContext('2d');
+			ogc.save();//保存路径
+			
+			ogc.fillStyle = 'blue';//如果上面不加ogc.save(); ogc.restore(); 这个颜色的设置是 对上下的连个三角形都有作用的，加了只对第一个有用
+			//绘制三角形
+			ogc.beginPath(); //开始绘制路径
+			ogc.moveTo(100,100);//移动到绘制的新目标点
+			ogc.lineTo(200,200);//新的目标点
+			ogc.lineTo(300,200);//新的目标点
+			ogc.closePath();//结束绘制
+//			ogc.stroke();
+			
+			ogc.fill();
+			ogc.restore();//恢复路径
+			
+			
+			
+			ogc.beginPath(); //开始绘制路径
+			ogc.moveTo(100,200);//移动到绘制的新目标点
+			ogc.lineTo(200,300);//新的目标点
+			ogc.lineTo(300,300);//新的目标点
+			ogc.closePath();//结束绘制
+			ogc.fill();//填充的绘制
+		}
+	</script>
+</html>

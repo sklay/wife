@@ -1,0 +1,309 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-style: normal;
+  text-align: center;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  width: 100%;
+  background: #fff;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+body {
+  font-family: Microsoft Yahei, Arial;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
+.content .indexPage {
+  width: 100%;
+  height: 16rem;
+  background: url(../images/act_17dumpling_getHb_Bj.jpg) center center no-repeat;
+  background-size: 100% 100%;
+}
+.getHbWrap_title {
+  width: 7.1875rem;
+  padding-top: 1.34375rem;
+  margin: 0 auto;
+}
+.getHbWrap_title img {
+  width: 100%;
+  float: left;
+}
+.getHbWrap_title img:nth-child(2) {
+  margin-top: -0.15rem;
+}
+.getHb_title img {
+  width: 100%;
+}
+.commomLogin {
+  width: 7.484375rem;
+  margin: 0.453125rem auto 0;
+}
+.commomLogin #getHbBtn {
+  width: 100%;
+  margin-top: 0.71875rem;
+}
+.commomLogin #downText {
+  width: 80%;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.46875rem;
+  margin: 0.421875rem auto 0;
+}
+#userPhone {
+  width: 7.34375rem;
+  height: 1.1875rem;
+  line-height: 1.1875rem;
+  margin: 0 auto;
+  background: #fff;
+  outline: none;
+  border: 2px solid #fbbe0c;
+  font-size: 0.546875rem;
+  font-family: "DFPWaWaW5";
+  color: #ac9a81;
+  text-align: center;
+  box-shadow: 0 3px 4px #51c87d;
+  border-radius: 50px;
+}
+::-moz-placeholder {
+  color: #ac9a81;
+  text-align: center;
+  font-family: "";
+}
+:-ms-input-placeholder {
+  color: #ac9a81;
+  text-align: center;
+}
+::-webkit-input-placeholder {
+  color: #ac9a81;
+  text-align: center;
+}
+.receive_success,
+.has_received {
+  width: 7.8125rem;
+  margin: 0.5rem auto 0;
+}
+.getHbnNum img {
+  width: 100%;
+}
+.commUsebtn {
+  width: 7.34375rem;
+  margin: 0.890625rem auto;
+}
+.commUsebtn img {
+  width: 100%;
+  margin-top: 0.5rem;
+  float: left;
+}
+.getHbnNum p {
+  text-align: center;
+  font-size: 0.46875rem;
+  font-family: "Microsoft YaHei";
+  color: #005954;
+  -moz-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -webkit-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -ms-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+}
+.friHbShow {
+  width: 9.8125rem;
+  overflow: hidden;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #b5cab9;
+  margin: 0 auto;
+}
+.friHbShow .userFriAvatat {
+  width: 81%;
+  overflow: hidden;
+  float: left;
+  padding: 0.171875rem 0;
+}
+.friHbShow .userFriAvatat img {
+  width: 1.078125rem;
+  height: 1.078125rem;
+  float: left;
+  border-radius: 4px;
+}
+.friHbShow .userFriAvatat .userFriInf {
+  float: left;
+  margin-left: 0.125rem;
+  width: 80%;
+}
+.friHbShow .userFriAvatat .userFriInf strong {
+  font-size: 0.3125rem;
+  color: #0b4f16;
+  line-height: 0.21875rem;
+}
+.friHbShow .userFriAvatat .userFriInf p {
+  white-space: nowrap;
+  font-size: 0.3125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  color: #0b4f16;
+  line-height: 0.546875rem;
+}
+.friHbShow .userFriInf_wrap {
+  width: 18%;
+  float: right;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0.28125rem 0;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap {
+  width: 100%;
+  height: 0.96875rem;
+  float: right;
+  background: url(../images/act_17dumpling_getHb_iconValue.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue {
+  font-size: 0.625rem;
+  line-height: 0.96875rem;
+  color: #875617;
+  text-align: center;
+  display: block;
+  position: relative;
+  margin-left: -0.5625rem;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue span {
+  font-size: 0.546875rem;
+  position: absolute;
+}
+.activeRuleShowWrap .activeRuleShow {
+  width: 9.8125rem;
+  margin: 0 auto;
+  color: #0b4f16;
+  line-height: 0.9375rem;
+  font-size: 0.40625rem;
+}
+.comShowTitle {
+  color: #0b4f16;
+  height: 40px;
+  width: 9.8125rem;
+  margin: 0.953125rem auto 0.5625rem auto;
+  overflow: hidden;
+  position: relative;
+}
+.leftLineDot {
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: .3rem;
+  padding-top: 19px;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.leftLineDot span {
+  float: left;
+  background: #0b4f16;
+}
+.leftLineDot span:nth-child(2) {
+  position: absolute;
+  right: 3px;
+  top: 15px;
+}
+.rightLineDot {
+  padding: 19px 0 0 .3rem;
+  right: 0;
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.rightLineDot span {
+  float: right;
+  background: #0b4f16;
+}
+.rightLineDot span:nth-child(1) {
+  position: absolute;
+  left: 3px;
+  top: 15px;
+}
+.comshowTitleText {
+  text-align: center;
+  line-height: 40px;
+  width: 3.5rem;
+  margin: 0 auto;
+  font-size: 16px;
+}
+.shareAppPage {
+  width: 7.34375rem;
+  margin: 0.890625rem auto;
+}
+.shareAppPage img {
+  width: 100%;
+}
+/*分享遮罩样式*/
+#shareFriSha {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+#shareFriSha img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.promptDiv {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 180px;
+  height: 90px;
+  z-index: 99;
+  display: none;
+}
+.promptDiv .opDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: none repeat scroll 0% 0% #333;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.promptDiv .promptContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.promptDiv img {
+  display: block;
+  margin: 12px auto 10px auto;
+  width: 45px;
+  height: 45px;
+}
+.promptDiv .title {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}

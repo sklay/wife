@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#c1{
+				background: #ff4400;
+			}
+		</style>
+	</head>
+	<body>
+		<!--canvas默认的宽是300px 高是150px   宽高要在标签上写   ie8及以下 不支持 canvas   -->
+		<canvas id="c1" width="300" height="300"></canvas>
+	</body>
+	<script>
+	//目前只支持 2D的场景
+		window.onload =function(){
+			var oc = document.getElementById('c1');   //webgl:3D绘图
+			var ogc = oc.getContext('2d');
+			
+			oc.onmousedown = function(ev){
+				var ev = ev || window.event;
+				
+				ogc.moveTo(ev.clientX-oc.offsetLeft,ev.clientY-oc.offsetTop);
+				
+				document.onmousemove = function(ev){
+					var ev = ev || window.event;
+					ogc.lineTo(ev.clientX-oc.offsetLeft,ev.clientY-oc.offsetTop);
+					
+					ogc.stroke();
+				};
+				
+				
+				document.onmouseup = function(){
+					document.onmousemove = null;
+					document.onmouseup = null;
+				};
+			};
+		};
+	</script>
+</html>
