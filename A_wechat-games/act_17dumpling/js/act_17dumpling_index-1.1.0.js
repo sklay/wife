@@ -3,7 +3,8 @@
  */
 $(function() {
 	var gameConfig = {
-		time: 20
+		time: 90,
+		left:0
 	}
 	var toR = true;
 	var clickBoo = false;
@@ -101,7 +102,7 @@ $(function() {
 			
 //			console.debug("left " ,$item.offset().left +" , width " , $item.width()) ;
 		});
-		
+		gameConfig.left = $('.top-jia').offset().left;
 		console.debug("item  is ", JSON.stringify(layoutArry)) ;
 	});
 
@@ -129,16 +130,18 @@ $(function() {
 	function specialClick() {
 		//游戏点击事件
 		$(".btn").off('click').on("click", function() {
-			if(btnClick)
-				return;
 			//按钮点击动画	
 			$(".btn .playGameBtn_move1").animate({
-				top: "2.3rem"
+				top: "1.3rem"
 			}, 100, function() {
 				$(".btn .playGameBtn_move1").animate({
-					top: "2.1rem"
+					top: "1rem"
 				}, 100);
 			});
+			
+			if(btnClick)
+				return;
+			
 
 			btnClick = true;
 			
@@ -155,7 +158,7 @@ $(function() {
 			var $height = $("#top").height() + $('.top-jia-img').height()/3;
 			$.each(layoutArry,function (i , item){
 				var differ = Math.abs(centerLeft - item.centerLeft) ;
-				if(differ <= 5){
+				if(differ <= 10){
 					catched = true ;
 					console.debug("抓住了");
 					console.debug('jia offset left ' , moveleft , '  , centerLeft  ' ,centerLeft);
@@ -214,7 +217,14 @@ $(function() {
 					move();
 				}, 100); //重新开始定时器
 				clearTimeout(this);
-				btnClick = false ;
+				
+				
+//				btnClick = false ;
+				setTimeout(function() {
+					btnClick = false ;
+				}, 200);
+				
+				
 			}, sleepTime);
 
 			$("#scoreControl").html(scoreNum);
@@ -311,6 +321,8 @@ $(function() {
 			$(".gameFailWrap ").hide();
 			$(".gameSuccWrap ").hide();
 			$(".startGameBtnWrap").show();
+			
+			$(".top-jia").css("left",gameConfig.left);
 		}
 
 	})

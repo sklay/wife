@@ -1,0 +1,789 @@
+@charset "utf-8";
+@rem: 64rem;
+* {
+    margin: 0;
+    padding: 0;
+}
+
+//i {
+//  font-style: normal;
+//  text-align: center;
+//}
+
+//html {
+//  font-size: 62.5%;
+//}
+
+html, body{
+    width: 100%;
+    max-width: 640px;
+    height: 100%;
+    margin: 0 auto;
+//  overflow: hidden;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+body {
+//  font-size: 10px;
+//  font-size: .1rem;
+    font-family: Microsoft Yahei, Arial;
+}
+
+.contentBack {
+//  background: #fa5c4c;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#loadingPage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background: -webkit-radial-gradient(50% 50%, ellipse closest-side, rgb(252,255,244) 0%,rgb(252,253,238) 30%, rgb(211,247,225) 70%, rgb(152,233,219) 100%);
+    // background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(255,172,75) 0%, rgb(226,42,65) 100%);
+
+
+
+}
+.loadImg{
+    width: 100%;
+}
+
+
+.loadText {
+    font-size: 30/@rem;
+    color: #005954;
+    text-align: center;
+    margin-bottom: 15/@rem;
+    margin-top: 425/@rem;
+    font-weight: 600;
+}
+
+.loadShape {
+    width:500/@rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 16/@rem;
+    overflow: hidden;
+    background: -webkit-linear-gradient(top, #004a46 0%,  #0e605c 40%, #1f6965 75%, #276d6a 100%);
+    background: linear-gradient(to bottom,#004a46 0%,  #0e605c 40%, #1f6965 75%, #276d6a 100%);
+}
+
+#loadShapePro {
+    border-radius: 10px;
+    height: 16/@rem;
+    float: left;
+    background: rgb(254, 239, 88);
+    /* Old browsers */
+    background: -webkit-linear-gradient(top, rgba(254, 239, 88, 1) 0%, rgba(253, 222, 53, 1) 40%, rgba(252, 199, 21, 1) 58%, rgba(249, 177, 13, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(254, 239, 88, 1) 0%, rgba(253, 222, 53, 1) 40%, rgba(252, 199, 21, 1) 58%, rgba(249, 177, 13, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */;
+    width: 0;
+}
+
+
+//游戏首页
+.indexPage {
+    width: 100%;
+    height: 100%;
+//  background: url(../images/act_17lunarYear_indexBJ.jpg) center center no-repeat;
+//  background-size: 100% 100%;
+}
+.indexCon{
+    width: 100%;
+    height: 100%;
+    background: url(../images/act_17dumpling_indexBj.jpg) center center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.indexCon_title{
+    width: 512/@rem;
+    height: 376/@rem;
+    padding-top: 102/@rem;
+    margin: 0 auto;
+}
+.indexCon_title img{
+    width: 100%;
+}
+.indexCon_title img:nth-child(1){
+//  width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+.indexCon_title img:nth-child(2){
+   float: left;
+   margin-top: -16/@rem;
+}
+.indexCon_click{
+    width: 386/@rem;
+    height: 168/@rem;
+//  margin: 394/@rem auto 0;
+    text-align: center;
+    margin: a auto;
+    position: fixed;
+    bottom:51/@rem;
+    left: 50%;
+    margin-left: -386/2/@rem;
+}
+.indexCon_click img{
+    width: 100%;
+    float: left;
+}
+.indexCon_click img:nth-child(1){
+    width: 100%;
+    float: left;
+}
+.indexCon_click img:nth-child(2){
+    width: 50%;
+//  display: block;
+    margin: 21/@rem 0 0 193/2/@rem;
+    
+}
+
+//活动规则
+.actRuleShow_wrap,.gameOverWrap  {
+    display: none;
+}
+
+.comWrap1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .4);
+    box-sizing: border-box;
+    padding-top:218/@rem;
+    z-index: 3;
+}
+.actRuleShow_wrap .actRuleShow {
+    background: url(../images/act_17dumpling_ruleBj.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.comShowWrap1 {
+    width: 554/@rem;
+    height: 694/@rem;
+    background: linear-gradient(top left, #ff7001 10%, #ff1f23 68%);
+    background: -webkit-linear-gradient(top left, #ff7001 10%, #ff1f23 68%); 
+    border-radius: 20px;
+    margin: 0 auto;
+    
+//  padding-bottom: 25/@rem;
+    box-sizing: border-box;
+    position: relative;
+}
+//.rulePeoloe{
+//  width: 2.4rem;
+//  position: absolute;
+//  top:-1rem;
+//  left: 50%;
+//  margin-left: -1.2rem;
+//}
+//
+//.actRuleClose {
+//  position: absolute;
+//  right: -10px;
+//  top: -15px;
+//  width: 40px;
+//}
+
+
+.comTextWrap1 {
+    width: 424/@rem;
+    margin: 0 auto;
+    border-radius: 8px;
+//  margin-top: 35/@rem;
+//  padding-bottom: .2rem;
+    color: #ff6600;
+    overflow: hidden;
+    font-size: 30/@rem;
+}
+.actRuleShow_title{
+    width: 342/@rem;
+    padding-top: 42/@rem;
+    margin: 0 auto;
+}
+.actRuleShow_title img{
+    width: 100%;
+    float: left;
+}
+.actRuleText div{
+    margin-top: 54/@rem;
+}
+.actRuleText div:nth-child(1){
+    margin-top: 33/@rem;
+}
+.actRuleText div p{
+//  line-height: 52/@rem;
+}
+.actRuleClose{
+    width: 103/@rem;
+//  margin: 104/@rem auto;
+//  position: relative;
+    position: absolute;
+   top: -50/@rem;
+   right: 0;
+}
+.actRuleClose img{
+    width: 100%;
+   
+}
+
+
+/*游戏开始遮罩*/
+.startGameBtnWrap,.pauseGameBtnWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .4);
+    z-index: 10;
+    padding-top: 233/@rem;
+    box-sizing: border-box;
+}
+.startGameBtn,.pauseGameBtn{
+    width: 454/@rem;
+    height: 600/@rem;
+    margin: 0 auto;
+    background: url(../images/act_17dumpling_ruleBj.png) center center no-repeat;
+    background-size: 100% 100%;
+//  text-align: center;
+}
+.startGameBtn p,.pauseGameBtn p{
+    font-size: 40/@rem;
+    padding-top: 24/@rem;
+    font-family: "FZQKBYSJW";
+    color: #309482;
+    text-align: center;
+//  -moz-transform: matrix( 1.46756405486197,0,0,1.46756405486197,0,0);
+// 
+//  -webkit-transform: matrix( 1.46756405486197,0,0,1.46756405486197,0,0);
+//
+//  -ms-transform: matrix( 1.46756405486197,0,0,1.46756405486197,0,0);
+}
+.startGameBtn img,.pauseGameBtn img{
+    width: 347/@rem;
+    display: block;
+    margin:  0 auto;
+    padding-top: 42/@rem;
+//  margin: 34/@rem auto 23/@rem auto;
+}
+.startGameBtn img:nth-child(2){
+    width: 218/@rem;
+    display: block;
+    margin:  0 auto;
+//  margin: 34/@rem auto 23/@rem auto;
+}
+#startGame,#pauseGame {
+     width: 30%;
+     margin: 0 auto;
+}
+#startGame img,#pauseGame img{
+    width: 100%;
+    
+//  margin: 34/@rem auto 23/@rem auto;
+}
+
+.gamePage{
+    width: 100%;
+    height: 100%;
+    background: url(../images/act_17dumpling_gameBj-1.jpg) center center no-repeat;
+    background-size: 100% 100%;
+    display: none;
+}
+.gamePage_wrap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.gamePageTop {
+//  background: #ffda2b;
+    
+    background: -webkit-linear-gradient(top, #fdfc2b 0%,  #ffda2b 40%, #ffda2b 75%, #ffda2b 90%,#ffbe0c 100%);
+    background: linear-gradient(to bottom,#fdfc2b 0%,  #ffda2b 40%, #ffda2b 75%,  #ffda2b 90%,#ffbe0c 100%);
+    width: 100%;
+    height:130/@rem;
+    margin: 0 auto;
+    padding:0 16/@rem ;
+    box-sizing: border-box;
+    box-shadow: 0 3px 5px #9ab2a1;
+}
+.gameScore_wrap {
+//  height: 90/@rem;
+//  line-height: 90/@rem;
+    overflow: hidden;
+    width: 216/@rem;
+    float: left;
+    padding: 40/@rem 0 0 0;
+    box-sizing: border-box;
+}
+.gameScore_wrap img {
+    max-height: 100%;
+    width: 81/@rem;
+    float: left;
+    margin-top: -60/4/@rem;
+}
+.gameScore_con{
+    width: 248/@rem;
+    height: 66/@rem;
+    line-height: 90/@rem;
+    background: #7a3401;
+    border: 2px solid #ffea94;
+    margin-left: 45/@rem;
+    border-radius: 8px;
+    margin-top: 8/@rem;
+}
+.gameScore_con p{
+    font-size: 40/@rem;
+    font-family: "DFWaWaW5";
+    color: rgb( 255, 255, 255 );
+    line-height:66/@rem;
+    -moz-transform: matrix( 0.93203883495146,0,0,0.9375,0,0);
+    -webkit-transform: matrix( 0.93203883495146,0,0,0.9375,0,0);
+    -ms-transform: matrix( 0.93203883495146,0,0,0.9375,0,0);
+  
+}
+.gameMusic_wrap {
+    width: 81/@rem;
+    float: right;
+    box-sizing: border-box;
+    margin-top: 24/@rem;
+}
+.gameMusic_wrap img{
+    width: 100%;
+}
+
+
+//游戏主体
+.gamePageTop-l{
+    width: 500/@rem;
+    margin: 0;
+    float: left;
+}
+.gameClockIcon ,.gameScore_wrap{
+    margin-left: 24/@rem;
+}
+.gameCloc_wrap {
+    width: 100%;
+    height:114/@rem;
+    margin-top: 40/@rem;
+    background-color: rgb( 116, 50, 0 );
+    box-shadow: 0px -2px 5px 0px rgb( 97, 20, 29 );
+    padding: 0 0.21875rem 0 0.28125rem;
+    box-sizing: border-box;
+    position:fixed;
+    bottom: 0;
+}
+.gameClockIcon {
+    height: 100%;
+    overflow: hidden;
+    width: 216/@rem;
+    padding: 40/@rem 0 0 0;
+    box-sizing: border-box;
+    float: left;
+}
+.gameClockIcon img {
+    max-height: 100%;
+    width: 81/@rem;
+    float: left;
+    margin-top: -68/4/@rem;
+}
+.gameCountDown_wrap p {
+    font-size: 30/@rem;
+    font-family: "DFWaWaW5";
+    color: rgb( 255, 255, 255 );
+//  line-height: 4;
+ 
+}
+.gameCountDownColor_wrap {
+    border-radius: 50px;
+//  margin-left: 60/@rem;
+//  border:2px solid rgb( 158, 131, 21 );
+    background-color: rgb( 238, 216, 112 );
+    width: 172/@rem;
+    height: 48/@rem;
+    margin-left: 26/@rem;
+    box-shadow: inset 0 3px 5px #f4aa48,0 3px 4px #ffbe0b;
+    
+   
+}
+
+//.gameCountDown_wrap #timeControl ,.gameCountDown_wrap #scoreControl{
+//  
+//} 
+.timeControl_wrap{
+    position: absolute;
+    width: 80/@rem;
+    height: 48/@rem;
+    line-height: 48/@rem;
+    font-size: 30/@rem;
+    color: #fff;
+    margin-left: 100/@rem;  
+}
+.timeControl_wrap p{
+    float: left;
+}
+.gameCountDownColor_wrap span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+//  margin-left: 78/2/@rem;
+    background: rgb(255, 244, 209);
+    background: -webkit-linear-gradient(top, rgba(256, 156, 11, 1) 0%, rgba(255, 116, 17, 1) 40%, rgba(255, 86, 40, 1) 58%, rgba(255, 71, 53, 1) 100%);
+    background: linear-gradient(to bottom, rgba(256, 156, 11, 1) 0%, rgba(255, 116, 17, 1) 40%, rgba(255, 86, 40, 1) 58%, rgba(255, 71, 53, 1) 100%);
+}
+//#stop_btn {
+//  width: 1.3125rem;
+//  float: right;
+//  box-sizing: border-box;
+//  margin-top: 20/@rem;
+//}
+//#stop_btn img{
+//  width: 100%;
+//}
+
+
+//挑战结果页面
+.gameResultPage{
+//  width: 100%;
+//  height: 100%;
+//  position: absolute;
+}
+.gameResultPage .shareAppPage{
+    width: 347/@rem; 
+    position: absolute;
+    top:517/@rem;
+    left: 50%;
+    margin-left: -347/2/@rem;
+}
+.gameResultPage .shareAppPage img{
+    width: 100%;
+}
+.gameResultPage .shareAppPage img:nth-child(2){
+    margin-top: 49/@rem;
+}
+//.gamePage .gameSuccWrap.comWrap1{
+//  padding-top: 0;
+//}
+.gameSucc{
+    width: 100%;
+    height: 100%;
+    background: url(../images/act_17lunarYear_gemeSuccBj.png) center center no-repeat;
+    background-size: 100% 100%;
+    padding-top: 233/@rem;
+    box-sizing: border-box;
+}
+.gameSucc_box ,.gameFail{
+    width: 476/@rem;
+    height: 616/@rem;
+    margin: 0 auto;
+    background: url(../images/act_17dumpling_ruleBj.png) center center no-repeat;
+    background-size: 100% 100%;
+}
+.gameFailTitle ,.gameSuccTitle{
+    width: 316/@rem;
+    margin: 0 auto;
+    padding-top: 124/@rem;
+//  padding: 37/@rem 0 28/@rem 0;
+//  box-sizing: border-box;
+}
+//.gameFailTitle img{
+//  width: 100%;
+//  margin-top: 37/@rem;
+//}
+.comWrap_img{
+    width: 572/@rem;
+    position: absolute;
+    top: 120/@rem;
+    left: 50%;
+    margin-left: -572/2/@rem;
+}
+.comWrap_img img{
+    width: 100%;
+}
+.gameFailTitle p ,.gameSuccTitle p{
+//  width: 338/@rem;
+//  margin: 0 auto;
+    font-size: 30/@rem;
+    font-family: "FZQKBYSJW";
+    color: #341a1b;
+    text-align: center;
+//  -moz-transform: matrix( 1.32662330404415,0,0,1.32662330404415,0,0);
+//  -webkit-transform: matrix( 1.32662330404415,0,0,1.32662330404415,0,0);
+//  -ms-transform: matrix( 1.32662330404415,0,0,1.32662330404415,0,0);
+}
+.gameFailTitle p span,.gameSuccTitle p span{
+    color: #ff3800;
+}
+.butWrap{
+   width: 404/@rem; 
+   margin:44/@rem auto 40/@rem ;
+}
+.butWrap img{
+    width: 100%;
+}
+
+#shareFriSha {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+    z-index: 100;
+    display: none;
+}
+
+#shareFriSha img {
+    width:100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.promptDiv {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 180px;
+    height: 90px;
+    z-index: 99;
+    display: none;
+}
+
+.promptDiv .opDiv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: none repeat scroll 0% 0% #333;
+    opacity: 0.5;
+    border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.promptDiv img {
+    display: block;
+    margin: 12px auto 10px auto;
+    width: 45px;
+    height: 45px;
+}
+
+.promptDiv .title {
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+//游戏
+
+.content_wrap{
+    width: 100%;
+    height: 574/@rem;
+                position: relative;
+            }
+            #top{
+                width: 100%;
+//              width: 554/@rem;
+                margin: 0 auto;
+                position: relative;
+                height: 320/@rem;
+            }
+            .top-line{
+                display: block;
+                width: 554/@rem;
+                height: 20/@rem;
+//              background: #008000;
+                background: -webkit-linear-gradient(top, #06d989 0%, #0cbf62 40%, #12a63d 75%,#159828 100%);
+                background: linear-gradient(to bottom, #06d989 0%, #0cbf62 40%, #12a63d 75%, #159828 100%);
+                position: absolute;
+                top: 20px;
+                left: 50%;
+                margin-left:-554/2/@rem ;
+                overflow: hidden;
+            }
+            .top-line li{
+                width: 554/10/@rem;
+                height: 20/@rem;
+                display: block;
+                background: #417363;
+                float: left;
+                list-style: none;
+                text-align: center;
+            }
+//          .top-line .li-1,.top-line .li-3,.top-line .li-5,.top-line .li-7,.top-line .li-9,.top-line .li-11,.top-line .li-13{
+//              background: #DC8888;
+//          }
+//          .top-line .li-2,.top-line .li-4,.top-line .li-6,.top-line .li-8,.top-line .li-10,.top-line .li-12,.top-line .li-14{
+//              background: #417363;
+//          }
+            
+            
+            .top-jia{
+                width:150/@rem;
+                /*height: 40px;*/
+                position: absolute;
+                top: 20px;
+                left:43/@rem;
+                /*margin-left: -30px;*/
+               
+                z-index: 1;
+                overflow: hidden;
+                
+            }
+            .top-jia-move{
+                 -webkit-animation-duration: 8s;
+                -webkit-animation-iteration-count:infinite;
+                -webkit-animation-play-state: running;
+                -webkit-animation-name: hand_move;
+                animation-name: hand_move;
+            }
+            .top-jia-line{
+                width: 60/@rem;
+                height:20/@rem;
+                margin: 0 auto;
+//              background: #000000;
+                background: -webkit-linear-gradient(top, #ff8901 0%, #ff6e15 40%, #ff5b24 75%,#ff4336 100%);
+                background: linear-gradient(to bottom, #ff8901 0%, #ff6e15 40%, #ff5b24 75%, #ff4336 100%);
+            }
+            .top-jia img{
+                float: left;
+//              position: absolute;
+//              z-index: 1;
+            }
+//          .top-jia img:nth-child(1){
+////              top: 20px;
+//              width: 78/@rem;
+////              height: 28/@rem;
+//          }
+            .top-jia img:nth-child(2){
+                width: 150/@rem;
+//              height: 70/@rem;
+//              top: 73/@rem;
+            }
+            .top-jia img:nth-child(3){
+                width: 150/@rem;
+//               top: 73/@rem;
+            }
+            .top-jia img.topLine{
+                width: 50px;
+                margin-left: 5px;
+            }
+
+            .game{
+                width: 100%;
+                position: relative;
+                height: 267/@rem;
+//              top: 260px;
+            }
+            .game_box-1,.game_box-2{
+                width: 554/@rem;
+                margin: 0 auto;
+//              height: 35/@rem;
+//              margin: 0 auto;
+//              background: url(../images/act_17dumpling_sweetBj.png) center center no-repeat;
+//              background-size: 100% 100%;
+//              position: absolute;
+//              left: 50%;
+//              margin-left: -554/2/@rem;
+position: relative;
+            }
+            .game_box-1 img,.game_box-2 img{
+                width: 100%;
+            }
+            .game_box-1{
+//              top: 320/@rem;
+            }
+            .game_box-2{
+//              top: 490/@rem;
+                margin-top: 52/@rem;
+                
+            }
+            .game ul{
+                overflow: hidden;
+                
+            }
+            .game ul li{
+                float: left;
+            }
+            .game ul li img{
+                width: 100%;
+            }
+            .game-1{
+//              width: 100%;
+width: 510/@rem;
+                margin: 0 auto;
+                position: absolute;
+//              top: 350/@rem;
+                left: 50%;
+                margin-left: -510/2/@rem;
+//left: 0;
+                bottom: 35/3/@rem;
+            }
+            .game-1 li{
+                width: 510/7/@rem;
+//              width: 316/3/@rem;
+//              margin-right: 29/@rem;
+            }
+            .game-2 li{
+//              width: 423/4/@rem;
+width: 510/7/@rem;
+//              margin-right: 29/@rem;
+            }
+            li.spec{
+//              margin-right: 0;
+visibility: hidden;
+            }
+            .game-2{
+                width: 510/@rem;
+                margin: 0 auto;
+                position: absolute;
+//              top: 520/@rem;
+                left: 50%;
+                margin-left: -510/2/@rem;
+//left: 0;
+                bottom: 35/3/@rem;
+            }
+//          .game-1 li{
+//              width: 510/4/@rem;
+//          }
+            ul li{
+                list-style: none;
+            }
+            .btn{
+                width: 274/@rem;
+                display: block;
+                position: fixed;
+                left: 50%;
+                margin-left: -274/2/@rem;
+                bottom: 105/@rem;
+            }
