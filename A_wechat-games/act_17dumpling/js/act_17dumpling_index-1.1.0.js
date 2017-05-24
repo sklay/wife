@@ -153,12 +153,12 @@ $(function() {
 			if(clock)
 				clearInterval(clock);
 				
-			var sleepTime = 0 ;
+			var sleepTime = 1000 ;
 			var catched = false ;
 			var $height = $("#top").height() + $('.top-jia-img').height()/3;
 			$.each(layoutArry,function (i , item){
 				var differ = Math.abs(centerLeft - item.centerLeft) ;
-				if(differ <= 10){
+				if(differ <= 5){
 					catched = true ;
 					console.debug("抓住了");
 					console.debug('jia offset left ' , moveleft , '  , centerLeft  ' ,centerLeft);
@@ -200,10 +200,10 @@ $(function() {
 					$(".top-jia-img").attr("src", "images/act_17dumpling_jia-6.png");
 					$(".top-jia-move").animate({
 						height :layoutHeight
-					}, "300", function() {
+					}, 500, function() {
 						$(".top-jia-img").attr("src", "images/act_17dumpling_jia-3.png");
 						/**恢复按钮点击*/
-						sleepTime = 800 ;
+						sleepTime = 1000 ;
 					});
 				});
 
@@ -219,10 +219,10 @@ $(function() {
 				clearTimeout(this);
 				
 				
-//				btnClick = false ;
-				setTimeout(function() {
-					btnClick = false ;
-				}, 200);
+				btnClick = false ;
+//				setTimeout(function() {
+//					btnClick = false ;
+//				}, 100);
 				
 				
 			}, sleepTime);
