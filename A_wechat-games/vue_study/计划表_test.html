@@ -30,9 +30,9 @@
 					个任务未完成
 				</li>
 				<li class="action">
-					<a class="active" href="#">所有任务</a>
-					<a  href="#">未完成的任务</a>
-					<a  href="#">完成的任务</a>
+					<a class="active" href="#all">所有任务</a>
+					<a  href="#unfinished">未完成的任务</a>
+					<a  href="#finished">完成的任务</a>
 				</li>
 			</ul>
 			<h3 class="big-title">任务列表：</h3>
@@ -45,9 +45,9 @@
 				
 				<ul class="todo-list">
 					<!--<li class="todo completed" v-for="item in list">-->
-					<li class="todo " v-bind:class="{completed: item.isChecked ,editing:item === edtorTodos}" v-for="item in list">
+					<li class="todo " v-bind:class="{completed: item.isChecked ,editing:item === edtorTodos}" v-for="item in filteredList">
 						<div class="view clearfix">
-							<input class="toggle" type="checkbox" v-model="item.isChecked" />
+							<input  class="toggle" type="checkbox" v-model="item.isChecked" />
 							<label  @dblclick="edtorTodo(item)" >{{item.title }}</label>
 							<button class="destroy" @click="deleteTodo(item)">x</button>
 						</div>
@@ -62,8 +62,8 @@
 							/>
 							<!--@blur="edtorTodoed(item)"
 							@keyup.13="edtorTodoed(item)"
-							
 							上面两个都是 失去焦点的 时候保存 数据
+							
 							@keyup.esc="cancleTodo(item)"取消编辑  ，返回之前的数据
 							-->
 					</li>
