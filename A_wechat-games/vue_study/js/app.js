@@ -2,10 +2,14 @@
 
 //存储localStorage里的数据
 var store = {
+	//存储数据
 	save (key,value){
+//		JSON.stringify()转成字符串
 		localStorage.setItem(key,JSON.stringify(value));
 	},
+	//获取数据
 	fetch(key){
+//		JSON.parse()解析字符串
 		return JSON.parse(localStorage.getItem(key)) || [];
 	}
 }
@@ -25,21 +29,22 @@ var list = store.fetch("zhou-class")
 	}
 ];*/
 //过滤有三种情况  all  finished  unfinished
-			var filter = {
-				all:function(list){
-					return list;
-				},
-				finished:function(list){
-					return list.filter(function(item){
-						return item.isChecked;
-					})
-				},
-				unfinished:function(list){
-					return list.filter(function(item){
-						return !item.isChecked;
-					})
-				}
-			}
+//把filter这个 变量提取出来  是为了当list发生变化的时候 ，不用声明多次
+var filter = {
+	all:function(list){
+		return list;
+	},
+	finished:function(list){
+		return list.filter(function(item){
+			return item.isChecked;
+		})
+	},
+	unfinished:function(list){
+		return list.filter(function(item){
+			return !item.isChecked;
+		})
+	}
+}
 
 var vm = new Vue({
 	el:".main",
@@ -55,7 +60,6 @@ var vm = new Vue({
 	},
 	
 //2017.6.12 新加功能
-
 watch:{
 //	list:function(){//监控list这个属性，但这个属性对应的值发生变化就会执行函数
 //		store.save("zhou-class",this.list);
@@ -64,10 +68,11 @@ watch:{
 
 //深层次的监控
 list:{
+	//handler 深层次的 监控list的数据，能监控到list里面的数据
 	handler:function(){
 		store.save("zhou-class",this.list);
 	},
-	deep:true
+	deep:true  // 告诉程序 要去深度监控数据
 }
 
 
