@@ -71,11 +71,7 @@
 			getShopData();
 			//开通城市数据
 			function getShopData() {
-				$.ajax({
-					type: "post",
-					url: "http://localhost/A_wechat-games/Jd_web/php/indexaddress.php",
-					dataType: "json",
-					success: function(data) {
+					$.get("./data/indexaddress.json", function(data) {
 						for(var i = 0; i < data.length; i++) {
 							var li = $("<li class=''></li>");
 							li.attr("data-shopid", data[i].cityid);
@@ -89,11 +85,7 @@
 								});
 							});
 						}
-					},
-					error: function(errordata) {
-						console.log(errordata);
-					}
-				})
+					})
 			}
 			
 			function clickCon (obj){

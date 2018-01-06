@@ -53,7 +53,7 @@
 				}
 			})
 			Vue.component("custom-list",{
-				props:["list"],
+				props:["list"],//接收数据
 				template:`<ul class="list">
 							<li v-for="item of list" @click="selectValueHandle(item)">{{item}}</li>
 						</ul>`,
@@ -61,7 +61,7 @@
 					selectValueHandle:function(item){
 						//在子组件中有交互
 						//告知父级，改变val的值，需要出发一个自定义事件
-
+						
 						this.$emit("receive",item);
 					}
 				}

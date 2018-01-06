@@ -1,0 +1,44 @@
+{
+	"bannerimg" :[
+		"./images/4.jpg",
+		"./images/1.jpg",
+		"./images/2.jpg",
+		"./images/3.jpg",
+		"./images/4.jpg",
+		"./images/1.jpg"
+	],
+	"bannerimg2":[
+		"./images/mid-nav1.jpg",
+		"./images/mid-nav2.jpg"
+	],
+
+	"ballNum4" :[
+		{
+			"link":"./images/ball1.png",
+			"text": "超市生鲜"
+		},
+		{
+			"link": "./images/ball2.png",
+			"text" : "外卖美食"
+		},
+		{
+			"link" : "./images/ball3.png",
+			"text" :"鲜花烘焙"
+		} ,
+		{
+			"link":"./images/ball4.png",
+			"text" :"上门服务"
+		} ,
+		{
+			"link" :"./images/ball5.png",
+			"text" : "医药健康"
+		}	
+	],
+	
+	"sksImg" :[
+	"./images/shop1.jpg",
+	"./images/shop2.jpg",
+	"./images/shop3.jpg"
+	
+	]
+}

@@ -1,0 +1,409 @@
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}
+
+label.error {
+	display: inline;
+	margin: 5px 0;
+	color: #FF6C60;
+	font-weight: 400;
+}
+
+.fright {
+	float: right;
+}
+
+body {
+	background: #f9f9f9;
+	font-family: 黑体;
+	font-size: 14px;
+	color: #000000;
+}
+
+body>.container {
+	background: #FFFFFF;
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+
+/*导航部分*/
+.navbar>.container>.navbar-header {
+	padding-right: 20px;
+	margin-right: 20px;
+}
+
+.navbar>.container>.navbar-header a {
+	margin: 0;
+	padding: 0;
+	padding-top: 3px;
+}
+
+.navbar>.container>.navbar-header a img {
+	height: 44px;
+}
+
+.navbar>.container>.navbar-collapse>.nav>li>a {
+	font-size: 16px;
+	color: #FFFFFF;
+}
+
+.navbar>.container>.navbar-collapse>.nav>li.active>a,.navbar>.container>.navbar-collapse>.nav>li:hover a {
+	background: #101010;
+	color: #fff;
+}
+
+.navbar-right{
+	
+	display:none;
+}
+
+/*内容左边部分*/
+.container .content .left {
+	background-color: #fff;
+}
+
+.container .content .left ul {
+	background: rgba(34, 34, 34, 1);
+}
+
+.container .content .left>ul {
+	padding: 10px 0;
+}
+
+.container .content .left .title {
+	height: 45px;
+	background: #101010;
+	line-height: 45px;
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 22px;
+	font-weight: 800;
+	letter-spacing: 5px;
+}
+
+.container .content .left h2 {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 800;
+	color: #FFFFFF;
+	text-align: center;
+	cursor: pointer;
+	line-height: 30px;
+}
+
+.container .content .left h2:hover {
+	color: #FFFFFF;
+	background: #101010;
+}
+
+.container .content .left h2.currentCategory {
+	background: #101010;
+	color: #FFFFFF;
+}
+
+.container .content .left ul li ul {
+	/*border: 1px solid rgba(34, 34, 34, 1);
+	padding-left: 40px;*/
+	
+}
+
+.skip ul {
+	margin-left: 12px;
+	border-radius: 6px;
+}
+
+.container .content .left ul li ul li a,.skip ul li a {
+	font-size: 12px;
+	line-height: 20px;
+	display: block;
+	margin: 0 0 -1px;
+	padding: 8px 14px;
+	border-bottom: 1px solid rgba(34, 34, 34, 1);
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+	color: #9d9d9d;
+	text-decoration: none;
+	text-align: center;
+}
+
+.container .content .left ul li ul li a {
+	color: #FFFFFF;
+	text-align: left;
+	font-size: 14px;
+}
+
+@media ( min-width :767px) {
+	.container .content .left ul li ul li a {
+		padding-left: 46%;
+	}
+}
+
+@media ( min-width :992px) {
+	.container .content .left ul li ul li a {
+		padding-left: 40%;
+	}
+}
+
+@media ( max-width :767px) {
+	.container .content .left ul li ul li a {
+		padding-left: 42%;
+	}
+}
+
+.container .content .left ul li ul li.currentLink,.container .content .left ul li ul li:hover {
+	background: #101010;
+}
+
+.container .content .left ul li ul li.currentLink a,.container .content .left ul li ul li:hover a {
+	color: #FFFFFF;
+}
+
+.container .content .maincontent {
+	position: relative;
+}
+
+.container .content .maincontent .tips {
+	color: #d0222a;
+	margin-bottom: 0;
+}
+
+.container .content .maincontent .tag {
+	color: #1899f6;
+}
+
+.container .content .maincontent .blod {
+	font-weight: bold;
+}
+
+.container .content .maincontent .example {
+	color: #7f7f7f;
+	margin: 10px 0;
+}
+
+.container .content .maincontent p {
+	margin-bottom: 0;
+}
+
+.container .content .maincontent .skip {
+	position: fixed;
+	right: 0;
+	top: 350px;
+	z-index: 100;
+}
+
+.container .content .maincontent .skip ul {
+	padding: 0;
+	margin: 0;
+	box-shadow: 3px 3px 3px #ecf0f5;
+}
+
+.container .content .maincontent .skip ul li {
+	background: #ecf0f5;
+	border: 1px solid #FFFFFF;
+	border-top: none;
+}
+
+.container .content .maincontent .skip ul li a {
+	color: #34495e;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	border-bottom: 1px solid #e5e5e5;
+	text-align: left;
+}
+
+.container .content .maincontent div div .try {
+	width: 95%;
+	border: none;
+	outline: 0;
+	margin: 10px 0;
+	overflow: hidden;
+}
+
+.container .content .maincontent div div .try a,.commentSubmit {
+	line-height: 150%;
+	padding: 6px 16px;
+	vertical-align: middle;
+	float: right;
+	background: #185c99;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	transition: .2s ease-out;
+	cursor: pointer;
+	white-space: nowrap;
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 2px rgba(0, 0, 0, 0.24);
+	border-radius: 5px;
+}
+
+.container .content .maincontent h1.title {
+	font-size: 24px;
+	margin-top: 0;
+	margin-bottom: 20px;
+}
+
+.container .content .maincontent h1.title>.englishTitle {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.container .content .maincontent .brednavigation {
+	font-size: 12px;
+}
+
+.container .content .maincontent .brednavigation a {
+	text-decoration: underline;
+	word-spacing: 2px;
+	margin: 0 5px;
+}
+
+.container .content .maincontent .sencodTitle {
+	margin: 20px 0;
+}
+
+.container .content .maincontent .sencodTitle span {
+	background: #000000;
+	color: #FFFFFF;
+	font-size: 18px;
+	display: block;
+	padding: 10px 10px;
+	width: 95%;
+}
+
+.container .content .maincontent .desTips {
+	padding-left: 1em;
+	margin-top: 10px;
+}
+
+.container .content .maincontent ul {
+	padding-left: 1em;
+}
+
+.container .content .maincontent ul li {
+	list-style-type: disc;
+	-webkit-margin-before: 0;
+}
+
+.container .content .maincontent div.skip>ul>li {
+	list-style-type: none;
+}
+
+.container .content .maincontent div div .try a:hover,.commentSubmit:hover {
+	opacity: 0.8;
+}
+
+.container .content .maincontent div div .noMaginbottom {
+	margin-bottom: 0;
+}
+
+.snippet-wrap pre.sh_sourceCode {
+	padding: 0;
+}
+
+.snippet-wrap pre.sh_sourceCode {
+	background: #ededed;
+}
+
+.sh_golden .sh_sourceCode {
+	color: #333357;
+}
+
+.sh_golden .sh_sourceCode span {
+	color: #007f7f;
+}
+
+.sh_golden .sh_sourceCode .sh_keyword {
+	color: #00007f;
+}
+
+.sh_golden .sh_sourceCode .sh_type {
+	color: #007f7f;
+}
+
+.sh_golden .sh_sourceCode .sh_symbol {
+	color: #00007f;
+}
+
+.sh_golden .sh_sourceCode .sh_function {
+	color: #00007f;
+}
+
+.sh_golden .sh_sourceCode .sh_string {
+	color: #d31c4e;
+}
+
+.sh_golden .sh_sourceCode .sh_number {
+	color: #007f7f;
+}
+
+.sh_golden .sh_sourceCode .sh_url {
+	display: none;
+}
+
+.container .content .maincontent div ol {
+	padding-left: 30px;
+}
+
+.container .content .maincontent div ol li.lead {
+	list-style: disc;
+}
+
+.leftNav {
+	float: left;
+	position: fixed;
+	width: 262px;
+	z-index: 2;
+	top: 90px;
+	box-sizing: initial;
+}
+
+.middleLeft {
+	float: left;
+	position: fixed;
+	width: 212.5px;
+	z-index: 2;
+	top: 90px;
+	box-sizing: initial;
+}
+
+.maincontentFont {
+	font-size: 16px;
+}
+
+.brednavigationFont {
+	font-size: 14px;
+}
+
+.container .content .maincontent div .comment p {
+	padding-top: 20px;
+	color: #bbb;
+	margin-bottom: 5px;
+}
+
+.container .content .maincontent div .comment p span {
+	font-size: 20px;
+	color: #666;
+	margin-right: 10px;
+}
+
+.container .content .maincontent div .likeOrdis {
+	margin: 20px 0;
+}
+
+.container .content .maincontent div .likeOrdis:hover {
+	cursor: pointer;
+}
+
+.container .content .maincontent div .likeOrdis span {
+	margin-right: 20px;
+}
+
+.commentSubmit:hover {
+	text-decoration: none;
+	color: #FFFFFF;
+}

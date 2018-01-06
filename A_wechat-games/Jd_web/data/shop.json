@@ -1,0 +1,118 @@
+
+[
+   {
+        "shopicon" : "./images/shopicon1.jpg",
+        "shopname" : "永辉超市-龙旗广场店",
+        "start" : 5,
+        "shopnum" : 21,
+        "sell" : 5487,
+        "shopId" : 1,
+        "actNum" : "8个活动",
+        "cx": [
+	        {
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满60减15"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满200减60"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满30减5"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满50减10"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满30减5"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满25减5"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满25减5"
+			},
+			{
+				"text" : "满减",
+				"bg" :"#5FBC65",
+				"mjdesc" : "部分商品满50减10"
+			}
+			
+        ],
+        
+	    "imgList" : [
+			{
+				"text" : "省4元",
+				"link" : "./images/listImg1-1.jpg",
+				"sprice" : "￥9.90"
+			},
+			{
+				"text" : "省4元",
+				"link" : "./images/listImg1-2.jpg",
+				"sprice" : "￥29.90"
+			},
+			{
+				"text" : "热销",
+				"link" : "./images/listImg1-3.jpg",
+				"sprice" : "￥2.80"
+			},
+			{
+				"text" : "省3元",
+				"link" : "./images/listImg1-4.jpg",
+				"sprice" : "￥7.50"
+			}
+		],
+    },
+
+  	{
+        "shopicon" : "./images/shopicon2.jpg",
+        "shopname" : "幸福超市-安宁庄店",
+        "start" : 5,
+        "shopnum" : 225,
+        "sell" : 2560,
+        "shopId" : 2,
+        "actNum" : "",
+        "cx": [
+    		{
+				"text" : "领劵",
+				"bg" :"#fa3e2d",
+				"mjdesc" : "9.5折劵,满10减5"
+			}
+        ],
+        "imgList" : [
+	        {
+				"text" : "省1元",
+				"link" : "./images/listImg2-1.jpg",
+				"sprice" : "￥1.90"
+			},
+			{
+				"text" : "省36元",
+				"link" : "./images/listImg2-2.jpg",
+				"sprice" : "￥30.00"
+			},
+			{
+				"text" : "省36元",
+				"link" : "./images/listImg2-3.jpg",
+				"sprice" : "￥2.90"
+			},
+			{
+				"text" : "省10元",
+				"link" : "./images/listImg2-4.jpg",
+				"sprice" : "￥19.90"
+			}
+	    ]
+    }
+    
+]

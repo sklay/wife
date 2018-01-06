@@ -1,0 +1,53 @@
+
+[
+	{
+		"drugName" : "永辉",
+		"shopname" : "drug/yh.html"
+	},
+	{
+		"drugName" : "保健品",
+		"shopname" : "drug/bj_index.html"
+	},
+	{
+		"drugName" : "处方药",
+		"shopname" : "drug/cfy_index.html"
+	},
+	{
+		"drugName" :"酸奶",
+		"shopname" : "drug/sn_index.html"
+	},
+	{
+		"drugName" : "妇科",
+		"shopname" : "drug/fk_index.html"
+	},
+	{
+		"drugName" : "处方",
+		"shopname" : "drug/cf_index.html"
+	},
+	{
+		"drugName" :"舒肤佳",
+		"shopname" : "drug/sfj_index.html"
+	},
+	{
+		"drugName" : "牛奶",
+		"shopname" : "drug/milk_index.html"
+	},
+	{
+		"drugName" : "香叶",
+		"shopname" : "drug/xy_index.html"
+	},
+	{
+		"drugName" : "牛肉干",
+		"shopname" : "drug/bull_index.html"
+	},
+	{
+		"drugName" : "同仁堂",
+		"shopname" : "drug/trt_index.html"
+	},
+	{
+		"drugName" : "口罩",
+		"shopname" :"drug/kz_index.html"
+	}
+
+]
+

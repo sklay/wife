@@ -125,8 +125,8 @@ list:{
 	directives:{//自定义属性  自动获取 input的 焦点
 		"focus":{
 			update(el,binding){//钩子函数      el是指令绑定的 元素   update是一个 钩子函数
-				console.log("el是 ======",el);
-				console.log("binding=====",binding);  //里面有个值 value  看这个 值  是为 true  还是 false
+//				console.log("el是 ======",el);
+//				console.log("binding=====",binding);  //里面有个值 value  看这个 值  是为 true  还是 false
 				
 				
 				if(binding.value){

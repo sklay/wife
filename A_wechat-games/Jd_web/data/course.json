@@ -1,0 +1,12 @@
+
+
+[
+	{"courseSrc" : "./img/icon1.png", "courseName": "JAVA学院"},
+	{"courseSrc" : "./img/icon2.png", "courseName": "UI学院"},
+	{"courseSrc" : "./img/icon3.png", "courseName": "iOS学院"},
+	{"courseSrc" : "./img/icon4.png", "courseName": "Android学院"},
+	{"courseSrc" : "./img/icon5.png", "courseName": "HTML5学院"},
+	{"courseSrc" : "./img/icon6.png", "courseName": "互联网架构"},
+	{"courseSrc" : "./img/icon7.png", "courseName": "大数据学院"},
+	{"courseSrc" : "./img/icon8.png", "courseName": "在线课堂"}
+]

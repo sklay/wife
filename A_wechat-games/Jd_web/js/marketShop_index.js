@@ -41,20 +41,10 @@ $(function(){
      myAjax(getQueryStringArgs().ball);
     //列表数据请求
     function myAjax(ballct) {
-        $.ajax({
-            type: "get",
-            url: "http://localhost/A_wechat-games/Jd_web/php/marketShop_index.php",
-            dataType: "json",
-            data: {
-                ball: ballct
-            },
-            success: function (data) {
-                marketView(data);
-            },
-            error: function () {
-
-            }
-        });
+        
+           $.get("./data/marketShop_index.json", function (data) {
+                marketView(data[ballct]);
+            });
     }
     //解析请求回来的数据
    

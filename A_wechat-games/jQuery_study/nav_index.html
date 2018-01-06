@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>导航栏</title>
+		<link rel="stylesheet" href="css/nav_index.css" />
+		<script type="text/javascript" src="js/jquery-2.2.3.js"></script>
+		<script>
+			$(function(){
+				$(".level1 > a").click(function(){
+					var $this = $(this);
+					$(this).addClass("current")  //给当前元素加“current”样式
+					.next().show()  //下一个元素显示
+					.parent().siblings().children("a").removeClass("current") //父元素的兄弟元素的子元素<a>移除“current”样式
+					.next().hide() ; //下一个元素影藏
+					return false;
+				});
+				
+				//  注释很重要
+				// 在一个id为table的表格 的tbody中，如果每一行的一列中的checkbox没有被禁用，则把这行的背景设为红色
+				//$("#table > tbody > tr:has(td:has(:checkbox:enabled))").css("background","red");
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<ul class="menu">
+				<li class="level1">
+					<a href="#none">衬衫</a>
+					<ul class="level2 sh">
+						<li><a href="#none">短袖衬衫</a></li>
+						<li><a href="#none">短袖衬衫</a></li>
+						<li><a href="#none">短袖T袖</a></li>
+						<li><a href="#none">长袖T袖</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a href="#none">卫衣</a>
+					<ul class="level2">
+						<li><a href="#none">开襟卫衣</a></li>
+						<li><a href="#none">套头卫衣</a></li>
+						<li><a href="#none">运动卫衣</a></li>
+						<li><a href="#none">童装卫衣</a></li>
+					</ul>
+				</li>
+				<li class="level1">
+					<a href="#none">裤子</a>
+					<ul class="level2">
+						<li><a href="#none">短裤</a></li>
+						<li><a href="#none">休闲裤</a></li>
+						<li><a href="#none">牛子裤</a></li>
+						<li><a href="#none">免烫卡其裤</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,79 @@
+
+[
+	{
+		"city" :"北京市",
+		"cityid":1
+	},
+	{
+		"city" :"上海市",
+		"cityid":2
+	},
+	{
+		"city" :"武汉市",
+		"cityid":1381
+	},
+	{
+		"city" :"广州市",
+		"cityid":1601
+	},
+	{
+		"city" :"深圳市",
+		"cityid":1607
+	},
+	{
+		"city" :"成都市",
+		"cityid":1930
+	},
+	{
+		"city" :"天津市",
+		"cityid":3
+	},
+	{
+		"city" :"南京市",
+		"cityid":904
+	},
+	{
+		"city" :"宁波市",
+		"cityid":1158
+	},
+	{
+		"city" :"廊坊市",
+		"cityid":274
+	},
+	{
+		"city" :"西安市",
+		"cityid":2376
+	},
+	{
+		"city" :"重庆市",
+		"cityid":4
+	},
+	{
+		"city" :"苏州市",
+		"cityid":988
+	},
+	{
+		"city" :"杭州市",
+		"cityid":1213
+	},
+	{
+		"city" :"长沙市",
+		"cityid":1482
+	},
+	{
+		"city" :"青岛市",
+		"cityid":1007
+	},
+	{
+		"city" :"合肥市",
+		"cityid":1116
+	},
+	{
+		"city" :"郑州市",
+		"cityid":412
+	},
+	{
+		"city" :"常州市",
+		"cityid":978
+	}
+]

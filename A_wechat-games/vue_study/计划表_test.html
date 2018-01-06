@@ -30,9 +30,10 @@
 					个任务未完成
 				</li>
 				<li class="action">
-					<a class="active" href="#all">所有任务</a>
-					<a  href="#unfinished">未完成的任务</a>
-					<a  href="#finished">完成的任务</a>
+					<!--<a class="active" href="#all">所有任务</a>-->
+					<a  href="#all" :class="{active:visibility === 'all'}">所有任务</a>
+					<a  href="#unfinished" :class="{active:visibility === 'unfinished'}">未完成的任务</a>
+					<a  href="#finished" :class="{active:visibility === 'finished'}">完成的任务</a>
 				</li>
 			</ul>
 			<h3 class="big-title">任务列表：</h3>
@@ -86,6 +87,11 @@
 
 
 
+
+作者：liril
+链接：http://www.jianshu.com/p/c33a5466de93
+來源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 <!--var  $arr = result_json.new_pharmacy_info.sale_message_arr;
 

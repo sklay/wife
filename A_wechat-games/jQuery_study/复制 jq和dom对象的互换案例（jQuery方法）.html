@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html" charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				var $cr = $("#cr");   //jQuery对象
+				$cr.click(function(){
+					if($cr.is(":checked")){  //jQuery方式判断
+						alert("感谢你的支持!你可以继续操作!");
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<input type="checkbox" id="cr" />
+		<label for="cr">我已经阅读了上面制度。</label>
+	</body>
+</html>

@@ -1,0 +1,175 @@
+{
+	"market": {
+		"marketimg": [
+			//	"./images/4.jpg",
+			"./images/nav1-1.jpg",
+			"./images/nav1-2.jpg",
+			"./images/nav1-3.jpg",
+			"./images/nav1-4.jpg"
+		],
+		"marketinfo": [
+			{
+				"mc": "大闸蟹",
+				"mcdesc": "4.99起",
+				"mcicon": "./images/mtnav3.png"
+			}, {
+				"mc": "永辉超市",
+				"mcdesc": "海报钜惠",
+				"mcicon": "./images/yh.png"
+			}, {
+				"mc": "鸡尾酒",
+				"mcdesc": "10元2瓶",
+				"mcicon": "./images/mtnav2.png"
+			}, {
+				"mc": "海报同步",
+				"mcdesc": "火爆热卖",
+				"mcicon": "./images/mtnav1.png"
+			}, {
+				"mc": "生鲜优选",
+				"mcdesc": "健康绿色",
+				"mcicon": "./images/mtnav4.png"
+			}, {
+				"mc": "每日奶品",
+				"mcdesc": "低至7折起",
+				"mcicon": "./images/mtnav5.png"
+			}
+		]
+	},
+
+	"takeout": {
+		"marketimg": [
+			"./images/nav2-1.jpg",
+			"./images/nav2-2.jpg"
+		],
+		"marketinfo": [
+			{
+				"mc": "卤味小食",
+				"mcdesc": "均衡营养",
+				"mcicon": "./images/mtnav6.png"
+			}, {
+				"mc": "下午茶",
+				"mcdesc": "热销推荐",
+				"mcicon": "./images/mtnav7.png"
+			}, {
+				"mc": "品牌正餐",
+				"mcdesc": "吃放不发愁",
+				"mcicon": "./images/mtnav8.png"
+			}, {
+				"mc": "满减专区",
+				"mcdesc": "满立减",
+				"mcicon": "./images/mtnav9.png"
+			}, {
+				"mc": "满20元",
+				"mcdesc": "赠进口牛奶",
+				"mcicon": "./images/mtnav10.png"
+			}, {
+				"mc": "外卖惠",
+				"mcdesc": "满18减8",
+				"mcicon": "./images/mtnav11.png"
+			}
+		]
+	},
+
+	"cake": {
+		"marketimg": [
+			"./images/nav3-1.jpg",
+			"./images/nav3-2.jpg",
+			"./images/nav3-3.jpg",
+			"./images/nav3-4.jpg"
+		],
+		"marketinfo": [
+			{
+				"mc": "精选蛋糕",
+				"mcdesc": "分享时刻",
+				"mcicon": "./images/mtnav1.jpg"
+			}, {
+				"mc": "惊爆抢购",
+				"mcdesc": "优惠多多",
+				"mcicon": "./images/mtnav2.jpg"
+			}, {
+				"mc": "烘焙",
+				"mcdesc": "面包下午茶",
+				"mcicon": "./images/mtnav3.jpg"
+			}, {
+				"mc": "每周一花",
+				"mcdesc": "体验价29",
+				"mcicon": "./images/mtnav4.jpg"
+			}, {
+				"mc": "多肉植物",
+				"mcdesc": "9.9免运",
+				"mcicon": "./images/mtnav5.jpg"
+			}, {
+				"mc": "办公居家",
+				"mcdesc": "话术DIY",
+				"mcicon": "./images/mtnav6.jpg"
+			}, {
+				"mc": "绿植",
+				"mcdesc": "领券再减",
+				"mcicon": "./images/mtnav7.jpg"
+			}, {
+				"mc": "长辈亲友",
+				"mcdesc": "花礼",
+				"mcicon": "./images/mtnav8.jpg"
+			}, {
+				"mc": "优生日",
+				"mcdesc": "鲜花 蛋糕",
+				"mcicon": "./images/mtnav9.jpg"
+			}
+		]
+	},
+
+	"service": {
+		"marketimg": [
+			"./images/nav4-1.jpg",
+			"./images/nav4-2.jpg",
+			"./images/nav4-3.jpg",
+			"./images/nav4-4.jpg"
+		],
+		"marketinfo": [
+			{
+				"mc": "多洗洗衣",
+				"mcdesc": "6折特惠",
+				"mcicon": "./images/mtnav12.png"
+			}, {
+				"mc": "小二家修",
+				"mcdesc": "封窗户49",
+				"mcicon": "./images/mtnav13.png"
+			}, {
+				"mc": "十分到家",
+				"mcdesc": "换季特惠",
+				"mcicon": "./images/mtnav14.png"
+			}, {
+				"mc": "维修侠",
+				"mcdesc": "维修35折",
+				"mcicon": "./images/mtnav15.png"
+			}
+		]
+	},
+	"safty": {
+		"marketimg": [
+			"./images/nav5-1.jpg",
+			"./images/nav5-2.jpg",
+			"./images/nav5-3.jpg",
+			"./images/nav5-4.jpg"
+		],
+		"marketinfo": [
+			{
+				"mc": "疯狂秒杀",
+				"mcdesc": "健康专场",
+				"mcicon": "./images/mtnav16.png"
+			}, {
+				"mc": "熬胶专场",
+				"mcdesc": "要是熬制",
+				"mcicon": "./images/mtnav17.png"
+			}, {
+				"mc": "自测用药",
+				"mcdesc": "对症找药",
+				"mcicon": "./images/mtnav18.png"
+			}, {
+				"mc": "健康驿站",
+				"mcdesc": "身边的医生",
+				"mcicon": "./images/mtnav19.png"
+			}
+		]
+	}
+}

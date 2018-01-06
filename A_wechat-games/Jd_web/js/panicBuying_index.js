@@ -33,17 +33,9 @@ $(function () {
     timer = setInterval('refresh($(".rk .rl i:nth-child(1)"),$(".rk .rl i:nth-child(2)"),$(".rk .rl i:nth-child(3)"),"june 18,2017 12:00:00")', 1000);
 
 
-    $.ajax({
-        type: "get",
-        url: "http://localhost/A_wechat-games/Jd_web/php/panicBuying_index.php",
-        dataTypel: "json",
-        success: function (data) {
+        $.get("./data/panicBuying_index.json",function (data) {
             buyView(data);
-        },
-        error: function () {
-
-        }
-    });
+        });
 
     function buyView(data) {
         $(data).each(function (index, ele) {

@@ -235,11 +235,7 @@
 				});
 			});
 			//数据
-			$.ajax({
-				type: "post",
-				url: "http://localhost/A_wechat-games/Jd_web/php/banner.php",
-				dataType: "json",
-				success: function(data) {
+			$.get("./data/banner.json",function(data) {
 					//轮播图
 					var res = data.bannerimg;
 					for(var i = 0; i < res.length; i++) {
@@ -290,8 +286,6 @@
 					$(".bf").click(function(){
 						window.location = "panicBuying_index.html";
 					});
-
-				}
 
 			});
 

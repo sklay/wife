@@ -1,0 +1,45 @@
+[
+
+    	{
+        "shopicon" : "./images/shopicon1.jpg",
+        "shopname" : "永辉超市-龙旗广场店",
+        "start" : 5,
+        "shopnum" : 21,
+        "sell" : 5487,
+        "shopId" : 1
+   },
+    {
+        "shopicon" : "./images/shopicon2.jpg",
+        "shopname" : "幸福超市-安宁庄店",
+        "start" : 5,
+        "shopnum" : 225,
+        "sell" : 2560,
+        "shopId" : 2
+   },
+    {
+        "shopicon" : "./images/shopicon3.jpg",
+        "shopname" : "乐天超市-霍营店",
+        "start" : 5,
+        "shopnum" : 14,
+        "sell" : 2182,
+        "shopId" : 3
+   },
+    {
+        "shopicon" : "./images/shopicon4.jpg",
+        "shopname" : "农鲜生—果色添香水果超市店",
+        "start" : 5,
+        "shopnum" : 991,
+        "sell" : 227,
+        "shopId" : 4
+   },
+    {
+        "shopicon" : "./images/shopicon5.jpg",
+        "shopname" : "电果网-上地店",
+        "start" : 5,
+        "shopnum" : 57,
+        "sell" : 244,
+        "shopId" : 5
+   }
+    
+
+]

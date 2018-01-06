@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>ueditor demo</title>
+
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<!-- 配置文件 -->
+		<script type="text/javascript" src="ueditor/ueditor.config.js"></script>
+		<!-- 编辑器源码文件 -->
+		<script type="text/javascript" src="ueditor/ueditor.all.js"></script>
+		<script type="text/javascript" charset="utf-8" src="ueditor/lang/zh-cn/zh-cn.js"></script>
+
+	</head>
+
+	<body>
+		<!-- 加载编辑器的容器 -->
+
+		<script id="editor" type="text/plain" style="width:730px;margin-top:15px; height: 400px;"></script>
+
+		<script>
+			$(function() {
+				//配置
+				ue = UE.getEditor('editor', {
+					toolbars: [
+						[
+							'toggletool', 'fullscreen', 'source', '|', 'undo', 'redo', '|',
+							'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
+							'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
+							'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
+							'directionalityltr', 'directionalityrtl', 'indent', '|',
+							'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
+							'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+							'simpleupload', 'emotion', 'scrawl', 'insertvideo', 'music', 'attachment', 'map', 'gmap', 'insertframe', 'insertcode', 'webapp', 'pagebreak', 'template', 'background', '|',
+							'horizontal', 'date', 'time', 'spechars', 'snapscreen', 'wordimage', '|',
+							'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|',
+							'print', 'preview', 'searchreplace', 'help', 'drafts'
+						]
+					]
+				});
+
+				//上传图片到文件夹(服务器)
+				UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+				UE.Editor.prototype.getActionUrl = function(action) {
+					if(action == 'uploadimage') {
+						return path + '/newController/upload.do';
+					} else if(action == 'uploadfile') {
+						return path + '/newController/upload1.do';
+					} else {
+						return this._bkGetActionUrl.call(this, action);
+					}
+				};
+
+			})
+
+			//获取编辑内容
+			var content = UE.getEditor('editor').getContent();
+			//给编辑器赋值
+			ue.ready(function() {
+				ue.setContent(isNull(data.brief));
+			});
+		</script>
+
+	</body>
+
+</html>

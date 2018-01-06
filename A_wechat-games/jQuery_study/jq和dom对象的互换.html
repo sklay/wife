@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	</head>
+	<body>
+		jQuery对象转成DOM 对象
+		
+		(1)jQuery对象是一个类似数组的对象，可以通过[index]的方法得到相应的DOM对象
+		<script>
+			$(function(){
+				var $cr = $("#cr");  //jQuery对象
+				var cr = $cr[0];     //DOM对象
+				
+				alert(cr.checked);   //检测这个checkbox是不是被选中了
+			});
+			
+			
+		(2)另一种方法是jQuery本身提供的,通过get(index)方法得到相应的DOM 对象
+			$(function(){
+				var $cr = $("#cr");  //jQuery 对象
+				var cr = $cr.get(0);  //DOM对象
+				
+				alert(cr.checked);  //检测这个checkbox是不是被选中了
+			})
+			
+			
+		DOM对象转化成jQuery对象
+		对于一个DOM对象,只需要用$()把DOM对象包装起来就可以获得一个jQuery对象了
+		
+			$(function(){
+				var cr = document.getElementById("cr");   //DOM对象
+				
+				var $cr = $(cr);             //jQuery对象
+				
+			})
+		</script>
+	</body>
+</html>

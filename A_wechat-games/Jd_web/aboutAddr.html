@@ -52,11 +52,7 @@
 		$(function(){
 			var log = console.log.bind(console);
 			//数据
-			$.ajax({
-				type: "post",
-				url: "http://localhost/A_wechat-games/Jd_web/php/drugbrand.php",
-				dataType: "json",
-				success: function(data) {
+				$.get("./data/drugbrand.json", function(data) {
 					//轮播图
 //					var res = data.drugBrand;
 					for(var i = 0; i < data.length; i++) {
@@ -73,8 +69,6 @@
 //						img.attr("src", sks[m]);
 //						img.appendTo($(".sks"));
 //					}
-
-				}
 
 			});
 		})

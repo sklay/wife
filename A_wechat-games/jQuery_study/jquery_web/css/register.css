@@ -1,0 +1,160 @@
+
+
+.form-control {
+	padding: 8px 10px;
+	font-size: 15px;
+	line-height: 18px;
+	height: 40px;
+}
+
+.form-horizontal .control-label {
+	line-height: 40px;
+	padding: 0;
+	text-align: left;
+}
+
+.navbar>.container>.navbar-header a img {
+	height: 50px;
+	display: block;
+}
+
+body>.container {
+	background: #f9f9f9;
+}
+
+.regContent {
+	/*width: 50%;*/
+	margin: 80px auto;
+	float: initial;
+	background: #FFFFFF;
+	padding: 30px 50px;
+}
+
+.regContent .title {
+	border-bottom: 1px solid #DDD;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+
+.regContent .title h2 {
+	font-size: 22px;
+	color: #333;
+	;
+	margin: 0;
+	font-weight: normal;
+}
+
+.regContent .title a {
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	text-align: right;
+	padding: 0;
+	padding-top: 4px;
+	color: #900b09;
+	text-decoration: none;
+}
+
+a.forgetPass {
+	color: #900b09;
+	text-decoration: none;
+}
+
+.regContent .title a:hover,
+.forgetPass:hover {
+	color: #ff0000;
+}
+
+.regContent .registerForm .required {
+	font-size: 18px;
+	color: #900b09;
+	font-weight: 600;
+}
+
+.regContent .thirdLogin {
+	text-align: center;
+}
+
+.regContent .thirdMenu a {
+	display: inline-block;
+	line-height: 35px;
+	padding: 0 10px;
+	font-size: 14px;
+	color: #666;
+	text-decoration: none;
+	text-align: center;
+}
+
+.regContent .thirdMenu a:hover {
+	color: #333;
+}
+
+.regContent .thirdMenu i {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	margin-right: 3px;
+	vertical-align: middle;
+	content: none !important;
+}
+
+.regContent .thirdMenu i.icon-qq {
+	background: url(../img/qq.png) no-repeat scroll 0% 0%;
+}
+
+.regContent .thirdMenu i.icon-qq:hover {
+	background-image: url(../img/i_qq.png);
+}
+
+.regContent .thirdMenu i.icon-weixin {
+	background: url(../img/weixin.png) no-repeat scroll 0% 0%;
+}
+
+.regContent .thirdMenu i.icon-weixin:hover {
+	background-image: url(../img/i_weixin.png);
+}
+
+.regContent .thirdMenu i.icon-weibo {
+	background: url(../img/weibo.png) no-repeat scroll 0% 0%;
+}
+
+.regContent .thirdMenu i.icon-weibo:hover {
+	background-image: url(../img/i_weibo.png);
+}
+
+#Submit {
+	width: 50%;
+	height: 43px;
+}
+
+.messageCertify {
+	border: 0 none;
+	cursor: pointer;
+	display: block;
+	font-size: 15px;
+	padding: 9px 12px;
+	font-family: "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	text-align: center;
+	vertical-align: middle;
+	background: #EFEFEF;
+	text-decoration: none;
+	margin-left: 5px;
+	color: #AE4141;
+}
+
+@media (max-width:1200px) {
+	.messageCertify {
+		margin-top: 10px;
+	}
+	
+	.imgcertify{
+		
+		margin-top: 10px;
+	}
+}
+
+.messageCertify:hover {
+	background: #E5E5E5;
+	color: #AE4141;
+	text-decoration: none;
+}

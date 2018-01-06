@@ -3,17 +3,9 @@ $(function() {
 //	getShopData0();
 
 	function getShopData() {
-		$.ajax({
-			type: "post",
-			url: "http://localhost/A_wechat-games/Jd_web/php/shop2.php",
-			dataType: "json",
-			success: function(data) {
+			$.get("./data/shop2.json", function(data) {
 				marketFunc(data);
-			},
-			error: function(errordata) {
-				log(errordata);
-			}
-		});
+			});
 	}
 //	function getShopData0() {
 //		$.ajax({

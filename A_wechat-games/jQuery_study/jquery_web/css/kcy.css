@@ -1,0 +1,29 @@
+table.dataintable{
+	margin-top: 10px;
+    border-collapse: collapse;
+    border: 1px solid #aaa;
+    width: 100%;
+}
+table.dataintable th {
+    vertical-align: baseline;
+    padding: 5px 15px 5px 6px;
+    background-color: #d5d5d5;
+    border: 1px solid #aaa;
+    text-align: left;
+}
+table.dataintable td {
+    vertical-align: text-top;
+    padding: 6px 15px 6px 6px;
+    background-color: #efefef;
+    border: 1px solid #aaa;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
