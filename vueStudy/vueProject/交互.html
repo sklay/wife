@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" name="" v-on:input="inputHandle"  />
+			<input type="checkbox"  />
+			<p v-bind:title="message">{{message}}</p>
+		</div>
+		<script>
+			//数据绑定到p标签的 title上
+			//vue中使用数据指令  v-on
+			var message = "helleo";
+			var vm = new Vue({
+				el:'#app' , //挂在元素，这里也接受css选择器
+				data:{// 数据对象   
+					message
+				},
+				methods:{//定义方法
+					inputHandle(ev){
+						//this指向实例
+						console.log(this===vm); //true
+//						console.log(ev.target);ev.target  事件源，指向的是input
+//						console.log(ev.target.value);  获取到input的value值
+						this.message = ev.target.value;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -286,11 +286,13 @@ ul li {
   margin: 0 auto; */
 }
 .content .contentBody .promoItemList .pItem {
-  width: 100%;
     position: relative;
-  float: left;
- /*  margin-right: 0.1610306rem; */
- /*  margin-bottom: 0.1010306rem; */
+ width: 4.6215781rem;
+    background: #fff;
+    float: left;
+    margin-right: 0.1610306rem;
+    margin-bottom: 0.410306rem;
+    margin-top: 0.250306rem;
 }
 .content .contentBody .promoItemList .pItem a img {
     width: 100%;
@@ -312,10 +314,11 @@ ul li {
 .content .contentBody .promoItemList .pItem .itemDiv {
   width: 4.6215781rem;
   box-sizing: border-box;
-     /*  padding: 0.49243156rem 0 0.12243156rem; */
+   padding: 0.49243156rem 0 0.23243156rem; 
     position: absolute;
     left: 0;
     top: 0;
+    background: #fff;
 }
 .content .contentBody .promoItemList .pItem div.itemDiv.itemDivExp{
 	right: 0;!important;
@@ -332,10 +335,10 @@ ul li {
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo {
   width: 100%;
-      margin: 0 auto;
-  position: relative;
-  padding: 0 0.22544283rem 0 0.99037037rem;
-  box-sizing: border-box;
+    margin: 0.64412238rem auto 0;
+    position: relative;
+    padding: 0 0.22544283rem 0 0.37037037rem;
+    box-sizing: border-box;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo.drugInfoExp {
   padding: 0 0.22544283rem 0 0.28037037rem;!important 
@@ -346,8 +349,7 @@ ul li {
   /* padding-left:0.4rem; */
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .itemPrice .priceWrap {
-    margin-top: 2.3010306rem;
-    /*padding-top: .3425rem;*/
+    margin-top: .16010306rem;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .itemPrice .priceWrap.priceWrapExp {
     margin-top: 2.03010306rem;!important 
@@ -376,17 +378,114 @@ ul li {
     font-size: .400145rem;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .remindImg {
-      /*  width: 1.43864734rem;
-    height: 1.43864734rem; */
-     width: 0;
-      height:0;
+    width: 0.838647rem;
+    height: 1.03864734rem;
     position: absolute;
-    right: .436rem;
-    bottom: .28377rem;
+        top: .972464rem;
+    right: 0.349436rem;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .remindImg img {
   width: 100%;
 }
 .content .contentBody .promoItemList .pItem:nth-child(2n) {
   margin-right: 0;
+}
+.content .head {
+	border-bottom: 1px solid #cdcdcd;
+}
+
+.content .topWrap .nav {
+	border-right: 1px solid #cdcdcd;
+}
+
+a {
+	text-decoration: none;
+	color: #cd3636;
+}
+
+.content .navWrap .hideText {
+	height: auto;
+}
+
+.content .navWrap .hideText ul li {
+	width: auto;
+	padding: 0 .6rem;
+	box-sizing: border-box;
+}
+.promoItemList{
+	width: 9.42028986rem;
+    margin: 0 auto;
+}
+.promoItemList .pItem:nth-child(2n) {
+	margin-right: 0rem;
+}
+.promoItemList .pItem:nth-last-child(1) {
+	margin-bottom: 0;
+}
+
+.pItem .itemDiv a img {
+    width: 100%;
+}
+
+.pItem .itemDiv .drugInfo .itemPrice p {
+    font-size: 0.28985507rem;
+    color: #3B3B3B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pItem .itemDiv .drugInfo .itemPrice p {
+    font-size: 0.28985507rem;
+    color: #3B3B3B;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.pItem .itemDiv .drugInfo .itemPrice span {
+    display: block;
+    font-size: 0.22544283rem;
+    color: #999;
+    text-decoration: line-through;
+    margin-top: 0.1610306rem;
+}
+
+.pItem .itemDiv .drugInfo .remindImg img {
+    width: 100%;
+}
+
+.itemDiv img{
+	width: 100%;
+	float: left;
+}
+.priceDiv{
+	position: relative;
+	
+}
+.yj_price{
+	position: absolute;
+	    display: block;
+    color: #cd3636;
+    height: .601031rem;
+    text-decoration: none;
+    font-size: .400145rem;
+}
+.yj-1{
+	left: .9801031rem;
+	top: 2.301031rem;
+	}
+	.yj-2{
+	right: 3.0101031rem;
+	top: 2.101031rem;
+	}
+.yj-3{
+	left: .9801031rem;
+	top: 6.401031rem;
+	}
+	.yj-2-1{
+		right: 3.6101031rem;
+	top: 3.341031rem;
+	}
+.yj-2-2{
+	left: 1.2001031rem;
+	top: 2.6501031rem;
 }

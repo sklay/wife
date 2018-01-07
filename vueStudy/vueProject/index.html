@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{msg}}</p>
+			<p>假数据</p>
+		</div>
+		<script>
+			var message = 'hello world';
+			var vm = new Vue({
+				el:'#app' , //挂在元素，这里也接受css选择器
+				data:{// 数据对象   
+					msg:message
+				}
+			})
+			console.log(vm)
+		</script>
+	</body>
+</html>

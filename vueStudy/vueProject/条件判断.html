@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="checkbox" v-model="checked" />
+			<p v-if="checked">{{checked}}</p>
+			<p v-show="checked">{{checked}}</p>
+		</div>
+		<script>
+			new Vue({
+				id:"#app",
+				data:{
+					checked:true
+				}
+			})
+		</script>
+	</body>
+</html>

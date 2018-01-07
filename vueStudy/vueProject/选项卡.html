@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<style type="text/css">
+			.red{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input type="button"
+				v-for="item,i in list"
+				v-bind:value="item.title"
+				v-bind:class="{red:1 === index}"
+				v-on:click="tabHandle($event,i)"
+			/>
+			<div 
+				v-for="item,j in list"
+				v-bind:style="{display:j===index?'block':'none'}"
+			>
+				<p v-for="option in item.list">
+					{{option.subTitle}}
+				</p>
+			</div>
+		</div>
+		<script>
+			let list = [
+				{
+					title:"新闻",
+					list:[
+						{
+							subTitle:"一号"
+						},
+						{
+							subTitle:"一号"
+						},
+						{
+							subTitle:"一号"
+						}
+					]
+				},
+				{
+					title:"娱乐",
+					list:[
+						{
+							subTitle:"2号"
+						},
+						{
+							subTitle:"2号"
+						},
+						{
+							subTitle:"2号"
+						}
+					]
+				},
+				{
+					title:"体育",
+					list:[
+						{
+							subTitle:"3号"
+						},
+						{
+							subTitle:"3号"
+						},
+						{
+							subTitle:"3号"
+						}
+					]
+				}
+			]
+			let vm = new Vue({
+				id:"#app",
+				data:{
+					list,
+					index:0
+				},
+				methods:{
+					tabHandle(i){
+						
+						console.debug(this.list)						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
