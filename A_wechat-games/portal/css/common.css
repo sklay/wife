@@ -254,7 +254,7 @@ ul li {
 .content .contentBody .promoList .promoTitle img {
   width: 100%;
   float: left;
-   margin-top: -0.1610306rem;
+   /*margin-top: -0.1610306rem;*/
 }
 .content .contentBody .promoList .promoTitle .showProdImg img {
   width: 100%;
@@ -281,9 +281,8 @@ ul li {
   margin-bottom: 0;
 }
 .content .contentBody .promoItemList {
-	margin-bottom: 0.1610306rem;
-  /*width: 9.83028986rem;
-  margin: 0 auto; */
+	    width: 9.42028986rem;
+    margin: 0 auto;
 }
 .content .contentBody .promoItemList .pItem {
     position: relative;
@@ -300,25 +299,22 @@ ul li {
 .content .contentBody .promoItemList .pItem .itemDiv_icon{
 	width: auto;
     height: 1.0864734rem;
-    position: absolute;
+    /*position: absolute;
     top: .167568rem;
-    left: 0;
+    left: 0;*/
     
 }
-.itemDiv_icon img {
+/*.itemDiv_icon img {
 	width: .73864734rem;
 	float: left;
 	display: block;
 	margin: 0 .15rem;
-}
+}*/
 .content .contentBody .promoItemList .pItem .itemDiv {
-  width: 4.6215781rem;
-  box-sizing: border-box;
-   padding: 0.49243156rem 0 0.23243156rem; 
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: #fff;
+      width: 4.6215781rem;
+    padding: .69243156rem 0 0;
+    box-sizing: border-box;
+    position: relative;
 }
 .content .contentBody .promoItemList .pItem div.itemDiv.itemDivExp{
 	right: 0;!important;
@@ -326,7 +322,7 @@ ul li {
 }
 .content .contentBody .promoItemList .pItem .itemDiv a {
   width: 100%;
-  height: 4.81127214rem;
+  height: 2.81127214rem;
   margin: 0 auto;
   display: block;
 }
@@ -349,7 +345,7 @@ ul li {
   /* padding-left:0.4rem; */
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .itemPrice .priceWrap {
-    margin-top: .16010306rem;
+    margin-top: .45010306rem
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .itemPrice .priceWrap.priceWrapExp {
     margin-top: 2.03010306rem;!important 
@@ -362,18 +358,18 @@ ul li {
   text-overflow: ellipsis;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .itemPrice span {
-  display: block;
+  /*display: block;*/
   font-size: 0.25544283rem;
   color:#999;
-      margin-top: 0;
-    height: 0.698969rem; 
+      /*margin-top: 0;
+    height: 0.698969rem; */
     text-decoration: line-through;
 } 
 .content .promoContent .promoList .promoItemList .pItem .itemDiv .itemPrice .yj_price {
     display: block;
     color: #cd3636;
     height: 0.601031rem;
-    /*margin-top: -0.3610306rem;*/
+    margin-top: -0.4952rem;
     text-decoration: none;
     font-size: .400145rem;
 }
@@ -381,7 +377,7 @@ ul li {
     width: 0.838647rem;
     height: 1.03864734rem;
     position: absolute;
-        top: .972464rem;
+        top: .672464rem;
     right: 0.349436rem;
 }
 .content .contentBody .promoItemList .pItem .itemDiv .drugInfo .remindImg img {
@@ -427,27 +423,15 @@ a {
     width: 100%;
 }
 
-.pItem .itemDiv .drugInfo .itemPrice p {
-    font-size: 0.28985507rem;
-    color: #3B3B3B;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.pItem .itemDiv .drugInfo .itemPrice p {
-    font-size: 0.28985507rem;
-    color: #3B3B3B;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.pItem .itemDiv .drugInfo .itemPrice span {
+
+
+/*.pItem .itemDiv .drugInfo .itemPrice span {
     display: block;
     font-size: 0.22544283rem;
     color: #999;
     text-decoration: line-through;
     margin-top: 0.1610306rem;
-}
+}*/
 
 .pItem .itemDiv .drugInfo .remindImg img {
     width: 100%;
@@ -461,31 +445,215 @@ a {
 	position: relative;
 	
 }
+.yuanSty{
+	font-size: .300145rem;
+}
 .yj_price{
 	position: absolute;
 	    display: block;
     color: #cd3636;
     height: .601031rem;
     text-decoration: none;
-    font-size: .400145rem;
+    font-size: .500145rem;
+    font-weight: 600;
 }
 .yj-1{
 	left: .9801031rem;
 	top: 2.301031rem;
+	color: #ff4800;
 	}
 	.yj-2{
 	right: 3.0101031rem;
 	top: 2.101031rem;
+	color: #ff4800;
 	}
 .yj-3{
 	left: .9801031rem;
-	top: 6.401031rem;
+	top: 2.301031rem;
+	color: #ff4800;
 	}
 	.yj-2-1{
-		right: 3.6101031rem;
-	top: 3.341031rem;
+		right: 3.3101031rem;
+	top: 3.291031rem;
+	color: #ff4a3f;
 	}
 .yj-2-2{
 	left: 1.2001031rem;
-	top: 2.6501031rem;
+	top: 2.5901031rem;
+	color: #ff4a3f;
+}
+	.yj-3-1{
+		left: 4.9101031rem;
+	top: 2.241031rem;
+	color: #ea0300;
+	font-size: .600145rem;
+	}
+.yj-3-2{
+	left: 0.55001031rem;
+	top: 2.2501031rem;
+	color: #ea0300;
+	font-size: .600145rem;
+}
+	.yj-4-1{
+		left: 5.6101031rem;
+	top: 2.5841031rem;
+	color: #fcff00;
+	    font-size: .600145rem;
+	}
+.yj-4-2,.yj-4-4{
+	left: 1.18001031rem;
+	top: 2.3901031rem;
+	color: #fcff00;
+	font-size: .600145rem;
+}
+	.yj-4-3{
+		left: 5.6101031rem;
+	top: 2.891031rem;
+	color: #fcff00;
+	font-size: .600145rem;
+	}
+.yj-5-1{
+		left: 1.1801031rem;
+	top: 2.0701031rem;
+	color: #ea0300;
+	}
+	.yj-5-2{
+		right: 3.4101031rem;
+	top: 1.901031rem;
+	color: #ea0300;
+	}
+	
+.yj-6-1{
+	left: 1.5801031rem;
+	top: 2.101031rem;
+	color: #fcff00;
+	}
+	.yj-6-2{
+	right: 3.72101031rem;
+	top: 2.4501031rem;
+	color: #fcff00;
+	}
+.yj-6-3{
+	left: 1.5801031rem;
+	top: 2.301031rem;
+	color: #fcff00;
+	}
+	.priceDiv .yj-7-1{
+	left: 0.7801031rem;
+	top: 7.791031rem;
+	color: #fff;
+	    font-size: .600145rem;
+	    font-weight:normal;
+	}
+	.priceDiv .yj-7-2{
+	left: 4.9501031rem;
+	top: 3.0501031rem;
+	color: #fff;
+	    font-size: .600145rem;
+	    font-weight:normal;
+	}
+.priceDiv .yj-7-3{
+	left: 0.7801031rem;
+	top: 2.781031rem;
+	color: #fff;
+	    font-size: .600145rem;
+	    font-weight:normal;
+	}
+	
+	.priceDiv .yj-8-1,.priceDiv .yj-8-3{
+	left: .9801031rem;
+	top: 2.101031rem;
+	color: #fff600;
+	font-size: .600145rem;
+	}
+	.priceDiv .yj-8-2{
+	left: 4.4501031rem;
+	top: 2.3501031rem;
+	color: #fff600;
+	font-size: .600145rem;
+	}
+
+	.priceDiv .yj-9-1{
+	right: 2.7001031rem;
+	top: 2.401031rem;
+	color: #dd2727;
+	}
+	.priceDiv .yj-9-2{
+		left:.8801031rem;
+		top:2.3201031rem;
+		color: #dd2727;
+	}
+	.priceDiv .yj-9-3{
+	right: 2.7801031rem;;
+	top: 2.301031rem;
+	color: #dd2727;
+	}
+	
+	.priceDiv .yj-10-1{
+		top: 3.581031rem;
+	}
+.yj-10-1,.priceDiv .yj-10-2,.priceDiv .yj-10-3,.priceDiv .yj-10-4,.priceDiv .yj-10-5{
+	left: 4.1810103rem;
+	top: 2.78031rem;
+	color: #1c2018;
+	font-weight: 600;
+	    font-size: .700145rem;
+	}
+	
+.yj-11-1{
+	left: 0.9801031rem;
+	top: 3.351031rem;
+	font-weight: 600;
+	font-size: .600145rem;
+	}
+.yj-11-2{
+		left: 5.2101031rem;
+	top: 2.9901031rem;
+	font-weight: 600;
+	font-size: .600145rem;
+}
+
+.yj-11-3{
+	left: 0.9801031rem;
+	top: 2.79031rem;
+	font-weight: 600;
+	font-size: .600145rem;
+}
+.bj_yj{
+	top: 2.201031rem;!important
+}
+.itemDiv_fl{
+	width: 100%;
+	margin: 0 auto;
+}
+.itemDiv_fl .itemDiv{
+	width: 50%;
+	float: left;
+}
+.bj-2-1{
+	left: 1.1101031rem;
+	top: 6.79031rem;
+	color: #ff4a3f;
+}
+.bj-2-2{
+	right: 2.9801031rem;
+	top: 6.79031rem;
+	color: #ff4a3f;
+}
+.bj-2-3{
+	left: 1.1101031rem;
+	top: 4.94031rem;
+	color: #ff4a3f;
+}
+.bj-2-4{
+	right: 2.9801031rem;
+	top: 4.94031rem;
+	color: #ff4a3f;
+}
+.priceDiv span.yj_price.yj-4-4.bj-4-2{
+	top: 2.5001031rem;!important
+}
+
+.priceDiv .yj_price.yj-4-1.bj-4-3{
+	top: 2.481031rem;!important
 }
