@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<script>
+			let arr = [1,2,3,4];
+		
+		
+		//解构
+		var [a,b,c,d,e='默认值'] = [1,2,3,4];
+		console.info(a); //1
+		console.info(e); //如果右边有对应的 ，就把右边的 值给e，没有就是默认值
+		
+		//对象
+		var vue = {
+			fn:function(){},
+			add:function(){},
+			isFunction:function(){alert(1)}
+		}
+//		vue.add();
+//		vue.isFunction();
+//		vue.fn();
+
+		//对象的解构赋值
+		let{add,isFunction,isArray=function(){}} = vue;
+		
+		console.log(add);//ƒ (){}
+		console.log(isFunction);//ƒ (){alert(1)}
+		console.log(isArray);
+		
+		</script>
+		
+	</body>
+</html>

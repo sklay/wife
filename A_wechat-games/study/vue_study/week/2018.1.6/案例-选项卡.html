@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+		<style>
+			.check{
+				background: red;
+			}
+			#app div{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<input 
+				 type="text"
+				 v-for="item,i in tabData" 
+				 v-bind:value="item.title"
+				 v-bind:class="{check:i===index}"
+				 v-on:click="tabHandle(i)"
+				  />
+				  <!--注意 ，未来 是不用改变这个 input内的值，所以这边不用 v-model
+				  	
+				  	可以动态绑定 v-bind 绑定 value值
+				  	
+				  	item,i in tabData中的 i就是下下标 ，避免跟数据中的 index命名重复
+				  	
+				  	可控制class
+				  	v-bind:class={
+				  		class名字：表达式
+				  		表达式为true就添加，为false就忽略
+				  	}
+				  	
+				  	可控制 style
+				  	v-bind:style="{样式名：样式值}"
+				  	
+				  	vue中的事件
+				  	语法v-on:事件名：'事件处理函数'
+				  	需要传参
+				  	语法v-on:事件名：'事件处理函数(参数)'
+				  -->
+			<div 
+				v-bind:style="{display:j===index?'block':'none'}"
+				v-for="item,j in tabData"
+				>
+				<p v-for="option in item.list">{{option.subTitle}}</p>
+			</div>
+			
+		</div>
+		<script>
+			/*
+			 原生中控制哪一个面板显示
+			 var n = 0;
+			 input[n].className = 'red'
+			 div[0].style.dispaly = 'block'
+			 
+			 * */
+			let tabData = [
+				{
+					title:"新闻",
+					list:[
+						{
+							subTitle:'新华日报。。。'
+						},
+						{
+							subTitle:'新华日报。。。'
+						}
+					]
+				},
+				{
+					title:"娱乐",
+					list:[
+						{
+							subTitle:'奔跑吧 兄弟'
+						},
+						{
+							subTitle:'奔跑吧 兄弟'
+						}
+					]
+				},
+				{
+					title:"体育",
+					list:[
+						{
+							subTitle:'排球'
+						},
+						{
+							subTitle:'网球'
+						},
+						{
+							subTitle:'足球'
+						}
+					]
+				}
+			]
+			
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					tabData,
+					index:0//控制下标，让哪一个面板显示
+				},
+				methods:{
+					tabHandle(i){
+						this.index=i
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>

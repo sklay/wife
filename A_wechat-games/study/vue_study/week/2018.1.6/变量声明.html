@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<script>
+			/*
+			 es6  let
+			 不能重复声明变量
+			 没有声明的 变量  不能使用
+			 
+			 作用域 在块级中 (函数中 )
+			 * */
+			if(false){ //if语句 在 es6中 不是块级 作用域     ，  如果 用 var 声明的话 是全局的 变量
+			var miaov = "sn";
+//			let miaov = "sb";
+			let xuexi ="vue";
+		}
+		console.info(miaov);   //undefined
+		console.info(miaov);   //Uncaught SyntaxError: Identifier 'miaov' has already been declared
+		console.info(xuexi);   //Uncaught ReferenceError: bv is not defined  
+		</script>
+		
+	</body>
+</html>

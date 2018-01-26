@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script>
+			var o = {a:1}
+			var o1 = {a:2}
+			var o2 = {c:3}
+			
+			//要求合并对象
+			//一般做法是  利用 for in 遍历对象 ，再加到  其他的 对象上
+			
+			//es6 中   assign的做法
+			
+			Object.assign(o,o1,o2);
+			
+			console.log(o);//{a: 2, c: 3}
+			
+			
+			//写插件中 会用到 这个  方法
+			//这边有个函数，传进来一个 参数 option 这个option是一个 对象
+			function fn(option){
+				//先定义好一个 对象， 也可以 直接写在 fn的()内，只是为了 看着方便
+				let defaults = {
+					a:'默认1',
+					b:'默认2',
+					c:'默认3'
+				}
+				
+				//要求 把传过来的 key值（下面fn()定义好的值） 赋给上面的默认值
+				//目标 是defaults  要合并的 就是option，此时 会把 option的 属性 都合并给defaults,如果有重复的  ，option会把 defaults的覆盖掉
+				Object.assign(defaults,option);
+				console.log(defaults);//{a: 1, b: 2, c: "默认3"}
+				
+			}
+			//对象 传了 下面三个值，有时候 abc都是可选的 ，传统上是 abc都有一个默认值
+			fn({
+				a:1,
+				b:2,
+				
+			})
+			
+		</script>
+			
+		
+	</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="message" />
+			<input type="checkbox" v-model="checked" />
+			<p>{{message}}</p>
+		</div>
+		<script>
+			var message = "hello vue";
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					message,//  简写了  相当于message :message 
+					checked:false //控制 checkbox  是不是被选中
+				}
+			})
+		</script>
+	</body>
+</html>

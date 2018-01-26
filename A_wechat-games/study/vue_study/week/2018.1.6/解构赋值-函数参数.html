@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<script>
+//			function fn(option){
+//				console.log(a);
+//				console.log(b);
+//				console.log(c);
+//			}
+			function fn({a,b,c,d='get'}){
+				console.log(a);
+				console.log(b);
+				console.log(c);
+				console.log(d);//传的话 按照传值的走 post,不传按默认的值
+			}
+			fn({
+				a:1,
+				b:2,
+				c:3,
+				d:'post'
+			})
+		</script>
+		
+	</body>
+</html>

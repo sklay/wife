@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{msg}}</p>
+			<p>miaov.abc{{miaov.abc}}</p>
+			<p>{{miaov.ketang}}</p>
+		</div>
+		
+		<script>
+			let vm = new Vue({
+				el:"#app",
+				data:{
+					msg:'hello',
+					miaov:{
+						abc:123
+					}
+				}
+			})
+			/*
+			 在 vue中 只有计划好的 数据 才能 做响应 
+			 * */
+//			vm.miaov.ketang = "我是秒味课堂"  不是计划内的数据 所以这个是不能做么做的
+
+
+	//解决 放法
+	/*
+	 1，调用 vue的静态方法  set
+	 语法：Vue.set(target(目标对象) ,prop(要添加的属性)，value(要添加的值))
+	 * */
+	//此时这个属性 就可以做 数据响应  ，开始没有用到 ，但是在 未来的某个时间 要修改这个值
+//	setTimeout(function(){
+//		Vue.set(vm.miaov,'ketang','我是秒味课堂');
+//	},2000)
+	
+	//2，调用实例上的方法 $set语法与上面的 set是一样的
+//	console.log(vm);//可以看到 也有很多方法
+
+//	vm.$set(vm.miaov,'ketang','我是秒味课堂1');
+	
+	//3，改写属性的值，重新赋值  
+	
+//	vm.miaov = {
+//		ketang:'我是秒味课堂2'
+//	}
+//	
+
+	/*
+	 * 4，单丝第三的解决方式，不太完美，因为 如果 对象身上还有其他的 方法，如果改写了 ，对象上的 其他方法也被覆盖掉了
+	可以用 合并对象
+	注意 合并完之后要改写他，
+	 * */
+	vm.miaov = Object.assign({},vm.miaov,{ketang:'我是秒味课堂3'})
+	//miaov中的 两个属性都有了 ，并且这个数据是响应的，，上面三种实现 会把里面的属性abc覆盖 ，
+	
+	/*
+	 原型上的方法 必须通过实例 才能去调用
+	 
+	 比如 
+	 let arr = [] ==> let arr = new Array --->实例
+	 arr,push();
+	 Array.prototype.psuh()(原型上的方法)
+	 
+	 Array.prototype--原型上的 方法 ，控制台打印可以看到原型上的很多方法 （比如 every filter find push 等等）
+	 
+	 * 静态方法 通过函数去调用
+	 * 
+	 * function fn(){}-->静态方法
+	 * fn.miaov = function(){}---->称miaov这个方法为静态方法
+	 * 
+	 * 
+	 * 静态方法是挂载在函数上的 方法，调用的 时候 通过函数去调用
+	 * 原型上的方法，需要通过实例调用
+	 * * */
+		</script>
+		
+	</body>
+</html>

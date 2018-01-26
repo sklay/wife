@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{list}}</p>
+		</div>
+		
+		<script>
+			let vm = new Vue({
+				el:"#app",
+				data:{
+					list:[1,2,3]
+				}
+			})
+			//这边的push 方法 ，是变异方法，内部被改写了，（数据劫持）
+			/*
+			 把数据对象中的数据劫持了，变成 setter 和getter
+			 * 
+			 * 提供了观察数组的 变异方法，使用这些方法将会出发视图更新
+			 * push(),pop().shift(),unshift(),splice(),sort()
+			 * reverse()
+			 *会改变原数组
+			 * */
+			vm.list.push(1000);
+			//不会改变原数组
+	    	vm.list = vm.list.map(item =>item*3);
+			
+			
+			//通过下边改变数组数不可取的，而是通过下面的方法
+			vm.list.splice(0,1,'miaov');
+			
+			/*
+			 * length 是不能改变原数组的 长度的 ，但是如果在 这个方法前后 调用了 变异的方法，就能改变了 ，比如上面调用了
+			splice所以下面就改变成功了，如果删除上面的 方法，就会发现， 是不可以修改长度的
+			
+			同样 如果在下面代码之后调用了 push ，也会修改
+			
+			* */
+			vm.list.length= 1  
+		</script>
+	</body>
+</html>

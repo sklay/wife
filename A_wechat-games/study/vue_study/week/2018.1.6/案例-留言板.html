@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<input type="text" v-model="val" />
+			<input 
+				type="button" 
+				value="发送" 
+				v-on:click="sendHandle" 
+				/>
+			<ul>
+				<li v-for="item in message">{{item.title}}</li>
+			</ul>
+		</div>
+		<script>
+			let msg = [
+				{
+					id:1,
+					title:'vue第一节课'
+				},
+				{
+					id:2,
+					title:'vue第二节课'
+				}
+			]
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					message:msg,
+					val:''//为了 点击发送时  获取 input中的值，先 定义一个val，初始值 为空，后面只要 改变  这个值 并且 渲染到 视图中
+				},
+				methods:{
+					sendHandle:function(ev){
+						console.log(ev.target);//<input type="button" value="发送">
+						//思路 先要 获取 input中的值
+						//把值 push(vue中的 方法)到message中去
+						//发送完 清空
+						this.message.push({
+							id:Date.now(),//用时间戳 ，因为id 不一样
+							title:this.val,
+						})
+						this.val='';
+					}
+				}
+			})
+			//两秒钟出现 下面的 内容
+			setTimeout(function(){
+				vm.message = [
+				{
+					id:3,
+					title:'vue第3节课'
+				}
+			]
+			},2000)
+		</script>
+	</body>
+</html>

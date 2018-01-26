@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<script>
+			/*
+			 * 
+			 * es5语法  map() filter()  reduce() every()  some()
+			 arr map
+			 * */
+			var arr = [1,2,3]
+			var arr2 = []
+			//让数组的 每一项 都乘以2放在新的 数组中
+			arr.forEach(function(item,index){
+//				console.log(item,index);
+				arr2 = item*2;
+				console.log(arr2);
+			});
+			//对每一项进行处理 放在新数组中
+			var newArr = arr.map(function(item,index){
+				//map是映射的 ，一一对应的
+				console.log(item,index);
+				//作为函数的 返回值返回
+				return item *2;
+			})
+			console.log(newArr);//(3) [2, 4, 6]
+			console.log(newArr === arr);//false表示数组中的每一项不一样，所以判断是一个 新数组
+			
+			
+			//filter
+			
+			var arrF = [1,2,3,4,5,6,7,8];
+			var arrFN = [];
+			arrF.forEach(function(item,index){
+				if(item % 2 === 0){
+					arrFN = item;
+					console.log(arrFN);
+				}
+			});
+			var filternewArr = arrF.filter(function(item,index){
+				//map是映射的 ，一一对应的
+//				console.log(item,index);
+				//作为函数的 返回值返回
+//				return后面写条件，如果成立就放在新数组中，不成立就忽略
+				return item % 2 === 0
+			})
+			console.log(filternewArr);//4) [2, 4, 6, 8]
+			
+			
+		</script>
+	</body>
+</html>

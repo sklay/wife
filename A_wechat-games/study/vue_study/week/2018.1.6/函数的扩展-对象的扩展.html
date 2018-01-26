@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 变量名和属性名相同 ，可以直接写入变量名
+			 函数可省略function 关键字
+			 */
+			
+			var vue = 10;
+			var o = {
+//				vue:vue
+				//简写
+				vue,
+				fn:function(){},
+				fn2(){},//就相当于 fu:function(){}
+				
+			}
+			console.log(o);//object  vue:10
+			
+			var util = (function(){ //用匿名函数自执行把内部函数保护起来
+				function add(){
+					alert(123);
+				}
+				function isArray(){
+					
+				}
+				function isFunction(){
+					
+				}
+				
+				return {
+					add,
+					isArray,
+					isFunction
+				}
+			})();
+			console.log(util.add());
+			
+		</script>
+	</body>
+</html>

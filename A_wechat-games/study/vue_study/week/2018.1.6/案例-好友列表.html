@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="src/vue.js"></script>
+	<style >
+		body,
+		ul,
+		li,
+		h2 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			list-style: none;
+		}
+		.list>div {
+			margin-bottom: 10px;
+		}
+		.list .show {
+			display: block;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="css/qq.css" />
+	</head>
+	<body onselectstart="return false;">
+		<div id="wrap">
+			<div class="list">
+				<div v-for="item,i in list">
+					<h2 :class="{active:i === index}"
+						@click="showHandle(i)"
+						>
+						<span></span>
+						{{item.title}}
+					</h2>
+					<ul :class="{show:i === index}"
+						v-for="itemPeop in item.people"
+						>
+						<li v-for="option in itemPeop">{{option}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			let list = [
+				{
+					title : 'jiangshi',
+					people: [
+						{
+							name: '姓名：leo',
+							toufa: '头发：黑色',
+							yanjing: '眼睛：黑色',
+							gezi: '个子：高',
+							bizi: '鼻子：高'
+						},
+						{
+							name: '姓名：momo',
+							toufa: '头发：红色',
+							yanjing: '眼睛：黑色',
+							gezi: '个子：中等',
+							bizi: '鼻子：高'
+						}
+					]
+				},
+				{
+					title :'xueshegn',
+					people : [
+						{
+							name: '姓名：leo',
+							toufa: '头发：黑色',
+							yanjing: '眼睛：黑色',
+							gezi: '个子：高',
+							bizi: '鼻子：高'
+						},
+						{
+							name: '姓名：momo',
+							toufa: '头发：红色',
+							yanjing: '眼睛：黑色',
+							gezi: '个子：中等',
+							bizi: '鼻子：高'
+						}
+					]
+				}
+			
+			]
+			new Vue({
+				el:'#wrap',
+				data:{
+					list,
+					index: -1  //这边的 index 跟数据的 下标对应 ，所以不能在0-1 之间，数据的 下标是0,1 如果index为0 ，第一条数据就展示了
+				},
+				methods:{
+					showHandle(i){
+						//如果当前的 下标 和点击后传过来的 下标相等，表示是点击的 同一个，就置空，收起选项，否则不是同一个，把点击
+						//的下标给到当前的选项，显示数据
+						this.index = this.index === i ? '' : i
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

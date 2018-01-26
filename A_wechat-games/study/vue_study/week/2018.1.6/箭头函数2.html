@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*document.onclick = function(){
+				setTimeout(function(){
+					console.log(this);  //指向 window
+				},1000)
+			}*/
+			
+			 
+			//不想 指向 window 而是想指向  document  
+			/*document.onclick = function(){
+				var that = this;  //传统做法 比较麻烦 ，每次 操作 都要 存下 this
+				setTimeout(function(){
+					console.log(this);  //指向 window
+					console.log(that);
+				},1000)
+			}*/
+			
+			
+			/*function fn(){
+				console.log(this);
+			}
+			fn();  //此时指向 window
+			//  被谁调用 指向谁
+			document.onclick = fn; //此时指向 document*/
+			
+			
+			/*
+			 箭头函数 中的 this 绑定的是所定义的 作用域中的 this
+			  箭头函数  不能是用 构造函数 （就是不能 New）
+			  箭头函数中 不能是用 arguments
+			 * */
+			document.onclick = function(){
+				setTimeout(() => {
+					console.log(this);  //指向 document
+				},1000)
+				console.log(this);//指向 document
+			}
+			document.onclick = () => {
+				console.log(arguments);// Uncaught ReferenceError: arguments is not defined
+				setTimeout(() => {
+					console.log(this);  //指向 window
+				},1000)
+				console.log(this);//指向 window
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+			body {
+				font-size: 14px;
+				font-family: "Lantinghei SC Extralight", Arial;
+			}
+			
+			ul {
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			img {
+				vertical-align: top;
+			}
+			
+			#wrap {
+				width: 760px;
+				height: 260px;
+				margin: 100px auto;
+				padding: 145px 120px 95px;
+				background: url(../img/bg.jpg) no-repeat 0 0;
+			}
+			
+			#section {
+				width: 760px;
+				height: 260px;
+				-moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, .2);
+				box-shadow: 0px 0px 4px rgba(0, 0, 0, .2);
+			}
+			
+			#choose {
+				width: 760px;
+				height: 50px;
+				margin: 0 auto;
+				background: url(../img/nav_bg.png) no-repeat 0 0;
+				line-height: 50px;
+				text-indent: 21px;
+			}
+			
+			#goodstype {
+				width: 100%;
+				height: 210px;
+				background: url(../img/type_bg.png) no-repeat 0 0;
+				padding: 17px 0 16px 28px;
+			}
+			
+			#goodstype li {
+				height: 44px;
+				color: #8a8a8a;
+				line-height: 44px;
+			}
+			
+			#goodstype a {
+				margin: 0 12px 0 11px;
+				color: #000;
+			}
+			
+			#choose mark {
+				position: relative;
+				display: inline-block;
+				height: 24px;
+				line-height: 24px;
+				border: 1px solid #28a5c4;
+				color: #28a5c4;
+				margin: 12px 5px 0;
+				background: none;
+				padding: 0 30px 0 6px;
+				text-indent: 0;
+			}
+			
+			#choose mark a {
+				position: absolute;
+				top: 3px;
+				right: 2px;
+				display: inline-block;
+				width: 18px;
+				height: 18px;
+				background: #28a5c4;
+				color: #fff;
+				line-height: 18px;
+				font-size: 16px;
+				text-align: center;
+			}
+			
+			.active {
+				background: rgb(40, 165, 196);
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<div id="wrap">
+			<section id="section">
+				<nav id="choose">
+					你的选择:
+					<!-- <mark>锤子<a href="javascript:;">x</a></mark> -->
+				</nav>
+			
+				<ul id="goodstype">
+					<!--<li>
+						品牌：
+						<a href="javascript:;">苹果</a>
+						<a href="javascript:;">小米</a>
+						<a href="javascript:;">锤子</a>
+						<a href="javascript:;">魅族</a>
+						<a href="javascript:;">华为</a>
+						<a href="javascript:;">三星</a>
+						<a href="javascript:;">OPPO</a>
+						<a href="javascript:;">vivo</a>
+						<a href="javascript:;">乐视</a>
+						<a href="javascript:;">360</a>
+						<a href="javascript:;">中兴</a>
+						<a href="javascript:;">索尼</a>
+					</li>
+					<li>
+						尺寸：
+						<a href="javascript:;">3.0英寸以下</a>
+						<a href="javascript:;">3.0-3.9英寸</a>
+						<a href="javascript:;">4.0-4.5英寸</a>
+						<a href="javascript:;">4.6-4.9英寸</a>
+						<a href="javascript:;">5.0-5.5英寸</a>
+						<a href="javascript:;">6.0英寸以上</a>
+					</li>
+					<li>
+						系统：
+						<a href="javascript:;">安卓 ( Android )</a>
+						<a href="javascript:;">苹果 ( IOS )</a>
+						<a href="javascript:;">微软 ( WindowsPhone )</a>
+						<a href="javascript:;">无</a>
+						<a href="javascript:;">其他</a>
+					</li>
+					<li>
+						网络：
+						<a href="javascript:;">联通3G</a>
+						<a href="javascript:;">双卡单4G</a>
+						<a href="javascript:;">双卡双4G</a>
+						<a href="javascript:;">联通4G</a>
+						<a href="javascript:;">电信4G</a>
+						<a href="javascript:;">移动4G</a>
+					</li>-->
+				</ul>
+			</section>
+		</div>
+		<script type="text/javascript" src="../js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="../js/artTemplate/template.js"></script>
+		<script type="text/template" id="tepml">
+			{{each list as item i}}
+			  	<li>
+				  	{{item.title}}:
+				    {{each item.list as option j}}
+			        	<a href="javascript:;" data-flag="{{item.title}}">{{option}}</a>
+				    {{/each}}
+			     </li>
+			{{/each}}
+		</script>
+		<script>
+			$(function(){
+				//用arttempate 插入数据
+				var data = [{
+						title: '品牌',
+						list: ["苹果", "小米", "锤子", "魅族", "华为", "三星", "OPPO", "vivo", "乐视", "360", "中兴", "索尼"]
+					},
+					{
+						title: '尺寸',
+						list: ["3.0英寸以下", "3.0-3.9英寸", "4.0-4.5英寸", "4.6-4.9英寸", "5.0-5.5英寸", "6.0英寸以上"]
+					},
+					{
+						title: '系统',
+						list: ["安卓(Android)",  "苹果(IOS)", "微软(WindowsPhone)","无", "其他"]
+					},
+					{
+						title: '网络',
+						list: ["联通3G", "双卡单4G", "双卡双4G", "联通4G", "电信4G", "移动4G"]
+					}
+				]
+				var gridRows = template('tepml', {list:data});
+				$("#goodstype").html(gridRows);
+				
+				var markObj = {};
+				markObj.type = "" ;
+				markObj.chicun = "" ;
+				markObj.xitong = "" ;
+				markObj.netWork = "";
+				var $choose = $("#choose");
+				
+				
+				$("ul li a").on('click',function(){
+					var $this = $(this);
+					var mark= $("<mark></mark>");
+					var a = $("<a></a>");
+					$this.css("color",'#28a5c4') ;
+					$this.siblings("a").css("color","#000")
+					$this.attr("href","javascript:;");
+					var $attr = $this.attr("data-flag");
+//					console.log($attr);
+					if($attr == "品牌"){
+						markObj.type = $this.html();
+//						console.log(markObj.type);
+						
+						a.html("x") ;
+						mark.html(markObj.type);
+						mark.append(a);
+						$("mark").siblings().remove();
+						$choose.append(mark);
+					}
+					else if($attr == "尺寸"){
+						markObj.chicun = $this.html();
+						a.html("x") ;
+						mark.html(markObj.chicun);
+						mark.append(a);
+						$("mark").siblings().remove();
+						$choose.append(mark);
+					}
+					else if($attr == "系统"){
+						markObj.xitong = $this.html();
+					}
+					else{
+						markObj.netWork = $this.html();
+					}
+					
+				})
+				
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*function fn(a){
+				//a的默认值 为10
+				a = a||10;
+				console.log(a);
+			}
+			fn();//不传 默认为 10
+			fn(0);//传了 0 但是0 会转成 boolen值为 false ,所以还是10  ||这个 符号 做默认是不保险的*/
+			
+			
+			
+			//es6写法 
+			
+			function fn(a=10){//默认值为10
+				console.log(a);
+			}
+			fn();//10
+			fn(0);//10
+		</script>
+	</body>
+</html>

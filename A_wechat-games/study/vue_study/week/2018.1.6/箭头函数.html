@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js" type="text/javascript"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function fn(){
+				
+			}
+			var f = () => {
+				console.log(123);
+			}
+			f(); //把函数赋值给  f 这个函数    
+			
+			var add = () => 2; 
+			console.log(add());  // 2 ，不传参数， 必须加(), 意思是把2赋值给  add
+			
+			var add = a => a+2;
+			console.log(add(10));//12  传参数10 过去 给方法体a+2
+			
+			var add = (a,b) => a+b;
+			console.log(add(10,10));//20
+			
+			//返回对象  需要加一个 ()
+			var add = (a,b) => ({num:a+b});
+			console.log(add(10,10));//{num: 20}
+			
+			var add = (a,b) => {
+				if(a<10){
+					a=1000;
+				}
+				return  a+b ; //返回函数体  ，需手动 返回
+			};
+			console.log(add(1,10));//1010
+			
+		</script>
+	</body>
+</html>

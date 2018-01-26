@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script>
+			var name = "The Window";　　
+			var object = {　　　　
+				name: "My Object",
+				getNameFunc: function() {　　　　　　
+					return function() {　
+						console.log(this);　//指向window　　父级不能 使用内部变量　　　　
+						return this.name;　　　　　　
+					};　　　　
+				}　　
+			};　　
+			alert(object.getNameFunc()());//The Window
+			
+			var name = "The Window";　　
+			var object = {　　　　
+				name: "My Object",
+				getNameFunc: function() {　
+					var that = this;　　　　　
+					return function() {　
+						console.log(that);　//指向object　内部函数 可以 调用父级的 变量　　　　
+						return that.name;　　　　　　
+					};　　　　
+				}　　
+			};　　
+			alert(object.getNameFunc()());//My Object
+		</script>
+	</body>
+
+</html>

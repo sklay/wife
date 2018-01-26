@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<!--v-if="true" 显示， v-if="false"下面的结构是不存在的-->
+			<p v-if="true">{{miaov}}</p>
+			<!--v-show="true" 显示， v-show="false"存在的 ，只是display:none-->
+			<p v-show="true">{{miaov}}</p>
+		</div>
+		
+		<script>
+			let vm = new Vue({
+				el:'#app',
+				data:{
+					miaov:1
+				}
+			})
+		</script>
+	</body>
+</html>
