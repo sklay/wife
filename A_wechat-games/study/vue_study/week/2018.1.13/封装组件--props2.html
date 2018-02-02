@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="src/vue.js"></script>
+	</head>
+
+	<body>
+		
+		<div id="app" >
+			<cutom-news :title="news.title"></cutom-news>
+			<cutom-news :title="yule.title" ></cutom-news>
+		</div>
+	
+		<template id="template">
+			<div>
+				<h2>{{title}}</h2>
+				<h2>{{miaov}}</h2>
+				<h3>{{n}}</h3>
+				<button @click="changeTitle">改变title</button>
+			</div>
+		</template>
+
+		<script>
+			/*
+				props传递参数
+					父组件 -> 子组件传参
+						在使用子组件标签的时候，写在行间
+							:key="数据"
+						key值是子组件规定
+			*/
+
+
+			Vue.component('cutom-news',{
+				props: {  // 不能在子组件中改变
+					title: {
+						type: String,
+						default: '这是标题'
+					},
+					list: {
+						type: Array,
+						default(){
+							return []
+						}
+					}
+				},
+				data(){  // 自己组件中的状态，可以改变
+					return {
+						n: 0,
+						miaov: this.title  // 把父级传过来的数据作为自己组件状态的初始值
+					}
+				},
+				template: '#template',
+				methods: {
+					changeTitle(){
+						///this.title = '改变了title'
+						//this.n = 10000;
+						this.miaov = '改变了miaov'
+					}
+				}
+			})
+
+
+			var news = {
+				title: "新闻",
+				list: ['新闻1','新闻2']
+			}
+			var yule = {
+				title: '娱乐',
+				list: ['娱乐1','娱乐2']
+			}
+			
+
+			new Vue({
+				el: '#app',
+				data: {
+					news,
+					yule
+				}
+			})
+			
+
+
+		</script>
+
+	</body>
+</html>

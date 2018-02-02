@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<custom></custom>
+			<!--
+			<div>
+				<h2>新闻</h2>
+				<ul>
+					<li>学习</li>
+					<li>学习</li>
+					<li>学习</li>
+				</ul>
+			</div>
+			<div>
+				<h2>娱乐</h2>
+				<ul>
+					<li>学习</li>
+					<li>学习</li>
+					<li>学习</li>
+				</ul>
+			</div>
+		-->
+		</div>
+		<script>
+			/*
+			 封住组件：
+			 1、创建组件构造器
+			 选项对象，对组件进行描述
+			 2、注册组件
+			 3、使用组件
+			 * */
+			//创建组件构造器
+			var c = Vue.extend({
+				template:"<div>hello</div>"
+			});
+			//注册组件（全局注册）
+			Vue.component('custom',c)
+			//使用组件--在模板中使用（根实例中）
+			
+			new Vue({
+				el:"#app"
+			})
+		</script>
+	</body>
+</html>

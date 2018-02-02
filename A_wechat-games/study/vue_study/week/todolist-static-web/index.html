@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>todos</title>
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style>
+    	[v-cloak] {
+			  display: none;
+			}
+    </style>
+</head>
+
+<body>
+    <section class="todoapp" id="app" v-cloak>
+        <div>
+            <header class="header" >
+                <h1>todos</h1>
+                <input
+                	 class="new-todo" 
+                	 placeholder="请输入内容"
+                	 @keyup.13 = "addTodo"
+                	 v-model = 'todoValue'
+                	  />
+            </header>
+            <section v-show="list.length" class="main">
+                <input 
+                	v-model="isCheckedAll"
+                	class="toggle-all" 
+                	type="checkbox" />
+                <ul class="todo-list">
+                	<!--completed editing-->
+                	<!--
+                		item,index in list   这边需要注意，因为数据一开始
+                		是需要根据计算属性的数据过滤的
+                		item,index in filterList
+                		filterList 是过滤后的 数据  看是显示所有，还是显示未选中的，或者显示选中的
+                	-->
+                    <li v-for="item,index in filterList"
+                    	:class="{editing:editId === item.id,
+                    		completed:item.checked}"
+                    	>
+                        <div class="view">
+                            <input 
+                            	v-model="item.checked"
+                            	class="toggle" 
+                            	type="checkbox" />
+                            <label @dblclick="editTodo(item,index)">{{item.title}}</label>
+                            <button 
+                            	@click="removeTodo(index)"
+                            	class="destroy">
+                            </button>
+                        </div>
+                        <!--editing
+                        	双击的时候，用editing 这个样式控制，如果有这样式，
+                        	就出现输入框
+                        -->
+                        <!--
+                        	@blur 失去焦点事件 失去焦点也是编辑完成
+                        -->
+                        <!--
+                        	自动获取焦点事件
+                        -->
+                        <input
+                        	@keyup.esc = "cancelEdit(item)"
+                        	@keyup.13 = "editDone(item,index)"
+                        	@blur = "editDone(item,index)"
+                        	v-model ="item.title"
+                        	ref="editInput"
+                        	class="edit" />
+                    </li>
+                   
+                </ul>
+            </section>
+            <footer v-show="list.length" class="footer">
+	            <span href="#all" :class="{todocount: hash==='all'}">
+	            	<strong>共创建了{{allListLen}}条数据</strong>
+	            </span>
+	             <span href="#active" :class="{todocount: hash==='active'}">
+	            	<strong>{{unCheckedLen}}条未选中</strong>
+	            </span>
+	             <span href="#completed" :class="{todocount: hash==='completed'}">
+	            	<strong>{{checkedLen}}条被选中</strong>
+	            </span>
+	            <ul class="filters">
+	            	<li><a href="#all" :class="{selected: hash==='all'}">All</a></li> 
+	            	<li><a href="#active" :class="{selected: hash==='active'}">Active</a></li> 
+	            	<li><a href="#completed" :class="{selected: hash==='completed'}">Completed</a></li>
+	           	</ul>
+            </footer>
+        </div>
+    </section>
+</body>
+<script src="src/vue.js"></script>
+<script src="src/app.js"></script>
+<script>
+	/*
+		1. 增删改查数据，要使用localStorage做数据持久化
+		2. 根据hash不同，过滤渲染的数据
+			a. 全部任务
+			b. 完成的任务
+			c. 未完成的任务
+		3. 自己设计数据结构
+		
+		hash有三种情况
+		all 默认的
+		active
+		completed
+	*/
+	
+</script>
+
+</html>

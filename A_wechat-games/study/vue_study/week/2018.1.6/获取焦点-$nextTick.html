@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+		<style>
+			[v-cloak]{
+				display: none;
+			}
+			p{
+				display: none;
+			}
+			.active input{
+				display: none;
+			}
+			.active p{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app" v-cloak>
+			<div :class="{active:show}">
+				<p @dblclick="edtitHandle">双击我</p>
+				<input type="text" ref="test" />
+			</div>
+		</div>
+		<script>
+			
+			var message = "hello vue";
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					message,
+					show:true
+				},
+				methods:{
+					edtitHandle(){
+						this.show = false;
+						//会发现这个下面的方法没有效果
+						//是因为 数据中的 show 发生了变化，双向绑定后，视图发生了改变，
+						// 其实下面的方法一瞬间是执行了，只是视图发生了改变，所以看不到效果
+						/*this.$refs.test.focus();*/
+						/*所以需要知道数据发生了改变后，Dom什么时候更新完*/
+						//dom更新之后，获取焦点
+//						this.$nextTrick(function(){
+//							this.$refs.test.focus();
+//						})
+						this.$nextTick(()=>{
+							this.$refs.test.focus();
+						})
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="src/vue.js"></script>
+	</head>
+
+	<body>
+		
+		<div id="app" >
+			<cutom-news :title="news.title" :n='100' :list="news.list"></cutom-news>
+			<cutom-news :title="yule.title" ></cutom-news>
+		</div>
+	
+		<template id="template">
+			<div>
+				<h2>{{title}}</h2>
+				<ul>
+					<li v-for="item in list">{{item}}</li>
+				</ul>
+			</div>
+		</template>
+
+		<script>
+			/*
+				props传递参数
+					父组件 -> 子组件传参
+						在使用子组件标签的时候，写在行间
+							:key="数据"
+						key值是子组件规定
+			*/
+
+
+			Vue.component('cutom-news',{
+				//props: ['title','list'],  // props上的属性都会放在当前组件的实例上
+				//props验证
+				props:{
+					title:{
+						type:String,
+						default:"这是标题"
+					},
+//					list:{
+//						type:Array,
+//						required:true
+//					}
+					//数组/对象的默认值应当由一个工厂函数返回
+					list:{
+						type:Array,
+						default(){
+							return []
+						}
+					},
+					n: {
+						validator: function (value) {
+					        return value > 10
+					      }
+					}
+				},
+				template: '#template'
+			})
+
+
+			var news = {
+				title: '新闻',
+				list: ['新闻1','新闻2']
+			}
+			var yule = {
+				title: '娱乐',
+				list: ['娱乐1','娱乐2']
+			}
+			
+
+			new Vue({
+				el: '#app',
+				data: {
+					news,
+					yule
+				}
+			})
+			
+
+
+		</script>
+
+	</body>
+</html>

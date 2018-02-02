@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<button @click = "getFocus">获取焦点</button>
+			<input v-for="item in 10" type="text" ref = 'test'  />
+		</div>
+		<script>
+			var message = "hello vue";
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					message
+				},
+				methods:{
+					getFocus(){
+						//this.$refs.test.focus()//这种是页面只有一个输入框的情况下
+						//下面是页面有多个输入框
+						//this.$refs.test 此时这个方法获取的是  所有的输入框，并存在数组中
+						//this.$refs.test[0] 取的是数组中的  第一个，让这个获取焦点
+						this.$refs.test[0].focus()
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

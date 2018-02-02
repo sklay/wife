@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="src/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<custom></custom>
+		</div>
+		<script>
+			/*
+			 封住组件：
+			 1、创建组件构造器
+			 选项对象，对组件进行描述
+			 2、注册组件
+			 3、使用组件
+			 * */
+			//注册组件（全局注册）
+			Vue.component('custom',{
+				template:'<div>hello</div>'
+			})
+			
+			new Vue({
+				el:"#app"
+			})
+		</script>
+	</body>
+</html>
