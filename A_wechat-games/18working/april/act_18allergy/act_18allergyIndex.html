@@ -143,25 +143,38 @@
 				width: 100%;
 			}
 			.failShow{
-				position: absolute;
+				position: fixed;
 				top: 0;
 				left: 0;
 				width: 100%;
-				/*height: 100%;*/
 				background: rgba(0, 0, 0, .5);
 				z-index: 10;
-				/*padding-top: 1.5rem;
-				box-sizing: border-box;*/
 			}
 			.failResul{
-				width: 4rem;
-				height: 5rem;
+				width: 3rem;
+				height: 3rem;
 				background: #fff;
 				position: absolute;
 				left: 50%;
-				margin-left: -2rem;
+				margin-left: -1.5rem;
 				top: 50%;
-				margin-top: -2.5rem;
+				margin-top: -1.5rem;
+				text-align: center;
+				padding: 0 .1rem ;
+				box-sizing: border-box;
+			}
+			.desc{
+				margin: .8rem 0;
+			}
+			.line{
+				width: 100%;
+				height: 1px;
+				background: #999;
+				margin-bottom: .2rem;
+			}
+			.closeBtn{
+				color: #009900;
+				/*border-top: 1px solid #999;*/
 			}
 		</style>
 	</head>
@@ -226,15 +239,23 @@
 		</div>
 		<!-- 已经被抢光了 -->
 		<div class="failShow" style="display: none;">
+			<script>
+				(function(){
+					var wh = $(document).height();
+					$(".failShow").css({
+						height:wh
+					})
+				})();
+			</script>
 			<div class="failResul" >
-				<p class="desc"></p>
-				<p>知道了</p>
+				<p class="desc">结束了</p>
+				<p class="line"></p>
+				<p class="closeBtn">知道了</p>
 			</div>
 		</div>
 		<%@ include file="act_common_sharePage.jsp"%>
 	</body>
 	<script>
-		$(".failShow").css("height",$("body").height());
 		var phoneNum = '${phoneNum}';
 		var fromUserId = '${userId}';
 		var wechatObj = new Object();
@@ -273,13 +294,15 @@
 								$(".has_received").show();
 							}else if(result.data.type == 4){
 								//已经抢光了
+								$(".failShow").show();
 								$(".failResul .desc").html(result.data.msg);
 							}else if(result.data.type == 1){
 								//请求太频繁了
+								$(".failShow").show();
 								$(".failResul .desc").html(result.data.msg);
 							}else{
-							//系统异常，请稍后再试
-								//$(".failResul .desc").html(result.data.data);
+								//系统异常，请稍后再试
+								$(".failShow").show();
 								$(".failResul .desc").html(result.data.msg);
 								waitClose();
 							}
@@ -296,6 +319,9 @@
 				$("#shareshade").css("height", $(".content").height());
 				$("#shareshade").show();
 			});
+			$(".closeBtn").on("click",function(){
+				$(".failShow").hide();
+			})
 		}
 	</script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
