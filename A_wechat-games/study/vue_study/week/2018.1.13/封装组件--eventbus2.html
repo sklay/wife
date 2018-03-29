@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="src/vue.js"></script>
+	</head>
+
+	<body>
+		
+		<div id="app" >
+			<custom1></custom1>
+			<custom2 :title="title"></custom2>
+		</div>
+		<script>
+
+			Vue.component('custom1',{
+				template: `
+				<div>
+					<h2>custom1</h2>
+					<button @click="changeTitle">改变title</button>
+				</div>
+				`,
+				methods: {
+					changeTitle(){
+						root.$emit('change','我来自custom1')
+					}
+				}
+			})
+			Vue.component('custom2',{
+				props: ['title'],
+				template: '<div><h2>custom2</h2><p>{{title}}</p></div>'
+			})
+
+
+			let root = new Vue({
+				el: '#app',
+				data: {
+					 title:"给custom2"
+				}
+//				,
+//				methods: {
+//					changeCustom2(title){
+//						this.title = title;
+//					}
+//				}
+			})
+			
+			root.$on('change',function(title){
+				root.title = title;
+			})
+
+		</script>
+
+	</body>
+</html>

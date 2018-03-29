@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="./src/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+
+			<input type="text" v-model="title" />
+			<!-- <input type="text" :value='title' @input="title = $event.target.value" /> -->
+			{{title}}
+			
+			<custom v-model="title"></custom>
+			<!--
+				<custom :value='title' @input="title = $event.target.value" ></custom>
+			-->
+		</div>
+		<script>
+
+			Vue.component('custom', {
+				props: ['value'],
+				template: `
+				<div>
+					<div>{{value}}</div>
+					<button @click="changeTitle">改变title</button>
+				</div>
+				`,
+				methods: {
+					changeTitle() {
+						this.$emit('input','子组件改了')
+					}
+				}
+			})
+
+			new Vue({
+				el: '#app',
+				data: {
+					title: '双向绑定的'
+				}
+			})
+		</script>
+	</body>
+</html>

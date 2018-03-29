@@ -1,0 +1,97 @@
+[html] view plain copy
+<!DOCTYPE html>  
+<html>  
+  
+    <head>  
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />  
+        <title>测试触摸事件</title>  
+  
+        <script type="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>  
+        <style>  
+            #mydiv {  
+                position:fixed;  
+                left:10px;  
+                top:10px;  
+                background-color:gray;  
+                width:100px;  
+                height:80px;  
+                z-index:10;  
+                display: block;  
+      
+            }  
+        </style>  
+    </head>  
+  
+    <body>  
+        <div id="mydiv">out</div>  
+    </body>  
+  
+</html>  
+  
+<script>  
+    /*设置一个长按的计时器，如果点击这个图层超过2秒则触发，mydiv里面的文字从out变in的动作*/    
+    var timeout = undefined;  
+    var x=0;  
+    var y=0;  
+    var state=0;  
+    var lastTime=null;    
+    var nowTime=null;  
+  
+    var h = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;  
+    $(function () {  
+        /*触摸移动*/  
+        $("#mydiv").on("touchmove", function (event) {  
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+            if(state==1){  
+                    //start_x=0;  
+                    //var start_x = event.originalEvent.targetTouches[0].clientX + document.body.scrollLeft - document.body.clientLeft;  
+              var start_y = event.originalEvent.targetTouches[0].clientY+ document.body.scrollTop - document.body.clientTop;  
+                  
+                    //x=start_x;  
+                    y=start_y;  
+                    //$("#mydiv").css("left",x);  
+                    $("#mydiv").css("top",y);  
+                    $("#mydiv").html(y);  
+                      
+                    var top=$("#mydiv").css("top").substring(0,$("#mydiv").css("top").length-2);  
+                    if(top <= 10){  
+                            $("#mydiv").css("top",10);  
+                            return false;  
+                    }  
+                    if(top >= (h-10-$("#mydiv").height())){  
+                            $("#mydiv").css("top",h-10-$("#mydiv").height());  
+                    }  
+            }  
+        });  
+          
+          
+        $("#mydiv").on("touchstart", function (event) {  
+            lastTime=new Date().getTime();  
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+            clearTimeout(timeout);  
+            state=0;  
+            timeout = setTimeout(function() {  
+                state=1;  
+            }, 1000);  
+              
+        });  
+          
+          
+        $("#mydiv").on("touchend", function (event) {  
+            event.preventDefault();//阻止触摸时浏览器的缩放、滚动条滚动  
+            clearTimeout(timeout);  
+            state=0;  
+            nowTime=new Date().getTime();  
+            var timeLength=nowTime-lastTime;  
+            if(timeLength<1000){  
+                $("#loadLayer").show();  
+                window.history.go(-1);  //返回+刷新 
+            }  
+        });  
+      
+      
+          
+    });  
+      
+</script> 

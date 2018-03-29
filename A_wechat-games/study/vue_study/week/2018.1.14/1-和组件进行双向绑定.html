@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="./src/vue.js"></script>
+	</head>
+
+	<body>
+		<div id="app">
+			<p>这是父组件：{{title}}</p>
+			<hr>
+			<custom :title.sync="title"></custom>
+			<!--在内部
+				<custom @update:title="title"></custom>
+			-->
+
+		</div>
+		<script>
+
+			Vue.component('custom', {
+				props: ['title'],
+				template: `
+				<div>
+					<div>{{title}}</div>
+					<button @click="changeTitle">改变title</button>
+				</div>
+				`,
+				methods: {
+					changeTitle() {
+						this.$emit('update:title','子组件改了')
+					}
+				}
+			})
+
+			new Vue({
+				el: '#app',
+				data: {
+					title: '这是父组件的title'
+				}
+			})
+		</script>
+	</body>
+</html>

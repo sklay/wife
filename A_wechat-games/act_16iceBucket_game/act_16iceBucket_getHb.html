@@ -253,6 +253,14 @@
 		})();
 
 		window.onload = function() {
+			$("#userPhone").click(function(){
+				try {
+					//app提供的方法     页面只有一个 输入框时调用
+					camore.showSoftKeyboard();
+				} catch (e){
+					console.log(e);
+				};
+			});
 			$(".getHbWrap").on("click", "#getHbBtn", function() {
 				waitShow();
 				$_phoneno = $("#userPhone").val();

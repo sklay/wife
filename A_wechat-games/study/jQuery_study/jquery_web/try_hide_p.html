@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>在线测试</title>
+
+		<!-- Bootstrap -->
+		<link href="bootsrap/css/bootstrap.css" rel="stylesheet">
+		<link rel="stylesheet" href="css/initialize.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/try.css" />
+
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	</head>
+
+	<body>
+
+		<div class="container">
+
+			<!--广告部分-->
+
+			<div class="advertisement clearfix row" style="margin: 0;">
+
+				<div class="col-md-4 col-sm-12 col-xs-12" style="padding: 0;">
+					<a href="/jQuery_index.html" title="w3school 在线教程"></a>
+				</div>
+
+				<div class="col-md-8 col-sm-12 col-xs-12" style="padding: 0;">
+					<img src="images/advertisement.jpg" />
+				</div>
+
+			</div>
+
+			<div>
+
+				<div id="butt">
+					<input class="btn btn-success" id="subbutton" type="button" value="提交代码">
+				</div>
+				<div id="CodeArea" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<h2>编辑您的代码：</h2>
+
+					<!--放代码部分-->
+					<textarea id="TestCode" wrap="logical" class="col-md-12">
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$("button").click(function(){
+$("p").hide();
+});
+});
+</script>
+</head>
+
+<body>
+<h2>This is a heading</h2>
+<p><img alt="趣味一下" src="images/timg01.jpg" width="200" height="250"></img></p>
+<button type="button">Click me</button>
+</body>
+</html>
+</textarea>
+				</div>
+
+				<div id="result" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<h2>查看结果:</h2>
+					<div class="editContent">
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootsrap/js/bootstrap.min.js"></script>
+		<script src="js/try.js"></script>
+
+	</body>
+
+</html>
+
+

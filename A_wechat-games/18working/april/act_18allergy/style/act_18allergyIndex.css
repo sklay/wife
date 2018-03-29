@@ -1,0 +1,395 @@
+@charset "UTF-8";
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.content {
+	width: 100%;
+	/*background:#f8f7f6*/
+}
+
+.indexPage {
+	width: 100%;
+}
+
+.content_top {
+	width: 6.4rem;
+	margin: 0 auto .2rem;
+	overflow: hidden;
+}
+
+.content_top img {
+	width: 100%;
+	float: left;
+}
+.commomLogin_coupon {
+	width: 4rem;
+	margin: -0.35rem auto .2rem;
+}
+.commomLogin_coupon img{
+	width: 100%;
+}
+
+/*输入框样式*/
+.commomLogin {
+	width: 5rem;
+	margin: 0.2rem auto;
+}
+
+#userPhone {
+	width: 100%;
+	outline: none;
+	border: 2px solid #50c350;
+	height: 40px;
+	line-height: 40px;
+	box-sizing: border-box;
+	color: #a5c2a5;
+	text-align: center;
+	background: #fff;
+	border-radius: 30px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+::-moz-placeholder {
+	color: #a5c2a5;
+	text-align: center;
+	font-family: ""
+}
+
+:-ms-input-placeholder {
+	color: #a5c2a5;
+	text-align: center;
+}
+
+::-webkit-input-placeholder {
+	color: #a5c2a5;
+	text-align: center;
+}
+.commomLogin button ,.over_received button{
+	font-size: 18px;
+	width: 5rem;
+	line-height: 42px;
+	height: 40px;
+	border-radius: 30px;
+	outline: none;
+	border: 0;
+	color: #fff;
+	display: block;
+	font-weight: 600;
+}
+#getHbBtn {
+	margin: .25rem auto 0;
+	background: #50c350;
+	box-shadow: 0 6px 0 #0d770d;
+	/*text-shadow: 2px 0px 0px #fff , -2px 0px 0px #fff,0px 2px 0px #fff,0px -2px 0px #fff;*/
+}
+
+.downText {
+	margin: .35rem auto 0;
+  background: #fdb417;
+  box-shadow: 0 6px 0 #a77409;
+}
+.pText{
+	font-size: 18px;
+  font-family: 黑体;
+  text-align: center;
+  color: #000;
+  margin: .4rem auto 0;
+}
+/*领取结果样式*/
+.getHbnNum ,.has_over {
+	width: 5rem;
+	margin: 0rem auto ;
+	overflow: hidden;
+}
+.has_over {
+	margin: 0.4rem auto 0;
+}
+.getHbnNum img ,.has_over img{
+	width: 100%;
+}
+.over_received button{
+	margin: .3rem auto 0;
+}
+
+.receiveResult {
+	font-size: 16px;
+	font-weight: 600;
+	color: #57340e;
+	text-align: center;
+	margin: .1rem auto 0;
+}
+
+.commUsebtn {
+	width: 5rem;
+	/*overflow: hidden;*/
+	margin: 0 auto;
+}
+
+.commUsebtn button {
+	  color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.3rem;
+	  line-height: .8rem;
+	  height: .8rem;
+	  border-radius: 30px;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
+}
+
+.use_btn {
+	float: left;
+	background: #50c350;
+	box-shadow: 0 5px 0 #0d770d;
+}
+
+.shareFri {
+	float: right;
+	background: #fdb417;
+	box-shadow: 0 5px 0 #a77409;
+}
+
+
+
+
+
+/* 看看好友的手气*/
+.comShowTitle {
+	color: #ff5622;
+	height: 40px;
+	width: 6.2rem;
+	margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	padding-top:.3rem ;
+}
+
+.leftLineDot {
+	overflow: hidden;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-right: .3rem;
+	padding-top: 19px;
+	box-sizing: border-box;
+	width: 1.7rem;
+}
+
+.leftLineDot span {
+	float: left;
+	background: #ff5622;
+}
+
+.leftLineDot span:nth-child(2) {
+	position: absolute;
+	right: 3px;
+	top: 15px;
+}
+
+.rightLineDot {
+	padding: 19px 0 0 .3rem;
+	right: 0;
+	overflow: hidden;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	box-sizing: border-box;
+	width: 1.7rem;
+}
+
+.rightLineDot span {
+	float: right;
+	background: #ff5622;
+}
+
+.rightLineDot span:nth-child(1) {
+	position: absolute;
+	left: 3px;
+	top: 15px;
+}
+
+.comshowTitleText {
+	text-align: center;
+	line-height: 40px;
+	width: 2.8rem;
+	margin: 0 auto;;
+	font-size: 16px;
+}
+
+.friHbShow {
+	margin: .2rem auto;
+	width: 6.2rem;
+	overflow: hidden;
+	font-size: 12px;
+	border-bottom: 1px dashed #ffa1a5;
+}
+
+.userFriAvatat {
+	width: 81%;
+	overflow: hidden;
+	float: left;
+}
+
+.userFriAvatat img {
+	width: 40px;
+	height: 40px;
+	float: left;
+	border-radius: 50%;
+}
+
+.userFriInf_wrap {
+	width: 18%;
+	float: right;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.userFriInf {
+	float: left;
+	margin-left: .2rem;
+	width: 80%;
+	margin-bottom: .3rem;
+}
+
+.userFriInf strong {
+	font-size: 14px;
+	color: #ff5622;
+	line-height: 20px;
+}
+
+.userFriHbValue_wrap {
+	width: 100%;
+	height: 35px;
+	float: right;
+	background: url(../images/act_16noSmokingDay_coupon_icon.png) 0px 0 no-repeat;
+	background-size: 100% 100%;
+	overflow: hidden;
+	line-height: 35px;
+	color: #fff;
+	text-align:center;
+}
+
+.userFriHbValue {
+	font-size: 22px;
+	position: relative;
+	/* font-weight: 600; */
+	/* padding-left: .28rem; */
+	  margin-left: -20.5px;
+}
+
+.userFriHbValue span {
+	font-size: 20px;
+	position: absolute;
+	/* font-weight: 400; */
+}
+
+.userFriInf p {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 100%;
+	color: #57340e;
+	line-height: 20px;
+}
+
+.activeRuleShow {
+	width: 6.2rem;
+	margin: 0 auto;
+	padding-bottom: .5rem;
+	color: #57340e;
+	line-height: 30px;
+	font-size: 14px;
+}
+
+/*app分享按钮固定样式  */
+.shareAppPage {
+	display: none;
+	width: 5.6rem;
+	overflow: hidden;
+	margin: 1rem auto;
+	}
+
+.shareAppPage button {
+	color: #fff;
+	  font-weight: 600;
+	  font-size: 18px;
+	  width: 2.5rem;
+	  line-height: 1rem;
+	  height: 1rem;
+	  border-radius: 8px;
+	  margin: .2rem auto;
+	  display: block;
+	  outline: none;
+	  border: none;
+}
+
+.shareAppPage button:nth-child(1) {
+	float: left;
+	background: #50c350;
+	box-shadow: 0 5px 0 #0d770d;
+}
+
+.shareAppPage button:nth-child(2) {
+	float: right;
+	background: #fdb417;
+	box-shadow: 0 5px 0 #a77409;
+}
+/*分享遮罩样式*/
+#shareshade {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: rgba(50, 50, 50, .8);
+	z-index: 9999;
+	display: none;
+}
+
+.promptDiv {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 180px;
+	height: 90px;
+	z-index: 99;
+	display: none;
+}
+
+.promptDiv .opDiv {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: none repeat scroll 0% 0% #333;
+	opacity: 0.5;
+	border-radius: 10px;
+}
+
+.promptDiv .promptContent {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.promptDiv img {
+	display: block;
+	margin: 12px auto 10px auto;
+	width: 45px;
+	height: 45px;
+}
+
+.promptDiv .title {
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+}

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品详情分享模拟流程</title>
+    <link rel="stylesheet" href="style/public.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/rem.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <style>
+        .container{
+            max-width:6.4rem;
+            margin:0 auto;
+        }
+        .container .btn{
+            width:3rem;
+            height:1.5rem;
+            background:#090;
+            color:#f00;
+            font-weight:bold;
+            text-align:center;
+            line-height:1.5rem;
+            position:fixed;
+            top:50%;
+            margin-top:-0.75rem;
+            left:50%;
+            margin-left:-1.5rem;
+        }
+        .container .mask{
+            width:6.4rem;
+            background:rgba(0,0,0,0.5);
+            display:none;
+            position:fixed;
+            z-index:9999;
+        }
+        .container .mask img{
+            width:5rem;
+            margin-left:1.5rem;
+        }
+    </style>
+    <script>
+        $(function(){
+            var pharmacyId = localStorage.getItem("pharmacy_id");
+            $(".mask").css("height",$(window).height()+"px");
+            var _url = encodeURIComponent(window.location.href.split('#')[0], "UTF-8");
+            console.log(_url);
+            $.ajax({
+                type:"GET",
+                url:"http://deve.ykd365.com/medstore/wx/dw?url="+_url,
+                dataType:"json",
+                success:function(data){
+                    wx.config({
+                        debug:false,//开启调试模式，调用的所有api的返回值会在客户端alert出来
+                        appId:"wx697be0ec43c8cafa",//必填，公众号的唯一标识
+                        timestamp:data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,// 必填，签名，见附录1
+                        jsApiList: [
+                            // 所有要调用的 API 都要加到这个列表中
+                            "onMenuShareTimeline",       // 分享到朋友圈接口
+                            "onMenuShareAppMessage",  //  分享到朋友接口
+                            "onMenuShareQQ",         // 分享到QQ接口
+                            "onMenuShareWeibo",      //分享到微博
+                            "onMenuShareQZon"       //分享到QQ空间
+                        ]
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+            $(".btn").click(function(){
+                $(".mask").show().click(function(){
+                    $(this).hide();
+                });
+                wx.ready(function(){
+                    var link = "http://deve.ykd365.com/wechat-html/fen.html?fxId=share";
+                    var img = "http://deve.ykd365.com/wechat-html/images/umeng_socialize_wxcircle.png";
+                    wx.onMenuShareAppMessage({
+                        title: '模拟分享流程', // 分享标题
+                        desc: '模拟分享流程', // 分享描述
+                        link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: img, // 分享图标
+                        success: function (data) {
+                            alert("分享成功！！！");
+                        },
+                        error:function(){
+                            alert("分享失败！！！");
+                        }
+                    });
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="btn">点击此按钮进行分享</div>
+    <div class="mask">
+        <img src="images/tishi.png" alt="分享图片">
+    </div>
+</div>
+</body>
+</html>

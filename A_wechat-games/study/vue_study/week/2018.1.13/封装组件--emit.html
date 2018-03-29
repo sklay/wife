@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			
+		</style>
+		<script src="src/vue.js"></script>
+	</head>
+
+	<body>
+		
+		<div id="app" >
+			<cutom-news :title="news.title" @miaov="changeTitle"></cutom-news>
+		</div>
+	
+		<template id="template">
+			<div>
+				<h2>{{title}}</h2>
+				<button @click="changeTitle">改变title</button>
+			</div>
+		</template>
+
+		<script>
+			/*
+				props传递参数
+					父组件 -> 子组件传参
+						在使用子组件标签的时候，写在行间
+							:key="数据"
+						key值是子组件规定
+
+				父组件关心子组件某个状态的改变、事件的发生
+					子组件 -> 父组件
+						子组件中发布一个事件，
+							this.$emit()
+			*/
+
+
+			Vue.component('cutom-news',{
+				props: {  // 不能在子组件中改变
+					title: {
+						type: String,
+						default: '这是标题'
+					}
+				},
+				template: '#template',
+				methods: {
+					changeTitle(){
+						console.log('我是子组件，我被点击了');
+						// 子组件发布一个事件，第一个参数就是自定义事件名，第二参数开始，是传给父组件监听时候触发的方法的参数
+						//this.$emit('miaov',1,2,3)
+						this.$emit('miaov','改变了')
+					}
+				}
+			})
+
+
+			var news = {
+				title: "123",
+				list: ['新闻1','新闻2']
+			}
+			var yule = {
+				title: '娱乐',
+				list: ['娱乐1','娱乐2']
+			}
+			
+
+			new Vue({
+				el: '#app',
+				data: {
+					news,
+					yule
+				},
+				methods: {
+					/*clickChild(a,b,c){
+						console.log('点击了子组件，我父组件监听到了',a,b,c);
+					}*/
+					changeTitle(title){
+						this.news.title = title;
+						
+					}
+				}
+			})
+			
+
+
+		</script>
+
+	</body>
+</html>

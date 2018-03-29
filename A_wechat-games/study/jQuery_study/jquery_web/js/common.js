@@ -4,7 +4,19 @@ $(function() {
 	var url = location.search;
 	var userIndex = url.indexOf("=");
 	var user = url.substr(userIndex + 1);
-
+    var index = url.lastIndexOf("jsp");
+    var currentLink = url.substring(index + 4);
+    var currentNav = $(".brednavigation a").eq(0).html();
+	var urls = $(".container .content .left ul li a");
+    var navUrls = $(".navbar-collapse .navbar-nav li a");
+    var localtitle;
+    $(urls).each(function (index, ele) {
+        if ($(urls).eq(index).attr("href") == currentLink) {
+            $(urls).eq(index).parent("li").addClass("currentLink");
+            localtitle = $(urls).eq(index).html();
+            $(urls).eq(index).parent("li").parent("ul").addClass("in");
+        }
+    });
 	if (user) {
 		$(".navbar-right li").remove();
 		$("<li><a href='javascript:;'>" + user + "</a></li>").appendTo($(".navbar-right"));
@@ -18,7 +30,20 @@ $(function() {
 
 	// 点赞接口
 
-	var pageId = $(".container .content .left ul li ul li.currentLink").attr("data-pageId");
+	
+    var pageId = $(".container .content .left ul li.currentLink").attr("data-pageId");
+    if (pageId) {
+        pageId = $(".container .content .left ul li.currentLink").attr("data-pageId");
+    } else {
+        $(".container .content .left> ul> li").eq(0).find("ul").addClass("in");
+        $(".container .content .left >ul >li").eq(0).find("ul li").eq(0).addClass("currentLink");
+        pageId = 1;
+    }
+
+    var local = url.lastIndexOf("/");
+    var localUrl = url.substring(local + 1);
+	
+	addpageIfo(pageId,localUrl,localtitle);
 
 	$(".likeOrdis").delegate("span", "click", function() {
 		var clickClass = $(this).attr("class");
@@ -82,5 +107,29 @@ function likeOrdiscount(url, pageId) {
 			alert(msg.result);
 		}
 	});
+
+}
+function addpageIfo(id,url,title) {
+
+
+    $.ajax({
+        type: "post",
+        url: "/addPageInformation.do",
+        data: {
+            id: id,
+            url: url,
+            title: title
+        },
+        success: function (res) {
+
+
+        },
+
+        error: function (msg) {
+
+            /* alert(msg); */
+        }
+    });
+
 
 }

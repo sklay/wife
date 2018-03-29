@@ -28,11 +28,12 @@ body {
 
 body>.container {
 	background: #FFFFFF;
-	padding-top: 40px;
+	padding-top: 75px;
 	padding-bottom: 40px;
 }
 
 /*导航部分*/
+
 .navbar>.container>.navbar-header {
 	padding-right: 20px;
 	margin-right: 20px;
@@ -58,10 +59,10 @@ body>.container {
 	color: #fff;
 }
 
-.navbar-right{
+/*.navbar-right{
 	
 	display:none;
-}
+}*/
 
 /*内容左边部分*/
 .container .content .left {
@@ -186,7 +187,7 @@ body>.container {
 }
 
 .container .content .maincontent p {
-	margin-bottom: 0;
+	margin-bottom: 5px;
 }
 
 .container .content .maincontent .skip {
@@ -407,3 +408,34 @@ body>.container {
 	text-decoration: none;
 	color: #FFFFFF;
 }
+
+.sh_golden .sh_sourceCode {
+    color: #333357;
+}
+
+
+@media (max-width: 767px){
+	.navbar > .container > .navbar-header {
+    padding-right: 0px;
+    margin-right: 0px;
+    text-align: center;
+}
+}
+
+
+@media (max-width: 767px){
+	.navbar > .container > .navbar-header a {
+    display: block;
+    width: 85%;
+    text-align: center;
+}
+}
+@media (max-width: 767px){
+	.navbar > .container > .navbar-header a img {
+    margin: 0 auto;
+}
+}
+
+.snippet-wrap pre.sh_sourceCode {
+		     width: 100%; 
+		}

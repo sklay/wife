@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="wide=device-width,initial-scale=1" />
+		<script>
+	    var _hmt = _hmt || [];
+	    (function() {
+	        var hm = document.createElement("script");
+	        hm.src = "https://hm.baidu.com/hm.js?fa7fe68cff0a88473df70c7376462f41";
+	        var s = document.getElementsByTagName("script")[0];
+	        s.parentNode.insertBefore(hm, s);
+	    })();
+	</script>
+
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>jQuery 入门教程</title>
+	    <meta name="keywords" content="jQuery,jQuery教程,jquery ajax,学习JQuery,JQuery插件">
+	    <meta name="description" content="在这里，您将通过jQuery教程以及许多在线实例，学到如何通过使用 jQuery 应用 JavaScript 效果。jQuery 是一个“写的更少，但做的更多”的轻量级 JavaScript 库。">
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery.snippet.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="css/index.css" />
+		<!--初始化样式表-->
+		<link rel="stylesheet" href="css/initialize.css" />
+		<!--代码编辑样式表-->
+		<link rel="stylesheet" type="text/css" href="css/jquery.snippet.css" />
+		<!-- Bootstrap -->
+		<link href="bootsrap/css/bootstrap.min.css" rel="stylesheet">
+			
+		<!--判断 IE8以下 浏览器使用-->
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+	      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+	<body>
+		<!--导航部分-->
+		<div class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="javascript:;" class="navbar-brand"> 
+						<!-- 图片注意尺寸，图片超出尺寸，需重新布局--> 
+						<img src="images/logo.png" alt="" />
+					</a>
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="navbar-collapse collapse" role="navigation">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="jquery_intro.html">入门教程</a>
+						</li>
+						<li>
+							<a href="improve_index.html">提高教程</a>
+						</li>
+						<li>
+							<a href="case_hdm.html">实战教程</a>
+						</li>
+						<!--<li><a href="javascript:;">面试题</a></li>-->
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="login.html">登录</a></li>
+						<li><a href="register.html">注册</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<!--内容部-->
+		<div class="container">
+			<div class="row content">
+				<!--左边部分-->
+				<div class="col-md-3 col-lg-3 left">
+					<p class="title">课程表</p>
+					<ul id="accordion">
+						<li>
+							<h2 data-parent="#accordion" data-toggle="collapse" href=".jqueryMenuel">jQuery入门</h2>
+							<ul class="collapse in jqueryMenuel">
+								<li data-pageId="1" class="currentLink">
+									<a href="jquery_intro.html" title="jQuery 简介">jQuery 简介</a>
+								</li>
+								<li data-pageId="2">
+									<a href="jquery_install.html" title="jQuery 安装">jQuery 安装</a>
+								</li>
+								<li data-pageId="3">
+									<a href="jquery_index.html" title="jQuery 教程">jQuery 教程</a>
+								</li>
+								<li data-pageId="4">
+									<a href="jquery_syntax.html" title="jQuery 语法">jQuery 语法</a>
+								</li>
+								<li data-pageId="5">
+									<a href="jquery_selectors.html" title="jQuery 选择器">jQuery 选择器</a>
+								</li>
+								<li data-pageId="6">
+									<a href="jquery_events.html" title="jQuery 事件">jQuery 事件</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2 data-toggle="collapse" href=".jqueryMenue2" aria-expanded="false">jQuery 效果</h2>
+							<ul class="collapse jqueryMenue2">
+								<li>
+									<a href="jquery_hide_show.html" title="Query jQuery 效果 - 隐藏和显示">jQuery 隐藏/显示</a>
+								</li>
+								<li>
+									<a href="jquery_fade.html" title="jQuery jQuery 效果 - 淡入淡出">jQuery 淡入淡出</a>
+								</li>
+								<li>
+									<a href="jquery_slide.html" title="jQuery 效果 - 滑动">jQuery 滑动</a>
+								</li>
+								<li>
+									<a href="jquery_animate.html" title="jQuery 效果 - 动画">jQuery 动画</a>
+								</li>
+								<li>
+									<a href="jquery_stop.html" title="jQuery 停止动画">jQuery stop()</a>
+								</li>
+								<li>
+									<a href="jquery_callback.html" title="jQuery 回调函数">jQuery Callback</a>
+								</li>
+								<li>
+									<a href="jquery_chaining.html" title="jQuery - Chaining">jQuery Chaining</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2 data-toggle="collapse" href=".jqueryMenue3" aria-expanded="false">jQuery HTML</h2>
+							<ul class="collapse jqueryMenue3">
+								<li>
+									<a href="jquery_dom_get.html" title="jQuery - 获取内容和属性">jQuery 获取</a>
+								</li>
+								<li>
+									<a href="jquery_dom_set.html" title="jQuery - 设置内容和属性">jQuery 设置</a>
+								</li>
+								<li>
+									<a href="jquery_dom_add.html" title="jQuery - 添加元素">jQuery 添加</a>
+								</li>
+								<li>
+									<a href="jquery_dom_remove.html" title="jQuery - 删除元素">jQuery 删除</a>
+								</li>
+								<li>
+									<a href="jquery_css_classes.html" title="jQuery - 获取和设置 CSS 类">jQuery CSS 类</a>
+								</li>
+								<li>
+									<a href="jquery_css.html" title="jQuery - css() 方法">jQuery css()</a>
+								</li>
+								<li>
+									<a href="jquery_dimensions.html" title="jQuery - 尺寸">jQuery 尺寸</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2 data-toggle="collapse" href=".jqueryMenue4" aria-expanded="false">jQuery 遍历</h2>
+							<ul class="collapse jqueryMenue4">
+								<li>
+									<a href="jquery_traversing.html" title="jQuery 遍历">jQuery 遍历</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_ancestors.html" title="jQuery 遍历 - 祖先">jQuery 祖先</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_descendants.html" title="jQuery 遍历 - 后代">jQuery 后代</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_siblings.html" title="jQuery 遍历 - 同胞">jQuery 同胞</a>
+								</li>
+								<li>
+									<a href="jquery_traversing_filtering.html" title="jQuery 遍历 - 过滤">jQuery 过滤</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2 data-toggle="collapse" href=".jqueryMenue5" aria-expanded="false">jQuery AJAX</h2>
+							<ul class="collapse jqueryMenue5">
+								<li>
+									<a href="jquery_ajax_intro.html" title="jQuery - AJAX 简介">jQuery AJAX 简介</a>
+								</li>
+								<li>
+									<a href="jquery_ajax_load.html" title="jQuery - AJAX load() 方法">jQuery 加载</a>
+								</li>
+								<li>
+									<a href="jquery_ajax_get_post.html" title="jQuery - AJAX get() 和 post() 方法">jQuery Get/Post</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<h2 data-toggle="collapse" href=".jqueryMenue6" aria-expanded="false">jQuery 杂项</h2>
+							<ul class="collapse jqueryMenue6">
+								<li>
+									<a href="jquery_noconflict.html" title="jQuery - noConflict() 方法">jQuery noConflict()</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<!--右边部分-->
+				<div class="col-md-9 col-lg-9 maincontent">
+					<div class="col-md-10 col-lg-10">
+						<!--标题-->
+						<h1 class="title">
+		                    <span class="englishTitle">jQuery - </span><span>jQuery 简介</span>
+		                </h1>
+						<!--路径导航-->
+						<p class="brednavigation">
+		                    <span class="belongs">所属分类:</span> 
+		                    <a href="javascript:;">入门教程</a>> 
+		                    <a href="javascript:;">jQuery入门</a>> 
+		                    <a href="javascript:;">jQuery 教程</a>
+		                </p>
+					</div>
+					<!--右边悬浮-->
+					<div class="col-md-2 col-lg-2  skip  hidden-xs hidden-sm">
+		                <ul>
+		                    <li><a href="javascript:;" data-value="content1">jQuery 自述</a></li>
+		                    <li><a href="javascript:;" data-value="content2">jQuery官方说法</a></li>
+		                    <li><a href="javascript:;" data-value="content3">jQuery学习</a></li>
+		                    <li><a href="javascript:;" data-value="content4">jQuery优势归纳</a></li>
+		                    <li><a href="javascript:;" data-value="content5">jQuery基础示例</a></li>
+		                </ul>
+		            </div>
+					<!--开始学习-->
+					<div class="col-md-10 col-lg-10">
+						<div class="content1">
+							<div class="sencodTitle">
+								<span>jQuery 自述</span>
+							</div>
+							<div class="description">
+								<p>程序员行业有一句名言： “偷懒是程序员的美德”。</p>
+								<p>“偷懒”这个词在生活中，意味着坏的习惯，贬义词，失败的人， 但是在软件编程当中，意味着提高效率，降低成本。</p>
+								<p>我们程序员开发众多的项目和产品，提高了企业，家庭，学校等人们的信息分析和获取的效率。 
+									程序员设计了众多的算法提高了计算机cpu和内存的使用效率， 过去的程序员前辈们也为了现在和将来的程序员 封装了很多的类库和框架，
+									让我们提高开发程序的效率。
+								</p>
+								<p>jQuery是免费的（MIT许可证），流行的JavaScript库， 2006年由John Resig 创建， 
+									设计目的是 简化浏览器的JavaScript脚本编程。 
+									（本质上，作者还是为了偷懒，哈哈）</p>
+								<p>JQuery的口号是： write less ，do more 。（写更少的代码，做更多的功能， 这么郎朗上口的口号， 果然是 懒人不可怕，就怕懒人有文化，啪啪啪）</p>
+							</div>
+						</div>
+						
+						<div class="content2">
+
+                    <!--二级标题-->
+                    <div class="sencodTitle">
+                        <span>jQuery 官方说法</span>
+                    </div>
+
+                    <!--一般描述-->
+                    <div class="description">
+                        <p>jquery是一个快速，小巧，功能丰富的JavaScript库。</p>
+                        <p>jquery API使得跨浏览器的HTML文档操作，事件处理，动画，ajax开发更加方便，简单。</p>
+                        <p>其良好的通用性和可扩展性，jquery改变了数以百万开发者编写JavaScript的方式。</p>
+
+                    </div>
+
+                    <div class="content3">
+                        <!--二级标题-->
+                        <div class="sencodTitle">
+                            <span>学习 jQuery</span>
+                        </div>
+                        <!--概述内容-->
+                        <div class="description">
+                            <p>那接下来我们就开学习jquery，从何开始学习呢？</p>
+                            <p>看jqueryAPI 那么多的函数，选择器用法，还有各种不同的版本，版本之间还有差异？ 头疼！！！！感觉无从下手哦。</p>
+                            <p>不急不急，万事万物都是有规律的，学习jquery也是一样的。</p>
+                            <p>还有28原则知道不，我们学习20%jquery的基础知识，就足够解决日常工作当中80%的内容啦。</p>
+                            <p>嘿嘿，接下来我们从jquery的最基本知识学习。</p>
+                            <p>所有的软件编程说白了，都是对数据的读写（增删改查），无论你学习什么语言或者框架， 当你能够使用它对相关数据进行熟练读写时，你已经算掌握了他的基本功能啦。</p>
+                            <p>jquery最核心的内容就是 对html页面当中的元素进行查询，然后获取其属性值，修改其属性值。（俗称： DOM操作）。</p>
+                        </div>
+                        <!--提示部分-->
+
+                        <div class="desTips">
+
+                            <!--tips类名为字体变为红色,blod为加粗-->
+                            <!--<p class="tips blod">提示:</p>
+                        <p>DOM = Document Object Model（文档对象模型）</p>
+                        <p>DOM 定义访问 HTML 和 XML 文档的标准：</p>
+                        <p>“W3C 文档对象模型独立于平台和语言的界面，允许程序和脚本动态访问和更新文档的内容、结构以及样式。”</p>-->
+                        </div>
+
+                    </div>
+
+                    <div class="content4">
+                        <div class="sencodTitle">
+                            <span>jQuery 优势归纳</span>
+                        </div>
+                        <!--概述内容-->
+                        <div class="description">
+                            <p>1、轻量级。jQuery非常轻巧，采用UglifyJS(https://github.com/mishoo/UglifyJS)压缩后，大小保持在30KB左右。</p>
+                            <p style="margin-top:10px">2、强大的选择器。</p>
+                            <ul>
+                                <li>jQuery 允许开发者使用从CSS1到CSS3几乎所有的选择器。</li>
+                                <li>jQuery独创的高级而复杂的选择器。</li>
+                                <li>还可以加入插件使其支持Xpath选择器。</li>
+                                <li>甚至开发者可以编写属于自己的选择器。</li>
+                            </ul>
+                            <p>3、出色的DOM操作的封装。</p>
+                            <p style="margin-top:10px">4、可靠的事件处理机制</p>
+                            <p style="margin-top:10px">
+                                5、完善的ajax。jQuery将所有的Ajax操作封装到一个函数$.ajax()里,并且解决复杂的浏览器兼容性和XMLHttpRquest对象的创建和使用的问题。</p>
+                            <p style="margin-top:10px">6、不污染顶级变量。jQuery只建 立一个名为jQuery的对象，其所有的函数方法都在这个对象之下。该特性使jQuery可以与
+                                其他JavaScript库共存。</p>
+                            <p style="margin-top:10px">7、出色的浏览器兼容性。</p>
+                            <p style="margin-top:10px">8、链式操作方式。</p>
+                            <p style="margin-top:10px">
+                                9、隐式迭代。当用jQuery找到带有".myclass"类的全部元素，然后隐藏它们时，无需循环遍历每一个返回的元素。相反，jQuery里的方法都被设计成自动操作对象集合，而不是单独的对象，这使得大量的循环结构变得不再必要，从而大幅度地减少代码。</p>
+                            <p style="margin-top:10px">10.行为层与结构层的分离。</p>
+                            <p style="margin-top:10px">11.丰富的插件支持。</p>
+                            <p style="margin-top:10px">12.完善的文档。</p>
+                            <p style="margin-top:10px">13.开源。</p>
+                            <p style="margin-top:10px">看到这儿，相信您对jQuery在概念上也已经有了大概的认识</p>
+                            <p style="margin-top: 10px">光说不练假把式。OK，下面我们来看一段代码，这是一个jQuery的简单示例，我们从代码层次来对jQuery做一个基础认知</p>
+                        </div>
+                    </div>
+
+                    <div class="content5">
+                        <div class="sencodTitle">
+                            <span>jQuery 基础示例</span>
+                        </div>
+
+                        <div class="description">
+                            <p>下面的例子演示了 jQuery 的 hide() 函数，隐藏了 HTML 文档中所有的 &lt;p&gt; 元素。</p>
+                            <p class="example">
+                                <span class="blod">实例</span>
+                            </p>
+                            <pre class="demo">&lt;html&gt;
+&lt;head&gt;
+<code>&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;</code>
+&lt;script type="text/javascript"&gt;
+$(document).ready(function(){
+$("button").click(function(){
+<code>$("p").hide();</code>
+});
+});
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h2&gt;This is a heading&lt;/h2&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;p&gt;This is another paragraph.&lt;/p&gt;
+&lt;button type="button"&gt;Click me&lt;/button&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+                            <p class="try">
+                                <a target="_blank" href="try_hide_p.html">亲自试一试</a>
+                            </p>
+
+                        </div>
+                    </div>
+                    <p class="col-md-12 likeOrdis">
+	阅读量:<span class="glyphicon glyphicon-book" aria-hidden="true"></span> 赞 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"> </span> 踩 <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"> </span>
+</p>
+                    <!-- <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        上一节： <a href="index.jsp">jQuery 教程</a>
+                    </p> -->
+                    <p class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        下一节： <a href="jquery_install.jsp">jQuery 安装</a>
+                    </p>
+                    
+<div class="comment col-md-12">
+
+	<p>
+		<!--<span>susie</span>-->
+		发表我的评论
+	</p>
+
+	<textarea name="" rows="3" style="width: 95%;padding: 10px;resize:none" placeholder="登录后可发表评论:" disabled="disabled"></textarea>
+
+	<div class="form-group" style="text-align: right;width: 95%;margin-top:5px">
+
+		<a class="commentSubmit" data-toggle="modal">提交评论 </a>
+
+	</div>
+
+</div>
+                </div>
+            </div>
+        </div>
+    		</div>
+    	</div>
+		<div class="footer" style="background:#ededed;padding: 10px 0;text-align: center">
+		    <p style="text-align: center">本站提供的内容仅用于学习。我们不保证内容的正确性。通过使用本站内容随之而来的风险与本站无关。 </p>
+		    <a href="/jsp/sitemap.html">网站地图</a>
+		</div>
+		<div class="modal fade" id="Res" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" style="display: none;top:20%;left:5%">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close closeRe" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">操作结果</h4>
+					</div>
+					<div class="modal-body row">
+						<div class="col-md-12 img-modal" style="padding-bottom: 15px;padding-top: 15px">
+							<div class="form-group" id="Result" style="text-align:center"></div>
+						</div>
+						<div class="form-group">
+							<div class="" style="text-align: center;">
+								<button class="btn btn-sm confirmRe" style="background: #E3E4E8;" data-dismiss="modal" aria-hidden="true">确定</button>
+								<button class="btn btn-sm closeRe" style="background: #E3E4E8;" data-dismiss="modal" aria-hidden="true">退出</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="bootsrap/js/bootstrap.min.js"></script>
+		<script src="js/setFontsize.js" type="text/javascript" charset="utf-8"></script>
+		<!--代码js-->
+		
+		<script type="text/javascript">
+//			$(".demo").snippet("JavaScript with DOM", {
+//				style : "golden",
+//				collapse : true,
+//				startCollapsed : false
+//			});
+			
+			$(".demo").snippet("javascript", { style: "whitengrey", collapse: true, startCollapsed: false});
+			
+			$(function () {
+		        var lis = $(".skip").find("ul li");
+		        $(lis).click(function () {
+		                var skipElement = $(this).find("a").attr("data-value");
+		                var skipLocation = $("." + skipElement).position().top + $("." + skipElement).offsetParent().offset().top;
+		                $("body,html").animate({
+		                        scrollTop: skipLocation - 50
+		                }, 500);
+		        });
+			});
+		</script>
+	</body>
+</html>
