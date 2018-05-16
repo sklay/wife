@@ -1,0 +1,117 @@
+<div id="app">
+	<el-table :data="tableData" style="width: 100%">
+		<el-table-column type="expand">
+			<template scope="props">
+				<el-form label-position="left" inline class="demo-table-expand">
+					<el-form-item label="明细" style="font-weight: bold">
+					</el-form-item>
+					<el-table :data="props.row.detail" style="width: 100%">
+						<el-table-column prop="title" label="商品">
+						</el-table-column>
+						<el-table-column prop="quantity" label="数量">
+						</el-table-column>
+						<el-table-column prop="price" label="价格">
+						</el-table-column>
+					</el-table>
+				</el-form>
+			</template>
+		</el-table-column>
+		<el-table-column prop="objectId" label="订单号">
+		</el-table-column>
+		<el-table-column prop="user.userInfo.nickname" label="买家" width="">
+		</el-table-column>
+		<el-table-column prop="address.detail" label="地址" width="">
+		</el-table-column>
+		<el-table-column prop="status" label="状态" width="100">
+			<template scope="scope">
+				<el-tag :type="statusClass(scope.row.status)" close-transition>{{statusValue(scope.row.status)}}</el-tag>
+			</template>
+		</el-table-column>
+		<el-table-column prop="amount" label="金额" width="100">
+		</el-table-column>
+		<el-table-column prop="createdAt" label="下单时间">
+		</el-table-column>
+		<el-table-column label="操作">
+			<template scope="scope">
+				<el-button type="primary" :disabled="scope.row.status != 1 ? true : false" icon="circle-check" @click.native.prevent="deal(scope.$index, tableData)">发货</el-button>
+			</template>
+		</el-table-column>
+	</el-table>
+	<el-pagination class="pagination" @current-change="handleCurrentChange" :page-size="pageSize" layout="total, prev, pager, next" :total="total">
+	</el-pagination>
+</div>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			tableData: [],
+			total: <%=total%>,
+			pageSize: <%=pageSize%>,
+			pageIndex: <%=pageIndex%>
+		},
+		mounted: function() {
+			this.loadData();
+		},
+		methods: {
+			loadData: function() {
+				this.$http.post('./list', {
+					pageIndex: this.pageIndex
+				}).then(response => {
+					this.tableData = response.body;
+				});
+			},
+			handleCurrentChange: function(pageIndex) {
+				console.log(pageIndex);
+				this.pageIndex = --pageIndex;
+				this.loadData();
+			},
+			statusClass: function(value) {
+				switch(value) {
+					case 0:
+						return 'primary';
+					case 1:
+						return 'danger';
+					default:
+						return 'success';
+				}
+			},
+			statusValue: function(value) {
+				switch(value) {
+					case 0:
+						return '待付款';
+					case 1:
+						return '已付款';
+					default:
+						return '已发货';
+				}
+			},
+			// 删除
+			deal: function(index, rows) {
+				this.$confirm('确认发货吗?', '提示', {
+					confirmButtonText: '确定',
+					cancelButtonText: '取消',
+					type: 'warning'
+				}).then(() => {
+					var objectId = rows[index].objectId;
+					this.$http.post('/order/deal', {
+						objectId: objectId
+					}).then(response => {
+						this.$message({
+							message: '操作成功'
+						});
+						this.loadData();
+					});
+				}).catch(cancel => cancel);
+			}
+		}
+	});
+</script>
+<style>
+	.el-table .info-row {
+		background: #c9e5f5;
+	}
+	
+	.el-table .positive-row {
+		background: #e2f0e4;
+	}
+</style>

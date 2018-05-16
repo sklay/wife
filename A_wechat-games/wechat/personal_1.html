@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人中心</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/personal.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <!--<script src="js/rem.js"></script>-->
+    <script src="js/currentTool.js"></script>
+    <script>
+        $(function(){
+            var user = localStorage.getItem("user_token");
+            var _parent=window.parent;
+            $(".full_list").click(function(){
+                if(user!=null){
+                    _parent.location.href="1_detail_list.html";
+                }else{
+                    _parent.location.href="login.html";
+                }
+            });
+            $(".address").click(function(){
+                if(user!=null){
+                    _parent.location.href="1_my_address.html";
+                }else{
+                    _parent.location.href="login.html";
+                }
+            });
+            var user_phone=localStorage.getItem("phone");
+            if(user!=null){
+                $(".header_phone span").append(user_phone);
+            }else{
+                $(".header_phone span").append("[立即登录]");
+            }
+            $(".header_img img,header_phone span").bind("click",function(){
+                if($(".header_phone span").text()=="[立即登录]"){
+                    window.parent.location.href="login.html";
+                }
+            });
+//          $(".quit").bind("click",function(){
+//              if(user!=null){
+//                  $(".layer",window.parent.document).show();
+//                  $(".layer .right",window.parent.document).bind("click",function(){
+//                      $(".layer",window.parent.document).hide();
+//                  });
+//              }else{
+//                  $(".layer",window.parent.document).hide();
+//              }
+//          });
+
+			$(".quit").on("click",function(){
+				//需要再拼上当前的版本号
+				var version_code = 2.62;
+				 _parent.location.href="setPage.html?"+"user="+user+"&version_code="+version_code;
+			});
+			
+            $(".collection").click(function(){
+                if(user!=null){
+                    _parent.location.href="1_my_collection.html";
+                }else{
+                   _parent.location.href="login.html";
+                }
+            });
+            $(".coupon").click(function(){
+                if(user!=null){
+                    _parent.location.href="1_my_coupon.html";
+                }else{
+                    _parent.location.href="login.html";
+                }
+            });
+            $(".news").click(function(){
+                if(user!=null){
+                	$(".newsno").css("display","none")
+                	$(".newsyes").css("display","block")
+                    _parent.location.href="1_my_news.html";
+                }else{
+                    _parent.location.href="login.html";
+                }
+            });
+            $(".feedback").click(function(){
+                if(user!=null){
+                    _parent.location.href="1_feedback.html";
+                }else{
+                    _parent.location.href="login.html";
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header clearFix">
+    	<div class="barIcon">
+    		<span class="news">
+    			<img class="newsno" src="images/ic_message_new_no.png" />
+    			<img class="newsyes" style="display: none;" src="images/ic_message_new_yes.png" />
+    		</span>
+    		<!--设置-->
+    		<span class="quit">
+    			<img src="images/ic_person_setting.png" />
+    		</span>
+    	</div>
+        <div class="headIcon clearFixs">
+        	<div class="header_img">
+	            <img src="images/ic_person_header_nolog.png">
+	        </div>
+	        <div class="header_phone">
+	            <span></span>
+	        </div>
+        </div>
+    </div>
+    <div class="content">
+        <ul>
+            <li class="address" style="border-top:0.01rem solid #d2d2d2;">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_my_address.png"></span>
+                    <span class="span2">我的地址</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+            <li class="full_list">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_full_list.png"></span>
+                    <span class="span2">全部订单</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+            <li class="collection">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_my_collection.png"></span>
+                    <span class="span2">我的收藏</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul>
+            <!--<li class="news" style="border-top:0.01rem solid #d2d2d2;">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_my_news.png"></span>
+                    <span class="span2">我的消息</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>-->
+            <li class="coupon">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_my_coupon.png"></span>
+                    <span class="span2">我的优惠券</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+        <ul>
+            <li class="feedback">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_feedback.png"></span>
+                    <span class="span2">反馈意见</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+            <li class="quit">
+                <div class="left">
+                    <span class="span1"><img src="images/ic_quit_pharmacy.png"></span>
+                    <span class="span2">退出药店</span>
+                </div>
+                <div class="right">
+                    <img src="images/sort_right.png">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

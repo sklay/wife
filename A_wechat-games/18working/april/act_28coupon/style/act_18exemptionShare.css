@@ -1,0 +1,382 @@
+* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+			}
+			
+			body {
+				width: 100%;
+				font-size: 10px;
+				font-size: .1rem;
+				font-family: Microsoft Yahei, Arial;
+				background: #fcfcfc;
+			}
+			.indexWrap {
+			    width: 100%;
+			    background: url(../images/act_18exemptionInvite_bj.jpg)center center ;
+			    background-size: 100% 100%;
+			}
+			/*.activeRuleShowWrap {
+			    width: 100%;
+			    background: url(images/act_18allergyIndex_bbj.jpg)center center ;
+			    background-size: 100% 100%;
+			}*/
+			.content_top {
+			    margin: 0 auto;
+			}
+			.getHbWrap{
+				width: 5.8rem;
+				margin:  0 auto;
+				/*padding:.2456rem 0;
+				box-sizing: border-box;*/
+				font-size: .2rem;
+				text-align: center;
+			}
+			.commomLogin{
+				width: 4rem;
+			}
+			.getHbWrap h3{
+				box-sizing: border-box;
+				padding: .25rem 0;
+			}
+			#userPhone{
+				border-radius: 5px;
+			    border: 1px solid #471213;
+			    color: #737373;
+			}
+			::-moz-placeholder {
+				color: #737373;
+				text-align: center;
+				font-family: ""
+			}
+			
+			:-ms-input-placeholder {
+				color: #737373;
+				text-align: center;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #737373;
+				text-align: center;
+			}
+			#getHbBtn{
+				width: 4rem;
+			    background: #de150b;
+			    box-shadow: 0 0px 0px #0c66b2,0 0px 0px #d5bcbc;
+    			/*box-shadow:inset 0px -5px 4px #0c66b2,0px 5px 0px #d3b8b84a;*/
+    			color:#fff;
+    			font-weight: 100;
+    			border-radius:5px;
+			}
+			#downText{
+				font-size: .24rem;
+				width: 2rem;
+				line-height: .35rem;
+				margin: 0.4rem auto;
+				/*text-decoration:underline;*/
+				color: #de150b;
+				font-weight: 800;
+				border-bottom: 1px solid #de150b;
+			}
+			.comShowTitle , .userFriInf strong {
+				color:#010101;
+				padding-top:0 ;
+				width: 3.2rem;
+			}
+			.userFriInf{
+				width: 4rem;
+				text-align: center;
+				margin: 0.2rem auto 0;
+				float: none;
+			}
+			.comshowTitleText{
+				width: 2rem;
+				color: #010101;
+				font-weight: 600;
+			}
+			.leftLineDot{
+				padding-right: 0;
+				width: .6rem;
+			}
+			.leftLineDot span ,.rightLineDot span {
+			    background: #21471e;
+			}
+			.rightLineDot span:nth-child(1){
+				top: 19px;
+			}
+			.friHbShow{
+				border-bottom: 1px dashed #21471e;
+			}
+			.userFriHbValue_wrap{
+			    background: url(images/act_17laborDay_icon.png) 0px 0 no-repeat;
+    			background-size: 100% 100%;
+			}
+			.pText{
+				color:#0e4821;
+			}
+			.received_result{
+				width: 100%;
+				height:100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				
+			}
+			.receive_success{
+				width: 100%;
+				height: 100%;
+				background: #f1f2f6;
+				padding-top: 1px;
+			}
+			.getHbnNum{
+				width: 5.4rem;
+				height: 6.4rem;
+				margin: 0.2rem auto 0;
+				background: url(../images/act_18exemptionInvite_resultBj.png)center center no-repeat;
+				background-size: 100% 100%;
+				padding: .8rem 0 ;
+				box-sizing: border-box;
+			}
+			.getHbnNum img, .has_over img{
+				width: .7rem;
+				display: block;
+				margin: 0 auto;
+			}
+			.getDesc{
+				width: 4rem;
+				margin: 0 auto;
+				text-align: center;
+				padding-top: .5rem ;
+			}
+			.getDesc p{
+				font-size: .28rem;
+				color: #000;
+				line-height: .55rem;
+				font-weight: 600;
+			}
+			.getDesc p.phoneWrap{
+			    font-size: .24rem;
+				font-weight: 100;
+				color: #595959;
+			}
+			.use_btn{
+				float: none;
+				background: #de150b;
+				box-shadow:none
+			}
+			.commUsebtn{
+				position: relative;
+			}
+			.commUsebtn button{
+				position: absolute;
+				top: 1.255rem;
+				left: 50%;
+				margin-left: -1.4rem;
+				width:2.8rem;
+			    border-radius: 6px;
+			    /*border: 2px solid #fff;*/
+			    line-height: 38px;
+    			height: 40px;
+			}
+			.has_received{
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: rgba(0,0,0,.5);
+				padding-top:1px;
+			}
+			.hasWrap{
+				width: 4rem;
+				height: 3rem;
+				margin: 0 auto;
+				background: #fff;
+				position: relative;	
+				top: 50%;
+				margin-top: -1.2rem;	
+				text-align: center;	
+				padding-top: .85rem;	
+				box-sizing: border-box;
+				border-radius: 10px;
+			}
+			.hasWrap p{
+				line-height: 20px;
+				font-size: .25rem;
+			}
+			.hasCorp {
+				width: 100%;
+				padding: 0 .1rem;
+				box-sizing: border-box;
+				margin-top: 0.6rem;
+			}
+			.hasWrap #downText{
+				width: 100%;
+				line-height: .55rem;
+				border-top: 1px solid #c5c5c5;
+				border-bottom:0
+			}
+			/*.getHbnNum, .has_over {
+			    margin: 0rem auto 0;
+			}
+			.use_btn{
+				background: #468147;
+    			color:#fff;
+    			box-shadow: 0 3px 3px #b11516;
+			}*/
+			.friHbShowWrap {
+				margin-top: .2rem;
+			}
+			.friHbShow{
+				border-bottom:0;
+				width: 4.8rem;
+				box-shadow: 0px 0px 15px #d4d4da;
+				border-radius: 5px;
+			}
+			.userFriAvatat{
+				width: 100%;
+				text-align: center;
+				/*height: .8rem;
+				line-height: .8rem;*/
+				color: #010101;
+				float: none;
+				
+			}
+			.couponWrap{
+				width: 2rem;
+				margin: 0.3rem auto;
+			}
+			.userFriAvatat .couponWrap img{
+				width: 100%;
+				height: auto;
+				border-radius: 0;
+				float: none;
+			}
+			/*.userFriAvatat p{
+				float: left;
+			}*/
+			.friHbShowWrap{
+				padding-bottom: .3rem;
+			}
+			.friHbShowWrap ,.activeRuleShowWrap {
+				background: #fff;
+			}
+			.commUsebtn button.shareFri{
+				background: #dcc865;
+    			color:#934b01;
+			    box-shadow: 0 3px 3px #b11516;
+			}
+			.shareAppPage {
+				display: block;
+				width: 2.6rem;
+				overflow: hidden;
+				 padding: .5rem 0;
+				box-sizing: border-box;
+				margin: 0rem auto ;
+				}
+			
+			.shareAppPage img {
+				  width: 1rem;
+				 
+				  margin: 0 auto;
+				  display: block;
+				  outline: none;
+				  border: none;
+			}
+			
+			.shareAppPage img:nth-child(1) {
+				float: left;
+			}
+			
+			.shareAppPage img:nth-child(2) {
+				float: right;
+			}
+			
+			.collectCorp{
+				width: .4rem;
+				margin: 0 auto;
+			}
+			.activeRuleShowWrap{
+				padding-bottom: .5rem;
+				position: relative;
+				z-index: 2;
+				background: #f1f2f6;
+				margin-top: 1rem;
+			}
+			.activeRuleShow{
+				padding-bottom: 0;
+				color: #340407;
+				line-height: 20px;
+			}
+			.activeRuleShow p{
+				margin-top: .2rem;
+			}
+			.collectCorp img{
+				width: 100%;
+			}
+			.rightLineDot{
+				width: .6rem;
+			}
+			.QRcodeWrap{
+				background: #fff;
+				margin-top: .2rem;
+			}
+			.QRcodeWrapIocn{
+				width: 1.5rem ;
+				margin: 0 auto;
+				
+			}
+			.QRcodeWrapIocn img{
+				width: 100%;
+			}
+			.QRcodeDesc{
+				width: 3rem;
+				margin: 0 auto;
+				text-align: center;
+				padding: .3rem  0;
+				font-size: .2rem;
+				font-weight: 600;
+				color:#000 ;
+				box-sizing: border-box;
+			}
+			.failShow{
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, .5);
+				z-index: 10;
+				/*padding-top: 2.5rem;*/
+			}
+			.failResul{
+			    width: 4rem;
+			    height: 3rem;
+			    background: #fff;
+			    position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    margin-left: -2rem;
+			    text-align: center;
+			    padding: 0 .1rem;
+			    box-sizing: border-box;
+			    font-size: .24rem;
+			    border-radius: 10px;
+			    margin-top: -1.5rem;
+			}
+			.desc{
+				margin: .8rem 0;
+			}
+			.line{
+				width: 100%;
+				height: .5px;
+				background: #999;
+				margin-bottom: .2rem;
+			}
+			.closeBtn{
+				color: #de150b;
+				/*border-top: 1px solid #999;*/
+			}

@@ -1,0 +1,169 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-style: normal;
+  text-align: center;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  width: 100%;
+  background: #fff;
+  font-family: Microsoft Yahei, Arial;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
+.content_top {
+  margin: 0 auto;
+  position: relative;
+}
+.content_top img{
+    width: 100%;
+    float: left;
+}
+.indexPage{
+	position: relative;
+}
+.getHbWrap{
+	width: 9rem;
+	padding:.5456rem 0;
+	box-sizing: border-box;
+	background: #fff;
+	/*box-shadow: 0 0 25px #8ec391;*/
+	/*position: absolute;
+	bottom:-.35rem ;
+	left: 50%;
+	margin-left: -4.5rem;
+	z-index: 1;*/
+	margin: 0 auto;
+}
+
+.commomLogin {
+  width: 7.34375rem;
+  margin: 0 auto;
+}
+.commomLogin #getHbBtn {
+  width: 100%;
+  margin-top: 0.4875rem;
+}
+
+.getHb button {
+  width: 7.34375rem;
+  height: 1.125rem;
+  line-height: 1.125rem;
+  border-radius: 50px;
+  background: -webkit-linear-gradient(top, #016ecd 0%, #0166c8 40%, #0242b2 75%, #033bae 100%);
+  background: linear-gradient(to bottom, #016ecd 0%, #0166c8 40%, #0242b2 75%, #033bae 100%);
+  outline: none;
+  border:0;
+  font-size:0.546875rem;
+  /*font-family: "DFPWaWaW5";*/
+  color:#fff;
+  text-align: center;
+  box-shadow: 0 3px 5px #b2cfed;
+}
+/*在IOS下，input 和textarea表单默认会有个内阴影*/
+.getHb input {
+  width: 7.34375rem;
+  height: 1.125rem;
+  line-height: 1.125rem;
+  border-radius: 50px;
+  background: #fff;
+  outline: none;
+  border: 1px solid #1048a3;
+  font-size:0.546875rem;
+  font-family: "DFPWaWaW5";
+  color: #1048a3;
+  text-align: center;
+  -webkit-appearance: none;/*去除系统默认的样式*/
+   -webkit-tap-highlight-color: rgba(0,0,0,0);/*去除高亮的样式*/
+}
+::-moz-placeholder {
+  color: #9fb6da;
+  text-align: center;
+  font-family: "";
+}
+:-ms-input-placeholder {
+  color: #9fb6da;
+  text-align: center;
+}
+::-webkit-input-placeholder {
+  color: #9fb6da;
+  text-align: center;
+}
+
+.getHbnNum {
+  width: 4.34375rem;
+  margin: 0 auto;
+}
+.getHbnNum img{
+	width: 100%;
+	float: left;
+}
+.commUsebtn {
+  width: 6.4rem;
+  margin: 0.4875rem auto 0;
+}
+.getHb .commUsebtn button{
+	width:2.8rem;
+	height: .9125rem;
+    line-height: .9125rem;
+    border-radius: 50px;
+    font-size: 0.346875rem;
+    margin-bottom: .5456rem;
+}
+.getHb	.use_btn{
+	color:#fff;
+	font-weight: bold;
+	float: left;
+}
+.getHb	.shareFri{
+	background: -webkit-linear-gradient(top, #fab302 0%, #f7ab04 40%, #ef9907 75%, #eb8e0a 100%);
+    background: linear-gradient(to bottom, #fab302 0%, #f7ab04 40%, #ef9907 75%, #eb8e0a 100%);
+	box-shadow: 0 3px 5px #fadeb5;
+	color:#fff;
+	font-weight: bold;
+	float: right;
+}
+.receive_success{
+	margin: .36768rem 0;
+}
+.has_received {
+	margin: 0.4875rem auto 0.6875rem;
+}
+
+.activeRuleShowWrap .activeRuleShow {
+  width: 9rem;
+  margin: 0 auto;
+  color: #0a034b;
+  line-height: 0.9375rem;
+  font-size: 0.40625rem;
+  padding: 0 0 .4rem 0;
+  box-sizing: border-box;
+}
+.comShowTitle {
+  color: #0a034b;
+  height: 40px;
+  width: 3.8125rem;
+  margin: 0.053125rem auto 0;
+  overflow: hidden;
+  position: relative;
+}
+.comShowTitle img{
+	width: 100%;
+}

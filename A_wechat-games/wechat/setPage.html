@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>设置</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/setPage.css">
+    <!--<script src="http://libs.baidu.c.om/jquery/1.91/jquery.min.js"></script>-->
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/currentTool.js"></script>
+		<script>
+			function getUrlEle() {
+				if (location.href.indexOf("?") < 0 || location.href.indexOf("&") < 0) {
+					return "";
+				}
+				var urldec = location.href.split("?")[1].split("&");
+				var urlQuery = {};
+				var a, b;
+				for (var i = 0, j = urldec.length; i < j; i++) {
+					a = urldec[i].split("=")[0];
+					b = urldec[i].split("=")[1];
+					c = urldec[i].split("=")[2];
+					console.log(a.split("%EF%BC%9D"))
+					if (b == undefined) {
+						a = urldec[i].split("=")[0].split("%EF%BC%9D")[0];
+						b = urldec[i].split("=")[0].split("%EF%BC%9D")[1];
+						c = urldec[i].split("=")[0].split("%EF%BC%9D")[2];
+					};
+					urlQuery[a] = b;
+				};
+				return urlQuery;
+			};
+			var token = getUrlEle().user;
+			var version = getUrlEle().version_code;
+			console.log(version);
+			console.log(token);
+			$(function(){
+				$(".versionTip .ptext").text(version);
+				if(token!=null){
+	                    $(".quit").show();
+	                }else{
+	                    $(".quit").hide();
+	                }
+				$(".loginWrap .quit").bind("click",function(){
+					$(".quit").hide();
+	            });
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="title">
+		        <div class="navbar clearFix">
+		        	 <div class="title_left">
+			              <img src="images/ic_back1.png">
+			         </div>
+			         <div class="nav">
+				          <div class="nav_item nav_left ">
+				              <p class="nav_border">设置</p>
+				          </div>
+				    </div>
+	        	</div>
+	    	</header>
+	    	<div class="contentWrap">
+	    		<div class="versionTip">
+	    			<p>当前版本<span class="ptext"></span></p>
+	    		</div>
+	    		<div class="aboutUser">
+	    			<p>关于我们</p>
+	    			<div class="content">
+				        <ul>
+				            <li class="feedback clearFix">
+				                <div class="left">
+				                    <span class="span2">用户协议</span>
+				                </div>
+				                <div class="right">
+				                    <img src="images/sort_right.png">
+				                </div>
+				            </li>
+				            <li class="brief clearFix">
+				                <div class="left">
+				                    <span class="span2">药快到简介</span>
+				                </div>
+				                <div class="right">
+				                    <img src="images/sort_right.png">
+				                </div>
+				            </li>
+				        </ul>
+				    </div>
+	    		</div>
+	    	</div>
+			<div class="loginWrap">
+				<button class="quit">退出</button>
+			</div>
+			<div class="company">
+				<p>
+					北京康顾多健康科技有限公司
+				</p>
+				<p>
+					备案号京ICP备15021615
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

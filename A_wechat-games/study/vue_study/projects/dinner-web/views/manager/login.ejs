@@ -1,0 +1,67 @@
+<el-row id="login" :gutter="10" type="flex" justify="center">
+    <el-col :md="8">
+        <el-card class="box-card" style="margin-top: 30%">
+            <div slot="header">
+                <span>用户登录</span>
+            </div>
+            <el-form v-loading.body="loading" label-width="80px" :model="user" :rules="rules" ref="ruleForm">
+                <el-form-item label="用户名" prop="username">
+                    <el-input v-model="user.username" @keyup.enter.native="submit"></el-input>
+                </el-form-item>
+                <el-form-item label="密码" prop="password">
+                    <el-input type="password" v-model="user.password" @keyup.enter.native="submit"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submit()">登录</el-button>
+                </el-form-item>
+            </el-form>
+        </el-card>
+    </el-col>
+</el-row>
+<script>
+new Vue({
+    el: '#login',
+    data: {
+        loading: false,
+        user: {
+            username: 'lendoo',
+            password: 'lendoo888'
+        },
+        rules: {
+            username: [{
+                required: true,
+                message: '请输入用户名',
+                trigger: 'blur'
+            }],
+            password: [{
+                required: true,
+                message: '请输入密码',
+                trigger: 'blur'
+            }]
+        }
+    },
+    methods: {
+        submit: function() {
+            this.$refs.ruleForm.validate((valid) => {
+                if (valid) {
+                    this.loading = true;
+                    // 验证通过
+                    this.login();
+                }
+            });
+        },
+        login: function() {
+            this.$http.post('./login', this.user).then(response => {
+                if (response.body.code !== undefined) {
+                    this.$message({
+                        message: '登录失败 - code:' + response.body.code
+                    });
+                } else {
+                    window.location.href = '/order/list'
+                }
+                this.loading = false;
+            });
+        }
+    }
+});
+</script>

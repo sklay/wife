@@ -1,0 +1,32 @@
+	 <!DOCTYPE html>
+	 <html>
+	 <head>
+	      <title>测试js</title>
+	     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	      <script src="js/jquery-2.2.0.min.js"></script>
+	     <style type="text/css">.content{color: red;font-size: 15px;}</style>
+	  </head>
+	  <body>
+	     展示设备
+	     <p class="content"></p>
+	     <p class="agentsinfo"></p>
+	 </body>
+	 <script type="text/javascript">
+		 var userAgentInfo = navigator.userAgent;
+		 function IsAgent() { 
+		     var Agents = ["Android", "iPhone","SymbianOS", "Windows Phone","iPad", "iPod", "Windows"];
+		     var res = '';
+		     for (var v = 0; v < Agents.length; v++) {
+		        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+		             res = Agents[v];
+		             break;
+		         }
+		     }
+		     return res;
+		 }
+		 console.log(navigator.userAgent);
+		 
+		 console.log('这部设备是：'+IsAgent());
+		 $('.agentsinfo').html('设备信息：'+userAgentInfo);
+</script>
+32 </html>

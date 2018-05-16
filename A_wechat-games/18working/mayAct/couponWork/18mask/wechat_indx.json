@@ -1,0 +1,1393 @@
+{
+  "message": "succ",
+  "result_code": 100,
+  "result_json": {
+    "new_pharmacy_info": {
+      "pharmacy_id": "1620",
+      "pharmacy_name": "北京市康佰馨大药房昆泰店",
+      "pharmacy_pos": "116.447745,39.929287",
+      "pharmacy_add": "北京市朝阳区朝外大街乙12号办公楼1-2层30号",
+      "pharmacy_phone": "400-010-0365",
+      "pharmacy_time": "08:00-20:00",
+      "pharmacy_certificate_url": "http://imgstore.camore.cn/licensehtml/1620_drugstore_info.html",
+      "pharmacy_model": "V1",
+      "pharmacy_code": "ykd21061001",
+      "pharmacy_updateTime": "2018-05-03 09:39:15",
+      "pharmacy_deliverTime": 60,
+      "pharmacy_area": "北京市",
+      "pharmacy_range": "116.414894,39.955756;116.415469,39.939715;116.412307,39.939715;116.413457,39.907178;116.42553,39.9074;116.431567,39.911274;116.442634,39.911384;116.442059,39.914816;116.468074,39.914262;116.468577,39.94674;116.468218,39.958327;116.440478,39.955977;",
+      "pharmacy_principal": "无",
+      "pharmacy_prinPhone": "12315801620",
+      "home_button_list_arr": [
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_01.png",
+          "home_button_title": "快速找药",
+          "home_button_type": "bz"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_02.png",
+          "home_button_title": "分类搜药",
+          "home_button_type": "dir"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/medstore/images/zxys.png",
+          "home_button_title": "药师咨询",
+          "home_button_type": "web2",
+          "home_button_name": "药师咨询",
+          "home_button_web": "http://deve.ykd365.com/robot-html/index.html"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/act/ashacker/180401/invite.gif",
+          "home_button_title": "邀请好友",
+          "home_button_type": "web"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_05.png",
+          "home_button_title": "男性",
+          "home_button_type": "web2",
+          "home_button_name": "男性",
+          "home_button_web": "http://store.ykd365.com/medstore/common/navigation_02?linkId=786001"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_06.png",
+          "home_button_title": "女性",
+          "home_button_type": "web2",
+          "home_button_name": "女性",
+          "home_button_web": "http://store.ykd365.com/medstore/common/navigation_02?linkId=786011"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_07.png",
+          "home_button_title": "慢病",
+          "home_button_type": "web2",
+          "home_button_name": "慢病",
+          "home_button_web": "http://store.ykd365.com/medstore/common/navigation_02?linkId=786021"
+        },
+        {
+          "home_button_image": "http://imgstore.camore.cn/icon/button/170831_nsbutton_08.png",
+          "home_button_title": "儿童",
+          "home_button_type": "web2",
+          "home_button_name": "儿童",
+          "home_button_web": "http://store.ykd365.com/medstore/common/navigation_02?linkId=786031"
+        }
+      ]
+    },
+    "new_essence_centre": {
+      "group_item_arr": [
+        {
+          "w_count": 0,
+          "h_count": 0,
+          "tr_arr": [
+            
+          ]
+        }
+      ]
+    },
+    "banner_link_list": {
+      "first_advertisement_arr": [
+        {
+          "advertisement_id": "1",
+          "advertisement_type": "3",
+          "advertisement_url": "http://store.ykd365.com/medstore/actUserpage/OneYuan_module_1805?dirId=1000036461",
+          "advertisement_name": "母亲节活动",
+          "advertisement_img": "http://imgstore.camore.cn/icon/act/ashacker/180501/act34_lb1.jpg"
+        },
+        {
+          "advertisement_id": "1",
+          "advertisement_type": "3",
+          "advertisement_url": "http://store.ykd365.com/medstore/actUserpage/OneYuan_module_1805?dirId=1000036678",
+          "advertisement_name": "女性健康",
+          "advertisement_img": "http://imgstore.camore.cn/icon/act/ashacker/180501/act34_lb2.jpg"
+        }
+      ]
+    },
+    "new_sale_info": {
+      "sale_list": {
+        "drug_sales_list_arr": [
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11621174",
+                "pic_path": "http://imgstore.camore.cn/20151023/binjia/binjia_2-1(368).jpg",
+                "show_name": "云南白药 轻巧创可贴（泰邦）",
+                "price": "1080",
+                "standard": "20片"
+              },
+              {
+                "drug_id": "11620794",
+                "pic_path": "http://imgstore.camore.cn/kzf0716/DSC00282.jpg",
+                "show_name": "安尔碘 安尔碘皮肤消毒剂",
+                "price": "430",
+                "standard": "60ml"
+              },
+              {
+                "drug_id": "11620683",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/30/BBC_3330.jpg",
+                "show_name": "邦迪 苯扎氯铵贴",
+                "price": "250",
+                "standard": "8片"
+              },
+              {
+                "drug_id": "11620748",
+                "pic_path": "http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg",
+                "show_name": "邦迪 苯扎氯铵贴",
+                "price": "780",
+                "standard": "38mm*25mm*4片"
+              },
+              {
+                "drug_id": "11621307",
+                "pic_path": "http://imgstore.camore.cn/20151111/baihui/baihui_IMG_8940.jpg",
+                "show_name": "泰邦 弹性创可贴",
+                "price": "2700",
+                "standard": "100片"
+              },
+              {
+                "drug_id": "11620859",
+                "pic_path": "http://imgstore.camore.cn/201609/zhongfu/zhongfu_DSC06993.jpg",
+                "show_name": "开颜 弹性创可贴组合",
+                "price": "1240",
+                "standard": "25片"
+              }
+            ],
+            "drug_hot_id": "782006",
+            "drug_hot_name": "急救创伤",
+            "drug_hot_color": "",
+            "drug_hot_url": "http://imgstore.camore.cn/icon/dir/dir_cj.jpg"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620165",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/41/DSC_4641.jpg",
+                "show_name": "顺尔宁 孟鲁司特钠片",
+                "price": "4300",
+                "standard": "10mg*5片"
+              },
+              {
+                "drug_id": "11621454",
+                "pic_path": "http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg",
+                "show_name": "京都念慈庵 蜜炼川贝枇杷膏",
+                "price": "2800",
+                "standard": "150ml"
+              },
+              {
+                "drug_id": "11621455",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/181217_433941.jpg",
+                "show_name": "京都念慈庵 蜜炼川贝枇杷膏",
+                "price": "4290",
+                "standard": "300ml"
+              },
+              {
+                "drug_id": "11620566",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/101177_410192.jpg",
+                "show_name": "广西 金嗓子喉片",
+                "price": "880",
+                "standard": "2g*12片"
+              },
+              {
+                "drug_id": "11620902",
+                "pic_path": "http://imgstore.camore.cn/tongchuan/tongchuan_DSCN1808.jpg",
+                "show_name": "白云山 复方板蓝根颗粒",
+                "price": "1780",
+                "standard": "15g*20袋"
+              },
+              {
+                "drug_id": "11620346",
+                "pic_path": "http://imgstore.camore.cn/20151023/ruifu/ruifu_IMG_1087.jpg",
+                "show_name": "三金 西瓜霜润喉片",
+                "price": "1050",
+                "standard": "0.6g*48片"
+              }
+            ],
+            "drug_hot_id": "782003",
+            "drug_hot_name": "呼吸系统专场",
+            "drug_hot_color": "",
+            "drug_hot_url": "http://imgstore.camore.cn/icon/firstPage/20170101_cjjjyx_hx.jpg"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620173",
+                "pic_path": "http://imgstore.camore.cn/20151023/longtai/longtai_DSCN0070.jpg",
+                "show_name": "洛赛克 奥美拉唑镁肠溶片",
+                "price": "6100",
+                "standard": "10mg*7片"
+              },
+              {
+                "drug_id": "11620399",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/82/DSC_2682.jpg",
+                "show_name": "江中 健胃消食片",
+                "price": "790",
+                "standard": "0.8g*32片"
+              },
+              {
+                "drug_id": "11620034",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/30/DSC_2530.jpg",
+                "show_name": "吗丁啉 多潘立酮片",
+                "price": "1750",
+                "standard": "10mg*30片"
+              },
+              {
+                "drug_id": "11621431",
+                "pic_path": "http://imgstore.camore.cn/kzf0716/DSC00583.jpg",
+                "show_name": "康恩贝 肠炎宁片",
+                "price": "3300",
+                "standard": "0.42g*48片"
+              },
+              {
+                "drug_id": "11621290",
+                "pic_path": "http://imgstore.camore.cn/kzf0716/DSC01197.jpg",
+                "show_name": "斯达舒 维U颠茄铝分散片",
+                "price": "4210",
+                "standard": "16片"
+              },
+              {
+                "drug_id": "11620404",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/28/DSC_3028.jpg",
+                "show_name": "同仁堂 麻仁润肠丸",
+                "price": "1480",
+                "standard": "6g*10丸"
+              }
+            ],
+            "drug_hot_id": "782002",
+            "drug_hot_name": "胃肠调理专场",
+            "drug_hot_color": "",
+            "drug_hot_url": "http://imgstore.camore.cn/icon/firstPage/20170301_38jjyx_ns.jpg"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11621331",
+                "pic_path": "http://imgstore.camore.cn/20151023/ruifu/ruifu_IMG_2748.jpg",
+                "show_name": "杜蕾斯 天然乳胶橡胶避孕套",
+                "price": "4500",
+                "standard": "3只 (至薄幻隐)"
+              },
+              {
+                "drug_id": "11621332",
+                "pic_path": "http://imgstore.camore.cn/20151023/huaqi/huaqi_DSC04835.jpg",
+                "show_name": "杜蕾斯 天然胶乳橡胶避孕套",
+                "price": "5900",
+                "standard": "12只（至尊超薄）"
+              },
+              {
+                "drug_id": "11621333",
+                "pic_path": "http://imgstore.camore.cn/201609/zhongfu/zhongfu_DSC06020.jpg",
+                "show_name": "杜蕾斯 天然胶乳橡胶避孕套",
+                "price": "10710",
+                "standard": "10只（至薄幻隐装）"
+              },
+              {
+                "drug_id": "11621334",
+                "pic_path": "http://imgstore.camore.cn/prod_img_0701/LLL_3395.jpg",
+                "show_name": "杜蕾斯 天然胶乳橡胶避孕套",
+                "price": "3990",
+                "standard": "12只（挚爱）"
+              },
+              {
+                "drug_id": "11621335",
+                "pic_path": "http://imgstore.camore.cn/20151023/ruifu/ruifu_IMG_2777.jpg",
+                "show_name": "杜蕾斯 天然乳胶橡胶避孕套",
+                "price": "4990",
+                "standard": "12只 (螺纹装)"
+              },
+              {
+                "drug_id": "11621337",
+                "pic_path": "http://imgstore.camore.cn/prod_img_0701/LLL_3384.jpg",
+                "show_name": "杜蕾斯 天然胶乳橡胶避孕套（激情装）",
+                "price": "4690",
+                "standard": "12只"
+              }
+            ],
+            "drug_hot_id": "782004",
+            "drug_hot_name": "计生用品专场",
+            "drug_hot_color": "",
+            "drug_hot_url": "http://imgstore.camore.cn/icon/firstPage/20170101_cjjjyx_js.jpg"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620836",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102597_435781.jpg",
+                "show_name": "【特价】鱼跃 臂式电子血压计【降压】",
+                "price": "18800",
+                "standard": "YE-655A"
+              },
+              {
+                "drug_id": "11620819",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/144880_435962.jpg",
+                "show_name": "鱼跃 血压计-听诊器保健盒",
+                "price": "11900",
+                "standard": "双用A型"
+              },
+              {
+                "drug_id": "11620822",
+                "pic_path": "http://imgstore.camore.cn/20160121/tianyi/tianyi_NNS_1086.jpg",
+                "show_name": "鱼跃 多功能听诊器",
+                "price": "12000",
+                "standard": "多功能"
+              },
+              {
+                "drug_id": "11620817",
+                "pic_path": "http://imgstore.camore.cn/201609/zhongfu/zhongfu_DSC07553.jpg",
+                "show_name": "强生 稳豪倍优型血糖仪",
+                "price": "88920",
+                "standard": "稳豪倍优型"
+              },
+              {
+                "drug_id": "11620830",
+                "pic_path": "http://imgstore.camore.cn/20151224/wanjia/wanjia_0S9A1252.jpg",
+                "show_name": "怡成 血糖仪（JPS-7型）",
+                "price": "17820",
+                "standard": "JPS-7型"
+              },
+              {
+                "drug_id": "11620851",
+                "pic_path": "http://imgstore.camore.cn/20151023/fenghua/fenghua_DSC00921.jpg",
+                "show_name": "怡成血糖仪",
+                "price": "10800",
+                "standard": "JPS-6"
+              }
+            ],
+            "drug_hot_id": "782005",
+            "drug_hot_name": "家用健康检测仪",
+            "drug_hot_color": "",
+            "drug_hot_url": "http://imgstore.camore.cn/icon/dir/kangzhongfu_sale_new03.jpg"
+          }
+        ]
+      },
+      "hot_list": {
+        "drug_sales_list_arr": [
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620131",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/75/DSC_3475.jpg",
+                "show_name": "迪巧 儿童维D钙咀嚼片",
+                "price": "4380",
+                "standard": "300mg*30片"
+              },
+              {
+                "drug_id": "11620812",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/46/ABC_1346.jpg",
+                "show_name": "哈药六牌 钙加锌口服液",
+                "price": "2180",
+                "standard": "10ml*12支"
+              },
+              {
+                "drug_id": "11620133",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/63/DSC_3563.jpg",
+                "show_name": "迪巧 维D钙咀嚼片",
+                "price": "4990",
+                "standard": "60片"
+              },
+              {
+                "drug_id": "11621106",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102410_435141.jpg",
+                "show_name": "汤臣倍健 液体钙软胶囊",
+                "price": "19440",
+                "standard": "1000mg*200粒"
+              }
+            ],
+            "drug_hot_id": "820533",
+            "drug_hot_name": "骨骼健康",
+            "drug_hot_color": "#f03a52"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620046",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/85/DSC_8485.jpg",
+                "show_name": "英太青 双氯芬酸钠缓释胶囊",
+                "price": "2600",
+                "standard": "50mg*20粒"
+              },
+              {
+                "drug_id": "11620394",
+                "pic_path": "http://imgstore.camore.cn/20180423/update/FBI_0002.JPG",
+                "show_name": "999 正天丸",
+                "price": "1650",
+                "standard": "6g*10袋"
+              },
+              {
+                "drug_id": "11621147",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/00/DSC_2100.jpg",
+                "show_name": "云南白药 云南白药酊",
+                "price": "3150",
+                "standard": "120ml"
+              },
+              {
+                "drug_id": "11620220",
+                "pic_path": "http://imgstore.camore.cn/201603/yongshou/yongshou_201512191724.jpg",
+                "show_name": "扶他林 双氯芬酸钠缓释片",
+                "price": "2750",
+                "standard": "75mg*10片"
+              },
+              {
+                "drug_id": "20122749",
+                "pic_path": "http://imgstore.camore.cn/20151111/shencheng/shencheng_DSC03366.jpg",
+                "show_name": "云南白药 云南白药膏",
+                "price": "4900",
+                "standard": "6.5cm*10cm*10贴"
+              },
+              {
+                "drug_id": "20117069",
+                "pic_path": "http://imgstore.camore.cn/20151023/xingfu/xingfu_IMG_3442.jpg",
+                "show_name": "云南白药 云南白药膏",
+                "price": "5500",
+                "standard": "6.5cm*10cm*12贴"
+              }
+            ],
+            "drug_hot_id": "820532",
+            "drug_hot_name": "镇痛用药",
+            "drug_hot_color": "#1facec"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "20114918",
+                "pic_path": "http://imgstore.camore.cn/201603/tianyi/tianyi_NNS_3680.jpg",
+                "show_name": "护彤 小儿氨酚黄那敏颗粒",
+                "price": "850",
+                "standard": "2g*12袋"
+              },
+              {
+                "drug_id": "11620002",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/100250_436095.jpg",
+                "show_name": "感康 复方氨酚烷胺片",
+                "price": "1700",
+                "standard": "12片"
+              },
+              {
+                "drug_id": "10118081",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/77/DSC_0777.jpg",
+                "show_name": "太极 急支糖浆",
+                "price": "2880",
+                "standard": "200ml"
+              },
+              {
+                "drug_id": "25463824",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/12/DSC_3212.jpg",
+                "show_name": "三精 四季感冒胶囊",
+                "price": "1950",
+                "standard": "0.35g*36粒"
+              },
+              {
+                "drug_id": "11620878",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/20/DSC_3220.jpg",
+                "show_name": "云丰 伤风停胶囊",
+                "price": "1900",
+                "standard": "0.35g*24粒"
+              },
+              {
+                "drug_id": "11620345",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/57/DSC_1057.jpg",
+                "show_name": "三九 感冒灵颗粒",
+                "price": "1090",
+                "standard": "10g*9袋"
+              }
+            ],
+            "drug_hot_id": "820524",
+            "drug_hot_name": "感冒咳嗽",
+            "drug_hot_color": "#f03a52"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11620034",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/30/DSC_2530.jpg",
+                "show_name": "吗丁啉 多潘立酮片",
+                "price": "1750",
+                "standard": "10mg*30片"
+              },
+              {
+                "drug_id": "20114919",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/13/DSC_1713.jpg",
+                "show_name": "江中 健胃消食片(儿童）",
+                "price": "940",
+                "standard": "0.5g*36粒"
+              },
+              {
+                "drug_id": "20114654",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/101995_435876.jpg",
+                "show_name": "葵花 胃康灵胶囊",
+                "price": "2980",
+                "standard": "0.4g*48粒"
+              },
+              {
+                "drug_id": "11620973",
+                "pic_path": "http://imgstore.camore.cn/20151023/yikang/yikang_第一组(132).jpg",
+                "show_name": "天天乐 四味脾胃舒颗粒",
+                "price": "5110",
+                "standard": "10g*15袋"
+              },
+              {
+                "drug_id": "11620233",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/96/DSC_2596.jpg",
+                "show_name": "史克肠虫清 阿苯达唑片",
+                "price": "1580",
+                "standard": "0.2g*10片"
+              },
+              {
+                "drug_id": "20114650",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/22/DSC_2522.jpg",
+                "show_name": "神威 藿香正气软胶囊",
+                "price": "1490",
+                "standard": "0.45g*24粒"
+              }
+            ],
+            "drug_hot_id": "820529",
+            "drug_hot_name": "胃肠消化",
+            "drug_hot_color": "#f03a52"
+          },
+          {
+            "drug_hot_arr": [
+              {
+                "drug_id": "11621100",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102825_435147.jpg",
+                "show_name": "汤臣倍健 角鲨烯软胶囊",
+                "price": "26820",
+                "standard": "500mg*100粒"
+              },
+              {
+                "drug_id": "11621166",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102818_435030.jpg",
+                "show_name": "汤臣倍健 大豆磷脂软胶囊",
+                "price": "10620",
+                "standard": "1000mg*100粒"
+              },
+              {
+                "drug_id": "25463850",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ty/42/ABC_1342.jpg",
+                "show_name": "合生元 益生菌冲剂",
+                "price": "15840",
+                "standard": "1.5g*26袋"
+              },
+              {
+                "drug_id": "11621163",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102819_438501.jpg",
+                "show_name": "汤臣倍健 清好清畅胶囊",
+                "price": "13760",
+                "standard": "400mg*60粒"
+              },
+              {
+                "drug_id": "11621167",
+                "pic_path": "http://imgstore.camore.cn/prod_img_ykd/102974_435150.jpg",
+                "show_name": "汤臣倍健 鱼油软胶囊",
+                "price": "10620",
+                "standard": "100g（1000mg*100粒）"
+              }
+            ],
+            "drug_hot_id": "820530",
+            "drug_hot_name": "营养保健",
+            "drug_hot_color": "#f03a52"
+          }
+        ]
+      }
+    },
+    //弹框
+    "favorable_select": {
+      "favorable_img_url_arr": [
+        {
+          "img_url": "http://imgstore.camore.cn/icon/act/ashacker/180501/act34_tc.png",
+          "web_url": "http://store.ykd365.com/medstore/actUserpage/OneYuan_module_1805?dirId=1000036461&token=7d8b75be65fd48dd90ee7715a9e1a573&link_id=595",
+          "web_title": "母亲节活动",
+          "type": "0"
+        }
+      ],
+      "type": "0"
+    },
+    //通栏图片
+    "activity_image_info": {
+      
+    },
+    "symptom_dic": {
+      "symptom_arr": [
+        {
+          "sort_id": "823037",
+          "sort_name": "男性性功能异常",
+          "sorts": [
+            {
+              "item_id": "823037",
+              "item_name": "男性性功能异常",
+              "categorys": [
+                {
+                  "category_id": "823095",
+                  "category_name": "补肾壮阳",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0504.png"
+                },
+                {
+                  "category_id": "823092",
+                  "category_name": "前列腺用药",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0501.png"
+                },
+                {
+                  "category_id": "823094",
+                  "category_name": "手淫过度",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0503.png"
+                },
+                {
+                  "category_id": "823098",
+                  "category_name": "性功能障碍",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0507.png"
+                },
+                {
+                  "category_id": "823099",
+                  "category_name": "阳痿早泄",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0508.png"
+                },
+                {
+                  "category_id": "823096",
+                  "category_name": "性欲减退",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0505.png"
+                },
+                {
+                  "category_id": "823097",
+                  "category_name": "遗精",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0506.png"
+                },
+                {
+                  "category_id": "823093",
+                  "category_name": "少精弱精",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0502.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823036",
+          "sort_name": "妇科问题",
+          "sorts": [
+            {
+              "item_id": "823036",
+              "item_name": "妇科问题",
+              "categorys": [
+                {
+                  "category_id": "823086",
+                  "category_name": "妇科炎症",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0402.png"
+                },
+                {
+                  "category_id": "823085",
+                  "category_name": "白带异常",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0401.png"
+                },
+                {
+                  "category_id": "823091",
+                  "category_name": "月经不调",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0407.png"
+                },
+                {
+                  "category_id": "823089",
+                  "category_name": "痛经",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0405.png"
+                },
+                {
+                  "category_id": "823090",
+                  "category_name": "腹痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0406.png"
+                },
+                {
+                  "category_id": "823087",
+                  "category_name": "闭经",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0403.png"
+                },
+                {
+                  "category_id": "823088",
+                  "category_name": "乳腺增生",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0404.png"
+                },
+                {
+                  "category_id": "2516400",
+                  "category_name": "更年期",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0408.png"
+                },
+                {
+                  "category_id": "2721809",
+                  "category_name": "更年期",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0408.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "2719533",
+          "sort_name": "皮肤问题",
+          "sorts": [
+            {
+              "item_id": "2719533",
+              "item_name": "皮肤问题",
+              "categorys": [
+                {
+                  "category_id": "2720774",
+                  "category_name": "湿疹/皮炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1101.png"
+                },
+                {
+                  "category_id": "2720775",
+                  "category_name": "癣病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1102.png"
+                },
+                {
+                  "category_id": "2720776",
+                  "category_name": "皮肤感染",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1103.png"
+                },
+                {
+                  "category_id": "2720777",
+                  "category_name": "蚊虫叮咬",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1104.png"
+                },
+                {
+                  "category_id": "2720778",
+                  "category_name": "痤疮",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1105.png"
+                },
+                {
+                  "category_id": "2720779",
+                  "category_name": "皮肤瘙痒",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1106.png"
+                },
+                {
+                  "category_id": "2720780",
+                  "category_name": "头皮屑",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1107.png"
+                },
+                {
+                  "category_id": "2720781",
+                  "category_name": "烧伤创伤",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1108.png"
+                },
+                {
+                  "category_id": "2720782",
+                  "category_name": "荨麻疹",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1109.png"
+                },
+                {
+                  "category_id": "2720783",
+                  "category_name": "疖疔疮疡",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1110.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "2715379",
+          "sort_name": "慢性病",
+          "sorts": [
+            {
+              "item_id": "2715379",
+              "item_name": "慢性病",
+              "categorys": [
+                {
+                  "category_id": "2718957",
+                  "category_name": "高血压",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1001.png"
+                },
+                {
+                  "category_id": "2718958",
+                  "category_name": "高血脂",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1002.png"
+                },
+                {
+                  "category_id": "2718959",
+                  "category_name": "高尿酸",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1003.png"
+                },
+                {
+                  "category_id": "2718960",
+                  "category_name": "糖尿病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1004.png"
+                },
+                {
+                  "category_id": "2718961",
+                  "category_name": "甲状腺",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1005.png"
+                },
+                {
+                  "category_id": "2718962",
+                  "category_name": "冠心病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1006.png"
+                },
+                {
+                  "category_id": "2718963",
+                  "category_name": "心绞痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1007.png"
+                },
+                {
+                  "category_id": "2718964",
+                  "category_name": "心力衰竭",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1008.png"
+                },
+                {
+                  "category_id": "2718965",
+                  "category_name": "心肌梗死",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1009.png"
+                },
+                {
+                  "category_id": "2718966",
+                  "category_name": "心律失常",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1010.png"
+                },
+                {
+                  "category_id": "2718967",
+                  "category_name": "脑血管病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1011.png"
+                },
+                {
+                  "category_id": "2718968",
+                  "category_name": "癫痫",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1012.png"
+                },
+                {
+                  "category_id": "2718969",
+                  "category_name": "精神分裂症",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1013.png"
+                },
+                {
+                  "category_id": "2718970",
+                  "category_name": "抑郁症",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1014.png"
+                },
+                {
+                  "category_id": "2718971",
+                  "category_name": "神经病变",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1015.png"
+                },
+                {
+                  "category_id": "2718972",
+                  "category_name": "帕金森",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1016.png"
+                },
+                {
+                  "category_id": "2718973",
+                  "category_name": "风湿类风湿",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1017.png"
+                },
+                {
+                  "category_id": "2718974",
+                  "category_name": "关节炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1018.png"
+                },
+                {
+                  "category_id": "2718975",
+                  "category_name": "骨质增生",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1019.png"
+                },
+                {
+                  "category_id": "2718976",
+                  "category_name": "肩周炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1020.png"
+                },
+                {
+                  "category_id": "2718977",
+                  "category_name": "颈椎病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1021.png"
+                },
+                {
+                  "category_id": "2718978",
+                  "category_name": "腰间盘",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1022.png"
+                },
+                {
+                  "category_id": "2718979",
+                  "category_name": "痛风",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1023.png"
+                },
+                {
+                  "category_id": "2718980",
+                  "category_name": "肝病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1024.png"
+                },
+                {
+                  "category_id": "2718981",
+                  "category_name": "乙肝",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1025.png"
+                },
+                {
+                  "category_id": "2718982",
+                  "category_name": "胆囊疾病",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1026.png"
+                },
+                {
+                  "category_id": "2718983",
+                  "category_name": "肾结石",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1027.png"
+                },
+                {
+                  "category_id": "2718984",
+                  "category_name": "肾炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1028.png"
+                },
+                {
+                  "category_id": "2718985",
+                  "category_name": "骨质疏松",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1029.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823033",
+          "sort_name": "感冒发烧咳嗽",
+          "sorts": [
+            {
+              "item_id": "823033",
+              "item_name": "感冒发烧咳嗽",
+              "categorys": [
+                {
+                  "category_id": "823050",
+                  "category_name": "感冒",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0103.png"
+                },
+                {
+                  "category_id": "823049",
+                  "category_name": "发烧",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0102.png"
+                },
+                {
+                  "category_id": "823055",
+                  "category_name": "咽喉肿痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0108.png"
+                },
+                {
+                  "category_id": "823051",
+                  "category_name": "咳嗽",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0104.png"
+                },
+                {
+                  "category_id": "823054",
+                  "category_name": "痰多",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0107.png"
+                },
+                {
+                  "category_id": "823052",
+                  "category_name": "流鼻涕",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0105.png"
+                },
+                {
+                  "category_id": "823048",
+                  "category_name": "鼻塞",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0101.png"
+                },
+                {
+                  "category_id": "823053",
+                  "category_name": "呕吐",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0106.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823034",
+          "sort_name": "肠胃不适",
+          "sorts": [
+            {
+              "item_id": "823034",
+              "item_name": "肠胃不适",
+              "categorys": [
+                {
+                  "category_id": "823063",
+                  "category_name": "消化不良",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0201.png"
+                },
+                {
+                  "category_id": "823066",
+                  "category_name": "胃痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0204.png"
+                },
+                {
+                  "category_id": "823067",
+                  "category_name": "胃酸",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0205.png"
+                },
+                {
+                  "category_id": "823065",
+                  "category_name": "胃胀",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0203.png"
+                },
+                {
+                  "category_id": "823064",
+                  "category_name": "胃灼热",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0202.png"
+                },
+                {
+                  "category_id": "823070",
+                  "category_name": "腹泻",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0208.png"
+                },
+                {
+                  "category_id": "823073",
+                  "category_name": "便秘",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0211.png"
+                },
+                {
+                  "category_id": "823068",
+                  "category_name": "食欲不振",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0206.png"
+                },
+                {
+                  "category_id": "823071",
+                  "category_name": "恶心呕吐",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0209.png"
+                },
+                {
+                  "category_id": "823069",
+                  "category_name": "食物不耐",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0207.png"
+                },
+                {
+                  "category_id": "823072",
+                  "category_name": "痔疮",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0210.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823035",
+          "sort_name": "过敏哮喘",
+          "sorts": [
+            {
+              "item_id": "823035",
+              "item_name": "过敏哮喘",
+              "categorys": [
+                {
+                  "category_id": "823078",
+                  "category_name": "鼻炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0301.png"
+                },
+                {
+                  "category_id": "823080",
+                  "category_name": "皮肤瘙痒/过敏/起红斑",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0303.png"
+                },
+                {
+                  "category_id": "823081",
+                  "category_name": "气喘",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0304.png"
+                },
+                {
+                  "category_id": "823079",
+                  "category_name": "干咳",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0302.png"
+                },
+                {
+                  "category_id": "823082",
+                  "category_name": "痰多",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0305.png"
+                },
+                {
+                  "category_id": "823083",
+                  "category_name": "眼部不适",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0306.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823038",
+          "sort_name": "疼痛溃疡",
+          "sorts": [
+            {
+              "item_id": "823038",
+              "item_name": "疼痛溃疡",
+              "categorys": [
+                {
+                  "category_id": "823112",
+                  "category_name": "头痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0606.png"
+                },
+                {
+                  "category_id": "823113",
+                  "category_name": "牙痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0607.png"
+                },
+                {
+                  "category_id": "823109",
+                  "category_name": "颈肩痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0603.png"
+                },
+                {
+                  "category_id": "823114",
+                  "category_name": "腰痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0608.png"
+                },
+                {
+                  "category_id": "823107",
+                  "category_name": "风湿关节疼痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0601.png"
+                },
+                {
+                  "category_id": "823110",
+                  "category_name": "溃疡",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0604.png"
+                },
+                {
+                  "category_id": "823115",
+                  "category_name": "月经疼痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0609.png"
+                },
+                {
+                  "category_id": "823111",
+                  "category_name": "尿痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0605.png"
+                },
+                {
+                  "category_id": "823108",
+                  "category_name": "腹痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0602.png"
+                },
+                {
+                  "category_id": "2516600",
+                  "category_name": "咽喉肿痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0610.png"
+                },
+                {
+                  "category_id": "2516800",
+                  "category_name": "口腔溃疡",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0611.png"
+                },
+                {
+                  "category_id": "2517000",
+                  "category_name": "跌打损伤",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0612.png"
+                },
+                {
+                  "category_id": "2722073",
+                  "category_name": "咽喉肿痛",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0610.png"
+                },
+                {
+                  "category_id": "2722205",
+                  "category_name": "口腔溃疡",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0611.png"
+                },
+                {
+                  "category_id": "2722337",
+                  "category_name": "跌打损伤",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0612.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823039",
+          "sort_name": "眼部不适",
+          "sorts": [
+            {
+              "item_id": "823039",
+              "item_name": "眼部不适",
+              "categorys": [
+                {
+                  "category_id": "823122",
+                  "category_name": "眼干眼涩",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0701.png"
+                },
+                {
+                  "category_id": "823123",
+                  "category_name": "眼部炎症",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0702.png"
+                },
+                {
+                  "category_id": "823124",
+                  "category_name": "流泪",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0703.png"
+                },
+                {
+                  "category_id": "823125",
+                  "category_name": "视物模糊",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0704.png"
+                },
+                {
+                  "category_id": "823126",
+                  "category_name": "怕光",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0705.png"
+                },
+                {
+                  "category_id": "823127",
+                  "category_name": "视力下降",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0706.png"
+                },
+                {
+                  "category_id": "2517200",
+                  "category_name": "青光眼/白内障",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0707.png"
+                },
+                {
+                  "category_id": "2517400",
+                  "category_name": "视疲劳",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0708.png"
+                },
+                {
+                  "category_id": "2722469",
+                  "category_name": "青光眼/白内障",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0707.png"
+                },
+                {
+                  "category_id": "2722601",
+                  "category_name": "视疲劳",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0708.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823040",
+          "sort_name": "身体乏力",
+          "sorts": [
+            {
+              "item_id": "823040",
+              "item_name": "身体乏力",
+              "categorys": [
+                {
+                  "category_id": "823133",
+                  "category_name": "失眠",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0805.png"
+                },
+                {
+                  "category_id": "823130",
+                  "category_name": "房事/手淫过多",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0802.png"
+                },
+                {
+                  "category_id": "823132",
+                  "category_name": "记忆力下降",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0804.png"
+                },
+                {
+                  "category_id": "823129",
+                  "category_name": "耳鸣",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0801.png"
+                },
+                {
+                  "category_id": "823134",
+                  "category_name": "眩晕",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0806.png"
+                },
+                {
+                  "category_id": "823131",
+                  "category_name": "气短乏力",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0803.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "823041",
+          "sort_name": "儿童用药",
+          "sorts": [
+            {
+              "item_id": "823041",
+              "item_name": "儿童用药",
+              "categorys": [
+                {
+                  "category_id": "823136",
+                  "category_name": "感冒",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0901.png"
+                },
+                {
+                  "category_id": "823137",
+                  "category_name": "发烧",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0902.png"
+                },
+                {
+                  "category_id": "823138",
+                  "category_name": "咳嗽",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0903.png"
+                },
+                {
+                  "category_id": "823140",
+                  "category_name": "消化不良",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0905.png"
+                },
+                {
+                  "category_id": "823139",
+                  "category_name": "腹泻",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0904.png"
+                },
+                {
+                  "category_id": "2517600",
+                  "category_name": "肺炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0906.png"
+                },
+                {
+                  "category_id": "2517800",
+                  "category_name": "湿疹",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0907.png"
+                },
+                {
+                  "category_id": "2722865",
+                  "category_name": "肺炎",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0906.png"
+                },
+                {
+                  "category_id": "2722997",
+                  "category_name": "湿疹",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz0907.png"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sort_id": "2721007",
+          "sort_name": "感染",
+          "sorts": [
+            {
+              "item_id": "2721007",
+              "item_name": "感染",
+              "categorys": [
+                {
+                  "category_id": "2721633",
+                  "category_name": "呼吸道感染",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1201.png"
+                },
+                {
+                  "category_id": "2721634",
+                  "category_name": "真菌感染",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1202.png"
+                },
+                {
+                  "category_id": "2721635",
+                  "category_name": "肺结核",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1203.png"
+                },
+                {
+                  "category_id": "2721636",
+                  "category_name": "肠道泌尿感染",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1204.png"
+                },
+                {
+                  "category_id": "2721637",
+                  "category_name": "皮肤软组织感染",
+                  "category_icon_url": "http://imgstore.camore.cn/icon/zz/zz1205.png"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "symptom_image": "",
+      "symptom_aspect_ratio": "4777"
+    },
+    "brand_dic": {
+      "brand_arr": [
+        
+      ],
+      "banner_pic_arr": [
+        
+      ]
+    }
+  },
+  "response_num": "1525320003760"
+}

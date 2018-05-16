@@ -17,22 +17,27 @@
 		<script src="js/html_common.js"></script>
 		<script>
 			/** 默认是生产APPID*/
-			var appid = 'wx697be0ec43c8cafa';
-			
+			var appid = 'wxade8c5e473c645e9';
+			if (location.host.indexOf('deve') >= 0) {
+				/** 准生产APPID*/
+				appid = 'wx697be0ec43c8cafa';
+			}
 			var codeActId = '${codeActId}' || '';
-			var act_url = '${act_url}' || '' ;
+			var act_url = '${act_url}' || '';
+			var wxparam = "%26codeActId%3d${codeActId}%26pharmacy_id%3d${pharmacy_id}%26user_id%3d${user_id}%26inviteType%3d${inviteType}%26version_sys%3dwehcat";
 			// 新追加一个参数
-			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2factivity%2f'+codeActId+'%3fact_url=' + act_url;
+			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2fcouponAct%2f' + codeActId + '%3fact_url%3d' + act_url;
 			console.debug(' cur href is ', redirect_uri);
-			
-			 if (is_weixin()) {
+			if (is_weixin()) {
 				var grantBoo = "${grantFail}";
 				if (grantBoo == "true" || grantBoo == true) {
 					var grantFailUserId = "${fromUserId}";
-					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
 				}
-			} 
-			
+			} else {
+				//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+			}
+					
 		</script>
 		<style type="text/css">
 			* {
@@ -149,6 +154,7 @@
 				width: 100%;
 				background: rgba(0, 0, 0, .5);
 				z-index: 10;
+				padding-top: 2.5rem;
 			}
 			.failResul{
 				width: 3rem;
@@ -157,11 +163,12 @@
 				position: absolute;
 				left: 50%;
 				margin-left: -1.5rem;
-				top: 50%;
-				margin-top: -1.5rem;
+				/* top: 50%;
+				margin-top: -1.5rem; */
 				text-align: center;
 				padding: 0 .1rem ;
 				box-sizing: border-box;
+				font-size: .24rem;
 			}
 			.desc{
 				margin: .8rem 0;
@@ -198,13 +205,13 @@
 				</div>
 				<div class="getHbWrap">
 					<div class="getHb">
-						<div class="commomLogin" style="display: none;">
+						<div class="commomLogin" >
 							<input type="tel" placeholder="请输入手机号码" id="userPhone">
 							<button id="getHbBtn">免费领取</button>
 						</div>
-						<div class="received_result" style="display: block;">
+						<div class="received_result" style="display: none;">
 						<!--领取成功  -->
-							<div class="receive_success" style="display: block;">
+							<div class="receive_success" style="display: none;">
 								<div class=" getHbnNum">
 	                   				<img  src="images/act_18allergyIndex_getSucc.png" alt="" />
 								</div>
@@ -248,7 +255,7 @@
 				})();
 			</script>
 			<div class="failResul" >
-				<p class="desc">结束了</p>
+				<p class="desc"></p>
 				<p class="line"></p>
 				<p class="closeBtn">知道了</p>
 			</div>
@@ -257,11 +264,17 @@
 	</body>
 	<script>
 		var phoneNum = '${phoneNum}';
-		var fromUserId = '${userId}';
+		var fromUserId = '${user_id}';
+		var openId = '${openid}';
+		//分享者 的 信息
+		var token = '${user_token}';
 		var wechatObj = new Object();
-		//alert(location.href);
+		var openId = '${openid}';
+		//alert(location.href);	/*从新的url里获取token 和version 的值  */
+	
 	
 		window.onload = function() {
+			
 			$(".getHbWrap").on("click", "#getHbBtn", function() {
 				waitShow();
 				$_phoneno = $("#userPhone").val();
@@ -275,7 +288,8 @@
 				$.ajax({
 					type : "post",
 					url : "couponActR",
-					data : "phoneNum=" + $_phoneno+ "&code_act_id=" + codeActId+ "&user_id=" + fromUserId + "&user_token=" ,
+					//data : "phone_num=" + $_phoneno+ "&code_act_id=" + codeActId+ "&user_id=" + fromUserId + "&user_token=&openId=${openId}" ,
+					data : "phone_num=" + $_phoneno+ "&code_act_id=" + codeActId+ "&user_id=" + fromUserId + "&user_token=" + "&openId=" + openId,
 					success : function(result) {
 						console.debug("result");
 						waitClose();
@@ -319,6 +333,11 @@
 				$("#shareshade").css("height", $(".content").height());
 				$("#shareshade").show();
 			});
+			//去使用跳转页面
+			$(".goForUse").on("click",function(){
+				var target_href = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653' ;
+				window.location.href=target_href ;
+			});
 			$(".closeBtn").on("click",function(){
 				$(".failShow").hide();
 			})
@@ -326,80 +345,85 @@
 	</script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
-		wechatObj.title = '【药快到】免费送你3M口罩，先到先得~';
-		wechatObj.desc = '春季防敏防霾 “罩”护你健康';
-		wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
-		wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_18allergyIndex_shareImg.jpg';
-	
-		if (is_weixin()) {
-			$.ajax({
-				url : "/medhtml/common/getwxjssign?",
-				data : {
-					url : location.href.split('#')[0]
-				},
-				success : function(wechatReturn) {
-					if (wechatReturn) {
-						wx.config({
-							debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-							appId : appid, // 必填，公众号的唯一标识
-							timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
-							nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
-							signature : wechatReturn.signature,// 必填，签名，见附录1
-							jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
-						// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
-						});
-					}
-					;
-					wx.ready(function() {
-						getMenuShare();
+	wechatObj.title = '【药快到】免费送你3M口罩，先到先得~';
+	wechatObj.desc = '春季防敏防霾 “罩”护你健康';
+	//wechatObj.link = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_base&state={"silent_grant ":"yes","from_user_id":"' + fromUserId + '"}#wechat_redirect';
+	wechatObj.link = location.href.split('#')[0];
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_18allergyIndex_shareImg.jpg';
+	if (is_weixin()) {
+		$.ajax({
+			url : "/medhtml/common/getwxjssign?",
+			data : {
+				url : location.href.split('#')[0]
+				//url:wechatObj.link
+			},
+			success : function(wechatReturn) {
+				if (wechatReturn) {
+					wx.config({
+						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						appId : appid, // 必填，公众号的唯一标识
+						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
+						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
+						signature : wechatReturn.signature,// 必填，签名，见附录1
+						jsApiList : [ "onMenuShareTimeline", "onMenuShareAppMessage", "onMenuShareQQ", "onMenuShareWeibo" ]
+					// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
 					});
 				}
-			});
-		};
-		wx.ready(function() {
-			getWechatObj()
-		})
-		function getWechatObj() {
-			wx.onMenuShareTimeline({
-				title : wechatObj.desc, // 分享描述
-				link : wechatObj.link, // 分享链接
-				imgUrl : wechatObj.imgUrl, // 分享图标
-				success : function() {
-				},
-				cancel : function() {
-				}
-			});
-			wx.onMenuShareAppMessage({
-				title : wechatObj.title, // 分享标题
-				desc : wechatObj.desc, // 分享描述
-				link : wechatObj.link, // 分享链接
-				imgUrl : wechatObj.imgUrl, // 分享图标
-				success : function() {
-				},
-				cancel : function() {
-				}
-			});
-			wx.onMenuShareQQ({
-				title : wechatObj.title, // 分享标题
-				desc : wechatObj.desc, // 分享描述
-				link : wechatObj.link, // 分享链接
-				imgUrl : wechatObj.imgUrl, // 分享图标
-				success : function() {
-				},
-				cancel : function() {
-				}
-			});
-			wx.onMenuShareWeibo({
-				title : wechatObj.title, // 分享标题
-				desc : wechatObj.desc, // 分享描述
-				link : wechatObj.link, // 分享链接
-				imgUrl : wechatObj.imgUrl, // 分享图标
-				success : function() {
-				},
-				cancel : function() {
-				}
-			});
-		}
-	</script>
+				;
+				wx.ready(function() {
+					getMenuShare();
+				});
+			}
+		});
+	};
+
+	wx.ready(function() {
+		getWechatObj()
+	})
+	function getWechatObj() {
+		wx.onMenuShareTimeline({
+			title : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			
+			},
+			cancel : function() {
+			
+			}
+		});
+		wx.onMenuShareAppMessage({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareQQ({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+		wx.onMenuShareWeibo({
+			title : wechatObj.title, // 分享标题
+			desc : wechatObj.desc, // 分享描述
+			link : wechatObj.link, // 分享链接
+			imgUrl : wechatObj.imgUrl, // 分享图标
+			success : function() {
+			},
+			cancel : function() {
+			}
+		});
+	}
+</script>
+
 
 </html>

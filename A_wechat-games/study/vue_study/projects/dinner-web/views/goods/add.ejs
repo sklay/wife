@@ -1,0 +1,162 @@
+<div id="app">
+    <el-card class="box-card">
+        <div slot="header">
+            <span>添加商品</span>
+        </div>
+        <el-form label-width="80px" :model="goods" :rules="rules" ref="ruleForm">
+            <el-form-item label="标题" prop="title">
+                <el-input v-model="goods.title" @keyup.enter.native="submit"></el-input>
+            </el-form-item>
+            <el-form-item label="分类" prop="category">
+                <el-select v-model="goods.category" placeholder="请选择" :clearable="true">
+                    <el-option v-for="item in categoryObjects" :key="item.objectId" :label="item.title" :value="item.objectId">
+                    </el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item label="价格" prop="price">
+                <el-input v-model="goods.price" type="number" @keyup.enter.native="submit"></el-input>
+            </el-form-item>
+            <el-form-item label="序号" prop="priority">
+                <el-input v-model="goods.priority" type="number" @keyup.enter.native="submit" placeholder="越小越靠前"></el-input>
+            </el-form-item>
+            <el-form-item label="主图" prop="images">
+                <el-upload action="/file/upload" :auto-upload=true name="file" :on-preview="handlePreview" :on-remove="handleRemove" list-type="picture-card" :file-list="goods.images" :on-success="uploadSuccess" :before-upload="beforeUpload">
+                    <i class="el-icon-plus"></i>
+                    <div class="el-upload__tip" slot="tip">目前仅支持1张，只能上传jpg/png文件，且不超过500kb</div>
+                </el-upload>
+                <el-dialog title="图片预览" v-model="dialogVisible" size="tiny">
+                    <img width="100%" :src="dialogImageUrl" alt="">
+                </el-dialog>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="submit()">添加</el-button>
+            </el-form-item>
+        </el-form>
+    </el-card>
+</div>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        treeValue: [],
+        goods: {
+            title: '',
+            category: '',
+            price: '',
+            images: []
+        },
+        categoryObjects: [],
+        dialogImageUrl: '',
+        dialogVisible: false,
+        props: {
+            value: 'objectId',
+            label: 'title',
+            children: 'children'
+        },
+        rules: {
+            title: [{
+                required: true,
+                message: '请输入标题',
+                trigger: 'blur'
+            }],
+            category: [{
+                required: true,
+                message: '请选择分类',
+                trigger: 'blur'
+            }],
+            price: [{
+                required: true,
+                message: '请输入价格',
+                trigger: 'blur'
+            }],
+            priority: [{
+                required: true,
+                message: '请输入序号',
+                trigger: 'blur'
+            }],
+            images: [{
+                required: true,
+                validator: (rule, value, callback) => {
+                    if (!value.length) {
+                        callback(new Error('请上传图片'));
+                    } else {
+                        callback();
+                    }
+                },
+                trigger: 'blur'
+            }],
+        },
+    },
+    mounted: function() {
+        // 使用promise有效避免了下拉框会短暂显示objectId值
+        new Promise((resolve, reject) => {
+            // 加载分类
+            this.$http.post('../category/list').then(response => {
+                // 在前端显示分类
+                this.categoryObjects = response.body;
+                resolve();
+            });
+        }).then((categoryArray) => {
+            // 编辑时加载原数据
+            if (getQueryString('objectId')) {
+                // 发起请求
+                this.$http.post('/goods/find', { objectId: getQueryString('objectId') }).then(response => {
+                    console.log(response)
+                    this.goods = response.body;
+                    this.goods.images = [{ name: '', url: response.body.thumb_url }];
+                    this.goods.price = this.goods.price.toString();
+                    this.goods.priority = this.goods.priority.toString();
+                });
+            }
+        })
+
+    },
+    methods: {
+        handleItemChange: function(val) {
+            this.goods.category = val.slice(-1).toString();
+        },
+        submit: function() {
+            this.$refs.ruleForm.validate((valid) => {
+                if (valid) {
+                    // 验证通过
+                    this.$http.post('./add', this.goods).then(response => {
+                        console.log(response);
+                        this.$message({
+                            message: response.body.code === undefined ? '保存成功' : '保存失败 - code:' + response.body.code
+                        });
+                    });
+                }
+            });
+
+        },
+        uploadSuccess: function(res) {
+            this.goods.images.push(res);
+        },
+        beforeUpload: function(file) {
+            if (this.goods.images.length > 0) {
+                this.$message.error('目前仅支持1张主图');
+                return false;
+            }
+            const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
+            const isLt = file.size / 1024 / 1024 < 0.5;
+            if (!isJPG) {
+                this.$message.error('上传图片只能是 JPG 格式!');
+                return false;
+            }
+            if (!isLt) {
+                this.$message.error('上传图片大小不能超过 500kb!');
+                return false;
+            }
+            return true;
+        },
+        handleRemove(file, images) {
+            this.goods.images = [];
+        },
+        handlePreview(file) {
+            console.log(file);
+            this.dialogImageUrl = file.url;
+            this.dialogVisible = true;
+        }
+    }
+});
+</script>

@@ -1,0 +1,27 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-style: normal;
+  text-align: center;
+}
+html {
+  font-size: 62.5%;
+}
+html,body {
+  width: 16rem;
+  background: #fff;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+body {
+  font-family: Microsoft Yahei, Arial;
+}

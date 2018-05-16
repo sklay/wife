@@ -1,0 +1,414 @@
+@charset "utf-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+i {
+  font-style: normal;
+  text-align: center;
+}
+html {
+  font-size: 62.5%;
+}
+html,
+body {
+  width: 100%;
+  background: #ddf9e1;
+  font-family: Microsoft Yahei, Arial;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+.content {
+  width: 100%;
+  height: 100%;
+}
+.content_top {
+  margin: 0 auto;
+  position: relative;
+}
+.content_top img{
+    width: 100%;
+    float: left;
+}
+/*.content .indexPage {
+  width: 100%;
+  height: 16rem;
+  background: url(../images/act_17lunarYear_ReceiveIndexBj.jpg) center center no-repeat;
+  background-size: 100% 100%;
+}*/
+.getHbWrap{
+	width: 9rem;
+	margin:  0 auto;
+	padding:.5456rem 0;
+	box-sizing: border-box;
+	background: #fff;
+	box-shadow: 0 0 25px #8ec391;
+	position: absolute;
+	top: 50%;
+	margin-top: 2.6rem;
+	left: 50%;
+	margin-left: -4.5rem;
+}
+.getHbWrap_title {
+  width: 7.1875rem;
+  padding-top: 1.34375rem;
+  margin: 0 auto;
+}
+.getHbWrap_title img {
+  width: 100%;
+  float: left;
+}
+.getHbWrap_title img:nth-child(2) {
+  margin-top: -0.15rem;
+}
+.commomLogin {
+  width: 7.34375rem;
+  margin: 0 auto;
+}
+.commomLogin #getHbBtn {
+  width: 100%;
+  margin-top: 0.4875rem;
+}
+/*.commomLogin #downText {
+  width: 80%;
+  display: block;
+  margin: 0.421875rem auto 0;
+}*/
+/*.inputSty {
+  width: 7.34375rem;
+  height: 1.5625rem;
+  background: url(../images/act_17lunarYear_receiveInputBj.png) center center no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  text-align: center;
+}*/
+.getHb button {
+  width: 7.34375rem;
+  height: .9125rem;
+  line-height: .9125rem;
+  border-radius: 50px;
+  background: -webkit-linear-gradient(top, #fab402 0%, #f4a505 40%, #ed9209 75%, #eb8d0a 100%);
+  background: linear-gradient(to bottom, #fab402 0%, #f4a505 40%, #ed9209 75%, #eb8d0a 100%);
+  outline: none;
+  border:0;
+  font-size:0.446875rem;
+  font-family: "DFPWaWaW5";
+  color:#fff;
+  text-align: center;
+  box-shadow: 0 3px 5px #fadeb5;
+}
+.getHb input {
+  width: 7.34375rem;
+  height: .9125rem;
+  line-height: .9125rem;
+  border-radius: 50px;
+  background: #fff;
+  outline: none;
+  border: 1px solid #f19f11;
+  font-size:0.446875rem;
+  font-family: "DFPWaWaW5";
+  color: #f9d9a0;
+  text-align: center;
+}
+::-moz-placeholder {
+  color: #f9d9a0;
+  text-align: center;
+  font-family: "";
+}
+:-ms-input-placeholder {
+  color: #f9d9a0;
+  text-align: center;
+}
+::-webkit-input-placeholder {
+  color: #f9d9a0;
+  text-align: center;
+}
+.received_result {
+  width: 100%;
+  /*height: 16rem;*/
+  background: url(../images/act_17lunarYear_ReceiveResultBj.jpg) center center no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.receive_content {
+  width: 100%;
+  height: 16rem;
+  position: relative;
+}
+.getHbnNum {
+  /*width: 100%;*/
+  width: 4.34375rem;
+  margin: 0 auto;
+  /*height: 10.75625rem;*/
+}
+.getHbnNum img{
+	width: 100%;
+	
+	float: left;
+}
+.commUsebtn {
+  width: 6.4rem;
+  margin: 0.4875rem auto 0;
+  /*position: absolute;
+  bottom: 1.34375rem;
+  left: 50%;
+  margin-left: -3.671875rem;*/
+}
+.getHb .commUsebtn button{
+				width:2.8rem;
+				height: .9125rem;
+  line-height: .9125rem;
+			    border-radius: 50px;
+			    font-size: 0.346875rem;
+			}
+		.getHb	.use_btn{
+				/*background: #41a7fe;
+			    box-shadow: 0 5px 5px #0c66b2,0 6px 5px #d5bcbc;*/
+    			color:#fff;
+    			font-weight: bold;
+    			float: left;
+			}
+		.getHb	.shareFri{
+				 background: -webkit-linear-gradient(top, #87b618 0%, #72ad10 40%, #5ca309 75%, #4a9b02 100%);
+                 background: linear-gradient(to bottom, #87b618 0%, #72ad10 40%, #5ca309 75%, #4a9b02 100%);
+    			box-shadow: 0 3px 5px #c7e0b2;
+    			color:#fff;
+    			font-weight: bold;
+    			float: right;
+			}
+.has_received {
+	margin: 0.4875rem auto 0.6875rem;
+}
+/*.getHb7,
+.has_getHb7 {
+  background: url(../images/act_17lunarYear_ReceiveCoupon6.png) center center no-repeat;
+  background-size: 100% 100%;
+}
+.getHb8,
+.has_getHb8 {
+  background: url(../images/act_17lunarYear_ReceiveCoupon8.png) center center no-repeat;
+  background-size: 100% 100%;
+}*/
+
+/*.commUsebtn img {
+  width: 100%;
+  margin-top: 0.5rem;
+  float: left;
+}*/
+/*.getHbnNum p {
+  padding-top: 4.84375rem;
+  text-align: center;
+  font-size: 0.46875rem;
+  font-family: "Microsoft YaHei";
+  color: #ffffff;
+  -moz-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -webkit-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+  -ms-transform: matrix(1.00177556, 0, 0, 0.99793418, 0, 0);
+}*/
+/*.friHbShow {
+  width: 9.8125rem;
+  overflow: hidden;
+  font-size: 0.4375rem;
+  border-bottom: 1px solid #ec5866;
+  margin: 0 auto;
+}
+.friHbShow .userFriAvatat {
+  width: 81%;
+  overflow: hidden;
+  float: left;
+  padding: 0.171875rem 0;
+}
+.friHbShow .userFriAvatat img {
+  width: 1.078125rem;
+  height: 1.078125rem;
+  float: left;
+  border-radius: 4px;
+}
+.friHbShow .userFriAvatat .userFriInf {
+  float: left;
+  margin-left: 0.125rem;
+  width: 80%;
+}
+.friHbShow .userFriAvatat .userFriInf strong {
+  font-size: 0.3125rem;
+  color: #fff;
+  line-height: 0.21875rem;
+}
+.friHbShow .userFriAvatat .userFriInf p {
+  white-space: nowrap;
+  font-size: 0.3125rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  color: #fff;
+  line-height: 0.546875rem;
+}
+.friHbShow .userFriInf_wrap {
+  width: 18%;
+  float: right;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0.28125rem 0;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap {
+  width: 100%;
+  height: 0.96875rem;
+  float: right;
+  background: url(../images/act_17lunarYear_couponIcon.png) 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue {
+  font-size: 0.625rem;
+  line-height: 0.96875rem;
+  color: #875617;
+  text-align: center;
+  display: block;
+  position: relative;
+  margin-left: -0.5625rem;
+}
+.friHbShow .userFriInf_wrap .userFriHbValue_wrap .userFriHbValue span {
+  font-size: 0.546875rem;
+  position: absolute;
+}*/
+.activeRuleShowWrap .activeRuleShow {
+  width: 9rem;
+  margin: 0 auto;
+  color: #27742a;
+  line-height: 0.9375rem;
+  font-size: 0.40625rem;
+  padding: 0 0 .4rem 0;
+  box-sizing: border-box;
+}
+/* .comShowTitle .comShowDesc {
+    text-align: center;
+    line-height: 40px;
+    width: 2.8rem;
+    margin: 0 auto;;
+    font-size: 16px;
+} */
+.comShowTitle {
+  color: #fff;
+  height: 40px;
+  width: 3.8125rem;
+  margin: 1.053125rem auto 0;
+  overflow: hidden;
+  position: relative;
+}
+.comShowTitle img{
+	width: 100%;
+}
+/*.leftLineDot {
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-right: .3rem;
+  padding-top: 19px;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.leftLineDot span {
+  float: left;
+  background: #fff;
+}
+.leftLineDot span:nth-child(2) {
+  position: absolute;
+  right: 3px;
+  top: 15px;
+}
+.rightLineDot {
+  padding: 19px 0 0 .3rem;
+  right: 0;
+  overflow: hidden;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  box-sizing: border-box;
+  width: 2.1875rem;
+}
+.rightLineDot span {
+  float: right;
+  background: #fff;
+}
+.rightLineDot span:nth-child(1) {
+  position: absolute;
+  left: 3px;
+  top: 15px;
+}
+.comshowTitleText {
+  text-align: center;
+  line-height: 40px;
+  width: 3.5rem;
+  margin: 0 auto;
+  font-size: 16px;
+}
+.received_result .shareAppPage {
+  width: 7.34375rem;
+  position: absolute;
+  bottom: 0.94375rem;
+  left: 50%;
+  margin-left: -3.671875rem;
+}
+.received_result .shareAppPage img {
+  width: 100%;
+}*/
+/*分享遮罩样式*/
+/*#shareFriSha {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: none;
+}
+#shareFriSha img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.promptDiv {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 180px;
+  height: 90px;
+  z-index: 99;
+  display: none;
+}
+.promptDiv .opDiv {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: none repeat scroll 0% 0% #333;
+  opacity: 0.5;
+  border-radius: 10px;
+}
+.promptDiv .promptContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.promptDiv img {
+  display: block;
+  margin: 12px auto 10px auto;
+  width: 45px;
+  height: 45px;
+}
+.promptDiv .title {
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}*/

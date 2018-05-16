@@ -1,0 +1,31 @@
+{
+  "name": "LaeserDinner",
+  "version": "1.0.0",
+  "private": true,
+  "description": "laeser dinner using bmob",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.12.3",
+    "connect-multiparty": "^2.1.0",
+    "connect-timeout": "^1.9.0",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.3.1",
+    "express": "^4.12.3",
+    "express-ejs-layouts": "^2.3.1",
+    "express-session": "^1.15.6",
+    "localStorage": "^1.0.3",
+    "moment": "^2.19.2",
+    "request": "^2.83.0",
+    "underscore": "^1.8.3",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "engines": {
+    "node": "6.x"
+  }
+}

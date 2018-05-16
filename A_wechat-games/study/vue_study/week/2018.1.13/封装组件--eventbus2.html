@@ -12,46 +12,58 @@
 	<body>
 		
 		<div id="app" >
-			<custom1></custom1>
-			<custom2 :title="title"></custom2>
+			{{title}}
+			<modal>
+				<span>这是要混合的内容</span>
+				<span>这是要混合的内容</span>
+				<span>这是要混合的内容</span>
+				<input slot='footer' type="button" name="" />
+			</modal>
 		</div>
-		<script>
-
-			Vue.component('custom1',{
-				template: `
-				<div>
-					<h2>custom1</h2>
-					<button @click="changeTitle">改变title</button>
+		<template id="modal-temp">
+			<div class="modal">
+				<h2>这是默认的标题</h2>
+				<div class="content">
+					{{title}}
+					<slot>
+						<p>这是显示的内容</p>
+					</slot>
+					
 				</div>
-				`,
-				methods: {
-					changeTitle(){
-						root.$emit('change','我来自custom1')
+				<div class="footer">
+					<slot name="footer">
+						<button>确定</button>
+					</slot>
+				</div>
+				<custome>
+					{{title}}
+				</custome>
+			</div>
+		</template>
+		<script>
+			Vue.component('modal',{
+				data(){
+					return {
+						title:"子组件的title"
 					}
-				}
+				},
+				template:'#modal-temp'
 			})
-			Vue.component('custom2',{
-				props: ['title'],
-				template: '<div><h2>custom2</h2><p>{{title}}</p></div>'
+			Vue.component('custome',{
+				data(){
+					return {
+						title:"custome"
+					}
+				},
+				template:'<div>{{title}}</div>'
 			})
-
-
 			let root = new Vue({
 				el: '#app',
 				data: {
-					 title:"给custom2"
+					 title:"父组件的title"
 				}
-//				,
-//				methods: {
-//					changeCustom2(title){
-//						this.title = title;
-//					}
-//				}
 			})
 			
-			root.$on('change',function(title){
-				root.title = title;
-			})
 
 		</script>
 

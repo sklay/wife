@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/jquery-1.9.0.min.js"></script>
+<script src="http://ys1000.oss-cn-beijing.aliyuncs.com/js/common.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<title>软件下载</title>
+<script>
+
+var nchannel = {"dt10":{"ios":"89L9nm","and":"jiy0za"},"ele":{"ios":"OnOfmq","and":"v8LLjC"},"ditui":{"ios":"HfyKve","and":"yOr4Lz"}  };
+
+var dchan = {"ios":"5nO5TD","and":"ySX1Lf"} ;
+var dcurl ="https://at.umeng.com/"+dchan.ios;
+var cn = document.location.hash ;
+
+if(cn =="#dt10"){
+dchan = nchannel.dt10;
+}else if(cn =="#ele"){
+dchan = nchannel.ele;
+}else if(cn =="#ditui"){
+dchan = nchannel.ditui;
+}
+
+
+
+if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { 
+	dcurl ="https://at.umeng.com/"+dchan.ios;
+}else{
+	dcurl ="https://at.umeng.com/"+dchan.and;
+}
+ 
+ function gotoDownload(){
+ 
+	window.location.href=dcurl;
+ }
+
+</script>
+<style>
+html, body, div, span, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, address, big, cite, code, del, em, font, img, ins, small, strong, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,input{margin: 0;padding: 0;}
+body{width:100%;background:#fff;font-family:"\5FAE\8F6F\96C5\9ED1", "Microsoft Yahei", "Hiragino Sans GB", tahoma, arial, "\5B8B\4F53";font-size:12px;color:#000000;OVERFLOW-X: auto;}
+.header{position:relative;background:#e5282e;color:#fff;height:50px;line-height:50px;text-align: center;font-size:16px;}
+.content .d_d{width:100%;font-size:0;position:relative;}
+.content .d_d img{width:100%;}
+/*.content .d_d .cDiv{position:absolute;left:0;top:0;width:100%;z-index:1;}
+.content .newBtn{width:160px;margin:0 auto;margin-top:10px;}*/
+.content .dButIos img{width:100%;}
+.content .dButIos a{display:block;width:100%;height:100%;text-align: center;}
+.content .dButAndroid{width:160px;margin:0 auto;margin-top:20px;}
+.content .dButAndroid img{width:100%;}
+.content .dButAndroid a{display:block;width:100%;height:100%;text-align: center;}
+#shadeTo{position:absolute;left:0;top:0;width:100%;height:100%;z-index:9;background:#fff;display:none;}
+#shadeTo img{width:100%;}
+#desc2{position:absolute;left:25%;top:20%;z-index:10;width:200px;height:50px;font-size:2em;font-family:"黑体"}
+.shadeDiv{display:none;left:0;top:0;position:absolute;width:100%;height:100%;z-index:7;opacity: 1;filter:alpha(opacity=100);-moz-opacity:1;-khtml-opacity: 1;}
+.waitAll{position:absolute;display:none;z-index:8;}
+</style>
+</head>
+<script>
+	$(function(){
+		$(".content").hide();
+		if (location.host.indexOf('store') >= 0 ||location.host.indexOf('deve') >= 0) {
+			$("#ctext").show();
+		}else{
+			$("#ctext2").show();
+		}
+	})
+</script>
+<body>
+<div class="content" id="ctext">
+        <div class="d_d">
+                <img alt="" src="http://imgstore.camore.cn/images/1803d_01.jpg@!ys600">
+        </div>
+        <div class="d_d">
+                <img alt="" src="http://imgstore.camore.cn/images/1803d_02.jpg@!ys600">
+        </div>
+        <div class="d_d">
+                <img alt="" src="http://imgstore.camore.cn/images/1803d_03.jpg@!ys600">
+        </div>
+        <div class="d_d">
+                <img alt="" src="http://imgstore.camore.cn/images/1803d_04.jpg@!ys600">
+        </div>
+                <div class="d_d">
+                <div class="cDiv">
+                        <div class="newBtn">
+                                <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+                                        <img alt="" src="http://imgstore.camore.cn/images/1803d_05.jpg@!ys600">
+                                </a>
+                        </div>
+
+                </div>
+        </div>
+        <div class="d_d">
+                <img alt="" src="http://imgstore.camore.cn/images/1803d_06.jpg@!ys600">
+        </div>
+</div>
+<div class="content" id="ctext2">
+        <div class="d_d">
+                <img alt="" src="images/1803d_01.jpg">
+        </div>
+        <div class="d_d">
+                <img alt="" src="images/1803d_02.jpg">
+        </div>
+        <div class="d_d">
+                <img alt="" src="images/1803d_03.jpg">
+        </div>
+        <div class="d_d">
+                <img alt="" src="images/1803d_04.jpg">
+        </div>
+                <div class="d_d">
+                <div class="cDiv">
+                        <div class="newBtn">
+                                <a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653">
+                                        <img alt="" src="images/1803d_05.jpg">
+                                </a>
+                        </div>
+
+                </div>
+        </div>
+        <div class="d_d">
+                <img alt="" src="images/1803d_06.jpg">
+        </div>
+</div>
+<div id="shadeTo">
+        <img alt="" src="http://imgstore.camore.cn/images/w_download_back.png">
+        <div id="desc2">在浏览器中打开</div>
+</div>
+<a  href="camoreykdapps://" ><span id="openiOS"></span></a>
+<a  onclick="startAndroid()"  target="_blank" href="javascript:void(0)"><span id="openAndroid"></span></a>
+<script>
+ function is_weixin(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        return true;
+    } else {
+        return false;
+    }
+}  
+ 
+/* var browser={
+    versions:function(){
+      var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+          trident: u.indexOf('Trident') > -1,
+          presto: u.indexOf('Presto') > -1,
+          webKit: u.indexOf('AppleWebKit') > -1,
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+          mobile: !!u.match(/AppleWebKit.*Mobile.),*/
+         /*  ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+          iPhone: u.indexOf('iPhone') > -1 ,
+          iPad: u.indexOf('iPad') > -1,
+          webApp: u.indexOf('Safari') == -1
+       }
+    }(),
+    language:(navigator.browserLanguage || navigator.language).toLowerCase() 
+}; */
+/*  
+function init(){
+    if(is_weixin()){
+        //weixin为提示使用浏览器打开的div
+        document.getElementById("shadeTo").style.display="block";
+        document.getElementById("ctext").style.display="none";
+        if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+            document.getElementById("desc2").innerHTML="在Safari中打开";
+        }else{
+            document.getElementById("desc2").innerHTML="在浏览器中打开";
+        }
+    }else{
+        //下载页div
+        document.getElementById("shadeTo").style.display="none";
+    }
+}
+ */
+/* function checkWechat(){ */
+        /* alert("进入") */
+        /* if(is_weixin()){
+                alert("weixin")
+                //weixin为提示使用浏览器打开的div
+        document.getElementById("shadeTo").style.display="block";
+        document.getElementById("ctext").style.display="none";
+        if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad){
+            document.getElementById("desc2").innerHTML="在Safari中打开";
+        }else{
+            document.getElementById("desc2").innerHTML="在浏览器中打开";
+        }
+        return false;
+        }else{
+                document.getElementById("shadeTo").style.display="none";
+                return true;
+        } */
+/* } */
+var wechatObj = new Object();
+wechatObj.title = '药快到,0元起,免运费,1小时准送达';
+wechatObj.desc = '24小时送药正品又价廉，火速体验！';
+wechatObj.link = 'http://store.ykd365.com/download.html';
+wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/home/ic_splash_yao.png';
+
+wx.ready(function(){
+
+    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+        wx.onMenuShareTimeline({
+                title: wechatObj.title, // 分享标题
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () { 
+            },
+            cancel: function () {}
+        });
+    
+        wx.onMenuShareAppMessage({
+                title: wechatObj.title, // 分享标题
+                desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () { 
+            },
+            cancel: function () {}
+        });
+    
+        wx.onMenuShareQQ({
+                title: wechatObj.title, // 分享标题
+                desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () { 
+            },
+            cancel: function () {}
+        });
+        wx.onMenuShareWeibo({
+                title: wechatObj.title, // 分享标题
+                desc: wechatObj.desc, // 分享描述
+            link: wechatObj.link, // 分享链接
+            imgUrl: wechatObj.imgUrl, // 分享图标
+            success: function () { 
+            },
+            cancel: function () {}
+        });
+    
+});
+function is_iOS(){
+	var u = navigator.userAgent;
+	//var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	//alert('是否是Android：'+isAndroid);
+	//alert('是否是iOS：'+isiOS);
+	return isiOS;
+}
+
+function is_Android(){
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+	//var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+	//alert('是否是Android：'+isAndroid);
+	//alert('是否是iOS：'+isiOS);
+	return isAndroid;
+}
+
+function startAndroid(){
+	//alert("即将打开app");
+	window.location = "myapp://jp.app";
+}
+
+ $(function(){
+	  if (is_iOS()) {
+		// window.location = "camoreykdapps://";
+		$("#openiOS").click();
+	} else if (is_Android){
+		$("#openAndroid").click();
+	}
+         if(is_weixin()){
+
+                shadeAll();
+                $.ajax({url:"http://"+document.domain+"/weixin/wechat/getwxjssign?",data:{url: location.href.split('#')[0]},success:function(wechatReturn){
+                        closeShade();
+                        if (wechatReturn) {
+                                wx.config({
+                                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                                    appId: 'wxade8c5e473c645e9', // 必填，公众号的唯一标识
+                                    timestamp: wechatReturn.timestamp, // 必填，生成签名的时间戳
+                                    nonceStr: wechatReturn.nonceStr, // 必填，生成签名的随机串
+                                    signature: wechatReturn.signature,// 必填，签名，见附录1
+                                    jsApiList: ["onMenuShareTimeline","onMenuShareAppMessage","onMenuShareQQ","onMenuShareWeibo"]// 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                                });
+                        }
+                }});
+          }
+}) 
+</script>
+</body>
+</html> 

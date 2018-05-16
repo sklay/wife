@@ -1,0 +1,115 @@
+			.activeRuleShowWrap {
+			    width: 100%;
+			    background: url(images/act_18allergyIndex_bbj.jpg)center center ;
+			    background-size: 100% 100%;
+			}
+			.content_top {
+			    margin: 0 auto;
+			}
+			.getHbWrap{
+				width: 6.4rem;
+				margin:  0 auto;
+				padding:.2456rem 0;
+				box-sizing: border-box;
+			}
+			/*#userPhone{
+				
+			}
+			::-moz-placeholder {
+				color: #737373;
+				text-align: center;
+				font-family: ""
+			}
+			
+			:-ms-input-placeholder {
+				color: #737373;
+				text-align: center;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #737373;
+				text-align: center;
+			}*/
+			#getHbBtn{
+			}
+			.downText {
+			    background: #54ba75;
+			    box-shadow: 0 3px 3px #a4cbaf;
+			    color:#fff;
+			}
+			.activeRuleShow{
+				width: 6rem;
+				color: #340407;
+			}
+			.activeRuleShow p span{
+				color:#ff0012
+			}
+			.comShowTitle {
+				width: 2.4rem;
+				color:#458f5d;
+			}
+			.comShowTitle img{
+				width: 100%;
+			}
+			.pText{
+				color:#0e4821;
+			}
+			.receiveResult{
+				color:#0e4821;
+				font-weight: 500;
+			}
+			/*.commUsebtn button{
+				width:2.4rem;
+			    border-radius: 50px;
+			}
+			.use_btn{
+				background: #41a7fe;
+			    box-shadow: 0 5px 5px #0c66b2,0 6px 5px #d5bcbc;
+    			color:#fff;
+    			font-weight: bold;
+			}
+			.shareFri{
+				background: #11833b;
+    			box-shadow: 0 5px 5px #045522,0 6px 5px #b38484;
+    			color:#fff;
+    			font-weight: bold;
+			}*/
+			/*.getHbnNum{
+				width: 100%;
+			}*/
+			.failShow{
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				background: rgba(0, 0, 0, .5);
+				z-index: 10;
+				padding-top: 2.5rem;
+			}
+			.failResul{
+				width: 3rem;
+				height: 3rem;
+				background: #fff;
+				position: absolute;
+				left: 50%;
+				margin-left: -1.5rem;
+				/* top: 50%;
+				margin-top: -1.5rem; */
+				text-align: center;
+				padding: 0 .1rem ;
+				box-sizing: border-box;
+				font-size: .24rem;
+			}
+			.desc{
+				margin: .8rem 0;
+			}
+			.line{
+				width: 100%;
+				height: 1px;
+				background: #999;
+				margin-bottom: .2rem;
+			}
+			.closeBtn{
+				color: #009900;
+				/*border-top: 1px solid #999;*/
+			}

@@ -1,0 +1,138 @@
+@charset "utf-8";
+body {
+	background: #efefef;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+.container {
+	max-width:100%;
+	margin: 0 auto;
+}
+
+
+/*header start*/
+
+.container .header {
+	width: 100%;
+	margin: 0 auto;
+	height: 3.6rem;
+	background: url(../images/ic_person_header_bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.barIcon{
+	width:9rem;
+	text-align: right;
+	margin: 0 auto;
+}
+.barIcon span{
+	width: .6rem;
+	display: inline-block;
+	margin: 0 auto;
+}
+.barIcon span img{
+	display: block;
+	margin: 0 auto;
+	width: .6rem;
+}
+.headIcon {
+	width: 8rem;
+	margin: 0 auto;
+	height: 1.024rem;
+	line-height: 1.024rem;
+}
+.container .header .header_img {
+	width: 1rem;
+	margin: 0 auto;
+	/*width: 6.4rem;
+	height: 1.55rem;
+	padding-top: 0.55rem;
+	padding-left: 2.7rem;*/
+	float: left;
+}
+
+.container .header .header_img img {
+	/*width: 1rem;*/
+	width: 100%;
+}
+
+.container .header .header_phone {
+	float: left;
+	/*width: 6.4rem;
+	height: 0.55rem;
+	font-size: 0.25rem;
+	line-height: 0.55rem;
+	text-align: center;*/
+	font-size: .4rem;
+	color: #fff;
+	margin-left: .5rem;
+}
+
+
+/*header end*/
+
+
+/*content start*/
+
+.container .content {
+	width: 100%;
+	margin-top: 0.2rem;
+	background: #fff;
+}
+
+.container .content ul {
+	width: 6.4rem;
+}
+
+.container .content ul li {
+	width: 6.4rem;
+	height: 0.7rem;
+	border-bottom: 0.01rem solid #d2d2d2;
+}
+
+.container .content ul li .left {
+	width: 3.2rem;
+	height: 0.7rem;
+	float: left;
+}
+
+.container .content ul li .left span {
+	display: block;
+}
+
+.container .content ul li .left .span1 {
+	width: 1rem;
+	height: 0.7rem;
+	padding: 0.1rem 0.25rem;
+	float: left;
+}
+
+.container .content ul li .left .span1 img {
+	width: 0.5rem;
+}
+
+.container .content ul li .left .span2 {
+	width: 2.2rem;
+	height: 0.7rem;
+	line-height: 0.7rem;
+	font-size: 0.25rem;
+	float: left;
+}
+
+.container .content ul li .right {
+	width: 3.2rem;
+	height: 0.7rem;
+	float: left;
+	text-align: right;
+	padding: 0.2rem 0.4rem;
+}
+
+.container .content ul li .right img {
+	height: 0.3rem;
+}
+/*content end*/

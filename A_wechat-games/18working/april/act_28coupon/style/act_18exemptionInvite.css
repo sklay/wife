@@ -1,0 +1,179 @@
+* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			html {
+				font-size: 62.5%;
+			}
+			
+			body {
+				width: 100%;
+				font-size: 10px;
+				font-size: .1rem;
+				font-family: Microsoft Yahei, Arial;
+				background: #f1f2f6;
+			}
+			.indexPage {
+			    width: 100%;
+			    background: url(../images/act_18exemptionInvite_bj1.jpg)center center ;
+			    background-size: 100% 100%;
+			}
+			.content_top {
+			    margin: 0 auto;
+			}
+			.getHbWrap{
+				width: 5.8rem;
+				background: #fff;
+				margin:  0 auto;
+				font-size: .2rem;
+				text-align: center;
+				border-radius: 8px;
+				box-shadow: 0px 0px 15px #d4d4da;
+				position: relative;
+				z-index: 1;
+				margin-top: -.8rem;
+			}
+			.getHbWrap h3{
+				box-sizing: border-box;
+				padding: .25rem 0;
+			}
+			#getHbBtn{
+				width: 2.5rem;
+			    background: #41a7fe;
+			    box-shadow: 0 5px 5px #0c66b2,0 6px 5px #d5bcbc;
+    			color:#fff;
+    			font-weight: bold;
+			}
+			.comShowTitle , .userFriInf strong ,.userFriInf p{
+				color:#010101;
+				padding-top:0 ;
+				width: 3.2rem;
+			}
+			.comshowTitleText{
+				width: 2rem;
+				color: #010101;
+				font-weight: 600;
+			}
+			.leftLineDot{
+				padding-right: 0;
+				width: .6rem;
+			}
+			.leftLineDot span ,.rightLineDot span {
+			    background: #21471e;
+			}
+			.rightLineDot span:nth-child(1){
+				top: 19px;
+			}
+			.friHbShow{
+				border-bottom: 1px dashed #21471e;
+			}
+			.userFriHbValue_wrap{
+			    background: url(images/act_17laborDay_icon.png) 0px 0 no-repeat;
+    			background-size: 100% 100%;
+			}
+			.pText{
+				color:#0e4821;
+			}
+			.receiveResult{
+				color:#fff;
+				font-weight: 500;
+			}
+			
+			/*.commUsebtn {
+				padding: .5rem 0;
+				box-sizing: border-box;
+			}
+			.commUsebtn button{
+				width:2.4rem;
+			    border-radius: 8px;
+			    border: 2px solid #fff;
+			    line-height: 38px;
+    			height: 40px;
+			}*/
+			/*.getHbnNum, .has_over {
+			    margin: 0rem auto 0;
+			}
+			.use_btn{
+				background: #468147;
+    			color:#fff;
+    			box-shadow: 0 3px 3px #b11516;
+			}*/
+			.friHbShowWrap {
+				margin-top: .2rem;
+			}
+			.friHbShow{
+				border-bottom:0;
+				width: 4.8rem;
+			}
+			.userFriAvatat{
+				width: 100%;
+				text-align: center;
+				/*height: .8rem;
+				line-height: .8rem;*/
+				color: #010101;
+				margin-top: .18rem;
+				padding-bottom: .2rem;
+				
+			}
+			.userFriAvatat p.noSty{
+				float:none;
+				margin-top:0;
+			}
+			.userFriAvatat p{
+				float: right;
+				margin-top: .14rem;
+			}
+			.friHbShowWrap ,.activeRuleShowWrap {
+				background: #fff;
+			}
+			.commUsebtn button.shareFri{
+				background: #dcc865;
+    			color:#934b01;
+			    box-shadow: 0 3px 3px #b11516;
+			}
+			.shareAppPage {
+				display: block;
+				width: 2.6rem;
+				overflow: hidden;
+				 padding: .5rem 0;
+				box-sizing: border-box;
+				margin: 0rem auto ;
+				}
+			
+			.shareAppPage img {
+				  width: 1rem;
+				 
+				  margin: 0 auto;
+				  display: block;
+				  outline: none;
+				  border: none;
+			}
+			
+			.shareAppPage img:nth-child(1) {
+				float: left;
+			}
+			
+			.shareAppPage img:nth-child(2) {
+				float: right;
+			}
+			.getHbnNum{
+				width: 100%;
+			}
+			.collectCorp{
+				width: .4rem;
+				margin: 0 auto;
+			}
+			.activeRuleShowWrap{
+				padding-bottom: .5rem;
+			}
+			.activeRuleShow{
+				padding-bottom: 0;
+				color: #340407;
+			}
+			.collectCorp img{
+				width: 100%;
+			}
+			.rightLineDot{
+				width: .6rem;
+			}

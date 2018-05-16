@@ -1,0 +1,121 @@
+<div id="app">
+    <el-row class="mt5 mb5" style="margin-bottom: 10px;">
+        <el-button type="primary" icon="edit" @click="dialogFormVisible = true;">添加分类</el-button>
+    </el-row>
+    <el-dialog title="添加分类" :visible.sync="dialogFormVisible" :before-close="ai_dialog_close">
+        <el-form :model="category" :rules="rules" ref="ruleForm">
+            <el-form-item label="分类名称" prop="title" :label-width="formLabelWidth">
+                <el-input v-model="category.title" auto-complete="off" @keyup.enter.native="submit"></el-input>
+            </el-form-item>
+            <el-form-item label="序号" prop="priority" :label-width="formLabelWidth">
+                <el-input v-model="category.priority" type="number" auto-complete="off" placeholder="越小越靠前" @keyup.enter.native="submit"></el-input>
+            </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer">
+            <el-button @click="cancel">取 消</el-button>
+            <el-button type="primary" @click="submit">确 定</el-button>
+        </div>
+    </el-dialog>
+    <el-table :data="tableData" style="width: 100%">
+        <el-table-column prop="title" label="标题" width="">
+        </el-table-column>
+        <el-table-column prop="priority" label="排序" width="">
+        </el-table-column>
+        <el-table-column label="操作" width="200">
+            <template scope="scope">
+                <el-button-group>
+                    <el-button type="primary" size="small" icon="edit" @click.native.prevent="editRow(scope.$index, tableData)">编辑</el-button>
+                    <el-button type="danger" size="small" icon="delete" @click.native.prevent="deleteRow(scope.$index, tableData)">删除</el-button>
+                </el-button-group>
+            </template>
+        </el-table-column>
+    </el-table>
+</div>
+<script>
+new Vue({
+    el: '#app',
+    data: {
+        tableData: [], // 原始category二维数组
+        category: {
+            title: '',
+            priority: ''
+        },
+        formLabelWidth: '120px',
+        rules: {
+            title: [{
+                required: true,
+                message: '请输入标题',
+                trigger: 'blur'
+            }]
+        },
+        isEdit: false, //编辑状态
+        dialogFormVisible: false
+    },
+    mounted: function() {
+        this.loadCategory();
+    },
+    methods: {
+        loadCategory: function() {
+            this.$http.post('../category/list').then(response => {
+                this.tableData = response.body;
+                // 在前端处理无限级分类
+            });
+        },
+        ai_dialog_close: function() {
+            this.dialogFormVisible = false;
+        },
+        cancel: function() {
+            this.dialogFormVisible = false;
+            this.loadCategory();
+        },
+        submit: function() {
+            this.$refs.ruleForm.validate((valid) => {
+                if (valid) {
+                    // 验证通过
+                    this.$http.post('./add', this.category).then(response => {
+                        this.dialogFormVisible = false;
+                        console.log(response);
+                        if (this.category.objectId) delete this.category.objectId;
+                        delete this.category.title;
+                        delete this.category.priority;
+                        this.$refs.ruleForm.resetFields();
+                        // 重新加载分类刷新
+                        this.loadCategory();
+                        // reset form表单值
+                        this.$message({
+                            message: response.body.code === undefined ? '保存成功' : '保存失败 - code:' + response.body.code
+                        });
+                    });
+                }
+            });
+        },
+        editRow: function(index, rows) {
+            // 显示对话框
+            this.dialogFormVisible = true;
+            // 读取当前行数据
+            this.category = rows[index];
+        },
+        deleteRow: function(index, rows) {
+            this.$confirm('确认删除吗?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {
+                // 提交到后台
+                this.$http.post('./delete', rows[index]).then(response => {
+                    // 重新加载分类刷新
+                    this.loadCategory();
+                    this.$message({
+                        message: response.body.code === undefined ? '删除成功' : '删除失败 - code:' + response.body.code
+                    });
+                });
+            }).catch(cancel => cancel);
+        }
+    }
+});
+</script>
+<style type="text/css">
+.el-tree {
+    margin-top: 10px;
+}
+</style>
