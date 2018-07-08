@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>提交清单</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/submit_shop.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/submit_shop.js?v=1002"></script>
+    <script>
+        $(function(){
+            var user = localStorage.getItem("user_name");
+            var user_phone = localStorage.getItem("user_phone");
+            var address = localStorage.getItem("address");
+            var pharmacy_name = localStorage.getItem("pharmacy_name");
+            var formatted_address = localStorage.getItem("formatted_address");
+            var toAdd = localStorage.getItem("detail_add");
+            $(".pharmacy_name span").text(pharmacy_name);
+            var phone = localStorage.getItem("phone");
+            if(user!=null && address!=null && formatted_address==null){
+                var string="<div class='add_top'><div class='toName'>"+user+"</div>"+
+                    "<div class='user_phone'>"+user_phone+"</div></div><div class='add_bot'><span>"+address+"</span></div><div class='time'><div class='time_left'><span>送达时间</span></div><div class='time_right'><span>立即配送</span><img src='images/sort_right.png'></div></div>";
+                $(".message").append(string);
+            }else if(address==null && formatted_address!=null){
+                var toStr="<div class='address'><div class='add_title'><span>收货地址:</span></div><div class='add_con'><div class='con_top'>"+formatted_address+"</div><div class='con_bot'><input type='text' placeholder='详细地址(如门牌号等)'></div></div></div>"+
+                        "<div class='linkman'><div class='man_left'><span>联系人:</span></div><div class='man_input'><input type='text' placeholder='您的姓名'></div></div>"+
+                        "<div class='phone'><div class='phone_left'><span>联系电话:</span></div><div class='phone_input'><input maxlength='11' type='text' placeholder='请输入电话号码'></div></div>"+
+                        "<div class='keep_add'><div class='keep_title'><span>保存为常用地址</span></div><div class='keep_img'><img src='images/w_cart_point.png'></div></div>"+
+                        "<div class='time'><div class='time_left'><span>送达时间</span></div><div class='time_right'><span>立即配送</span><img src='images/sort_right.png'></div></div>";
+                $(".message").append(toStr);
+                $(".phone_input input").val(phone);
+                // var toStr="<div class='toTop'><div class='toImg'><img src='images/w_nadd_position.png'></div>"+
+                //     "<div class='toTit'><span>定位地址</span></div></div><div class='toBot'><span>朝阳门</span></div>";
+                // $(".message").append(toStr);
+            }else if(toAdd!=null && address==null && formatted_address==null){
+                var toStr1="<div class='address'><div class='add_title'><span>收货地址:</span></div><div class='add_con'><div class='con_top'>"+toAdd+"</div><div class='con_bot'><input type='text' placeholder='详细地址(如门牌号等)'></div></div></div>"+
+                        "<div class='linkman'><div class='man_left'><span>联系人:</span></div><div class='man_input'><input type='text' placeholder='您的姓名'></div></div>"+
+                        "<div class='phone'><div class='phone_left'><span>联系电话:</span></div><div class='phone_input'><input maxlength='11' type='text' placeholder='请输入电话号码'></div></div>"+
+                        "<div class='keep_add'><div class='keep_title'><span>保存为常用地址</span></div><div class='keep_img'><img src='images/w_cart_point.png'></div></div>"+
+                        "<div class='time'><div class='time_left'><span>送达时间</span></div><div class='time_right'><span>立即配送</span><img src='images/sort_right.png'></div></div>";
+                $(".message").append(toStr1);
+                $(".phone_input input").val(phone);
+            }else if(user!=null && address!=null && user_phone!=null) {
+                var strs = "<div class='add_top'><div class='toName'>" + user + "</div>" +
+                        "<div class='user_phone'>" + user_phone + "</div></div><div class='add_bot'><span>" + address + "</span></div><div class='time'><div class='time_left'><span>送达时间</span></div><div class='time_right'><span>立即配送</span><img src='images/sort_right.png'></div></div>";
+                $(".message").append(strs);
+            }else if(user==null && user_phone==null && toAdd==null && formatted_address!=null){
+                var toStr2="<div class='address'><div class='add_title'><span>收货地址:</span></div><div class='add_con'><div class='con_top'>"+formatted_address+"</div><div class='con_bot'><input type='text' placeholder='详细地址(如门牌号等)'></div></div></div>"+
+                        "<div class='linkman'><div class='man_left'><span>联系人:</span></div><div class='man_input'><input type='text' placeholder='您的姓名'></div></div>"+
+                        "<div class='phone'><div class='phone_left'><span>联系电话:</span></div><div class='phone_input'><input maxlength='11' type='text' placeholder='请输入电话号码'></div></div>"+
+                        "<div class='keep_add'><div class='keep_title'><span>保存为常用地址</span></div><div class='keep_img'><img src='images/w_cart_point.png'></div></div>"+
+                        "<div class='time'><div class='time_left'><span>送达时间</span></div><div class='time_right'><span>立即配送</span><img src='images/sort_right.png'></div></div>";
+                $(".message").append(toStr2);
+            }
+            $(".keep_add").click(function(){
+                if($(this).children(".keep_img").children().attr("src")=="images/w_cart_point.png"){
+                    $(".keep_img img").attr("src","images/w_cart_ispoint.png");
+                }else{
+                    $(".keep_img img").attr("src","images/w_cart_point.png");
+                }
+            });
+            $(".drugs").bind("click",function(){
+                window.parent.location.href="list_of_goods.html";
+            });
+//            $(".pay_bot .bot_right img").bind("click",function(){
+//                $(this).attr("src","images/w_cart_ispoint.png");
+//                $(".wei_right img").attr("src","images/w_cart_point.png");
+//            });
+//            $(".wei_right img").bind("click",function(){
+//                $(this).attr("src","images/w_cart_ispoint.png");
+//                $(".pay_bot .bot_right img").attr("src","images/w_cart_point.png");
+//            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_back">
+            <img src="images/ic_back.png">
+        </div>
+        <div class="header_title">
+            <span>提交清单</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="message"></div>
+        <div class="payment">
+           <div class="pay_top">
+               <span>支付方式</span>
+           </div>
+           <div class="pay_bot">
+               <div class="bot_left">
+                   <img src="images/cash_on_delivery%20.png">
+                   <span>货到付款</span>
+               </div>
+               <div class="bot_right">
+                   <img src="images/w_cart_ispoint.png">
+               </div>
+           </div>
+        </div>
+        <div class="pre">
+            <div class="pre_con">
+                <div class="pre_left">
+                    <span class="span1">优惠券/优惠码</span>
+                    <span class="span2"></span>
+                </div>
+                <div class="pre_right">
+                    <img src="images/sort_right1.png">
+                </div>
+            </div>
+        </div>
+        <div class="remarks">
+            <div class="remark_con">
+                <div class="remark_left">
+                    <span>备注</span>
+                </div>
+                <div class="remark_right">
+                    <input type="text" placeholder="(订单备注30字以内)" maxlength="30">
+                </div>
+            </div>
+        </div>
+        <div class="price">
+            <div class="pharmacy">
+                <div class="pharmacy_img">
+                    <img src="images/ic_homeLogo.png">
+                </div>
+                <div class="pharmacy_name">
+                    <span></span>
+                </div>
+            </div>
+            <div class="drugs">
+                <div class="drug_num">
+                    <span>共0件</span>
+                    <img src="images/sort_right1.png">
+                </div>
+            </div>
+            <div class="price_con">
+                <ul>
+                    <li class="ali">商品金额</li>
+                    <li class="oli">0.00</li>
+                </ul>
+                <ul>
+                    <li class="ali">折减</li>
+                    <li class="oli">-￥0.00</li>
+                </ul>
+                <ul>
+                    <li class="ali">运费金额</li>
+                    <li class="oli">￥0.00</li>
+                </ul>
+                <ul>
+                    <li class="ali">优惠金额</li>
+                    <li class="oli">-￥0.00</li>
+                </ul>
+                <ul>
+                    <li class="ali"></li>
+                    <li class="oli">应付:￥0.00</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="prompt">
+            <span>温馨提示:</span>
+            <p>药快到受合作药店委托发布药品信息，购买时请仔细阅读说明书。如您选购的商品中包含处方药，药店将会安排药师上门验方及送药，期望您能予以协助和配合。</p>
+        </div>
+        <div class="submit">
+            <span>确定提交清单</span>
+        </div>
+    </div>
+    <div class="bar" style="display:none;">地址不能为空</div>
+</div>
+<div class="mp" style="display:none;">
+    <span>门牌号不能为空</span>
+</div>
+<div class="name" style="display:none;">
+    <span>姓名不能为空</span>
+</div>
+<div class="ph" style="display:none;">
+    <span>手机号不能为空</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/1_submit_shop_detail.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/1_submit_shop_detail.js"></script>-->
+    <script>
+        $(function(){
+            // var pharmacy_name = localStorage.getItem("pharmacy_name");
+            // $(".pharmacy_name span").text(pharmacy_name);
+            $(".header_back").click(function(){
+                history.back(-1);
+            });
+            $(".header_phone").click(function(){
+                $(".pharmacy_phone").show();
+            });
+            $(".pharmacy_phone .cancels").click(function(){
+                $(".pharmacy_phone").hide();
+            });
+            //到商品详情
+           $(".bottom_con").click(function(){
+               window.location.href="commodity_details1.html";
+           });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_back">
+            <img src="images/ic_back1.png">
+        </div>
+        <div class="header_title">
+            <span>订单详情</span>
+        </div>
+        <!--<div class="header_phone">
+            <img src="images/ic_dianhuanBai.png">
+        </div>-->
+    </div>
+    <div class="content">
+    	<div class="orderState">
+    		 <div class="left_bottom">
+                <span>【药师审核中】</span>
+             </div>
+    	</div>
+        <div class="contact">
+            <!--<div class="contact_top">
+                <div class="top_left">
+                    <div class="left_top">
+                        <span class="span_left">清单号:</span>
+                        <span class="span_right"></span>
+                    </div>
+                </div>
+                <div class="top_right">
+                    <span>跟踪清单</span>
+                </div>
+            </div>-->
+            <div class="contact_middle">
+                <!--<div class="middle_img">
+                    <img src="images/my2.png">
+                </div>-->
+                <div class="middle_name">
+                    <span>周吴郑王</span>
+                </div>
+                <div class="middle_phone">
+                    <span>18810247820</span>
+                </div>
+                <div class="top_right">
+                    <span>跟踪清单</span>
+                </div>
+            </div>
+            <div class="contact_bottom">
+                <div class="address">
+                    <span>北京市北京东水井胡同1209室</span>
+                </div>
+            </div>
+        </div>
+        <div class="inventory">
+            <div class="ine_top">
+                <div class="top_left">
+                    <div class="left_img">
+                        <img src="images/ic_ddxq_yao_image.png">
+                    </div>
+                    <div class="left_detail">
+                        <span>商品明细</span>
+                    </div>
+                </div>
+                <div class="top_right">
+                    <div>共<span>2</span>件商品</div>
+                </div>
+            </div>
+			<div class="ine_bottom">
+				<div class="bottom_title clearFix">
+					<div class="title_left">
+						<span class="span_left"></span>
+						<span class="span_right">满赠</span>
+					</div>
+					<div class="title_right">
+						<span>×2</span>
+					</div>
+				</div>
+				<div class="bottom_con clearFix">
+					<div class="imgIcon">
+						<img src="http://imgstore.camore.cn/kzf0716/DSC02605.jpg@!ys300" />
+					</div>
+					<div class="drugInfo">
+						<div class="drugName">
+							<p class="pname">[钙尔奇]钙尔奇 碳酸钙D3咀嚼颗粒</p>
+							<p class="pspec">300mg*100片</p>
+						</div>
+						<div class="priceWrap">
+							<span class="money">￥89.10</span>
+							<span class="count">x1</span>
+						</div>
+					</div>
+					<!--<ul>
+						<li class="li_left">·&nbsp;云南白药创可贴</li>
+						<li class="li_right">×2</li>
+					</ul>-->
+				</div>
+			</div>
+        </div>
+        <div class="price">
+            <div class="price_top">
+                <div class="top_img">
+                    <img src="images/ic_jieshuanxinxiPic.png">
+                </div>
+                <div class="top_title">
+                    <span class="moneyCount">金额计算</span>
+                    <span>￥89.10</span>
+                </div>
+            </div>
+            <div class="price_middle">
+                <ul>
+                    <li class="li_left">支付方式:</li>
+                    <li class="li_right"></li>
+                </ul>
+                <ul>
+                    <li class="li_left">普通商品总价</li>
+                    <li class="li_right"></li>
+                </ul>
+                <ul>
+                    <li class="li_left">清单折减:</li>
+                    <li class="li_right"></li>
+                </ul>
+                <ul>
+                    <li class="li_left">配送费:</li>
+                    <li class="li_right"></li>
+                </ul>
+                <ul>
+                    <li class="li_left">使用代金券:</li>
+                    <li class="li_right"></li>
+                </ul>
+            </div>
+            <div class="price_bottom">
+                <div class="bottom_top clearFix">
+                    <!--<div class="allprice">
+                        <span>总价:</span>
+                    </div>-->
+                    <div class="prices">
+                       <p>总价:<span>￥89.10</span></p> 
+                    </div>
+                </div>
+                <!--<div class="bottom_bot">
+                    <span></span>
+                </div>-->
+            </div>
+        </div>
+    	<div class="orderWrap">
+    		<p>订单编号:10600230</p>
+    		<p>药店：北京市康佰馨大药房昆泰店</p>
+    		<p>提交时间:2018-05-21 17:57:13</p>
+    		<p>配送时间:2018-05-21 17:57:13</p>
+    	</div>
+    </div>
+    <!--<div class="button">
+        <span>取消清单</span>
+    </div>-->
+</div>
+<div class="pharmacy_phone" style="display:none;">
+    <div class="phone">
+        <div class="phone_top">
+            <span>拨打客服电话</span>
+        </div>
+        <div class="phone_middle">
+            <span></span>
+        </div>
+        <div class="phone_bottom">
+            <div class="confirm">
+                <span>确认</span>
+            </div>
+            <div class="cancels">
+                <span>取消</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="cancel">
+    <div class="cancel_bar">
+        <div class="bar_header">
+            <span>请告知原因</span>
+        </div>
+        <ul>
+            <li>
+                <img src="images/ic_frame.png">
+                <span>价格有点贵...</span>
+            </li>
+            <li>
+                <img src="images/ic_frame.png">
+                <span>等不及，着急用！</span>
+            </li>
+            <li>
+                <img src="images/ic_frame.png">
+                <span>下错单了，不是想...</span>
+            </li>
+            <li>
+                <img src="images/ic_frame.png">
+                <span>药品质量可靠吗？</span>
+            </li>
+            <li>
+                <img src="images/ic_frame.png">
+                <span>就想试一下，而已</span>
+            </li>
+        </ul>
+        <div class="bar_con">
+            <span>药快到更低价格保证；发现同款商品区域内更低价格，立即为您补齐差价！</span>
+        </div>
+        <div class="bar_btn">
+            <div class="left">
+                <span>不取消了</span>
+            </div>
+            <div class="right">
+                <span>还是要取消</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<div class="img" style="width:6.4rem;position:fixed;top:0.8rem;z-index:9999;">
+    <img style="width:1rem;position:fixed;top:50%;margin-top:-0.5rem;left:50%;margin-left:-0.5rem;" src="images/001mWx81gy6GMvUSPOvf7.gif">
+</div>-->
+</body>
+</html>

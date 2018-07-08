@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的清单</title>
+    <link rel="stylesheet" href="style/public.css?v=2.4">
+    <link rel="stylesheet" href="style/1_shop_car.css?v=2.4">
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />-->
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/shopcar_ajax.js?v=1001"></script>-->
+    <style>
+        * {
+            -webkit-touch-callout:none;
+            -webkit-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
+
+        input {
+            -webkit-user-select:auto; /*webkit浏览器*/
+        }
+    </style>
+    <script>
+        $(function(){
+            var user_name= localStorage.getItem("user_name");
+            var user_phone = localStorage.getItem("user_phone");
+            var address = localStorage.getItem("address");
+            var formatted_address = localStorage.getItem("formatted_address");
+             var toAdd = localStorage.getItem("detail_add");
+            if(formatted_address==null && address!=null && toAdd!=null){
+                var str1="<div class='add_top'><div class='toName'>"+user_name+"</div>"+
+                        "<div class='user_phone'>"+user_phone+"</div></div><div class='add_bot'><span>"+address+"</span></div>";
+                $(".add").append(str1);
+            }else if(formatted_address!=null){
+                var toStr="<div class='toTop'><div class='toImg'><img src='images/w_nadd_position.png'></div>"+
+                        "<div class='toTit'><span>定位地址</span></div></div><div class='toBot'><span>"+formatted_address+"</span></div>";
+                $(".add").append(toStr);
+            }else if(formatted_address==null && address==null && toAdd!=null){
+                var str2="<div class='toTop'><div class='toImg'><img src='images/w_nadd_position.png'></div>"+
+                        "<div class='toTit'><span>定位地址</span></div></div><div class='toBot'><span>"+toAdd+"</span></div>";
+                $(".add").append(str2);
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_back">
+            <img src="images/ic_back.png">
+        </div>
+        <div class="header_title">
+            <span>我的清单</span>
+        </div>
+        <div class="header_right">
+            <span>编辑</span>
+        </div>
+    </div>
+    <div class="add"></div>
+    <div class="pharmacy">
+        <div class="pharmacy_img">
+            <img src="images/ic_homeLogo.png">
+        </div>
+        <div class="pharmacy_title">
+            <span></span>
+        </div>
+    </div>
+    <!--加入清单的商品的 信息-->
+    <div class="shopping">
+    	
+    </div>
+    
+    <div class="bar"></div>
+    <div class="AllTotal">
+        <div class="total_left">
+           <div class="left_input">
+               <input type="checkbox" id="checkbox">
+           </div>
+           <div class="check_all">
+              <span>全选</span>
+           </div>
+        </div>
+        <div class="total_title">
+            <span class="zj">总计:</span><span class="top_span"></span><br>
+            <span class="yh1">优惠:</span><span class="bot_span"></span>
+        </div>
+        <div class="total_right">
+            <span>下一步</span>
+        </div>
+    </div>
+    <div class="layer">
+        <div class="layer_bar">
+            <div class="bar_top">
+                <span>温馨小提示</span>
+            </div>
+            <div class="bar_middle">
+                <span>您确定要删除吗？</span>
+            </div>
+            <div class="bar_bot">
+                <div class="left">
+                    <span>删除</span>
+                </div>
+                <div class="right">
+                    <span>取消</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="load" style="display:none;width:6.4rem;position:fixed;top:0;z-index:9999;">
+    <img style="width:0.6rem;height:0.6rem;position:absolute;left:50%;margin-left:-0.3rem;top:50%;margin-top:-0.3rem;" src="images/001mWx81gy6GMvUSPOvf7.gif" alt="">
+</div>
+<div class="limit" style="width:2rem;height:0.5rem;line-height:0.5rem;text-align:center;color:#fff;background:#1f1f1f;font-size:0.22rem;position:fixed;bottom:1.5rem;left:50%;margin-left:-1rem;display:none;">
+    <span></span>
+</div>
+<script>
+    $(function(){
+        var url=location.search;
+        if(url.indexOf("?")!=-1){
+            var str=url.substr(1);
+            var strs=str.split("=");
+            console.log(strs);
+            $(".total_right span").attr("add_id",strs[1]);
+        }
+        var high=$(window).height();
+        $(".layer").css("height",high);
+    });
+    $(".header_back").click(function(){
+        window.history.back(-1);
+    });
+    $(".load").css("height",$(window).height());
+</script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+@charset "utf-8";
+body{background:#eee;}
+
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+.container{max-width:6.4rem;margin:0 auto;}
+/*header start*/
+.container .header {
+	width: 6.4rem;
+	height: 0.8rem;
+	background: #fff;
+	position: fixed;
+	top: 0;
+}
+
+.container .header .header_back {
+	width: 0.8rem;
+	height: 0.8rem;
+	float: left;
+	padding: 0.2rem;
+}
+
+.container .header .header_back img {
+	width: 0.4rem;
+}
+
+.container .header .header_title {
+	width: 4.8rem;
+	height: 0.8rem;
+	float: left;
+	font-size: 0.25rem;
+	color: #5d5b5b;
+	text-align: center;
+	line-height: 0.8rem;
+}
+
+.container .header .header_phone {
+	width: 0.8rem;
+	height: 0.8rem;
+	float: left;
+	padding: 0.2rem;
+}
+
+.container .header .header_phone img {
+	width: 0.4rem;
+}
+/*header end*/
+
+/*content start*/
+
+/*contact start*/
+.container .content{
+	width:6.4rem;
+	margin-top:0.9rem;
+	}
+.orderState{
+	background: #fff;
+	width: 6.4rem;
+	margin: 0.3rem auto 0;
+	line-height: .7rem;
+	color: #FF0000;
+}
+.container .content .contact {
+	width: 6.4rem;
+	/*height: 2rem;*/
+	background: #fff;
+	font-size: 0.25rem;
+	margin-top: .1rem;
+}
+
+/*.container .content .contact .contact_top {
+	width: 6.4rem;
+	height: 0.7rem
+}
+
+.container .content .contact .contact_top .top_left {
+	width: 3.2rem;
+	height: 0.7rem;
+	float: left;
+	padding-left: 0.2rem;
+	padding-top: 0.1rem;
+}
+
+.container .content .contact .contact_top .top_left .left_top {
+	padding-left: 0.1rem;
+}
+
+.container .content .contact .contact_top .top_left .left_bottom {
+	color: #cd3636;
+}*/
+
+ .contact_middle .top_right {
+	width: 1.5rem;
+	/*height: 0.7rem;*/
+	float: left;
+	padding-top: 0.1rem;
+	/*padding-left: 1.6rem;*/
+}
+
+ .contact_middle .top_right span {
+	display: block;
+	width: 1.5rem;
+	/*height: 0.36rem;*/
+	font-size: .22rem;
+	text-align: center;
+	line-height: 0.36rem;
+	background: #fff;
+	border: 1px solid #cd3636;
+	color: #cd3636;
+	border-radius: 5px;
+}
+
+.container .content .contact .contact_middle {
+	width: 6.4rem;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	height: 0.6rem;
+}
+
+.container .content .contact .contact_middle .middle_img {
+	width: 1rem;
+	height: 0.6rem;
+	float: left;
+	padding-top: 0.1rem;
+	padding-left: 0.3rem;
+}
+
+.container .content .contact .contact_middle .middle_img img {
+	width: 0.4rem;
+}
+
+.container .content .contact .contact_middle .middle_name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 1.5rem;
+	height: 0.6rem;
+	float: left;
+	line-height: 0.6rem;
+}
+
+.container .content .contact .contact_middle .middle_phone {
+	width: 3rem;
+	height: 0.6rem;
+	float: left;
+	line-height: 0.6rem;
+}
+
+.container .content .contact .contact_bottom {
+	width: 6.4rem;
+	/*height: 0.7rem;*/
+	padding-bottom: .2rem;
+}
+
+.container .content .contact .contact_bottom .address {
+	width: 6.4rem;
+	/*height: 0.7rem;*/
+	padding-left: 0.2rem;
+}
+/*contact end*/
+/*inventory start*/
+.container .content .inventory {
+	width: 6.4rem;
+	background: #fff;
+	margin-top: 0.1rem;
+}
+
+.container .content .inventory .ine_top {
+	width: 6rem;
+	margin: 0 auto;
+	height: 0.8rem;
+	border-bottom: 0.01rem solid #a7a7a7;
+}
+
+.container .content .inventory .ine_top .top_left {
+	width: 3rem;
+	height: 0.8rem;
+	float: left;
+}
+
+.container .content .inventory .ine_top .top_left .left_img {
+	width: 0.6rem;
+	height: 0.8rem;
+	float: left;
+	padding-top: 0.15rem;
+	text-align: center;
+}
+
+.container .content .inventory .ine_top .top_left .left_img img {
+	width: 0.5rem;
+}
+
+.container .content .inventory .ine_top .top_left .left_detail {
+	width: 2.4rem;
+	height: 0.8rem;
+	float: left;
+	line-height: 0.8rem;
+}
+
+.container .content .inventory .ine_top .top_right {
+	width: 3rem;
+	height: 0.8rem;
+	float: left;
+	text-align: right;
+	line-height: 0.8rem;
+	padding-right: 0.1rem;
+}
+
+.container .content .inventory .ine_top .top_right span {
+	color: #994042;
+}
+
+.container .content .inventory .ine_bottom {
+	width: 6rem;
+	margin: 0 auto;
+}
+
+.container .content .inventory .ine_bottom .bottom_title {
+	width: 6rem;
+	height: 0.5rem;
+	margin: 0 auto;
+}
+
+.container .content .inventory .ine_bottom .bottom_title .title_left {
+	width: 2.8rem;
+	height: 0.5rem;
+	float: left;
+}
+
+.container .content .inventory .ine_bottom .bottom_title .title_left .span_left {
+	display: block;
+	width: 0.1rem;
+	height: 0.3rem;
+	background: #cf3734;
+	float: left;
+	margin-left: 0.1rem;
+	margin-top: 0.1rem;
+	margin-right: 0.1rem;
+}
+
+.container .content .inventory .ine_bottom .bottom_title .title_left .span_right {
+	display: block;
+	width: 2.5rem;
+	height: 0.5rem;
+	float: left;
+	line-height: 0.5rem;
+}
+
+.container .content .inventory .ine_bottom .bottom_title .title_right {
+	width: 2.8rem;
+	height: 0.5rem;
+	float: left;
+	line-height: 0.5rem;
+	text-align: right;
+	color: #383838;
+	font-size: 0.3rem;
+	font-weight: 500;
+}
+
+.container .content .inventory .ine_bottom .bottom_con {
+	width: 6rem;
+	margin: 0 auto;
+}
+.container .content .inventory .ine_bottom .bottom_con .imgIcon{
+	width: 1.4rem;
+	/*overflow: hidden;*/
+	float: left;
+	margin: 0 auto;
+}
+.drugInfo{
+	width: 4.2rem;
+	float: left;
+}
+.drugName .pname{
+	width: 3.6rem;
+	font-size: .24rem;
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.drugName .pspec{
+	font-size: .2rem;
+	line-height: .5rem;
+	color: #999;
+}
+.priceWrap{
+	width: 100%;
+}
+.container .content .priceWrap span.money{
+	width: 3.8rem;
+	color: #FF0000;
+	display: inline-block;
+}
+.container .content .inventory .ine_bottom .bottom_con .imgIcon img{
+	width: 100%;
+}
+.container .content .inventory .ine_bottom .bottom_con ul li {
+	height: 0.5rem;
+	float: left;
+	font-size: 0.23rem;
+	color: #858585;
+}
+
+.container .content .inventory .ine_bottom .bottom_con ul li.li_left {
+	width: 5rem;
+	padding-left: 0.3rem;
+}
+
+.container .content .inventory .ine_bottom .bottom_con ul li.li_right {
+	width: 0.6rem;
+	text-align: right;
+	padding-right: 0.03rem;
+}
+/*inventory end*/
+/*price start*/
+.container .content .price {
+	width: 6.4rem;
+	background: #fff;
+	margin-top: 0.1rem;
+	position: relative;
+}
+
+.container .content .price .price_top {
+	width: 6rem;
+	height: 0.8rem;
+	margin: 0 auto;
+	border-bottom: 0.01rem solid #a7a7a7;
+}
+
+.container .content .price .price_top .top_img {
+	width: 0.6rem;
+	height: 0.8rem;
+	float: left;
+	padding-top: 0.15rem;
+	text-align: center;
+}
+
+.container .content .price .price_top .top_img img {
+	width: 0.5rem;
+}
+
+.container .content .price .price_top .top_title {
+	width: 5.4rem;
+	height: 0.8rem;
+	line-height: 0.8rem;
+	float: left;
+	padding-left: .2rem;
+	color: #FF0000;
+}
+.container .content .price .price_top .top_title .moneyCount{
+	display: inline-block;
+	width: 3.8rem;
+	color: #5D5B5B;
+}
+.container .content .price .price_middle {
+	width: 6rem;
+	overflow: hidden;
+	margin: 0 auto;
+	border-bottom: 0.01rem solid #a7a7a7;
+	font-size: .22rem;
+}
+
+.container .content .price .price_middle ul li {
+	height: 0.5rem;
+	line-height: 0.5rem;
+	float: left;
+}
+
+.container .content .price .price_middle ul li.li_left {
+	width: 4.5rem;
+	color: #a3a3a3;
+	padding-left: 0.3rem;
+}
+
+.container .content .price .price_middle ul li.li_right {
+	width: 1.5rem;
+	text-align: right;
+	padding-right: 0.1rem;
+}
+
+.container .content .price .price_bottom {
+	width: 6rem;
+	margin: 0 auto;
+}
+
+.container .content .price .price_bottom .bottom_top {
+	width: 6rem;
+	height: 0.6rem;
+}
+
+.container .content .price .price_bottom .bottom_top .allprice {
+	width: 3rem;
+	height: 0.6rem;
+	float: left;
+	padding-left: 0.3rem;
+	padding-top: 0.1rem;
+}
+
+.container .content .price .price_bottom .bottom_top .prices {
+	width: 2rem;
+	height: 0.6rem;
+	float: right;
+	/*text-align: right;*/
+	line-height: 0.6rem;
+	/*padding-right: 0.1rem;*/
+	color: #5D5B5B;
+}
+.container .content .price .price_bottom .bottom_top .prices span{
+	color: #b16171;
+}
+
+.container .content .price .price_bottom .bottom_bot {
+	width: 6rem;
+	height: 0.6rem;
+	margin: 0 auto;
+	color: #c5c5c5;
+	font-size: 0.23rem;
+	text-align: right;
+}
+.container .content .qx{
+    width:1rem;
+    position:absolute;
+    top:0.2rem;
+    left:5rem;
+}
+/*price end*/
+.orderWrap{
+	width: 6.4rem;
+	margin: .1rem auto 0;
+	background: #fff;
+	padding:.2rem;
+	box-sizing: border-box;
+	font-size: .22rem;
+	line-height: .4rem;
+	color: #5d5c5c;
+}
+/*content end*/
+/*button start*/
+.button{width:5rem;height:0.7rem;margin:1rem auto 0.3rem auto;line-height:0.7rem;text-align:center;color:#fff;font-size:0.35rem;background:#e0a4a3;letter-spacing: 0.05rem;border-radius:0.2rem;}
+/*button end*/
+/*pharmacy_phone start*/
+.pharmacy_phone{width:100%;height:100%;margin:0 auto;background:rgba(102,102,102,0.8);position:fixed;top:0;z-index:999;}
+.pharmacy_phone .phone{width:4.4rem;height:2.4rem;background:#fff;margin:4rem auto;border-radius:0.15rem;}
+.pharmacy_phone .phone .phone_top{width:4.4rem;height:0.6rem;background:#e4272b;border-radius:0.15rem 0.15rem 0 0;color:#fff;padding-left:0.2rem;line-height:0.6rem;}
+.pharmacy_phone .phone .phone_middle{width:4rem;height:0.9rem;border-bottom:0.02rem solid #e6e6e6;margin:0 auto;color:#989898;text-align:center;line-height:0.9rem;}
+.pharmacy_phone .phone .phone_bottom{width:4rem;height:0.9rem;margin:0 auto;}
+.pharmacy_phone .phone .phone_bottom .confirm{width:2rem;height:0.9rem;float:left;text-align:center;line-height:0.9rem;color:#b9796d;}
+.pharmacy_phone .phone .phone_bottom .cancels{width:2rem;height:0.9rem;float:left;text-align:center;line-height:0.9rem;color:#8f8f8f;}
+/*pharmacy_phone end*/
+/*cancel start*/
+.cancel{width:100%;height:100%;margin:0 auto;background:rgba(102,102,102,0.8);position:fixed;top:0;z-index:999;display:none;}
+.cancel .cancel_bar{width:4.4rem;height:5.4rem;background:#fff;margin:3rem auto;border-radius:0.15rem;}
+.cancel .cancel_bar .bar_header{width:4.4rem;height:0.7rem;background:#cd3636;color:#fff;padding:0.2rem;border-radius:0.15rem 0.15rem 0 0;letter-spacing: 0.05rem;}
+.cancel .cancel_bar ul{width:4.4rem;height:3rem;}
+.cancel .cancel_bar ul li{width:4.4rem;height:0.6rem;padding:0.2rem 0.7rem;font-size:0.25rem;}
+.cancel .cancel_bar ul li img{width:0.3rem;float:left;}
+.cancel .cancel_bar ul li span{display:block;width:2.5rem;float:left;margin-left:0.1rem;}
+.cancel .cancel_bar .bar_con{width:3.8rem;height:0.6rem;font-size:0.2rem;color:#cd3636;margin-left:0.3rem;}
+.cancel .cancel_bar .bar_btn{width:4rem;height:0.9rem;margin-left:0.2rem;margin-top:0.2rem;line-height:0.9rem;font-size:0.25rem;border-top:0.02rem solid #eee;}
+.cancel .cancel_bar .bar_btn .left{width:2rem;height:0.9rem;float:left;text-align:center;color:#cd3636;}
+.cancel .cancel_bar .bar_btn .right{width:2rem;float:left;height:0.9rem;text-align:center;}
+/*cancel end*/

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的优惠券</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/1_my_coupon.css?v=1002">
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <!--<script src="js/1_my_coupon.js?v=1004"></script>-->
+    <script src="js/rem.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_back">
+            <img src="images/ic_back1.png">
+        </div>
+        <div class="header_title">
+            <span>我的优惠券</span>
+        </div>
+        <div class="header_right">
+            <span>兑换码</span>
+        </div>
+    </div>
+    <div class="content">
+    	<div class="noresult">
+    		 <img class="" style="" src="images/w_noresult_1.png" alt="">
+        	 <p>您暂无优惠券</p>
+    	</div>
+        <ul>
+        	<!--<li drug="">
+	        	<img src="images/ic_juchi5.png">
+	        	<div class="left" style="background:#d75e5e;">
+	        		<div class="left_top">
+	        			<span>满99立减</span>
+	        		</div>
+	        		<div class="left_bot">
+	        			<span>￥20</span></div>
+	        	</div>
+        		<div class="right">
+	        		<div class="right_top">
+	        			<span class="span1">北京用户可用</span>
+	        			<span class="span2">有效时期：2018-06-03</span>
+	        		</div>
+	        		<div class="right_bot">
+	        			<span>使用范围：特例商品除外</span>
+	        		</div>
+	        	</div>
+	        </li>-->
+        </ul>
+    </div>
+</div>
+<div class="redeem" style="display:none;">
+    <div class="redeem_code">
+        <div class="code_header">
+            <span>请输入您的兑换码</span>
+        </div>
+        <div class="code_content">
+            <div class="content_input">
+                <input type="text" placeholder="兑换码">
+            </div>
+            <div class="content_img">
+                <img src="images/ic_scan_code.png" alt="">
+                <span>扫一扫</span>
+            </div>
+        </div>
+        <div class="code_footer">
+            <div class="footer_left">
+                <span>取消</span>
+            </div>
+            <div class="footer_right">
+                <span>确定</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="box" style="display:none;">
+    <div class="box_container">
+        <div class="header">
+            <span></span>
+        </div>
+        <div class="content">
+            <span></span>
+        </div>
+        <div class="footer">
+            <span>确定</span>
+        </div>
+    </div>
+</div>
+<script>
+    $(".redeem").css("height",$(window).height());
+    $(".box").css("height",$(window).height());
+</script>
+</body>
+</html>

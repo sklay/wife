@@ -8,17 +8,46 @@
     <link rel="stylesheet" href="style/public.css">
     <link rel="stylesheet" href="style/personal.css">
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-    <!--<script src="js/rem.js"></script>-->
-    <script src="js/currentTool.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/currentTool.js"></script>-->
+    <link rel="stylesheet" href="dist/css/swiper.min.css">
+	<script src="dist/js/swiper.min.js"></script>
     <script>
         $(function(){
             var user = localStorage.getItem("user_token");
             var _parent=window.parent;
-            $(".full_list").click(function(){
-                if(user!=null){
-                    _parent.location.href="1_detail_list.html";
+            var dataindex ;
+             //新增   我的订单点击事件
+            
+			$('.orderList ul li').each(function(i ,n){
+				$(n).on('click',function(){
+					clickFun(this) ;
+				});
+			});
+			function clickFun (obj){
+				$obj = $(obj) ;
+				/*当前点击的 li的  下标*/
+				dataindex = $obj.attr('data-index');
+				
+				localStorage.setItem("dataindex",dataindex);
+				
+				if(user!=null){
+                    _parent.location.href="detail_list1.html";
                 }else{
-                    _parent.location.href="login.html";
+                	 _parent.location.href="detail_list1.html";
+//                  _parent.location.href="login.html";
+                }
+			}
+            
+           
+            //我的订单
+            $(".moreBar").click(function(){
+            	localStorage.setItem("dataindex",0);
+                if(user!=null){
+                    _parent.location.href="detail_list1.html";
+                }else{
+                	 _parent.location.href="detail_list1.html";
+//                  _parent.location.href="login.html";
                 }
             });
             $(".address").click(function(){
@@ -29,10 +58,13 @@
                 }
             });
             var user_phone=localStorage.getItem("phone");
+            var user_adress=localStorage.getItem("adress");
             if(user!=null){
                 $(".header_phone span").append(user_phone);
+                $(".header_phone p").append(user_adress);
             }else{
                 $(".header_phone span").append("[立即登录]");
+                $(".headIcon ").css("line-height",".6rem");
             }
             $(".header_img img,header_phone span").bind("click",function(){
                 if($(".header_phone span").text()=="[立即登录]"){
@@ -86,8 +118,31 @@
                     _parent.location.href="login.html";
                 }
             });
+            
+            
+            var swiper = new Swiper('.swiper-container', {
+		      pagination: {
+		        el: '.swiper-pagination',
+		      },
+		    });
+           
         });
     </script>
+	<style>
+		.swiper-pagination{
+			position: fixed;
+		}
+		.swiper-container-horizontal>.swiper-pagination-bullets, 
+		.swiper-pagination-custom, 
+		.swiper-pagination-fraction{
+			bottom: 0;
+			top: 5.5rem;
+		}
+		.moreOrder{
+			padding-bottom: .5rem;
+			position: relative;
+		}
+	</style>
 </head>
 <body>
 <div class="container">
@@ -108,10 +163,153 @@
 	        </div>
 	        <div class="header_phone">
 	            <span></span>
+	            <p></p>
 	        </div>
         </div>
     </div>
-    <div class="content">
+    <!--订单-->
+    <div class="orderWrap">
+    	<div class="orderTitle">
+            <div class="myorder clearFix">
+                <p class="">我的订单</p>
+                 <p class="moreBar">更多<span>></span></p>
+            </div>
+    	</div>
+    	<div class="orderList clearFix">
+    		<ul class="clearFix">
+    			<li class="active" data-index="1">待处理</li>
+    			<li data-index="2">待评价</li>
+    			<li data-index="3">已完成</li>
+    		</ul>
+    		<div class="orderState">
+    			<!--只有单个商品-->
+    			<div class="onlyOrder" style="display: none;">
+    				<div class="orderTop clearFix">
+    					<div class="drugImg ">
+    						<img src="images/ic_order_list_no.png" />
+    					</div>
+    					<div class="rider">
+    						<div class="riderImg clearFix">
+    							<img src="images/ic_person_header_nolog.png">
+    							<div class="riderText">
+    								<p>骑手</p>
+    								<p class="riderName">快递员将为丽丽</p>
+    							</div>
+    						</div>
+    						<div class="stateTYpe">
+    							<p>配送中</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="orderTime">
+    					<p>2018-05-16 14:09:49</p>
+    				</div>
+    			</div>
+    			<!--多个商品-->
+    			<div class="moreOrder">
+    				<div class="swiper-container">
+					    <div class="swiper-wrapper">
+						    <div class="swiper-slide" v-for="listItem,j in goods.result_json"  >
+						      	<div class="onlyOrder" >
+    				<div class="orderTop clearFix">
+    					<div class="drugImg ">
+    						<img src="images/ic_order_list_no.png" />
+    					</div>
+    					<div class="rider">
+    						<div class="riderImg clearFix">
+    							<img src="images/ic_person_header_nolog.png">
+    							<div class="riderText">
+    								<p>骑手</p>
+    								<p class="riderName">快递员将为丽丽</p>
+    							</div>
+    						</div>
+    						<div class="stateTYpe">
+    							<p>配送中</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="orderTime">
+    					<p>2018-05-16 14:09:49</p>
+    				</div>
+    			</div>
+						     </div>
+						     <div class="swiper-slide" v-for="listItem,j in goods.result_json"  >
+						      	<div class="onlyOrder">
+    				<div class="orderTop clearFix">
+    					<div class="drugImg ">
+    						<img src="images/ic_order_list_no.png" />
+    					</div>
+    					<div class="rider">
+    						<div class="riderImg clearFix">
+    							<img src="images/ic_person_header_nolog.png">
+    							<div class="riderText">
+    								<p>骑手</p>
+    								<p class="riderName">快递员将为丽丽</p>
+    							</div>
+    						</div>
+    						<div class="stateTYpe">
+    							<p>配送中</p>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="orderTime">
+    					<p>2018-05-16 14:09:49</p>
+    				</div>
+    			</div>
+						     </div>
+					    </div>
+					    <div class="swiper-pagination"></div>
+		  			</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <!--列表-->
+	<div class="listWrap clearFix">
+		<ul class="clearFix">
+			<li class="address">
+				<div class="">
+					<img src="images/ic_person_address.png" />
+					<p>收货地址</p>
+				</div>
+			</li>
+			<li class="collection">
+				<div class="">
+					<img src="images/ic_person_shouchang.png" />
+					<p>我的收藏</p>
+				</div>
+			</li>
+			<li class="coupon">
+				<div class="">
+					<img src="images/ic_person_yhq.png" />
+					<p>我的卡券</p>
+				</div>
+			</li>
+			<li>
+				<div class="">
+					<img src="images/ic_person_share.png" />
+					<p>分享有礼</p>
+				</div>
+			</li>
+			<li>
+				<div class="">
+					<img src="images/ic_person_cjwt.png" />
+					<p>常见问题</p>
+				</div>
+			</li>
+			<li class="feedback">
+				<div class="">
+					<img src="images/ic_person_fkyj.png" />
+					<p>常见问题</p>
+				</div>
+			</li>
+		</ul>
+	</div>   
+	<div class="shareWrap">
+		<img src="images/ic_dgrk_home.png" />
+	</div>
+    
+    <!--<div class="content">
         <ul>
             <li class="address" style="border-top:0.01rem solid #d2d2d2;">
                 <div class="left">
@@ -141,10 +339,10 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="content">
+    </div>-->
+    <!--<div class="content">
         <ul>
-            <!--<li class="news" style="border-top:0.01rem solid #d2d2d2;">
+            <li class="news" style="border-top:0.01rem solid #d2d2d2;">
                 <div class="left">
                     <span class="span1"><img src="images/ic_my_news.png"></span>
                     <span class="span2">我的消息</span>
@@ -152,7 +350,7 @@
                 <div class="right">
                     <img src="images/sort_right.png">
                 </div>
-            </li>-->
+            </li>
             <li class="coupon">
                 <div class="left">
                     <span class="span1"><img src="images/ic_my_coupon.png"></span>
@@ -163,8 +361,8 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class="content">
+    </div>-->
+    <!--<div class="content">
         <ul>
             <li class="feedback">
                 <div class="left">
@@ -185,7 +383,7 @@
                 </div>
             </li>
         </ul>
-    </div>
+    </div>-->
 
 
 

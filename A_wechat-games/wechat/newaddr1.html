@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新建收货地址</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/1_newaddr.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/1_newaddr.js"></script>-->
+    <script>
+        $(function(){
+            $(".container1 .head_back").click(function(){
+                $(".container1").hide();
+                $(".container").show();
+            });
+//          $("#detail_add").bind("input",function(event){
+        	$("#detail_add").bind("click",function(event){
+                $(".add_bar ul").remove();
+                console.log($(this).val());
+                var query=$(this).val();
+                var region=$(".a_con .span1").text();
+                console.log(region);
+                var last = event.timeStamp;
+                var strs="<ul>";
+                setTimeout(function(){
+                    if(last-event.timeStamp==0){
+                        localStorage.removeItem("pos");
+                        $.ajax({
+                            type:"GET",
+                            url:"http://api.map.baidu.com/place/v2/suggestion?query="+query+"&region="+region+"&city_limit=true&output=json&ak=nHd5rVGqkOdfofrjY4HXQXCW",
+                            dataType:"jsonp",
+                            callback:"jsoncallback",
+                            success:function(data){
+                                var name=data.result;
+                                $.each(name,function(index,value){
+                                    console.log(value);
+                                        strs+="<li pos='"+value.location.lng+","+value.location.lat+"'><img src='images/ic_address_location.png'><span class='span1'>"+value.name+"</span></li>";
+                                });
+                                $(".add_bar").append(strs);
+                                $(".add_bar").children("ul:last-child").show().siblings("ul").hide();
+                                $(".add_bar ul li").bind("click",function(){
+                                    localStorage.setItem("add",$(this).text());
+                                    $("#detail_add").val($(this).text());
+                                    $(".add_bar").hide();
+                                    localStorage.setItem("pos",$(this).attr("pos"));
+                                    localStorage.removeItem("formatted_address");
+                                });
+                                $(".add_bar").show();
+                            }
+                        })
+                    }
+                },1000);
+            });
+//            $(".a_con").bind('DOMNodeInserted', function(e) {
+//                var text = e.target;
+//                if($(e.target).html()!=text){
+//                    $(".con_top input").val("");
+//                    $("#house_number").val("");
+//                }
+//            });
+            $("html").click(function(){
+                $(".add_bar").hide();
+            });
+            $(".content_s .sexWrap").click(function(){
+            	$(this).siblings().find("i").removeClass("checked");
+                $(this).find("i").addClass("checked");
+            });
+            $(".content_bq .bq_bot li").click(function(){
+            	$(this).siblings().removeClass("checked");
+                $(this).addClass("checked");
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container" style="display:block;">
+    <form action="naddAddr" method="post" id="naddrForm">
+        <div class="header">
+            <div class="header_left">
+                <img src="images/ic_back1.png">
+            </div>
+            <div class="header_right">
+                <span>新建收货地址</span>
+            </div>
+        </div>
+        <div class="content">
+        	 
+            <div class="content_c">
+                <div class="c_top">
+                    <span>收货人姓名:</span>
+                </div>
+                <div class="c_bot">
+                    <input name="user_name" id="user_name" type="text" placeholder="输入你的名字">
+                </div>
+            </div>
+            <div class="content_s">
+                <div class="s_top">
+                    <span>性别:</span>
+                </div>
+                <div class="s_bot">
+                	<!--<input type='radio' name='sex' value='nan'>男
+					<input type='radio' name='sex' value='nv'>女-->
+					<div class="sexWrap">
+						<i class="sexm"></i>
+						<span>男</span>
+					</div>
+					<div class="sexWrap">
+						<i  class="sexW"></i>
+						<span>女</span>
+					</div>
+					
+                </div>
+            </div>
+            <div class="content_d">
+                <div class="d_top">
+                    <span>联系电话:</span>
+                </div>
+                <div class="d_bot">
+                    <input name="user_phone" maxlength="11" id="user_phone" type="text" placeholder="快递员联系你的方式">
+                </div>
+            </div>
+            <!--<div class="content_a">
+                <div class="a_left">
+                    <span>城市和区域:</span>
+                </div>
+                <div class="a_con">
+                    <span id="area" class="span1">请选择区域</span><span class="span2"></span>
+                </div>
+                <div class="a_img">
+                    <img src="images/sort_right.png">
+                </div>
+            </div>-->
+            <div class="content_b">
+                <div class="b_left">
+                    <span>地址:</span>
+                </div>
+                <div class="b_right">
+                    <!--<div class="con_top">
+                    	<input name="detail_add" id="detail_add" type="text" placeholder="写字楼、小区、学校、街道">
+                    	<img src="images/w_nadd_position.png">
+                    </div>-->
+                    <!--<div class="add_bar" style="display:none;">
+                        <div class="title">请选择您的地址</div>
+                    </div>-->
+                    <div class="con_bot">
+                    	<input name="detail_add" id="detail_add" type="text" placeholder="请选择您的地址">
+                    	<span>></span>
+                    </div>
+                </div>
+            </div>
+           
+           	<div class="content_h">
+                <div class="h_left">
+                    <span>门牌号:</span>
+                </div>
+                <!--<div class="h_right">-->
+                <div class="con_bot">
+                	<input name="house_number" id="house_number" type="text" placeholder="例：8号楼1209室">
+                </div>
+                <!--</div>-->
+            </div>
+            <div class="content_bq">
+                <div class="bq_left">
+                    <span>标签:</span>
+                </div>
+                <!--<div class="h_right">-->
+                <ul class="bq_bot">
+                	<!--<input type="checkbox" name='foods' value='家'>家
+					<input type="checkbox" name='foods' value='公司'>公司
+					<input type="checkbox" name='foods' value='学校'>学校-->
+					<li>家</li>
+					<li>公司</li>
+					<li>学校</li>
+                </ul>
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="btn">
+            <span>保存</span>
+        </div>
+    </form>
+</div>
+<div class="bar" style="display:none;">
+    <span>当前地址范围内未查询到支持配送的药店!</span>
+</div>
+<div class="bar1" style="display:none;">请选择城市和区域</div>
+<div class="bar2" style="display:none;">请输入详细地址</div>
+<div class="bar3" style="display:none;">请输入收货人姓名</div>
+<div class="bar4" style="display:none;">请输入联系电话</div>
+<div class="bar5" style="display:none;">请在联想框内选择地址</div>
+<div class="container1" style="display:none;">
+    <div class="header1">
+        <div class="head">
+            <div class="head_back">
+                <span class="span1"><img src="images/ic_back.png"></span><span class="span2">返回</span>
+            </div>
+            <div class="head_tit">
+                <span class="span3">城市</span>
+            </div>
+        </div>
+        <div class="search">
+            <img src="images/Magnifier.png">
+            <input type="text" placeholder="请输入搜索城市">
+        </div>
+    </div>
+    <div class="banner">
+        <div class="banner_img">
+            <img src="images/ic_select_quyu_hot.png">
+        </div>
+        <div class="banner_list"></div>
+    </div>
+    <div class="list"></div>
+</div>
+</body>
+</html>

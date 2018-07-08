@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+	</head>
+	<body>
+
+			<a style="font-size:50px;" onclick="startAndroid()"  target="_blank">
+				打开app
+			</a>
+			</br>
+			
+			
+			<a style="font-size:50px;" href="camoreykdapps://">
+				打开IOSapp
+			</a>
+			</br>
+
+
+			<a style="font-size:50px;"  onclick="toInvite()" >
+				到邀请好友
+			</a>
+			</br>
+
+
+				<a style="font-size:50px;" onclick="toCoupon()" >
+				到优惠券
+			</a>
+			</br>
+
+				<a style="font-size:50px;"  onclick="toDrug()" >
+				到药品详情
+			</a>
+			</br>
+			<a style="font-size:50px;"  onclick="toWeb()" >
+				到web
+			</a>
+			</br>
+
+
+
+			<a style="font-size:50px;" href="weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/index.html">
+				到微信商城appIdwxade8c5e473c645e9
+			</a>
+			</br>
+
+			<a style="font-size:50px;" onclick="startWechat()" >
+				到微信商城appIdwxade8c5e473c645e9
+			</a>
+			</br>
+
+			<a style="font-size:50px;" href="weixin://dl/businessWebview/link?appid=wx697be0ec43c8cafa&url=http://deve.ykd365.com/wechat-html/">
+				到微信商城appIdwx697be0ec43c8cafa
+			</a>
+			</br>
+			<a style="font-size:50px;" onclick="startWechat2()" >
+				到微信商城appIdwx697be0ec43c8cafa
+			</a>
+			</br>
+
+			<a style="font-size:50px;" onclick="toDownload()"  >
+				到应用宝
+			</a>
+			</br>
+
+			<a style="font-size:50px;" onclick="openAppWin('http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653')" >
+				打开浏览器
+			</a>
+			</br>
+
+		
+	</body>
+	<script type="text/javascript">
+	
+	//判断访问终端
+	var browser={
+	    versions:function(){
+	        var u = navigator.userAgent, 
+	            app = navigator.appVersion;
+	        return {
+	            trident: u.indexOf('Trident') > -1, //IE内核
+	            presto: u.indexOf('Presto') > -1, //opera内核
+	            webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+	            gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,//火狐内核
+	            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+	            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	            android: u.indexOf('Android') > -1 || u.indexOf('Adr') > -1, //android终端
+	            iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+	            iPad: u.indexOf('iPad') > -1, //是否iPad
+	            webApp: u.indexOf('Safari') == -1, //是否web应该程序，没有头部与底部
+	            weixin: u.indexOf('MicroMessenger') > -1, //是否微信 （2015-01-22新增）
+	            qq: u.match(/\sQQ/i) == " qq" //是否QQ
+	        };
+	    }(),
+	    language:(navigator.browserLanguage || navigator.language).toLowerCase()
+	}
+	
+		function startAndroid() {
+			
+			window.location = "myapp://jp.app";  			
+		}
+
+		function startWechat(){
+			
+			window.location = "weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/";
+		}
+
+		function startWechat2(){
+			
+			window.location = "weixin://dl/businessWebview/link?appid=wx697be0ec43c8cafa&url=http://deve.ykd365.com/wechat-html/";
+		}
+		function toInvite(){
+			
+			if(browser.versions.ios ){
+				window.location = "camoreykdapps://ykdYQHY";
+			} else if (browser.versions.android){
+				window.location = "myapp://jp.app/ykdYQHY";
+			} else if (browser.versions.weixin) {
+				
+			}
+			
+// 			window.location = "weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/";
+		}
+		function toCoupon(){
+			if(browser.versions.ios ){
+				window.location = "camoreykdapps://ykdYHQ";
+			} else if (browser.versions.android){
+				window.location = "myapp://jp.app/ykdYHQ";
+			} else if (browser.versions.weixin) {
+				
+			}
+// 			window.location = "weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/";
+		}
+		function toDrug(){
+			if(browser.versions.ios ){
+				window.location = "camoreykdapps://ykdDrug/?20171101";
+			} else if (browser.versions.android){
+				window.location = "myapp://jp.app/ykdDrug/?20171101";
+			} else if (browser.versions.weixin) {
+				
+			}
+// 			window.location = "weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/";
+		}
+		function toWeb(){
+			if(browser.versions.ios ){
+				window.location = "camoreykdapps://ykdWEB/?(http://www.camore.cn/)(欢迎光临CAMORE医药连锁)";
+			} else if (browser.versions.android){
+				window.location = "myapp://jp.app/ykdWEB/?(http://www.camore.cn/)(欢迎光临CAMORE医药连锁)";
+			} else if (browser.versions.weixin) {
+				
+			}
+// 			window.location = "weixin://dl/businessWebview/link?appid=wxade8c5e473c645e9&url=http://store.ykd365.com/wechat-html/";
+		}
+		
+
+		function toDownload(){
+			if(browser.versions.ios ){
+				window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653";
+			} else if (browser.versions.android){
+				//window.location = "intent://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653?a#Intent;scheme=http;package=com.android.browser;end";
+				//window.location.href = "intent://www.baidu.com?a#Intent;scheme=http;package=com.android.browser;end";
+				window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653";
+
+			} else if (browser.versions.weixin) {
+				window.location = "http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653";
+			}
+		
+		
+		}
+
+		function openWin() {
+                        api.openWin({
+                                name : 'win_show2',
+                                url : 'http://a.app.qq.com/o/simple.jsp?pkgname=com.camore.yaodian.activity&g_f=991653',
+                                rect : {
+                                        x : 0,
+                                        y : 0,
+                                }
+                        })
+                }
+
+		 function openApp() {
+                        api.openApp({
+                                androidPkg : 'android.intent.action.VIEW',
+                                mimeType : 'text/html',
+                                uri : 'http://www.baidu.com'
+                        }, function(ret, err) {
+                                var msg = JSON.stringify(ret);
+                                api.alert({
+                                        title : 'openApp',
+                                        msg : msg,
+                                        buttons : ['确定']
+                                });
+                        });
+                }
+	function openAppWin(url){
+        var isAndroid = (/android/gi).test(navigator.appVersion);
+        if (isAndroid){
+                api.openApp({
+                    androidPkg: 'Android.intent.action.VIEW',
+                    mimeType: 'text/html',
+                    uri: url
+                }, function(ret, err) {
+                    if (ret) {
+                        alert(JSON.stringify(ret));
+                    } else {
+                        alert(JSON.stringify(ret));
+                    }
+                });
+        }else{
+                api.openApp({
+                    iosUrl: url
+                });        
+        }
+}
+
+	</script>
+</html>

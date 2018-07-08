@@ -1,0 +1,122 @@
+@charset "utf-8";
+body{background:#eee;}
+.container{max-width:6.4rem;margin:0 auto;}
+/*header头部start*/
+.header{width:6.4rem;height:0.8rem;background:#cd3636;position:fixed;top:0;}
+.header .header_back{width:0.8rem;height:0.8rem;float:left;text-align:center;padding-top:0.2rem;}
+.header .header_back img{height:0.4rem;}
+.header .header_title{width:4.8rem;height:0.8rem;color:#fff;font-size:0.33rem;float:left;text-align:center;line-height:0.8rem;}
+/*header头部end*/
+/*content订单页面start*/
+.content{width:6.4rem;margin-top:0.8rem;}
+/*message  start*/
+.content .message{width:6.4rem;background:#fff;}
+.content .message .address{width:6.4rem;height:1.2rem;}
+.address .add_title{width:1.5rem;height:1.2rem;text-align:right;font-size:0.3rem;padding-top:0.2rem;float:left;}
+.address .add_con{width:4.9rem;height:1.2rem;float:left;}
+.address .add_con .con_top{width:4.9rem;height:0.6rem;padding-top:0.2rem;font-size:0.3rem;padding-left:0.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.address .add_con .con_bot{width:4.9rem;height:0.6rem;padding-left:0.1rem;padding-top:0.1rem;}
+.address .add_con .con_bot input{width:4rem;height:0.6rem;font-size:0.3rem;border-radius:0.1rem;padding-left:0.1rem;border:0.01rem solid #d0d0d0;}
+.linkman{width:6.4rem;height:0.9rem;}
+.linkman .man_left{width:1.5rem;height:0.6rem;font-size:0.3rem;float:left;line-height:0.9rem;text-align:right;}
+.linkman .man_input{width:4.9rem;height:0.6rem;float:left;line-height:0.9rem;padding-left:0.1rem;}
+.linkman .man_input input{width:4rem;height:0.6rem;border:0.01rem solid #d0d0d0;border-radius:0.1rem;font-size:0.3rem;padding-left:0.1rem;}
+.phone{width:6.4rem;height:0.9rem;}
+.phone .phone_left{width:1.5rem;height:0.6rem;line-height:0.6rem;float:left;text-align:right;font-size:0.3rem;}
+.phone .phone_input{width:4.9rem;height:0.6rem;float:left;line-height:0.6rem;padding-left:0.1rem;}
+.phone .phone_input input{width:4rem;height:0.6rem;border:0.01rem solid #d0d0d0;border-radius:0.1rem;padding-left:0.1rem;font-size:0.3rem;}
+.keep_add{width:6rem;height:0.6rem;margin:0 auto;border-bottom:0.01rem solid #d8d8d8;}
+.keep_add .keep_title{width:5.4rem;height:0.6rem;float:left;color:#acacac;line-height:0.6rem;text-align:right;}
+.keep_add .keep_img{width:0.6rem;height:0.6rem;float:left;text-align:right;padding-top:0.1rem;}
+.keep_add .keep_img img{width:0.4rem;}
+.message .add_top{width:5.4rem;height:0.6125rem;margin:0 auto;line-height:0.6125rem;}
+.message .add_top .toName{width:1.6rem;height:0.6125rem;float:left;}
+.message .add_top .toPhone{width:3.8rem;height:0.6125rem;float:left;}
+.message .add_bot{width:5.4rem;height:0.7125rem;line-height:0.7125rem;margin:0 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.message .toTop{width:5.4rem;height:0.6125rem;margin:0 auto;line-height:0.6125rem;}
+.message .toTop .toImg{width:1.2rem;height:0.6125rem;text-align:center;padding-top:0.1rem;float:left;}
+.message .toTop .toImg img{width:0.4rem;}
+.message .toTop .toTit{width:2.4rem;height:0.6125rem;float:left;color:#cd3636;font-size:0.3rem;}
+.message .toBot{width:5.4rem;height:0.7125rem;margin:0 auto;line-height:0.7125rem;padding-left:0.4rem;}
+.time{width:6.4rem;height:0.7rem;}
+.time .time_left{width:1.5rem;height:0.7rem;line-height:0.7rem;text-align:right;font-size:0.3rem;float:left;}
+.time .time_right{width:4.9rem;height:0.7rem;float:right;text-align:right;line-height:0.7rem;color:#a44b55}
+.time .time_right img{height:0.2rem;float:right;margin:0.25rem 0.1rem;}
+/*message end*/
+/*payment start*/
+.payment{width:6.4rem;height:2.4rem;margin-top:0.1rem;background:#fff;}
+.payment .pay_top{width:5.8rem;height:0.8rem;border-bottom:0.01rem solid #d8d8d8;margin:0 auto;}
+.pay_top span{display:block;width:1.4rem;height:0.8rem;font-size:0.3rem;line-height:0.8rem;}
+.payment .pay_bot{width:5.8rem;height:0.8rem;margin:0 auto;}
+.pay_bot .bot_left{width:2rem;float:left;}
+.bot_left img{width:0.5rem;float:left;margin:0.15rem 0;}
+.bot_left span{display:block;width:1.5rem;height:0.8rem;float:left;padding-left:0.1rem;line-height:0.8rem;font-size:0.3rem;}
+.bot_right{float:right;width:0.8rem;height:0.8rem;text-align:right;padding:0.2rem 0;}
+.bot_right img{width:0.4rem;}
+.pay_wei{width:5.8rem;height:0.8rem;margin:0 auto;}
+.wei_left{width:2rem;float:left;}
+.wei_left img{width:0.5rem;float:left;margin:0.15rem 0;}
+.wei_left span{display:block;width:1.5rem;height:0.8rem;float:left;padding-left:0.1rem;line-height:0.8rem;font-size:0.3rem;}
+.wei_right{float:right;width:0.8rem;height:0.8rem;text-align:right;padding:0.2rem 0;}
+.wei_right img{width:0.4rem;}
+/*payment end*/
+/*pre start*/
+.pre{width:6.4rem;height:0.8rem;background:#fff;margin-top:0.1rem;}
+.pre .pre_con{width:5.8rem;height:0.8rem;margin:0 auto;}
+.pre .pre_con .pre_left{width:5rem;height:0.8rem;float:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.pre .pre_con .pre_left .span1{display:block;width:1.9rem;height:0.8rem;line-height:0.8rem;float:left;font-size:0.29rem;}
+.pre .pre_con .pre_left .span2{display:block;padding:0 0.1rem;font-size:0.22rem;height:0.4rem;line-height:0.4rem;float:left;margin-top:0.2rem;text-align:center;background:#e82c27;color:#fff;border-radius:0.2rem;}
+.pre .pre_con .pre_right{width:0.8rem;height:0.8rem;float:right;text-align:right;padding-top:0.2rem;}
+.pre .pre_con .pre_right img{height:0.4rem;}
+/*pre end*/
+/*remarks start*/
+.remarks{width:6.4rem;height:0.8rem;background:#fff;margin-top:0.1rem;}
+.remarks .remark_con{width:5.8rem;height:0.8rem;margin:0 auto;}
+.remarks .remark_con .remark_left{width:0.7rem;height:0.8rem;line-height:0.8rem;float:left;}
+.remarks .remark_con .remark_right{width:5.1rem;height:0.8rem;line-height:0.8rem;float:left;}
+.remarks .remark_con .remark_right input{width:5rem;height:0.7rem;border:none;outline:none;}
+/*remarks end*/
+/*price板块 start*/
+/*pharmacy start*/
+.price{width:6.4rem;height:5rem;background:#fff;margin-top:0.1rem;}
+.price .pharmacy{width:5.8rem;height:0.6rem;border-bottom:0.01rem solid #cdcdcd;margin:0 auto;}
+.price .pharmacy .pharmacy_img{width:0.5rem;height:0.6rem;padding-top:0.1rem;float:left;}
+.price .pharmacy .pharmacy_img img{width:0.4rem;}
+.price .pharmacy .pharmacy_name{width:5.3rem;height:0.6rem;line-height:0.6rem;float:left;color:#909090;}
+/*pharmacy end*/
+/*drugs start*/
+.drugs{width:5.8rem;height:1.5rem;border-bottom:0.01rem solid #cdcdcd;margin:0 auto;}
+.drugs .drug_img{height:1.5rem;padding-top:0.25rem;float:left;margin-right:0.05rem;}
+.drugs .drug_img span{display:block;width:1rem;height:1rem;padding-top:0.1rem;border:0.01rem solid #cfcfcf;text-align:center;border-radius:0.1rem;}
+.drugs .drug_img img{width:0.8rem;}
+.drugs .drug_num{width:1.5rem;height:1.5rem;line-height:1.5rem;float:right;text-align:right;}
+.drugs .drug_num span{font-size:0.25rem;color:#3f3f3f}
+.drugs .drug_num img{float:right;height:0.3rem;margin-top:0.6rem;margin-left:0.15rem;}
+/*drugs end*/
+/*price_con start*/
+.price_con{width:5.8rem;height:2.8rem;margin:0 auto;}
+.price_con ul{width:5.8rem;height:0.6rem;}
+.price_con ul li{width:2.9rem;height:0.6rem;line-height:0.6rem;float:left;color:#272727;}
+.price_con ul li.oli{text-align:right;}
+.price_con ul:last-child li{color:#cd3636;}
+/*price_con end*/
+/*price板块 end*/
+/*sms板块 start*/
+.sms{width:6.4rem;height:0.8rem;background:#fff;margin-top:0.1rem;}
+.sms .sms_con{width:5.8rem;height:0.8rem;margin:0 auto;}
+.sms .sms_con .sms_left{width:2.5rem;height:0.8rem;line-height:0.8rem;float:left;}
+.sms .sms_con .sms_right{width:0.8rem;height:0.8rem;float:right;text-align:right;padding-top:0.2rem;}
+.sms .sms_con .sms_right img{width:0.4rem;}
+/*sms板块 end*/
+/*content订单页面end*/
+/*footer板块 start*/
+.footer{width:6.4rem;}
+.footer .prompt{width:6.4rem;}
+.footer .prompt span{display:block;margin-top:0.3rem;margin-left:0.4rem;}
+.footer .prompt p{width:5.3rem;margin:0 auto;font-size:0.22rem;margin-top:0.15rem;color:#4d4d4d;}
+.footer .submit{width:5.5rem;height:0.8rem;background:#cd3636;color:#fff;font-size:0.3rem;margin:0.5rem auto;text-align:center;line-height:0.8rem;border-radius:0.1rem;}
+/*footer板块 end*/
+.bar{width:3rem;height:0.6rem;position:relative;bottom:1rem;left:1.7rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.mp{width:3rem;height:0.6rem;position:fixed;bottom:1rem;left:1.7rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.name{width:3rem;height:0.6rem;position:fixed;bottom:1rem;left:1.7rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.ph{width:3rem;height:0.6rem;position:fixed;bottom:1rem;left:1.7rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}

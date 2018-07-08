@@ -1,6 +1,10 @@
 @charset "utf-8";
+*{
+	margin: 0;
+	padding: 0;
+}
 body {
-	background: #efefef;
+	background: #fff;
 }
 .clearFix:after {
   content: "";
@@ -21,33 +25,35 @@ body {
 .container .header {
 	width: 100%;
 	margin: 0 auto;
-	height: 3.6rem;
+	height: 2rem;
 	background: url(../images/ic_person_header_bg.png) no-repeat;
 	background-size: 100% 100%;
+	border-bottom: 3px solid #efefef;
 }
 .barIcon{
-	width:9rem;
+	width:6rem;
 	text-align: right;
 	margin: 0 auto;
+	padding-top: .2rem;
 }
 .barIcon span{
-	width: .6rem;
+	width: .5rem;
 	display: inline-block;
 	margin: 0 auto;
 }
 .barIcon span img{
 	display: block;
 	margin: 0 auto;
-	width: .6rem;
+	width: .4rem;
 }
 .headIcon {
-	width: 8rem;
+	width: 5rem;
 	margin: 0 auto;
-	height: 1.024rem;
-	line-height: 1.024rem;
+	height: .6rem;
+	/*line-height: .6rem;*/
 }
 .container .header .header_img {
-	width: 1rem;
+	width: .7rem;
 	margin: 0 auto;
 	/*width: 6.4rem;
 	height: 1.55rem;
@@ -68,9 +74,9 @@ body {
 	font-size: 0.25rem;
 	line-height: 0.55rem;
 	text-align: center;*/
-	font-size: .4rem;
+	font-size: .25rem;
 	color: #fff;
-	margin-left: .5rem;
+	margin-left: .3rem;
 }
 
 
@@ -79,10 +85,183 @@ body {
 
 /*content start*/
 
+/*订单*/
+.orderWrap{
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+	border-bottom: 3px solid #efefef;
+}
+.orderTitle{
+	border-bottom: 1px solid #efefef;
+}
+.myorder {
+	width: 6rem;
+	margin: 0 auto;
+	height: .7rem;
+	line-height: .7rem;
+	font-size: .25rem;
+}
+.orderList{
+	width: 6rem;
+	margin: 0 auto;
+	padding-bottom: .2rem;
+}
+.orderList ul{
+	width: 5.4rem;
+	margin: 0 auto;
+	display: block;
+}
+.orderList ul li{
+	width: 1.8rem;
+	float: left;
+	height: .7rem;
+	line-height: .7rem;
+	text-align: center;
+	position: relative;
+}
+.orderList ul li.active:after{
+	content: ""; 
+	display: block; 
+	width: 8px;
+	height: 8px;
+	border: 1px;
+	background: #FF1500;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	margin-top: -4px;
+	left: 50%;
+	margin-left:.5rem;
+}
+.orderState{
+	width: 6rem;
+	margin: 0 auto;
+}
+.onlyOrder{
+	width: 6rem;
+	margin: 0 auto;
+	box-shadow: 0 0 8px #f3b5ba7d;
+	border-radius: 4px;
+}
+.moreOrder .onlyOrder{
+	width: 5.4rem;
+	margin: 0 auto;
+	box-shadow: 0 0 8px #f3b5ba7d;
+	border-radius: 4px;
+}
+.orderTop{
+	padding-top: .15rem;
+}
+.drugImg{
+	width: 1rem;
+	display: block;
+	margin: 0 auto;
+	float: left;
+	margin-left: .3rem;
+}
+.drugImg img{
+	width: 100%;
+	border: 1px solid #efefef;
+}
+.rider{
+	width: 1.6rem;
+	height: .55rem;
+	/*line-height: .5rem;*/
+	background: url(../images/ic_person_order_bg.png)center center;
+	background-size: 100% 100%;
+	float: right;
+	padding-top: .03rem;
+    padding-left: .03rem;
+}
+.riderImg{
+	
+}
+.riderImg img{
+	width: .48rem;
+	display: block;
+	float: left;
+}
+.riderText{
+	width: 1rem;
+	font-size: .18rem;
+	float: left;
+	margin-left: .081rem;
+	color: #fff;
+}
+.riderName{
+	text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.stateTYpe p{
+	font-size: .2rem;
+	text-align: center;
+	line-height: .6rem;
+}
+.orderTime{
+	background: #e3e1e154;
+	line-height: .7rem;
+	text-align: right;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	font-size: .2rem;
+}
+/*列表*/
+.listWrap{
+	width: 6.4rem;
+	background: #fff;
+	margin: 0.1rem auto 0;
+	padding-top: .2rem;
+	border-bottom: 3px solid #efefef;
+}
+.listWrap ul{
+	width: 6rem;
+	margin: 0 auto;
+}
+.listWrap ul li {
+	width: 1.5rem;
+	float: left;
+	height: 1.2rem;
+	line-height: .6rem;
+	margin: 0 auto;
+	text-align: center;
+	font-size: .2rem;
+	/*padding: .4rem 0;
+	box-sizing: border-box;*/
+}
+.listWrap ul li div img{
+	display: block;
+	width: .5rem;
+	margin: 0 auto;
+}
+.shareWrap{
+	width: 6.4rem;
+	margin: 0.1rem auto 0;
+}
+.shareWrap img{
+	width: 100%;
+}
+
+
+
+
 .container .content {
 	width: 100%;
 	margin-top: 0.2rem;
 	background: #fff;
+}
+.orderTitle p{
+	width: 3rem;
+	float: left;
+}
+.moreBar{
+	text-align: right;
+	color: #b8b4b4;
+	font-size: .23rem;
+}
+.moreBar span{
+	margin-left: .1rem;
 }
 
 .container .content ul {

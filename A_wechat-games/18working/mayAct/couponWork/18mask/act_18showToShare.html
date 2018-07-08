@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<base href="../">
+		<!--<base href="../">-->
 		<script src="js/jquery-2.2.0.min.js"></script>
 		<script src="js/currentTool.js"></script>
 		<script>
@@ -34,7 +34,7 @@
 					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
 				}
 			} else {
-				location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+				//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
 			}
 					
 		</script>

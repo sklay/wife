@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta charset="utf-8">
+    <title>快速找药</title>
+    <link rel="stylesheet" type="text/css" href="http://www.jq22.com/jquery/font-awesome.4.6.0.css">
+    <link rel="stylesheet" href="style/swiper-3.2.5.min.css" />
+    <link rel="stylesheet" href="style/ectouch.css" />
+    <link rel="stylesheet" href="style/search1.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <style>
+        .img img {
+        	width: 5rem;
+        }
+        
+        .con_1 .menu-right ul li span {
+        	border: 1px solid #ddd;
+        	display: block;
+        	border-radius: 5px;
+        	overflow: hidden;
+        	text-overflow: ellipsis;
+        	white-space: nowrap;
+        }
+        
+        .con #sidebar ul li {
+        	border-bottom: 1px solid #ddd;
+        }
+        
+        .con #sidebar ul li:last-child {
+        	border: none;
+        }
+    </style>
+</head>
+<body style="max-width:640px;font-size: 14px;">
+<div id="loading"><img src="images/loading.gif" /></div>
+<div class="header">
+    <div class="header_top">
+        <div class="back">
+            <img src="images/ic_back.png" />
+        </div>
+        <div class="title">
+            <span>快速找药</span>
+        </div>
+    </div>
+    <div class="header_bottom">
+        <div class="bottom_left">
+            <span>科室找药</span>
+        </div>
+        <div class="bottom_right on">
+            <span>症状找药</span>
+        </div>
+    </div>
+</div>
+<div class="con_1" style="display:none;">
+    <aside>
+        <div class="menu-left scrollbar-none" id="sidebar1">
+            <ul></ul>
+        </div>
+    </aside>
+    <section class="menu-right padding-all j-content">
+
+    </section>
+</div>
+<div class="con">
+    <aside>
+        <div class="menu-left scrollbar-none" id="sidebar">
+            <ul>
+                <li  class="active">全部</li>
+            </ul>
+        </div>
+    </aside>
+    <section class="menu-right padding-all j-content"></section>
+</div>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+<script type="text/javascript" src="js/ectouch.js"></script>
+<script type="text/javascript" src="js/rapid_drug.js"></script>
+<script type="text/javascript">
+    $(function($) {
+        $(".header .bottom_right").click(function () {
+            $(this).addClass('on').siblings().removeClass("on");
+            $(".con").show().prev().hide();
+        });
+        $(".header .bottom_left").click(function () {
+            $(this).addClass('on').siblings().removeClass("on");
+            $(".con_1").show().next().hide();
+        });
+        var _parent = window.parent;
+        $(".back").click(function () {
+            _parent.location.href = "1_index.html";
+        });
+    })
+</script>
+</body>
+</html>

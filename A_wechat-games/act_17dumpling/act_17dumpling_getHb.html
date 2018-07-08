@@ -253,6 +253,8 @@
 			showSoftKeyboard();
 		}); 
 		$(".getHb").on("click", "#getHbBtn", function() {
+			$("#shareFriSha").css("height", $(".content").height());
+				$("#shareFriSha").show();
 			waitShow();
 			$_phoneno = $("#userPhone").val();
 			var regno = /1[3-8]+\d{9}/;

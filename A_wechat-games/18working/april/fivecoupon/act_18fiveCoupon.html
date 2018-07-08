@@ -1,20 +1,21 @@
-<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<!--<%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>-->
 <!DOCTYPE html>
 <html lang="en">
 
 	<head>
 		<meta charset="UTF-8">
-		<title>踏青季，送你5元无门槛券，先到先得！</title>
-		<meta name="description" content="药快到助你健康出游。">
+		<title>【药快到】健康过六一，送你5元无门槛券</title>
+		<meta name="description" content="数量有限，先到先得！">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<meta name="format-detection" content="telephone=no, email=no" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<base href="../">
+		<!--<base href="../">-->
 		<link rel="stylesheet" href="style/act_18fiveCoupon.css" />
 		<script src="js/jquery-2.2.0.min.js"></script>
 		<script src="js/currentTool.js"></script>
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		<script>
 			/** 默认是生产APPID*/
 			var appid = 'wxade8c5e473c645e9';
@@ -22,6 +23,8 @@
 				/** 准生产APPID*/
 				appid = 'wx697be0ec43c8cafa';
 			}
+		 	
+
 			var codeActId = '${codeActId}' || '';
 			var act_url = '${act_url}' || '';
 			var wxparam = "%26codeActId%3d${codeActId}%26pharmacy_id%3d${pharmacy_id}%26user_id%3d${user_id}%26inviteType%3d${inviteType}%26version_sys%3dwehcat";
@@ -32,10 +35,10 @@
 				var grantBoo = "${grantFail}";
 				if (grantBoo == "true" || grantBoo == true) {
 					var grantFailUserId = "${fromUserId}";
-					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}&connect_redirect=1#wechat_redirect';
 				}
 			} else {
-				location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+				//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}&connect_redirect=1#wechat_redirect';
 			}
 					
 		</script>
@@ -58,6 +61,8 @@
 					<img src="images/act_18fiveCoupon_2.jpg" />
 					<img src="images/act_18fiveCoupon_3.jpg" />
 					<img src="images/act_18fiveCoupon_4.jpg" />
+					<img src="images/act_18fiveCoupon_5.jpg" />
+					<img src="images/act_18fiveCoupon_6.jpg" />
 				</div>
 				<div class="getHbWrap">
 					<div class="getHb">
@@ -69,13 +74,13 @@
 						<!--领取成功  -->
 							<div class="receive_success" style="display: none;">
 								<div class=" getHbnNum clearFix">
-	                   				<img  src="images/act_18fiveCoupon_succ.png" alt="" />
+	                   				<img  src="images/act_18fiveCoupon_succ.jpg" alt="" />
 								</div>
 							</div>
 							<!-- 领过了 -->
 							<div class="has_received " style="display: none;">
 								<div class=" getHbnNum clearFix">
-									<img  src="images/act_18fiveCoupon_fail.png" alt="" />
+									<img  src="images/act_18fiveCoupon_fail.jpg" alt="" />
 								</div>
 							</div>
 							<div class="commUsebtn clearfix">
@@ -89,12 +94,12 @@
 			<!--活动规则 start-->
 			<div class="activeRuleShowWrap ">
 				<div class="comShowTitle">
-					<img src="images/act_18allergyIndex_title.png" />
+					<img src="images/act_18allergyIndex_title.jpg" />
 				</div>
 				<div class="activeRuleShow">
 					<p>1.此活动药快到新老用户均可参与（限北京地区）</span></p>
 					<p>2.活动时间：${startTime} — ${endTime}</p>
-					<p>3.专项券有效期截止${endTime}</p>
+					<p>3.专享券有效期截止${endTime}</p>
 					<p>4.活动期间，每人限领一次(相同设备号、手机号、收货地址视为同一用户)</p>
 				</div>
 			</div>
@@ -116,7 +121,7 @@
 				<p class="closeBtn">知道了</p>
 			</div>
 		</div>
-		<%@ include file="act_common_sharePage.jsp"%>
+		<!--<%@ include file="act_common_sharePage.jsp"%>-->
 	</body>
 	<script>
 		var phoneNum = '${phone_num}';
@@ -194,15 +199,17 @@
 			$(".closeBtn").on("click",function(){
 				$(".failShow").hide();
 			})
-		}
+		};
 	</script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
-	wechatObj.title = '踏青季，送你5元无门槛券，先到先得！';
-	wechatObj.desc = '药快到助你健康出游。';
+	var wechatObj = new Object();
+	wechatObj.title = '【药快到】健康过六一，送你5元无门槛券！';
+	wechatObj.desc = '数量有限，先到先得！';
 	wechatObj.link = location.href.split('#')[0];
-	wechatObj.imgUrl = 'http://imgstore.camore.cn/icon/logo/act_18fiveCoupon_shareImg.jpg';
-	if (is_weixin()) {
+	wechatObj.imgUrl = 'http://imgstore.camore.cn/medhtml/common/images/act_18fiveCoupon_shareImg.jpg';
+	console.log("appId：" + appid);
+// 	if (is_weixin()) {
 		$.ajax({
 			url : "/medhtml/common/getwxjssign?",
 			data : {
@@ -211,7 +218,7 @@
 			success : function(wechatReturn) {
 				if (wechatReturn) {
 					wx.config({
-						debug : false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+						debug : true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
 						appId : appid, // 必填，公众号的唯一标识
 						timestamp : wechatReturn.timestamp, // 必填，生成签名的时间戳
 						nonceStr : wechatReturn.nonceStr, // 必填，生成签名的随机串
@@ -225,14 +232,16 @@
 				});
 			}
 		});
-	};
+// 	};
+	
 	function getWechatObj() {
 		wx.onMenuShareTimeline({
 			title : wechatObj.title, // 分享标题
 			link : wechatObj.link, // 分享链接
 			imgUrl : wechatObj.imgUrl, // 分享图标
+			desc : wechatObj.desc, // 分享描述
 			success : function() {
-			
+				
 			},
 			cancel : function() {
 			
@@ -267,6 +276,47 @@
 			},
 			cancel : function() {
 			}
+		});
+	}
+	
+	
+	function reuseWx(){
+		wx.onMenuShareTimeline({
+			title: wechatObj.title, // 分享标题
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareAppMessage({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+			},
+			cancel: function () {}
+		});
+
+		wx.onMenuShareQQ({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+			},
+			cancel: function () {}
+		});
+		wx.onMenuShareWeibo({
+			title: wechatObj.title, // 分享标题
+			desc: wechatObj.desc, // 分享描述
+			link: wechatObj.link, // 分享链接
+			imgUrl: wechatObj.imgUrl, // 分享图标
+			success: function () {
+			},
+			cancel: function () {}
 		});
 	}
 </script>

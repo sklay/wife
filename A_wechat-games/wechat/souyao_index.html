@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分类搜药</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/souyao_index.css">
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/souyao_index.js"></script>
+    <script>
+        $(function(){
+            var _parent=window.parent;
+            $(".header_back").click(function(){
+                _parent.location.href="1_index.html";
+            });
+            $(".header_search").click(function(){
+                _parent.location.href="search.html";
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <div class="header_back">
+            <img src="images/ic_back.png">
+        </div>
+        <div class="header_title">
+            <span>功能主目录</span>
+        </div>
+        <div class="header_search">
+            <img src="images/sousuo.png">
+        </div>
+    </div>
+    <div class="all">
+        <div class="all_title">
+            <span>全部商品</span>
+        </div>
+        <div class="all_right">
+            <img src="images/sort_right2.png">
+        </div>
+    </div>
+    <div class="content">
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+@charset "utf-8";
+body{background:#ecedef;}
+.container{max-width:6.4rem;margin:0 auto;}
+/*header start*/
+.container .header {
+	width: 6.4rem;
+	height: 0.8rem;
+	background: #fff;
+}
+
+.container .header .header_back {
+	width: 0.8rem;
+	height: 0.8rem;
+	float: left;
+	text-align: center;
+	padding-top: 0.2rem;
+}
+
+.container .header .header_back img {
+	height: 0.4rem;
+}
+
+.container .header .header_title {
+	width: 4.8rem;
+	height: 0.8rem;
+	text-align: center;
+	float: left;
+	color: #D5D5D5;
+	font-size: 0.33rem;
+	letter-spacing: 0.02rem;
+	line-height: 0.8rem;
+}
+/*header end*/
+/*content start*/
+.container .content {
+	width: 6.4rem;
+}
+.noresult{
+	width:2.5rem;
+	height:3rem;
+	position:fixed;
+	z-index:9999;
+	top:50%;
+	margin-top:-1.5rem;
+	left:50%;
+	margin-left:-1.25rem;
+	text-align: center;
+}
+.noresult img{
+	width: 100%;
+}
+.container .content .bg {
+	width: 3rem;
+	position: absolute;
+	top: 4rem;
+	left: 1.7rem;
+	border: none; 
+}
+.contentWap{
+	width: 6.4rem;
+	margin: 0 auto;
+	background: #fff;
+	margin-bottom: .1rem;
+}
+.contentWap .conItem{
+	width: 6.4rem;
+	margin: 0 auto;
+	padding: .2rem 0;
+	box-sizing: border-box;
+}
+.contentWap .conItem .clockWrap{
+	width: 6rem;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.contentWap .conItem .clockWrap i{
+	display: block;
+	width: .4rem;
+	height: .4rem;
+	background: url(../images/shizhong.png)center center;
+	background-size:100% 100% ;
+	float: left;
+}
+.contentWap .conItem .clockWrap span{
+	line-height: .4rem;
+	padding-left: .2rem;
+}
+.contentWap .conItem .mseeWrap{
+	width: 6rem;
+	margin: 0.1rem auto 0;
+	overflow: hidden;
+}
+.contentWap .conItem .mseeWrap .hasRead{
+	display: none;
+	width: .5rem;
+	height: .5rem;
+	background: url(../images/messHasRead.png)center center;
+	background-size:100% 100% ;
+	float: left;
+}
+.contentWap .conItem .mseeWrap .noRead{
+	display: block;
+	width: .5rem;
+	height: .5rem;
+	background: url(../images/messNoRead.png)center center;
+	background-size:100% 100% ;
+	float: left;
+}
+.contentWap .conItem .mseeWrap p{
+	width: 5.5rem;
+	float: right;
+	/*text-align: left;*/
+	line-height: .5rem;
+	padding-left: .2rem;
+}
+/*content end*/

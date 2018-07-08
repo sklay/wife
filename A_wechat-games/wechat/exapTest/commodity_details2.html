@@ -1,0 +1,1041 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>药品详情页</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/1_commodity_details.css?v=1001">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/nav.js"></script>  
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <!--<script src="js/jquery.event.drag.js"></script>-->
+    <!--<script src="js/jquery.touchSlider.js"></script>-->
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/1_commodity_details.js?v=2.50"></script>-->
+    
+    <!--轮播图-->
+    <!--<link rel="stylesheet" href="owl-carousel/owl.carousel.css" />
+	<link rel="stylesheet" href="owl-carousel/owl.theme.css" />
+	<link rel="stylesheet" href="owl-carousel/owl.transitions.css" />-->
+	<link rel="stylesheet" href="dist/css/swiper.min.css">
+	<script src="dist/js/swiper.min.js"></script>
+    <!--<script src="owl-carousel/owl.carousel.min.js"></script>-->
+    <script src="js/vue.js"></script>
+    
+    
+    <style>
+    	
+    	#origin-img{
+			display:none;
+			position:fixed;
+			top:0;
+			left:50%;
+			width:6.4rem;
+			margin-left: -3.2rem ;
+			height:100%;
+			background:#fff;
+	}
+	#origin-img .swiper-slide img {
+    width: 4.5rem!important;
+        display: block;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+}
+#origin-img .swiper-slide img{
+	width:100%;
+	vertical-align:middle;
+	}
+	#origin-img .swiper-pagination {
+     /*bottom: 3rem;*/
+    top: 6.2rem;
+    color: #333;
+    right: .3rem;
+}	
+.swiper-pagination{
+	/*top:0;*/
+	bottom:0;
+	color:#333;
+	}	
+.upload{
+	position:absolute;
+	bottom:0;
+	line-height:3em;
+	background:rgba(0,0,0,.5);
+	z-index:5;
+	color:#fff;
+	text-indent:1em;
+	width:100%;
+	}
+    </style>
+    <script>
+        $(function(){
+		 //内容信息导航吸顶
+			var navHeight= $("#navHeight").offset().top; 
+			var navFix=$("#nav_wrap"); 
+			$(window).scroll(function(){ 
+				if($(this).scrollTop()>navHeight){ 
+					navFix.addClass("navFix"); 
+				} 
+				else{ 
+					navFix.removeClass("navFix"); 
+				} 
+			}) 
+		    //内容信息导航锚点
+		   $('.nav_wrap').navScroll({
+			  mobileDropdown: true,
+			  mobileBreakpoint: 768,
+			  scrollSpy: true
+			});
+
+			var scrollHandler;
+            $(".evaluate").bind("click",function(){
+            	var $this = $(this);
+                $this.find("p").addClass("nav_border");
+                $this.siblings().find("p").removeClass("nav_border");
+                $(".div3").fadeIn();
+                $(".div1").hide();
+                $(".div2").hide();
+                $(".imgInfo").hide();
+				scrollHandler = function(){  
+				    $(document).off("scroll",scrollHandler);//解除bind事件  
+				};
+            });
+            $(".nav_left").bind("click",function(){
+                $(".div3").hide();
+                $(".div1").show();
+                $(".div2").show();
+                $(".nav_right p").removeClass("nav_border");
+                $(".nav_left").find("p").addClass("nav_border");
+                $(".evaluate").find("p").removeClass("nav_border");
+                
+            });
+            $(".nav_right").bind("click",function(){
+            	var winHeight = $(".div1").height();
+            	$("body,html").animate({
+			            scrollTop:winHeight-30
+			        },200);
+                $(".div3").hide();
+                $(".div1").show();
+                $(".div2").show();
+                $(".nav_left p").removeClass("nav_border");
+                $(".nav_right p").addClass("nav_border");
+                $(".evaluate").find("p").removeClass("nav_border");
+            });
+		    
+		    
+        	var myswiper = new Swiper('.case', {
+		      slidesPerView: 3,
+		      spaceBetween: 30,
+		      freeMode: true,
+		      pagination: {
+		        el: '.case .swiper-pagination',
+		        clickable: true,
+		      },
+		    });
+		   
+		   var swiper = new Swiper('.banner', {
+		      pagination: {
+		        el: '.banner .swiper-pagination',
+		        type: 'fraction',
+		      }
+		    });
+		    var swiper = new Swiper('#origin-img',{
+					zoom:true,
+//				  width: window.innerWidth,
+				  width:$('#origin-img').width(),
+				  virtual: true,
+					spaceBetween:20,
+					pagination: {
+			          el: '#origin-img .swiper-pagination',
+			          type: 'fraction',
+			       },
+				   on:{
+			         click: function(){
+			           	$('#origin-img').fadeOut('fast');
+			           	 $(".containerWrap").fadeIn();
+			   			this.virtual.slides.length=0;
+	           			this.virtual.cache=[]; 
+			   			swiperStatus=false;
+					   
+			       },
+			    },
+			  
+			 });
+			 var pic_path_arr =[
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二297.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二298.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二299.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二300.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二301.jpg"
+        ]
+			   $('.banner img').click(function(){
+					  clickIndex=$(this).index();
+				  
+					  imgs = pic_path_arr;
+					  for(i=0;i<imgs.length;i++){
+						   swiper.virtual.appendSlide('<div class="swiper-zoom-container"><img src="'+imgs[i]+'" /></div>');
+						}
+					  swiper.slideTo(clickIndex);
+					  $('#origin-img').fadeIn('fast');
+					  $(".containerWrap").fadeOut();
+					  swiperStatus=true;
+					  
+				  })
+			   
+			//切换图状态禁止页面缩放	
+		document.addEventListener('touchstart',function (event) {  
+	            if(event.touches.length>1 && swiperStatus){  
+	                event.preventDefault();  
+	            }  
+	        })  
+	        var lastTouchEnd=0;  
+	    document.addEventListener('touchend',function (event) {  
+	            var now=(new Date()).getTime();  
+	            if(now-lastTouchEnd<=300){  
+	                event.preventDefault();  
+	            }  
+	            lastTouchEnd=now;  
+	        },false)
+	
+	    document.addEventListener('touchmove',function(e){
+		    if(swiperStatus){
+	            e.preventDefault();
+	        }
+	    })	
+
+            var _url = encodeURIComponent(window.location.href.split('#')[0], "UTF-8");
+            var pharmacyId = localStorage.getItem("pharmacy_id");
+            $.ajax({
+                type:"GET",
+//              url:"http://store.ykd365.com/medstore/wx/dw?url="+_url,
+                dataType:"json",
+                success:function(data){
+                    console.log(data);
+                    wx.config({
+                        debug:false,//开启调试模式，调用的所有api的返回值会在客户端alert出来
+                        appId:"wx697be0ec43c8cafa",//必填，公众号的唯一标识
+                        timestamp:data.timestamp, // 必填，生成签名的时间戳
+                        nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                        signature: data.signature,// 必填，签名，见附录1
+                        jsApiList: [
+                            // 所有要调用的 API 都要加到这个列表中
+                            "onMenuShareTimeline",       // 分享到朋友圈接口
+                            "onMenuShareAppMessage",  //  分享到朋友接口
+                            "onMenuShareQQ",         // 分享到QQ接口
+                            "onMenuShareWeibo",      //分享到微博
+                            "onMenuShareQZon"       //分享到QQ空间
+                        ]
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+//                  console.log(errorThrown);
+                }
+            });
+            
+            
+            var phone = localStorage.getItem("pharmacy_phone");
+            $(".box_content").text(phone);
+            
+           
+            $(".title_left").click(function(){
+            	//回到上一页
+               history.back(-1);
+//				$(".div3").hide();
+//              $(".div1").show();
+//              $(".div2").show();
+//              $(".nav_left").find("p").addClass("nav_border");
+//              $(".evaluate").find("p").removeClass("nav_border");
+            });
+            var height = window.screen.height;
+            $(".pharmacist_phone").css("height",height);
+            $(".footer_left ul li:first-child").click(function(){
+                $(".pharmacist_phone").show();
+            });
+            $(".phone_bottom").click(function(){
+                $(".pharmacist_phone").hide();
+            });
+            $(".phone_top").click(function(){
+                $(".pharmacist_phone").hide();
+                $(".telephone").show();
+            });
+            $(".telephone").css("height",height);
+            $(".bar2").css("height",$(window).height()).click(function(){
+                $(this).hide();
+                return false;
+            });
+            $(".bar2 ul li").click(function(){
+                $(".bar2").hide();
+                $(".bar3").show();
+            });
+            $(".bar3").css("height",$(window).height()).click(function(){
+                $(this).hide();
+                return false;
+            });
+            $(".bar2 .bar_content li").click(function(e){
+                e.stopPropagation();
+            });
+            $(".telephone .foot_left").click(function(){
+                window.parent.location.href="Tel:"+phone;
+            });
+            $(".telephone .foot_right").click(function(){
+                $(".telephone").hide();
+            });
+            $(".title_right img").click(function(){
+                $(".bar2").show();
+            });
+            wx.ready(function(){
+                $(".bar2 ul li").click(function(){
+                    var toUrl = location.search;
+                    var toUrls = toUrl.substr(1);
+                    var drug = toUrls.split("=");
+                    var drug_id = drug[1];
+                    console.log(drug_id);
+                    var title = $(".title_right span").text();
+                    var link = "http://store.ykd365.com/wechat-html/fen.html?drug_id="+drug_id+"&pharmacyId="+pharmacyId;
+                    var img = $(".main_img ul li:first-child").children("img").attr("src");
+                    var ind = localStorage.getItem("ind");
+                    wx.onMenuShareAppMessage({
+                        title: title, // 分享标题
+                        desc: ind, // 分享描述
+                        link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: img, // 分享图标
+                        success: function (data) {
+                            $(".bar3").hide();
+                        },
+                        error:function(){
+                            alert("分享失败！！！");
+                        }
+                    });
+                    wx.onMenuShareTimeline({
+                        title: title, // 分享标题
+                        desc: ind, // 分享描述
+                        link: link, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: img, // 分享图标
+                        success: function (data) {
+                        },
+                        error:function(){
+                            alert("分享失败！！！");
+                        }
+                    });
+                });
+            });
+        });
+    
+    
+    </script>
+
+	<style>
+	
+	.anchor_layer .nav_wrap.navFix{
+		position: fixed; left: 0; top: 0; width: 6rem; 
+		left: 50%;
+		margin-left: -3rem;
+		 border-radius: 0; z-index: 9999;}
+		.swiper-container {
+		    width: 6rem;
+		}
+		.swiper-slide img{
+			    width: 3rem;
+    display: block;
+    margin: 0 auto;
+    margin-top: 1.3rem;
+		}
+		.case .swiper-slide img{
+			margin-top: 0;
+		} 
+		.swiper-pagination{
+			width: .7rem;
+			height: .7rem;
+			line-height: .7rem;
+			border: 1px solid #e3e3e3;
+			border-radius: 50%;
+			font-size: .25rem;
+			
+		}
+		.swiper-pagination-fraction {
+		    left: initial;
+		    right: 0;
+		}
+	   /*.owl-theme .owl-controls .owl-page span{
+	   	display: none;
+	   }
+		#owl-demo .item img{
+	    display: block;
+	    width: 100%;
+	    height: auto;
+	}*/
+	</style>
+</head>
+<body>
+<div class="container" id="app">
+	<div class="containerWrap">
+		<div class="title anchor_layer" id="navHeight">
+			<div class="navbar clearFix nav_wrap" id="nav_wrap">
+				<div class="title_left">
+		            <img src="images/ic_back1.png">
+		        </div>
+				<div class="nav wrap_layer">
+					<div class="wrap_tab nav_item nav_left ">
+			            <p class="nav_border"><a class="tab active" href="#goods">商品</a></p>
+			        </div>
+			        <div class="wrap_tab nav_item nav_right">
+			            <p class=""><a class="tab" href="#info">详情</a></p>
+			        </div>
+			         <div class="wrap_tab nav_item evaluate">
+			            <p class="">评价</p>
+			        </div>
+				</div>
+			</div>
+		</div>  
+    
+    <!--焦点图div部分开始-->
+    	<section>
+	    	 <div class="div1 cont" id="goods">
+				 <div class="goodsWrap">
+					<div class="swiper-container banner">
+					    <div class="swiper-wrapper">
+						    <div class="swiper-slide" v-for="item,i in goodsInfo.result_json.pic_path_arr">
+						      	<img  v-bind:src="item" alt="">
+						    </div>
+					    </div>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					    <!-- Add Arrows -->
+					    <!--<div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>-->
+			  		</div>
+				 </div>
+			
+		         <div class="content" >
+		            <div class="content_header" >
+		                <h3>{{goodsInfo.result_json.show_name}}</h3>
+		                <p>{{goodsInfo.result_json.indication}}</p>
+		            </div>
+		            <div class="content_box">
+		                <p class="money">{{goodsInfo.result_json.price/100}}</p>
+		            </div>
+		            <div class="content_footer">
+		                <p class="span1">{{goodsInfo.result_json.standard}}</p>
+		                <p class="span2">{{goodsInfo.result_json.production}}</p>
+		            </div>
+		
+		         </div>
+		         <div class="footer">
+		            <div class="drugWrap clearFix">
+		            	<a href="1620_drugStoreInfo.html">
+		            		<span>本商品由北京康佰馨大药房昆泰店提供</span>
+		            		<img src="images/ic_new_add_jt.png"/>
+		            	</a>
+		            </div>
+		         </div>
+		         <div class="correlation">
+		            <h4>相关商品</h4>
+		            <div class="swiper-container case">
+					    <div class="swiper-wrapper">
+						      <div class="swiper-slide" v-for="listItem,j in goods.result_json"  >
+						      	<ul >
+					              	<li v-bind:id="listItem.drug_id"  >
+					              		<a href="javascript:;" >
+					              			<img  v-bind:src="listItem.pic_path" alt="">
+					              			<p>{{listItem.show_name}}</p>
+					              			<p class="price">￥{{listItem.price/100}}</p>
+					              		</a>
+					              	</li>
+		           				 </ul>
+						      </div>
+					    </div>
+				   </div>
+		         </div>
+	    	</div>
+	    	 <div class="div2 cont" id="info" style="display: block;">
+		    	 <div class="comShowTitle">
+					<div class="comShowWrap">
+						<div class="leftLineDot">
+							<span style="height: 1px; width: 1.5rem;"></span> 
+						</div>
+						<div class="comshowTitleText">
+							<p>详情介绍</p>
+						</div>
+						<div class="rightLineDot">
+							<span style="height: 1px; width: 1.5rem;"></span>
+						</div>
+					</div>
+				 </div>
+		    	 <ul>
+		    		<li>
+			    		<span class="span1">通用名称</span>
+				    	<span class="span2">邦迪苯扎氯铵贴(防水型)</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">商品名称</span>
+		    			<span class="span2">邦迪 邦迪苯扎氯铵贴(防水型)</span>
+		    		</li>
+		    		<li><span class="span1">英文名称</span>
+		    			<span class="span2">Benzalkonium Chloride Patches</span>
+		    		</li>
+		    		<li><span class="span1">化学名称</span>
+		    			<span class="span2"></span</li>
+		    		<li>
+		    			<span class="span1">分子式</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li><span class="span1">分子量</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">成分</span>
+		    			<span class="span2">本品每片含苯扎氯铵0.31毫克。辅料为：防水透气胶带、胶粘剂、无纺吸收垫和PE隔离膜。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">性状</span>
+		    			<span class="span2">本品为淡棕色弹性防水透气薄膜和高分子化合物热熔胶胶粘剂组成的胶带，上附含苯扎氯的白色吸收性强的吸收垫和一层黄色隔离渗透膜组成的保护性复合垫。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">辅料</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">作用类别</span>
+		    			<span class="span2">止血类</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">规格</span>
+		    			<span class="span2">22.5mm*12.7mm*20片</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">包装</span>
+		    			<span class="span2">本品单片密封于包装纸内，</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">批准文号</span>
+		    					<span class="span2">国药准字H10920011</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">生产企业</span>
+		    			<span class="span2">上海强生有限公司</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">适应症</span>
+		    			<span class="span2">用于小创伤，擦伤等患处。</span>
+		    		</li>
+					<li>
+						<span class="span1">用法用量</span>
+		    			<span class="span2">撕开包装，将中间的吸收垫敷在创伤处，然后撕去两端的覆盖膜并用胶带固定位置。</span></li>
+		    		<li>
+		    			<span class="span1">不良反应</span>
+		    			<span class="span2">罕见过敏反应。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">注意事项</span>
+		    			<span class="span2">1.本品为无菌产品，拆封后忌用手接触中间复合垫。2.使用前发现包装打开或破损请勿使用。3.用药部位如有烧灼感、瘙痒、红肿等情况应停药，并将局部药物洗净，必要时向医师咨询。4.对本品过敏者禁用，过敏体质者慎用。5.当本品性状发生改变时禁用，6.请将本品放在儿童不能接触的地方。7.儿童必须在成人监护下使用。8.如正在使用其他药品，使用本品前请咨询医师或药师。9.使用本品前，先清洁盒消毒伤口 ；为了保持伤口卫生，请每天更换创口贴。10.本品为一次性使用，不得重复使用。</span>
+		    		</li>
+					<li>
+						<span class="span1">禁忌</span>
+						<span class="span2">尚不明确</span>
+					</li>
+					<li>
+						<span class="span1">药物过量</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">药代动力学</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">老年用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">儿童用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">孕妇及哺乳期妇女用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">药理毒理</span>
+						<span class="span2">苯扎氯铵为阳离子表面活性剂类广谱杀菌剂，弹性织物有加压止血作用。</span></li>
+					<li>
+						<span class="span1">药物相互作用</span>
+						<span class="span2">如与其他药物同时使用可能会发生药物相互作用，详情请咨询医师或药师</span></li>
+					<li>
+						<span class="span1">临床试验</span>
+						<span class="span2"></span>
+					</li>
+		    	 </ul>
+	    	</div>
+			 <div class="div3">
+				<div>
+					<div class="pj_header clearFix">
+						<span>药品评价</span>
+						<ul class="clearFix">
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+						</ul>
+						<span class="score">5分</span>
+					</div>
+					<div class="pj_header clearFix">
+						<span>配送评价</span>
+						<ul class="clearFix">
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+							<li>
+								<img src="images/ic_huangXingXing.png" />
+							</li>
+						</ul>
+						<span class="score">5分</span>
+					</div>
+				</div>
+				<div class="pj_list">
+					<div class="pj_listAll">
+						<span>全部</span>
+						<span>(9)</span>
+					</div>
+					<div class="pj_listItem">
+						<div class="pj_time clearFix">
+							<div class="headImg">
+								<img src="images/ic_person_header_nolog.png" />
+							</div>
+							<div class="user_pho">
+								<p>155****7501</p>
+								<ul class="clearFix">
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+								</ul>
+							</div>
+							<span class="">2017-11-17 16:2222222</span>
+						</div>
+						<div class="pg_type">
+							<p>药品评价：5分</p>
+							<p>配送评价：5分</p>
+						</div>
+						<div class="pj_content">
+							<p>hahsuasasbasashashausasbabs</p>
+						</div>
+					</div>
+					<div class="pj_listItem">
+						<div class="pj_time clearFix">
+							<div class="headImg">
+								<img src="images/ic_person_header_nolog.png" />
+							</div>
+							<div class="user_pho">
+								<p>155****7501</p>
+								<ul class="clearFix">
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+									<li>
+										<img src="images/ic_huangXingXing.png" />
+									</li>
+								</ul>
+							</div>
+							<span class="">2017-11-17 16:2222222</span>
+						</div>
+						<div class="pg_type">
+							<p>药品评价：5分</p>
+							<p>配送评价：5分</p>
+						</div>
+						<div class="pj_content">
+							<p>hahsuasasbasashashausasbabs</p>
+						</div>
+					</div>
+				</div>
+			</div>
+    	</section>
+    	<footer class="footer_nav">
+            <div class="footer_left clearFix">
+                <ul>
+                    <li>
+                    	<a href="javascript:;">
+	                    	<img src="images/Screenshot_2017-05-19-11-24-44-67_07.png">
+	                    	<!--<br>-->
+	                    	<p>药店咨询</p>
+                    	</a>
+                    </li>
+                    <li class="myList">
+                    	<a href="javascript:;">
+                    		<img class="img1" src="images/gouwu2.png">
+                    		<!--<br>-->
+                    		<p>我的清单</p>
+                    		<span class="count">0</span>
+                    	</a>
+                    </li>
+                    <li>
+                    	<a href="javascript:;">
+	                    	<img class="img2" src="images/ic_no_collect_image.png">
+	                    	<p class="coll">加入收藏</p>
+                    	</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_right">
+                <div class="right_left">
+                    <img src="images/ic_white_shopCar.png">
+                </div>
+                <div class="right_right">
+                    	加入清单
+                </div>
+                
+            </div>
+            
+        </footer>
+
+	</div>
+	  <div class="swiper-container" id="origin-img">
+	    <div class="swiper-wrapper"></div>
+	    <div class="swiper-pagination"></div>
+	  </div>
+	
+</div>
+
+<div class="bar" style="display:none;">
+    <span>收藏成功!</span>
+</div>
+<div class="bar1" style="display:none;">
+    <span>已取消收藏!</span>
+</div>
+<div class="pharmacist_phone" style="display:none;">
+    <div class="phone_top">
+        <div class="top_img">
+            <img src="images/ic_tanKuang_2.png">
+        </div>
+        <div class="phone_title">
+            <span>拨打药师电话</span>
+        </div>
+    </div>
+    <div class="phone_bottom">
+        <span>取消</span>
+    </div>
+</div>
+<div class="telephone" style="display:none;">
+    <div class="box">
+        <div class="box_header">
+            <span>拨打客服电话</span>
+        </div>
+        <div class="box_content">
+            <span></span>
+        </div>
+        <div class="box_footer">
+            <div class="foot_left">
+                <span>确认</span>
+            </div>
+            <div class="foot_right">
+                <span>取消</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bar2" style="display:none;">
+    <div class="bar_content">
+        <ul>
+            <li>
+                <div class="li_top">
+                    <img src="images/umeng_socialize_wechat.png" />
+                </div>
+                <div class="li_bot">
+                    <span>微信</span>
+                </div>
+            </li>
+            <li>
+                <div class="li_top">
+                    <img src="images/umeng_socialize_wxcircle.png" />
+                </div>
+                <div class="li_bot">
+                    <span>朋友圈</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="bar3" style="display:none;">
+    <img src="images/tishi.png">
+</div>
+<div class="suc" style="display:none;">
+    <span>加入清单成功</span>
+</div>
+</body>
+<script>
+	//商品基本信息
+	var goodsInfo = {
+    "message":"succ",
+    "result_code":100,
+    "result_json":{
+        "drug_activity_arr":[
+
+        ],
+        "sales_info_arr":[
+
+        ],
+        "drug_id":"10118013",
+        "pic_path":"http://imgstore.camore.cn/1009/kangquan/kangquan_表二297.jpg@!ys300",
+        "pic_path_arr":[
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二297.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二298.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二299.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二300.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二301.jpg"
+        ],
+        "show_name":"以岭 连花清瘟胶囊",
+        "indication":"清瘟解毒，宣肺泄热。用于治疗流行性感冒属热毒袭肺证，症见：发热或高热，恶寒，肌肉酸痛，鼻塞流涕，咳嗽，头痛，咽干咽痛，舌偏红，苔黄或黄腻等。【打喷嚏/流鼻涕/咽喉肿痛/喉咙痛/喉咙疼/嗓子疼/嗓子痛/发烧/流感】",
+        "price":"2550",
+        "sales_volume":"0",
+        "discuss":"5",
+        "iscollect":"false",
+        "state":"1",
+        "standard":"0.35g*36粒",
+        "production":"石家庄以岭药业股份有限公司",
+        "drug_type":"",
+        "level":"5",
+        "is_purchasing":"0",
+        "is_prescription":"0",
+        "is_special":"0",
+        "drug_submit_type":"10100",
+        "receive_coupon_info":"",
+        "ykd_logo_url":"",
+        "ykd_introduce_info":"1小时送达 正品保证 免运费 药师服务",
+        "lack_state":"0",
+        "lack_title":"库存不足，正在补货",
+        "lack_weburl":"http://deve.ykd365.com/medstore/SA_products?sku_id=10118013&customer_id=26465",
+        "lack_webtitle":"准生产相似商品",
+        "is_shopping":"false",
+        "purchasing_arr":[
+            "此商品为定购商品，不可使用优惠券.",
+            "定购商品需要提前支付百分之二十的定金.",
+            "定购商品自支付定金后保证7日内送达."
+        ]
+    },
+    "response_num":"1526281204881"
+}
+var goods = {
+    "message":"succ",
+    "result_code":100,
+    "result_json":[
+        {
+            "drug_activity_arr":[
+
+            ],
+            "sales_info_arr":[
+
+            ],
+            "drug_id":"11620002",
+            "pic_path":"http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg@!ys300",
+            "pic_path_arr":[
+                "http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/46/DSC_0946.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/47/DSC_0947.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/48/DSC_0948.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/49/DSC_0949.jpg"
+            ],
+            "show_name":"感康 复方氨酚烷胺片",
+            "indication":"适用于缓解普通感冒及流行性感冒引起的发热、头痛、四肢酸痛、打喷嚏、流鼻涕、鼻塞、咽喉痛等症状。【发烧/嗓子痛/嗓子疼/流感】",
+            "price":"1380",
+            "sales_volume":"7",
+            "discuss":"5",
+            "iscollect":"false",
+            "state":"1",
+            "standard":"12片",
+            "production":"吉林省吴太感康药业有限公司",
+            "level":"5",
+            "is_purchasing":"0",
+            "drug_submit_type":"10100",
+            "lack_state":"0",
+            "lack_state_pic":"http://imgstore.camore.cn/logo/bh_lb.png",
+            "is_shopping":"false"
+        },
+        {
+            "drug_activity_arr":[
+
+            ],
+            "sales_info_arr":[
+
+            ],
+            "drug_id":"11620002",
+            "pic_path":"http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg@!ys300",
+            "pic_path_arr":[
+                "http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/46/DSC_0946.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/47/DSC_0947.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/48/DSC_0948.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/49/DSC_0949.jpg"
+            ],
+            "show_name":"感康 复方氨酚烷胺片",
+            "indication":"适用于缓解普通感冒及流行性感冒引起的发热、头痛、四肢酸痛、打喷嚏、流鼻涕、鼻塞、咽喉痛等症状。【发烧/嗓子痛/嗓子疼/流感】",
+            "price":"1380",
+            "sales_volume":"7",
+            "discuss":"5",
+            "iscollect":"false",
+            "state":"1",
+            "standard":"12片",
+            "production":"吉林省吴太感康药业有限公司",
+            "level":"5",
+            "is_purchasing":"0",
+            "drug_submit_type":"10100",
+            "lack_state":"0",
+            "lack_state_pic":"http://imgstore.camore.cn/logo/bh_lb.png",
+            "is_shopping":"false"
+        },
+        {
+            "drug_activity_arr":[
+
+            ],
+            "sales_info_arr":[
+
+            ],
+            "drug_id":"11620002",
+            "pic_path":"http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg@!ys300",
+            "pic_path_arr":[
+                "http://imgstore.camore.cn/prod_img_ty/45/DSC_0945.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/46/DSC_0946.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/47/DSC_0947.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/48/DSC_0948.jpg",
+                "http://imgstore.camore.cn/prod_img_ty/49/DSC_0949.jpg"
+            ],
+            "show_name":"感康 复方氨酚烷胺片",
+            "indication":"适用于缓解普通感冒及流行性感冒引起的发热、头痛、四肢酸痛、打喷嚏、流鼻涕、鼻塞、咽喉痛等症状。【发烧/嗓子痛/嗓子疼/流感】",
+            "price":"1380",
+            "sales_volume":"7",
+            "discuss":"5",
+            "iscollect":"false",
+            "state":"1",
+            "standard":"12片",
+            "production":"吉林省吴太感康药业有限公司",
+            "level":"5",
+            "is_purchasing":"0",
+            "drug_submit_type":"10100",
+            "lack_state":"0",
+            "lack_state_pic":"http://imgstore.camore.cn/logo/bh_lb.png",
+            "is_shopping":"false"
+        },
+        {
+            "drug_activity_arr":[
+
+            ],
+            "sales_info_arr":[
+
+            ],
+            "drug_id":"11620349",
+            "pic_path":"http://imgstore.camore.cn/201603/yishou/yishou_IMG_1989.jpg@!ys300",
+            "pic_path_arr":[
+                "http://imgstore.camore.cn/201603/yishou/yishou_IMG_1989.jpg",
+                "http://imgstore.camore.cn/201603/yishou/yishou_IMG_1990.jpg",
+                "http://imgstore.camore.cn/201603/yishou/yishou_IMG_1991.jpg",
+                "http://imgstore.camore.cn/201603/yishou/yishou_IMG_1992.jpg",
+                "http://imgstore.camore.cn/201603/yishou/yishou_IMG_1993.jpg"
+            ],
+            "show_name":"三精 双黄连口服液",
+            "indication":"疏风解表，清热解毒。用于外感风热所致的感冒，症见发热、咳嗽、咽痛。【发烧/头疼/流鼻涕/止咳/喉咙疼/喉咙痛/嗓子疼/嗓子痛/咽炎/上火/去火】",
+            "cost_price":"1680",
+            "price":"1490",
+            "sales_volume":"1",
+            "discuss":"5",
+            "iscollect":"false",
+            "state":"1",
+            "standard":"10支",
+            "production":"哈药集团三精制药有限公司",
+            "drug_type":"",
+            "level":"5",
+            "is_purchasing":"0",
+            "drug_submit_type":"10100",
+            "lack_state":"0",
+            "lack_state_pic":"http://imgstore.camore.cn/logo/bh_lb.png",
+            "is_shopping":"false"
+        },
+        {
+            "drug_activity_arr":[
+
+            ],
+            "sales_info_arr":[
+
+            ],
+            "drug_id":"11620512",
+            "pic_path":"http://imgstore.camore.cn/kzf0716/DSC01861.jpg@!ys300",
+            "pic_path_arr":[
+                "http://imgstore.camore.cn/kzf0716/DSC01861.jpg",
+                "http://imgstore.camore.cn/kzf0716/DSC01862.jpg"
+            ],
+            "show_name":"鼎炉 新癀片",
+            "indication":"清热解毒，活血化瘀，消肿止痛。用于热毒瘀血所致的咽喉肿痛、牙痛、痹痛、胁痛、黄疸、无名肿毒等症。【牙疼/喉咙疼/喉咙痛/嗓子疼/嗓子痛】",
+            "price":"2500",
+            "sales_volume":"0",
+            "discuss":"4",
+            "iscollect":"false",
+            "state":"1",
+            "standard":"36片",
+            "production":"厦门中药厂有限公司",
+            "level":"4",
+            "is_purchasing":"0",
+            "drug_submit_type":"10100",
+            "lack_state":"0",
+            "lack_state_pic":"http://imgstore.camore.cn/logo/bh_lb.png",
+            "is_shopping":"false"
+        },
+    ]
+}
+	new Vue({
+				el:"#app",
+				data:{
+					goodsInfo,
+					goods
+				}
+			})
+	
+	//商品详情
+	
+	//评价
+	
+	//相关商品
+</script>
+</html>

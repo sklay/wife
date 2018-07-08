@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>药品详情页</title>
     <link rel="stylesheet" href="style/public.css">
-    <link rel="stylesheet" href="style/1_commodity_details.css?v=1001">
+    <link rel="stylesheet" href="style/wechat_prodDetail.css?v=1001">
     <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
     <!--<script src="js/jquery.event.drag.js"></script>-->
     <!--<script src="js/jquery.touchSlider.js"></script>-->
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <script src="js/currentTool.js"></script>
+    <script src="js/rem.js"></script>
     <!--<script src="js/1_commodity_details.js?v=2.50"></script>-->
     
     <!--轮播图-->
@@ -24,18 +24,65 @@
 	<script src="dist/js/swiper.min.js"></script>
     <!--<script src="owl-carousel/owl.carousel.min.js"></script>-->
     <script src="js/vue.js"></script>
+    <style>
+    	
+    	#origin-img{
+			display:none;
+			position:fixed;
+			top:0;
+			left:50%;
+			width:6.4rem;
+			margin-left: -3.2rem ;
+			height:100%;
+			background:#fff;
+	}
+	#origin-img .swiper-slide img {
+    width: 4.5rem!important;
+        display: block;
+    margin: 0 auto;
+    margin-top: -1.5rem;
+}
+#origin-img .swiper-slide img{
+	width:100%;
+	vertical-align:middle;
+	}
+	#origin-img .swiper-pagination {
+     /*bottom: 3rem;*/
+    top: 6.2rem;
+    color: #333;
+    right: .3rem;
+}	
+.swiper-pagination{
+	/*top:0;*/
+	bottom:0;
+	color:#333;
+	}	
+.upload{
+	position:absolute;
+	bottom:0;
+	line-height:3em;
+	background:rgba(0,0,0,.5);
+	z-index:5;
+	color:#fff;
+	text-indent:1em;
+	width:100%;
+	}
+    </style>
     <script>
         $(function(){
-        	$("body,html").animate({
-			            scrollTop:0
-			        },200);
-        	var winHeight = $(".banner ").height() + $(".content").height()+$(".correlation").height()+$(".footer").height();
+//      	$("body,html").animate({
+//			            scrollTop:0
+//			        },200);
+       // 	var winHeight = $(".banner ").height() + $(".content").height()+$(".correlation").height()+$(".footer").height();
 //			var winHeight = $(".div1").height();
-        	console.log("winHeight的高度是",winHeight);
-		    $(window).scroll(function(){
-		    	
+//      	console.log("winHeight的高度是",winHeight);
+			testFunc();
+		    function testFunc(){
+		    	$(document).scroll(function(){
+		    	var winHeight = $(".div1").height()-30;
 		        var myTop = $(window).scrollTop();
-		        console.log("myTop的高度是",myTop);
+		        console.log("scrollTop的高度是",myTop);
+		        console.log("winHeight的高度是",winHeight-30);
 		        if(myTop > winHeight){
 		        	$(".nav_right").find("p").addClass("nav_border");
 	                $(".nav_left").find("p").removeClass("nav_border");
@@ -51,6 +98,7 @@
 			        },200);
 		        }
 		    });
+		    }
 			$(".nav_left").on("click",function(){
 					$(".nav_right p").removeClass("nav_border");
 		       		$(".nav_left p").addClass("nav_border");
@@ -59,10 +107,13 @@
 			        },200);
 		    });
 		    $(".nav .nav_right").on("click",function(){
+		    	
+		    		console.debug($('.div1').height()) ;
+		    		var winHeight = $(".div1").height();
 		    		$(".nav_left p").removeClass("nav_border");
 		       		$(".nav_right p").addClass("nav_border");
 	                $("body,html").animate({
-			            scrollTop:winHeight
+			            scrollTop:winHeight-25
 			        },200);
 		    });
 		    
@@ -81,25 +132,71 @@
 		        el: '.banner .swiper-pagination',
 		        type: 'fraction',
 		      }
-//		      ,
-//		      navigation: {
-//		        nextEl: '.swiper-button-next',
-//		        prevEl: '.swiper-button-prev',
-//		      },
 		    });
-		    
-		    $(".swiper-slide img").on("click",function(){
-		    	var $this = $(this);
-		    	$(".imgInfo").fadeIn();
-		    	$(".containerWrap").fadeOut();
-		    })
-		    $(".imgInfo .swiper-slide img").on("click",function(){
-		    	$(".imgInfo").fadeOut();
-		    	$(".containerWrap").fadeIn();
-		    })
-		    
-		    
-        	
+		    var swiper = new Swiper('#origin-img',{
+					zoom:true,
+//				  width: window.innerWidth,
+				  width:$('#origin-img').width(),
+				  virtual: true,
+					spaceBetween:20,
+					pagination: {
+			          el: '#origin-img .swiper-pagination',
+			          type: 'fraction',
+			       },
+				   on:{
+			         click: function(){
+			           	$('#origin-img').fadeOut('fast');
+			           	 $(".containerWrap").fadeIn();
+			   			this.virtual.slides.length=0;
+	           			this.virtual.cache=[]; 
+			   			swiperStatus=false;
+					   
+			       },
+			    },
+			  
+			 });
+			 var pic_path_arr =[
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二297.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二298.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二299.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二300.jpg",
+            "http://imgstore.camore.cn/1009/kangquan/kangquan_表二301.jpg"
+        ]
+			   $('.banner img').click(function(){
+					  clickIndex=$(this).index();
+				  
+					  imgs = pic_path_arr;
+					  for(i=0;i<imgs.length;i++){
+						   swiper.virtual.appendSlide('<div class="swiper-zoom-container"><img src="'+imgs[i]+'" /></div>');
+						}
+					  swiper.slideTo(clickIndex);
+					  $('#origin-img').fadeIn('fast');
+					  $(".containerWrap").fadeOut();
+					  swiperStatus=true;
+					  
+				  })
+			   
+			//切换图状态禁止页面缩放	
+		document.addEventListener('touchstart',function (event) {  
+	            if(event.touches.length>1 && swiperStatus){  
+	                event.preventDefault();  
+	            }  
+	        })  
+	        var lastTouchEnd=0;  
+	    document.addEventListener('touchend',function (event) {  
+	            var now=(new Date()).getTime();  
+	            if(now-lastTouchEnd<=300){  
+	                event.preventDefault();  
+	            }  
+	            lastTouchEnd=now;  
+	        },false)
+	
+	    document.addEventListener('touchmove',function(e){
+		    if(swiperStatus){
+	            e.preventDefault();
+	        }
+	    })	
+
             var _url = encodeURIComponent(window.location.href.split('#')[0], "UTF-8");
             var pharmacyId = localStorage.getItem("pharmacy_id");
             $.ajax({
@@ -128,9 +225,11 @@
                     console.log(XMLHttpRequest.status);
                     console.log(XMLHttpRequest.readyState);
                     console.log(textStatus);
-                    console.log(errorThrown);
+//                  console.log(errorThrown);
                 }
             });
+            
+            var scrollHandler;
             var phone = localStorage.getItem("pharmacy_phone");
             $(".box_content").text(phone);
             $(".evaluate").bind("click",function(){
@@ -142,20 +241,50 @@
                 $(".div3").show();
                 $(".div1").hide();
                 $(".div2").hide();
+                $(".imgInfo").hide();
+//				scrollHandler = function(){  
+//				    $(document).off("scroll",scrollHandler);//解除bind事件
+			    $(document).unbind('scroll');
+//				};
             });
-//          $(".nav_right").bind("click",function(){
+            $(".nav_left").bind("click",function(){
 //              $(this).addClass("nav_border");
 //              $(".nav_left").removeClass("nav_border");
 //              $(".div1").hide();
 //              $(".div2").show();
-//          });
-            $(".title_left").click(function(){
-//             history.back(-1);
-				$(".div3").hide();
+                
+                $(".div3").hide();
                 $(".div1").show();
                 $(".div2").show();
                 $(".nav_left").find("p").addClass("nav_border");
+                $(".nav_right").find("p").removeClass("nav_border");
                 $(".evaluate").find("p").removeClass("nav_border");
+                testFunc();
+//              $(document).bind('scroll');//bind事件 
+            });
+            $(".nav_right").bind("click",function(){
+//              $(this).addClass("nav_border");
+//              $(".nav_left").removeClass("nav_border");
+//              $(".div1").hide();
+//              $(".div2").show();
+                
+                $(".div3").hide();
+                $(".div1").show();
+                $(".div2").show();
+                $(".nav_right").find("p").addClass("nav_border");
+                $(".nav_left").find("p").removeClass("nav_border");
+                $(".evaluate").find("p").removeClass("nav_border");
+                testFunc();
+//              $(document).bind('scroll');//bind事件 
+            });
+            $(".title_left").click(function(){
+            	//回到上一页
+               history.back(-1);
+//				$(".div3").hide();
+//              $(".div1").show();
+//              $(".div2").show();
+//              $(".nav_left").find("p").addClass("nav_border");
+//              $(".evaluate").find("p").removeClass("nav_border");
             });
             var height = window.screen.height;
             $(".pharmacist_phone").css("height",height);
@@ -235,10 +364,10 @@
 
 	<style>
 		.swiper-container {
-		    width: 9rem;
+		    width: 6rem;
 		}
 		.swiper-slide img{
-			    width: 5rem;
+			    width: 3rem;
     display: block;
     margin: 0 auto;
     margin-top: 1.3rem;
@@ -247,12 +376,12 @@
 			margin-top: 0;
 		} 
 		.swiper-pagination{
-			width: 1rem;
-			height: 1rem;
-			line-height: 1rem;
+			width: .7rem;
+			height: .7rem;
+			line-height: .7rem;
 			border: 1px solid #e3e3e3;
 			border-radius: 50%;
-			font-size: .35rem;
+			font-size: .25rem;
 			
 		}
 		.swiper-pagination-fraction {
@@ -288,10 +417,10 @@
          		<li class="nav_item">评价</li>
          	</ul>-->
 	        <div class="nav_item nav_left ">
-	            <p class="nav_border">商品</p>
+	            <p class="nav_border"><a href="#goods">商品</a></p>
 	        </div>
 	        <div class="nav_item nav_right">
-	            <p class="">详情</p>
+	            <p class=""><a href="#info">详情</a></p>
 	        </div>
 	         <div class="nav_item evaluate">
 	            <p class="">评价</p>
@@ -309,7 +438,7 @@
     </div>-->
     <!--焦点图div部分开始-->
     <section>
-    	 <div class="div1">
+    	 <div class="div1" id="goods">
     	<!--<div class="img_gallery">
             <div class="point">
             </div>
@@ -323,12 +452,12 @@
 		  </div>
 		</div>-->
 		
-		<div class="swiper-container banner">
+		<div class="goodsWrap">
+			<div class="swiper-container banner">
 		    <div class="swiper-wrapper">
 		      <div class="swiper-slide" v-for="item,i in goodsInfo.result_json.pic_path_arr">
 		      		<img  v-bind:src="item" alt="">
 		      </div>
-		      
 		    </div>
 		    <!-- Add Pagination -->
 		    <div class="swiper-pagination"></div>
@@ -336,6 +465,7 @@
 		    <!--<div class="swiper-button-next"></div>
 		    <div class="swiper-button-prev"></div>-->
   		</div>
+		</div>
 		
         <div class="content" >
             <div class="content_header" >
@@ -397,7 +527,7 @@
         </div>-->
     </div>
     <!--<div class="div2" style="display:none;"></div>-->
-    <div class="div2" style="display: block;">
+    <div class="div2" id="info" style="display: block;">
     	<div class="comShowTitle">
 			<div class="comShowWrap">
 				<div class="leftLineDot">
@@ -681,21 +811,13 @@
 
 
 	</div>
-	<div class="imgInfo">
-	<div class="swiper-container banner">
-		    <div class="swiper-wrapper">
-		      <div class="swiper-slide" v-for="item,i in goodsInfo.result_json.pic_path_arr">
-		      		<img  v-bind:src="item" alt="">
-		      </div>
-		      
-		    </div>
-		    <!-- Add Pagination -->
-		    <div class="swiper-pagination"></div>
-		    <!-- Add Arrows -->
-		    <!--<div class="swiper-button-next"></div>
-		    <div class="swiper-button-prev"></div>-->
-  	</div>
-</div>
+	<!--<div class="imgInfo">-->
+		
+	  <div class="swiper-container" id="origin-img">
+	    <div class="swiper-wrapper"></div>
+	    <div class="swiper-pagination"></div>
+	  </div>
+<!--</div>-->
 	
 </div>
 
@@ -767,7 +889,7 @@
 </body>
 <script>
 	//商品基本信息
-	let goodsInfo = {
+	var goodsInfo = {
     "message":"succ",
     "result_code":100,
     "result_json":{
@@ -817,7 +939,7 @@
     },
     "response_num":"1526281204881"
 }
-let goods = {
+var goods = {
     "message":"succ",
     "result_code":100,
     "result_json":[

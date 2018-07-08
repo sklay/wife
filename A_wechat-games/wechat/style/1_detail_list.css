@@ -1,0 +1,445 @@
+@charset "utf-8";
+body {
+	background: #eee;
+}
+.clearFix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearFix {
+  *zoom: 1;
+}
+.container {
+	max-width: 6.4rem;
+	margin: 0 auto;
+}
+
+.title{
+	background:#fff;
+	width: 6.4rem;
+	left: 50%;
+	margin-left: -3.2rem;
+	height:.8rem;
+	position:fixed;
+	top:0;
+	z-index:999;
+	border-bottom: 1px solid #e3e6e8;
+	font-size: .3rem;
+	}
+.navbar{
+	width: 6rem;
+	margin: 0 auto;
+	height:.8rem;
+	line-height: .8rem;
+}
+.title_left{
+	float:left;
+	width:0.45rem;
+	padding-top:0.1rem;
+	}
+.title_left img{
+	width: 100%;
+	}
+
+.nav{
+	width: 3.4rem;
+	float: right;
+	
+	}
+
+.listNav{
+	width: 6.4rem;
+	margin: 0 auto;
+	/*padding-bottom: .2rem;*/
+	padding:0 .2rem;
+	box-sizing: border-box;
+	background: #fff;
+}
+.listNav ul{
+	width: 5.4rem;
+	margin: 0 auto;
+	display: block;
+}
+.listNav ul li{
+	width: 1.35rem;
+	float: left;
+	height: .7rem;
+	line-height: .7rem;
+	text-align: center;
+	padding: 0 .28rem;
+	box-sizing: border-box;
+	font-size: .25rem;
+}
+.listNav ul li.allLi {
+	padding: 0 .4rem;
+}
+.listNav ul li .active{
+	color: #F03338;
+	border-bottom: 1px solid #F03338;
+}
+
+/*.listOrder{
+	background: #eee;
+}*/
+
+.nolist{
+	padding-top: 2rem;
+	width: 2rem;
+	margin: 0 auto;
+	font-size: .2rem;
+	text-align: center;
+	line-height: .5rem;
+}
+.nolist img{
+	width: 100%;
+}
+
+
+.top_div .left {
+	width: 3.2rem;
+	height: 0.7rem;
+	float: left;
+}
+
+.top_div .left span {
+	display: block;
+}
+
+.top_div .left .span1 {
+	width: 1rem;
+	height: 0.7rem;
+	padding: 0.1rem 0.25rem;
+	float: left;
+}
+
+.top_div .left .span1 img {
+	width: 0.5rem;
+}
+
+.top_div .left .span2 {
+	width: 2.2rem;
+	height: 0.7rem;
+	line-height: 0.7rem;
+	font-size: 0.25rem;
+	float: left;
+}
+
+.top_div .right {
+	width: 3.2rem;
+	height: 0.7rem;
+	float: left;
+	text-align: right;
+	padding: 0.2rem 0.4rem;
+}
+
+.top_div .right img {
+	height: 0.3rem;
+}
+
+
+
+
+
+
+.container .header {
+	width: 6.4rem;
+	height: 0.8rem;
+	background: #CD3636;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+
+.container .header .header_back {
+	width: 0.8rem;
+	height: 0.8rem;
+	float: left;
+	padding-top: 0.2rem;
+	padding-left: 0.2rem;
+}
+
+.container .header .header_back img {
+	width: 0.4rem;
+}
+
+.container .header .header_title {
+	width: 4.8rem;
+	height: 0.8rem;
+	float: left;
+	text-align: center;
+	line-height: 0.8rem;
+}
+
+.container .header .header_title span {
+	color: #fff;
+	font-size: 0.32rem;
+}
+
+
+/*订单列表 CSS start*/
+
+.container .content {
+	width: 6.4rem;
+	margin-top: .8rem;
+	/*background: #fff;*/
+}
+
+.container .content .con_list {
+	width: 6.4rem;
+	/*height: 2.4rem;*/
+	background: #fff;
+	margin-top: 0.1rem;
+	background-size: 1.5rem 0.4rem;
+}
+
+.container .content .con_list .list_left {
+	width: 6rem;
+	margin: 0 auto;
+	/*height: 2.4rem;*/
+	/*float: left;*/
+	border-bottom: 1px solid #eee;
+}
+.listImg{
+	width: .6rem;
+	margin: 0 auto;
+}
+.listImg img{
+	width: 100%;
+}
+.container .content .con_list .list_left .left_top {
+	width: 6rem;
+	margin: 0 auto;
+	/*height: 1.2rem;*/
+	/*padding-left: 0.4rem;*/
+	padding: 0.1rem 0;
+	font-size: 0.22rem;
+}
+
+.container .content .con_list .list_left .left_top .top_div {
+	width: 3rem;
+	float: left;
+	
+	/*height: 0.5rem;*/
+	/*font-size: 0.33rem;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #434343;*/
+}
+.top_div .span1{
+	width: .3rem;
+	display: block;
+	float: left;
+}
+.top_div .span2{
+	padding-left: .15rem;
+	display: block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.top_div .span1 img{
+	width: 100%;
+	display: block;
+}
+.container .content .con_list .list_left .left_top .bot_div {
+	width: 3rem;
+	float: right;
+	padding-left: .2rem;
+	/*height: 0.3rem;*/
+	color: #616161;
+	text-align: right;
+}
+
+.container .content .con_list .list_left .left_bot {
+	width: 4.1rem;
+	height: 1.2rem;
+	padding-top: 0.2rem;
+	padding-left: 0.4rem;
+	color: #616161;
+}
+
+.container .content .con_list .list_left .left_bot .div1 {
+	color: #bf2621;
+}
+
+.container .content .con_list .list_left .left_bot .div1 span {
+	background: #f1222c;
+	color: #fff;
+	padding: 0.1rem;
+	margin-left: 0.1rem;
+	border-radius: 0.05rem;
+}
+
+/*.container .content .con_list .list_right {
+	width: 2.5rem;
+	height: 2.4rem;
+	float: left;
+	position: relative;
+}
+
+.container .content .con_list .list_right .right_top {
+	width: 2.5rem;
+	height: 2.4rem;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+}
+
+.container .content .con_list .list_right .right_top img {
+	width: 1rem;
+	position: absolute;
+	top: 0.6rem;
+	left: 0.1rem;
+}
+
+.container .content .con_list .list_right .right_bot {
+	width: 2.5rem;
+	height: 2.4rem;
+	z-index: 2;
+}
+
+.container .content .con_list .list_right .right_bot .bot_left {
+	width: 2.1rem;
+	height: 1rem;
+	float: left;
+	position: absolute;
+	top: 1.1rem;
+}
+
+.container .content .con_list .list_right .right_bot .bot_left .span1 {
+	display: block;
+	font-size: 0.35rem;
+	width: 0.4rem;
+	padding-top: 0.2rem;
+	float: left;
+}
+
+.container .content .con_list .list_right .right_bot .bot_left .span2 {
+	display: block;
+	width: 1.4rem;
+	float: left;
+	font-size: 0.55rem;
+}
+
+.container .content .con_list .list_right .right_bot .bot_right {
+	width: 0.4rem;
+	height: 1rem;
+	position: absolute;
+	top: 1.1rem;
+	right: 0;
+	padding-top: 0.25rem;
+	padding-left: 0.1rem;
+}
+
+.container .content .con_list .list_right .right_bot .bot_right img {
+	height: 0.35rem;
+}*/
+
+/*.container .content .con_list .order {
+	color: #fff;
+	position: absolute;
+	left: 0.35rem;
+}*/
+.listState{
+	width: 6rem;
+	margin: 0 auto;
+}
+.listImg {
+	width: 4rem;
+	float: left;
+	display: block;
+	padding: .3rem 0;
+	box-sizing: border-box;
+	
+}
+.listImg li{
+	float: left;
+	width: 1rem;
+	/*padding: 0 .3rem;
+	box-sizing: border-box;*/
+}
+.listImg img{
+	width: 100%;
+	
+}
+.orderNum{
+	width: 6rem;
+	margin: 0 auto;
+	padding:0.3rem 0 ;
+	box-sizing: border-box;
+}
+.numWrap{
+	width: 2rem;
+	padding:0.4rem 0;
+	box-sizing: border-box;
+	/*border-bottom: 1px solid #eee;*/
+	line-height: .4rem;
+	
+	float: left;
+}
+.drugName{
+	width: 2.7rem;
+	float: left;
+}
+.drugName .psty1{
+	font-size: .25rem;
+	/*text-align: right;*/
+}
+.drugName .psty2{
+	font-size: .2rem;
+}
+.numWrap .psty1{
+	/*width:3rem ;*/
+	/*float: left;*/
+	text-align: right;
+}
+.numWrap .psty2{
+	/*width: 3rem;*/
+	/*float: right;*/
+	text-align: right;
+	color: #FF0000;
+}
+/*.numWrap .psty3{
+	text-align: right;
+}
+.numWrap .psty3 span{
+	color: #FF0000;
+}*/
+.butBar{
+	width: 2.7rem;
+	float: right;
+	padding-top: .05rem;
+}
+.butBar button{
+	width: 1.2rem;
+	height: .5rem;
+	line-height: .5rem;
+	outline: none;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	background: #fff;
+	color: #6f6a6a;
+}
+.butBar button.riderPos{
+	color: #FF0000;
+	border: 1px solid #FF0000;
+}
+/*订单列表 CSS end*/
+
+.mask {
+	width: 3.5rem;
+	height: 0.5rem;
+	background: #1f1d1f;
+	color: #fff;
+	position: fixed;
+	z-index: 9999;
+	bottom: 1.5rem;
+	left: 50%;
+	margin-left: -1.75rem;
+	text-align: center;
+	letter-spacing: 0.02rem;
+	font-weight: 100;
+	line-height: 0.5rem;
+}

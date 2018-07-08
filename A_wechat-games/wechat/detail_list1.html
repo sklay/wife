@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我的订单</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/1_detail_list.css">
+    <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/rem.js"></script>
+    <!--<script src="js/1_detail_list.js"></script>-->
+    <script>
+    		var user = localStorage.getItem("user_token");
+			var dataindex = localStorage.getItem("dataindex");
+        $(function(){
+            $(".title_left").click(function(){
+                window.parent.location.href="1_index.html";
+            });
+            
+            if(dataindex == 0){
+            	selTab(0);
+            }else{
+            	selTab(dataindex);
+            }
+            //新增
+            
+			$('.listNav ul li').each(function(i ,n){
+				$(n).on('click',function(){
+					clickFun(this) ;
+				});
+			});
+			function clickFun (obj){
+				$obj = $(obj) ;
+				/*当前点击的 li的  下标*/
+				var index = $obj.attr('data-index');
+				selTab(index) ;
+			}
+			function selTab(tabIndex){
+				$('.tab-content .tabct').hide();
+				$('.tab-content .tabct').eq(tabIndex).show();
+				
+				$('.listNav ul li').find("p").removeClass("active");
+				
+				$('.listNav ul li').eq(tabIndex).find("p").addClass("active");
+			}
+			
+			//跳转到订单详情页
+			$(".left_top ,.numWrap ,.drugName").on("click",function(){
+				alert(1);
+			});
+			//跳转到对应的商品详情页
+			$(".listImg li").on("click",function(){
+				alert(1);
+			})
+			
+			//下拉刷新  
+			//上拉加载  页数大于10 就在出现上拉加载
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <!--<div class="header">
+        <div class="header_back">
+            <img src="images/ic_back.png">
+        </div>
+        <div class="header_title">
+            <span>我的订单</span>
+        </div>
+    </div>-->
+    <header class="title">
+        <div class="navbar clearFix">
+        	 <div class="title_left">
+	              <img src="images/ic_back1.png">
+	         </div>
+	         <div class="nav">
+		          <div class="nav_item nav_left ">
+		              <p class="nav_border">我的订单</p>
+		          </div>
+		    </div>
+    	</div>
+	</header>
+    <div class="content tab" id="tab">
+		<div class="listNav">
+			<ul data-tab-id="#tab" class="clearFix">
+				<li  data-index="0" class="allLi"><p class="active">全部</p></li>
+    			<li data-index="1"><p>待处理</p></li>
+    			<li data-index="2"><p>待评价</p></li>
+    			<li data-index="3"><p>已完成</p></li>
+    		</ul>
+		</div>
+		
+		<div class="tab-content" id="tab-content">
+			<!--全部-->
+			<div class="listall tabct" >
+				<div class="nolist" style="display: none;">
+					<img src="images/ic_order_list_no.png" />
+					<p>您还没有相关的订单</p>
+				</div>
+				<div class="con_list">
+					<div class="list_left"> 
+						<div class="left_top clearFix">
+							<div class="top_div clearFix">
+	                    		<span class="span2">NO:1068943</span>
+							</div>
+							<div class="bot_div">药师审核中</div>
+						</div>
+					</div>
+					<div class="listState clearFix">
+							<ul class="listImg clearFix">
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+							</ul>
+							<div class="numWrap clearFix">
+								<!--<p class="psty1">订单编号：10600130</p>-->
+								<p class="psty1"><span>￥89.10</span></p>
+								<p class="psty2">共<span>1</span>件</p>
+								
+							</div>
+						
+					</div>
+					<div class="orderNum clearFix">
+							<div class="drugName clearFix">
+								<p class="psty1">2018-5-20 14:20</p>
+								<p class="psty2">康佰馨大药房-昆泰店</p>
+							</div>
+							<div class="butBar">
+								<button class="riderPos">骑手位置</button>
+								<button class="reminder">催单</button>
+							</div>
+						</div>
+				</div>
+			</div>
+				
+			<!--待处理-->
+			<div class="listWait tabct" >
+				<div class="nolist" style="display: none;">
+					<img src="images/ic_order_list_no.png" />
+					<p>您还没有相关的订单</p>
+				</div>
+				<div class="con_list">
+					<div class="list_left"> 
+						<div class="left_top clearFix">
+							<div class="top_div clearFix">
+	                    		<span class="span2">NO:1068943</span>
+							</div>
+							<div class="bot_div">药师审核中</div>
+						</div>
+					</div>
+					<div class="listState clearFix">
+							<ul class="listImg clearFix">
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+							</ul>
+							<div class="numWrap clearFix">
+								<!--<p class="psty1">订单编号：10600130</p>-->
+								<p class="psty1"><span>￥89.10</span></p>
+								<p class="psty2">共<span>1</span>件</p>
+								
+							</div>
+						
+					</div>
+					<div class="orderNum clearFix">
+							<div class="drugName clearFix">
+								<p class="psty1">2018-5-20 14:20</p>
+								<p class="psty2">康佰馨大药房-昆泰店</p>
+							</div>
+							<div class="butBar">
+								<button class="riderPos">骑手位置</button>
+								<button class="reminder">催单</button>
+							</div>
+						</div>
+				</div>
+			</div>
+			
+			<!--待评价-->
+			<div class="listevaluate tabct" >
+				<div class="nolist" style="display: none;">
+					<img src="images/ic_order_list_no.png" />
+					<p>您还没有相关的订单</p>
+				</div>
+				<div class="con_list">
+					<div class="list_left"> 
+						<div class="left_top clearFix">
+							<div class="top_div clearFix">
+	                    		<span class="span2">NO:1068943</span>
+							</div>
+							<div class="bot_div">药师审核中</div>
+						</div>
+					</div>
+					<div class="listState clearFix">
+							<ul class="listImg clearFix">
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+							</ul>
+							<div class="numWrap clearFix">
+								<!--<p class="psty1">订单编号：10600130</p>-->
+								<p class="psty1"><span>￥89.10</span></p>
+								<p class="psty2">共<span>1</span>件</p>
+								
+							</div>
+						
+					</div>
+					<div class="orderNum clearFix">
+							<div class="drugName clearFix">
+								<p class="psty1">2018-5-20 14:20</p>
+								<p class="psty2">康佰馨大药房-昆泰店</p>
+							</div>
+							<div class="butBar">
+								<button class="riderPos">骑手位置</button>
+								<button class="reminder">催单</button>
+							</div>
+						</div>
+				</div>
+			</div>
+			
+			<!--已完成-->
+			<div class="listFinish tabct" >
+				<div class="nolist" style="display: none;">
+					<img src="images/ic_order_list_no.png" />
+					<p>您还没有相关的订单</p>
+				</div>
+				<div class="con_list">
+					<div class="list_left"> 
+						<div class="left_top clearFix">
+							<div class="top_div clearFix">
+	                    		<span class="span2">NO:1068943</span>
+							</div>
+							<div class="bot_div">药师审核中</div>
+						</div>
+					</div>
+					<div class="listState clearFix">
+							<ul class="listImg clearFix">
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+								<li>
+									<img src="images/kuaisuzhaoyao.png" />
+								</li>
+							</ul>
+							<div class="numWrap clearFix">
+								<!--<p class="psty1">订单编号：10600130</p>-->
+								<p class="psty1"><span>￥89.10</span></p>
+								<p class="psty2">共<span>1</span>件</p>
+								
+							</div>
+						
+					</div>
+					<div class="orderNum clearFix">
+							<div class="drugName clearFix">
+								<p class="psty1">2018-5-20 14:20</p>
+								<p class="psty2">康佰馨大药房-昆泰店</p>
+							</div>
+							<div class="butBar">
+								<button class="riderPos">骑手位置</button>
+								<button class="reminder">催单</button>
+							</div>
+						</div>
+				</div>
+			</div>
+			
+		</div>
+    </div>
+</div>
+<div class="mask" style="display:none;">
+    <span>催单提醒已经发送成功！</span>
+</div>
+</body>
+</html>

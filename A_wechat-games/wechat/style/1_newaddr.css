@@ -1,0 +1,430 @@
+@charset "utf-8";
+body {
+	background: #eee;
+}
+
+.container {
+	max-width: 6.4rem;
+	margin: 0 auto;
+}
+
+.container .header {
+	width: 6.4rem;
+	height: 0.8rem;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.container .header .header_left {
+	width: 1rem;
+	height: 0.8rem;
+	float: left;
+	text-align: center;
+}
+
+.container .header .header_left img {
+	height: 0.5rem;
+	margin-top: 0.15rem;
+}
+
+.container .header .header_right {
+	width: 4.4rem;
+	height: 0.8rem;
+	float: left;
+	text-align: center;
+	line-height: 0.8rem;
+	color: #5d5d5d;
+	font-size: 0.35rem;
+}
+
+.container .content {
+	width: 6.4rem;
+	margin: 0 auto;
+	padding: 0 .2rem;
+	box-sizing: border-box;
+	background: #fff;
+}
+
+.content_a {
+	width: 6rem;
+	height: 0.6rem;
+	background: #fff;
+}
+
+.content_a .a_left {
+	width: 1.8rem;
+	height: 0.6rem;
+	float: left;
+	line-height: 0.6rem;
+	text-align: center;
+	font-size: 0.2rem;
+}
+
+.content_a .a_con {
+	width: 3.8rem;
+	height: 0.6rem;
+	float: left;
+	font-size: 0.2rem;
+	color: #666;
+	line-height: 0.6rem;
+	text-align: right;
+}
+
+.content_a .a_con .span2 {
+	display: none;
+}
+
+.content_a .a_img {
+	width: 0.8rem;
+	height: 0.6rem;
+	float: left;
+	text-align: center;
+}
+
+.content_a .a_img img {
+	height: 0.35rem;
+	margin-top: 0.125rem;
+}
+
+.content_b {
+	width: 6rem;
+	height: .6rem;
+	background: #fff;
+	/*margin-top: 0.2rem;*/
+	border-bottom: 1px solid #eee;
+}
+
+.content_b .b_left {
+	width: 1.5rem;
+	height: .6rem;
+	float: left;
+	text-align: left;
+	font-size: 0.2rem;
+}
+
+.content_b .b_left span {
+	display: block;
+	margin-top: 0.1rem;
+}
+
+.content_b .b_right {
+	width: 3.4rem;
+	height: .6rem;
+	float: right;
+}
+
+.content_b .b_right .con_top {
+	width: 4.9rem;
+	height: 0.6rem;
+	border-bottom: 0.01rem solid #ccc;
+	font-size: 0.2rem;
+	color: #666;
+	line-height: 0.6rem;
+	margin-right: 0.1rem;
+}
+
+.content_b .b_right .con_top input {
+	width: 4rem;
+	color: #666;
+	border: none;
+	outline: none;
+}
+
+.content_b .b_right .con_top img {
+	width: 0.5rem;
+	float: right;
+	margin-top: 0.05rem;
+	margin-right: 0.2rem;
+}
+
+.content_b .b_right .con_bot span{
+	width: .6rem;
+    display: inline-block;
+    text-align: right;
+}
+
+.content_b .b_right .con_bot input {
+	/*width: 2.4rem;*/
+	color: #666;
+	border: none;
+	outline: none;
+}
+.content_b .b_right .con_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	font-size: 0.2rem;
+	color: #c7c7c7;
+	line-height: 0.6rem;
+}
+.content_c {
+	width: 6rem;
+	/*margin-top: 0.2rem;*/
+	height: 0.6rem;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.content_c .c_top {
+	width: 1.8rem;
+	height: 0.6rem;
+	text-align: left;
+	font-size: 0.2rem;
+	line-height: 0.6rem;
+	float: left;
+}
+
+.content_c .c_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	float: right;
+	line-height: 0.6rem;
+}
+
+.content_c .c_bot input {
+	/*width: 1.5rem;*/
+	border: none;
+	outline: none;
+	color: #666;
+	text-align: left;
+}
+
+
+.content_s {
+	width: 6rem;
+	/*margin-top: 0.2rem;*/
+	height: 0.6rem;
+	background: #fff;
+	border-bottom: 1px solid #eee;
+}
+
+.content_s .s_top {
+	width: 1.8rem;
+	height: 0.6rem;
+	text-align: left;
+	font-size: 0.2rem;
+	line-height: 0.6rem;
+	float: left;
+}
+
+.content_s .s_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	float: right;
+	line-height: 0.6rem;
+}
+.content_s .s_bot .sexWrap{
+	width: 1.2rem;
+	float: left;
+	overflow: hidden;
+}
+.content_s .s_bot  i{
+	display: block;
+	width: .26rem;
+    height: .26rem;
+    background: url(../images/ic_new_add_no_quan.png)center center no-repeat;
+    background-size:100% 100% ;
+	margin-top: .17rem;
+	float: left;
+	margin-right: .2rem;
+} 
+.content_s .s_bot  i.checked{
+	
+    background: url(../images/ic_new_add_no_dui.png)center center no-repeat;
+    background-size:100% 100% ;
+}
+.content_d {
+	width: 6rem;
+	height: 0.6rem;
+	background: #fff;
+	/*margin-top: 0.2rem;*/
+	border-bottom: 1px solid #eee;
+}
+
+.content_d .d_top {
+	width: 1.8rem;
+	height: 0.6rem;
+	text-align: left;
+	line-height: 0.6rem;
+	font-size: 0.2rem;
+	float: left;
+}
+
+.content_d .d_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	float: right;
+	line-height: 0.6rem;
+	font-size: .2rem;
+}
+
+.content_d .d_bot input {
+	/*width: 2.1rem;*/
+	color: #666;
+	border: none;
+	outline: none;
+	text-align: left;
+}
+.content_h {
+	width: 6rem;
+	height: 0.6rem;
+	background: #fff;
+	/*margin-top: 0.2rem;*/
+	border-bottom: 1px solid #eee;
+}
+.content_h .h_left {
+    width: 1.8rem;
+    height: 0.6rem;
+    text-align: left;
+    line-height: 0.6rem;
+    font-size: 0.2rem;
+    float: left;
+}
+.content_h .con_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	float: right;
+	line-height: 0.6rem;
+}
+.content_h .con_bot input {
+	/*width: 2.1rem;*/
+	color: #666;
+	border: none;
+	outline: none;
+	text-align: left;
+}
+.content_bq{
+	width: 6rem;
+	height: 0.6rem;
+	background: #fff;
+	/*margin-top: 0.2rem;*/
+	border-bottom: 1px solid #eee;
+}
+.content_bq .bq_left {
+    width: 1.8rem;
+    height: 0.6rem;
+    text-align: left;
+    line-height: 0.6rem;
+    font-size: 0.2rem;
+    float: left;
+    
+}
+.content_bq .bq_bot {
+	width: 3.4rem;
+	height: 0.6rem;
+	float: right;
+	line-height: 0.6rem;
+	padding-top: .1rem;
+}
+.content_bq .bq_bot li{
+	width: .7rem;
+	margin-right: .4rem;
+	height: 0.36rem;
+	float: left;
+	line-height: 0.315rem;
+	font-size: .2rem;
+	border: 1px solid #eee;
+	border-radius: 50px;
+	text-align:center ;
+}
+.content_bq .bq_bot li.checked{
+	background: #e91732;
+	color: #fff;
+	/*line-height: 0.3rem;*/
+}
+
+.btn {
+	width: 6rem;
+	height: 0.7rem;
+	margin-top: 0.6rem;
+	text-align: center;
+}
+
+.btn span {
+	display: block;
+	width: 5.8rem;
+	height: 0.7rem;
+	font-size: 0.35rem;
+	color: #fff;
+	background: #cd3636;
+	border-radius: 0.1rem;
+	line-height: 0.7rem;
+	margin-left: 0.3rem;
+}
+
+.add_bar {
+	width: 4rem;
+	border-radius: 0.1rem;
+	position: absolute;
+	top: 2.35rem;
+	background: #fff;
+}
+
+.add_bar .title {
+	width: 4rem;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	background: #73abe9;
+	border-radius: 0.1rem 0.1rem 0 0;
+	font-size: 0.15rem;
+	text-align: center;
+}
+
+.add_bar ul li img {
+	width: 0.1rem;
+	margin-left: 0.1rem;
+	float: left;
+	margin-top: 0.3rem;
+}
+
+.add_bar ul li {
+	width: 4rem;
+	height: 0.7rem;
+	line-height: 0.5rem;
+	border-bottom: 0.01rem solid #bbb;
+}
+
+.add_bar ul li:last-child {
+	border: none;
+}
+
+.add_bar ul li .span1 {
+	display: block;
+	height: 0.5rem;
+	line-height: 0.5rem;
+	float: left;
+	width: 3.5rem;
+	padding-left: 0.1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-top: 0.1rem;
+}
+/*城市三级列表CSS start*/
+.container1{max-width:6.4rem;margin:0 auto;}
+.container1 .header1{width:6.4rem;height:1.4rem;}
+.container1 .header1 .head{width:6.4rem;height:0.7rem;background:#cd3636;}
+.container1 .header1 .head .head_back{width:1.5rem;height:0.7rem;float:left;line-height:0.7rem;color:#fff;padding-left:0.1rem;}
+.container1 .head_back .span1{display:block;float:left;height:0.7rem;}
+.container1 .head_back .span1 img{height:0.4rem;margin-top:0.15rem;}
+.container1 .header1 .head_tit{width:3.5rem;height:0.7rem;float:left;color:#fff;font-size:0.35rem;text-align:center;line-height:0.7rem;}
+.container1 .header1 .search{width:6rem;height:0.5rem;background:#fff;border-radius:0.15rem;margin:0 auto;margin-top:0.1rem;}
+.container1 .search img{width:0.35rem;float:left;margin-top:0.075rem;margin-left:1.8rem;}
+.container1 .search input{width:3rem;height:0.5rem;float:left;border:none;margin-left:0.05rem;}
+.container1 .banner{width:6.4rem;background:#fff;}
+.container1 .banner .banner_img{width:6.2rem;border-bottom:0.01rem solid #D8D8D8;}
+.container1 .banner .banner_img img{width:5.8rem;}
+.container1 .banner .banner_list{width:6.2rem;height:3rem;margin-top:0.3rem;}
+.container1 .banner .banner_list li{display:block;float:left;width:2rem;text-align:center;}
+.container1 .banner .banner_list div{width:1.6rem;height:0.6rem;line-height:0.6rem;border:0.01rem solid #E2E2E2;border-radius:0.15rem;margin-top:0.1rem;margin-left:0.2rem;}
+.container1 .banner .banner_list div span{display:block;width:1.35rem;height:0.6rem;line-height:0.6rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-left:0.1rem;font-size:0.28rem;}
+.container1 .list{width:6.4rem;margin-top:0.1rem;}
+.container1 .list span{display:block;width:6.2rem;height:0.9rem;line-height:0.9rem;font-size:0.33rem;padding-left:0.2rem;}
+.container1 .list ul{width:6.4rem;background:#fff;}
+.container1 .list ul li{font-size:0.3rem;width:5.6rem;margin-left:0.3rem;height:0.9rem;line-height:0.9rem;border-bottom:0.01rem solid #D3D3D3;}
+/*城市三级列表CSS end*/
+.bar{width:5rem;height:0.6rem;position:absolute;bottom:1rem;left:0.7rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.bar1{width:3.5rem;height:0.6rem;position:absolute;bottom:1rem;left:1.45rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.bar2{width:3.5rem;height:0.6rem;position:absolute;bottom:1rem;left:1.45rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.bar3{width:3.5rem;height:0.6rem;position:absolute;bottom:1rem;left:1.45rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.bar4{width:3.5rem;height:0.6rem;position:absolute;bottom:1rem;left:1.45rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}
+.bar5{width:4rem;height:0.6rem;position:absolute;bottom:1rem;left:1.2rem;background:#1d1c1d;font-size:0.22rem;color:#dcdee2;line-height:0.6rem;letter-spacing:0.03rem;text-align:center;font-weight: 100;}

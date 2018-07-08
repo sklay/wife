@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+	<title>导航跟随和滚动到对应文章段落</title> 
+	<link rel="stylesheet" href="style/1_commodity_details.css?v=1001">
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script> 
+	<script src="js/nav.js"></script>  
+	<style>
+body{font-size:12px; font-family:"微软雅黑",Tahoma,Arial,"宋体",sans-serif; margin:0; padding:0; background:#fff;}
+ul,li,ol{ list-style:none;}
+div,p,ul,li,ol,dl,h1,h2,h3,h4,h5,img,pre,input{margin:0; padding:0;}
+em,i{font-style:normal;}
+strong{font-weight:normal;}
+img{border:none; vertical-align:middle;}
+.clear{float:none!important; clear:both!important; margin:0; padding:0;}
+a{color:#2C2319;text-decoration:none;}
+.anchor_layer{width: 100%;}
+.anchor_layer .nav_wrap{width: 1220px; height: 45px; border-radius: 45px; background-color: #535353; overflow: hidden; margin: 0 auto 40px; behavior: url(pie.htc);}
+.anchor_layer .nav_wrap.navFix{position: fixed; left: 0; top: 0; width: 100%; min-width: 1220px; border-radius: 0; z-index: 9999;}
+.anchor_layer .nav_wrap .wrap_layer{width: 1200px; height: 45px; margin: 0 auto; padding: 0 10px;}
+.anchor_layer .nav_wrap .wrap_tab{width: 120px; height: 45px; float: left;}
+.anchor_layer .nav_wrap a{width: 120px; height: 45px; border-radius: 45px; display: block; color: #fff; line-height: 45px; text-align: center; font-size: 14px; behavior: url(pie.htc);} 
+.anchor_layer .nav_wrap .active,.details_main .anchor_layer .nav_wrap a:hover{background-color: #3366cc; behavior: url(pie.htc);}  
+.cont{width: 1200px; margin: 0 auto; height: 500px; background: #ccc; border-bottom: #f00 5px solid;}
+	
+	</style> 
+</head>
+<body> 
+
+	<!--<div style="height: 500px;"></div>-->
+	
+	<!--开始-->
+	<!--<div class="anchor_layer" id="navHeight">
+		<div class="nav_wrap" id="nav_wrap"> 
+			<div class="wrap_layer">
+				<div class="wrap_tab nav_item nav_left ">
+		            <p class="nav_border "><a class="tab" href="#goods">商品</a></p>
+		        </div>
+		        <div class="wrap_tab nav_item nav_right">
+		            <p class=""><a class="tab" href="#info">详情</a></p>
+		        </div>
+		         <div class="wrap_tab nav_item evaluate">
+		            <p class="">评价</p>
+		        </div>
+			  <div class="wrap_tab"><a class="tab active" href="#aa">A</a></div>
+			  <div class="wrap_tab"><a class="tab" href="#bb">B</a></div>
+			  <div class="wrap_tab"><a class="tab" href="#cc">C</a></div>
+			  <div class="wrap_tab"><a class="tab" href="#dd">D</a></div> 
+			</div>
+		</div>
+	</div>-->
+	
+	<div class="title anchor_layer" id="navHeight">
+		<div class="navbar clearFix nav_wrap" id="nav_wrap">
+			<div class="title_left">
+	            <!--<img src="images/ic_back1.png">-->
+	        </div>
+			<div class="nav wrap_layer">
+				<div class="wrap_tab nav_item nav_left ">
+		            <p class="nav_border "><a class="tab active" href="#goods">商品</a></p>
+		        </div>
+		        <div class="wrap_tab nav_item nav_right">
+		            <p class=""><a class="tab" href="#info">详情</a></p>
+		        </div>
+		         <div class="wrap_tab nav_item evaluate">
+		            <p class="">评价</p>
+		        </div>
+			</div>
+		</div>
+	</div>  
+	<section>
+		<div class="div1 cont" id="goods">
+				 <div class="goodsWrap">
+					<div class="swiper-container banner">
+					    <div class="swiper-wrapper">
+						    <div class="swiper-slide" v-for="item,i in goodsInfo.result_json.pic_path_arr">
+						      	<img  v-bind:src="item" alt="">
+						    </div>
+					    </div>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					    <!-- Add Arrows -->
+					    <!--<div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>-->
+			  		</div>
+				 </div>
+			
+		         <div class="content" >
+		            <div class="content_header" >
+		                <h3>{{goodsInfo.result_json.show_name}}</h3>
+		                <p>{{goodsInfo.result_json.indication}}</p>
+		            </div>
+		            <div class="content_box">
+		                <p class="money">{{goodsInfo.result_json.price/100}}</p>
+		            </div>
+		            <div class="content_footer">
+		                <p class="span1">{{goodsInfo.result_json.standard}}</p>
+		                <p class="span2">{{goodsInfo.result_json.production}}</p>
+		            </div>
+		
+		         </div>
+		         <div class="footer">
+		            <div class="drugWrap clearFix">
+		            	<a href="1620_drugStoreInfo.html">
+		            		<span>本商品由北京康佰馨大药房昆泰店提供</span>
+		            		<img src="images/ic_new_add_jt.png"/>
+		            	</a>
+		            </div>
+		         </div>
+		         <div class="correlation">
+		            <h4>相关商品</h4>
+		            <div class="swiper-container case">
+					    <div class="swiper-wrapper">
+						      <div class="swiper-slide" v-for="listItem,j in goods.result_json"  >
+						      	<ul >
+					              	<li v-bind:id="listItem.drug_id"  >
+					              		<a href="javascript:;" >
+					              			<img  v-bind:src="listItem.pic_path" alt="">
+					              			<p>{{listItem.show_name}}</p>
+					              			<p class="price">￥{{listItem.price/100}}</p>
+					              		</a>
+					              	</li>
+		           				 </ul>
+						      </div>
+					    </div>
+				   </div>
+		         </div>
+	    	</div>
+	    	 <div class="div2 cont" id="info" style="display: block;">
+		    	 <div class="comShowTitle">
+					<div class="comShowWrap">
+						<div class="leftLineDot">
+							<span style="height: 1px; width: 1.5rem;"></span> 
+						</div>
+						<div class="comshowTitleText">
+							<p>详情介绍</p>
+						</div>
+						<div class="rightLineDot">
+							<span style="height: 1px; width: 1.5rem;"></span>
+						</div>
+					</div>
+				 </div>
+		    	 <ul>
+		    		<li>
+			    		<span class="span1">通用名称</span>
+				    	<span class="span2">邦迪苯扎氯铵贴(防水型)</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">商品名称</span>
+		    			<span class="span2">邦迪 邦迪苯扎氯铵贴(防水型)</span>
+		    		</li>
+		    		<li><span class="span1">英文名称</span>
+		    			<span class="span2">Benzalkonium Chloride Patches</span>
+		    		</li>
+		    		<li><span class="span1">化学名称</span>
+		    			<span class="span2"></span</li>
+		    		<li>
+		    			<span class="span1">分子式</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li><span class="span1">分子量</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">成分</span>
+		    			<span class="span2">本品每片含苯扎氯铵0.31毫克。辅料为：防水透气胶带、胶粘剂、无纺吸收垫和PE隔离膜。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">性状</span>
+		    			<span class="span2">本品为淡棕色弹性防水透气薄膜和高分子化合物热熔胶胶粘剂组成的胶带，上附含苯扎氯的白色吸收性强的吸收垫和一层黄色隔离渗透膜组成的保护性复合垫。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">辅料</span>
+		    			<span class="span2"></span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">作用类别</span>
+		    			<span class="span2">止血类</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">规格</span>
+		    			<span class="span2">22.5mm*12.7mm*20片</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">包装</span>
+		    			<span class="span2">本品单片密封于包装纸内，</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">批准文号</span>
+		    					<span class="span2">国药准字H10920011</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">生产企业</span>
+		    			<span class="span2">上海强生有限公司</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">适应症</span>
+		    			<span class="span2">用于小创伤，擦伤等患处。</span>
+		    		</li>
+					<li>
+						<span class="span1">用法用量</span>
+		    			<span class="span2">撕开包装，将中间的吸收垫敷在创伤处，然后撕去两端的覆盖膜并用胶带固定位置。</span></li>
+		    		<li>
+		    			<span class="span1">不良反应</span>
+		    			<span class="span2">罕见过敏反应。</span>
+		    		</li>
+		    		<li>
+		    			<span class="span1">注意事项</span>
+		    			<span class="span2">1.本品为无菌产品，拆封后忌用手接触中间复合垫。2.使用前发现包装打开或破损请勿使用。3.用药部位如有烧灼感、瘙痒、红肿等情况应停药，并将局部药物洗净，必要时向医师咨询。4.对本品过敏者禁用，过敏体质者慎用。5.当本品性状发生改变时禁用，6.请将本品放在儿童不能接触的地方。7.儿童必须在成人监护下使用。8.如正在使用其他药品，使用本品前请咨询医师或药师。9.使用本品前，先清洁盒消毒伤口 ；为了保持伤口卫生，请每天更换创口贴。10.本品为一次性使用，不得重复使用。</span>
+		    		</li>
+					<li>
+						<span class="span1">禁忌</span>
+						<span class="span2">尚不明确</span>
+					</li>
+					<li>
+						<span class="span1">药物过量</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">药代动力学</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">老年用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">儿童用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">孕妇及哺乳期妇女用药</span>
+						<span class="span2"></span>
+					</li>
+					<li>
+						<span class="span1">药理毒理</span>
+						<span class="span2">苯扎氯铵为阳离子表面活性剂类广谱杀菌剂，弹性织物有加压止血作用。</span></li>
+					<li>
+						<span class="span1">药物相互作用</span>
+						<span class="span2">如与其他药物同时使用可能会发生药物相互作用，详情请咨询医师或药师</span></li>
+					<li>
+						<span class="span1">临床试验</span>
+						<span class="span2"></span>
+					</li>
+		    	 </ul>
+	    	</div>
+			 
+		<!--<div class="cont" id="goods">
+			1
+		</div> 
+		<div class="cont" id="info">
+			2
+		</div> -->
+		<!--<div class="cont" id="cc">
+			3
+		</div> 
+		 
+		<div class="cont" id="dd">
+			4
+		</div>-->
+	</section>
+	<!--结束-->  
+ 
+
+
+<!--<div style="height: 500px;"></div>-->
+<script> 
+	 //内容信息导航吸顶
+	$(function(){ 
+	var navHeight= $("#navHeight").offset().top; 
+	var navFix=$("#nav_wrap"); 
+	$(window).scroll(function(){ 
+		if($(this).scrollTop()>navHeight){ 
+			navFix.addClass("navFix"); 
+		} 
+		else{ 
+			navFix.removeClass("navFix"); 
+		} 
+		}) 
+	})
+//内容信息导航锚点
+   $('.nav_wrap').navScroll({
+	  mobileDropdown: true,
+	  mobileBreakpoint: 768,
+	  scrollSpy: true
+	}); 
+</script> 
+</body>
+</html>

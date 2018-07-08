@@ -1,0 +1,67 @@
+@charset "utf-8";
+body{background:#efefef;}
+.container{max-width:6.4rem;margin:0 auto;}
+.header{width:6.4rem;height:0.8rem;background:#CD3636;position:fixed;top:0;z-index:9999;}
+.header .header_back{width:0.8rem;height:0.8rem;float:left;padding:0.2rem;}
+.header .header_back img{height:0.4rem;}
+.header_title{width:4.4rem;height:0.8rem;float:left;text-align:center;line-height:0.8rem;font-size:0.32rem;color:#fff;}
+.header_right{width:1.2rem;height:0.8rem;float:left;text-align:center;line-height:0.8rem;color:#fff;}
+.add{width:6.4rem;height:1.6rem;background:#fff;padding-top:0.25rem;font-size:0.26rem;margin-top:0.8rem;}
+.add .add_top{width:5.4rem;height:0.6125rem;margin:0 auto;line-height:0.6125rem;}
+.add .add_top .toName{width:1.6rem;height:0.6125rem;float:left;}
+.add .add_top .toPhone{width:3.8rem;height:0.6125rem;float:left;}
+.add .add_bot{width:5.4rem;height:0.7125rem;line-height:0.7125rem;margin:0 auto;overflow:hidden;text-overflow: ellipsis;white-space:nowrap;}
+.add .toTop{width:5.4rem;height:0.6125rem;margin:0 auto;line-height:0.6125rem;}
+.add .toTop .toImg{width:1.2rem;height:0.6125rem;text-align:center;padding-top:0.1rem;float:left;}
+.add .toTop .toImg img{width:0.4rem;}
+.add .toTop .toTit{width:4.2rem;height:0.6125rem;float:left;color:#cd3636;font-size:0.3rem;}
+.add .toBot{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;width:5.4rem;height:0.7125rem;line-height:0.7125rem;margin:0 auto;padding-left:0.4rem;}
+.pharmacy{width:6.4rem;height:0.6rem;background:#fff;margin-top:0.1rem;}
+.pharmacy_img{width:0.6rem;height:0.6rem;float:left;padding-left:0.3rem;padding-top:0.15rem;}
+.pharmacy_img img{width:0.3rem;}
+.pharmacy_title{width:5.2rem;height:0.6rem;font-size:0.2rem;color:#989898;line-height:0.6rem;margin-left:0.7rem;}
+.AllTotal{width:6.4rem;height:1.5rem;background:#fff;position:fixed;bottom:0;border-top:0.01rem solid #cbcbcb;z-index:9999;}
+.total_left{width:1.5rem;height:1.5rem;float:left;}
+.left_input{width:0.7rem;height:1.5rem;padding-left:0.4rem;float:left;padding-top:0.6rem;}
+.check_all{width:0.8rem;height:1.5rem;text-align:center;float:left;line-height:1.5rem;}
+.total_title{width:3rem;height:1.5rem;float:left;padding-left:0.2rem;}
+.total_right{width:1.9rem;height:1.5rem;float:left;padding-top:0.35rem;padding-left:0.4rem;}
+.total_right span{display:block;width:1.3rem;height:0.7rem;line-height:0.7rem;text-align:center;background:#cd3636;font-size:0.32rem;color:#fff;border-radius:0.1rem;}
+.shopping {width:6.4rem;height:auto;margin-top:0.1rem;}
+.shopping img.null{width:3rem;position:absolute;top:50%;margin-top:-1.5rem;left:50%;margin-left:-1.5rem;}
+.shop-group-item{width:6.4rem;height:auto;}
+.shop-group-item li{width:6.4rem;height:2rem;background:#fff;border-bottom:0.01rem solid #e8e8e8;}
+.shop-info{width:6.4rem;height:2rem;}
+.shop-info .check{margin-top:1rem;margin-left:0.2rem;float:left;}
+.shop-info .shop-info-img{width:2rem;height:2rem;float:left;text-align:center;padding-top:0.35rem;}
+.shop-info .shop-info-img img{width:1.3rem;}
+.shop-info .shop-info-text{width:3.6rem;height:2rem;float:left;position:relative;}
+.shop-info .shop-info-text h4{display:block;width:3.6rem;height:0.5rem;margin-top:0.2rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.shop-info .shop-info-text .shop-price{width:3.6rem;height:1rem;margin-top:0.5rem;}
+.shop-price .shop-pices{width:1.2rem;height:1rem;float:left;line-height:1rem;}
+.shop-price .shop-arithmetic{width:2.4rem;height:1rem;float:left;text-align:right;padding-left:0.3rem;padding-top:0.3rem;}
+.shop-price .shop-arithmetic .minus{display:block;float:left;width:0.6rem;height:0.4rem;border:0.01rem solid #dadada;text-align:center;}
+.shop-price .shop-arithmetic .num{display:block;float:left;width:0.8rem;height:0.4rem;border-top:0.01rem solid #dadada;border-bottom:0.01rem solid #dadada;text-align:center;}
+.shop-price .shop-arithmetic .plus{display:block;float:left;width:0.6rem;height:0.4rem;border:0.01rem solid #dadada;text-align:center;}
+.bar{width:6.4rem;height:1.5rem;}
+.top{width:6.4rem;height:1rem;background:#fff;border-bottom:0.01rem solid #dadada;padding-top:0.25rem;}
+.top .span1{color:#d45d5e;display:block;width:0.9rem;height:0.5rem ;font-size:0.3rem;border:0.05rem solid #ea5351;margin-left:0.2rem;border-radius:0.05rem;text-align:center;float:left;}
+.top .span2{display:block;width:5rem;height:0.6rem;float:left;line-height:0.6rem;padding-left:0.2rem;color:#999;}
+.prices{width:6.4rem;height:0.5rem;padding-left:0.4rem;background:#fff;color:#ca656c;padding-top:0.1rem;}
+.layer{display:none;width:6.4rem;margin:0 auto;background:rgba(24,24,24,0.5);position:fixed;top:0;z-index:9999;}
+.layer .layer_bar{width:4.5rem;height:2.3rem;position:absolute;bottom:50%;margin-bottom:-1.15rem;left:50%;margin-left:-2.25rem;background:#fff;border-radius:0.1rem;}
+.layer .layer_bar .bar_top{width:4.5rem;height:0.7rem;background:#e5282e;border-radius:0.1rem 0.1rem 0 0;line-height:0.7rem;color:#fff;letter-spacing:0.02rem;padding-left:0.3rem;}
+.layer .layer_bar .bar_middle{width:4rem;height:0.9rem;line-height:0.9rem;text-align:center;border-bottom:0.01rem solid #d0d0d0;margin:0 auto;color:#737373;letter-spacing:0.02rem;font-size:0.26rem;}
+.layer .layer_bar .bar_bot{width:4.5rem;height:0.7rem;line-height:0.7rem;font-size:0.25rem;}
+.layer .layer_bar .bar_bot .left{width:2.25rem;height:0.7rem;float:left;text-align:center;color:#cd3636;letter-spacing:0.02rem;}
+.layer .layer_bar .bar_bot .right{width:2.25rem;height:0.7rem;float:left;text-align:center;color:#737373;letter-spacing:0.02rem;}
+.shopImg{width:2.4rem;position:absolute;top:3rem;left:2rem;border:none;}
+.zj{font-size:0.3rem;color:#d0181e;}
+.top_span{font-size:0.3rem;color:#d0181e;}
+.yh1{font-size:0.2rem;color:#a5a7ad;}
+.bot_span{font-size:0.2rem;color:#a5a7ad;}
+.yh{width:6.4rem;height:0.5rem;font-size:0.2rem;color:#a3a5ab;padding:0.15rem 0.4rem;background:#fff;border-bottom:0.02rem solid #e8e8e8;}
+.bot_span{font-size:0.2rem;color:#a5a7ad;}
+.ui-loader-default{ display:none}
+.ui-mobile-viewport{ border:none;}
+.ui-page {padding: 0; margin: 0; outline: 0;background:#eee;}

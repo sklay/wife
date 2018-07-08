@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>个人信息</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/selfInfo.css">
+    <link rel="stylesheet" type="text/css" href="style/reset.css">
+    <link rel="stylesheet" href="style/FJL.css">
+	<link rel="stylesheet" type="text/css" href="style/FJL.picker.css" />
+    <!--<link rel="stylesheet" href="style/animate.css">-->
+    <!--<script src="http://libs.baidu.c.om/jquery/1.91/jquery.min.js"></script>-->
+    <script src="js/jquery-2.2.0.min.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/json2.js"></script>
+    <script src="js/picker.min.js"></script>
+    <script src="js/FJL.min.js"></script>
+	<script src="js/FJL.picker.min.js"></script>
+	</head>
+	<script>
+   		$(function(){
+   			var nameEl = document.getElementById('chose');
+   			var chooseEl = document.getElementById('chosePlace');
+			
+			var first = []; /* 省，直辖市 */
+			var second = []; /* 市 */
+		
+			var selectedIndex = [0, 0]; /* 默认选中的地区 */
+		
+			var checked = [0, 0]; /* 已选选项 */
+		
+			function creatList(obj, list){
+			  obj.forEach(function(item, index, arr){
+			  var temp = new Object();
+			  temp.text = item.name;
+			  temp.value = index;
+			  list.push(temp);
+			  })
+			}
+		
+			creatList(city3, first);
+		
+			if (city3[selectedIndex[0]].hasOwnProperty('city')) {
+			  creatList(city3[selectedIndex[0]].city, second);
+			} else {
+			  second = [{text: '', value: 0}];
+			}
+		
+		
+			var picker = new Picker({
+				data: [first, second],
+			  selectedIndex: selectedIndex,
+				//title: '地址选择'
+			});
+		
+			picker.on('picker.select', function (selectedVal, selectedIndex) {
+			  var text1 = first[selectedIndex[0]].text;
+			  var text2 = second[selectedIndex[1]].text;
+			   
+				chooseEl.innerText = text1 + ' ' + text2 ;
+			});
+		
+			picker.on('picker.change', function (index, selectedIndex) {
+			  if (index === 0){
+				firstChange();
+			  }  
+		
+			  function firstChange() {
+				second = []; 
+				checked[0] = selectedIndex;
+				var firstCity = city3[selectedIndex];
+				if (firstCity.hasOwnProperty('city')) {
+				  creatList(firstCity.city, second);
+				} else {
+				  second = [{text: '', value: 0}]; 
+				  checked[1] = 0; 
+				}
+		
+				picker.refillColumn(1, second); 
+				picker.scrollColumn(1, 0) 
+			  }
+			});
+		
+			picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
+			  console.log(selectedVal);
+			  console.log(selectedIndex);
+			});
+		
+			nameEl.addEventListener('click', function () {
+				picker.show();
+			});
+			
+			$(".headImg").on("click",function(){
+				$(".headWrap").show();
+			});
+			$('.nickName').on("click",function(){  
+		        $('.modifyWrap').show();  
+		    });  
+			$(".sexWrap ").on("click",function(){  
+		        $('.sexChoose').show();  
+		    });  
+			$(".giler").on("click",function(){
+				$(".sexChoose").fadeOut();
+				$(".sexWrap .middle span").html($(".giler").text());
+			});
+			$(".man").on("click",function(){
+				$(".sexChoose").fadeOut();
+				$(".sexWrap .middle span").html($(".man").text());
+			});
+			$(".sexbut").on("click",function(){
+				$(".sexChoose").fadeOut();
+			});
+			$(".cancelBar").on("click",function(){
+				$("#nickname").val("");
+				$(".modifyWrap").fadeOut();
+				$(".nickName .middle span").html($("#nickname").val());
+			});
+			$(".sureBar").on("click",function(){
+				$(".nickName .middle span").html($("#nickname").val());
+				$("#nickname").val("");
+				$(".modifyWrap").fadeOut();
+			});
+			
+			(function($) {
+				$.init();
+				var result = $('#demo2')[0];
+				var btns = $('.btn');
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var optionsJson = this.getAttribute('data-options') || '{}';
+						var options = JSON.parse(optionsJson);
+						var id = this.getAttribute('id');
+						/*
+						 * 首次显示时实例化组件
+						 * 示例为了简洁，将 options 放在了按钮的 dom 上
+						 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+						 */
+						var picker = new $.DtPicker(options);
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result.innerText = rs.text;
+							/* 
+							 * 返回 false 可以阻止选择框的关闭
+							 * return false;
+							 */
+							/*
+							 * 释放组件资源，释放后将将不能再操作组件
+							 * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+							 * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+							 * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+							 */
+							picker.dispose();
+						});
+					}, false);
+				});
+			})(mui);
+   		})
+
+  	</script>
+	<body>
+		<div class="container">
+			<header class="title">
+		        <div class="navbar clearFix">
+		        	 <div class="title_left">
+			              <img src="images/ic_back1.png">
+			         </div>
+			         <div class="nav">
+				          <div class="nav_item nav_left ">
+				              <p class="nav_border">个人信息</p>
+				          </div>
+				    </div>
+	        	</div>
+	    	</header>
+	    	<div class="contentWrap">
+	    		<!--<div class="aboutUser">-->
+    			<div class="content">
+			        <ul>
+			            <li class="headImg clearFix">
+			                <div class="intemWrap">
+			               	  <div class="left">
+			                     <span class="span2">头像</span>
+			                 </div>
+			                 <div class="middle">
+			                	 <img src="images/ic_person_header_nolog.png" />
+			                 </div>
+			                </div>
+			                <div class="right">
+			                    <img src="images/sort_right.png">
+			                </div>
+			            </li>
+			            <li class="nickName clearFix">
+			                <div class="intemWrap">
+			                	<div class="left">
+				                    <span class="span2">昵称</span>
+				                </div>
+				                <div class="middle">
+				                	<span>18810247820</span>
+				                </div>
+			                </div>
+			                <div class="right">
+			                    <img src="images/sort_right.png">
+			                </div>
+			            </li>
+			            <li class="sexWrap clearFix">
+			                <div class="intemWrap">
+			                	<div class="left">
+			                    <span class="span2">性别</span>
+				                </div>
+				                <div class="middle">
+				                	<span>女</span>
+				                </div>
+			                </div>
+			                <div class="right">
+			                    <img src="images/sort_right.png">
+			                </div>
+			            </li>
+			            <li class="birthWrap clearFix btn"  data-options='{"type":"date","beginYear":2000,"endYear":2086}'>
+			                <div class="intemWrap">
+			                	<div class="left">
+			                    <span class="span2">生日</span>
+			                </div>
+			                <div class="middle">
+			                	<span id='demo2'>2018-5-20</span>
+			                </div>
+			                </div>
+			                <div class="right">
+			                    <img src="images/sort_right.png">
+			                </div>
+			            </li>
+			             <li class="adressWrap clearFix" id="chose">
+			                <div class="intemWrap">
+			                	<div class="left">
+			                    <span class="span2">地区</span>
+			                </div>
+			                <div class="middle">
+			                	<span id="chosePlace"></span>
+			                </div>
+			                </div>
+			                <div class="right">
+			                    <img src="images/sort_right.png">
+			                </div>
+			            </li>
+			        </ul>
+			    </div>
+	    		<!--</div>-->
+	    	</div>
+			<div class="loginWrap">
+				<button class="quit">保存</button>
+			</div>
+		</div>
+		<div class="modifyWrap">
+			<div class="modify">
+				<div class="modifycontent">
+				<p>修改昵称</p>
+				<div class="writeBar">
+					<input type="text" placeholder="请输入昵称" id="nickname">
+				</div>
+				<div class="oprateBar clearFix">
+					<button class="cancelBar">取消</button>
+					<button class="sureBar">确定</button>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="sexChoose">
+			<div class="sexItemWrap">
+				<div class="sexItem">
+					<p class="giler">女</p>
+					<p class="man">男</p>
+				</div>
+				<div class="sexBar">
+					<p class="sexbut">取消</p>
+				</div>
+			</div>
+		</div>
+		<div class="headWrap container animated fadeInRight">
+			<header class="title">
+		        <div class="navbar clearFix">
+		        	 <div class="title_left">
+			              <img src="images/ic_back1.png">
+			         </div>
+			         <div class="nav">
+				          <div class="nav_item nav_left ">
+				              <p class="nav_border">个人信息</p>
+				          </div>
+				    </div>
+	        	</div>
+	    	</header>
+	    	<div class="imgList clearFix">
+	    		<ul class="clearFix">
+	    			<li>
+	    				<img src="images/ic_kefu_chatlist.png" />
+	    			</li>
+	    			<li>
+	    				<img src="images/ic_person_header_nolog.png" />
+	    			</li>
+	    		</ul>
+	    	</div>
+	    </div>
+	</body>
+</html>

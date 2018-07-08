@@ -1,0 +1,1983 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>药快到</title>
+    <link rel="stylesheet" href="style/public.css">
+    <link rel="stylesheet" href="style/index1.css">
+    <script src="js/jquery-1.9.1.js"></script>
+    <script src="js/jquery.event.drag.js"></script>
+    <script src="js/jquery.touchSlider.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script src="js/rem.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=nHd5rVGqkOdfofrjY4HXQXCW"></script>
+    <script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+    <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script>
+    <script src="js/index1.js?v=1001"></script>
+    <script>
+        $(function(){
+        	
+            $(".home_page").bind("click",function(){
+                $(this).children("img").attr("src","images/ic_tabbar_1_2@3x.png").parent(".home_page").css("color","#b82b4b").siblings().css("color","#0d0809");
+                $(".sales_page").children("img").attr("src","images/ic_tabbar_2_1@3x.png");
+                $(".shop_page").children("img").attr("src","images/ic_tabbar_3_1@3x.png");
+                $(".my_page").children("img").attr("src","images/ic_tabbar_4_1@3x.png");
+                $(".container").show();
+                $(".sales").hide();
+                $(".shop").hide();
+            });
+            $(".sales_page").bind("click",function(){
+                $(this).children("img").attr("src","images/ic_tabbar_2_2@3x.png").parent(".sales_page").css("color","#b82b4b").siblings().css("color","#0d0809");;
+                $(".home_page").children("img").attr("src","images/ic_tabbar_1_1@3x.png");
+                $(".shop_page").children("img").attr("src","images/ic_tabbar_3_1@3x.png");
+                $(".my_page").children("img").attr("src","images/ic_tabbar_4_1@3x.png");
+                $(".sales").show();
+                $(".container").hide();
+                $(".shop").hide();
+            });
+            $(".shop_page").bind("click",function(){
+                $(this).children("img").attr("src","images/ic_tabbar_3_2@3x.png").parent(".shop_page").css("color","#b82b4b").siblings().css("color","#0d0809");;
+                $(".sales_page").children("img").attr("src","images/ic_tabbar_2_1@3x.png");
+                $(".home_page").children("img").attr("src","images/ic_tabbar_1_1@3x.png");
+                $(".my_page").children("img").attr("src","images/ic_tabbar_4_1@3x.png");
+                $(".shop").show();
+                $(".container").hide();
+                $(".sales").hide();
+            });
+            $(".my_page").bind("click",function(){
+                $(this).children("img").attr("src","images/ic_tabbar_4_2@3x.png").parent(".my_page").css("color","#b82b4b").siblings().css("color","#0d0809");;
+                $(".sales_page").children("img").attr("src","images/ic_tabbar_2_1@3x.png");
+                $(".shop_page").children("img").attr("src","images/ic_tabbar_3_1@3x.png");
+                $(".home_page").children("img").attr("src","images/ic_tabbar_1_1@3x.png");
+            });
+            $(window).scroll(function(){
+                if($(window).scrollTop()>45){
+                    $(".header").css("top","-0.8rem");
+                }else{
+                    $(".header").css("top","0");
+                }
+            });
+
+            $(".container .header .header_bottom .bottom_input").click(function(){
+                window.location.href="search.html";
+            });
+
+            var width = $(".activity").width();
+            var oWidth = width/5;
+            var height = width/3.66;
+            var oHeight = height*2;
+            $(".palace").css({"height":oHeight,"position":"relative"});
+            for(var i=0;i<$(".activity img").length;i++){
+                $(".activity img").eq(i).css({"width":($(".activity img").eq(i).attr("width")/100)*width+"px","float":"left"});
+                $(".activity img").eq(i).css("height",$(".activity img").eq(i).attr("row")*height+"px");
+            }
+
+            /*药品排行榜 start*/
+            var aLi = document.querySelectorAll(".box li");
+            var box = document.querySelector('.box');
+            var wrap = document.querySelector('.wrap');
+            var aLiWidth = box.offsetWidth;
+            wrap.style.height = 10+"rem";
+            // 设置盒子的宽度
+            box.style.width = aLi.length*6 + 'rem';
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].style.width = 1/aLi.length * 100 + '%';
+            }
+            // 初始化手指坐标点
+            var startPoint = 0;
+            var startEle = 0;
+            //手指按下
+            wrap.addEventListener("touchstart",function(e){
+                startPoint = e.changedTouches[0].pageX;
+                startEle = box.offsetLeft;
+            });
+            //手指滑动
+            wrap.addEventListener("touchmove",function(e){
+                var currPoint = e.changedTouches[0].pageX;
+                var disX = currPoint - startPoint;
+                var left = startEle + disX;
+                box.style.left = left + 'px';
+            });
+            //当手指抬起的时候，判断图片滚动离左右的距离，当
+            wrap.addEventListener("touchend",function(e){
+                var left = box.offsetLeft;
+// 判断正在滚动的图片距离左右图片的远近，以及是否为最后一张或者第一张
+                var currNum = Math.round(-left/aLiWidth);
+                currNum = currNum>=(aLi.length)-1 ? aLi.length-1 : currNum;
+                currNum = currNum<=0 ? 0 : currNum;
+                box.style.left = -currNum*wrap.offsetWidth + 'px';
+                $(".wrap .header_right").text(currNum+1+"/4");
+            });
+            /*药品排行榜 end*/
+
+
+            /*商品列表 start*/
+            var oLi = document.querySelectorAll(".drug_list_header ul li");
+            var bar = document.querySelector(".drug_list_header ul");
+            var list  = document.querySelector(".drug_list_header");
+            var oLiWidth = bar.offsetWidth;
+            list.style.height = 0.7+"rem";
+            var w = 0;
+            for(var x=0;x<oLi.length;x++){
+                w += $(".drug_list_header ul li").eq(x).innerWidth();
+            }
+            //设置盒子宽度
+            bar.style.width = w + 'px';
+//            for(var i=0;i<oLi.length;i++){
+//                oLi[i].style.width = 1/oLi.length * 100 + '%';
+//            }
+            // 初始化手指坐标点
+            var startPoint1 = 0;
+            var startEle1 = 0;
+            //手指按下
+            list.addEventListener("touchstart",function(e){
+                startPoint1 = e.changedTouches[0].pageX;
+                console.log(startPoint1);
+                startEle1 = bar.offsetLeft;
+            });
+            var _width = $(".drug_list_header").width();
+            var ulWidth = $(".drug_list_header ul").width();
+            var onWidth = _width-ulWidth;
+            //手指滑动
+            list.addEventListener("touchmove",function(e){
+                var currPoint = e.changedTouches[0].pageX;
+                var disX = currPoint - startPoint1;
+                var left = startEle1 + disX;
+                if(left<=onWidth){
+                    bar.style.left = onWidth+"px";
+                }else{
+                    bar.style.left = left + 'px';
+                }
+            });
+            //当手指抬起的时候，判断图片滚动离左右的距离，当
+            list.addEventListener("touchend",function(e){
+                var left = bar.offsetLeft;
+// 判断正在滚动的图片距离左右图片的远近，以及是否为最后一张或者第一张
+                var currNum = Math.round(-left/oLiWidth);
+                console.log(currNum);
+//                currNum = currNum>=(oLi.length)-1 ? oLi.length-1 : currNum;
+//                currNum = currNum<=0 ? 0 : currNum;
+                if(left>=0){
+                    bar.style.left=0+"px";
+                }
+            });
+            $(".drug_list_header li").bind("click",function(){
+                $(this).children("span").addClass("on").parent().siblings().children("span").removeClass("on");
+                var i = $(this).index();
+                $(".drug_list .content_box").eq(i).show().siblings().hide();
+            });
+            $(".drug_list .content_box").eq(0).show().siblings().hide();
+            /*商品列表 end*/
+
+            /*促销页 start*/
+
+            /*促销页 end*/
+            setInterval(lxfEndtime,60);
+            //倒计时
+            function lxfEndtime(){
+                $(".daojishi").each(function () {
+                    //var lxfday=$(this).attr("lxfday");//用来判断是否显示天数的变量
+                    var endtime = new Date($(this).attr("id")).getTime();//取结束日期(毫秒值)
+                    var nowtime = new Date().getTime();  //今天的日期(毫秒值)
+                    var youtime = endtime - nowtime;//还有多久(毫秒值)
+                    var seconds = youtime / 1000;//秒
+                    var minutes = Math.floor(seconds / 60);//分
+                    var hours = Math.floor(minutes / 60);//小时
+                    var days = Math.floor(hours / 24);//天
+                    var CDay = days;
+                    var CHour = hours % 24;
+                    var CMinute = minutes % 60;
+                    var CSecond = Math.floor(seconds % 60);//"%"是取余运算，可以理解为60进一后取余数，然后只要余数。
+                    var c = new Date();
+                    var millseconds = c.getMilliseconds();
+                    var Cmillseconds = Math.floor(millseconds % 100);
+                    if (CSecond < 10) {//如果秒数为单数，则前面补零
+                        CSecond = "0" + CSecond;
+                    }
+                    if (CMinute < 10) { //如果分钟数为单数，则前面补零
+                        CMinute = "0" + CMinute;
+                    }
+                    if (CHour < 10) {//如果小时数为单数，则前面补零
+                        CHour = "0" + CHour;
+                    }
+                    //if (Cmillseconds < 10) {//如果毫秒数为单数，则前面补零
+                    //    Cmillseconds = "0" + Cmillseconds;
+                    //}
+                    if (endtime <= nowtime) {
+                        $(this).html("已过期");//如果结束日期小于当前日期就提示过期啦
+                    } else {
+                        $(this).html("<span class='timeh'>" + CHour + "</span>:<span class='timem'>" + CMinute + "</span>:<span class='times'>" + CSecond + "</span>");
+                    }
+                });
+            }
+            
+            
+            
+        });
+    </script>
+
+	
+</head>
+<body>
+  <!--首页 start-->
+  <div class="container">
+      <div class="header">
+          <div class="header_top">
+              <div class="top_left">
+                  <div class="left_dizhi">
+                      <img src="images/dizhi-baise.png" alt="">
+                  </div>
+                  <div class="left_title">
+                      <span>东水井胡同</span>
+                  </div>
+                  <div class="left_xia">
+                      <img src="images/xiaojiantiou-baise.png" alt="">
+                  </div>
+              </div>
+              <div class="top_right">
+                  <div class="right_qishou">
+                      <img src="images/0409_qishou.png" alt="">
+                  </div>
+                  <div class="right_title">
+                      <div class="title_top">
+                          <span>骑手</span>
+                      </div>
+                      <div class="title_bottom small_font">
+                          <span>正赶往商家</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="header_bottom">
+              <div class="bottom_input">
+                  <div class="input_img">
+                      <img src="images/20161102_searchimg.png" alt="">
+                  </div>
+                  <div class="input_title">
+                      <input type="text" value="1元狂秒" disabled="disabled">
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="banner">
+          <div class="img_gallery">
+          </div>
+      </div>
+      
+      <div class="pharmacy_message">
+      	
+      </div>
+      
+      
+      <div class="activity">
+      </div>
+      <div class="brand">
+      </div>
+      <div class="wrap">
+          <div class="wrap_header">
+              <div class="header_left">
+                  <span>药品排行榜</span>
+              </div>
+              <div class="header_right">
+                  <span>1/4</span>
+              </div>
+          </div>
+          <ul class="box">
+              <li>
+                  <div class="box1 box2">
+                      <div class="box1_header">
+                          <span>24h最热卖</span>
+                      </div>
+                      <div class="box_content">
+                          <div class="list">
+                              <div class="list_img">
+                                  <div class="img_left">
+                                      <img src="images/1.png" alt="">
+                                  </div>
+                                  <div class="img_right">
+                                      <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="list_title">
+                                  <div class="title_top">
+                                      <div class="top">
+                                          <span>解表化湿 理气和中</span>
+                                      </div>
+                                      <div class="bottom">
+                                          <span>同溢堂 益安宁丸 112丸*3瓶</span>
+                                      </div>
+                                  </div>
+                                  <div class="title_bottom">
+                                      <div class="bottom_price">
+                                          <span>￥367.00</span>
+                                      </div>
+                                      <div class="bottom_img">
+                                          <span><img src="images/car.png" alt=""></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list">
+                              <div class="list_img">
+                                  <div class="img_left">
+                                      <img src="images/2.png" alt="">
+                                  </div>
+                                  <div class="img_right">
+                                      <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="list_title">
+                                  <div class="title_top">
+                                      <div class="top">
+                                          <span>解表化湿 理气和中</span>
+                                      </div>
+                                      <div class="bottom">
+                                          <span>同溢堂 益安宁丸 112丸*3瓶</span>
+                                      </div>
+                                  </div>
+                                  <div class="title_bottom">
+                                      <div class="bottom_price">
+                                          <span>￥367.00</span>
+                                      </div>
+                                      <div class="bottom_img">
+                                          <span><img src="images/car.png" alt=""></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list">
+                              <div class="list_img">
+                                  <div class="img_left">
+                                      <img src="images/3.png" alt="">
+                                  </div>
+                                  <div class="img_right">
+                                      <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="list_title">
+                                  <div class="title_top">
+                                      <div class="top">
+                                          <span>解表化湿 理气和中</span>
+                                      </div>
+                                      <div class="bottom">
+                                          <span>同溢堂 益安宁丸 112丸*3瓶</span>
+                                      </div>
+                                  </div>
+                                  <div class="title_bottom">
+                                      <div class="bottom_price">
+                                          <span>￥367.00</span>
+                                      </div>
+                                      <div class="bottom_img">
+                                          <span><img src="images/car.png" alt=""></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list">
+                              <div class="list_img">
+                                  <div class="img_left">
+                                      <img src="images/4.png" alt="">
+                                  </div>
+                                  <div class="img_right">
+                                      <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="list_title">
+                                  <div class="title_top">
+                                      <div class="top">
+                                          <span>解表化湿 理气和中</span>
+                                      </div>
+                                      <div class="bottom">
+                                          <span>同溢堂 益安宁丸 112丸*3瓶</span>
+                                      </div>
+                                  </div>
+                                  <div class="title_bottom">
+                                      <div class="bottom_price">
+                                          <span>￥367.00</span>
+                                      </div>
+                                      <div class="bottom_img">
+                                          <span><img src="images/car.png" alt=""></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="list">
+                              <div class="list_img">
+                                  <div class="img_left">
+                                      <img src="images/5.png" alt="">
+                                  </div>
+                                  <div class="img_right">
+                                      <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                                  </div>
+                              </div>
+                              <div class="list_title">
+                                  <div class="title_top">
+                                      <div class="top">
+                                          <span>解表化湿 理气和中</span>
+                                      </div>
+                                      <div class="bottom">
+                                          <span>同溢堂 益安宁丸 112丸*3瓶</span>
+                                      </div>
+                                  </div>
+                                  <div class="title_bottom">
+                                      <div class="bottom_price">
+                                          <span>￥367.00</span>
+                                      </div>
+                                      <div class="bottom_img">
+                                          <span><img src="images/car.png" alt=""></span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </li>
+              <li>
+                  <div class="box1 box3">
+                      <div class="box1_header">
+                          <span>24h哈哈哈</span>
+                      </div>
+                      <div class="box_content">
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                      </div>
+                  </div>
+              </li>
+              <li>
+                  <div class="box1 box4"><div class="box1_header">
+                      <span>24h嘿嘿嘿</span>
+                  </div>
+                      <div class="box_content">
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                      </div>
+                  </div>
+              </li>
+              <li>
+                  <div class="box1 box5">
+                      <div class="box1_header">
+                          <span>24h呵呵呵</span>
+                      </div>
+                      <div class="box_content">
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                          <div class="list"></div>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div class="hot">
+          <div class="hot_header">
+              <span>热门组合</span>
+          </div>
+          <div class="hot_content">
+              <div class="content_box">
+                  <div class="box_right">
+                      <div class="right_title">
+                          <div class="title_top">
+                              <span>解表化湿 理气和中</span>
+                          </div>
+                          <div class="title_bottom">
+                              <span>天士力 藿香正气滴丸 2.6g*9袋【2盒】</span>
+                          </div>
+                      </div>
+                      <div class="right_bottom">
+                          <div class="bottom_title">
+                              <div class="title_top">
+                                  <span class="span1">￥367.00</span><span class="span2">￥367.00</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <span>已卖出142件</span>
+                              </div>
+                          </div>
+                          <div class="bottom_img">
+                              <span><img src="images/car.png" alt=""></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="content_box">
+                  <div class="box_right">
+                      <div class="right_title">
+                          <div class="title_top">
+                              <span>解表化湿 理气和中</span>
+                          </div>
+                          <div class="title_bottom">
+                              <span>天士力 藿香正气滴丸 2.6g*9袋【2盒】</span>
+                          </div>
+                      </div>
+                      <div class="right_bottom">
+                          <div class="bottom_title">
+                              <div class="title_top">
+                                  <span class="span1">￥367.00</span><span class="span2">￥367.00</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <span>已卖出142件</span>
+                              </div>
+                          </div>
+                          <div class="bottom_img">
+                              <span><img src="images/car.png" alt=""></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="content_box">
+                  <div class="box_right">
+                      <div class="right_title">
+                          <div class="title_top">
+                              <span>解表化湿 理气和中</span>
+                          </div>
+                          <div class="title_bottom">
+                              <span>天士力 藿香正气滴丸 2.6g*9袋【2盒】</span>
+                          </div>
+                      </div>
+                      <div class="right_bottom">
+                          <div class="bottom_title">
+                              <div class="title_top">
+                                  <span class="span1">￥367.00</span><span class="span2">￥367.00</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <span>已卖出142件</span>
+                              </div>
+                          </div>
+                          <div class="bottom_img">
+                              <span><img src="images/car.png" alt=""></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="content_box">
+                  <div class="box_right">
+                      <div class="right_title">
+                          <div class="title_top">
+                              <span>解表化湿 理气和中</span>
+                          </div>
+                          <div class="title_bottom">
+                              <span>天士力 藿香正气滴丸 2.6g*9袋【2盒】</span>
+                          </div>
+                      </div>
+                      <div class="right_bottom">
+                          <div class="bottom_title">
+                              <div class="title_top">
+                                  <span class="span1">￥367.00</span><span class="span2">￥367.00</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <span>已卖出142件</span>
+                              </div>
+                          </div>
+                          <div class="bottom_img">
+                              <span><img src="images/car.png" alt=""></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="content_box">
+                  <div class="box_right">
+                      <div class="right_title">
+                          <div class="title_top">
+                              <span>解表化湿 理气和中</span>
+                          </div>
+                          <div class="title_bottom">
+                              <span>天士力 藿香正气滴丸 2.6g*9袋【2盒】</span>
+                          </div>
+                      </div>
+                      <div class="right_bottom">
+                          <div class="bottom_title">
+                              <div class="title_top">
+                                  <span class="span1">￥367.00</span><span class="span2">￥367.00</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <span>已卖出142件</span>
+                              </div>
+                          </div>
+                          <div class="bottom_img">
+                              <span><img src="images/car.png" alt=""></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="drug_list">
+          <div class="drug_list_header">
+              <ul>
+                  <li><span class="on">骨骼健康</span></li>
+                  <li><span>镇痛用药</span></li>
+                  <li><span>感冒咳嗽</span></li>
+                  <li><span>胃肠消化</span></li>
+                  <li><span>营养保健</span></li>
+                  <li><span>补肾壮阳</span></li>
+                  <li><span>维生素及矿物质</span></li>
+                  <li><span>美丽容颜</span></li>
+                  <li><span>皮肤用药</span></li>
+                  <li><span>性福生活</span></li>
+                  <li><span>心脑用药</span></li>
+                  <li><span>女性健康</span></li>
+                  <li><span>健康检测</span></li>
+                  <li><span>五官用药</span></li>
+                  <li><span>三高人群</span></li>
+                  <li><span>减肥瘦身</span></li>
+              </ul>
+          </div>
+          <div class="drug_list_content">
+              <div class="content_box show" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle">
+                                  <span>生活常备药专场</span><span>2件7折</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle"></div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle">
+                                  <span>生活常备药专场</span><span>2件7折</span>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle"></div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle"></div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_middle"></div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151023/shiji/shiji_SAM_4552.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+              <div class="content_box" style="display:none;">
+                  <ul>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                      <li>
+                          <div class="li_img">
+                              <img src="http://imgstore.camore.cn/20151224/jingxin/jingxin_DSC02491.jpg" alt="">
+                          </div>
+                          <div class="li_title">
+                              <div class="title_top">
+                                  <div class="top">
+                                      <span>钙尔奇 D 碳酸钙 D3 碳...</span>
+                                  </div>
+                                  <div class="bottom">
+                                      <span>解热镇痛,用于感冒引起的头...</span>
+                                  </div>
+                              </div>
+                              <div class="title_bottom">
+                                  <div class="bottom_left">
+                                      <span class="old_price">￥43.90</span>
+                                      <span class="new_price">￥39.90</span>
+                                  </div>
+                                  <div class="bottom_right">
+                                      <div class="right_img">
+                                          <img src="images/car.png" alt="">
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--首页 end-->
+
+  <!--促销页 start-->
+  <div class="sales" style="display:none;">
+      <div class="sales_header">
+          <span>促销活动</span>
+      </div>
+      <div class="sales_content">
+          <iframe src="" frameborder="0"></iframe>
+      </div>
+  </div>
+  <!--促销页 end-->
+
+  <!--清单页 start-->
+  <div class="shop" style="display:none;">
+      <div class="shop_header">
+          <span>我的清单</span>
+      </div>
+      <div class="shop_content"></div>
+  </div>
+  <!--清单页 end-->
+
+  <!--个人中心页 start-->
+  <div class="personal">
+
+  </div>
+  <!--个人中心页 end-->
+
+  <div class="nav">
+      <ul>
+          <li class="home_page">
+              <img src="images/ic_tabbar_1_2@3x.png" alt="">
+              <span>首页</span>
+          </li>
+          <li class="sales_page">
+              <img src="images/ic_tabbar_2_1@3x.png" alt="">
+              <span>促销</span>
+          </li>
+          <li class="shop_page">
+              <img src="images/ic_tabbar_3_1@3x.png" alt="">
+              <span>清单</span>
+          </li>
+          <li class="my_page">
+              <img src="images/ic_tabbar_4_1@3x.png" alt="">
+              <span>我的</span>
+          </li>
+      </ul>
+  </div>
+  <!--<div class="loading">-->
+      <!--<img src="images/001mWx81gy6GMvUSPOvf7.gif" alt="">-->
+  <!--</div>-->
+</body>
+<script>
+
+</script>
+</html>

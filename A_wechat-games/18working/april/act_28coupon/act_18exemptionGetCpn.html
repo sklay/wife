@@ -18,31 +18,131 @@
 		<script src="js/html_commonN.js"></script>
 		<script>
 			/** 默认是生产APPID*/
-			var appid = 'wx697be0ec43c8cafa';
+			var appid = 'wxade8c5e473c645e9';
 			if (location.host.indexOf('deve') >= 0) {
 				/** 准生产APPID*/
 				appid = 'wx697be0ec43c8cafa';
 			}
+			
 			var codeActId = '${codeActId}' || '';
 			var act_url = '${act_url}' || '';
-			var wxparam = "%26codeActId%3d${codeActId}%26pharmacy_id%3d${pharmacyId}%26user_id%3d${userId}%26inviteType%3d${inviteType}%26version_sys%3dwehcat";
+			var pharmacy_id = '${pharmacy_id}';
+			var user_id = '${user_id}';
+			var inviteType = '${inviteType}';
+			var version_sys = 'wechat';
+			var wxparam = "%26codeActId%3d"+ codeActId +"%26pharmacy_id%3d"+ pharmacy_id +"%26user_id%3d" + user_id + "%26inviteType%3d" +inviteType+ "%26version_sys%3dwehcat";
 			// 新追加一个参数
 			var redirect_uri = 'http%3a%2f%2f' + location.host + '%2fmedhtml%2fcommon%2fcouponAct%2f' + codeActId + '%3fact_url%3d' + act_url;
 			console.debug(' cur href is ', redirect_uri);
+			var parm = "&pharmacy_id=${pharmacy_id}&user_id=${user_id}&inviteType=${inviteType}&codeActId=${codeActId}&version_sys=wehcat";
+			var redirect_URI = "http://" + location.host + "/medhtml/common/couponAct/" + parm;
+			var ss = encodeURI(redirect_URI);
+			console.debug(' cur href is ', encodeURI(redirect_URI));
 			if (is_weixin()) {
+				//alert(redirect_URI);
 				var grantBoo = "${grantFail}";
 				if (grantBoo == "true" || grantBoo == true) {
 					var grantFailUserId = "${fromUserId}";
-					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+					//alert(wxparam);
+					location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + wxparam + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}&connect_redirect=1#wechat_redirect';
 				}
 			} else {
-				//location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
+		//		location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + redirect_uri + '&response_type=code&scope=snsapi_userinfo&state={"from_user_id":"${fromUserId}","silent_grant":"no"}#wechat_redirect';
 			}
 					
 		</script>
 		<style>
+			/*.indexWrap{
+				height: 8rem;
+			}*/
 			.received_result{
-				display:block;
+				display:none;
+			}
+			.failBox{
+				position: fixed;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: rgba(0, 0, 0, .5);
+			    z-index: 12;
+			}
+			.failBoxWrap{
+			    width: 4rem;
+			    height: 3.6rem;
+			    background: #fff;
+			    position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    margin-left: -2rem;
+			    text-align: center;
+			    padding: 0 .1rem;
+			    box-sizing: border-box;
+			    font-size: .24rem;
+			    border-radius: 10px;
+			    margin-top: -1.8rem;
+			}
+			.failBoxWrap img.closeBtn{
+				display: block;
+				width: .2rem;
+				margin: 0.15rem auto 0;
+				float: right;
+				padding: 0 .1rem;
+			}
+			.descWap{
+				width: 100%;
+				margin: 0.45rem auto 0;	
+				line-height: .5rem;
+				font-size: .22rem;			
+			}
+			.btnWrap{
+				width: 3.2rem;
+				margin: 0.3rem auto 0;
+			}
+			.btnWrap button{
+				font-size: .22rem;
+				width: 100%;
+				line-height: .6rem;
+				height: .6rem;
+				border-radius: 4px;
+				outline: none;
+				border: 0;
+				color: #fff;
+				display: block;
+			}
+			.btnWrap button.shareFri {
+			    float: none;
+			    background: #de150b;
+			    box-shadow: none;
+			    margin-top: .22rem;
+			}
+			.btnWrap button.use_btn {
+			    float: none;
+			    background: #fff;
+			    color: #de150b;
+			    border: 1px solid #de150b;
+			    box-shadow: none;
+			}
+			#shareFriSha {
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 100%;
+			    background: rgba(0, 0, 0, 0.6);
+			    z-index: 100;
+			    display: none;
+			}
+			#shareFriSha img {
+			    width: 2.8rem;
+		        padding: 0 .4rem;
+		        box-sizing: border-box;
+			    display: block;
+			    margin: 0 auto;
+			    float: right;
+			}
+			.userFriInf p{
+				color: #828282;
 			}
 		</style>
 	</head>
@@ -61,8 +161,13 @@
 			<div class="indexPage">
 				<div class="indexWrap">
 					<div class="content_top">
-					<img src="images/act_18exemptionInvite_logo.png" />
-					<img src="images/act_18exemptionInvite_theme.png" />
+					<img src="images/act_18exemptionInvite_1.jpg" />
+					<img src="images/act_18exemptionInvite_2.jpg" />
+					<img src="images/act_18exemptionInvite_3.jpg" />
+					<img src="images/act_18exemptionInvite_4.jpg" />
+					<img src="images/act_18exemptionInvite_5.jpg" />
+					<img src="images/act_18exemptionInvite_6.jpg" />
+					<img src="images/act_18exemptionInvite_7.jpg" />
 				</div>
 				<div class="getHbWrap">
 					<div class="getHb">
@@ -86,9 +191,9 @@
 					</div>
 				</div>
 				<div class="friHbShow">
-					<div class="userFriAvatat" style="display: none;">
+					<div class="userFriAvatat">
 						<div class="userFriInf">
-							<p>送您一张26元免单券</p>
+							<p>药快到  送您一张26元免单券</p>
 						</div>
 						<div class="couponWrap">
 							<img src="images/act_18exemptionInvite_couponCode.png" alt="头像" />
@@ -146,15 +251,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="has_received" >
-					<script>
-					(function(){
-						var wh = $(document).height();
-						$(".has_received").css({
-							height:wh
-						})
-					})();
-				</script>
+				<div class="has_received" style="display: none;">
 					<div class=" hasWrap">
 						<p>你已经领取了26元免单券</p>
 						<p>快去逛逛吧</p>
@@ -176,18 +273,43 @@
 					})
 				})();
 			</script>
-			<div class="failResul" >
+			<div class="failResul">
 				<p class="desc"></p>
 				<p class="line"></p>
 				<p class="closeBtn">知道了</p>
 			</div>
 		</div>
-		<!--<%@ include file="act_common_sharePage.jsp"%>-->
+		<div class="failBox" style="display: none;">
+			<script>
+				(function(){
+					var wh = $(document).height();
+					$(".failBox").css({
+						height:wh
+					})
+				})();
+			</script>
+			<div class="failBoxWrap clearfix" >
+				<!--<span class="closeBtn">X</span>-->
+				<img class="closeBtn" src="images/act_18GetCpnClose.jpg" />
+				<div class="descWap">
+					<p>您已经是药快到会员了</p>
+					<p>请分享后再领取</p>
+				</div>
+				<div class="btnWrap">
+					<button class="use_btn goForUse" id="goForUse">下载药快到APP</button>
+					<button class="shareFri shareForFri" id="small_ShareFri">分享给小伙伴一起领</button>
+				</div>
+			</div>
+		</div>
+		<div id="shareFriSha">
+			<img src="images/act_18GetCpnShare.png" alt="">
+		</div>
+		<%@ include file="act_common_sharePage.jsp"%>
 	</body>
 	<script>
 		var phoneNum = '${phoneNum}';
 		var fromUserId = '${user_id}';
-		var openId = '${openId}';
+		var openId = '${openid}';
 		//分享者 的 信息
 		var token = '${user_token}';
 		var wechatObj = new Object();
@@ -212,7 +334,7 @@
 					$.ajax({
 						type : "post",
 						url : "couponActR",
-						data : "phone_num=" + $_phoneno+ "&code_act_id=" + codeActId+ "&user_id=" + fromUserId + "&user_token="  + openId + "&openId=",
+						data : "phone_num=" + $_phoneno+ "&code_act_id=" + codeActId+ "&user_id=" + fromUserId + "&user_token=" + "&openId=" + openId,
 						success : function(result) {
 							console.debug("result");
 							waitClose();
@@ -221,7 +343,7 @@
 								//成功之后，后台返回用户的 手机号码 展示
 								console.log("succ");
 								$(".indexPage").hide();
-								$(".userFriAvatat").show();
+//								$(".userFriAvatat").show();
 								$("#phoneNCode").html( $_phoneno.substring(0,3)+"*******");
 								$(".received_result").show();
 								$(".receive_success").show();
@@ -229,13 +351,14 @@
 								//type = 3 用户已经领过 了 
 							if (result.data.type == 3) {
 								console.log("received");
-								$(".userFriAvatat").show();
+//								$(".userFriAvatat").show();
 								$(".received_result").show();
 								$(".has_received").show();
 							}else if(result.data.type == 2){
-								//已经抢光了
-								$(".failShow").show();
-								$(".failResul .desc").html(result.data.msg);
+								//老用户
+								$(".failBox").show();
+//								$(".failShow").show();
+//								$(".failResul .desc").html(result.data.msg);
 							}else if(result.data.type == 4){
 								//已经抢光了
 								$(".failShow").show();
@@ -260,24 +383,37 @@
 				});
 		//去使用跳转页面
 		$(".goForUse").on("click", function() {
-			var target_href = 'http://store.ykd365.com/dl.html';
+			var target_href = 'http://store.ykd365.com/download.html';
 			window.location.href = target_href;
 		});
-			
+		//分享
+		$(".shareForFri").on("click",function() {
+			$('html , body').animate({scrollTop: 0},'slow');
+			$("#shareFriSha").css("height", $(".content").height());
+			$("#shareFriSha").show();
+			$(".failBox").hide();
+		});	
+		$("#shareFriSha").on("click", function() {
+			$("#shareFriSha").hide();
+		});
 		$(".collectCorp").click(function() {
 			// $(this).text($("#content").is(":hidden") ? "收起" : "展开");
 			$(".activeRuleShow").slideToggle();
 		});
 		$(".closeBtn").on("click",function(){
-				$(".failShow").hide();
-			})
+			$(".failShow").hide();
+		});
+		$(".failBoxWrap img.closeBtn").on("click",function(){
+			$(".failBox").hide();
+		});
 	}
 	</script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 	<script>
 		wechatObj.title = '${shareInfo.sharedTitle}';
 		wechatObj.desc = '${shareInfo.sharedContent}';
-		wechatObj.link = location.href.split('#')[0];
+// 		wechatObj.link = location.href.split('#')[0];
+		wechatObj.link = '${shareInfo.sharedUrl}';
 		wechatObj.imgUrl = '${shareInfo.sharedImgUrl}';
 	if(is_weixin()) {
 		$.ajax({
@@ -309,7 +445,7 @@
 	
 	function getWechatObj() {
 		wx.onMenuShareTimeline({
-			title: wechatObj.desc, // 分享描述
+			title: wechatObj.title, // 分享描述
 			link: wechatObj.link, // 分享链接
 			imgUrl: wechatObj.imgUrl, // 分享图标
 			success: function() {},
